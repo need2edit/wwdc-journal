@@ -167,6 +167,12 @@
   .search-result-title strong { color: var(--accent2); font-weight: 600; }
   .search-result-meta { color: var(--text-dim); font-size: 0.75em; margin-top: 2px; }
   .search-no-results { padding: 24px 16px; text-align: center; color: var(--text-dim); font-size: 0.88em; }
+  /* Bookmarks */
+  .bm-star { position: absolute; top: 12px; right: 12px; width: 26px; height: 26px; display: flex; align-items: center; justify-content: center; border-radius: 6px; cursor: pointer; font-size: 1.05em; color: var(--text-faint, #5a5a70); transition: all 0.15s; background: transparent; border: none; opacity: 0; z-index: 5; }
+  .bm-star:hover { background: rgba(251,191,36,0.12); color: #fbbf24; opacity: 1; }
+  .bm-star.starred { color: #fbbf24; opacity: 1; }
+  .gem-card:hover .bm-star, .pathway-card:hover .bm-star { opacity: 1; }
+  .gem-card, .pathway-card { position: relative; }
 </style>
 </head>
 <body>
@@ -623,7 +629,7 @@ function showSection(id) {
 function renderPathways() {
   const grid = document.getElementById('pathway-grid');
   grid.innerHTML = pathways.map(p => `
-    <div class="pathway-card" onclick="showPathwayDetail('${p.id}')" style="border-left: 3px solid ${p.color}">
+    <div class="pathway-card" onclick="showPathwayDetail('${p.id}')" style="border-left: 3px solid ${p.color}">${renderStarButton({type:'pathway', year:WWDC_YEAR, id:p.id})}
       <div class="badges-row">
         ${p.urgent ? `<div class="badge urgent">${(p.urgentReason || 'URGENT').replace(/[<>&'"]/g, c => ({'<':'&lt;','>':'&gt;','&':'&amp;',"'":'&#39;','"':'&quot;'}[c]))}</div>` : ''}
         <div class="badge hours">${p.hours}h</div>
@@ -740,7 +746,7 @@ function renderFilterBar(containerId, items, onFilterChange) {
 
 function renderGems() {
   const html = gems.map((g, i) => `
-    <div class="gem-card" data-label="${g.label}" ${gemClickHandler(g.source)}>
+    <div class="gem-card" data-label="${g.label}" ${gemClickHandler(g.source)}>${renderStarButton({type:'gem', year:WWDC_YEAR, id:g.source})}
       <div class="gem-type ${g.type}">${g.label}</div>
       <div class="gem-text">${g.text}</div>
       <div class="gem-source">${buildSourceLink(g.source, g.docUrl)}</div>
@@ -758,7 +764,7 @@ function renderGems() {
 
 function renderDeltas() {
   const html = deltas.map(d => `
-    <div class="gem-card" data-label="${d.label}" ${gemClickHandler(d.source)}>
+    <div class="gem-card" data-label="${d.label}" ${gemClickHandler(d.source)}>${renderStarButton({type:'delta', year:WWDC_YEAR, id:d.source})}
       <div class="gem-type delta">${d.label}</div>
       <div class="gem-text">${d.text}</div>
       <div class="gem-source">${buildSourceLink(d.source, d.docUrl)}</div>
@@ -1057,6 +1063,75 @@ renderGraph();
   });
 })();
 
+
+// ============================================================================
+// BOOKMARKS
+// ============================================================================
+window.bm = (function() {
+  const KEY = 'wwdc_bookmarks_v1';
+  function read() {
+    try { const r = localStorage.getItem(KEY); return r ? JSON.parse(r) : { version: 1, bookmarks: [] }; }
+    catch (e) { return { version: 1, bookmarks: [] }; }
+  }
+  function write(state) { try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {} }
+  function key(item) {
+    if (item.type === 'gem' || item.type === 'delta') return `${item.type}|${item.year}|${item.source}`;
+    if (item.type === 'session') return `session|${item.year}|${item.id}`;
+    if (item.type === 'pathway') return `pathway|${item.year}|${item.id}`;
+    return `${item.type}|${item.year}|${item.id || item.source || ''}`;
+  }
+  function has(item) {
+    const k = key(item);
+    return read().bookmarks.some(b => key(b) === k);
+  }
+  function toggle(item) {
+    const state = read();
+    const k = key(item);
+    const idx = state.bookmarks.findIndex(b => key(b) === k);
+    if (idx >= 0) {
+      state.bookmarks.splice(idx, 1);
+    } else {
+      state.bookmarks.push({ ...item, added: new Date().toISOString() });
+    }
+    write(state);
+    return idx < 0;
+  }
+  function all() { return read().bookmarks; }
+  return { has, toggle, all, key };
+})();
+
+function renderStarButton(item) {
+  const starred = window.bm.has(item);
+  const dataAttrs = `data-bm-type="${item.type}" data-bm-year="${item.year}" data-bm-id="${escapeBmAttr(item.id || item.source || '')}"`;
+  return `<button class="bm-star ${starred?'starred':''}" ${dataAttrs} title="${starred?'Remove bookmark':'Add bookmark'}" onclick="toggleBookmarkBtn(event, this)">${starred ? '\u2605' : '\u2606'}</button>`;
+}
+
+function toggleBookmarkBtn(event, btn) {
+  event.stopPropagation();
+  event.preventDefault();
+  const type = btn.dataset.bmType;
+  const year = parseInt(btn.dataset.bmYear, 10);
+  const id = btn.dataset.bmId;
+  // Find the full item from current data
+  let item = null;
+  if (type === 'gem' && typeof gems !== 'undefined') {
+    const g = gems.find(x => x.source === id);
+    if (g) item = { type: 'gem', year, source: g.source, text: g.text, label: g.label };
+  } else if (type === 'delta' && typeof deltas !== 'undefined') {
+    const d = deltas.find(x => x.source === id);
+    if (d) item = { type: 'delta', year, source: d.source, text: d.text, label: d.label };
+  } else if (type === 'pathway' && typeof pathways !== 'undefined') {
+    const p = pathways.find(x => x.id === id);
+    if (p) item = { type: 'pathway', year, id: p.id, name: p.name, sessions: p.sessions };
+  }
+  if (!item) return;
+  const isNow = window.bm.toggle(item);
+  btn.classList.toggle('starred', isNow);
+  btn.textContent = isNow ? '\u2605' : '\u2606';
+  btn.title = isNow ? 'Remove bookmark' : 'Add bookmark';
+}
+
+function escapeBmAttr(s) { return String(s).replace(/[<>&"']/g, c => ({'<':'&lt;','>':'&gt;','&':'&amp;','"':'&quot;',"'":'&#39;'}[c])); }
 </script>
 </body>
 </html>

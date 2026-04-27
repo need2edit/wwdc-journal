@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bookmarks — WWDC Journal</title>
+<style>
+  :root {
+    --bg: #0a0a0f; --surface: #14141f; --surface2: #1e1e2e; --surface3: #252535;
+    --border: #2a2a3e; --border-bright: #3a3a4e;
+    --text: #e8e8f0; --text-dim: #8888a0; --text-faint: #5a5a70;
+    --accent: #6366f1; --accent2: #818cf8;
+    --gold: #fbbf24;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', system-ui, sans-serif; background: var(--bg); color: var(--text); }
+
+  .hero { padding: 56px 40px 28px; text-align: center; position: relative; overflow: hidden; }
+  .hero::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(ellipse at center, rgba(251,191,36,0.10) 0%, transparent 60%); pointer-events: none; }
+  .breadcrumb { color: var(--text-dim); font-size: 0.85em; margin-bottom: 10px; }
+  .breadcrumb a { color: var(--accent2); text-decoration: none; }
+  .breadcrumb a:hover { text-decoration: underline; }
+  .hero h1 { font-size: 2.6em; font-weight: 700; background: linear-gradient(135deg, #fbbf24, #f472b6, #c084fc); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 8px; letter-spacing: -0.02em; }
+  .hero .sub { color: var(--text-dim); font-size: 1.05em; max-width: 720px; margin: 0 auto; line-height: 1.5; }
+
+  .container { max-width: 900px; margin: 0 auto; padding: 24px 24px 80px; }
+
+  .stats-bar { display: flex; gap: 30px; justify-content: center; margin: 16px 0 24px; flex-wrap: wrap; }
+  .stat { text-align: center; }
+  .stat .num { font-size: 1.8em; font-weight: 700; color: var(--gold); }
+  .stat .label { font-size: 0.78em; color: var(--text-dim); margin-top: 2px; }
+
+  .controls { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 14px 20px; margin-bottom: 20px; display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+  .filter-label { color: var(--text-dim); font-size: 0.74em; font-weight: 600; text-transform: uppercase; letter-spacing: 0.4px; }
+  .filter-chip { padding: 4px 10px; border-radius: 12px; border: 1px solid var(--border); background: var(--surface2); color: var(--text-dim); cursor: pointer; font-size: 0.78em; transition: all 0.15s; font-family: inherit; }
+  .filter-chip:hover { border-color: var(--gold); color: var(--text); }
+  .filter-chip.active { background: var(--gold); border-color: var(--gold); color: #2a1a00; font-weight: 600; }
+  .filter-group { display: flex; gap: 4px; flex-wrap: wrap; }
+  .reset-btn { margin-left: auto; padding: 6px 12px; border-radius: 10px; border: 1px solid var(--border); background: transparent; color: var(--text-faint); cursor: pointer; font-size: 0.8em; font-family: inherit; }
+  .reset-btn:hover { color: #f87171; border-color: #f87171; }
+  .export-btn { padding: 6px 12px; border-radius: 10px; border: 1px solid var(--border); background: var(--surface2); color: var(--text-dim); cursor: pointer; font-size: 0.8em; font-family: inherit; }
+  .export-btn:hover { color: var(--text); border-color: var(--accent2); }
+
+  .bookmark-list { display: flex; flex-direction: column; gap: 10px; }
+  .bookmark { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 16px 18px; transition: all 0.15s; position: relative; }
+  .bookmark:hover { border-color: var(--border-bright); }
+  .bookmark-header { display: flex; gap: 10px; align-items: baseline; margin-bottom: 6px; flex-wrap: wrap; }
+  .bookmark-type { padding: 2px 8px; border-radius: 6px; font-size: 0.7em; font-weight: 600; text-transform: uppercase; letter-spacing: 0.4px; }
+  .type-gem { background: rgba(251,191,36,0.18); color: var(--gold); }
+  .type-delta { background: rgba(244,114,182,0.18); color: #f472b6; }
+  .type-pathway { background: rgba(192,132,252,0.18); color: #c084fc; }
+  .type-session { background: rgba(129,140,248,0.18); color: var(--accent2); }
+  .bookmark-year { font-size: 0.78em; font-weight: 700; padding: 2px 8px; border-radius: 6px; background: var(--surface2); }
+  .bookmark-label { color: var(--text-dim); font-size: 0.74em; }
+  .bookmark-text { color: var(--text); font-size: 0.95em; line-height: 1.5; margin-bottom: 8px; }
+  .bookmark-meta { color: var(--text-dim); font-size: 0.78em; display: flex; gap: 14px; flex-wrap: wrap; }
+  .bookmark-meta a { color: var(--accent2); text-decoration: none; }
+  .bookmark-meta a:hover { text-decoration: underline; }
+  .remove-btn { position: absolute; top: 12px; right: 12px; background: transparent; border: none; color: var(--text-faint); cursor: pointer; font-size: 1em; padding: 4px 8px; border-radius: 6px; opacity: 0; transition: opacity 0.15s; }
+  .bookmark:hover .remove-btn { opacity: 1; }
+  .remove-btn:hover { color: #f87171; background: rgba(248,113,113,0.1); }
+
+  .empty { text-align: center; padding: 60px 30px; color: var(--text-dim); }
+  .empty .icon { font-size: 3em; margin-bottom: 16px; opacity: 0.4; }
+  .empty p { font-size: 0.95em; margin-bottom: 6px; }
+  .empty .hint { font-size: 0.85em; color: var(--text-faint); }
+
+  @media (max-width: 700px) {
+    .hero h1 { font-size: 2em; }
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="breadcrumb"><a href="index.html">&larr; WWDC Journal</a></div>
+  <h1>★ Bookmarks</h1>
+  <p class="sub">Items you've starred across the journal — gems, deltas, pathways. Saved in this browser only.</p>
+  <div class="stats-bar" id="stats-bar"></div>
+</div>
+
+<div class="container">
+  <div class="controls">
+    <span class="filter-label">Type:</span>
+    <div class="filter-group" id="type-filter"></div>
+    <span class="filter-label">Year:</span>
+    <div class="filter-group" id="year-filter"></div>
+    <button class="export-btn" onclick="exportBookmarks()">⇩ Export JSON</button>
+    <button class="reset-btn" onclick="resetAll()">Clear all</button>
+  </div>
+  <div class="bookmark-list" id="list"></div>
+</div>
+
+<script>
+const KEY = 'wwdc_bookmarks_v1';
+const YEAR_COLORS = {
+  2014:'#f59e0b', 2015:'#84cc16', 2016:'#14b8a6', 2017:'#f97316',
+  2018:'#ec4899', 2019:'#06b6d4', 2020:'#ef4444', 2021:'#a78bfa',
+  2022:'#f87171', 2023:'#22d3ee', 2024:'#fb923c', 2025:'#c084fc',
+};
+
+const state = { type: 'all', year: 'all' };
+
+function read() {
+  try { const r = localStorage.getItem(KEY); return r ? JSON.parse(r) : { bookmarks: [] }; }
+  catch (e) { return { bookmarks: [] }; }
+}
+function write(s) { localStorage.setItem(KEY, JSON.stringify(s)); }
+
+function key(item) {
+  if (item.type === 'gem' || item.type === 'delta') return `${item.type}|${item.year}|${item.source}`;
+  if (item.type === 'session') return `session|${item.year}|${item.id}`;
+  if (item.type === 'pathway') return `pathway|${item.year}|${item.id}`;
+  return `${item.type}|${item.year}|${item.id || item.source || ''}`;
+}
+
+function remove(item) {
+  const s = read();
+  const k = key(item);
+  s.bookmarks = s.bookmarks.filter(b => key(b) !== k);
+  write(s);
+  render();
+}
+
+function resetAll() {
+  if (!confirm('Remove all bookmarks? This cannot be undone.')) return;
+  write({ version: 1, bookmarks: [] });
+  render();
+}
+
+function exportBookmarks() {
+  const blob = new Blob([JSON.stringify(read(), null, 2)], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `wwdc-bookmarks-${new Date().toISOString().slice(0,10)}.json`;
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+function passes(b) {
+  if (state.type !== 'all' && b.type !== state.type) return false;
+  if (state.year !== 'all' && String(b.year) !== state.year) return false;
+  return true;
+}
+
+function renderFilters(all) {
+  const types = [...new Set(all.map(b => b.type))].sort();
+  document.getElementById('type-filter').innerHTML =
+    `<button class="filter-chip ${state.type==='all'?'active':''}" onclick="setFilter('type','all')">All</button>` +
+    types.map(t => {
+      const count = all.filter(b => b.type === t).length;
+      return `<button class="filter-chip ${state.type===t?'active':''}" onclick="setFilter('type','${t}')">${t} (${count})</button>`;
+    }).join('');
+  const years = [...new Set(all.map(b => b.year))].sort((a,b) => b - a);
+  document.getElementById('year-filter').innerHTML =
+    `<button class="filter-chip ${state.year==='all'?'active':''}" onclick="setFilter('year','all')">All</button>` +
+    years.map(y => `<button class="filter-chip ${state.year==String(y)?'active':''}" onclick="setFilter('year','${y}')">${y}</button>`).join('');
+}
+
+function setFilter(k, v) { state[k] = v; render(); }
+
+function render() {
+  const all = read().bookmarks;
+  document.getElementById('stats-bar').innerHTML = `
+    <div class="stat"><div class="num">${all.length}</div><div class="label">Total bookmarks</div></div>
+    <div class="stat"><div class="num">${[...new Set(all.map(b => b.year))].length}</div><div class="label">Years</div></div>
+    <div class="stat"><div class="num">${[...new Set(all.map(b => b.type))].length}</div><div class="label">Types</div></div>
+  `;
+  if (all.length === 0) {
+    document.getElementById('type-filter').innerHTML = '';
+    document.getElementById('year-filter').innerHTML = '';
+    document.getElementById('list').innerHTML = `<div class="empty">
+      <div class="icon">☆</div>
+      <p>No bookmarks yet.</p>
+      <p class="hint">Star items on year dashboards or in the shuffle button modal to save them here.</p>
+    </div>`;
+    return;
+  }
+  renderFilters(all);
+  // Sort by added desc (newest first)
+  const filtered = all.filter(passes).sort((a, b) => (b.added || '').localeCompare(a.added || ''));
+  if (filtered.length === 0) {
+    document.getElementById('list').innerHTML = `<div class="empty"><div class="icon">∅</div>No bookmarks match these filters.</div>`;
+    return;
+  }
+  document.getElementById('list').innerHTML = filtered.map(bookmarkHTML).join('');
+}
+
+function bookmarkHTML(b) {
+  const yearColor = YEAR_COLORS[b.year] || '#818cf8';
+  const yearTag = `<span class="bookmark-year" style="color:${yearColor}">'${String(b.year).slice(-2)}</span>`;
+  const typeTag = `<span class="bookmark-type type-${b.type}">${b.type}</span>`;
+  let body = '';
+  let meta = '';
+  if (b.type === 'gem' || b.type === 'delta') {
+    const sid = String(b.source).match(/\d{3,6}/);
+    const videoUrl = sid ? `https://developer.apple.com/videos/play/wwdc${b.year}/${sid[0]}/` : `index-${b.year}.html`;
+    body = `<div class="bookmark-text">${escHtml(b.text || '')}</div>`;
+    meta = `<div class="bookmark-meta">
+      ${b.label ? `<span>${escHtml(b.label)}</span>` : ''}
+      <a href="${videoUrl}" target="_blank" rel="noopener">${escHtml(b.source || '')} &rarr;</a>
+      <a href="index-${b.year}.html">Open ${b.year} dashboard &rarr;</a>
+    </div>`;
+  } else if (b.type === 'pathway') {
+    body = `<div class="bookmark-text">${escHtml(b.name || '')}</div>`;
+    meta = `<div class="bookmark-meta">
+      <span>${b.sessions ? b.sessions.length + ' sessions' : ''}</span>
+      <a href="index-${b.year}.html">Open ${b.year} dashboard &rarr;</a>
+    </div>`;
+  } else if (b.type === 'session') {
+    const videoUrl = `https://developer.apple.com/videos/play/wwdc${b.year}/${b.id}/`;
+    body = `<div class="bookmark-text">${escHtml(b.title || '')}</div>`;
+    meta = `<div class="bookmark-meta">
+      <a href="${videoUrl}" target="_blank" rel="noopener">WWDC${String(b.year).slice(-2)}-${b.id} &rarr;</a>
+    </div>`;
+  }
+  return `<div class="bookmark">
+    <button class="remove-btn" onclick='remove(${JSON.stringify(b).replace(/'/g, "&#39;")})'>×</button>
+    <div class="bookmark-header">
+      ${yearTag}
+      ${typeTag}
+    </div>
+    ${body}
+    ${meta}
+  </div>`;
+}
+
+function escHtml(s) { return String(s).replace(/[<>&'"]/g, c => ({'<':'&lt;','>':'&gt;','&':'&amp;',"'":'&#39;','"':'&quot;'}[c])); }
+
+render();
+</script>
+</body>
+</html>

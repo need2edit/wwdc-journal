@@ -47,7 +47,7 @@
   .multiple-card:hover { border-color: var(--accent2); transform: translateY(-2px); }
   .multiple-title { font-size: 0.88em; font-weight: 600; margin-bottom: 4px; }
   .multiple-meta { color: var(--text-dim); font-size: 0.75em; margin-bottom: 12px; }
-  .multiple-svg { width: 100%; height: 70px; }
+  .multiple-svg { width: 100%; height: auto; aspect-ratio: 240/70; }
 
   /* Topic detail panel */
   .detail-panel { display: none; background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 24px 28px; margin-bottom: 16px; }
@@ -56,7 +56,7 @@
   .detail-close:hover { color: var(--text); }
   .detail-title { font-size: 1.4em; font-weight: 700; margin-bottom: 4px; }
   .detail-stats { color: var(--text-dim); font-size: 0.88em; margin-bottom: 16px; }
-  .detail-svg { width: 100%; height: 200px; }
+  .detail-svg { width: 100%; height: auto; aspect-ratio: 800/200; max-height: 320px; }
   .detail-years-list { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 16px; }
   .year-chip { padding: 4px 10px; border-radius: 8px; background: var(--surface2); border: 1px solid var(--border); font-size: 0.78em; color: var(--text-dim); text-decoration: none; transition: all 0.15s; }
   .year-chip:hover { border-color: var(--accent2); color: var(--text); }
@@ -86,7 +86,7 @@
   <h2 class="section-title">Heat Grid: Topics × Years</h2>
   <p class="section-sub">Each cell is the number of sessions for that topic in that year. Click a row to drill in.</p>
   <div class="heat-card">
-    <div id="heat-grid"></div>
+    <div id="heat-grid" class="heat-grid"></div>
     <div class="heat-legend">
       <span>0</span>
       <div class="heat-legend-swatch" style="background:rgba(129,140,248,0.05)"></div>
@@ -162,7 +162,7 @@ function renderMultiples() {
     html += `<div class="multiple-card" onclick="showDetail('${escapeJs(topic)}')">
       <div class="multiple-title">${escHtml(topic)}</div>
       <div class="multiple-meta">${total} session${total===1?'':'s'} · ${yearsActive}/${YEARS.length} years</div>
-      <svg class="multiple-svg" viewBox="0 0 240 70" preserveAspectRatio="none">
+      <svg class="multiple-svg" viewBox="0 0 240 70" preserveAspectRatio="xMidYMid meet">
         ${spark(years, 240, 70)}
       </svg>
     </div>`;
@@ -223,7 +223,7 @@ function showDetail(topic) {
       Peak: <strong>${peakYear}</strong> with <strong>${peakCount}</strong> sessions &middot;
       First: <strong>${firstYear}</strong> &middot; Last: <strong>${lastYear}</strong>
     </div>
-    <svg class="detail-svg" viewBox="0 0 800 200" preserveAspectRatio="none">
+    <svg class="detail-svg" viewBox="0 0 800 200" preserveAspectRatio="xMidYMid meet">
       ${detailSpark(years, 800, 200)}
     </svg>
     <div class="detail-years-list">${yearChips}</div>
