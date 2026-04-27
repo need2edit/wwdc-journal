@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Apple Terminology Glossary — WWDC Journal</title>
+<style>
+  :root {
+    --bg: #0a0a0f; --surface: #14141f; --surface2: #1e1e2e; --surface3: #252535;
+    --border: #2a2a3e; --border-bright: #3a3a4e;
+    --text: #e8e8f0; --text-dim: #8888a0; --text-faint: #5a5a70;
+    --accent: #6366f1; --accent2: #818cf8;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', system-ui, sans-serif; background: var(--bg); color: var(--text); }
+
+  .hero { padding: 56px 40px 28px; text-align: center; position: relative; overflow: hidden; }
+  .hero::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(ellipse at center, rgba(99,102,241,0.10) 0%, transparent 60%); pointer-events: none; }
+  .breadcrumb { color: var(--text-dim); font-size: 0.85em; margin-bottom: 10px; }
+  .breadcrumb a { color: var(--accent2); text-decoration: none; }
+  .breadcrumb a:hover { text-decoration: underline; }
+  .hero h1 { font-size: 2.6em; font-weight: 700; background: linear-gradient(135deg, #818cf8, #c084fc, #f472b6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 8px; letter-spacing: -0.02em; }
+  .hero .sub { color: var(--text-dim); font-size: 1.05em; max-width: 720px; margin: 0 auto; line-height: 1.5; }
+
+  .container { max-width: 1100px; margin: 0 auto; padding: 24px 24px 80px; }
+
+  .controls { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 14px 20px; margin-bottom: 24px; display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+  .search-input { flex: 1; min-width: 180px; padding: 8px 12px; border-radius: 10px; border: 1px solid var(--border); background: var(--surface2); color: var(--text); font-size: 0.9em; font-family: inherit; }
+  .search-input:focus { outline: none; border-color: var(--accent2); }
+  .filter-label { color: var(--text-dim); font-size: 0.74em; font-weight: 600; text-transform: uppercase; letter-spacing: 0.4px; }
+  .filter-chip { padding: 4px 10px; border-radius: 12px; border: 1px solid var(--border); background: var(--surface2); color: var(--text-dim); cursor: pointer; font-size: 0.78em; transition: all 0.15s; font-family: inherit; }
+  .filter-chip:hover { border-color: var(--accent2); color: var(--text); }
+  .filter-chip.active { background: var(--accent2); border-color: var(--accent2); color: #0a0a25; font-weight: 600; }
+  .filter-group { display: flex; gap: 4px; flex-wrap: wrap; }
+
+  .glossary-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 14px; }
+  .term-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 18px 20px; transition: all 0.15s; }
+  .term-card:hover { border-color: var(--accent2); transform: translateY(-2px); }
+  .term-name { font-weight: 700; font-size: 1.05em; color: var(--text); margin-bottom: 4px; font-family: ui-monospace, 'SF Mono', monospace; }
+  .term-cat { display: inline-block; padding: 2px 8px; border-radius: 6px; font-size: 0.7em; font-weight: 600; text-transform: uppercase; letter-spacing: 0.4px; margin-bottom: 8px; }
+  .cat-Framework  { background: rgba(129,140,248,0.18); color: var(--accent2); }
+  .cat-Concept    { background: rgba(244,114,182,0.18); color: #f472b6; }
+  .cat-Language   { background: rgba(34,211,238,0.18); color: #22d3ee; }
+  .cat-Hardware   { background: rgba(251,146,60,0.18); color: #fb923c; }
+  .cat-Service    { background: rgba(52,211,153,0.18); color: #34d399; }
+  .term-def { color: var(--text-dim); font-size: 0.88em; line-height: 1.5; margin-bottom: 14px; }
+  .term-stats { display: flex; gap: 14px; font-size: 0.78em; color: var(--text-dim); margin-bottom: 10px; }
+  .term-stat strong { color: var(--text); font-weight: 600; }
+  .term-years { display: flex; gap: 3px; flex-wrap: wrap; margin-bottom: 12px; }
+  .term-year-chip { padding: 2px 6px; border-radius: 5px; font-size: 0.7em; font-weight: 600; background: var(--surface2); color: var(--text-faint); cursor: pointer; transition: all 0.15s; text-decoration: none; }
+  .term-year-chip:hover { transform: translateY(-1px); }
+  .term-doc { font-size: 0.78em; }
+  .term-doc a { color: var(--text-faint); text-decoration: none; }
+  .term-doc a:hover { color: var(--accent2); }
+
+  .empty { text-align: center; padding: 40px; color: var(--text-dim); grid-column: 1 / -1; }
+
+  @media (max-width: 700px) {
+    .hero h1 { font-size: 2em; }
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="breadcrumb"><a href="index.html">&larr; WWDC Journal</a></div>
+  <h1>Apple Terminology Glossary</h1>
+  <p class="sub">Frameworks, languages, concepts, hardware, and services Apple has named across 12 years of WWDC. Year tags show the breadth of mention.</p>
+</div>
+
+<div class="container">
+  <div class="controls">
+    <input id="search-input" class="search-input" placeholder="Search terms…" autocomplete="off" />
+    <span class="filter-label">Category:</span>
+    <div class="filter-group" id="cat-filter"></div>
+    <span class="filter-label">Sort:</span>
+    <div class="filter-group" id="sort-filter"></div>
+  </div>
+  <div class="glossary-grid" id="glossary-grid"></div>
+</div>
+
+<script id="glossary-data" type="application/json">[{"term":"Swift","category":"Language","definition":"Apple's primary language (2014+)","total_mentions":217,"years_seen":[2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025],"year_count":12,"first_seen":2014,"last_seen":2025,"sample":{"id":"313","title":"Bring Swift Charts to the third dimension"}},{"term":"SwiftUI","category":"Framework","definition":"Declarative UI framework","total_mentions":157,"years_seen":[2019,2020,2021,2022,2023,2024,2025],"year_count":7,"first_seen":2019,"last_seen":2025,"sample":{"id":"274","title":"Better together: SwiftUI and RealityKit"}},{"term":"Metal","category":"Framework","definition":"Low-level GPU API","total_mentions":123,"years_seen":[2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025],"year_count":12,"first_seen":2014,"last_seen":2025,"sample":{"id":"262","title":"Combine Metal 4 machine learning and graphics"}},{"term":"UIKit","category":"Framework","definition":"iOS UI framework","total_mentions":61,"years_seen":[2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025],"year_count":12,"first_seen":2014,"last_seen":2025,"sample":{"id":"284","title":"Build a UIKit app with the new design"}},{"term":"Vision","category":"Framework","definition":"Image / video analysis","total_mentions":58,"years_seen":[2014,2017,2018,2019,2020,2021,2022,2023,2024,2025],"year_count":10,"first_seen":2014,"last_seen":2025,"sample":{"id":"282","title":"Make your UIKit app more flexible"}},{"term":"Network","category":"Framework","definition":"Modern networking","total_mentions":57,"years_seen":[2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025],"year_count":12,"first_seen":2014,"last_seen":2025,"sample":{"id":"223","title":"Explore enhancements to your spatial business app"}},{"term":"Combine","category":"Framework","definition":"Reactive (eclipsed by Swift Concurrency)","total_mentions":42,"years_seen":[2014,2015,2017,2018,2019,2020,2021,2022,2023,2024,2025],"year_count":11,"first_seen":2014,"last_seen":2025,"sample":{"id":"262","title":"Combine Metal 4 machine learning and graphics"}},{"term":"RealityKit","category":"Framework","definition":"3D rendering for AR","total_mentions":41,"years_seen":[2019,2020,2021,2022,2023,2024,2025],"year_count":7,"first_seen":2019,"last_seen":2025,"sample":{"id":"274","title":"Better together: SwiftUI and RealityKit"}},{"term":"ARKit","category":"Framework","definition":"Augmented reality","total_mentions":34,"years_seen":[2017,2018,2019,2020,2021,2022,2023,2024,2025],"year_count":9,"first_seen":2017,"last_seen":2025,"sample":{"id":"318","title":"Share visionOS experiences with nearby people"}},{"term":"Apple Silicon","category":"Hardware","definition":"ARM-based Mac/iPad chips","total_mentions":32,"years_seen":[2020,2021,2022,2023,2024,2025],"year_count":6,"first_seen":2020,"last_seen":2025,"sample":{"id":"205","title":"Discover Metal 4"}},{"term":"StoreKit","category":"Framework","definition":"In-app purchases","total_mentions":28,"years_seen":[2014,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025],"year_count":11,"first_seen":2014,"last_seen":2025,"sample":{"id":"241","title":"What\u2019s new in StoreKit and In-App Purchase"}},{"term":"CloudKit","category":"Framework","definition":"Cloud database","total_mentions":27,"years_seen":[2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024],"year_count":11,"first_seen":2014,"last_seen":2024,"sample":{"id":"10070","title":"Customize feature discovery with TipKit"}},{"term":"HealthKit","category":"Framework","definition":"Health data","total_mentions":25,"years_seen":[2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025],"year_count":12,"first_seen":2014,"last_seen":2025,"sample":{"id":"321","title":"Meet the HealthKit Medications API"}},{"term":"AVFoundation","category":"Framework","definition":"Audio / video","total_mentions":24,"years_seen":[2016,2017,2018,2020,2021,2022,2023,2024,2025],"year_count":9,"first_seen":2016,"last_seen":2025,"sample":{"id":"251","title":"Enhance your app\u2019s audio recording capabilities"}},{"term":"AppKit","category":"Framework","definition":"macOS UI framework","total_mentions":21,"years_seen":[2015,2017,2018,2019,2020,2021,2022,2023,2024,2025],"year_count":10,"first_seen":2015,"last_seen":2025,"sample":{"id":"310","title":"Build an AppKit app with the new design"}},{"term":"Vision Pro","category":"Hardware","definition":"Spatial computing headset","total_mentions":21,"years_seen":[2023,2024,2025],"year_count":3,"first_seen":2023,"last_seen":2025,"sample":{"id":"282","title":"Make your UIKit app more flexible"}},{"term":"Mac Catalyst","category":"Concept","definition":"iPad app on Mac","total_mentions":20,"years_seen":[2020,2021,2022,2023],"year_count":4,"first_seen":2020,"last_seen":2023,"sample":{"id":"10055","title":"What\u2019s new in UIKit"}},{"term":"TestFlight","category":"Service","definition":"Beta distribution","total_mentions":19,"years_seen":[2014,2015,2017,2018,2020,2021,2022,2023,2024,2025],"year_count":10,"first_seen":2014,"last_seen":2025,"sample":{"id":"328","title":"What\u2019s new in App Store Connect"}},{"term":"SceneKit","category":"Framework","definition":"3D scene graph (deprecated 2025)","total_mentions":18,"years_seen":[2014,2015,2016,2017,2018,2025],"year_count":6,"first_seen":2014,"last_seen":2025,"sample":{"id":"288","title":"Bring your SceneKit project to RealityKit"}},{"term":"Swift Concurrency","category":"Language","definition":"async/await + actors","total_mentions":17,"years_seen":[2021,2022,2023,2024,2025],"year_count":5,"first_seen":2021,"last_seen":2025,"sample":{"id":"270","title":"Code-along: Elevate an app with Swift concurrency"}},{"term":"SpriteKit","category":"Framework","definition":"2D game framework","total_mentions":15,"years_seen":[2014,2015,2016,2017],"year_count":4,"first_seen":2014,"last_seen":2017,"sample":{"id":"224","title":"Focus Interaction in tvOS 11"}},{"term":"URLSession","category":"Framework","definition":"HTTP networking","total_mentions":15,"years_seen":[2017,2018,2019,2020,2021,2022,2023,2024,2025],"year_count":9,"first_seen":2017,"last_seen":2025,"sample":{"id":"WWDC25-314","title":"Quantum-secure TLS is enabled by DEFAULT in iOS 26. Your app gets post-quantum p\u2026"}},{"term":"WebKit","category":"Framework","definition":"Web rendering","total_mentions":15,"years_seen":[2014,2015,2018,2019,2020,2021,2022,2024,2025],"year_count":9,"first_seen":2014,"last_seen":2025,"sample":{"id":"231","title":"Meet WebKit for SwiftUI"}},{"term":"MapKit","category":"Framework","definition":"Maps","total_mentions":14,"years_seen":[2015,2017,2018,2019,2022,2023,2024,2025],"year_count":8,"first_seen":2015,"last_seen":2025,"sample":{"id":"204","title":"Go further with MapKit"}},{"term":"Speech","category":"Framework","definition":"Speech recognition / synthesis","total_mentions":14,"years_seen":[2016,2017,2018,2019,2020,2023,2024,2025],"year_count":8,"first_seen":2016,"last_seen":2025,"sample":{"id":"277","title":"Bring advanced speech-to-text to your app with SpeechAnalyzer"}},{"term":"SwiftData","category":"Framework","definition":"Persistence (Swift-first)","total_mentions":12,"years_seen":[2023,2024,2025],"year_count":3,"first_seen":2023,"last_seen":2025,"sample":{"id":"291","title":"SwiftData: Dive into inheritance and schema migration"}},{"term":"WidgetKit","category":"Framework","definition":"Home/Lock-screen widgets","total_mentions":12,"years_seen":[2020,2022,2023,2024,2025],"year_count":5,"first_seen":2020,"last_seen":2025,"sample":{"id":"278","title":"What\u2019s new in widgets"}},{"term":"Xcode Cloud","category":"Service","definition":"Apple-hosted CI/CD","total_mentions":12,"years_seen":[2021,2022,2023,2024],"year_count":4,"first_seen":2021,"last_seen":2024,"sample":{"id":"10200","title":"Extend your Xcode Cloud workflows"}},{"term":"App Clips","category":"Concept","definition":"Lightweight app entry","total_mentions":11,"years_seen":[2020,2021,2022,2023],"year_count":4,"first_seen":2020,"last_seen":2023,"sample":{"id":"10178","title":"What\u2019s new in App Clips"}},{"term":"Live Activities","category":"Concept","definition":"Time-sensitive Lock-screen content","total_mentions":11,"years_seen":[2023,2024,2025],"year_count":3,"first_seen":2023,"last_seen":2025,"sample":{"id":"322","title":"Track workouts with HealthKit on iOS and iPadOS"}},{"term":"Liquid Glass","category":"Design system","definition":"iOS 26 design material","total_mentions":10,"years_seen":[2025],"year_count":1,"first_seen":2025,"last_seen":2025,"sample":{"id":"323","title":"Build a SwiftUI app with the new design"}},{"term":"Universal Links","category":"Concept","definition":"Web \u2192 app deep links","total_mentions":10,"years_seen":[2015,2017,2019,2020],"year_count":4,"first_seen":2015,"last_seen":2020,"sample":{"id":"10146","title":"Configure and link your App Clips"}},{"term":"DocC","category":"Framework","definition":"Documentation tooling","total_mentions":9,"years_seen":[2018,2021,2022,2023],"year_count":4,"first_seen":2018,"last_seen":2023,"sample":{"id":"10244","title":"Create rich documentation with Swift-DocC"}},{"term":"HomeKit","category":"Framework","definition":"Smart home","total_mentions":9,"years_seen":[2014,2015,2016,2017,2018,2021],"year_count":6,"first_seen":2014,"last_seen":2021,"sample":{"id":"10298","title":"Add support for Matter in your smart home app"}},{"term":"Sign In with Apple","category":"Concept","definition":"Privacy-preserving auth","total_mentions":9,"years_seen":[2019,2020,2022],"year_count":3,"first_seen":2019,"last_seen":2022,"sample":{"id":"10053","title":"Discover Sign in with Apple at Work & School"}},{"term":"Apple Intelligence","category":"Concept","definition":"Apple's on-device AI suite (2024+)","total_mentions":8,"years_seen":[2024,2025],"year_count":2,"first_seen":2024,"last_seen":2025,"sample":{"id":"260","title":"Develop for Shortcuts and Spotlight with App Intents"}},{"term":"MainActor","category":"Language","definition":"Main-thread isolation","total_mentions":7,"years_seen":[2021,2024,2025],"year_count":3,"first_seen":2021,"last_seen":2025,"sample":{"id":"WWDC25-266","title":"SwiftUI's visualEffect modifier runs on background threads. Never access @MainAc\u2026"}},{"term":"Observation","category":"Framework","definition":"Reactive view models (post-Combine)","total_mentions":7,"years_seen":[2014,2016,2017,2018,2023,2025],"year_count":6,"first_seen":2014,"last_seen":2025,"sample":{"id":"243","title":"What\u2019s new in UIKit"}},{"term":"PhotoKit","category":"Framework","definition":"Photos library access","total_mentions":7,"years_seen":[2014,2017,2021,2022,2023,2024],"year_count":6,"first_seen":2014,"last_seen":2024,"sample":{"id":"WWDC24-10204","title":"PhotoKit on the Lock Screen: when device is locked, only photos written DURING t\u2026"}},{"term":"GameplayKit","category":"Framework","definition":"Game AI / pathfinding","total_mentions":6,"years_seen":[2015,2016],"year_count":2,"first_seen":2015,"last_seen":2016,"sample":{"id":"608","title":"What's New in GameplayKit"}},{"term":"Codable","category":"Language","definition":"Auto-synthesized serialization","total_mentions":5,"years_seen":[2017,2018,2019],"year_count":3,"first_seen":2017,"last_seen":2019,"sample":{"id":"WWDC19-603","title":"In RealityKit, custom Components (entity-component-system data) automatically ne\u2026"}},{"term":"CryptoKit","category":"Framework","definition":"Cryptography","total_mentions":4,"years_seen":[2019,2021,2025],"year_count":3,"first_seen":2019,"last_seen":2025,"sample":{"id":"314","title":"Get ahead with quantum-secure cryptography"}},{"term":"MetricKit","category":"Framework","definition":"On-device perf metrics","total_mentions":4,"years_seen":[2019,2020],"year_count":2,"first_seen":2019,"last_seen":2020,"sample":{"id":"10081","title":"What's new in MetricKit"}},{"term":"Passkeys","category":"Concept","definition":"Phishing-resistant auth","total_mentions":4,"years_seen":[2022,2023,2024,2025],"year_count":4,"first_seen":2022,"last_seen":2025,"sample":{"id":"279","title":"What\u2019s new in passkeys"}},{"term":"VisionKit","category":"Framework","definition":"Document scanning","total_mentions":4,"years_seen":[2022,2023],"year_count":2,"first_seen":2022,"last_seen":2023,"sample":{"id":"10176","title":"Lift subjects from images in your app"}},{"term":"ActivityKit","category":"Framework","definition":"Live Activities","total_mentions":3,"years_seen":[2023,2025],"year_count":2,"first_seen":2023,"last_seen":2025,"sample":{"id":"230","title":"Wake up to the AlarmKit API"}},{"term":"Core Audio","category":"Framework","definition":"Audio low-level","total_mentions":3,"years_seen":[2014,2015,2021],"year_count":3,"first_seen":2014,"last_seen":2021,"sample":{"id":"10190","title":"Create audio drivers with DriverKit"}},{"term":"Dynamic Island","category":"Concept","definition":"iPhone Pro pill UI","total_mentions":3,"years_seen":[2023,2025],"year_count":2,"first_seen":2023,"last_seen":2025,"sample":{"id":"230","title":"Wake up to the AlarmKit API"}},{"term":"App Tracking Transparency","category":"Concept","definition":"Permission for cross-app tracking","total_mentions":2,"years_seen":[2020,2022],"year_count":2,"first_seen":2020,"last_seen":2022,"sample":{"id":"10166","title":"Explore App Tracking Transparency"}},{"term":"MLX","category":"Framework","definition":"Apple-silicon ML research","total_mentions":2,"years_seen":[2025],"year_count":1,"first_seen":2025,"last_seen":2025,"sample":{"id":"298","title":"Explore large language models on Apple silicon with MLX"}},{"term":"PermissionKit","category":"Framework","definition":"Child-safety permission UX (2025)","total_mentions":2,"years_seen":[2025],"year_count":1,"first_seen":2025,"last_seen":2025,"sample":{"id":"293","title":"Enhance child safety with PermissionKit"}},{"term":"Sendable","category":"Language","definition":"Concurrency-safe protocol","total_mentions":2,"years_seen":[2022],"year_count":1,"first_seen":2022,"last_seen":2022,"sample":{"id":"110351","title":"Eliminate data races using Swift Concurrency"}},{"term":"WeatherKit","category":"Framework","definition":"Weather data","total_mentions":2,"years_seen":[2022,2024],"year_count":2,"first_seen":2022,"last_seen":2024,"sample":{"id":"10067","title":"Bring context to today\u2019s weather"}},{"term":"AlarmKit","category":"Framework","definition":"Alarms / timers (2025)","total_mentions":1,"years_seen":[2025],"year_count":1,"first_seen":2025,"last_seen":2025,"sample":{"id":"230","title":"Wake up to the AlarmKit API"}},{"term":"AppIntents","category":"Framework","definition":"Siri / Spotlight / Shortcuts integration","total_mentions":1,"years_seen":[2023],"year_count":1,"first_seen":2023,"last_seen":2023,"sample":{"id":"WWDC23-10028, 10103","title":"Test interactive widgets carefully: AppIntents in widgets execute IN THE WIDGET \u2026"}},{"term":"CoreML","category":"Framework","definition":"On-device ML inference","total_mentions":1,"years_seen":[2017],"year_count":1,"first_seen":2017,"last_seen":2017,"sample":{"id":"506","title":"Vision Framework: Building on Core ML"}},{"term":"EnergyKit","category":"Framework","definition":"Home electricity (2025)","total_mentions":1,"years_seen":[2025],"year_count":1,"first_seen":2025,"last_seen":2025,"sample":{"id":"257","title":"Optimize home electricity usage with EnergyKit"}},{"term":"GroupActivities","category":"Framework","definition":"SharePlay","total_mentions":1,"years_seen":[2023],"year_count":1,"first_seen":2023,"last_seen":2023,"sample":{"id":"10087","title":"Build spatial SharePlay experiences"}},{"term":"PaperKit","category":"Framework","definition":"Markup / drawing (2025)","total_mentions":1,"years_seen":[2025],"year_count":1,"first_seen":2025,"last_seen":2025,"sample":{"id":"285","title":"Meet PaperKit"}},{"term":"Privacy Manifest","category":"Concept","definition":"PrivacyInfo.xcprivacy","total_mentions":1,"years_seen":[2023],"year_count":1,"first_seen":2023,"last_seen":2023,"sample":{"id":"WWDC23-10060","title":"Privacy manifest (PrivacyInfo.xcprivacy) is required for SDKs accessing certain \u2026"}}]</script>
+
+<script>
+const glossary = JSON.parse(document.getElementById('glossary-data').textContent);
+
+const YEAR_COLORS = {
+  2014:'#f59e0b', 2015:'#84cc16', 2016:'#14b8a6', 2017:'#f97316',
+  2018:'#ec4899', 2019:'#06b6d4', 2020:'#ef4444', 2021:'#a78bfa',
+  2022:'#f87171', 2023:'#22d3ee', 2024:'#fb923c', 2025:'#c084fc',
+};
+
+const state = { search: '', cat: 'all', sort: 'mentions' };
+
+function passes(t) {
+  if (state.cat !== 'all' && t.category !== state.cat) return false;
+  if (state.search && !t.term.toLowerCase().includes(state.search.toLowerCase())
+      && !t.definition.toLowerCase().includes(state.search.toLowerCase())) return false;
+  return true;
+}
+
+function renderFilters() {
+  const cats = [...new Set(glossary.map(t => t.category))].sort();
+  document.getElementById('cat-filter').innerHTML =
+    `<button class="filter-chip ${state.cat==='all'?'active':''}" onclick="setCat('all')">All</button>` +
+    cats.map(c => `<button class="filter-chip ${state.cat===c?'active':''}" onclick="setCat('${c}')">${c}</button>`).join('');
+  document.getElementById('sort-filter').innerHTML = [
+    ['mentions','Most mentions'], ['breadth','Most years'], ['recent','Newest first'], ['alpha','A–Z'],
+  ].map(([k, label]) =>
+    `<button class="filter-chip ${state.sort===k?'active':''}" onclick="setSort('${k}')">${label}</button>`
+  ).join('');
+}
+
+function setCat(c) { state.cat = c; renderFilters(); render(); }
+function setSort(s) { state.sort = s; renderFilters(); render(); }
+
+function sortFn(a, b) {
+  if (state.sort === 'mentions') return b.total_mentions - a.total_mentions;
+  if (state.sort === 'breadth') return b.year_count - a.year_count || b.total_mentions - a.total_mentions;
+  if (state.sort === 'recent') return b.first_seen - a.first_seen || b.total_mentions - a.total_mentions;
+  if (state.sort === 'alpha') return a.term.localeCompare(b.term);
+  return 0;
+}
+
+function render() {
+  const filtered = glossary.filter(passes).sort(sortFn);
+  const out = document.getElementById('glossary-grid');
+  if (filtered.length === 0) {
+    out.innerHTML = `<div class="empty">No terms match these filters.</div>`;
+    return;
+  }
+  out.innerHTML = filtered.map(t => termHTML(t)).join('');
+}
+
+function termHTML(t) {
+  const yearChips = t.years_seen.map(y =>
+    `<a class="term-year-chip" href="index-${y}.html" style="color:${YEAR_COLORS[y]};border:1px solid ${YEAR_COLORS[y]}33">${String(y).slice(-2)}</a>`
+  ).join('');
+  return `<div class="term-card">
+    <div class="term-name">${escHtml(t.term)}</div>
+    <span class="term-cat cat-${t.category}">${t.category}</span>
+    <div class="term-def">${escHtml(t.definition)}</div>
+    <div class="term-stats">
+      <span class="term-stat"><strong>${t.total_mentions}</strong> mentions</span>
+      <span class="term-stat"><strong>${t.year_count}</strong> years</span>
+      <span class="term-stat">First: <strong>${t.first_seen}</strong></span>
+    </div>
+    <div class="term-years">${yearChips}</div>
+  </div>`;
+}
+
+function escHtml(s) { return String(s).replace(/[<>&'"]/g, c => ({'<':'&lt;','>':'&gt;','&':'&amp;',"'":'&#39;','"':'&quot;'}[c])); }
+
+document.getElementById('search-input').addEventListener('input', e => { state.search = e.target.value; render(); });
+
+renderFilters();
+render();
+</script>
+</body>
+</html>
