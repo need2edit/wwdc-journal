@@ -1,7 +1,6 @@
 {
   "Essentials": [
     {
-      "id": "wwdc2025-101",
       "session_id": "101",
       "title": "Keynote",
       "description": "Don\u2019t miss the exciting reveal of the latest Apple software and technologies.",
@@ -33,11 +32,9 @@
         "Stephen Tonna"
       ],
       "apple_url": "https://developer.apple.com/videos/play/wwdc2025/101/",
-      "has_transcript": true,
-      "transcript_file": "Keynote (WWDC25-101).md"
+      "has_transcript": true
     },
     {
-      "id": "wwdc2025-102",
       "session_id": "102",
       "title": "Platforms State of the Union",
       "description": "Discover the newest advancements on Apple platforms.",
@@ -65,11 +62,9 @@
         "Eric Sunalp"
       ],
       "apple_url": "https://developer.apple.com/videos/play/wwdc2025/102/",
-      "has_transcript": true,
-      "transcript_file": "Platforms State of the Union (WWDC25-102).md"
+      "has_transcript": true
     },
     {
-      "id": "meet-with-apple-201",
       "session_id": "201",
       "title": "Explore the biggest updates from WWDC25",
       "description": "Dive into the key features announced at WWDC25 in this all-new session recorded live at the Apple Developer Center in Cupertino. This video is for all members of your team, including designers, developers, and product managers.",
@@ -90,13 +85,11 @@
         "Allan Schaffer"
       ],
       "apple_url": "https://developer.apple.com/videos/play/meet-with-apple/201/",
-      "has_transcript": true,
-      "transcript_file": "What\u2019s new in Apple Pay (WWDC25-201).md"
+      "has_transcript": true
     }
   ],
   "App Store, Distribution & Marketing": [
     {
-      "id": "wwdc2025-324",
       "session_id": "324",
       "title": "Automate your development process with the App Store Connect API",
       "description": "Learn how the new Webhook API can provide you with real-time notifications from App Store Connect. We\u2019ll also introduce new APls that can help you manage user feedback and build delivery, and discuss how to integrate these tools into your development workflow to improve efficiency and streamline your processes.",
@@ -112,11 +105,9 @@
         "Dajinsol Jeon"
       ],
       "apple_url": "https://developer.apple.com/videos/play/wwdc2025/324/",
-      "has_transcript": true,
-      "transcript_file": "Automate your development process with the App Store Connect API (WWDC25-324).md"
+      "has_transcript": true
     },
     {
-      "id": "wwdc2025-249",
       "session_id": "249",
       "title": "Dive into App Store server APIs for In-App Purchase",
       "description": "Discover the latest updates for the App Store Server API, App Store Server Notifications, and App Store Server Library to help manage customer purchase data directly on your server and deliver great In-App Purchase experiences. We\u2019ll cover updates to appAccountToken and signature signing, new fields in signed transaction and renewal info, and new APIs. Then, we\u2019ll show how to generate a promotional offer signature on your server, and how to use the Send Consumption Information endpoint.",
@@ -132,11 +123,9 @@
         "Riyaz Panjwani"
       ],
       "apple_url": "https://developer.apple.com/videos/play/wwdc2025/249/",
-      "has_transcript": true,
-      "transcript_file": "Dive into App Store server APIs for In-App Purchase (WWDC25-249).md"
+      "has_transcript": true
     },
     {
-      "id": "wwdc2025-252",
       "session_id": "252",
       "title": "Optimize your monetization with App Analytics",
       "description": "Explore the new monetization, subscription, and offer analytics coming to App Analytics. We\u2019ll cover how powerful, new data visualizations and automated reports can help you make data-driven decisions that drive revenue growth, and discuss how to pair these metrics with acquisition features such as custom product pages to optimize and improve your monetization strategy.",
@@ -152,11 +141,9 @@
         "Max Martynov"
       ],
       "apple_url": "https://developer.apple.com/videos/play/wwdc2025/252/",
-      "has_transcript": true,
-      "transcript_file": "Optimize your monetization with App Analytics (WWDC25-252).md"
+      "has_transcript": true
     },
     {
-      "id": "wwdc2025-328",
       "session_id": "328",
       "title": "What\u2019s new in App Store Connect",
       "description": "Get the latest updates for App Store Connect, including the new web UI for build delivery and enhancements to TestFlight notifications. We\u2019ll also discuss new app discovery features and enhancements, such as keywords for custom product pages, Accessibility Nutrition Labels, and age ratings updates. Additionally, learn about new functionalities like In-App Purchase offer codes and review summarization tools.",
@@ -173,13 +160,11 @@
         "Michael Klucher"
       ],
       "apple_url": "https://developer.apple.com/videos/play/wwdc2025/328/",
-      "has_transcript": true,
-      "transcript_file": "What\u2019s new in App Store Connect (WWDC25-328).md"
+      "has_transcript": true
     }
   ],
   "SwiftUI & UI Frameworks": [
     {
-      "id": "wwdc2025-274",
       "session_id": "274",
       "title": "Better together: SwiftUI and RealityKit",
       "description": "Discover how to seamlessly blend SwiftUI and RealityKit in visionOS 26. We\u2019ll explore enhancements to Model3D, including animation and ConfigurationCatalog support, and demonstrate smooth transitions to RealityView. You\u2019ll learn how to leverage SwiftUI animations to drive RealityKit component changes, implement interactive manipulation, use new SwiftUI components for richer interactions, and observe RealityKit changes from your SwiftUI code. We\u2019ll also cover how to use unified coordinate conversion for cross-framework coordinate transformations.",
@@ -195,11 +180,9 @@
         "Maksim Tochilkin"
       ],
       "apple_url": "https://developer.apple.com/videos/play/wwdc2025/274/",
-      "has_transcript": true,
-      "transcript_file": "Better together- SwiftUI and RealityKit (WWDC25-274).md"
+      "has_transcript": true
     },
     {
-      "id": "wwdc2025-313",
       "session_id": "313",
       "title": "Bring Swift Charts to the third dimension",
       "description": "Learn how to bring your 2D Swift Charts to the third dimension with Chart3D and visualize your data sets from completely new perspectives. Plot your data in 3D, visualize mathematical surfaces, and customize everything from the camera to the materials to make your 3D charts more intuitive and delightful. \n\nTo get the most out of this session, we recommend being familiar with creating 2D Swift Charts.",
@@ -211,11 +194,9 @@
         "Mike McFadden"
       ],
       "apple_url": "https://developer.apple.com/videos/play/wwdc2025/313/",
-      "has_transcript": true,
-      "transcript_file": "Bring Swift Charts to the third dimension (WWDC25-313).md"
+      "has_transcript": true
     },
     {
-      "id": "wwdc2025-323",
       "session_id": "323",
       "title": "Build a SwiftUI app with the new design",
       "description": "Explore the ways Liquid Glass transforms the look and feel of your app. Discover how this stunning new material enhances toolbars, controls, and app structures across platforms, providing delightful interactions and seamlessly integrating your app with the system. Learn how to adopt new APIs that can help you make the most of Liquid Glass.",
@@ -228,11 +209,9 @@
         "Franck Ndame Mpouli"
       ],
       "apple_url": "https://developer.apple.com/videos/play/wwdc2025/323/",
-      "has_transcript": true,
-      "transcript_file": "Build a SwiftUI app with the new design (WWDC25-323).md"
+      "has_transcript": true
     },
     {
-      "id": "wwdc2025-284",
       "session_id": "284",
       "title": "Build a UIKit app with the new design",
       "description": "Update your UIKit app to take full advantage of the new design system. We\u2019ll dive into key changes to tab views, split views, bars, presentations, search, and controls, and show you how to use Liquid Glass in your custom UI. To get the most out of this video, we recommend first watching \u201cGet to know the new design system\u201d for general design guidance.",
@@ -244,11 +223,9 @@
         "Sanaa Squalli"
       ],
       "apple_url": "https://developer.apple.com/videos/play/wwdc2025/284/",
-      "has_transcript": true,
-      "transcript_file": "Build a UIKit app with the new design (WWDC25-284).md"
+      "has_transcript": true
     },
     {
-      "id": "wwdc2025-310",
       "session_id": "310",
       "title": "Build an AppKit app with the new design",
       "description": "Update your AppKit app to take full advantage of the new design system. We\u2019ll dive into key changes to tab views, split views, bars, presentations, search, and controls, and show you how to use Liquid Glass in your custom UI. To get the most out of this video, we recommend first watching \u201cGet to know the new design system\u201d for general design guidance.",
@@ -260,11 +237,9 @@
         "Jeff Nadeau"
       ],
       "apple_url": "https://developer.apple.com/videos/play/wwdc2025/310/",
-      "has_transcript": true,
-      "transcript_file": "Build an AppKit app with the new design (WWDC25-310).md"
+      "has_transcript": true
     },
     {
-      "id": "wwdc2025-280",
       "session_id": "280",
       "title": "Code-along: Cook up a rich text experience in SwiftUI with AttributedString",
       "description": "Learn how to build a rich text experience with SwiftUI\u2019s TextEditor API and AttributedString. Discover how you can enable rich text editing, build custom controls that manipulate the contents of your editor, and customize the formatting options available. Explore advanced capabilities of AttributedString that help you craft the best text editing experiences.",
@@ -279,11 +254,9 @@
         "Jeremy Schonfeld"
       ],
       "apple_url": "https://developer.apple.com/videos/play/wwdc2025/280/",
-      "has_transcript": true,
-      "transcript_file": "Code-along- Cook up a rich text experience in SwiftUI with AttributedString (WWDC25-280).md"
+      "has_transcript": true
     },
     {
-      "id": "wwdc2025-282",
       "session_id": "282",
       "title": "Make your UIKit app more flexible",
       "description": "Find out how your UIKit app can become more flexible on iPhone, iPad, Mac, and Apple Vision Pro by using scenes and container view controllers. Learn to unlock your app\u2019s full potential by transitioning from an app-centric to a scene-based lifecycle, including enhanced window resizing and improved multitasking. Explore enhancements to UISplitViewController, such as interactive column resizing and first-class support for inspector columns. And make your views and controls more adaptive by adopting new layout APIs.",
@@ -298,11 +271,9 @@
         "Alexander MacLeod"
       ],
       "apple_url": "https://developer.apple.com/videos/play/wwdc2025/282/",
-      "has_transcript": true,
-      "transcript_file": "Make your UIKit app more flexible (WWDC25-282).md"
+      "has_transcript": true
     },
     {
-      "id": "wwdc2025-273",
       "session_id": "273",
       "title": "Meet SwiftUI spatial layout",
       "description": "Explore new tools for building spatial experiences using SwiftUI. Learn the basics of 3D SwiftUI views on visionOS, customize existing layouts with depth alignments, and use modifiers to rotate and position views in space. Discover how to use spatial containers to align views in the same 3D space, helping you create immersive and engaging apps.",
@@ -314,11 +285,9 @@
         "Trevor Adcock"
       ],
       "apple_url": "https://developer.apple.com/videos/play/wwdc2025/273/",
-      "has_transcript": true,
-      "transcript_file": "Meet SwiftUI spatial layout (WWDC25-273).md"
+      "has_transcript": true
     },
     {
-      "id": "wwdc2025-290",
       "session_id": "290",
       "title": "Set the scene with SwiftUI in visionOS",
       "description": "Discover exciting new APIs to enhance windows, volumes, and immersive spaces in your visionOS app. Fine tune the behavior of your scenes when relaunched or locked in place. Make volumes adapt to their surroundings with clipping margins and snapping. Stream immersive content from Mac to Vision Pro. Elevate your existing UIKit-based apps with volumes and immersive spaces.",
@@ -330,11 +299,9 @@
         "Miguel Tenant de La Tour"
       ],
       "apple_url": "https://developer.apple.com/videos/play/wwdc2025/290/",
-      "has_transcript": true,
-      "transcript_file": "Set the scene with SwiftUI in visionOS (WWDC25-290).md"
+      "has_transcript": true
     },
     {
-      "id": "wwdc2025-256",
       "session_id": "256",
       "title": "What\u2019s new in SwiftUI",
       "description": "Learn what\u2019s new in SwiftUI to build great apps for any Apple platform. We\u2019ll explore how to give your app a brand new look and feel with Liquid Glass. Discover how to boost performance with framework enhancements and new instruments, and integrate advanced capabilities like web content and rich text editing. We\u2019ll also show you how SwiftUI is expanding to more places, including laying out views in three dimensions.",
@@ -351,11 +318,9 @@
         "Peter Hajas"
       ],
       "apple_url": "https://developer.apple.com/videos/play/wwdc2025/256/",
-      "has_transcript": true,
-      "transcript_file": "What\u2019s new in SwiftUI (WWDC25-256).md"
+      "has_transcript": true
     },
     {
-      "id": "wwdc2025-243",
       "session_id": "243",
       "title": "What\u2019s new in UIKit",
       "description": "Modernize your app with the latest APIs in UIKit, including enhanced menu bar support, automatic observation tracking, a new UI update method, and improvements to animations. We\u2019ll also cover how you can include SwiftUI scenes in your UIKit app and explore SF Symbols, HDR color pickers, and more.",
@@ -367,11 +332,9 @@
         "Dima Gorbik"
       ],
       "apple_url": "https://developer.apple.com/videos/play/wwdc2025/243/",
-      "has_transcript": true,
-      "transcript_file": "What\u2019s new in UIKit (WWDC25-243).md"
+      "has_transcript": true
     },
     {
-      "id": "wwdc2025-334",
       "session_id": "334",
       "title": "What\u2019s new in watchOS 26",
       "description": "Discover the new features in watchOS 26 and learn how to integrate them into your watchOS and iOS apps. Explore the ARM64 architecture, and dive into the new design system. We\u2019ll also share updates for widgets and insights on how to bring controls to Apple Watch.",
@@ -383,11 +346,9 @@
         "Anne Hitchcock"
       ],
       "apple_url": "https://developer.apple.com/videos/play/wwdc2025/334/",
-      "has_transcript": true,
-      "transcript_file": "What\u2019s new in watchOS 26 (WWDC25-334).md"
+      "has_transcript": true
     },
     {
-      "id": "wwdc2025-278",
       "session_id": "278",
       "title": "What\u2019s new in widgets",
       "description": "WidgetKit elevates your app with updates to widgets, Live Activities, and controls. Learn how to bring your widgets to visionOS, take them on the road with CarPlay, and make them look their best with accented rendering modes. Plus, find out how relevant widgets can be surfaced in the Smart Stack on watchOS, and discover how push notifications can be used to keep your widgets up to date.",
@@ -402,11 +363,9 @@
         "Tanner Oakes"
       ],
       "apple_url": "https://developer.apple.com/videos/play/wwdc2025/278/",
-      "has_transcript": true,
-      "transcript_file": "What\u2019s new in widgets (WWDC25-278).md"
+      "has_transcript": true
     },
     {
-      "id": "meet-with-apple-237",
       "session_id": "237",
       "title": "Code-along: Start building with Swift and SwiftUI",
       "description": "Learn the basics of app development with Swift and SwiftUI. In this online code-along, you\u2019ll build a simple view from an iOS demo app in Xcode, add text fields and photos to capture input, and save information using SwiftData. By the end of the session, you\u2019ll have a complete, interactive interface. To code along, you\u2019ll need a Mac running macOS Sonoma 14.0 or later and Xcode 15 or later.",
@@ -424,13 +383,11 @@
         "Lucas Longo"
       ],
       "apple_url": "https://developer.apple.com/videos/play/meet-with-apple/237/",
-      "has_transcript": true,
-      "transcript_file": "What\u2019s new for the spatial web (WWDC25-237).md"
+      "has_transcript": true
     }
   ],
   "Machine Learning & AI": [
     {
-      "id": "wwdc2025-277",
       "session_id": "277",
       "title": "Bring advanced speech-to-text to your app with SpeechAnalyzer",
       "description": "Discover the new SpeechAnalyzer API for speech to text. We\u2019ll learn about the Swift API and its capabilities, which power features in Notes, Voice Memos, Journal, and more. We\u2019ll dive into details about how speech to text works and how SpeechAnalyzer and SpeechTranscriber can enable you to create exciting, performant features. And you\u2019ll learn how to incorporate SpeechAnalyzer and live transcription into your app with a code-along.",
@@ -444,11 +401,9 @@
         "Shantini Vyas"
       ],
       "apple_url": "https://developer.apple.com/videos/play/wwdc2025/277/",
-      "has_transcript": true,
-      "transcript_file": "Bring advanced speech-to-text to your app with SpeechAnalyzer (WWDC25-277).md"
+      "has_transcript": true
     },
     {
-      "id": "wwdc2025-259",
       "session_id": "259",
       "title": "Code-along: Bring on-device AI to your app using the Foundation Models framework",
       "description": "Develop generative AI features for your SwiftUI apps using the Foundation Models framework. Get started by applying the basics of the framework to create an awesome feature. Watch step-by-step examples of how to complement the models with tools you build, stream results, and apply further optimizations for great performance.",
@@ -461,11 +416,9 @@
         "Naomy Sabo"
       ],
       "apple_url": "https://developer.apple.com/videos/play/wwdc2025/259/",
-      "has_transcript": true,
-      "transcript_file": "Code-along- Bring on-device AI to your app using the Foundation Models framework (WWDC25-259).md"
+      "has_transcript": true
     },
     {
-      "id": "wwdc2025-262",
       "session_id": "262",
       "title": "Combine Metal 4 machine learning and graphics",
       "description": "Learn how to seamlessly combine machine learning into your graphics applications using Metal 4. We\u2019ll introduce the tensor resource and ML encoder for running models on the GPU timeline alongside your rendering and compute work. Discover how shader ML lets you embed neural networks directly within your shaders for advanced effects and performance gains. We\u2019ll also show new debugging tools for Metal 4 ML workloads in action using an example app.",
@@ -479,11 +432,9 @@
         "Scott Moyers"
       ],
       "apple_url": "https://developer.apple.com/videos/play/wwdc2025/262/",
-      "has_transcript": true,
-      "transcript_file": "Combine Metal 4 machine learning and graphics (WWDC25-262).md"
+      "has_transcript": true
     },
     {
-      "id": "wwdc2025-301",
       "session_id": "301",
       "title": "Deep dive into the Foundation Models framework",
       "description": "Level up with the Foundation Models framework. Learn how guided generation works under the hood, and use guides, regexes, and generation schemas to get custom structured responses. We\u2019ll show you how to use tool calling to let the model autonomously access external information and perform actions, for a personalized experience. \n\nTo get the most out of this video, we recommend first watching \u201cMeet the Foundation Models framework\u201d.",
@@ -496,11 +447,9 @@
         "Louis D'hauwe"
       ],
       "apple_url": "https://developer.apple.com/videos/play/wwdc2025/301/",
-      "has_transcript": true,
-      "transcript_file": "Deep dive into the Foundation Models framework (WWDC25-301).md"
+      "has_transcript": true
     },
     {
-      "id": "wwdc2025-260",
       "session_id": "260",
       "title": "Develop for Shortcuts and Spotlight with App Intents",
       "description": "Learn about how building App Intents that make actions available and work best with the new features in Shortcuts and Spotlight on Mac. We\u2019ll show you how your actions combine in powerful ways with the new Apple Intelligence actions available in the Shortcuts app. We\u2019ll deep-dive into how the new \u201cUse Model\u201d action works, and how it interacts with your app\u2019s entities. And we\u2019ll discuss how to use the App Intents APIs to make your actions available in Spotlight.",
@@ -513,11 +462,9 @@
         "Ayaka Nonaka"
       ],
       "apple_url": "https://developer.apple.com/videos/play/wwdc2025/260/",
-      "has_transcript": true,
-      "transcript_file": "Develop for Shortcuts and Spotlight with App Intents (WWDC25-260).md"
+      "has_transcript": true
     },
     {
-      "id": "wwdc2025-360",
       "session_id": "360",
       "title": "Discover machine learning & AI frameworks on Apple platforms",
       "description": "Tour the latest updates to machine learning and AI frameworks available on Apple platforms. Whether you are an app developer ready to tap into Apple Intelligence, an ML engineer optimizing models for on-device deployment, or an AI enthusiast exploring the frontier of what is possible, we\u2019ll offer guidance to help select the right tools for your needs.",
@@ -530,11 +477,9 @@
         "Jaimin Upadhyay"
       ],
       "apple_url": "https://developer.apple.com/videos/play/wwdc2025/360/",
-      "has_transcript": true,
-      "transcript_file": "Discover machine learning & AI frameworks on Apple platforms (WWDC25-360).md"
+      "has_transcript": true
     },
     {
-      "id": "wwdc2025-265",
       "session_id": "265",
       "title": "Dive deeper into Writing Tools",
       "description": "With Writing Tools, people can proofread, rewrite, and transform text directly within your app. Learn advanced techniques to customize Writing Tools for your app. Explore formatting options and how they work with rich text editing. If you have a custom text engine, learn how to seamlessly integrate the complete Writing Tools experience, allowing edits directly within the text view.",
@@ -548,11 +493,9 @@
         "Dongyuan Liu"
       ],
       "apple_url": "https://developer.apple.com/videos/play/wwdc2025/265/",
-      "has_transcript": true,
-      "transcript_file": "Dive deeper into Writing Tools (WWDC25-265).md"
+      "has_transcript": true
     },
     {
-      "id": "wwdc2025-298",
       "session_id": "298",
       "title": "Explore large language models on Apple silicon with MLX",
       "description": "Discover MLX LM \u2013 designed specifically to make working with large language models simple and efficient on Apple silicon. We\u2019ll cover how to fine-tune and run inference on state-of-the-art large language models on your Mac, and how to seamlessly integrate them into Swift-based applications and projects.",
@@ -565,11 +508,9 @@
         "Angelos Katharopoulos"
       ],
       "apple_url": "https://developer.apple.com/videos/play/wwdc2025/298/",
-      "has_transcript": true,
-      "transcript_file": "Explore large language models on Apple silicon with MLX (WWDC25-298).md"
+      "has_transcript": true
     },
     {
-      "id": "wwdc2025-275",
       "session_id": "275",
       "title": "Explore new advances in App Intents",
       "description": "Explore all the new enhancements available in the App Intents framework in this year\u2019s releases. Learn about developer quality-of-life improvements like deferred properties, new capabilities like interactive app intents snippets, entity view annotations, how to integrate Visual Intelligence, and much more. We\u2019ll take you through how App Intents is more expressive than ever, while becoming even easier and smoother to adopt. We\u2019ll also share exciting new clients of App Intents this year like Spotlight and Visual Intelligence, and learn to write app intents that work great in those contexts.",
@@ -582,11 +523,9 @@
         "Jeff Wu"
       ],
       "apple_url": "https://developer.apple.com/videos/play/wwdc2025/275/",
-      "has_transcript": true,
-      "transcript_file": "Explore new advances in App Intents (WWDC25-275).md"
+      "has_transcript": true
     },
     {
-      "id": "wwdc2025-248",
       "session_id": "248",
       "title": "Explore prompt design & safety for on-device foundation models",
       "description": "Design generative AI experiences that leverage the strengths of the Foundation Models framework. We\u2019ll start by showing how to design prompts for the on-device large language model at the core of Apple Intelligence. Then, we\u2019ll introduce key ideas around AI safety, and offer concrete strategies to make your generative AI features safe, reliable, and delightful.",
@@ -600,11 +539,9 @@
         "Sprite Chu"
       ],
       "apple_url": "https://developer.apple.com/videos/play/wwdc2025/248/",
-      "has_transcript": true,
-      "transcript_file": "Explore prompt design & safety for on-device foundation models (WWDC25-248).md"
+      "has_transcript": true
     },
     {
-      "id": "wwdc2025-315",
       "session_id": "315",
       "title": "Get started with MLX for Apple silicon",
       "description": "MLX is a flexible and efficient array framework for numerical computing and machine learning on Apple silicon. We\u2019ll explore fundamental features including unified memory, lazy computation, and function transformations. We\u2019ll also look at more advanced techniques for building and accelerating machine learning models across Apple\u2019s platforms using Swift and Python APIs.",
@@ -617,11 +554,9 @@
         "Awni Hannun"
       ],
       "apple_url": "https://developer.apple.com/videos/play/wwdc2025/315/",
-      "has_transcript": true,
-      "transcript_file": "Get started with MLX for Apple silicon (WWDC25-315).md"
+      "has_transcript": true
     },
     {
-      "id": "wwdc2025-244",
       "session_id": "244",
       "title": "Get to know App Intents",
       "description": "Learn about the App Intents framework and its increasingly critical role within Apple\u2019s developer platforms. We\u2019ll take you through a ground-up introduction of the core concepts: intents, entities, queries, and much more. You\u2019ll learn how these pieces fit together and let you integrate your app through Apple\u2019s devices, from software features like Spotlight and Shortcuts to hardware features like the Action button. We\u2019ll also walk through how App Intents is your app\u2019s gateway to integrating with Apple Intelligence going forward.",
@@ -634,11 +569,9 @@
         "James Paolantonio"
       ],
       "apple_url": "https://developer.apple.com/videos/play/wwdc2025/244/",
-      "has_transcript": true,
-      "transcript_file": "Get to know App Intents (WWDC25-244).md"
+      "has_transcript": true
     },
     {
-      "id": "wwdc2025-286",
       "session_id": "286",
       "title": "Meet the Foundation Models framework",
       "description": "Learn how to tap into the on-device large language model behind Apple Intelligence! This high-level overview covers everything from guided generation for generating Swift data structures and streaming for responsive experiences, to tool calling for integrating data sources and sessions for context management. This session has no prerequisites.",
@@ -652,11 +585,9 @@
         "Yifei He"
       ],
       "apple_url": "https://developer.apple.com/videos/play/wwdc2025/286/",
-      "has_transcript": true,
-      "transcript_file": "Meet the Foundation Models framework (WWDC25-286).md"
+      "has_transcript": true
     },
     {
-      "id": "wwdc2025-272",
       "session_id": "272",
       "title": "Read documents using the Vision framework",
       "description": "Learn about the latest advancements in the Vision framework. We\u2019ll introduce RecognizeDocumentsRequest, and how you can use it to read lines of text and group them into paragraphs, read tables, etc. And we\u2019ll also dive into camera lens smudge detection, and how to identify potentially smudged images in photo libraries or your own camera capture pipeline.",
@@ -670,11 +601,9 @@
         "Megan Williams"
       ],
       "apple_url": "https://developer.apple.com/videos/play/wwdc2025/272/",
-      "has_transcript": true,
-      "transcript_file": "Read documents using the Vision framework (WWDC25-272).md"
+      "has_transcript": true
     },
     {
-      "id": "wwdc2025-276",
       "session_id": "276",
       "title": "What\u2019s new in BNNS Graph",
       "description": "The BNNS Graph Builder API now enables developers to write graphs of operations using the familiar Swift language to generate pre- and post-processing routines and small machine-learning models. BNNS compiles graphs ahead of execution and supports real-time and latency-sensitive use cases such as audio processing. In this session, we revisit last year\u2019s bit-crusher example and simplify the Swift component by removing the reliance on a separate Python file and instead implement the audio effect entirely in Swift. The BNNS Graph Builder API is also suited to pre-processing image data before passing that data to a machine learning model. The session also includes a demonstration of clipping the transparent pixels from an image with an alpha channel.",
@@ -687,11 +616,9 @@
         "Simon Gladman"
       ],
       "apple_url": "https://developer.apple.com/videos/play/wwdc2025/276/",
-      "has_transcript": true,
-      "transcript_file": "What\u2019s new in BNNS Graph (WWDC25-276).md"
+      "has_transcript": true
     },
     {
-      "id": "meet-with-apple-205",
       "session_id": "205",
       "title": "Code along with the Foundation Models framework",
       "description": "Get hands-on experience using the Foundation Models framework to access Apple\u2019s on-device LLM. In this online session, you can code along with us as we build generative AI features into a sample app live in Xcode. We\u2019ll guide you through implementing core features like basic text generation, as well as advanced topics like guided generation for structured data output, streaming responses for dynamic UI updates, and tool calling to retrieve data or take an action.\n\nTo actively code along, you\u2019ll need a Mac with Apple silicon that supports Apple Intelligence running the latest release of macOS Tahoe 26 and Xcode 26.",
@@ -704,13 +631,11 @@
         "Shashank Prasanna"
       ],
       "apple_url": "https://developer.apple.com/videos/play/meet-with-apple/205/",
-      "has_transcript": true,
-      "transcript_file": "Discover Metal 4 (WWDC25-205).md"
+      "has_transcript": true
     }
   ],
   "Graphics & Games": [
     {
-      "id": "wwdc2025-288",
       "session_id": "288",
       "title": "Bring your SceneKit project to RealityKit",
       "description": "Understand SceneKit deprecation and explore how to transition your 3D projects to RealityKit, Apple\u2019s recommended high-level 3D engine. We\u2019ll clarify what SceneKit deprecation means for your projects, compare key concepts between the two engines, and show you how to port a sample SceneKit game to RealityKit. We\u2019ll also explore the potential of RealityKit across all supported platforms to help you create amazing 3D experiences with your apps and games.",
@@ -725,11 +650,9 @@
         "Max Cobb"
       ],
       "apple_url": "https://developer.apple.com/videos/play/wwdc2025/288/",
-      "has_transcript": true,
-      "transcript_file": "Bring your SceneKit project to RealityKit (WWDC25-288).md"
+      "has_transcript": true
     },
     {
-      "id": "wwdc2025-205",
       "session_id": "205",
       "title": "Discover Metal 4",
       "description": "Learn how to get started leveraging the powerful new features of Metal 4 in your existing Metal apps. We\u2019ll cover how Metal enables you to get the most out of Apple silicon and program the hardware more efficiently. You\u2019ll also learn how Metal 4 provides you with new capabilities to integrate machine learning into your Metal code.",
@@ -744,11 +667,9 @@
         "Aaron Low"
       ],
       "apple_url": "https://developer.apple.com/videos/play/wwdc2025/205/",
-      "has_transcript": true,
-      "transcript_file": "Discover Metal 4 (WWDC25-205).md"
+      "has_transcript": true
     },
     {
-      "id": "wwdc2025-215",
       "session_id": "215",
       "title": "Engage players with the Apple Games app",
       "description": "Meet the Games app \u2013 a new destination for players to keep up with what\u2019s happening in their games, discover new ones, and play with friends, all in one place. Learn how to set up your game for optimal visibility in the Games app, integrate Game Center to enable social play, and keep players coming back with In-App Events.\n\nTo get the most out of this session, we also recommend watching \u201cGet started with Game Center\u201d.",
@@ -761,11 +682,9 @@
         "Logan Pratt"
       ],
       "apple_url": "https://developer.apple.com/videos/play/wwdc2025/215/",
-      "has_transcript": true,
-      "transcript_file": "Engage players with the Apple Games app (WWDC25-215).md"
+      "has_transcript": true
     },
     {
-      "id": "wwdc2025-254",
       "session_id": "254",
       "title": "Explore Metal 4 games",
       "description": "Learn to optimize your game engine with the latest advancements in Metal 4. We\u2019ll cover how to unify your command encoding to minimize CPU overhead, scale up your graphics resource management to support massive scenes and maximize your memory budget, and load large libraries of pipeline states quickly.\n\nTo get the most out of this session, first watch \u201cDiscover Metal 4.\u201d",
@@ -781,11 +700,9 @@
         "Yang Liu"
       ],
       "apple_url": "https://developer.apple.com/videos/play/wwdc2025/254/",
-      "has_transcript": true,
-      "transcript_file": "Explore Metal 4 games (WWDC25-254).md"
+      "has_transcript": true
     },
     {
-      "id": "wwdc2025-214",
       "session_id": "214",
       "title": "Get started with Game Center",
       "description": "Explore the features of Game Center and learn how to get started. We\u2019ll show you best practices for implementing achievements, challenges, leaderboards, and activities to maximize your game\u2019s discoverability, attract new players, and increase engagement.\n\nTo get the most out of this session, we also recommend watching \u201cEngage players with the Apple Games app\u201d.",
@@ -798,11 +715,9 @@
         "Varokas Panusuwan"
       ],
       "apple_url": "https://developer.apple.com/videos/play/wwdc2025/214/",
-      "has_transcript": true,
-      "transcript_file": "Get started with Game Center (WWDC25-214).md"
+      "has_transcript": true
     },
     {
-      "id": "wwdc2025-211",
       "session_id": "211",
       "title": "Go further with Metal 4 games",
       "description": "Dive deeper into the latest advancements in Metal 4. We\u2019ll introduce the new ray tracing features that help bring your most complex and visually rich workloads to Apple silicon. Discover how MetalFX can help scale workloads by upscaling renderings, interpolating frames, and denoising scenes.\n\nTo get the most out of this session, we recommend first checking out \u201cDiscover Metal 4\u201d and \u201cExplore Metal 4 games\u201d.",
@@ -817,11 +732,9 @@
         "Matias Koskela"
       ],
       "apple_url": "https://developer.apple.com/videos/play/wwdc2025/211/",
-      "has_transcript": true,
-      "transcript_file": "Go further with Metal 4 games (WWDC25-211).md"
+      "has_transcript": true
     },
     {
-      "id": "wwdc2025-209",
       "session_id": "209",
       "title": "Level up your games",
       "description": "Learn how to make your games shine on the unified gaming platform. We\u2019ll give you a map of the technologies you can use to level up your game and further improve your player experience. Get an overview of the fundamental tools essential to build, debug, and profile your game.",
@@ -836,11 +749,9 @@
         "Alexey Vinogradov"
       ],
       "apple_url": "https://developer.apple.com/videos/play/wwdc2025/209/",
-      "has_transcript": true,
-      "transcript_file": "Level up your games (WWDC25-209).md"
+      "has_transcript": true
     },
     {
-      "id": "meet-with-apple-214",
       "session_id": "214",
       "title": "Press Start: Game development on Apple platforms",
       "description": "Learn to unlock the full potential of game development for iOS, iPadOS, macOS, and visionOS in this all-day online activity streaming from Cupertino. Whether you\u2019re porting a PC or console title, crafting a mobile masterpiece, or augmenting your game with cutting-edge features, these in-depth sessions will help you find success in the Apple ecosystem. You\u2019ll learn how to leverage Metal, optimize for Apple silicon, design compelling handheld experiences, and navigate the App Store to reach millions of players.",
@@ -870,11 +781,9 @@
         "Kelli King"
       ],
       "apple_url": "https://developer.apple.com/videos/play/meet-with-apple/214/",
-      "has_transcript": true,
-      "transcript_file": "Get started with Game Center (WWDC25-214).md"
+      "has_transcript": true
     },
     {
-      "id": "meet-with-apple-238",
       "session_id": "238",
       "title": "Discover game development on Apple platforms",
       "description": "Discover how the unified architecture across Apple platforms makes it faster and easier to build, scale, and deliver high-performance games across every device. Learn how tools like Metal 4, the Game Porting Toolkit, and the Apple Games app help developers reach players on more than 2 billion active devices worldwide.",
@@ -891,11 +800,9 @@
         "Adrienne Neumann"
       ],
       "apple_url": "https://developer.apple.com/videos/play/meet-with-apple/238/",
-      "has_transcript": true,
-      "transcript_file": "Customize your app for Assistive Access (WWDC25-238).md"
+      "has_transcript": true
     },
     {
-      "id": "meet-with-apple-239",
       "session_id": "239",
       "title": "Chart your game\u2019s course to Apple platforms",
       "description": "Explore key strategies for bringing existing games to the unified Apple ecosystem, whether you\u2019re creating in engines or porting custom PC titles with the Game Porting Toolkit. Learn how you can leverage Apple tools, frameworks, and open-source Unity plug-ins to optimize performance, integrate native features, and reach players across iPhone, iPad, Mac, and Apple Vision Pro.",
@@ -911,11 +818,9 @@
         "Allan Schaffer"
       ],
       "apple_url": "https://developer.apple.com/videos/play/meet-with-apple/239/",
-      "has_transcript": false,
-      "transcript_file": null
+      "has_transcript": false
     },
     {
-      "id": "meet-with-apple-240",
       "session_id": "240",
       "title": "Level up with Apple game technologies",
       "description": "Explore the frameworks and technologies that can help you deliver great player experiences across the Apple ecosystem. Learn how to use frameworks like GameSave and MetalFX, and tools like Game Mode and Managed Background Assets, to boost performance, streamline launches, and create seamless gameplay on Apple devices.",
@@ -931,11 +836,9 @@
         "Alexey Vinogradov"
       ],
       "apple_url": "https://developer.apple.com/videos/play/meet-with-apple/240/",
-      "has_transcript": false,
-      "transcript_file": null
+      "has_transcript": false
     },
     {
-      "id": "meet-with-apple-241",
       "session_id": "241",
       "title": "Bring your PC and console games to Mac",
       "description": "Learn how to port your existing Windows and console games to Apple silicon devices using tools like Metal and the Game Porting Toolkit. Explore the techniques that can help you accelerate and streamline your porting workflows, and get your game running across the entire Mac lineup.",
@@ -951,11 +854,9 @@
         "Rich Forster"
       ],
       "apple_url": "https://developer.apple.com/videos/play/meet-with-apple/241/",
-      "has_transcript": true,
-      "transcript_file": "What\u2019s new in StoreKit and In-App Purchase (WWDC25-241).md"
+      "has_transcript": true
     },
     {
-      "id": "meet-with-apple-242",
       "session_id": "242",
       "title": "Explore power, performance, and scale for games on iPhone and iPad",
       "description": "Discover the Apple tools and technologies you can use to optimize game performance and power usage on iPhone and iPad. Learn how to use the Metal Performance HUD, Instruments, and Metal debugger to identify bottlenecks, improve efficiency, and scale your game across Apple devices.",
@@ -971,11 +872,9 @@
         "Lionel Lemari\u00e9"
       ],
       "apple_url": "https://developer.apple.com/videos/play/meet-with-apple/242/",
-      "has_transcript": false,
-      "transcript_file": null
+      "has_transcript": false
     },
     {
-      "id": "meet-with-apple-243",
       "session_id": "243",
       "title": "Design great interfaces for handheld games",
       "description": "Get practical guidance from Apple Design team member Dylan Edwards about adapting console and PC game interfaces to iPhone and iPad. Learn how to create flexible layouts, maximize the full screen, maintain legibility, and design intuitive and responsive touch controls that make handheld gaming feel natural.",
@@ -990,11 +889,9 @@
         "Dylan Edwards"
       ],
       "apple_url": "https://developer.apple.com/videos/play/meet-with-apple/243/",
-      "has_transcript": true,
-      "transcript_file": "What\u2019s new in UIKit (WWDC25-243).md"
+      "has_transcript": true
     },
     {
-      "id": "meet-with-apple-244",
       "session_id": "244",
       "title": "Apple Arcade: From concept to catalog",
       "description": "Take a peek into Apple Arcade, which curates and supports a global catalog of over 250 ad-free games, offering fun, safe, and high-quality experiences for players across Apple devices. Explore Arcade\u2019s unique developer partnerships, funding model, and creative support system, which helps everyone from indie creators to major franchises bring their games from concept to catalog.",
@@ -1010,11 +907,9 @@
         "Adrianna Lewis"
       ],
       "apple_url": "https://developer.apple.com/videos/play/meet-with-apple/244/",
-      "has_transcript": true,
-      "transcript_file": "Get to know App Intents (WWDC25-244).md"
+      "has_transcript": true
     },
     {
-      "id": "meet-with-apple-245",
       "session_id": "245",
       "title": "Transform your game with Apple Vision Pro",
       "description": "Join Nathaniel Ellingson from Apple\u2019s Developer Ecosystem team to learn how to bring your game into the spatial computing era. Find out how Apple Vision Pro\u2019s precise hand tracking, spatial accessories, ultra-high resolution displays, and native frameworks like RealityKit and Metal empower creators to craft immersive and visually stunning gaming experiences.",
@@ -1028,11 +923,9 @@
         "Nathaniel Ellingson"
       ],
       "apple_url": "https://developer.apple.com/videos/play/meet-with-apple/245/",
-      "has_transcript": true,
-      "transcript_file": "What\u2019s new in Swift (WWDC25-245).md"
+      "has_transcript": true
     },
     {
-      "id": "meet-with-apple-246",
       "session_id": "246",
       "title": "Unlock success with premium games on the App Store",
       "description": "Learn how game developers can find success with paid and premium titles across the Apple ecosystem. Find out how tools and strategies like pre-order, Universal Purchase, and Game Center can help you optimize discovery, engagement, and revenue while reaching hundreds of millions of players worldwide.",
@@ -1048,11 +941,9 @@
         "Mike Escudero"
       ],
       "apple_url": "https://developer.apple.com/videos/play/meet-with-apple/246/",
-      "has_transcript": true,
-      "transcript_file": "Integrate privacy into your development process (WWDC25-246).md"
+      "has_transcript": true
     },
     {
-      "id": "meet-with-apple-247",
       "session_id": "247",
       "title": "Discover how DREDGE was reimagined for Apple platforms | Black Salt Games",
       "description": "Find out firsthand how Black Salt Games rebuilt their indie hit DREDGE from the inside out, redesigning the game\u2019s UI, controls, and flow to make it feel truly native on iPhone, iPad, and Mac. Plus, learn how business strategies like Universal App support, long runway pre-orders, and \u201cTry before you buy\u201d powered the game\u2019s premium mobile launch.",
@@ -1066,11 +957,9 @@
         "Nadia Thorne"
       ],
       "apple_url": "https://developer.apple.com/videos/play/meet-with-apple/247/",
-      "has_transcript": true,
-      "transcript_file": "What\u2019s new in Xcode (WWDC25-247).md"
+      "has_transcript": true
     },
     {
-      "id": "meet-with-apple-248",
       "session_id": "248",
       "title": "Boost discoverability and engagement with the Apple Games app",
       "description": "The Apple Games app is an all-in-one gaming destination designed to help players jump back into their games, find their next favorite, and have even more fun with friends across iPhone, iPad, and Mac. Learn how the Games app can help you boost engagement and visibility through features like achievements, leaderboards, challenges, and activities.",
@@ -1085,11 +974,9 @@
         "Mischa Stephens"
       ],
       "apple_url": "https://developer.apple.com/videos/play/meet-with-apple/248/",
-      "has_transcript": true,
-      "transcript_file": "Explore prompt design & safety for on-device foundation models (WWDC25-248).md"
+      "has_transcript": true
     },
     {
-      "id": "meet-with-apple-249",
       "session_id": "249",
       "title": "Explore game curation and featuring on the App Store",
       "description": "Learn more about what the App Store editorial team considers when curating games to feature across the App Store and Apple Games app, including gameplay design, artistic and technical quality, and accessibility. Plus, find out how to use the Featuring Nominations tool in App Store Connect to submit your games, updates, and in-game events for editorial consideration.",
@@ -1105,13 +992,11 @@
         "Kelli King"
       ],
       "apple_url": "https://developer.apple.com/videos/play/meet-with-apple/249/",
-      "has_transcript": true,
-      "transcript_file": "Dive into App Store server APIs for In-App Purchase (WWDC25-249).md"
+      "has_transcript": true
     }
   ],
   "Audio & Video": [
     {
-      "id": "wwdc2025-319",
       "session_id": "319",
       "title": "Capture cinematic video in your app",
       "description": "Discover how the Cinematic Video API enables your app to effortlessly capture cinema-style videos. We\u2019ll cover how to configure a Cinematic capture session and introduce the fundamentals of building a video capture UI. We\u2019ll also explore advanced Cinematic features such as applying a depth of field effect to achieve both tracking and rack focus.",
@@ -1123,11 +1008,9 @@
         "Roy Li"
       ],
       "apple_url": "https://developer.apple.com/videos/play/wwdc2025/319/",
-      "has_transcript": true,
-      "transcript_file": "Capture cinematic video in your app (WWDC25-319).md"
+      "has_transcript": true
     },
     {
-      "id": "wwdc2025-302",
       "session_id": "302",
       "title": "Create a seamless multiview playback experience",
       "description": "Learn how to build advanced multiview playback experiences in your app. We\u2019ll cover how you can synchronize playback between multiple players, enhance multiview playback with seamless AirPlay integration, and optimize playback quality to deliver engaging multiview playback experiences.",
@@ -1142,11 +1025,9 @@
         "Julia Xu"
       ],
       "apple_url": "https://developer.apple.com/videos/play/wwdc2025/302/",
-      "has_transcript": true,
-      "transcript_file": "Create a seamless multiview playback experience (WWDC25-302).md"
+      "has_transcript": true
     },
     {
-      "id": "wwdc2025-300",
       "session_id": "300",
       "title": "Enhance your app with machine-learning-based video effects",
       "description": "Discover how to add effects like frame rate conversion, super resolution, and noise filtering to improve video editing and live streaming experiences. We\u2019ll explore the ML-based video processing algorithms optimized for Apple Silicon available in the Video Toolbox framework. Learn how to integrate these effects to enhance the capabilities of your app for real-world use cases.",
@@ -1159,11 +1040,9 @@
         "Makhlouf Serghine"
       ],
       "apple_url": "https://developer.apple.com/videos/play/wwdc2025/300/",
-      "has_transcript": true,
-      "transcript_file": "Enhance your app with machine-learning-based video effects (WWDC25-300).md"
+      "has_transcript": true
     },
     {
-      "id": "wwdc2025-297",
       "session_id": "297",
       "title": "Learn about the Apple Projected Media Profile",
       "description": "Dive into the Apple Projected Media Profile (APMP) and see how APMP enables 180\u00ba/360\u00ba and Wide FoV projections in QuickTime and MP4 files using Video Extended Usage signaling. We\u2019ll provide guidance on using OS-provided frameworks and tools to convert, read/write, edit, and encode media containing APMP. And we\u2019ll review Apple Positional Audio Codec\u2019s (APAC) capabilities for creating and delivering spatial audio content for the most immersive experiences.",
@@ -1175,11 +1054,9 @@
         "Jon Logan"
       ],
       "apple_url": "https://developer.apple.com/videos/play/wwdc2025/297/",
-      "has_transcript": true,
-      "transcript_file": "Learn about the Apple Projected Media Profile (WWDC25-297).md"
+      "has_transcript": true
     },
     {
-      "id": "meet-with-apple-207",
       "session_id": "207",
       "title": "IETF HLS Interest Day",
       "description": "This event features sessions, community discussions, and a live Q&A with members of the Apple Streaming Media engineering team. Learn about the latest updates to HTTP Live Streaming (HLS) across all platforms, as well as HLS.js, the AVFoundation framework, Immersive Video, and Spatial Audio.",
@@ -1206,13 +1083,11 @@
         "Sumaya"
       ],
       "apple_url": "",
-      "has_transcript": false,
-      "transcript_file": null
+      "has_transcript": false
     }
   ],
   "Swift": [
     {
-      "id": "wwdc2025-270",
       "session_id": "270",
       "title": "Code-along: Elevate an app with Swift concurrency",
       "description": "Learn how to optimize your app\u2019s user experience with Swift concurrency as we update an existing sample app. We\u2019ll start with a main-actor app, then gradually introduce asynchronous code as we need to. We\u2019ll use tasks to optimize code running on the main actor, and discover how to parallelize code by offloading work to the background. We\u2019ll explore what data-race safety provides, and work through interpreting and fixing data-race safety errors. Finally, we\u2019ll show how you can make the most out of structured concurrency in the context of an app.",
@@ -1228,11 +1103,9 @@
         "Sima Nerush"
       ],
       "apple_url": "https://developer.apple.com/videos/play/wwdc2025/270/",
-      "has_transcript": true,
-      "transcript_file": "Code-along- Elevate an app with Swift concurrency (WWDC25-270).md"
+      "has_transcript": true
     },
     {
-      "id": "wwdc2025-268",
       "session_id": "268",
       "title": "Embracing Swift concurrency",
       "description": "Join us to learn the core Swift concurrency concepts. Concurrency helps you improve app responsiveness and performance, and Swift is designed to make asynchronous and concurrent code easier to write correctly. We\u2019ll cover the steps you need to take an app through from single-threaded to concurrent. We\u2019ll also help you determine how and when to make the best use of Swift concurrency features \u2013 whether it\u2019s making your code more asynchronous, moving it to the background, or sharing data across concurrent tasks.",
@@ -1248,11 +1121,9 @@
         "Doug Gregor"
       ],
       "apple_url": "https://developer.apple.com/videos/play/wwdc2025/268/",
-      "has_transcript": true,
-      "transcript_file": "Embracing Swift concurrency (WWDC25-268).md"
+      "has_transcript": true
     },
     {
-      "id": "wwdc2025-307",
       "session_id": "307",
       "title": "Explore Swift and Java interoperability",
       "description": "Learn how you can mix Swift and Java in a single codebase. We\u2019ll introduce the swift-java interoperability project, which allows you to use Swift in Java programs or vice versa. We\u2019ll show you how to use the tools and libraries offered by swift-java to write safe and performant code that interoperates between these two runtimes.",
@@ -1268,11 +1139,9 @@
         "Konrad Malawski"
       ],
       "apple_url": "https://developer.apple.com/videos/play/wwdc2025/307/",
-      "has_transcript": true,
-      "transcript_file": "Explore Swift and Java interoperability (WWDC25-307).md"
+      "has_transcript": true
     },
     {
-      "id": "wwdc2025-266",
       "session_id": "266",
       "title": "Explore concurrency in SwiftUI",
       "description": "Discover how SwiftUI leverages Swift concurrency to build safe and responsive apps. Explore how SwiftUI uses the main actor by default and offloads work to other actors. Learn how to interpret concurrency annotations and manage async tasks with SwiftUI\u2019s event loop for smooth animations and UI updates. You\u2019ll leave knowing how to avoid data races and write code fearlessly.",
@@ -1288,11 +1157,9 @@
         "Daniel Duan"
       ],
       "apple_url": "https://developer.apple.com/videos/play/wwdc2025/266/",
-      "has_transcript": true,
-      "transcript_file": "Explore concurrency in SwiftUI (WWDC25-266).md"
+      "has_transcript": true
     },
     {
-      "id": "wwdc2025-312",
       "session_id": "312",
       "title": "Improve memory usage and performance with Swift",
       "description": "Discover ways to improve the performance and memory management of your Swift code. We\u2019ll explore ways to refine your code \u2013 from making high-level algorithmic changes to adopting the new InlineArray and Span types for finer control over memory and allocations.",
@@ -1308,11 +1175,9 @@
         "Nate Cook"
       ],
       "apple_url": "https://developer.apple.com/videos/play/wwdc2025/312/",
-      "has_transcript": true,
-      "transcript_file": "Improve memory usage and performance with Swift (WWDC25-312).md"
+      "has_transcript": true
     },
     {
-      "id": "wwdc2025-311",
       "session_id": "311",
       "title": "Safely mix C, C++, and Swift",
       "description": "Learn how to mix C, C++, and Swift while improving the safety of your apps. We\u2019ll show you how to find where unsafe C and C++ APIs are called in your Swift code, how to call them more safely, and how to make your app\u2019s existing C and C++ code safer by default.",
@@ -1328,11 +1193,9 @@
         "Yeoul Na"
       ],
       "apple_url": "https://developer.apple.com/videos/play/wwdc2025/311/",
-      "has_transcript": true,
-      "transcript_file": "Safely mix C, C++, and Swift (WWDC25-311).md"
+      "has_transcript": true
     },
     {
-      "id": "wwdc2025-291",
       "session_id": "291",
       "title": "SwiftData: Dive into inheritance and schema migration",
       "description": "Discover how to use class inheritance to model your data. Learn how to optimize queries and seamlessly migrate your app\u2019s data to use inheritance. Explore subclassing for building model graphs, crafting efficient fetches and queries, and implementing robust schema migrations. Understand how to use Observable and persistent history for efficient change tracking.",
@@ -1348,11 +1211,9 @@
         "Rishi Verma"
       ],
       "apple_url": "https://developer.apple.com/videos/play/wwdc2025/291/",
-      "has_transcript": true,
-      "transcript_file": "SwiftData- Dive into inheritance and schema migration (WWDC25-291).md"
+      "has_transcript": true
     },
     {
-      "id": "wwdc2025-245",
       "session_id": "245",
       "title": "What\u2019s new in Swift",
       "description": "Join us for an update on Swift. We\u2019ll talk about workflow improvements that make you more productive, and new and modernized library APIs for fundamental programming tasks. We\u2019ll show examples of Swift adoption throughout more layers of the software stack. Finally, we\u2019ll explore new language features for both improving approachability of concurrency, and achieving peak performance when you need it.",
@@ -1369,13 +1230,11 @@
         "Allan Shortlidge"
       ],
       "apple_url": "https://developer.apple.com/videos/play/wwdc2025/245/",
-      "has_transcript": true,
-      "transcript_file": "What\u2019s new in Swift (WWDC25-245).md"
+      "has_transcript": true
     }
   ],
   "App Services": [
     {
-      "id": "wwdc2025-225",
       "session_id": "225",
       "title": "Code-along: Explore localization with Xcode",
       "description": "Learn how to localize your app into additional languages using Xcode. We\u2019ll walk step-by-step through the process of creating a String Catalog, translating text, and exchanging files with external translators. You\u2019ll learn best practices for providing necessary context to translators and how Xcode can help to provide this information automatically. For larger projects, we\u2019ll also dive into techniques to manage complexity and streamline string management using type-safe Swift code.",
@@ -1391,11 +1250,9 @@
         "Andreas Neus\u00fc\u00df"
       ],
       "apple_url": "https://developer.apple.com/videos/play/wwdc2025/225/",
-      "has_transcript": true,
-      "transcript_file": "Code-along- Explore localization with Xcode (WWDC25-225).md"
+      "has_transcript": true
     },
     {
-      "id": "wwdc2025-222",
       "session_id": "222",
       "title": "Enhance your app\u2019s multilingual experience",
       "description": "Create a seamless experience for anyone who uses multiple languages. Learn how Language Discovery allows you to optimize your app using a person\u2019s preferred languages. Explore advances in support for right-to-left languages, including Natural Selection for selecting multiple ranges in bidirectional text. We\u2019ll also cover best practices for supporting multilingual scenarios in your app.",
@@ -1412,11 +1269,9 @@
         "Danny Nguyen"
       ],
       "apple_url": "https://developer.apple.com/videos/play/wwdc2025/222/",
-      "has_transcript": true,
-      "transcript_file": "Enhance your app\u2019s multilingual experience (WWDC25-222).md"
+      "has_transcript": true
     },
     {
-      "id": "wwdc2025-285",
       "session_id": "285",
       "title": "Meet PaperKit",
       "description": "Discover how to bring PaperKit to your iOS, iPadOS, macOS, and visionOS apps. We\u2019ll cover how to seamlessly integrate PencilKit drawing with markup features like shapes and images, and how to customize the user interface. Learn best practices for forward compatibility, and discover advanced customization options to create truly unique markup experiences in your apps.",
@@ -1430,11 +1285,9 @@
         "Andrea Buzila"
       ],
       "apple_url": "https://developer.apple.com/videos/play/wwdc2025/285/",
-      "has_transcript": true,
-      "transcript_file": "Meet PaperKit (WWDC25-285).md"
+      "has_transcript": true
     },
     {
-      "id": "wwdc2025-231",
       "session_id": "231",
       "title": "Meet WebKit for SwiftUI",
       "description": "Discover how you can use WebKit to effortlessly integrate web content into your SwiftUI apps. Learn how to load and display web content, communicate with webpages, and more.",
@@ -1448,11 +1301,9 @@
         "Richard Robinson"
       ],
       "apple_url": "https://developer.apple.com/videos/play/wwdc2025/231/",
-      "has_transcript": true,
-      "transcript_file": "Meet WebKit for SwiftUI (WWDC25-231).md"
+      "has_transcript": true
     },
     {
-      "id": "wwdc2025-216",
       "session_id": "216",
       "title": "Turbocharge your app for CarPlay",
       "description": "Learn how to bring your Live Activities and widgets to CarPlay and CarPlay Ultra so people can view progress of their activities and see relevant information at a glance. Explore new template options available to all CarPlay apps, and learn how navigation apps can provide turn-by-turn metadata for display in the car\u2019s instrument cluster or HUD.",
@@ -1464,11 +1315,9 @@
         "Olivia Hess"
       ],
       "apple_url": "https://developer.apple.com/videos/play/wwdc2025/216/",
-      "has_transcript": true,
-      "transcript_file": "Turbocharge your app for CarPlay (WWDC25-216).md"
+      "has_transcript": true
     },
     {
-      "id": "wwdc2025-230",
       "session_id": "230",
       "title": "Wake up to the AlarmKit API",
       "description": "Rrrr-rrrrr-innng! From countdown timers in your recipe app to wake-up alarms in your travel planning app, the AlarmKit framework in iOS and iPadOS 26 brings timers and alarms to the Lock Screen, Dynamic Island, and more. Learn how to create and manage your app\u2019s alarms, customize their Live Activities, and offer custom alert actions using the App Intents framework. To get the most from this video, we recommend first watching \u201cMeet ActivityKit\u201d from WWDC23.",
@@ -1480,11 +1329,9 @@
         "Anton Pavlov"
       ],
       "apple_url": "https://developer.apple.com/videos/play/wwdc2025/230/",
-      "has_transcript": true,
-      "transcript_file": "Wake up to the AlarmKit API (WWDC25-230).md"
+      "has_transcript": true
     },
     {
-      "id": "wwdc2025-221",
       "session_id": "221",
       "title": "What\u2019s new in AdAttributionKit",
       "description": "Learn about new features in AdAttributionKit, including how to measure overlapping reengagement conversions and customize ad attribution rules for your app. Gain insight on a new postback property you can use to measure the success of ad campaigns across countries and regions. We\u2019ll also demonstrate new functionality and best practices for testing your AdAttributionKit implementation. To get the most out of this session, we recommend first watching \u201cMeet AdAttributionKit.\u201d",
@@ -1497,11 +1344,9 @@
         "Yuchi Zhang"
       ],
       "apple_url": "https://developer.apple.com/videos/play/wwdc2025/221/",
-      "has_transcript": true,
-      "transcript_file": "What\u2019s new in AdAttributionKit (WWDC25-221).md"
+      "has_transcript": true
     },
     {
-      "id": "wwdc2025-201",
       "session_id": "201",
       "title": "What\u2019s new in Apple Pay",
       "description": "Discover the latest improvements and new APIs in Apple Pay. You\u2019ll discover enhancements to the Apple Pay eCommerce experience, like the new dynamic payment button, and learn how to take advantage of enhanced support for preauthorized payments. We\u2019ll cover brand-new features coming to order tracking in Wallet, and recommendations to help your orders look their best.\nWe\u2019ll also dive into FinanceKit\u2019s new background delivery APIs, allowing financial management apps to get the latest data, even when they\u2019re not active.",
@@ -1517,11 +1362,9 @@
         "Mia Mukherjee"
       ],
       "apple_url": "https://developer.apple.com/videos/play/wwdc2025/201/",
-      "has_transcript": true,
-      "transcript_file": "What\u2019s new in Apple Pay (WWDC25-201).md"
+      "has_transcript": true
     },
     {
-      "id": "wwdc2025-241",
       "session_id": "241",
       "title": "What\u2019s new in StoreKit and In-App Purchase",
       "description": "Learn about the latest StoreKit API enhancements to help you deliver great In-App Purchase experiences to your customers. We\u2019ll review new fields added to AppTransaction, Transaction, and RenewalInfo, and updates to In-App Purchase offer codes. We\u2019ll also cover creating signed In-App Purchase requests using the App Store Server Library and updates to merchandising subscriptions using SwiftUI.",
@@ -1537,11 +1380,9 @@
         "Rudy Hernandez"
       ],
       "apple_url": "https://developer.apple.com/videos/play/wwdc2025/241/",
-      "has_transcript": true,
-      "transcript_file": "What\u2019s new in StoreKit and In-App Purchase (WWDC25-241).md"
+      "has_transcript": true
     },
     {
-      "id": "wwdc2025-202",
       "session_id": "202",
       "title": "What\u2019s new in Wallet",
       "description": "Discover the latest features and improvements in Wallet. We\u2019ll cover how to update your boarding passes with a stunning new design, and introduce new capabilities for multi-event tickets. We\u2019ll also discuss API changes that help you seamlessly add passes to Wallet.",
@@ -1556,13 +1397,11 @@
         "Pavel Bozdog"
       ],
       "apple_url": "https://developer.apple.com/videos/play/wwdc2025/202/",
-      "has_transcript": true,
-      "transcript_file": "What\u2019s new in Wallet (WWDC25-202).md"
+      "has_transcript": true
     }
   ],
   "Design": [
     {
-      "id": "wwdc2025-361",
       "session_id": "361",
       "title": "Create icons with Icon Composer",
       "description": "Learn how to use Icon Composer to make updated app icons for iOS, iPadOS, macOS, and watchOS. Find out how to export assets from your design tool of choice, add them to Icon Composer, apply real-time glass properties and other effects, and preview and adjust for different platforms and appearance modes.",
@@ -1576,11 +1415,9 @@
         "Lyam Bewry"
       ],
       "apple_url": "https://developer.apple.com/videos/play/wwdc2025/361/",
-      "has_transcript": true,
-      "transcript_file": "Create icons with Icon Composer (WWDC25-361).md"
+      "has_transcript": true
     },
     {
-      "id": "wwdc2025-359",
       "session_id": "359",
       "title": "Design foundations from idea to interface",
       "description": "Great apps feel clear, intuitive, and effortless to use. In this session, you\u2019ll discover how app design can elevate functionality, communicate purpose, guide people through your content, and use components thoughtfully to keep the experience simple without losing impact. This session is for designers and developers of all skill levels \u2014 as well as anyone curious about design.",
@@ -1596,11 +1433,9 @@
         "Majo Corino"
       ],
       "apple_url": "https://developer.apple.com/videos/play/wwdc2025/359/",
-      "has_transcript": true,
-      "transcript_file": "Design foundations from idea to interface (WWDC25-359).md"
+      "has_transcript": true
     },
     {
-      "id": "wwdc2025-303",
       "session_id": "303",
       "title": "Design hover interactions for visionOS",
       "description": "Discover how to create advanced interactions for your visionOS apps. We\u2019ll explore how you can design compelling custom hover effects and animations, avoid common mistakes, take advantage of interactions like Look to Scroll, and build intuitive media controls with persistence effects.",
@@ -1612,11 +1447,9 @@
         "Nathan Gitter"
       ],
       "apple_url": "https://developer.apple.com/videos/play/wwdc2025/303/",
-      "has_transcript": true,
-      "transcript_file": "Design hover interactions for visionOS (WWDC25-303).md"
+      "has_transcript": true
     },
     {
-      "id": "wwdc2025-281",
       "session_id": "281",
       "title": "Design interactive snippets",
       "description": "Snippets are compact views invoked from App Intents that display information from your app. Now, snippets can allow your app to bring even more capability to Siri, Spotlight, and the Shortcuts app by including buttons and stateful information that offer additional interactivity as part of an intent. In this session, you\u2019ll learn best practices for designing snippets, including guidance on layout, typography, interaction, and intent types.",
@@ -1631,11 +1464,9 @@
         "Ray Pai"
       ],
       "apple_url": "https://developer.apple.com/videos/play/wwdc2025/281/",
-      "has_transcript": true,
-      "transcript_file": "Design interactive snippets (WWDC25-281).md"
+      "has_transcript": true
     },
     {
-      "id": "wwdc2025-255",
       "session_id": "255",
       "title": "Design widgets for visionOS",
       "description": "Learn how you can design beautiful widgets for visionOS 26 that blend effortlessly into someone\u2019s surroundings. Discover how you can add depth to your widget design and customize materials, sizes, and styles for spatial computing. We\u2019ll share how to adapt your existing widgets for visionOS, or design new widgets that feel like real objects.",
@@ -1648,11 +1479,9 @@
         "Moritz von Volkmann"
       ],
       "apple_url": "https://developer.apple.com/videos/play/wwdc2025/255/",
-      "has_transcript": true,
-      "transcript_file": "Design widgets for visionOS (WWDC25-255).md"
+      "has_transcript": true
     },
     {
-      "id": "wwdc2025-208",
       "session_id": "208",
       "title": "Elevate the design of your iPad app",
       "description": "Make your app look and feel great on iPadOS. Learn best practices for designing a responsive layout for resizable app windows. Get familiar with window controls and explore the best ways to accommodate them. Discover the building blocks of a great menu bar. And meet the new pointer and its updated effects.",
@@ -1664,11 +1493,9 @@
         "Rene Lee"
       ],
       "apple_url": "https://developer.apple.com/videos/play/wwdc2025/208/",
-      "has_transcript": true,
-      "transcript_file": "Elevate the design of your iPad app (WWDC25-208).md"
+      "has_transcript": true
     },
     {
-      "id": "wwdc2025-356",
       "session_id": "356",
       "title": "Get to know the new design system",
       "description": "Dive deeper into the new design system to explore key changes to visual design, information architecture, and core system components. Learn how the system reshapes the relationship between interface and content, enabling you to create designs that are dynamic, harmonious, and consistent across devices, screen sizes, and input modes.",
@@ -1683,11 +1510,9 @@
         "Maria Hristoforova"
       ],
       "apple_url": "https://developer.apple.com/videos/play/wwdc2025/356/",
-      "has_transcript": true,
-      "transcript_file": "Get to know the new design system (WWDC25-356).md"
+      "has_transcript": true
     },
     {
-      "id": "wwdc2025-404",
       "session_id": "404",
       "title": "Make a big impact with small writing changes",
       "description": "With the new design system across platforms, now\u2019s a perfect time to revisit the writing in your UI too. Learn how a few small changes, like removing repetition and leading with benefits, can quickly enhance the usability and clarity of your app.",
@@ -1704,11 +1529,9 @@
         "Liv Huntley"
       ],
       "apple_url": "https://developer.apple.com/videos/play/wwdc2025/404/",
-      "has_transcript": true,
-      "transcript_file": "Make a big impact with small writing changes (WWDC25-404).md"
+      "has_transcript": true
     },
     {
-      "id": "wwdc2025-219",
       "session_id": "219",
       "title": "Meet Liquid Glass",
       "description": "Liquid Glass unifies Apple platform design language while providing a more dynamic and expressive user experience. Get to know the design principles of Liquid Glass, explore its core optical and physical properties, and learn where to use it and why.",
@@ -1725,11 +1548,9 @@
         "Bruno Canales"
       ],
       "apple_url": "https://developer.apple.com/videos/play/wwdc2025/219/",
-      "has_transcript": true,
-      "transcript_file": "Meet Liquid Glass (WWDC25-219).md"
+      "has_transcript": true
     },
     {
-      "id": "wwdc2025-316",
       "session_id": "316",
       "title": "Principles of inclusive app design",
       "description": "Discover how understanding disability can help you create better apps for everyone. Find out how to make your apps more inclusive by supporting multiple types of interaction, providing customization, and adopting accessibility APIs.",
@@ -1746,11 +1567,9 @@
         "Lisa Mirth"
       ],
       "apple_url": "https://developer.apple.com/videos/play/wwdc2025/316/",
-      "has_transcript": true,
-      "transcript_file": "Principles of inclusive app design (WWDC25-316).md"
+      "has_transcript": true
     },
     {
-      "id": "wwdc2025-220",
       "session_id": "220",
       "title": "Say hello to the new look of app icons",
       "description": "Get an overview of the new app icon appearances for iOS, iPadOS, and macOS, including light and dark tints, and clear options. Learn how to use frostiness and translucency to make your app icon more vibrant, dynamic, and expressive, and find out how to ensure your icon works well with specular highlights.",
@@ -1764,11 +1583,9 @@
         "Marie Dommenget"
       ],
       "apple_url": "https://developer.apple.com/videos/play/wwdc2025/220/",
-      "has_transcript": true,
-      "transcript_file": "Say hello to the new look of app icons (WWDC25-220).md"
+      "has_transcript": true
     },
     {
-      "id": "wwdc2025-337",
       "session_id": "337",
       "title": "What\u2019s new in SF Symbols 7",
       "description": "Explore the latest updates to SF Symbols, Apple\u2019s library of iconography. Meet Draw, a new animation system that allows symbols to imitate the organic flow of a handwritten stroke, and Variable Draw, which can be used to convey strength or progress. Discover Gradients, which add dimension and visual interest to symbols, and Magic Replace enhancements, which offer greater continuity between related symbols. And learn how to preview and integrate these features into your own apps.",
@@ -1784,11 +1601,9 @@
         "Kelsey Varbel"
       ],
       "apple_url": "https://developer.apple.com/videos/play/wwdc2025/337/",
-      "has_transcript": true,
-      "transcript_file": "What\u2019s new in SF Symbols 7 (WWDC25-337).md"
+      "has_transcript": true
     },
     {
-      "id": "meet-with-apple-208",
       "session_id": "208",
       "title": "Showcase: Learn how apps are integrating the new design and Liquid Glass",
       "description": "Learn directly from developers about how they implemented the new design and Liquid Glass across Apple platforms. In this series of online presentations by third-party teams, you\u2019ll find out how developers of all sizes are embracing native design, expressing their brand identities, and quickly and successfully adopting the latest features. This activity also includes a panel discussion with Apple designers.",
@@ -1816,11 +1631,9 @@
         "Bobby Martin"
       ],
       "apple_url": "https://developer.apple.com/videos/play/meet-with-apple/208/",
-      "has_transcript": true,
-      "transcript_file": "Elevate the design of your iPad app (WWDC25-208).md"
+      "has_transcript": true
     },
     {
-      "id": "meet-with-apple-254",
       "session_id": "254",
       "title": "Liquid Glass showcase: LTK",
       "description": "Learn how LTK evolved their app for iOS 26 and Liquid Glass. In this video, Jeseka Hahn, VP of Product Design, explains how her team created alignment while boosting engagement and efficiency.",
@@ -1832,11 +1645,9 @@
         "Jeseka Hahn"
       ],
       "apple_url": "https://developer.apple.com/videos/play/meet-with-apple/254/",
-      "has_transcript": true,
-      "transcript_file": "Explore Metal 4 games (WWDC25-254).md"
+      "has_transcript": true
     },
     {
-      "id": "meet-with-apple-255",
       "session_id": "255",
       "title": "Liquid Glass showcase: Slack",
       "description": "Find out how Slack reimagined their app experience for the new design and Liquid Glass. In this session, Jaime DeLanghe and Akshay Bakshi share how Slack's product philosophy, design strategy, and strategic integration of native controls deliver a more delightful and efficient user experience.",
@@ -1851,11 +1662,9 @@
         "Akshay Bakshi"
       ],
       "apple_url": "https://developer.apple.com/videos/play/meet-with-apple/255/",
-      "has_transcript": true,
-      "transcript_file": "Design widgets for visionOS (WWDC25-255).md"
+      "has_transcript": true
     },
     {
-      "id": "meet-with-apple-256",
       "session_id": "256",
       "title": "Liquid Glass showcase: CNN",
       "description": "CNN's investment in SwiftUI has enabled their engineering teams to quickly adopt the new design and Liquid Glass. In this video, Kevin Long, Director of Mobile Apps at CNN, shares the benefits of building native experiences while highlighting his team's key engineering learnings.",
@@ -1867,11 +1676,9 @@
         "Kevin Long"
       ],
       "apple_url": "https://developer.apple.com/videos/play/meet-with-apple/256/",
-      "has_transcript": true,
-      "transcript_file": "What\u2019s new in SwiftUI (WWDC25-256).md"
+      "has_transcript": true
     },
     {
-      "id": "meet-with-apple-257",
       "session_id": "257",
       "title": "Liquid Glass showcase: Tide Guide",
       "description": "In this session, you'll learn how indie developer Tucker MacDonald updated his tide and marine weather app for the new design system and extended his designs and custom elements across iOS, iPadOS, watchOS, and macOS.",
@@ -1884,13 +1691,11 @@
         "Tucker MacDonald"
       ],
       "apple_url": "https://developer.apple.com/videos/play/meet-with-apple/257/",
-      "has_transcript": true,
-      "transcript_file": "Optimize home electricity usage with EnergyKit (WWDC25-257).md"
+      "has_transcript": true
     }
   ],
   "Accessibility & Inclusion": [
     {
-      "id": "wwdc2025-238",
       "session_id": "238",
       "title": "Customize your app for Assistive Access",
       "description": "Assistive Access is a distinctive, focused iOS experience that makes it easier for people with cognitive disabilities to use iPhone and iPad independently. In iOS and iPadOS 26, you can customize your app when it\u2019s running in Assistive Access to give people greater ease and independence. Learn how to tailor your app using the AssistiveAccess SwiftUI scene type, and explore the key design principles that can help you create a high-quality Assistive Access experience for everyone.",
@@ -1902,11 +1707,9 @@
         "Anne Haueter"
       ],
       "apple_url": "https://developer.apple.com/videos/play/wwdc2025/238/",
-      "has_transcript": true,
-      "transcript_file": "Customize your app for Assistive Access (WWDC25-238).md"
+      "has_transcript": true
     },
     {
-      "id": "wwdc2025-224",
       "session_id": "224",
       "title": "Evaluate your app for Accessibility Nutrition Labels",
       "description": "Use Accessibility Nutrition Labels on your App Store product page to highlight the accessibility features supported by your app. You\u2019ll learn how to evaluate your app\u2019s accessibility features \u2014 such as VoiceOver, Larger Text, Captions, and more \u2014 and choose accurate and informative Accessibility Nutrition Labels. You\u2019ll also find out how to approach accessibility throughout the design phase.",
@@ -1923,11 +1726,9 @@
         "Lisa Mirth"
       ],
       "apple_url": "https://developer.apple.com/videos/play/wwdc2025/224/",
-      "has_transcript": true,
-      "transcript_file": "Evaluate your app for Accessibility Nutrition Labels (WWDC25-224).md"
+      "has_transcript": true
     },
     {
-      "id": "wwdc2025-229",
       "session_id": "229",
       "title": "Make your Mac app more accessible to everyone",
       "description": "Learn how to integrate accessibility features that take full advantage of the power and flexibility of macOS. Go beyond the basics to learn how to support VoiceOver and Voice Control, improve the layout of your views, explore how assistive technologies navigate your content, and more.",
@@ -1939,13 +1740,11 @@
         "Nicholas Josephson"
       ],
       "apple_url": "https://developer.apple.com/videos/play/wwdc2025/229/",
-      "has_transcript": true,
-      "transcript_file": "Make your Mac app more accessible to everyone (WWDC25-229).md"
+      "has_transcript": true
     }
   ],
   "Privacy & Security": [
     {
-      "id": "wwdc2025-299",
       "session_id": "299",
       "title": "Deliver age-appropriate experiences in your app",
       "description": "Learn how to deliver age-appropriate experiences in your app with the new Declared Age Range API. We\u2019ll cover how parents can allow their child to share an age range with an app to ensure a safe experience in a privacy-preserving way. We\u2019ll also explore how this framework can help you tailor your app\u2019s content and features based on a user\u2019s age, and show you how to implement age gates, understand caching, and respect user privacy while creating safer and more engaging experiences.",
@@ -1958,11 +1757,9 @@
         "Austin Marusco"
       ],
       "apple_url": "https://developer.apple.com/videos/play/wwdc2025/299/",
-      "has_transcript": true,
-      "transcript_file": "Deliver age-appropriate experiences in your app (WWDC25-299).md"
+      "has_transcript": true
     },
     {
-      "id": "wwdc2025-293",
       "session_id": "293",
       "title": "Enhance child safety with PermissionKit",
       "description": "Discover how PermissionKit helps you enhance communication safety for children in your app. We\u2019ll show you how to use this new framework to create age-appropriate communication experiences and leverage Family Sharing for parental approvals. You\u2019ll learn how to build permission requests that seamlessly integrate with Messages, handle parental responses, and adapt your UI for child users. To get the most out of this session, we recommend first watching \u201cDeliver age-appropriate experiences in your app\u201d from WWDC25.",
@@ -1975,11 +1772,9 @@
         "Andrew Whitehead"
       ],
       "apple_url": "https://developer.apple.com/videos/play/wwdc2025/293/",
-      "has_transcript": true,
-      "transcript_file": "Enhance child safety with PermissionKit (WWDC25-293).md"
+      "has_transcript": true
     },
     {
-      "id": "wwdc2025-314",
       "session_id": "314",
       "title": "Get ahead with quantum-secure cryptography",
       "description": "Learn how to protect your app\u2019s sensitive user data from the emerging threat of quantum computing, and safeguard user privacy. We\u2019ll explore different quantum attacks, their impact on existing cryptographic protocols, and how to defend against them using quantum-secure cryptography. You\u2019ll learn how to use quantum-secure TLS to secure network data, and use CryptoKit\u2019s quantum-secure APIs for securing application data.",
@@ -1995,11 +1790,9 @@
         "Cathie Yun"
       ],
       "apple_url": "https://developer.apple.com/videos/play/wwdc2025/314/",
-      "has_transcript": true,
-      "transcript_file": "Get ahead with quantum-secure cryptography (WWDC25-314).md"
+      "has_transcript": true
     },
     {
-      "id": "wwdc2025-246",
       "session_id": "246",
       "title": "Integrate privacy into your development process",
       "description": "Learn how to build privacy into your apps from the planning stages through deployment. We\u2019ll cover practical ways to integrate privacy at each step of the development lifecycle, focusing on data minimization, on-device processing, and transparency and control. You\u2019ll discover how to use Apple\u2019s tools and frameworks to protect user data and create a privacy-respecting app experience.",
@@ -2015,11 +1808,9 @@
         "Joey Tyson"
       ],
       "apple_url": "https://developer.apple.com/videos/play/wwdc2025/246/",
-      "has_transcript": true,
-      "transcript_file": "Integrate privacy into your development process (WWDC25-246).md"
+      "has_transcript": true
     },
     {
-      "id": "wwdc2025-279",
       "session_id": "279",
       "title": "What\u2019s new in passkeys",
       "description": "Discover how iOS, iPadOS, macOS, and visionOS 26 enhance passkeys. We\u2019ll explore key updates including: the new account creation API for streamlined sign-up, keeping passkeys up-to-date, new ways to drive passkey upgrades through automatic passkey upgrades and passkey management endpoints, and the secure import/export of passkeys. Learn how these improvements enhance user experience and security, and how to implement these updates in your apps to provide a smoother, more secure authentication experience. To get the most out of this video, first watch \u201cMeet passkeys\u201d from WWDC22.",
@@ -2034,11 +1825,9 @@
         "Andrew Abosh"
       ],
       "apple_url": "https://developer.apple.com/videos/play/wwdc2025/279/",
-      "has_transcript": true,
-      "transcript_file": "What\u2019s new in passkeys (WWDC25-279).md"
+      "has_transcript": true
     },
     {
-      "id": "meet-with-apple-206",
       "session_id": "206",
       "title": "Secure your app with Memory Integrity Enforcement",
       "description": "Discover Memory Integrity Enforcement (MIE), a new security technology where hardware, the operating system, and the compiler work together to prevent access to invalid memory, safely aborting program execution before vulnerabilities can be exploited. Find out how MIE makes it far more difficult for attackers to take advantage of memory corruption bugs. Learn how to adopt MIE in your app to protect people and their data, while also rooting out hard-to-find memory issues in your code base.",
@@ -2055,13 +1844,11 @@
         "Julian Lettner"
       ],
       "apple_url": "https://developer.apple.com/videos/play/meet-with-apple/206/",
-      "has_transcript": false,
-      "transcript_file": null
+      "has_transcript": false
     }
   ],
   "System Services": [
     {
-      "id": "wwdc2025-325",
       "session_id": "325",
       "title": "Discover Apple-Hosted Background Assets",
       "description": "Building on Background Assets, this session will introduce the new capability to download asset packs of content for games and other applications. Learn how Apple can host these asset packs for you or how to manage self-hosting options. We\u2019ll delve into the native API integration and the corresponding App Store implementations, providing you with the tools to enhance your app\u2019s content delivery and user experience.",
@@ -2077,11 +1864,9 @@
         "Jenny Li"
       ],
       "apple_url": "https://developer.apple.com/videos/play/wwdc2025/325/",
-      "has_transcript": true,
-      "transcript_file": "Discover Apple-Hosted Background Assets (WWDC25-325).md"
+      "has_transcript": true
     },
     {
-      "id": "wwdc2025-234",
       "session_id": "234",
       "title": "Filter and tunnel network traffic with NetworkExtension",
       "description": "Learn about the APIs in the NetworkExtension framework that give your app the power and flexibility to extend the system\u2019s core networking features \u2014 like implementing network content filters, creating and managing VPN configurations, and more. In iOS, iPadOS and macOS 26, you can now build robust content filters that make traffic decisions using the entire URL \u2014 not just the hostname \u2014 all without compromising privacy and security. We\u2019ll start by briefly covering many of the key use cases for the NetworkExtension framework, including network relays and VPN. Then, we\u2019ll dive into the new URL filter API and its key components, including Private Information Retrieval, Privacy Pass, and more.",
@@ -2097,11 +1882,9 @@
         "Maria Alice Dos Santos"
       ],
       "apple_url": "https://developer.apple.com/videos/play/wwdc2025/234/",
-      "has_transcript": true,
-      "transcript_file": "Filter and tunnel network traffic with NetworkExtension (WWDC25-234).md"
+      "has_transcript": true
     },
     {
-      "id": "wwdc2025-227",
       "session_id": "227",
       "title": "Finish tasks in the background",
       "description": "Discover background execution advancements and understand how the system schedules runtime. We\u2019ll discuss how to get the most out of background runtime to allow your app to deliver features in the background while maintaining a great foreground experience. We\u2019ll also cover how APIs provide background runtime for your app, and how each API is tailored for different use cases \u2014 including new APIs in iOS and iPadOS 26 that let your app finish tasks as your app transitions from the foreground to the background.",
@@ -2113,11 +1896,9 @@
         "Ryan Elliott"
       ],
       "apple_url": "https://developer.apple.com/videos/play/wwdc2025/227/",
-      "has_transcript": true,
-      "transcript_file": "Finish tasks in the background (WWDC25-227).md"
+      "has_transcript": true
     },
     {
-      "id": "wwdc2025-257",
       "session_id": "257",
       "title": "Optimize home electricity usage with EnergyKit",
       "description": "Learn how to support EnergyKit in your app so people can optimize electricity usage at home. This can help people run appliances or charge EVs during times when electricity is cleaner and cheaper. Get details about onboarding, generating a charging schedule, and providing energy usage insights back to people through electricity usage feedback.",
@@ -2129,11 +1910,9 @@
         "Dakshil Shah"
       ],
       "apple_url": "https://developer.apple.com/videos/play/wwdc2025/257/",
-      "has_transcript": true,
-      "transcript_file": "Optimize home electricity usage with EnergyKit (WWDC25-257).md"
+      "has_transcript": true
     },
     {
-      "id": "wwdc2025-228",
       "session_id": "228",
       "title": "Supercharge device connectivity with Wi-Fi Aware",
       "description": "Learn how to create peer-to-peer network connections with Wi-Fi Aware. We\u2019ll also cover how to share videos in real time, transfer large files, and control accessories with improved bandwidth and lower latency. And you\u2019ll learn how to use DeviceDiscoveryUI, AccessorySetupKit, and the Network framework to use Wi-Fi Aware in your app.",
@@ -2149,11 +1928,9 @@
         "Swetank Kumar Saha"
       ],
       "apple_url": "https://developer.apple.com/videos/play/wwdc2025/228/",
-      "has_transcript": true,
-      "transcript_file": "Supercharge device connectivity with Wi-Fi Aware (WWDC25-228).md"
+      "has_transcript": true
     },
     {
-      "id": "wwdc2025-250",
       "session_id": "250",
       "title": "Use structured concurrency with Network framework",
       "description": "Network framework is the best way to make low-level network connections on Apple platforms \u2014 and in iOS, iPadOS, and macOS 26, it\u2019s a perfect fit for your structured concurrency code. We\u2019ll explore how you can make connections, send and receive data and framed messages, listen for incoming connections, and browse the network for services. We\u2019ll also cover key best practices along the way.",
@@ -2169,11 +1946,9 @@
         "Scott Herscher"
       ],
       "apple_url": "https://developer.apple.com/videos/play/wwdc2025/250/",
-      "has_transcript": true,
-      "transcript_file": "Use structured concurrency with Network framework (WWDC25-250).md"
+      "has_transcript": true
     },
     {
-      "id": "meet-with-apple-212",
       "session_id": "212",
       "title": "Optimize your app\u2019s speed and efficiency",
       "description": "Join us online to learn how to elevate your app experience by maximizing performance and resolving inefficiencies. Whether you\u2019re optimizing an existing app or just starting out, you\u2019ll learn how to improve your app\u2019s responsiveness with SwiftUI, monitor performance when using foundation models, and explore ways to reduce your app\u2019s battery usage.",
@@ -2193,13 +1968,11 @@
         "Alejandro Lucena"
       ],
       "apple_url": "https://developer.apple.com/videos/play/meet-with-apple/212/",
-      "has_transcript": false,
-      "transcript_file": null
+      "has_transcript": false
     }
   ],
   "Photos & Camera": [
     {
-      "id": "wwdc2025-251",
       "session_id": "251",
       "title": "Enhance your app\u2019s audio recording capabilities",
       "description": "Learn how to improve your app\u2019s audio recording functionality. Explore the flexibility of audio device selection using the input picker interaction on iOS and iPadOS 26. Discover APIs available for high-quality voice recording using AirPods. We\u2019ll also introduce spatial audio recording and editing capabilities that allow you to isolate speech and ambient background sounds \u2014 all using the the AudioToolbox, AVFoundation, and Cinematic frameworks.",
@@ -2212,11 +1985,9 @@
         "Steve Nimick"
       ],
       "apple_url": "https://developer.apple.com/videos/play/wwdc2025/251/",
-      "has_transcript": true,
-      "transcript_file": "Enhance your app\u2019s audio recording capabilities (WWDC25-251).md"
+      "has_transcript": true
     },
     {
-      "id": "wwdc2025-253",
       "session_id": "253",
       "title": "Enhancing your camera experience with capture controls",
       "description": "Learn how to customize capture controls in your camera experiences. We\u2019ll show you how to take photos with all physical capture controls, including new AirPods support, and how to adjust settings with Camera Control.",
@@ -2229,13 +2000,11 @@
         "Nick Lupinetti"
       ],
       "apple_url": "https://developer.apple.com/videos/play/wwdc2025/253/",
-      "has_transcript": true,
-      "transcript_file": "Enhancing your camera experience with capture controls (WWDC25-253).md"
+      "has_transcript": true
     }
   ],
   "Business & Education": [
     {
-      "id": "wwdc2025-223",
       "session_id": "223",
       "title": "Explore enhancements to your spatial business app",
       "description": "Discover how the latest enhancements and APIs in visionOS 26 expand access and extend enterprise capabilities announced last year. Learn how these all-new features make it easy to build model training workflows, enhance video feeds, and enable you to align coordinate systems over a local network to develop collaborative experiences in your in-house app.",
@@ -2247,11 +2016,9 @@
         "Alex Powers"
       ],
       "apple_url": "https://developer.apple.com/videos/play/wwdc2025/223/",
-      "has_transcript": true,
-      "transcript_file": "Explore enhancements to your spatial business app (WWDC25-223).md"
+      "has_transcript": true
     },
     {
-      "id": "wwdc2025-203",
       "session_id": "203",
       "title": "Get to know the ManagedApp Framework",
       "description": "Discover how the ManagedApp framework helps your app adapt to managed environments. We\u2019ll show you how to receive configuration data, manage app secrets securely, and tailor your app\u2019s behavior based on organization-provided settings. We\u2019ll also walk through real-world examples to show how you can build more flexible, manageable apps for enterprise and education environments.",
@@ -2264,11 +2031,9 @@
         "Bob Whiteman"
       ],
       "apple_url": "https://developer.apple.com/videos/play/wwdc2025/203/",
-      "has_transcript": true,
-      "transcript_file": "Get to know the ManagedApp Framework (WWDC25-203).md"
+      "has_transcript": true
     },
     {
-      "id": "wwdc2025-258",
       "session_id": "258",
       "title": "What\u2019s new in Apple device management and identity",
       "description": "Designed for IT administrators, MDM developers, and identity providers, this session covers the latest updates to Declarative Device Management, Apple Business Manager, Apple School Manager, Platform Single Sign-On, and more. Learn how these advancements streamline deployment, strengthen security, and improve the user experience.",
@@ -2284,13 +2049,11 @@
         "Graham McLuhan"
       ],
       "apple_url": "https://developer.apple.com/videos/play/wwdc2025/258/",
-      "has_transcript": true,
-      "transcript_file": "What\u2019s new in Apple device management and identity (WWDC25-258).md"
+      "has_transcript": true
     }
   ],
   "Spatial Computing": [
     {
-      "id": "wwdc2025-289",
       "session_id": "289",
       "title": "Explore spatial accessory input on visionOS",
       "description": "Learn how you can integrate spatial accessories into your app. Display virtual content, interact with your app, track them in space, and get information on interactions for enhanced virtual experiences on visionOS.",
@@ -2302,11 +2065,9 @@
         "Amanda Han"
       ],
       "apple_url": "https://developer.apple.com/videos/play/wwdc2025/289/",
-      "has_transcript": true,
-      "transcript_file": "Explore spatial accessory input on visionOS (WWDC25-289).md"
+      "has_transcript": true
     },
     {
-      "id": "wwdc2025-304",
       "session_id": "304",
       "title": "Explore video experiences for visionOS",
       "description": "Learn about the different ways you can create and present immersive video experiences within your app. We\u2019ll explore the diverse media types available in visionOS 26, including profiles for 180\u00b0, 360\u00b0, and wide FOV video; options for creating and playing Apple Immersive Video; and expanded capabilities for 2D, 3D, and spatial video. Discover which profiles are best for your app and its content.",
@@ -2318,11 +2079,9 @@
         "Dave Addey"
       ],
       "apple_url": "https://developer.apple.com/videos/play/wwdc2025/304/",
-      "has_transcript": true,
-      "transcript_file": "Explore video experiences for visionOS (WWDC25-304).md"
+      "has_transcript": true
     },
     {
-      "id": "wwdc2025-403",
       "session_id": "403",
       "title": "Learn about Apple Immersive Video technologies",
       "description": "Explore the capabilities of Apple Immersive Video and Apple Spatial Audio Format technologies to create truly immersive experiences. Meet the new ImmersiveMediaSupport framework, which offers functionality to read and write the necessary metadata for enabling Apple Immersive Video. Learn guidelines for encoding and publishing Apple Immersive Video content in standalone files for playback or streaming via HLS.\n\nTo get the most out of this session, we recommend first watching \u201cExplore video experiences for visionOS.\u201d",
@@ -2334,11 +2093,9 @@
         "Blake Gordon"
       ],
       "apple_url": "https://developer.apple.com/videos/play/wwdc2025/403/",
-      "has_transcript": true,
-      "transcript_file": "Learn about Apple Immersive Video technologies (WWDC25-403).md"
+      "has_transcript": true
     },
     {
-      "id": "wwdc2025-305",
       "session_id": "305",
       "title": "Optimize your custom environments for visionOS",
       "description": "Discover how you can use procedural tools to create beautiful immersive environments for your visionOS app or game. We\u2019ll share the building blocks for creating a high-quality environment, then dive deep into the optimization process. Learn how to use a series of Apple-provided workflows for Houdini to reduce your scene\u2019s polygon count, clean up geometry, package UV maps, and create USD assets to import into Reality Composer Pro or your game engine of choice.",
@@ -2351,11 +2108,9 @@
         "Alex Haworth"
       ],
       "apple_url": "https://developer.apple.com/videos/play/wwdc2025/305/",
-      "has_transcript": true,
-      "transcript_file": "Optimize your custom environments for visionOS (WWDC25-305).md"
+      "has_transcript": true
     },
     {
-      "id": "wwdc2025-318",
       "session_id": "318",
       "title": "Share visionOS experiences with nearby people",
       "description": "Learn how to create shared experiences for people wearing Vision Pro in the same room. We\u2019ll show you how to integrate SharePlay and leverage ARKit in your app, introduce the updated window sharing flows for nearby and FaceTime participants, and cover new API designed for seamless collaboration. Discover best practices to make your collaborative features stand out, easily discoverable, and engaging for people together in the same space.",
@@ -2367,11 +2122,9 @@
         "Connor Smith"
       ],
       "apple_url": "https://developer.apple.com/videos/play/wwdc2025/318/",
-      "has_transcript": true,
-      "transcript_file": "Share visionOS experiences with nearby people (WWDC25-318).md"
+      "has_transcript": true
     },
     {
-      "id": "wwdc2025-296",
       "session_id": "296",
       "title": "Support immersive video playback in visionOS apps",
       "description": "Discover how to play immersive videos in visionOS apps. We\u2019ll cover various immersive rendering modes, review the frameworks that support them, and walk through how to render immersive video in your app. To get the most out of this video, we recommend first watching \u201cExplore video experiences for visionOS\u201d from WWDC25.",
@@ -2384,11 +2137,9 @@
         "Michael Weinstein"
       ],
       "apple_url": "https://developer.apple.com/videos/play/wwdc2025/296/",
-      "has_transcript": true,
-      "transcript_file": "Support immersive video playback in visionOS apps (WWDC25-296).md"
+      "has_transcript": true
     },
     {
-      "id": "wwdc2025-294",
       "session_id": "294",
       "title": "What\u2019s new in Metal rendering for immersive apps",
       "description": "Discover the latest improvements in Metal rendering for immersive apps with Compositor Services. Learn how to add hover effects to highlight your app\u2019s interactive elements, and how to render in higher fidelity with dynamic render quality. Find out about the new progressive immersion style. And explore how you can bring immersive experiences to macOS apps by directly rendering Metal content from Mac to Vision Pro. \n\nTo get the most out of this session, first watch \u201cDiscover Metal for immersive apps\u201d from WWDC23.",
@@ -2401,11 +2152,9 @@
         "Ricardo Sanchez-Saez"
       ],
       "apple_url": "https://developer.apple.com/videos/play/wwdc2025/294/",
-      "has_transcript": true,
-      "transcript_file": "What\u2019s new in Metal rendering for immersive apps (WWDC25-294).md"
+      "has_transcript": true
     },
     {
-      "id": "wwdc2025-287",
       "session_id": "287",
       "title": "What\u2019s new in RealityKit",
       "description": "Unleash your creativity with new RealityKit features that can help you build rich 3D content for iOS, iPadOS, macOS, tvOS and visionOS. Learn how you can access ARKit data directly through RealityKit. Explore how you can interact with your 3D content more naturally using the object manipulation feature. Discover some new APIs for scene understanding, environment blending, instancing and much more, all using an interactive sample.",
@@ -2420,11 +2169,9 @@
         "Laurence Wong"
       ],
       "apple_url": "https://developer.apple.com/videos/play/wwdc2025/287/",
-      "has_transcript": true,
-      "transcript_file": "What\u2019s new in RealityKit (WWDC25-287).md"
+      "has_transcript": true
     },
     {
-      "id": "wwdc2025-317",
       "session_id": "317",
       "title": "What\u2019s new in visionOS 26",
       "description": "Explore exciting new features in visionOS 26. Discover enhanced volumetric APIs and learn how you can combine the power of SwiftUI, RealityKit and ARKit. Find out how you can build more engaging apps and games using faster hand tracking and input from spatial accessories. Get a sneak peek at updates to SharePlay, Compositor Services, immersive media, spatial web, Enterprise APIs, and much more.",
@@ -2438,11 +2185,9 @@
         "Enrica Casucci"
       ],
       "apple_url": "https://developer.apple.com/videos/play/wwdc2025/317/",
-      "has_transcript": true,
-      "transcript_file": "What\u2019s new in visionOS 26 (WWDC25-317).md"
+      "has_transcript": true
     },
     {
-      "id": "meet-with-apple-209",
       "session_id": "209",
       "title": "Create immersive media experiences for visionOS - Day 1",
       "description": "Learn how to create compelling interactive experiences for visionOS and capture immersive video in this multi-day live streamed activity.\n\nOn Day 1, we\u2019ll show how visionOS 26 can help you tell impactful immersive and interactive stories. You\u2019ll learn how to frame your creative ideas for formats like Apple Immersive Video and explore real-world examples from past productions. You\u2019ll discover how to design for spatial interaction and tell stories that make the audience part of your experience. And you\u2019ll find out how to use SharePlay and spatial Personas to help people connect over your ideas.",
@@ -2463,11 +2208,9 @@
         "Alex Rodriguez"
       ],
       "apple_url": "https://developer.apple.com/videos/play/meet-with-apple/209/",
-      "has_transcript": true,
-      "transcript_file": "Level up your games (WWDC25-209).md"
+      "has_transcript": true
     },
     {
-      "id": "meet-with-apple-216",
       "session_id": "216",
       "title": "What\u2019s new in immersive media for visionOS",
       "description": "Get to know the different types of media you can make for apps, games, and experiences in visionOS. Learn about updates for 2D and 3D video, spatial video, and more immersive media formats like 180, 360, Wide FOV, and Apple Immersive Video.",
@@ -2479,11 +2222,9 @@
         "Tim Dashwood"
       ],
       "apple_url": "https://developer.apple.com/videos/play/meet-with-apple/216/",
-      "has_transcript": true,
-      "transcript_file": "Turbocharge your app for CarPlay (WWDC25-216).md"
+      "has_transcript": true
     },
     {
-      "id": "meet-with-apple-217",
       "session_id": "217",
       "title": "What\u2019s new in interactive media for visionOS",
       "description": "Discover the latest updates to visionOS 26 that can help you build stunning interactive moments for your apps, games, and experiences.",
@@ -2495,11 +2236,9 @@
         "Adarsh Pavani"
       ],
       "apple_url": "https://developer.apple.com/videos/play/meet-with-apple/217/",
-      "has_transcript": false,
-      "transcript_file": null
+      "has_transcript": false
     },
     {
-      "id": "meet-with-apple-218",
       "session_id": "218",
       "title": "Create stories with immersive video and audio",
       "description": "Learn the foundations for creating compelling and powerful stories when creating Apple Immersive Video and spatial video experiences. Discover techniques for establishing presence, building authenticity, working with proximity, and creating connection.",
@@ -2511,11 +2250,9 @@
         "Elliot Graves"
       ],
       "apple_url": "https://developer.apple.com/videos/play/meet-with-apple/218/",
-      "has_transcript": false,
-      "transcript_file": null
+      "has_transcript": false
     },
     {
-      "id": "meet-with-apple-219",
       "session_id": "219",
       "title": "Design immersive and interactive experiences",
       "description": "Discover design fundamentals and best practices for making immersive and interactive media apps, games, and experiences in visionOS. Find out how to use immersion and interaction within your experiences, build spatial interfaces that support your storytelling, and enrich your content with immersive soundscapes.",
@@ -2527,11 +2264,9 @@
         "Serenity Caldwell"
       ],
       "apple_url": "https://developer.apple.com/videos/play/meet-with-apple/219/",
-      "has_transcript": true,
-      "transcript_file": "Meet Liquid Glass (WWDC25-219).md"
+      "has_transcript": true
     },
     {
-      "id": "meet-with-apple-220",
       "session_id": "220",
       "title": "Build spatial experiences with RealityKit",
       "description": "Learn how you can build experiences for visionOS. Explore how native Apple frameworks like SwiftUI and RealityKit can help you build compelling stories and games. Find out how Reality Composer Pro can help you bring in 3D assets, create compelling environments, and build fluid animations.",
@@ -2543,11 +2278,9 @@
         "Nathaniel Ellingson"
       ],
       "apple_url": "https://developer.apple.com/videos/play/meet-with-apple/220/",
-      "has_transcript": true,
-      "transcript_file": "Say hello to the new look of app icons (WWDC25-220).md"
+      "has_transcript": true
     },
     {
-      "id": "meet-with-apple-221",
       "session_id": "221",
       "title": "Build shared experiences for visionOS",
       "description": "Learn how to build media apps, games, and experiences for visionOS that can be shared with others using SharePlay and FaceTime. Learn how to work with spatial Personas, enable simultaneous playback, hand off virtual objects, place people in scenes, and help people connect with local and faraway participants. And find out how you can combine these APIs as we prototype an all-new shared experience for visionOS.",
@@ -2560,11 +2293,9 @@
         "Alex Rodriguez"
       ],
       "apple_url": "https://developer.apple.com/videos/play/meet-with-apple/221/",
-      "has_transcript": true,
-      "transcript_file": "What\u2019s new in AdAttributionKit (WWDC25-221).md"
+      "has_transcript": true
     },
     {
-      "id": "meet-with-apple-210",
       "session_id": "210",
       "title": "Create immersive media experiences for visionOS - Day 2",
       "description": "Learn how to create compelling interactive experiences for visionOS and capture immersive video in this multi-day live streamed activity.\n\nOn Day 2, we\u2019ll dive deep into Apple Immersive Video with Apple Spatial Audio. You\u2019ll discover how to create entirely new media experiences, get started with Apple Immersive Video, explore new production workflows, and dig into previous Apple Immersive productions.",
@@ -2590,11 +2321,9 @@
         "Matt Amick"
       ],
       "apple_url": "https://developer.apple.com/videos/play/meet-with-apple/210/",
-      "has_transcript": false,
-      "transcript_file": null
+      "has_transcript": false
     },
     {
-      "id": "meet-with-apple-222",
       "session_id": "222",
       "title": "Meet the Apple Immersive Video format",
       "description": "Explore the foundations of the Apple Immersive Video format and learn how the system is engineered to preserve fidelity, presence of space, and world scale. This session introduces acuity targets, acquisition requirements, AIV file format structures, and foveation techniques. This session also focuses on the role of AIV specific metadata such as ILPD and motion comfort data in creating and playing back amazing AIV experiences.",
@@ -2606,11 +2335,9 @@
         "Ryan Sheridan"
       ],
       "apple_url": "https://developer.apple.com/videos/play/meet-with-apple/222/",
-      "has_transcript": true,
-      "transcript_file": "Enhance your app\u2019s multilingual experience (WWDC25-222).md"
+      "has_transcript": true
     },
     {
-      "id": "meet-with-apple-223",
       "session_id": "223",
       "title": "Meet Apple Spatial Audio Format and APAC",
       "description": "Discover how Apple Spatial Audio Format (ASAF) brings together Higher Order Ambisonics and object-based audio to create spatial precision that complements Apple Immersive Video. This session also introduces APAC, a highly efficient codec designed to play back high-resolution ASAF mixes at low bitrates while maintaining immersive detail and clarity.",
@@ -2622,11 +2349,9 @@
         "Dr. Deep Sen"
       ],
       "apple_url": "https://developer.apple.com/videos/play/meet-with-apple/223/",
-      "has_transcript": true,
-      "transcript_file": "Explore enhancements to your spatial business app (WWDC25-223).md"
+      "has_transcript": true
     },
     {
-      "id": "meet-with-apple-224",
       "session_id": "224",
       "title": "An introduction to capturing Apple Immersive Video",
       "description": "Learn how to prepare for and execute a successful Apple Immersive Video shoot. This session covers equipment setup, power and media management, spatial audio capture, and on-set monitoring approaches. You\u2019ll also explore ground and aerial rig options, along with best practices for reviewing dailies on Apple Vision Pro before wrapping production.",
@@ -2638,11 +2363,9 @@
         "Austin Novy"
       ],
       "apple_url": "https://developer.apple.com/videos/play/meet-with-apple/224/",
-      "has_transcript": true,
-      "transcript_file": "Evaluate your app for Accessibility Nutrition Labels (WWDC25-224).md"
+      "has_transcript": true
     },
     {
-      "id": "meet-with-apple-225",
       "session_id": "225",
       "title": "Spatial Audio workflows for Apple Immersive Video",
       "description": "Follow a step-by-step walkthrough of Spatial Audio workflows designed for Apple Immersive Video. Topics include capturing ambisonic beds and close-miked sources, building layers during sound editorial, and mixing directly in headphones to ensure accurate spatial alignment. The session highlights why reviewing mixes on Apple Vision Pro is essential for maintaining immersion.",
@@ -2654,11 +2377,9 @@
         "Alex Weiss"
       ],
       "apple_url": "https://developer.apple.com/videos/play/meet-with-apple/225/",
-      "has_transcript": true,
-      "transcript_file": "Code-along- Explore localization with Xcode (WWDC25-225).md"
+      "has_transcript": true
     },
     {
-      "id": "meet-with-apple-226",
       "session_id": "226",
       "title": "Apple Immersive Video-enabled workflows | Blackmagic Design",
       "description": "See how Blackmagic Design supports Apple Immersive Video through an end-to-end workflow, from the URSA Cine Immersive camera to immersive tools in DaVinci Resolve Studio 20. Learn how features support reviewing preview content on Apple Vision Pro, mixing in Spatial Audio, managing camera motion data, and delivery of final bundles using purpose-built presets.",
@@ -2670,11 +2391,9 @@
         "J. David Hoffman"
       ],
       "apple_url": "https://developer.apple.com/videos/play/meet-with-apple/226/",
-      "has_transcript": true,
-      "transcript_file": "Profile and optimize power usage in your app (WWDC25-226).md"
+      "has_transcript": true
     },
     {
-      "id": "meet-with-apple-227",
       "session_id": "227",
       "title": "Dailies and mastering for Apple Immersive Video | Colorfront",
       "description": "Learn how Colorfront streamlines Apple Immersive Video dailies and mastering using On Set Dailies (OSD) and Transcoder. This session walks through Apple Silicon-optimized performance, distributed rendering features, and how to handle metadata. You\u2019ll also explore a new integration with the MainConcept immersive encoding library that enhances final delivery efficiency and quality.",
@@ -2686,11 +2405,9 @@
         "Brandon Heaslip"
       ],
       "apple_url": "https://developer.apple.com/videos/play/meet-with-apple/227/",
-      "has_transcript": true,
-      "transcript_file": "Finish tasks in the background (WWDC25-227).md"
+      "has_transcript": true
     },
     {
-      "id": "meet-with-apple-228",
       "session_id": "228",
       "title": "Hosting and distributing Apple Immersive Video | SpatialGen",
       "description": "Explore how to host and distribute Apple Immersive Video through SpatialGen\u2019s platform. You'll learn about automating MV-HEVC and HLS stream creation, FairPlay DRM support, and generating stream links compatible with Apple platforms and Vision Pro apps.",
@@ -2702,11 +2419,9 @@
         "Zachary Handshoe"
       ],
       "apple_url": "https://developer.apple.com/videos/play/meet-with-apple/228/",
-      "has_transcript": true,
-      "transcript_file": "Supercharge device connectivity with Wi-Fi Aware (WWDC25-228).md"
+      "has_transcript": true
     },
     {
-      "id": "meet-with-apple-229",
       "session_id": "229",
       "title": "Previsualization for Apple Immersive: Learnings from \u201cOpen Hearts\u201d by The Weeknd",
       "description": "See how immersive previsualization elevates planning for Apple Immersive Video productions. This session demonstrates how CG tools helped test framing, movement, motion comfort, and VFX concepts in advance, which enabled alignment across teams and supported confident creative decisions for The Weeknd\u2019s \u201cOpen Hearts\" music video.",
@@ -2718,11 +2433,9 @@
         "Anton Tammi"
       ],
       "apple_url": "https://developer.apple.com/videos/play/meet-with-apple/229/",
-      "has_transcript": true,
-      "transcript_file": "Make your Mac app more accessible to everyone (WWDC25-229).md"
+      "has_transcript": true
     },
     {
-      "id": "meet-with-apple-230",
       "session_id": "230",
       "title": "Production expectations for Apple Immersive Video: Learnings from \u201cSubmerged\u201d",
       "description": "Gain insight into how to produce scripted immersive content with Apple Immersive Video. Explore how expanded production development, camera testing, pre-vis, and crew preparation contribute to a smoother production. The session also highlights how the format\u2019s acuity influences set design and lighting, and why reviewing footage on Apple Vision Pro is critical for evaluating detail and viewer comfort.",
@@ -2734,11 +2447,9 @@
         "Alex Miller"
       ],
       "apple_url": "https://developer.apple.com/videos/play/meet-with-apple/230/",
-      "has_transcript": true,
-      "transcript_file": "Wake up to the AlarmKit API (WWDC25-230).md"
+      "has_transcript": true
     },
     {
-      "id": "meet-with-apple-231",
       "session_id": "231",
       "title": "Capturing live events for Apple Immersive Video: Learnings from \"Metallica\"",
       "description": "Learn how to approach large-scale live events for Apple Immersive Video. This session covers the importance of access, mapping stage layouts, placing cameras effectively, and analyzing previous performances to anticipate the show. Using the Apple Immersive title \"Metallica\" as an example, you\u2019ll also see how pre-vis in Apple Vision Pro and stabilized capture systems help capture dynamic performances while maintaining comfort.",
@@ -2750,11 +2461,9 @@
         "Ivan Serrano"
       ],
       "apple_url": "https://developer.apple.com/videos/play/meet-with-apple/231/",
-      "has_transcript": true,
-      "transcript_file": "Meet WebKit for SwiftUI (WWDC25-231).md"
+      "has_transcript": true
     },
     {
-      "id": "meet-with-apple-232",
       "session_id": "232",
       "title": "The power of simplicity: Lessons from unscripted Apple Immersive titles",
       "description": "Discover techniques on how to craft compelling, unscripted immersive stories. This session explores how to create natural, grounded framing, choose viewer-comfortable distances and heights, and use spatial audio to guide attention. You\u2019ll also learn why building trust with subjects is essential, especially when immersive shots are longer and place people at the heart of the experience.",
@@ -2766,11 +2475,9 @@
         "France Costrel"
       ],
       "apple_url": "https://developer.apple.com/videos/play/meet-with-apple/232/",
-      "has_transcript": true,
-      "transcript_file": "Verify identity documents on the web (WWDC25-232).md"
+      "has_transcript": true
     },
     {
-      "id": "meet-with-apple-233",
       "session_id": "233",
       "title": "Preserving presence for Apple Immersive Video: Learnings from post production",
       "description": "Learn how to protect presence throughout post production for Apple Immersive Video. The session covers how to review dailies on Apple Vision Pro, use editorial transitions to reset depth, maintain accurate spatial cues in audio, ensure proper 3D behavior for VFX, reduce visual noise, and grade toward an idealized yet natural look.",
@@ -2782,11 +2489,9 @@
         "Tim Amick"
       ],
       "apple_url": "https://developer.apple.com/videos/play/meet-with-apple/233/",
-      "has_transcript": true,
-      "transcript_file": "What\u2019s new in Safari and WebKit (WWDC25-233).md"
+      "has_transcript": true
     },
     {
-      "id": "meet-with-apple-234",
       "session_id": "234",
       "title": "Hands-on experience with editing for Apple Immersive Video",
       "description": "Join Clara and Ben from Main Course Films to discover how you can approach your editorial process when working with Apple Immersive Video. Learn about engaging with proxy workflows for efficient editing, as well as considerations in shot choice, sequencing, and sound design.",
@@ -2800,11 +2505,9 @@
         "Ben Allan"
       ],
       "apple_url": "https://developer.apple.com/videos/play/meet-with-apple/234/",
-      "has_transcript": true,
-      "transcript_file": "Filter and tunnel network traffic with NetworkExtension (WWDC25-234).md"
+      "has_transcript": true
     },
     {
-      "id": "meet-with-apple-235",
       "session_id": "235",
       "title": "Hands-on experience with visual effects for Apple Immersive Video",
       "description": "Join Matt DeJohn from Blackmagic Design to discover how you can approach visual effects for your Apple Immersive Video projects. Working in Fusion, you\u2019ll learn about stereoscopic title placement, simple patching, and advanced workflows, like stabilization.",
@@ -2817,11 +2520,9 @@
         "Matt DeJohn"
       ],
       "apple_url": "https://developer.apple.com/videos/play/meet-with-apple/235/",
-      "has_transcript": true,
-      "transcript_file": "Learn more about Declarative Web Push (WWDC25-235).md"
+      "has_transcript": true
     },
     {
-      "id": "meet-with-apple-236",
       "session_id": "236",
       "title": "Hands-on experience with Spatial Audio for Apple Immersive Video",
       "description": "Join David Lebolt from Blackmagic Design to discover how to work with Apple Spatial Audio Format using Fairlight tools. Learn how to setup your session as well as mix, spatialize, and deliver audio correctly with APAC codecs.",
@@ -2834,13 +2535,11 @@
         "Dave Lebolt"
       ],
       "apple_url": "https://developer.apple.com/videos/play/meet-with-apple/236/",
-      "has_transcript": true,
-      "transcript_file": "Unlock GPU computing with WebGPU (WWDC25-236).md"
+      "has_transcript": true
     }
   ],
   "Maps & Location": [
     {
-      "id": "wwdc2025-204",
       "session_id": "204",
       "title": "Go further with MapKit",
       "description": "Discover the latest updates to MapKit and MapKit JS. We\u2019ll introduce a new type of directions \u2014 cycling \u2014 and show you how to enable 3D Look Around imagery on the web.  Learn how the new Geocoding API supports conversion between coordinates and addresses, and how to use the Address Representations API to get the most appropriate address for a region. Then we\u2019ll wrap it up with a new way of referencing places that ensures your app will work seamlessly with App Intents.",
@@ -2856,13 +2555,11 @@
         "Alex Cash"
       ],
       "apple_url": "https://developer.apple.com/videos/play/wwdc2025/204/",
-      "has_transcript": true,
-      "transcript_file": "Go further with MapKit (WWDC25-204).md"
+      "has_transcript": true
     }
   ],
   "Safari & Web": [
     {
-      "id": "wwdc2025-235",
       "session_id": "235",
       "title": "Learn more about Declarative Web Push",
       "description": "Learn how Declarative Web Push can help you deliver notifications more reliably. Find out how to build on existing standards to be more efficient and transparent by design while retaining backwards compatibility with original Web Push.",
@@ -2876,11 +2573,9 @@
         "Brady Eidson"
       ],
       "apple_url": "https://developer.apple.com/videos/play/wwdc2025/235/",
-      "has_transcript": true,
-      "transcript_file": "Learn more about Declarative Web Push (WWDC25-235).md"
+      "has_transcript": true
     },
     {
-      "id": "wwdc2025-236",
       "session_id": "236",
       "title": "Unlock GPU computing with WebGPU",
       "description": "Learn how the WebGPU API provides safe access to GPU devices for graphics and general-purpose computation. We\u2019ll also explore the WGSL shading language to write GPU programs. And we\u2019ll dive into best practices to achieve optimal performance while using minimal power across desktop and mobile devices.",
@@ -2894,11 +2589,9 @@
         "Mike Wyrzykowski"
       ],
       "apple_url": "https://developer.apple.com/videos/play/wwdc2025/236/",
-      "has_transcript": true,
-      "transcript_file": "Unlock GPU computing with WebGPU (WWDC25-236).md"
+      "has_transcript": true
     },
     {
-      "id": "wwdc2025-232",
       "session_id": "232",
       "title": "Verify identity documents on the web",
       "description": "Learn how Digital Credentials can enhance online identity verification flows. We\u2019ll cover how websites can integrate the Digital Credentials API to enable requesting information from IDs in Wallet. We\u2019ll also explore how apps can provide their own identity documents for online verification using the new IdentityDocumentServices framework.",
@@ -2912,11 +2605,9 @@
         "Marcos C\u00e1ceres"
       ],
       "apple_url": "https://developer.apple.com/videos/play/wwdc2025/232/",
-      "has_transcript": true,
-      "transcript_file": "Verify identity documents on the web (WWDC25-232).md"
+      "has_transcript": true
     },
     {
-      "id": "wwdc2025-237",
       "session_id": "237",
       "title": "What\u2019s new for the spatial web",
       "description": "Discover the latest spatial features for the web on visionOS 26. We\u2019ll cover how to display inline 3D models with the brand new HTML model element. And we\u2019ll share powerful features, including model lighting, interactions, and animations. Learn how to embed newly supported immersive media on your web site, such as 360-degree video and Apple Immersive Video. And get a sneak peek at adding a custom environment to your web pages.",
@@ -2928,11 +2619,9 @@
         "Eddy Wong"
       ],
       "apple_url": "https://developer.apple.com/videos/play/wwdc2025/237/",
-      "has_transcript": true,
-      "transcript_file": "What\u2019s new for the spatial web (WWDC25-237).md"
+      "has_transcript": true
     },
     {
-      "id": "wwdc2025-233",
       "session_id": "233",
       "title": "What\u2019s new in Safari and WebKit",
       "description": "Learn how the latest web technologies in Safari and WebKit can help you create incredible experiences. We\u2019ll highlight different CSS features and how they work, including scroll driven animation, cross document view transitions, and anchor positioning. We\u2019ll also explore new media support across audio, video, images, and icons.",
@@ -2946,13 +2635,11 @@
         "Saron Yitbarek"
       ],
       "apple_url": "https://developer.apple.com/videos/play/wwdc2025/233/",
-      "has_transcript": true,
-      "transcript_file": "What\u2019s new in Safari and WebKit (WWDC25-233).md"
+      "has_transcript": true
     }
   ],
   "Developer Tools": [
     {
-      "id": "wwdc2025-346",
       "session_id": "346",
       "title": "Meet Containerization",
       "description": "Meet Containerization, an open source project written in Swift to create and run Linux containers on your Mac. Learn how Containerization approaches Linux containers securely and privately. Discover how the open-sourced Container CLI tool utilizes the Containerization package to provide simple, yet powerful functionality to build, run, and deploy Linux Containers on Mac.",
@@ -2964,11 +2651,9 @@
         "Michael Crosby"
       ],
       "apple_url": "https://developer.apple.com/videos/play/wwdc2025/346/",
-      "has_transcript": true,
-      "transcript_file": "Meet Containerization (WWDC25-346).md"
+      "has_transcript": true
     },
     {
-      "id": "wwdc2025-308",
       "session_id": "308",
       "title": "Optimize CPU performance with Instruments",
       "description": "Learn how to optimize your app for Apple silicon with two new hardware-assisted tools in Instruments. We\u2019ll start by covering how to profile your app, then dive deeper by showing every single function called with Processor Trace. We\u2019ll also discuss how to use CPU Counters\u2019 modes to analyze your code for CPU bottlenecks.",
@@ -2984,11 +2669,9 @@
         "Matt Widmann"
       ],
       "apple_url": "https://developer.apple.com/videos/play/wwdc2025/308/",
-      "has_transcript": true,
-      "transcript_file": "Optimize CPU performance with Instruments (WWDC25-308).md"
+      "has_transcript": true
     },
     {
-      "id": "wwdc2025-306",
       "session_id": "306",
       "title": "Optimize SwiftUI performance with Instruments",
       "description": "Discover the new SwiftUI instrument. We\u2019ll cover how SwiftUI updates views, how changes in your app\u2019s data affect those updates, and how the new instrument helps you visualize those causes and effects. \n\nTo get the most out of this session, we recommend being familiar with writing apps in SwiftUI.",
@@ -3005,11 +2688,9 @@
         "Steven Peterson"
       ],
       "apple_url": "https://developer.apple.com/videos/play/wwdc2025/306/",
-      "has_transcript": true,
-      "transcript_file": "Optimize SwiftUI performance with Instruments (WWDC25-306).md"
+      "has_transcript": true
     },
     {
-      "id": "wwdc2025-226",
       "session_id": "226",
       "title": "Profile and optimize power usage in your app",
       "description": "Learn how to optimize your app for maximum battery life. Discover how to identify the root cause of power issues in your app \u2014 whether you can reproduce the issue while connected to Xcode or on the go. Find out how to measure power use so you can make better decisions about new features and proactively build more efficient apps.",
@@ -3021,11 +2702,9 @@
         "Wiam Eddahri"
       ],
       "apple_url": "https://developer.apple.com/videos/play/wwdc2025/226/",
-      "has_transcript": true,
-      "transcript_file": "Profile and optimize power usage in your app (WWDC25-226).md"
+      "has_transcript": true
     },
     {
-      "id": "wwdc2025-344",
       "session_id": "344",
       "title": "Record, replay, and review: UI automation with Xcode",
       "description": "Learn to record, run, and maintain XCUIAutomation tests in Xcode. Replay your XCTest UI tests in dozens of locales, device types, and system conditions using test plan configurations. Review your test results using the Xcode test report, and download screenshots and videos of your runs. We\u2019ll also cover best practices for preparing your app for automation with Accessibility and writing stable, high-quality automation code.",
@@ -3041,11 +2720,9 @@
         "Max Harlynking"
       ],
       "apple_url": "https://developer.apple.com/videos/play/wwdc2025/344/",
-      "has_transcript": true,
-      "transcript_file": "Record, replay, and review- UI automation with Xcode (WWDC25-344).md"
+      "has_transcript": true
     },
     {
-      "id": "wwdc2025-247",
       "session_id": "247",
       "title": "What\u2019s new in Xcode",
       "description": "Discover the latest productivity and performance advancements in Xcode 26. Learn how to leverage large language models in your development workflow. Explore editing and debugging enhancements, improved performance and testing tools, and Swift Build - the open-source build system engine used by Xcode.",
@@ -3062,13 +2739,11 @@
         "Chris Miles"
       ],
       "apple_url": "https://developer.apple.com/videos/play/wwdc2025/247/",
-      "has_transcript": true,
-      "transcript_file": "What\u2019s new in Xcode (WWDC25-247).md"
+      "has_transcript": true
     }
   ],
   "Health & Fitness": [
     {
-      "id": "wwdc2025-321",
       "session_id": "321",
       "title": "Meet the HealthKit Medications API",
       "description": "Discover the new Medications API in HealthKit. Explore an example app that uses the new API, learn how to access medications and doses, and find out how your app will manage authorization for this new kind of data.",
@@ -3082,11 +2757,9 @@
         "Srishti Gupta"
       ],
       "apple_url": "https://developer.apple.com/videos/play/wwdc2025/321/",
-      "has_transcript": true,
-      "transcript_file": "Meet the HealthKit Medications API (WWDC25-321).md"
+      "has_transcript": true
     },
     {
-      "id": "wwdc2025-322",
       "session_id": "322",
       "title": "Track workouts with HealthKit on iOS and iPadOS",
       "description": "Learn best practices for building a great workout experience for iOS. Review the life cycle of a workout session, explore the differences between workouts on Apple Watch and iPhone, and find out how to use Live Activities and Siri to pump up your app\u2019s Lock Screen experience.",
@@ -3098,8 +2771,7 @@
         "Bryan Woodgate"
       ],
       "apple_url": "https://developer.apple.com/videos/play/wwdc2025/322/",
-      "has_transcript": true,
-      "transcript_file": "Track workouts with HealthKit on iOS and iPadOS (WWDC25-322).md"
+      "has_transcript": true
     }
   ]
 }

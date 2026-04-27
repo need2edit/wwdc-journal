@@ -1,0 +1,80 @@
+# Deploy WWDC Journal to GitHub Pages.
+#
+# Setup (one-time):
+#   1. In repo Settings → Pages, set Source to "GitHub Actions".
+#   2. Push to main; this workflow takes over from there.
+#
+# The site is fully static — no build step. We just upload the repo
+# (excluding transcripts/, data/wwdc-index.json, .github/, .git/) as the
+# Pages artifact.
+
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  # Allow manual trigger from the Actions tab
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Cancel in-progress deploys when a new push lands
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Validate dashboards
+        run: |
+          chmod +x bin/validate-dashboards.py
+          bin/validate-dashboards.py --strict
+
+  build:
+    needs: validate
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Stage site (exclude heavy artifacts)
+        run: |
+          mkdir -p _site
+          # Copy everything we want to publish
+          rsync -av \
+            --exclude='.git' \
+            --exclude='.github' \
+            --exclude='transcripts' \
+            --exclude='data/wwdc-index.json' \
+            --exclude='bin' \
+            --exclude='analysis-*' \
+            --exclude='analysis' \
+            --exclude='MODERNIZATION-GUIDE.md' \
+            --exclude='README.md' \
+            --exclude='.DS_Store' \
+            --exclude='_site' \
+            ./ _site/
+          echo "=== Files in _site ==="
+          ls -la _site/
+          echo "=== Total size ==="
+          du -sh _site/
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

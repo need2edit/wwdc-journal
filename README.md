@@ -82,10 +82,55 @@ Source attribution: transcripts come from [Nonstrict WWDC Index](https://nonstri
 
 ## Adding a new year (e.g., when WWDC 2026 drops)
 
-The full recreation pipeline is documented in `~/Documents/CLAUDE_JOURNAL/PERSONAL/2026-04-25-1830-wwdc-journal-recreation-guide.md`. In short:
+```bash
+# 1. Mechanical: fetch transcripts + build per-year metadata
+bin/fetch-transcripts.py 2026
+bin/build-metadata.py 2026
 
-1. Fetch transcripts for the new year (script above)
-2. Build per-year metadata JSONs
-3. Launch a per-year analysis agent (one comprehensive Claude sub-agent that reads transcripts, writes analyses, generates pathways JSON, and produces the dashboard HTML using `index-2025.html` as the template)
-4. Add a card to `index.html` for the new year
-5. Add the new year to `modernization.html`'s year picker
+# 2. Hand off to Claude (judgment-heavy work):
+#    Read the recreation guide, then ask Claude to build a complete WWDC 2026
+#    dashboard following the index-2025.html pattern. Claude produces
+#    analysis-2026/, data/wwdc2026-pathways.json, and index-2026.html.
+
+# 3. Mechanical: refresh shuffle-button gem pool + validate
+bin/refresh-gems.py
+bin/validate-dashboards.py --strict
+
+# 4. Hand-edit index.html to add a 2026 year-card (~5 minutes)
+
+# 5. Commit + push (auto-deploys via GitHub Pages)
+git add transcripts/2026 data/wwdc2026-* analysis-2026/ index-2026.html index.html
+git commit -m "Add WWDC 2026 dashboard"
+git push
+```
+
+Full recreation pipeline documented in `~/Documents/CLAUDE_JOURNAL/PERSONAL/2026-04-25-1830-wwdc-journal-recreation-guide.md`.
+
+## Pipeline scripts (`bin/`)
+
+The mechanical parts of the pipeline are scripted; judgment-heavy parts
+(curating pathways, identifying hidden gems, writing analyses) are left
+to Claude Code agents.
+
+- `bin/fetch-transcripts.py` — pull transcripts from Nonstrict
+- `bin/build-metadata.py` — derive per-year session JSONs
+- `bin/refresh-gems.py` — rebuild the shuffle-button gem pool
+- `bin/validate-dashboards.py` — verify HTML/JS integrity
+
+See `bin/README.md` for details and the scripted-vs-agent split.
+
+## Deployment (GitHub Pages)
+
+A workflow at `.github/workflows/pages.yml` auto-deploys the site on
+every push to `main`. To enable:
+
+1. Push the repo to GitHub
+2. Repo Settings → Pages → Source: **GitHub Actions**
+3. The next push triggers a build at `https://{user}.github.io/{repo}/`
+
+The workflow validates all dashboards before publishing and excludes
+the gitignored heavy assets (transcripts, master index).
+
+For other deploy targets:
+- **Netlify / Cloudflare Pages**: drag-and-drop the project root (excluding `transcripts/` and `data/wwdc-index.json`)
+- **Local only**: `open index.html` (no setup needed)
