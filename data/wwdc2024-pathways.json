@@ -1,0 +1,356 @@
+{
+  "pathways": [
+    {
+      "id": "swift-6-migration",
+      "name": "Swift 6 Migration Path",
+      "description": "Adopt the Swift 6 language mode with full data-race safety. Start with the language overview, learn the migration strategy hands-on, then go deep on noncopyable types and performance.",
+      "sessions": ["10136", "10169", "10170", "10217"],
+      "gateway": "10136",
+      "optional": ["10184", "10197"],
+      "estimated_hours": 4.5
+    },
+    {
+      "id": "apple-intelligence",
+      "name": "Apple Intelligence Path",
+      "description": "Integrate Apple Intelligence features into your app. Start with the ML overview, adopt Writing Tools and Genmoji, then connect your app to Siri via App Intents and Assistant Schemas.",
+      "sessions": ["10223", "10168", "10220", "10210", "10133"],
+      "gateway": "10223",
+      "optional": ["10117", "10134", "10176"],
+      "estimated_hours": 5.5
+    },
+    {
+      "id": "visionos-2-spatial",
+      "name": "visionOS 2 Path",
+      "description": "Build mature visionOS 2 apps with new volumes, immersive spaces, and RealityKit features. Cover scene management, ARKit object tracking, and cross-platform RealityKit.",
+      "sessions": ["10153", "10103", "10100", "10101", "10186"],
+      "gateway": "10153",
+      "optional": ["10086", "10152", "10166", "10092"],
+      "estimated_hours": 6.0
+    },
+    {
+      "id": "swiftui-modernization",
+      "name": "SwiftUI Modernization Path",
+      "description": "Master SwiftUI's biggest API expansion in years -- custom containers, the new TabView, animations bridging UIKit/AppKit, and the @Entry macro.",
+      "sessions": ["10150", "10144", "10146", "10145"],
+      "gateway": "10150",
+      "optional": ["10148", "10149", "10151"],
+      "estimated_hours": 4.5
+    },
+    {
+      "id": "swift-testing",
+      "name": "Swift Testing Adoption Path",
+      "description": "Adopt Swift Testing -- the new default test framework in Xcode 16. Learn the basics, then go further with parameterization, parallelism, and tag-based organization.",
+      "sessions": ["10179", "10195"],
+      "gateway": "10179",
+      "optional": ["10135"],
+      "estimated_hours": 2.0
+    },
+    {
+      "id": "ml-deployment",
+      "name": "ML Model Deployment Path",
+      "description": "Deploy your own ML models on device. Start with the framework overview, train on Apple GPUs, prepare with Core ML Tools, then deploy with Core ML, MPS Graph, or BNNS Graph.",
+      "sessions": ["10223", "10160", "10159", "10161"],
+      "gateway": "10223",
+      "optional": ["10183", "10218", "10211", "10163"],
+      "estimated_hours": 5.5
+    },
+    {
+      "id": "app-intents-ecosystem",
+      "name": "App Intents Ecosystem Path",
+      "description": "Make your app a first-class citizen of Siri, Spotlight, Shortcuts, and Apple Intelligence. Cover the foundation, what's new in 2024, and the assistant schema bridge.",
+      "sessions": ["10210", "10134", "10133", "10176"],
+      "gateway": "10210",
+      "optional": ["10131", "10157"],
+      "estimated_hours": 4.0
+    },
+    {
+      "id": "spatial-media",
+      "name": "Spatial Media Creation Path",
+      "description": "Capture, detect, and present spatial photos and video on iPhone 15 Pro and Vision Pro. Cover the formats, capture API, and presentation choices.",
+      "sessions": ["10166", "10115", "10116"],
+      "gateway": "10166",
+      "optional": ["10105", "10186"],
+      "estimated_hours": 3.0
+    },
+    {
+      "id": "developer-tools",
+      "name": "Xcode 16 & Tools Path",
+      "description": "Master Xcode 16's new predictive code completion, explicitly built modules, RealityKit debugger, LLDB improvements, and Instruments flame graphs.",
+      "sessions": ["10135", "10171", "10198", "10173"],
+      "gateway": "10135",
+      "optional": ["10172", "10181", "10200"],
+      "estimated_hours": 4.5
+    },
+    {
+      "id": "uikit-modernization",
+      "name": "UIKit Modernization Path",
+      "description": "Bring your UIKit app up to date with new tab/sidebar APIs, fluid zoom transitions, SwiftUI animations, and document launch experience.",
+      "sessions": ["10118", "10147", "10145", "10132"],
+      "gateway": "10118",
+      "optional": ["10124", "10144"],
+      "estimated_hours": 4.0
+    },
+    {
+      "id": "monetization",
+      "name": "Monetization & StoreKit Path",
+      "description": "Modern monetization with StoreKit 2: new SubscriptionStoreView APIs, win-back offers, server-side analytics, and Xcode StoreKit testing.",
+      "sessions": ["10061", "10110", "10063", "10062"],
+      "gateway": "10061",
+      "optional": ["111386"],
+      "estimated_hours": 4.0
+    },
+    {
+      "id": "control-extensions",
+      "name": "Controls, Capture & Lock Screen Path",
+      "description": "Extend your app to system spaces -- custom Control Center widgets, Action Button integration, and lock-screen camera capture.",
+      "sessions": ["10157", "10204", "10134"],
+      "gateway": "10157",
+      "optional": ["10210"],
+      "estimated_hours": 3.0
+    },
+    {
+      "id": "accessibility-design",
+      "name": "Accessibility & Design Path",
+      "description": "Build inclusive apps with new accessibility APIs, dynamic type, and visionOS design principles. Covers SwiftUI accessibility, dynamic type, and design.",
+      "sessions": ["10073", "10074", "10086", "10140"],
+      "gateway": "10073",
+      "optional": ["10176", "10188"],
+      "estimated_hours": 3.5
+    }
+  ],
+  "prerequisites": {
+    "10169": ["10136"],
+    "10170": ["10136"],
+    "10217": ["10136"],
+    "10168": ["10223"],
+    "10220": ["10223"],
+    "10117": ["10223"],
+    "10210": ["10134"],
+    "10133": ["10210"],
+    "10176": ["10210"],
+    "10131": ["10210"],
+    "10134": ["10210"],
+    "10103": ["10153"],
+    "10100": ["10153"],
+    "10101": ["10100", "10183"],
+    "10092": ["10100"],
+    "10186": ["10103"],
+    "10152": ["10103"],
+    "10166": ["10153"],
+    "10115": ["10166"],
+    "10116": ["10166"],
+    "10146": ["10150"],
+    "10144": ["10150"],
+    "10145": ["10144"],
+    "10148": ["10144"],
+    "10149": ["10144"],
+    "10151": ["10144"],
+    "10153": ["10144"],
+    "10195": ["10179"],
+    "10159": ["10160"],
+    "10161": ["10159"],
+    "10183": ["10223"],
+    "10218": ["10160"],
+    "10211": ["10161"],
+    "10163": ["10223"],
+    "10171": ["10135"],
+    "10198": ["10135"],
+    "10173": ["10135"],
+    "10172": ["10135"],
+    "10147": ["10118"],
+    "10118": [],
+    "10124": [],
+    "10132": ["10118"],
+    "10110": ["10061"],
+    "10063": ["10061"],
+    "10062": ["10061"],
+    "111386": ["10061"],
+    "10204": ["10157"],
+    "10074": ["10073"],
+    "10169": ["10136"]
+  },
+  "clusters": [
+    {
+      "name": "Swift 6 & Concurrency",
+      "description": "Swift 6 language mode, data-race safety, noncopyable types, and Swift performance",
+      "sessions": ["10136", "10169", "10170", "10217", "10184", "10197"]
+    },
+    {
+      "name": "Swift Testing",
+      "description": "The new default test framework -- macros, parameterization, parallelism",
+      "sessions": ["10179", "10195"]
+    },
+    {
+      "name": "Apple Intelligence Adoption",
+      "description": "Writing Tools, Genmoji, and Translation framework -- the OS-level features",
+      "sessions": ["10168", "10220", "10117"]
+    },
+    {
+      "name": "App Intents & Siri",
+      "description": "App Intents foundation, 2024 improvements, and Apple Intelligence Assistant Schemas",
+      "sessions": ["10210", "10134", "10133", "10176"]
+    },
+    {
+      "name": "Core ML & On-Device ML",
+      "description": "Deploy ML models with Core ML, MPS Graph, BNNS Graph, and Create ML",
+      "sessions": ["10161", "10159", "10160", "10183", "10218", "10211", "10163"]
+    },
+    {
+      "name": "SwiftUI Containers & Foundations",
+      "description": "Custom containers, @Entry macro, and the new TabView",
+      "sessions": ["10144", "10146", "10150"]
+    },
+    {
+      "name": "SwiftUI Animations",
+      "description": "Animation bridging across SwiftUI/UIKit/AppKit and zoom transitions",
+      "sessions": ["10145", "10118"]
+    },
+    {
+      "name": "macOS Windowing",
+      "description": "Tailored macOS windows with new styles, placement, and pushWindow",
+      "sessions": ["10148", "10149", "10124"]
+    },
+    {
+      "name": "visionOS Scenes",
+      "description": "Volumes, immersive spaces, and SwiftUI 3D content APIs",
+      "sessions": ["10153", "10152", "10151"]
+    },
+    {
+      "name": "RealityKit Cross-Platform",
+      "description": "RealityKit features now on iOS, iPadOS, macOS, and visionOS",
+      "sessions": ["10103", "10172", "111801", "10104"]
+    },
+    {
+      "name": "ARKit & Object Tracking",
+      "description": "Object tracking, room tracking, and ARKit visionOS 2",
+      "sessions": ["10100", "10101", "10092"]
+    },
+    {
+      "name": "Spatial Media",
+      "description": "Spatial photo/video capture, detection, and presentation",
+      "sessions": ["10166", "10115", "10116", "10186"]
+    },
+    {
+      "name": "visionOS Design",
+      "description": "Design principles for visionOS apps and games",
+      "sessions": ["10086", "10085", "10087", "10096"]
+    },
+    {
+      "name": "Xcode 16 & Build System",
+      "description": "Predictive code completion, explicitly built modules, and previews",
+      "sessions": ["10135", "10171", "10181"]
+    },
+    {
+      "name": "Debugging & Performance",
+      "description": "LLDB, RealityKit debugger, heap memory, and Instruments flame graphs",
+      "sessions": ["10198", "10172", "10173"]
+    },
+    {
+      "name": "StoreKit & Monetization",
+      "description": "StoreKit 2, subscription stores, win-back offers, and App Store Connect",
+      "sessions": ["10061", "10110", "10063", "10062", "111386"]
+    },
+    {
+      "name": "Controls & Capture Extensions",
+      "description": "Custom Control Center widgets and lock-screen camera capture",
+      "sessions": ["10157", "10204"]
+    },
+    {
+      "name": "Accessibility & Inclusion",
+      "description": "SwiftUI accessibility and dynamic type best practices",
+      "sessions": ["10073", "10074"]
+    },
+    {
+      "name": "watchOS 11",
+      "description": "Live Activities on watch, Vitals, training load, and workout customization",
+      "sessions": ["10205", "10068", "10098", "10084", "10069"]
+    },
+    {
+      "name": "HealthKit",
+      "description": "HealthKit on visionOS, wellbeing APIs, and custom workouts",
+      "sessions": ["10083", "10109", "10084"]
+    },
+    {
+      "name": "App Store & Distribution",
+      "description": "App Store Connect, App Store server APIs, and subscription analytics",
+      "sessions": ["10063", "10062", "10110"]
+    },
+    {
+      "name": "Authentication & Privacy",
+      "description": "Passkey upgrades, credential managers, and privacy controls",
+      "sessions": ["10125", "10123", "10121"]
+    },
+    {
+      "name": "SwiftData",
+      "description": "SwiftData history tracking, migrations, and custom data stores",
+      "sessions": ["10075", "10137", "10138"]
+    }
+  ],
+  "standalone_sessions": [
+    {
+      "id": "10097",
+      "title": "Unlock the power of places with MapKit",
+      "reason": "Standalone MapKit updates including cycling directions and structured Places data"
+    },
+    {
+      "id": "10067",
+      "title": "Bring context to today's weather",
+      "reason": "Standalone WeatherKit updates including new datasets and historical comparisons"
+    },
+    {
+      "id": "10212",
+      "title": "What's new in location authorization",
+      "reason": "Standalone CLServiceSession API for modern location permissions"
+    },
+    {
+      "id": "10070",
+      "title": "Customize feature discovery with TipKit",
+      "reason": "Standalone TipKit improvements covering custom triggers and rules"
+    },
+    {
+      "id": "10203",
+      "title": "Meet AccessorySetupKit",
+      "reason": "New standalone framework for in-app accessory pairing"
+    },
+    {
+      "id": "10121",
+      "title": "Meet the Contact Access Button",
+      "reason": "Standalone privacy-preserving contact picker"
+    },
+    {
+      "id": "10157",
+      "title": "Extend your app's controls across the system",
+      "reason": "Standalone framework for custom Control Center widgets"
+    },
+    {
+      "id": "2023",
+      "title": "Meet FinanceKit",
+      "reason": "New standalone framework for read-only access to Apple Cash/Card transactions"
+    },
+    {
+      "id": "10164",
+      "title": "What's new in DockKit",
+      "reason": "Standalone DockKit accessory updates"
+    },
+    {
+      "id": "10112",
+      "title": "Say hello to the next generation of CarPlay design system",
+      "reason": "Self-contained CarPlay design overview for automakers"
+    },
+    {
+      "id": "10117",
+      "title": "Meet the Translation API",
+      "reason": "New standalone Translation framework with on-device language models"
+    },
+    {
+      "id": "10220",
+      "title": "Bring expression to your app with Genmoji",
+      "reason": "Standalone NSAdaptiveImageGlyph adoption"
+    },
+    {
+      "id": "10168",
+      "title": "Get started with Writing Tools",
+      "reason": "Standalone Writing Tools adoption guide"
+    }
+  ]
+}

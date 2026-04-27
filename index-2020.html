@@ -1,0 +1,1058 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WWDC 2020 Session Pathways & Analysis</title>
+<style>
+  :root {
+    --bg: #0a0a0f;
+    --surface: #14141f;
+    --surface2: #1e1e2e;
+    --border: #2a2a3e;
+    --text: #e8e8f0;
+    --text-dim: #8888a0;
+    --accent: #6366f1;
+    --accent2: #818cf8;
+    --green: #34d399;
+    --amber: #fbbf24;
+    --red: #f87171;
+    --pink: #f472b6;
+    --cyan: #22d3ee;
+    --orange: #fb923c;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', system-ui, sans-serif; background: var(--bg); color: var(--text); overflow-x: hidden; }
+
+  /* Header */
+  .hero { padding: 60px 40px 40px; text-align: center; position: relative; overflow: hidden; }
+  .hero::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(ellipse at center, rgba(99,102,241,0.08) 0%, transparent 60%); pointer-events: none; }
+  .hero h1 { font-size: 3em; font-weight: 700; background: linear-gradient(135deg, #818cf8, #c084fc, #f472b6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 8px; }
+  .hero .sub { color: var(--text-dim); font-size: 1.1em; margin-bottom: 30px; }
+
+  /* Stats bar */
+  .stats { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; margin-bottom: 40px; }
+  .stat { text-align: center; }
+  .stat .num { font-size: 2.4em; font-weight: 700; color: var(--accent2); }
+  .stat .label { font-size: 0.85em; color: var(--text-dim); margin-top: 2px; }
+
+  /* Nav tabs */
+  .tabs { display: flex; justify-content: center; gap: 8px; margin-bottom: 40px; flex-wrap: wrap; padding: 0 20px; }
+  .tab { padding: 10px 24px; border-radius: 24px; border: 1px solid var(--border); background: var(--surface); color: var(--text-dim); cursor: pointer; font-size: 0.9em; transition: all 0.2s; }
+  .tab:hover { border-color: var(--accent); color: var(--text); }
+  .tab.active { background: var(--accent); border-color: var(--accent); color: white; }
+
+  /* Sections */
+  .section { display: none; max-width: 1200px; margin: 0 auto; padding: 0 20px 60px; }
+  .section.active { display: block; }
+  .section h2 { font-size: 1.8em; margin-bottom: 24px; color: var(--text); }
+  .section h3 { font-size: 1.3em; margin: 24px 0 12px; color: var(--accent2); }
+
+  /* Pathway cards */
+  .pathway-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); gap: 20px; }
+  .pathway-card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 24px; cursor: pointer; transition: all 0.3s; position: relative; overflow: hidden; }
+  .pathway-card .badges-row { position: absolute; top: 14px; right: 14px; left: 14px; display: flex; gap: 6px; justify-content: flex-end; flex-wrap: wrap; pointer-events: none; z-index: 2; }
+  .pathway-card .badge.urgent, .pathway-card .badge.hours { pointer-events: auto; }
+
+  .pathway-card:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(99,102,241,0.15); }
+  .pathway-card .badge { padding: 4px 10px; border-radius: 12px; font-size: 0.75em; font-weight: 600; white-space: nowrap; }
+  .pathway-card .badge.urgent { background: rgba(248,113,113,0.15); color: var(--red); }
+  .pathway-card .badge.hours { background: rgba(99,102,241,0.15); color: var(--accent2); }
+  .pathway-card h4 { font-size: 1.15em; margin-bottom: 8px; padding-right: 0; padding-top: 32px; }
+  .pathway-card p { color: var(--text-dim); font-size: 0.88em; line-height: 1.5; margin-bottom: 16px; }
+  .pathway-sessions { display: flex; flex-wrap: wrap; gap: 6px; }
+  .session-pill { padding: 4px 10px; border-radius: 8px; font-size: 0.78em; font-weight: 500; background: var(--surface2); border: 1px solid var(--border); color: var(--text-dim); }
+  .session-pill.gateway { background: rgba(99,102,241,0.15); border-color: var(--accent); color: var(--accent2); }
+  .session-pill.optional { border-style: dashed; opacity: 0.6; }
+
+  /* Pathway detail / flow */
+  .pathway-detail { display: none; background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 32px; margin-bottom: 24px; }
+  .pathway-detail.active { display: block; }
+  .pathway-detail .back { color: var(--accent2); cursor: pointer; font-size: 0.9em; margin-bottom: 16px; display: inline-block; }
+  .pathway-detail .back:hover { text-decoration: underline; }
+  .flow { position: relative; padding-left: 32px; }
+  .flow-item { position: relative; padding: 16px 0 16px 24px; border-left: 2px solid var(--border); }
+  .flow-item:last-child { border-left-color: transparent; }
+  .flow-item::before { content: ''; position: absolute; left: -7px; top: 20px; width: 12px; height: 12px; border-radius: 50%; background: var(--accent); border: 2px solid var(--bg); }
+  .flow-item.gateway-item::before { background: var(--green); width: 14px; height: 14px; left: -8px; }
+  .flow-item.optional-item::before { background: var(--surface2); border: 2px solid var(--text-dim); }
+  .flow-item .step-num { font-size: 0.75em; color: var(--text-dim); margin-bottom: 4px; }
+  .flow-item .step-title { font-weight: 600; margin-bottom: 4px; }
+  .flow-item .step-id { color: var(--text-dim); font-size: 0.85em; }
+  .flow-item a.step-link { text-decoration: none; color: inherit; display: block; padding: 8px 12px; margin: -8px -12px; border-radius: 8px; transition: background 0.15s; }
+  .flow-item a.step-link:hover { background: var(--surface2); }
+  .flow-item a.step-link:hover .step-title { color: var(--accent2); }
+  .session-pill.linked { cursor: pointer; transition: all 0.15s; }
+  .session-pill.linked:hover { background: var(--accent); color: white; border-color: var(--accent); }
+
+  /* Cluster view */
+  .cluster-container { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
+  .cluster-badge.linked { cursor: pointer; transition: all 0.15s; }
+  .cluster-badge.linked:hover { background: var(--accent); color: white; }
+  .cluster-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 20px; }
+  .cluster-card h4 { font-size: 1em; margin-bottom: 8px; }
+  .cluster-card .desc { color: var(--text-dim); font-size: 0.82em; margin-bottom: 12px; }
+  .cluster-card .cluster-sessions { display: flex; flex-wrap: wrap; gap: 4px; }
+  .cluster-badge { padding: 3px 8px; border-radius: 6px; font-size: 0.75em; background: var(--surface2); color: var(--text-dim); }
+
+  /* Topic distribution chart */
+  .chart-container { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 32px; margin-bottom: 24px; }
+  .bar-chart { display: flex; flex-direction: column; gap: 8px; }
+  .bar-row { display: flex; align-items: center; gap: 12px; }
+  .bar-label { width: 220px; text-align: right; font-size: 0.85em; color: var(--text-dim); flex-shrink: 0; }
+  .bar-track { flex: 1; height: 28px; background: var(--surface2); border-radius: 6px; overflow: hidden; position: relative; }
+  .bar-fill { height: 100%; border-radius: 6px; display: flex; align-items: center; padding-left: 10px; font-size: 0.78em; font-weight: 600; color: white; transition: width 1s ease; }
+  .bar-count { width: 30px; text-align: center; font-size: 0.85em; color: var(--text-dim); }
+
+  /* Filter chips */
+  .filter-bar { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
+  .filter-chip { padding: 6px 14px; border-radius: 16px; border: 1px solid var(--border); background: var(--surface); color: var(--text-dim); cursor: pointer; font-size: 0.82em; transition: all 0.2s; }
+  .filter-chip:hover { border-color: var(--accent); color: var(--text); }
+  .filter-chip.active { background: var(--accent); border-color: var(--accent); color: white; }
+  .filter-chip .filter-count { opacity: 0.7; font-size: 0.85em; margin-left: 4px; }
+
+  /* Insights / gems */
+  .gems-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 16px; }
+  .gem-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 20px; cursor: pointer; transition: all 0.2s; text-decoration: none; color: inherit; display: block; }
+  .gem-card:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: 0 4px 16px rgba(99,102,241,0.12); }
+  .gem-card .gem-source-link { color: var(--accent2); text-decoration: none; }
+  .gem-card.hidden-by-filter { display: none; }
+  .gem-card .gem-type { font-size: 0.75em; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; }
+  .gem-card .gem-type.practice { color: var(--green); }
+  .gem-card .gem-type.hidden { color: var(--amber); }
+  .gem-card .gem-type.warning { color: var(--red); }
+  .gem-card .gem-type.perf { color: var(--cyan); }
+  .gem-card .gem-type.delta { color: var(--pink); }
+  .gem-card .gem-text { font-size: 0.92em; line-height: 1.5; margin-bottom: 8px; }
+  .gem-card .gem-source { color: var(--text-dim); font-size: 0.8em; }
+
+  /* Dependency graph */
+  .graph-svg { width: 100%; background: var(--surface); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .hero h1 { font-size: 2em; }
+    .stats { gap: 20px; }
+    .stat .num { font-size: 1.8em; }
+    .bar-label { width: 140px; font-size: 0.75em; }
+    .pathway-grid { grid-template-columns: 1fr; }
+    .gems-grid { grid-template-columns: 1fr; }
+  }
+
+  /* Breadcrumb back link */
+  .breadcrumb { color: var(--text-dim); font-size: 0.85em; margin-bottom: 10px; }
+  .breadcrumb a { color: var(--accent2); text-decoration: none; }
+  .breadcrumb a:hover { text-decoration: underline; }
+
+  /* Search bar */
+  .search-bar-container { max-width: 700px; margin: -8px auto 28px; padding: 0 20px; position: relative; }
+  .search-input-wrap { position: relative; }
+  .search-input { width: 100%; padding: 12px 16px 12px 40px; border-radius: 12px; border: 1px solid var(--border); background: var(--surface); color: var(--text); font-size: 0.95em; font-family: inherit; transition: border-color 0.15s; }
+  .search-input:focus { outline: none; border-color: var(--accent); }
+  .search-input::placeholder { color: var(--text-dim); }
+  .search-icon { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); color: var(--text-dim); font-size: 0.95em; pointer-events: none; }
+  .search-shortcut { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); color: var(--text-dim); font-size: 0.72em; padding: 2px 6px; border-radius: 4px; background: var(--surface2); border: 1px solid var(--border); pointer-events: none; }
+  .search-results { position: absolute; top: 100%; left: 20px; right: 20px; margin-top: 6px; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; box-shadow: 0 12px 32px rgba(0,0,0,0.4); max-height: 480px; overflow-y: auto; z-index: 1000; display: none; }
+  .search-results.open { display: block; }
+  .search-result-section { padding: 8px 0; border-bottom: 1px solid var(--border); }
+  .search-result-section:last-child { border-bottom: none; }
+  .search-result-section-label { padding: 6px 16px; color: var(--text-dim); font-size: 0.72em; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+  .search-result { padding: 10px 16px; cursor: pointer; display: flex; gap: 12px; align-items: flex-start; transition: background 0.1s; text-decoration: none; color: inherit; }
+  .search-result:hover, .search-result.selected { background: var(--surface2); }
+  .search-result-id { color: var(--text-dim); font-size: 0.78em; font-family: ui-monospace, 'SF Mono', monospace; min-width: 50px; padding-top: 1px; }
+  .search-result-title { flex: 1; font-size: 0.9em; }
+  .search-result-title strong { color: var(--accent2); font-weight: 600; }
+  .search-result-meta { color: var(--text-dim); font-size: 0.75em; margin-top: 2px; }
+  .search-no-results { padding: 24px 16px; text-align: center; color: var(--text-dim); font-size: 0.88em; }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="breadcrumb"><a href="index.html">&larr; WWDC Journal</a></div>
+  <h1>WWDC 2020 Deep Analysis</h1>
+  <p class="sub">212 Sessions / 14 Learning Pathways / Apple Silicon, Big Sur, Widgets, App Clips, Swift 5.3</p>
+
+  <div class="stats">
+    <div class="stat"><div class="num">212</div><div class="label">Sessions Analyzed</div></div>
+    <div class="stat"><div class="num">14</div><div class="label">Learning Pathways</div></div>
+    <div class="stat"><div class="num">7</div><div class="label">Topic Categories</div></div>
+    <div class="stat"><div class="num">24</div><div class="label">Session Clusters</div></div>
+    <div class="stat"><div class="num">~95h</div><div class="label">Total Watch Time</div></div>
+  </div>
+</div>
+
+
+<div class="search-bar-container">
+  <div class="search-input-wrap">
+    <span class="search-icon">⌕</span>
+    <input id="search-input" class="search-input" type="text" placeholder="Search sessions, pathways, gems, clusters…" autocomplete="off" spellcheck="false" />
+    <span class="search-shortcut">/</span>
+  </div>
+  <div id="search-results" class="search-results"></div>
+</div>
+<div class="tabs">
+  <div class="tab active" onclick="showSection('pathways')">Learning Pathways</div>
+  <div class="tab" onclick="showSection('topics')">Topic Map</div>
+  <div class="tab" onclick="showSection('clusters')">Session Clusters</div>
+  <div class="tab" onclick="showSection('gems')">Hidden Gems & Best Practices</div>
+  <div class="tab" onclick="showSection('deltas')">Docs vs. Transcripts</div>
+  <div class="tab" onclick="showSection('graph')">Dependency Graph</div>
+</div>
+
+<!-- PATHWAYS SECTION -->
+<div class="section active" id="sec-pathways">
+  <h2>Learning Pathways</h2>
+  <p style="color:var(--text-dim);margin-bottom:24px;">Curated sequences for watching sessions in the optimal order. <span style="color:var(--green);">Green pills</span> = gateway session. <span style="opacity:0.6;">Dashed</span> = optional.</p>
+  <div id="pathway-detail-area"></div>
+  <div class="pathway-grid" id="pathway-grid"></div>
+</div>
+
+<!-- TOPICS SECTION -->
+<div class="section" id="sec-topics">
+  <h2>Sessions by Topic</h2>
+  <div class="chart-container">
+    <div class="bar-chart" id="topic-chart"></div>
+  </div>
+</div>
+
+<!-- CLUSTERS SECTION -->
+<div class="section" id="sec-clusters">
+  <h2>Session Clusters</h2>
+  <p style="color:var(--text-dim);margin-bottom:24px;">Groups of sessions covering the same feature from different angles.</p>
+  <div class="cluster-container" id="cluster-grid"></div>
+</div>
+
+<!-- GEMS SECTION -->
+<div class="section" id="sec-gems">
+  <h2>Hidden Gems & Best Practices</h2>
+  <p style="color:var(--text-dim);margin-bottom:16px;">The most valuable insights extracted from 212 session transcripts. Click any card to jump to the source video.</p>
+  <div class="filter-bar" id="gems-filter"></div>
+  <div class="gems-grid" id="gems-grid"></div>
+</div>
+
+<!-- DELTAS SECTION -->
+<div class="section" id="sec-deltas">
+  <h2>Transcripts vs. Official Docs</h2>
+  <p style="color:var(--text-dim);margin-bottom:16px;">Key claims engineers made in sessions that are easier to find here than in Apple's documentation. Click any card to jump to the source video.</p>
+  <div class="filter-bar" id="deltas-filter"></div>
+  <div class="gems-grid" id="deltas-grid"></div>
+</div>
+
+<!-- DEPENDENCY GRAPH SECTION -->
+<div class="section" id="sec-graph">
+  <h2>Session Dependency Graph</h2>
+  <p style="color:var(--text-dim);margin-bottom:24px;">Interactive prerequisite map showing how 2020's main learning chains connect.</p>
+  <div style="overflow-x:auto;">
+    <svg class="graph-svg" id="dep-graph"></svg>
+  </div>
+</div>
+
+<script>
+const WWDC_YEAR = 2020;
+function sessionUrl(id) {
+  // Strip non-digit chars in case session ID has prefix
+  const cleanId = String(id).replace(/[^0-9]/g, '');
+  return `https://developer.apple.com/videos/play/wwdc${WWDC_YEAR}/${cleanId}/`;
+}
+// Parse "WWDC20-10260" / "WWDC20-10260, 10080" / "wwdc20-10080" into [10260, 10080]
+// Updated to handle 5-digit IDs (10000-10999) and 6-digit IDs
+function extractSessionIds(sourceText) {
+  const matches = String(sourceText).match(/\d{3,6}/g) || [];
+  return [...new Set(matches)];
+}
+
+// Session titles map
+const sessionTitles = {
+  "101":"Keynote",
+  "102":"Platforms State of the Union",
+  "10001":"Explore Live GPU Profiling with Metal Counters",
+  "10004":"Expanding automation with the App Store Connect API",
+  "10005":"What's new in assessment",
+  "10006":"Introducing Car Keys",
+  "10008":"Optimize the Core Image pipeline for your video app",
+  "10009":"Edit and play back HDR video with AVFoundation",
+  "10010":"Export HDR media in your app with AVFoundation",
+  "10011":"Author fragmented MPEG-4 content with AVAssetWriter",
+  "10012":"Discover ray tracing with Metal",
+  "10013":"Get to know Metal function pointers",
+  "10017":"Core Data: Sundries and maxims",
+  "10019":"App accessibility for Switch Control",
+  "10020":"Make your app visually accessible",
+  "10021":"Build Metal-based Core Image kernels with Xcode",
+  "10022":"Create a seamless speech experience in your apps",
+  "10023":"Support Apple Pro Display XDR in your apps",
+  "10026":"Lists in UICollectionView",
+  "10027":"Modern cell configuration",
+  "10028":"Meet WidgetKit",
+  "10031":"Stacks, Grids, and Outlines in SwiftUI",
+  "10033":"Build SwiftUI views for widgets",
+  "10034":"Widgets Code-along, part 1: The adventure begins",
+  "10035":"Widgets Code-along, part 2: Alternate timelines",
+  "10036":"Widgets Code-along, part 3: Advancing timelines",
+  "10037":"App essentials in SwiftUI",
+  "10039":"Build document-based apps in SwiftUI",
+  "10040":"Data Essentials in SwiftUI",
+  "10041":"What's new in SwiftUI",
+  "10042":"Build SwiftUI apps for tvOS",
+  "10043":"Build an Action Classifier with Create ML",
+  "10045":"Advances in diffable data sources",
+  "10046":"Create complications for Apple Watch",
+  "10047":"Enable encrypted DNS",
+  "10048":"Build complications in SwiftUI",
+  "10049":"Keep your complications up to date",
+  "10052":"Build with iOS pickers, menus and actions",
+  "10056":"Optimize the interface of your Mac Catalyst app",
+  "10057":"Identify trends with the Power and Performance API",
+  "10060":"Design high quality Siri media interactions",
+  "10061":"Expand your SiriKit Media Intents to more platforms",
+  "10063":"Background execution demystified",
+  "10068":"What's new in SiriKit and Shortcuts",
+  "10071":"Evaluate and optimize voice interaction for your app",
+  "10073":"Empower your intents",
+  "10074":"Decipher and deal with common Siri errors",
+  "10076":"Diagnose performance issues with the Xcode Organizer",
+  "10077":"Eliminate animation hitches with XCTest",
+  "10078":"Why is my app getting killed?",
+  "10081":"What's new in MetricKit",
+  "10083":"Integrate your app with Wind Down",
+  "10084":"Feature your actions in the Shortcuts app",
+  "10086":"Design for intelligence: Apps, evolved",
+  "10087":"Design for intelligence: Make friends with \"The System\"",
+  "10088":"Design for intelligence: Discover new opportunities",
+  "10089":"Discover Core Image debugging techniques",
+  "10090":"Decode ProRes with AVFoundation and VideoToolbox",
+  "10091":"Write tests to fail",
+  "10093":"Build for the iPadOS pointer",
+  "10094":"Handle trackpad and mouse input",
+  "10095":"The Push Notifications primer",
+  "10096":"Explore Packages and Projects with Xcode Playgrounds",
+  "10097":"Advances in UICollectionView",
+  "10098":"What's new in Universal Links",
+  "10099":"Explore the Action & Vision app",
+  "10100":"Meet Watch Face Sharing",
+  "10103":"Design Great Widgets",
+  "10104":"Adopt the new look of macOS",
+  "10105":"Build for iPad",
+  "10106":"Meet Scribble for iPad",
+  "10107":"What's new in PencilKit",
+  "10109":"Support hardware keyboards in your app",
+  "10110":"Support local network privacy in your app",
+  "10111":"Boost performance and security with modern networking",
+  "10113":"Build local push connectivity for restricted networks",
+  "10114":"iPad and iPhone apps on Apple silicon Macs",
+  "10115":"AutoFill everywhere",
+  "10116":"VoiceOver efficiency with custom rotors",
+  "10117":"Accessibility design for Mac Catalyst",
+  "10118":"Create App Clips for other businesses",
+  "10119":"Introduction to SwiftUI",
+  "10120":"Streamline your App Clip",
+  "10138":"Discover AppleSeed for IT and Managed Software Updates",
+  "10139":"Leverage enterprise identity and authentication",
+  "10140":"Build location-aware enterprise apps",
+  "10142":"Build scalable enterprise app suites",
+  "10143":"What's new in Mac Catalyst",
+  "10145":"Design for Game Center",
+  "10146":"Configure and link your App Clips",
+  "10147":"Distribute binary frameworks as Swift packages",
+  "10148":"Inspect, modify, and construct PencilKit drawings",
+  "10149":"Structure your app for SwiftUI previews",
+  "10151":"What's new in CareKit",
+  "10152":"Use model deployment and security with Core ML",
+  "10153":"Get models on device using Core ML Converters",
+  "10154":"Convert PyTorch models to Core ML",
+  "10155":"Improve Object Detection models in Create ML",
+  "10156":"Control training in Create ML with Swift",
+  "10158":"Deliver a better HLS audio experience",
+  "10159":"Build an Endpoint Security app",
+  "10160":"Formatters: Make data human-friendly",
+  "10162":"Design for location privacy",
+  "10163":"Advancements in the Objective-C runtime",
+  "10164":"XCTSkip your tests",
+  "10165":"Embrace Swift type inference",
+  "10167":"Safely manage pointers in Swift",
+  "10168":"Explore logging in Swift",
+  "10169":"Swift packages: Resources and localization",
+  "10170":"What's new in Swift",
+  "10171":"What's new in watchOS design",
+  "10172":"Design Great App Clips",
+  "10173":"Get the most out of Sign in with Apple",
+  "10174":"Explore App Clips",
+  "10175":"The details of UI typography",
+  "10176":"Master Picture in Picture on tvOS",
+  "10182":"What's new in HealthKit",
+  "10184":"Synchronize health data with HealthKit",
+  "10185":"Visually edit SwiftUI views",
+  "10188":"Discover WKWebView enhancements",
+  "10189":"Secure your app: threat modeling and anti-patterns",
+  "10190":"Create quick interactions with Shortcuts on watchOS",
+  "10194":"Add configuration and intelligence to your widgets",
+  "10197":"Broaden your reach with Siri Event Suggestions",
+  "10200":"Design for intelligence: Meet people where they are",
+  "10204":"Create great enterprise apps: A chat with Box's Aaron Levie",
+  "10205":"Design with iOS pickers, menus and actions",
+  "10206":"Designed for iPad",
+  "10207":"SF Symbols 2",
+  "10209":"What's new in Core NFC",
+  "10210":"Modernize PCI and SCSI drivers with DriverKit",
+  "10214":"Port your Mac app to Apple silicon",
+  "10216":"What's new in ResearchKit",
+  "10217":"Explore numerical computing in Swift",
+  "10219":"Build localization-friendly layouts using Xcode",
+  "10220":"Handle interruptions and alerts in UI tests",
+  "10221":"Get your test results faster",
+  "10222":"Create custom apps for employees",
+  "10223":"Deploy Apple devices using zero-touch",
+  "10224":"Meet Audio Workgroups",
+  "10225":"Improve stream authoring with HLS Tools",
+  "10226":"Record stereo audio with AVAudioSession",
+  "10228":"What's new in Low-Latency HLS",
+  "10229":"Discover HLS Blocking Preload Hints",
+  "10230":"Optimize live streams with HLS Playlist Delta Updates",
+  "10231":"Reduce latency with HLS Blocking Playlist Reload",
+  "10232":"Adapt ad insertion to Low-Latency HLS",
+  "10601":"The artist's AR toolkit",
+  "10602":"Harness Apple GPUs with Metal",
+  "10603":"Optimize Metal apps and games with GPU counters",
+  "10604":"Shop online with AR Quick Look",
+  "10605":"Gain insights into your Metal app with Xcode 12",
+  "10611":"Explore ARKit 4",
+  "10612":"What's new in RealityKit",
+  "10613":"What's new in USD",
+  "10614":"Advancements in Game Controllers",
+  "10615":"Build GPU binaries with Metal",
+  "10616":"Debug GPU-side errors in Metal",
+  "10617":"Bring keyboard and mouse gaming to iPad",
+  "10618":"Tap into Game Center: Dashboard, Access Point, and Profile",
+  "10619":"Tap into Game Center: Leaderboards, Achievements, and Multiplayer",
+  "10621":"Support performance-intensive apps and games",
+  "10631":"Bring your Metal app to Apple silicon Macs",
+  "10632":"Optimize Metal Performance for Apple silicon Macs",
+  "10633":"Capture and stream apps on the Mac with ReplayKit",
+  "10634":"Discover search suggestions for Apple TV",
+  "10635":"Accelerate your app with CarPlay",
+  "10636":"What's new in streaming audio for Apple Watch",
+  "10639":"What's new in managing Apple devices",
+  "10640":"Design for the iPadOS pointer",
+  "10641":"Handle the Limited Photos Library in your app",
+  "10642":"Build Image and Video Style Transfer models in Create ML",
+  "10643":"Build a SwiftUI view in Swift Playgrounds",
+  "10644":"Use Swift on AWS Lambda with Xcode",
+  "10645":"Support multiple users in your tvOS app",
+  "10646":"What's new in Web Inspector",
+  "10647":"Become a Simulator expert",
+  "10648":"Unsafe Swift",
+  "10649":"Add custom views and modifiers to the Xcode Library",
+  "10650":"Sync a Core Data store with the CloudKit public database",
+  "10651":"What's new in App Store Connect",
+  "10652":"Meet the new Photos picker",
+  "10653":"Detect Body and Hand Pose with Vision",
+  "10654":"Create Swift Playgrounds content for iPad and Mac",
+  "10655":"Discover how to download and play HLS offline",
+  "10656":"Beyond counting steps",
+  "10657":"Make apps smarter with Natural Language",
+  "10658":"What's new in education",
+  "10659":"Introducing StoreKit Testing in Xcode",
+  "10660":"What's new in location",
+  "10661":"What's new with in-app purchase",
+  "10662":"What's new in Wallet and Apple Pay",
+  "10663":"What's new for web developers",
+  "10664":"Getting started with HealthKit",
+  "10665":"Meet Safari Web Extensions",
+  "10666":"One-tap account security upgrades",
+  "10667":"Custom app distribution with Apple Business Manager",
+  "10668":"Meet Nearby Interaction",
+  "10669":"Handling FHIR without getting burned",
+  "10670":"Meet Face ID and Touch ID for the web",
+  "10671":"Architecting for subscriptions",
+  "10672":"What's new in ClassKit",
+  "10673":"Explore Computer Vision APIs",
+  "10676":"Build trust through better privacy",
+  "10677":"Build customized ML models with the Metal Performance Shaders Graph",
+  "10680":"Refine Objective-C frameworks for Swift",
+  "10681":"Swan's Quest, Chapter 1: Voices in the dark",
+  "10682":"Swan's Quest, Chapter 2: A time for tones",
+  "10683":"Swan's Quest, Chapter 3: The notable scroll",
+  "10684":"Swan's Quest, Chapter 4: The sequence completes",
+  "10686":"Explore the new system architecture of Apple silicon Macs",
+  "10687":"Triage test failures with XCTIssue",
+  "10690":"Apple Design Awards",
+  "10696":"Uniform Type Identifiers -- a reintroduction",
+  "10854":"Integrate SiriKit Media Intents with HomePod",
+  "10855":"Explore UI animation hitches and the render loop",
+  "10856":"Find and fix hitches in the commit phase",
+  "10857":"Demystify and eliminate hitches in the render phase",
+  "10858":"Discover Metal enhancements for A14 Bionic",
+  "10859":"Tailor your Metal apps for Apple M1",
+  "10865":"What can you do on an Apple silicon Mac?",
+  "10868":"Subscription offer codes",
+  "10869":"Family Sharing for in-app purchases",
+  "10870":"Deploy macOS Big Sur in your organization",
+  "10969":"A conversation with the cast and creators of Mythic Quest: Raven's Banquet",
+  "10970":"A conversation with Lisa Jackson and former Attorney General Eric Holder",
+  "20022":"The winners of the 2020 Apple Design Awards"
+};
+
+// Pathway data
+const pathways = [
+  {id:"apple-silicon-mac",name:"Apple Silicon Mac Transition Path",desc:"Bring your Mac app to Apple Silicon. Start with the system architecture, learn the porting workflow, get iOS apps onto Apple Silicon Macs, then dive into Metal optimization for the new TBDR GPU.",sessions:["10686","10214","10114","10631","10632"],gateway:"10686",optional:["10210","10859","10865"],hours:5.0,color:"#22d3ee",urgent:true,urgentReason:"Universal binary required"},
+  {id:"big-sur-design",name:"Big Sur Design System Path",desc:"Adopt the new look of macOS Big Sur. New toolbars, full-height sidebars, custom accent colors, SF Symbols on Mac, and the new typography stack.",sessions:["10104","10056","10143","10207","10175"],gateway:"10104",optional:["10117"],hours:4.5,color:"#818cf8",urgent:true,urgentReason:"Visual refresh"},
+  {id:"widgets-debut",name:"Widgets Adoption Path",desc:"Build iOS 14 Home Screen widgets from scratch. WidgetKit overview, SwiftUI for widgets, design principles, then the three-part code-along.",sessions:["10028","10033","10103","10034","10035","10036"],gateway:"10028",optional:["10194"],hours:5.5,color:"#fb923c",urgent:true,urgentReason:"Home Screen widgets"},
+  {id:"app-clips",name:"App Clips Path",desc:"Ship a lightweight on-demand experience. Start with App Clip fundamentals, configure URLs and codes, then optimize the experience and design for streamlined flows.",sessions:["10174","10146","10120","10172"],gateway:"10174",optional:["10118"],hours:3.5,color:"#f472b6"},
+  {id:"swiftui-2",name:"SwiftUI 2.0 Path",desc:"Learn SwiftUI's second major release. Apps and Scenes architecture, data flow, lists/grids/outlines, and what's new across the framework.",sessions:["10119","10037","10040","10031","10041"],gateway:"10119",optional:["10039","10185"],hours:5.0,color:"#c084fc"},
+  {id:"swift-5-3",name:"Swift 5.3 Path",desc:"Master Swift 5.3's language additions, runtime improvements, and the expanding standard library packages. Multiple trailing closures, @main, multi-pattern catch, plus Logger.",sessions:["10170","10165","10168","10217","10169"],gateway:"10170",optional:["10147","10648","10644"],hours:4.5,color:"#fbbf24"},
+  {id:"catalyst-modern",name:"Catalyst Modernization Path",desc:"Bring your iPad app to Mac with first-class polish. What's new in Catalyst, then deeply optimize the interface for the Mac idiom.",sessions:["10143","10056","10117"],gateway:"10143",optional:["10104"],hours:3.0,color:"#a78bfa"},
+  {id:"ipados-14",name:"iPadOS 14 Path",desc:"Adopt iPadOS 14's hallmarks: multi-column sidebars, the new pointer experience, system-wide Scribble for handwriting, and PencilKit's open data model.",sessions:["10105","10093","10106","10094","10148"],gateway:"10105",optional:["10097","10026","10045","10107"],hours:5.0,color:"#06b6d4"},
+  {id:"watchos-7",name:"watchOS 7 Path",desc:"Adopt watchOS 7's redesign and new features. Multiple complications per app, SwiftUI in complications, watch face sharing, design audit, mobility metrics.",sessions:["10046","10048","10100","10171","10656"],gateway:"10046",optional:["10049","10083","10190","10184","10182"],hours:5.0,color:"#f87171"},
+  {id:"ml-on-device",name:"ML & Vision Path",desc:"Ship on-device ML features. Vision's new hand and body pose detectors, Create ML action classification, PyTorch conversion, and Core ML model deployment & encryption.",sessions:["10653","10043","10099","10153","10154","10152"],gateway:"10653",optional:["10155","10156","10677","10657"],hours:6.0,color:"#a78bfa"},
+  {id:"arkit-4",name:"ARKit 4 & RealityKit Path",desc:"Build location-anchored AR with ARKit 4, leverage the LiDAR scanner for scene understanding, and add interactive content via RealityKit's video materials and physics.",sessions:["10611","10612","10604","10601"],gateway:"10611",optional:["10613"],hours:4.0,color:"#22d3ee"},
+  {id:"metal-tbdr",name:"Metal & GPU Path",desc:"Master Metal on Apple Silicon Mac's TBDR architecture. Apple GPU fundamentals, optimization, ray tracing, debugging, and Pro Display XDR / HDR pipelines.",sessions:["10602","10632","10603","10012","10023"],gateway:"10602",optional:["10615","10616","10605","10013"],hours:5.5,color:"#ef4444"},
+  {id:"privacy-2020",name:"Privacy & Security Path",desc:"Adopt iOS 14's privacy model. App Tracking Transparency, Limited Photos Library, approximate location, local network privacy, encrypted DNS, and Sign in with Apple updates.",sessions:["10676","10641","10110","10162","10047","10173"],gateway:"10676",optional:["10652","10666","10670","10665","10189"],hours:6.0,color:"#34d399",urgent:true,urgentReason:"ATT enforcement"},
+  {id:"background-execution",name:"Background Execution Path",desc:"Understand how iOS schedules background work. The seven factors, then practical patterns for App Refresh, background pushes, URL sessions, and BGProcessingTask.",sessions:["10063","10078","10081"],gateway:"10063",optional:["10076","10057"],hours:2.5,color:"#2dd4bf"}
+];
+
+// Topic distribution (WWDC 2020 had a smaller topic taxonomy than later years)
+const topicData = [
+  {name:"Frameworks",count:122,color:"#818cf8"},
+  {name:"Developer Tools",count:36,color:"#06b6d4"},
+  {name:"Graphics and Games",count:22,color:"#ef4444"},
+  {name:"Media",count:17,color:"#22d3ee"},
+  {name:"Tech Talk",count:15,color:"#fbbf24"},
+  {name:"App Store and Distribution",count:9,color:"#a3e635"},
+  {name:"Featured",count:6,color:"#f472b6"}
+];
+
+// Clusters
+const clusters = [
+  {name:"Apple Silicon Mac",desc:"The single biggest hardware shift in 15 years -- porting workflow, security model, app distribution, GPU architecture",sessions:["10686","10214","10114","10631","10632"],color:"#22d3ee"},
+  {name:"macOS Big Sur Design",desc:"The new visual language: full-height sidebars, integrated toolbars, large controls, custom accent colors, SF Symbols on Mac",sessions:["10104","10056","10143","10117","10207"],color:"#818cf8"},
+  {name:"WidgetKit",desc:"iOS 14 Home Screen widgets from concept to shipped feature, plus the three-part code-along",sessions:["10028","10033","10103","10034","10035","10036","10194"],color:"#fb923c"},
+  {name:"App Clips",desc:"Lightweight on-demand experiences -- fundamentals, configuration, design, optimization",sessions:["10174","10146","10120","10172","10118"],color:"#f472b6"},
+  {name:"SwiftUI 2.0",desc:"The Apps/Scenes architecture, data flow, lists/grids/outlines, multi-platform templates",sessions:["10119","10037","10040","10041","10031","10039"],color:"#c084fc"},
+  {name:"Swift 5.3 Language",desc:"Multiple trailing closures, @main, multi-pattern catch, runtime perf wins, expanding stdlib packages",sessions:["10170","10165","10168","10217","10169","10147"],color:"#fbbf24"},
+  {name:"iPadOS Pointer & Sidebars",desc:"Multi-column SplitViewController, the iPadOS pointer customization API, modern UICollectionView",sessions:["10105","10093","10094","10097","10026","10045"],color:"#06b6d4"},
+  {name:"Scribble & PencilKit",desc:"System-wide handwriting input on iPad, plus PencilKit's newly open data model",sessions:["10106","10148","10107"],color:"#06b6d4"},
+  {name:"watchOS 7 Complications & Faces",desc:"Multiple complications per app, SwiftUI in complications, watch face sharing, design overhaul",sessions:["10046","10048","10049","10100","10171"],color:"#f87171"},
+  {name:"Mobility Metrics & Health",desc:"Lab-grade gait analysis from passive iPhone/Apple Watch wear, plus sleep & wind down",sessions:["10656","10182","10184","10083","10664"],color:"#34d399"},
+  {name:"Vision & ML",desc:"Hand and body pose detection, Create ML action classification, Core ML deployment & encryption",sessions:["10653","10043","10099","10153","10154","10152","10677"],color:"#a78bfa"},
+  {name:"ARKit 4 & RealityKit",desc:"Location anchors, LiDAR scene understanding, RealityKit's video materials and physics",sessions:["10611","10612","10604","10601"],color:"#22d3ee"},
+  {name:"Metal on Apple GPU",desc:"TBDR architecture comes to the Mac -- feature detection, optimization, ray tracing, debugging",sessions:["10602","10632","10603","10012","10615","10616"],color:"#ef4444"},
+  {name:"HDR & Pro Display XDR",desc:"HDR video editing/playback, Pro Display XDR support, ProRes decode acceleration",sessions:["10023","10009","10010","10090"],color:"#fb923c"},
+  {name:"Privacy 2020",desc:"App Tracking Transparency, Limited Photos Library, approximate location, local network privacy",sessions:["10676","10641","10652","10110","10162"],color:"#34d399"},
+  {name:"Encrypted DNS & Networking",desc:"DoH/DoT support, modern networking, Network framework PrivacyContext",sessions:["10047","10111","10110"],color:"#22d3ee"},
+  {name:"Authentication & Sign in with Apple",desc:"Sign in with Apple updates, account upgrade flow, Face ID/Touch ID for the web",sessions:["10173","10666","10670"],color:"#818cf8"},
+  {name:"Low-Latency HLS",desc:"Sub-2-second live streaming with HLS -- partial segments, blocking reload, preload hints, delta updates",sessions:["10228","10229","10230","10231","10232","10225"],color:"#22d3ee"},
+  {name:"Audio Workgroups",desc:"Critical for realtime audio on Apple Silicon -- joining the kernel scheduler's deadline awareness",sessions:["10224","10226"],color:"#2dd4bf"},
+  {name:"StoreKit & In-App Purchase",desc:"Local IAP testing in Xcode, subscription architecture, Family Sharing for IAP, App Store Connect API",sessions:["10659","10661","10671","10869","10004"],color:"#a3e635"},
+  {name:"Siri, Intents & Shortcuts",desc:"Compact Siri UI, Shortcuts on watchOS, in-app intent handling, Wind Down integration",sessions:["10068","10073","10074","10084","10190","10086"],color:"#fbbf24"},
+  {name:"Background Execution",desc:"Why background work runs (or doesn't) and how to be a good citizen",sessions:["10063","10078","10081","10076"],color:"#a78bfa"},
+  {name:"Game Center Redesign",desc:"Full UI overhaul with access point, dashboard, collectible achievements, redesigned multiplayer",sessions:["10145","10618","10619"],color:"#ef4444"},
+  {name:"Xcode 12 & Tooling",desc:"Multi-platform templates, code completion 15x faster, animation hitch detection, better test reports",sessions:["10076","10077","10081","10221","10219","10185"],color:"#06b6d4"}
+];
+
+// Hidden gems & best practices
+const gems = [
+  {type:"warning",label:"URGENT",text:"Apple Silicon Macs change PAGE_SIZE from a compile-time constant to a runtime value. Use PAGE_MAX_SIZE for upper bounds at compile time, vm_page_size at runtime. Compile failures here are an early porting signal.",source:"WWDC20-10214"},
+  {type:"warning",label:"URGENT",text:"mach_absolute_time() does NOT return nanoseconds. Its tick frequency varies by CPU architecture. Code assuming nanoseconds runs ~40x slower or faster on Apple Silicon. Switch to clock_gettime(CLOCK_UPTIME_RAW) or use mach_timebase_info to convert.",source:"WWDC20-10214"},
+  {type:"hidden",label:"HIDDEN GEM",text:"The Apple GPU's SIMD group size is 32, not 64 like AMD. Compute shaders that 'got lucky' assuming SIMD == threadgroup size produce visual artifacts on Apple GPUs. Always query threads_per_simdgroup or threadExecutionWidth.",source:"WWDC20-10631"},
+  {type:"warning",label:"DEPRECATION",text:"hitTest is deprecated for AR object placement. Use ARRaycastQuery (single-shot or tracked). On LiDAR devices, raycasting works on featureless surfaces like white walls thanks to scene depth.",source:"WWDC20-10611"},
+  {type:"perf",label:"PERFORMANCE",text:"Swift 5.3 cuts heap memory overhead by over 2/3 vs. Swift 5.2 for apps targeting iOS 14. SwiftUI app code size dropped 40% (MovieSwiftUI). Foundation, OSLog, and runtime caches all became dramatically more efficient.",source:"WWDC20-10170"},
+  {type:"hidden",label:"HIDDEN GEM",text:"@StateObject solves the silent bug where @ObservedObject var store = MyStore() re-allocates the store every render. SwiftUI instantiates @StateObject once before first body. Rule: created in this view = StateObject, passed in = ObservedObject.",source:"WWDC20-10040"},
+  {type:"practice",label:"BEST PRACTICE",text:"In WidgetKit, your widget is NOT a mini-app. No buttons, no scrolling, no animated images, no videos. Use Text(date, style:.relative)/.timer to make widgets feel alive without your extension running.",source:"WWDC20-10028, 10033"},
+  {type:"hidden",label:"HIDDEN GEM",text:"ContainerRelativeShape is the right way to do widget corner radii. Hardcoded .cornerRadius(12) breaks across device shapes. ContainerRelativeShape adopts the path of the nearest container automatically.",source:"WWDC20-10033"},
+  {type:"warning",label:"URGENT",text:"Audio apps creating realtime threads on Apple Silicon MUST join the device's os_workgroup, or threads may be scheduled on E-cores causing glitches. The 'fix' is os_workgroup_join() in your audio thread.",source:"WWDC20-10224"},
+  {type:"warning",label:"URGENT",text:"App Tracking Transparency: Apps must call requestTrackingAuthorization before reading IDFA. If unset, users denied, or system-wide toggle off, IDFA returns all zeros. Add NSUserTrackingUsageDescription and call before every IDFA use.",source:"WWDC20-10676"},
+  {type:"hidden",label:"HIDDEN GEM",text:"For most apps, replace UIImagePickerController with PHPicker -- it runs out-of-process and requires NO Photos permission prompt. Only what the user picks is returned. Most apps need zero library access.",source:"WWDC20-10652, 10641"},
+  {type:"perf",label:"PERFORMANCE",text:"Low-Latency HLS reduces live-stream latency from 6-30s down to under 2s while staying CDN-cacheable. Partial segments + blocking playlist reload + preload hints + delta updates eliminate polling round-trips.",source:"WWDC20-10228, 10231, 10229"},
+  {type:"hidden",label:"HIDDEN GEM",text:"StoreKit Testing in Xcode lets you test in-app purchases entirely locally with no sandbox accounts. Time-shift renewal dates to compress months into seconds; trigger refunds, billing failures, interruptions.",source:"WWDC20-10659"},
+  {type:"practice",label:"BEST PRACTICE",text:"Sign in with Apple: ALWAYS set both nonce and state on the request. Server validates the JWT identityToken's nonce; app validates the credential's state locally. Prevents replay attacks.",source:"WWDC20-10173"},
+  {type:"hidden",label:"HIDDEN GEM",text:"Vision body pose: For Create ML action classification, use Vision (not ARKit) to extract poses both for training AND inference. They're not interchangeable. ARKit body pose has no per-point confidence.",source:"WWDC20-10653, 10043"},
+  {type:"perf",label:"PERFORMANCE",text:"Memoryless render targets (storageMode = .memoryless) on Apple GPU TBDR cost ZERO VRAM. Use for any G-buffer attachment that never leaves a single render pass. Combined with MSAA, the multisample texture itself can be memoryless.",source:"WWDC20-10602, 10632"},
+  {type:"warning",label:"URGENT",text:"watchOS 7 deletes ALL gesture-based contextual menus. Long-press secret menus = old. Surface every action visibly via swipe actions, More buttons, sort/filter pickers, or the new toolbar button. Audit every watchOS app this year.",source:"WWDC20-10171"},
+  {type:"hidden",label:"HIDDEN GEM",text:"watchOS 7 supports MULTIPLE complications per app. Implement getComplicationDescriptors with CLKComplicationDescriptors -- one app can fill an entire watch face with branded complications. Always handle CLKDefaultComplicationIdentifier as fallback.",source:"WWDC20-10046"},
+  {type:"practice",label:"BEST PRACTICE",text:"Local network access: don't browse Bonjour on launch -- wait for a user action. The system prompts the first time; timing it to a user-tap-on-Find-Devices makes the prompt feel intentional, not invasive.",source:"WWDC20-10110"},
+  {type:"hidden",label:"HIDDEN GEM",text:"Scene understanding (RealityKit + LiDAR) gives you four interactions in one option set: occlusion, receivesLighting (shadows), physics, collision. Real-world objects appear in your scene as read-only entities with HasSceneUnderstanding trait.",source:"WWDC20-10612"},
+  {type:"perf",label:"PERFORMANCE",text:"Swift code completion in Xcode 12 is up to 15x faster for SwiftUI -- common completions went from ~0.5s to under 0.1s. The compiler diagnostic engine also rewrites SwiftUI errors to point at the actual problem.",source:"WWDC20-10170, 10165"},
+  {type:"hidden",label:"HIDDEN GEM",text:"@AppStorage and @SceneStorage are NEW property wrappers that auto-persist UI state via UserDefaults / per-scene restoration. Don't use them for your model -- they're for lightweight UI state that should survive process restarts.",source:"WWDC20-10040"},
+  {type:"warning",label:"URGENT",text:"Big Sur Metal: apps built against Catalina or earlier SDK get THREE silent compatibility workarounds for TBDR bugs (DontCare load actions, position invariance, depth attachment sampling). Building against Big Sur SDK loses these -- your code must be correct.",source:"WWDC20-10631"},
+  {type:"hidden",label:"HIDDEN GEM",text:"Limited Photos Library mode: if your code calls the new authorizationStatus(for: .readWrite) it returns .limited. The OLD APIs return .authorized even when limited -- back-compat. Adopt the new ones to detect limited mode correctly.",source:"WWDC20-10641"},
+  {type:"practice",label:"BEST PRACTICE",text:"Use os.Logger (not print). Compiler optimizes away message construction for debug-level logs when not streaming. Numeric data is public by default; strings/objects are PRIVATE (redacted) by default. Use .private(mask:.hash) to log a stable hash.",source:"WWDC20-10168"},
+  {type:"perf",label:"PERFORMANCE",text:"Background pushes are rate-limited even with frequent pushes. 14 incoming pushes may produce 7 launches at ~15-min intervals. Optimize for energy budget per launch (under 100KB cellular data) not delivery rate.",source:"WWDC20-10063"},
+  {type:"hidden",label:"HIDDEN GEM",text:"App Clip shared group container survives even after iOS deletes the App Clip on full-app install. Store data you want to migrate (cached order, partial state) in the shared container, not the App Clip's standard container.",source:"WWDC20-10174"},
+  {type:"practice",label:"BEST PRACTICE",text:"Mac Catalyst Optimized for Mac: gesture recognizers on UIButton STOP firing when the button has the native Mac appearance. Move long-press patterns to UIButton.menu (real menu) or to menu-bar items. Custom (non-system) buttons keep iPad event model.",source:"WWDC20-10056"}
+];
+
+// Doc vs Transcript deltas
+const deltas = [
+  {type:"delta",label:"DOCS MISS THIS",text:"The mach_absolute_time porting trap (assuming nanoseconds) has cost weeks of debugging across many apps. The session calls it out as a top-3 issue, but documentation buries it in the timer reference. The 40x latency symptom is what tips most devs off.",source:"WWDC20-10214 vs DocC"},
+  {type:"delta",label:"DOCS MISS THIS",text:"On Apple Silicon's TBDR architecture, position invariance must be EXPLICITLY enabled both via preserveInvariance compile flag AND [[invariant]] in MSL. Documentation describes the flag but doesn't flag the visual-corruption risk for multi-pass depth-equal rendering.",source:"WWDC20-10631 vs DocC"},
+  {type:"delta",label:"DOCS HAVE MORE",text:"Apple's Metal feature-set tables document every property of every GPU family far more comprehensively than the WWDC sessions could -- transcripts only show the use cases. Always cross-reference for full details.",source:"DocC Metal"},
+  {type:"delta",label:"DOCS MISS THIS",text:"Background execution's 'seven factors' framing (battery, low power, app usage, App Switcher, BGAppRefresh switch, system budgets, rate limiting) appears nowhere in the docs. It's the only conceptual model that explains why your background tasks don't run.",source:"WWDC20-10063 vs DocC"},
+  {type:"delta",label:"DOCS MISS THIS",text:"The Audio Workgroups requirement is critical for realtime audio apps on Apple Silicon, but audio app docs don't loudly require it. Without joining os_workgroup, your audio thread may schedule on E-cores and glitch.",source:"WWDC20-10224 vs DocC"},
+  {type:"delta",label:"WELL ALIGNED",text:"App Tracking Transparency documentation is comprehensive and matches the session content. Apple ships clear examples of what counts as tracking, how to call the API, and how the user-facing prompts behave.",source:"WWDC20-10676 vs DocC"},
+  {type:"delta",label:"DOCS MISS THIS",text:"WidgetKit's TimelineEntryRelevance (score is RELATIVE to ALL entries you've ever provided) is mentioned in passing in docs but is the single biggest pitfall. Get the relative scoring wrong and your widget never rises in the Smart Stack.",source:"WWDC20-10028 vs DocC"},
+  {type:"delta",label:"DOCS HAVE MORE",text:"The HealthKit mobility metrics each have detailed reference pages explaining sample collection conditions (phone in pocket, flat ground, week of Apple Watch wear for 6MWT) -- transcripts give the high level only.",source:"DocC HealthKit"}
+];
+
+// Prerequisites for the graph
+const prereqs = {
+  "10214":["10686"],"10114":["10686"],"10631":["10686","10602"],"10632":["10631"],
+  "10056":["10104","10143"],"10117":["10104"],
+  "10033":["10028"],"10103":["10028"],"10034":["10028","10033"],"10035":["10034"],"10036":["10035"],"10194":["10028"],
+  "10146":["10174"],"10120":["10174"],"10172":["10174"],"10118":["10174"],
+  "10037":["10119"],"10040":["10037"],"10041":["10037"],"10031":["10037"],"10039":["10037"],"10148":["10037"],"10185":["10119"],
+  "10165":["10170"],"10168":["10170"],"10217":["10170"],"10169":["10170"],
+  "10093":["10094"],"10106":["10093"],"10097":["10026"],"10045":["10097"],
+  "10048":["10046"],"10100":["10046"],"10049":["10046"],"10171":["10046"],
+  "10043":["10653"],"10099":["10043"],"10153":["10043"],"10154":["10153"],"10155":["10153"],"10156":["10153"],"10152":["10153"],
+  "10612":["10611"],"10604":["10611"],"10601":["10611"],"10613":["10612"],
+  "10603":["10602"],"10615":["10602"],"10616":["10602"],"10605":["10602"],"10012":["10602"],"10013":["10012"],
+  "10641":["10676"],"10110":["10676"],"10162":["10676"],"10047":["10676"],"10173":["10676"],
+  "10666":["10173"],"10670":["10676"],"10665":["10676"],"10652":["10641"],
+  "10078":["10063"],"10081":["10063"],"10076":["10081"]
+};
+
+// --- RENDER FUNCTIONS ---
+
+function showSection(id) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('sec-' + id).classList.add('active');
+  event.target.classList.add('active');
+}
+
+function renderPathways() {
+  const grid = document.getElementById('pathway-grid');
+  grid.innerHTML = pathways.map(p => `
+    <div class="pathway-card" onclick="showPathwayDetail('${p.id}')" style="border-left: 3px solid ${p.color}">
+      <div class="badges-row">
+        ${p.urgent ? `<div class="badge urgent">${(p.urgentReason || 'URGENT').replace(/[<>&'"]/g, c => ({'<':'&lt;','>':'&gt;','&':'&amp;',"'":'&#39;','"':'&quot;'}[c]))}</div>` : ''}
+        <div class="badge hours">${p.hours}h</div>
+      </div>
+      <h4>${p.name}</h4>
+      <p>${p.desc}</p>
+      <div class="pathway-sessions">
+        ${p.sessions.map(s => `<span class="session-pill linked ${s===p.gateway?'gateway':''}" onclick="event.stopPropagation();window.open('${sessionUrl(s)}','_blank');" title="${sessionTitles[s]||s} (open video)">${s}</span>`).join('')}
+        ${(p.optional||[]).map(s => `<span class="session-pill linked optional" onclick="event.stopPropagation();window.open('${sessionUrl(s)}','_blank');" title="${sessionTitles[s]||s} (open video)">${s}</span>`).join('')}
+      </div>
+    </div>
+  `).join('');
+}
+
+function showPathwayDetail(id) {
+  const p = pathways.find(x => x.id === id);
+  const area = document.getElementById('pathway-detail-area');
+  area.innerHTML = `
+    <div class="pathway-detail active">
+      <span class="back" onclick="this.parentElement.classList.remove('active')">&larr; Back to all pathways</span>
+      <h3 style="color:${p.color}">${p.name} Path</h3>
+      <p style="color:var(--text-dim);margin-bottom:20px;">${p.desc} &mdash; Estimated: ${p.hours} hours</p>
+      <div class="flow">
+        ${p.sessions.map((s,i) => `
+          <div class="flow-item ${s===p.gateway?'gateway-item':''}">
+            <a class="step-link" href="${sessionUrl(s)}" target="_blank" rel="noopener">
+              <div class="step-num">${s===p.gateway?'START':'Step '+(i+1)} &middot; opens video &rarr;</div>
+              <div class="step-title">${sessionTitles[s]||'Session '+s}</div>
+              <div class="step-id">WWDC${String(WWDC_YEAR).slice(-2)}-${s}</div>
+            </a>
+          </div>
+        `).join('')}
+        ${(p.optional||[]).length > 0 ? '<div style="margin:12px 0 4px 0;color:var(--text-dim);font-size:0.85em;">Optional enrichment:</div>' : ''}
+        ${(p.optional||[]).map(s => `
+          <div class="flow-item optional-item">
+            <a class="step-link" href="${sessionUrl(s)}" target="_blank" rel="noopener">
+              <div class="step-num">OPTIONAL &middot; opens video &rarr;</div>
+              <div class="step-title">${sessionTitles[s]||'Session '+s}</div>
+              <div class="step-id">WWDC${String(WWDC_YEAR).slice(-2)}-${s}</div>
+            </a>
+          </div>
+        `).join('')}
+      </div>
+    </div>
+  `;
+  area.scrollIntoView({behavior:'smooth', block:'start'});
+}
+
+function renderTopicChart() {
+  const maxCount = Math.max(...topicData.map(t => t.count));
+  document.getElementById('topic-chart').innerHTML = topicData.map(t => `
+    <div class="bar-row">
+      <div class="bar-label">${t.name}</div>
+      <div class="bar-track">
+        <div class="bar-fill" style="width:${(t.count/maxCount*100)}%;background:${t.color};">${t.count > 3 ? t.count : ''}</div>
+      </div>
+      <div class="bar-count">${t.count}</div>
+    </div>
+  `).join('');
+}
+
+function renderClusters() {
+  const yr = String(WWDC_YEAR).slice(-2);
+  document.getElementById('cluster-grid').innerHTML = clusters.map(c => `
+    <div class="cluster-card" style="border-left:3px solid ${c.color}">
+      <h4>${c.name}</h4>
+      <div class="desc">${c.desc}</div>
+      <div class="cluster-sessions">
+        ${c.sessions.map(s => `<span class="cluster-badge linked" onclick="window.open('${sessionUrl(s)}','_blank');" title="${sessionTitles[s]||s} (open video)">WWDC${yr}-${s}</span>`).join('')}
+      </div>
+    </div>
+  `).join('');
+}
+
+// Build the source label as a clickable link to the FIRST session referenced
+function buildSourceLink(source) {
+  const ids = extractSessionIds(source);
+  if (ids.length === 0) return `<span>${source}</span>`;
+  const primary = ids[0];
+  return `<a class="gem-source-link" href="${sessionUrl(primary)}" target="_blank" rel="noopener" onclick="event.stopPropagation();">${source} &rarr;</a>`;
+}
+
+// Make whole gem card clickable to first session
+function gemClickHandler(source) {
+  const ids = extractSessionIds(source);
+  if (ids.length === 0) return '';
+  return `onclick="window.open('${sessionUrl(ids[0])}','_blank');"`;
+}
+
+function renderFilterBar(containerId, items, onFilterChange) {
+  // Group by label
+  const counts = {};
+  items.forEach(it => { counts[it.label] = (counts[it.label] || 0) + 1; });
+  const labels = ['All', ...Object.keys(counts).sort()];
+  const container = document.getElementById(containerId);
+  container.innerHTML = labels.map(label => {
+    const count = label === 'All' ? items.length : counts[label];
+    return `<div class="filter-chip ${label==='All'?'active':''}" data-filter="${label}">${label}<span class="filter-count">${count}</span></div>`;
+  }).join('');
+  container.querySelectorAll('.filter-chip').forEach(chip => {
+    chip.addEventListener('click', () => {
+      container.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+      onFilterChange(chip.dataset.filter);
+    });
+  });
+}
+
+function renderGems() {
+  const html = gems.map((g, i) => `
+    <div class="gem-card" data-label="${g.label}" ${gemClickHandler(g.source)}>
+      <div class="gem-type ${g.type}">${g.label}</div>
+      <div class="gem-text">${g.text}</div>
+      <div class="gem-source">${buildSourceLink(g.source)}</div>
+    </div>
+  `).join('');
+  document.getElementById('gems-grid').innerHTML = html;
+
+  renderFilterBar('gems-filter', gems, (label) => {
+    document.querySelectorAll('#gems-grid .gem-card').forEach(card => {
+      const show = label === 'All' || card.dataset.label === label;
+      card.classList.toggle('hidden-by-filter', !show);
+    });
+  });
+}
+
+function renderDeltas() {
+  const html = deltas.map(d => `
+    <div class="gem-card" data-label="${d.label}" ${gemClickHandler(d.source)}>
+      <div class="gem-type delta">${d.label}</div>
+      <div class="gem-text">${d.text}</div>
+      <div class="gem-source">${buildSourceLink(d.source)}</div>
+    </div>
+  `).join('');
+  document.getElementById('deltas-grid').innerHTML = html;
+
+  renderFilterBar('deltas-filter', deltas, (label) => {
+    document.querySelectorAll('#deltas-grid .gem-card').forEach(card => {
+      const show = label === 'All' || card.dataset.label === label;
+      card.classList.toggle('hidden-by-filter', !show);
+    });
+  });
+}
+
+function renderGraph() {
+  const svg = document.getElementById('dep-graph');
+  // Build a layered graph of the main prerequisite chains for WWDC 2020
+  const chains = [
+    {label:"Apple Silicon",color:"#22d3ee",nodes:["10686","10214","10114","10631","10632"],y:60},
+    {label:"Big Sur Design",color:"#818cf8",nodes:["10104","10143","10056","10117"],y:160},
+    {label:"WidgetKit",color:"#fb923c",nodes:["10028","10033","10034","10035","10036"],y:260},
+    {label:"App Clips",color:"#f472b6",nodes:["10174","10146","10120","10172"],y:360},
+    {label:"SwiftUI 2.0",color:"#c084fc",nodes:["10119","10037","10040","10041","10031"],y:460},
+    {label:"Swift 5.3",color:"#fbbf24",nodes:["10170","10165","10168","10169"],y:560},
+    {label:"iPadOS Pointer",color:"#06b6d4",nodes:["10105","10094","10093","10097","10026"],y:660},
+    {label:"watchOS 7",color:"#f87171",nodes:["10046","10048","10100","10171"],y:760},
+    {label:"Vision/ML",color:"#a78bfa",nodes:["10653","10043","10099","10153","10152"],y:860},
+    {label:"Metal/GPU",color:"#ef4444",nodes:["10602","10632","10603","10012"],y:960},
+    {label:"Privacy",color:"#34d399",nodes:["10676","10641","10110","10162","10173"],y:1060}
+  ];
+
+  // Fixed-width layout, titles wrap to 2 lines
+  const LABEL_W = 140;
+  const PAD_X = 10;
+  const NODE_W = 160;
+  const NODE_H = 52;
+  const NODE_GAP = 20;
+  const ROW_H = 70;
+  const ROW_GAP = 20;
+  const TOP_PAD = 30;
+  const MAX_CHARS_PER_LINE = 24;
+
+  // Find longest chain for SVG width
+  const maxNodes = Math.max(...chains.map(c => c.nodes.length));
+  const svgW = LABEL_W + maxNodes * NODE_W + (maxNodes - 1) * NODE_GAP + 30;
+  const svgH = TOP_PAD + chains.length * (ROW_H + ROW_GAP);
+
+  svg.setAttribute('viewBox', `0 0 ${svgW} ${svgH}`);
+  svg.setAttribute('width', svgW);
+  svg.setAttribute('height', svgH);
+  svg.style.minWidth = svgW + 'px';
+
+  let s = `<defs>
+    <marker id="arrow" viewBox="0 0 10 6" refX="10" refY="3" markerWidth="8" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 3 L 0 6 z" fill="#555"/>
+    </marker>
+  </defs>`;
+
+  chains.forEach((chain, ri) => {
+    const cy = TOP_PAD + ri * (ROW_H + ROW_GAP) + ROW_H / 2;
+    const top = cy - NODE_H / 2;
+
+    // Row label
+    s += `<text x="20" y="${cy + 4}" fill="${chain.color}" font-size="13" font-weight="600" font-family="system-ui">${escXml(chain.label)}</text>`;
+
+    chain.nodes.forEach((id, i) => {
+      const x = LABEL_W + i * (NODE_W + NODE_GAP);
+      const title = sessionTitles[id] || ('Session ' + id);
+      const url = sessionUrl(id);
+      const lines = wrapTitle(title, MAX_CHARS_PER_LINE);
+
+      s += `<a href="${url}" target="_blank" rel="noopener" style="cursor:pointer;">`;
+      s += `<rect x="${x}" y="${top}" width="${NODE_W}" height="${NODE_H}" rx="8" fill="#1e1e2e" stroke="${chain.color}" stroke-width="1.5"><title>${escXml(title)} (open video)</title></rect>`;
+      // ID at top
+      s += `<text x="${x + PAD_X}" y="${cy - 14}" fill="${chain.color}" font-size="10" font-weight="700" font-family="system-ui" pointer-events="none">${id}</text>`;
+      // Title wrapped to up to 2 lines
+      s += `<text x="${x + PAD_X}" y="${cy + 1}" fill="#c8c8d8" font-size="10" font-family="system-ui" pointer-events="none">${escXml(lines[0])}</text>`;
+      if (lines[1]) {
+        s += `<text x="${x + PAD_X}" y="${cy + 14}" fill="#c8c8d8" font-size="10" font-family="system-ui" pointer-events="none">${escXml(lines[1])}</text>`;
+      }
+      s += `</a>`;
+
+      if (i < chain.nodes.length - 1) {
+        s += `<line x1="${x + NODE_W + 2}" y1="${cy}" x2="${x + NODE_W + NODE_GAP - 2}" y2="${cy}" stroke="#555" stroke-width="1.5" marker-end="url(#arrow)"/>`;
+      }
+    });
+  });
+
+  svg.innerHTML = s;
+}
+
+function wrapTitle(title, maxChars) {
+  if (title.length <= maxChars) return [title];
+  const words = title.split(' ');
+  let line1 = '';
+  let i = 0;
+  // Greedily fill line 1
+  while (i < words.length) {
+    const candidate = line1 ? line1 + ' ' + words[i] : words[i];
+    if (candidate.length > maxChars) break;
+    line1 = candidate;
+    i++;
+  }
+  // If even the first word doesn't fit, hard-cut
+  if (!line1) {
+    line1 = title.slice(0, maxChars - 1) + '\u2026';
+    return [line1];
+  }
+  let line2 = words.slice(i).join(' ');
+  if (line2.length > maxChars) line2 = line2.slice(0, maxChars - 1) + '\u2026';
+  return [line1, line2];
+}
+
+function escXml(t) {
+  return String(t).replace(/[<>&'"]/g, c => ({'<':'&lt;','>':'&gt;','&':'&amp;',"'":'&apos;','"':'&quot;'}[c]));
+}
+
+// Init
+renderPathways();
+renderTopicChart();
+renderClusters();
+renderGems();
+renderDeltas();
+renderGraph();
+
+// ============================================================================
+// SEARCH
+// ============================================================================
+(function setupSearch() {
+  // Build a unified search index from existing data sources
+  function buildIndex() {
+    const idx = [];
+    if (typeof sessionTitles === 'object') {
+      Object.entries(sessionTitles).forEach(([id, title]) => {
+        idx.push({ kind: 'Session', id, title, url: sessionUrl(id), action: 'open-video' });
+      });
+    }
+    if (typeof pathways !== 'undefined') {
+      pathways.forEach(p => {
+        idx.push({ kind: 'Pathway', id: p.id, title: p.name, desc: p.description || p.desc || '', action: 'open-pathway', pathwayId: p.id });
+      });
+    }
+    if (typeof clusters !== 'undefined') {
+      clusters.forEach(c => {
+        idx.push({ kind: 'Cluster', id: c.name, title: c.name, desc: c.description || c.desc || '', sessions: c.sessions || [], action: 'open-tab', tab: 'clusters' });
+      });
+    }
+    if (typeof gems !== 'undefined') {
+      gems.forEach(g => {
+        idx.push({ kind: 'Gem ' + g.label, id: g.source, title: g.text, source: g.source, action: 'open-source' });
+      });
+    }
+    if (typeof deltas !== 'undefined') {
+      deltas.forEach(d => {
+        idx.push({ kind: 'Delta ' + d.label, id: d.source, title: d.text, source: d.source, action: 'open-source' });
+      });
+    }
+    if (typeof topicData !== 'undefined') {
+      topicData.forEach(t => {
+        idx.push({ kind: 'Topic', id: t.name, title: t.name, action: 'open-tab', tab: 'topics' });
+      });
+    }
+    return idx;
+  }
+  const SEARCH_INDEX = buildIndex();
+
+  const input = document.getElementById('search-input');
+  const resultsEl = document.getElementById('search-results');
+  if (!input || !resultsEl) return;
+  let selected = -1;
+  let lastResults = [];
+
+  function highlight(text, q) {
+    if (!q) return escapeHtmlSafe(text);
+    const safe = escapeHtmlSafe(text);
+    const escQ = q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    return safe.replace(new RegExp('(' + escQ + ')', 'ig'), '<strong>$1</strong>');
+  }
+  function escapeHtmlSafe(s) {
+    return String(s).replace(/[<>&'"]/g, c => ({'<':'&lt;','>':'&gt;','&':'&amp;',"'":'&#39;','"':'&quot;'}[c]));
+  }
+
+  function search(q) {
+    if (!q || q.length < 1) { lastResults = []; return []; }
+    const ql = q.toLowerCase();
+    const scored = SEARCH_INDEX.map(it => {
+      const hay = (it.title + ' ' + (it.desc || '') + ' ' + (it.id || '')).toLowerCase();
+      let score = 0;
+      if (it.title && it.title.toLowerCase().startsWith(ql)) score += 100;
+      if (String(it.id || '').toLowerCase() === ql) score += 200;
+      if (hay.includes(ql)) score += 50;
+      // Word-boundary match
+      const wordRe = new RegExp('\\b' + ql.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'i');
+      if (wordRe.test(it.title || '')) score += 30;
+      return { it, score };
+    }).filter(x => x.score > 0).sort((a,b) => b.score - a.score).slice(0, 30);
+    lastResults = scored.map(x => x.it);
+    return lastResults;
+  }
+
+  function render(q) {
+    const results = search(q);
+    if (!q) { resultsEl.classList.remove('open'); resultsEl.innerHTML = ''; selected = -1; return; }
+    if (results.length === 0) {
+      resultsEl.classList.add('open');
+      resultsEl.innerHTML = '<div class="search-no-results">No matches for &ldquo;' + escapeHtmlSafe(q) + '&rdquo;</div>';
+      return;
+    }
+    // Group by kind
+    const groups = {};
+    results.forEach(r => { (groups[r.kind] = groups[r.kind] || []).push(r); });
+    let html = '';
+    let flatIdx = 0;
+    Object.entries(groups).forEach(([kind, items]) => {
+      html += '<div class="search-result-section">';
+      html += '<div class="search-result-section-label">' + escapeHtmlSafe(kind) + '</div>';
+      items.forEach(r => {
+        const idDisplay = (r.kind === 'Session') ? r.id : '';
+        const meta = r.desc ? escapeHtmlSafe(r.desc.length > 90 ? r.desc.slice(0,90) + '…' : r.desc) : '';
+        html += `<div class="search-result" data-flat-idx="${flatIdx++}">
+          <div class="search-result-id">${idDisplay}</div>
+          <div>
+            <div class="search-result-title">${highlight(r.title, q)}</div>
+            ${meta ? '<div class="search-result-meta">' + meta + '</div>' : ''}
+          </div>
+        </div>`;
+      });
+      html += '</div>';
+    });
+    resultsEl.innerHTML = html;
+    resultsEl.classList.add('open');
+    selected = -1;
+    // Wire up clicks
+    resultsEl.querySelectorAll('.search-result').forEach(el => {
+      el.addEventListener('click', () => activateResult(parseInt(el.dataset.flatIdx, 10)));
+      el.addEventListener('mouseenter', () => {
+        resultsEl.querySelectorAll('.search-result').forEach(x => x.classList.remove('selected'));
+        el.classList.add('selected');
+        selected = parseInt(el.dataset.flatIdx, 10);
+      });
+    });
+  }
+
+  function activateResult(idx) {
+    const r = lastResults[idx];
+    if (!r) return;
+    closeResults();
+    if (r.action === 'open-video' || r.action === 'open-source') {
+      const ids = (r.action === 'open-source') ? extractSessionIds(r.source || '') : [r.id];
+      const sid = ids[0];
+      if (sid) window.open(sessionUrl(sid), '_blank');
+    } else if (r.action === 'open-pathway') {
+      // Switch to pathways section, then open the pathway
+      switchToTab('pathways');
+      if (typeof showPathwayDetail === 'function') showPathwayDetail(r.pathwayId);
+    } else if (r.action === 'open-tab') {
+      switchToTab(r.tab);
+    }
+  }
+  function switchToTab(tabName) {
+    const tab = document.querySelector('.tab[onclick*="' + tabName + '"]');
+    if (tab) tab.click();
+  }
+  function closeResults() {
+    resultsEl.classList.remove('open');
+    resultsEl.innerHTML = '';
+    selected = -1;
+  }
+
+  input.addEventListener('input', e => render(e.target.value.trim()));
+  input.addEventListener('keydown', e => {
+    const visible = resultsEl.querySelectorAll('.search-result');
+    if (e.key === 'ArrowDown') { e.preventDefault(); selected = Math.min(selected + 1, visible.length - 1); updateSelection(visible); }
+    else if (e.key === 'ArrowUp') { e.preventDefault(); selected = Math.max(selected - 1, 0); updateSelection(visible); }
+    else if (e.key === 'Enter') { e.preventDefault(); if (selected >= 0) activateResult(selected); }
+    else if (e.key === 'Escape') { closeResults(); input.blur(); }
+  });
+  function updateSelection(elements) {
+    elements.forEach((el, i) => el.classList.toggle('selected', i === selected));
+    if (selected >= 0 && elements[selected]) elements[selected].scrollIntoView({ block: 'nearest' });
+  }
+  // Click outside closes
+  document.addEventListener('click', e => {
+    if (!input.contains(e.target) && !resultsEl.contains(e.target)) closeResults();
+  });
+  // Keyboard shortcut: '/' to focus
+  document.addEventListener('keydown', e => {
+    if (e.key === '/' && document.activeElement !== input && document.activeElement.tagName !== 'INPUT') {
+      e.preventDefault();
+      input.focus();
+    }
+    if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+      e.preventDefault();
+      input.focus();
+    }
+  });
+})();
+
+</script>
+</body>
+</html>

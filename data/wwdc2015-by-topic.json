@@ -1,0 +1,1701 @@
+{
+  "Featured": [
+    {
+      "session_id": "101",
+      "title": "Keynote",
+      "description": "WWDC 2015 Keynote",
+      "topic": "Featured",
+      "platforms": [
+        "iOS",
+        "macOS",
+        "watchOS"
+      ],
+      "speakers": [
+        "Tim Cook",
+        "Craig Federighi",
+        "Josh Adams",
+        "Jennifer Bailey",
+        "Susan Prescott",
+        "Kevin Lynch",
+        "Jimmy Iovine",
+        "Eddy Cue",
+        "Drake"
+      ],
+      "apple_url": "",
+      "has_transcript": true
+    },
+    {
+      "session_id": "102",
+      "title": "Platforms State of the Union",
+      "description": "WWDC 2015 Platforms State of the Union",
+      "topic": "Featured",
+      "platforms": [
+        "iOS",
+        "macOS",
+        "watchOS"
+      ],
+      "speakers": [
+        "Andreas Wendker",
+        "Eliza Block",
+        "Josh Shaffer",
+        "Sebastien Marineau-Mes",
+        "Toby Paterson",
+        "Sara Radi",
+        "Chris Lattner",
+        "Max Drukman",
+        "Matthew Firlik",
+        "Geoff Stahl",
+        "David McGavran",
+        "Jacques Gasselin de Richebourg"
+      ],
+      "apple_url": "",
+      "has_transcript": true
+    },
+    {
+      "session_id": "103",
+      "title": "Apple Design Awards",
+      "description": "Join us for an unforgettable award ceremony celebrating developers and their outstanding work. The 2015 Apple Design Awards recognize state of the art iOS, OS X, and Apple Watch apps that reflect excellence in design and innovation.",
+      "topic": "Featured",
+      "platforms": [
+        "iOS",
+        "macOS",
+        "watchOS"
+      ],
+      "speakers": [],
+      "apple_url": "",
+      "has_transcript": true
+    },
+    {
+      "session_id": "108",
+      "title": "Building Watch Apps",
+      "description": "Building Watch apps with Xcode 7 is easy and straight-forward. Learn how to build and debug a Watch app for watchOS 2 from the ground up. Walk through adding a Watch app to an existing application, building the user interface, debugging and profiling with Instruments, and discover how to efficiently communicate between iPhone and Apple Watch.",
+      "topic": "Featured",
+      "platforms": [
+        "watchOS"
+      ],
+      "speakers": [
+        "Neil Desai"
+      ],
+      "apple_url": "",
+      "has_transcript": true
+    },
+    {
+      "session_id": "105",
+      "title": "Introducing WatchKit for watchOS 2",
+      "description": "WatchKit for watchOS 2 introduces many new capabilities for creating responsive Watch experiences. Beyond a faster architecture, learn about all new support for the Digital Crown, fluid animations, and media playback and recording. Find out how to make use of accelerometer and heart rate data, as well as providing physical feedback via the Taptic Engine.",
+      "topic": "Featured",
+      "platforms": [
+        "watchOS"
+      ],
+      "speakers": [
+        "Josh Shaffer"
+      ],
+      "apple_url": "",
+      "has_transcript": true
+    },
+    {
+      "session_id": "112",
+      "title": "Think Audacious",
+      "description": "When Debbie Sterling heard from Steve Jobs at her Stanford graduation that she should \"never settle\" until she found her true passion, she took this to heart. After graduating from Stanford with a degree in Mechanical Engineering and Product Design, she had firsthand knowledge of how significantly men outnumber women in science, technology, engineering and math. Debbie then became obsessed with the notion of \"disrupting the pink aisle\" with a toy that would introduce girls to the joy of engineering at a young age. Industry leaders told her the idea would fail, but less than three years after launching GoldieBlox on Kickstarter, she has made significant strides in her quest to bridge the gender gap in STEM: she has launched massively successful viral videos, a Superbowl ad that brought mainstream awareness to her mission, an award-winning iOS app and GoldieBlox presence in more than 6,000 retail stores worldwide. Debbie has also recently been selected to join the Presidential Ambassadors for Global Entrepreneurship, a select group 'committed to helping develop the next generation of entrepreneurs around the world.' Hear Debbie's story of challenging the status quo, achieving audacious goals, and igniting a national conversation about breaking gender stereotypes.",
+      "topic": "Featured",
+      "platforms": [],
+      "speakers": [],
+      "apple_url": "",
+      "has_transcript": true
+    },
+    {
+      "session_id": "107",
+      "title": "What's New in Cocoa Touch",
+      "description": "iOS 9 expands on adaptivity with Multitasking. Learn about additions to UIKit to support truly universal layout sizes and types. Get introduced to all-new frameworks and APIs for Cocoa Touch such as a new Contacts framework, text-editing gestures, enhancements to dynamics and visual effects, and much more. Come find out which sessions you won't want to miss throughout the week.",
+      "topic": "Featured",
+      "platforms": [
+        "iOS"
+      ],
+      "speakers": [
+        "Jason Beaver"
+      ],
+      "apple_url": "",
+      "has_transcript": true
+    },
+    {
+      "session_id": "106",
+      "title": "What's New in Swift",
+      "description": "Swift continues its rapid advancement with version 2. New optimizations make your app run even faster, and new syntax makes your code more expressive. Learn about powerful new features like error handling, testability, and availability checking. This session will help you write even better apps by moving to Swift 2.",
+      "topic": "Featured",
+      "platforms": [
+        "iOS",
+        "macOS",
+        "watchOS"
+      ],
+      "speakers": [
+        "Chris Lattner",
+        "John McCall"
+      ],
+      "apple_url": "",
+      "has_transcript": true
+    },
+    {
+      "session_id": "104",
+      "title": "What's New in Xcode",
+      "description": "Xcode is the development environment for creating great apps for Apple's platforms. Start the week by watching the Xcode team demonstrate the latest features and improved workflows in Xcode 7. This session also provides a complete overview of the in-depth developer tools topics covered at WWDC 2015.",
+      "topic": "Featured",
+      "platforms": [
+        "iOS",
+        "macOS",
+        "watchOS"
+      ],
+      "speakers": [
+        "Ken Orr"
+      ],
+      "apple_url": "",
+      "has_transcript": true
+    }
+  ],
+  "App Frameworks": [
+    {
+      "session_id": "217",
+      "title": "Adopting New Trackpad Features",
+      "description": "The new Force Touch trackpad adds a whole new dimension to user interactions. OS X 10.11 introduces system controls that support pressure behaviors. Understand how to integrate with these behaviors and support them in custom controls. See how to use the Taptic Engine to provide subtle physical feedback based on trackpad input. Hear best practices for adopting new swiping gestures.",
+      "topic": "App Frameworks",
+      "platforms": [
+        "macOS"
+      ],
+      "speakers": [
+        "Raleigh Ledet"
+      ],
+      "apple_url": "",
+      "has_transcript": true
+    },
+    {
+      "session_id": "226",
+      "title": "Advanced NSOperations",
+      "description": "Operations are a flexible way to model your app's business logic, but they can do so much more. See how NSOperation forms the heart of the WWDC app, and how using features like dependencies, readiness, and composition allow you to quickly and easily build dynamic and complex apps.",
+      "topic": "App Frameworks",
+      "platforms": [
+        "iOS",
+        "macOS"
+      ],
+      "speakers": [
+        "Philippe Hausler",
+        "Dave DeLong"
+      ],
+      "apple_url": "",
+      "has_transcript": true
+    },
+    {
+      "session_id": "233",
+      "title": "Advanced Touch Input on iOS",
+      "description": "Learn about the touch input and drawing pipelines. Gain specific insights in how best to design your app to minimize latency in receiving touches and maximizing the performance of drawing content on the screen. Explore new API in UIKit and learn best practices for faster and smoother input.",
+      "topic": "App Frameworks",
+      "platforms": [
+        "iOS"
+      ],
+      "speakers": [
+        "Peter Tsoi",
+        "Jacob Xiao"
+      ],
+      "apple_url": "",
+      "has_transcript": true
+    },
+    {
+      "session_id": "224",
+      "title": "App Extension Best Practices",
+      "description": "App extensions allow powerful ways to expose your application's abilities throughout iOS and other apps. Discover best practices for various extension types and see how to effectively communicate between your extension and its parent application or the network. Learn techniques for using the shared keychain and see how to improve discovery of your share and action extensions.",
+      "topic": "App Frameworks",
+      "platforms": [
+        "iOS",
+        "watchOS"
+      ],
+      "speakers": [
+        "Sophia Teutschler",
+        "Ian Baird"
+      ],
+      "apple_url": "",
+      "has_transcript": true
+    },
+    {
+      "session_id": "204",
+      "title": "Apple Watch Accessibility",
+      "description": "Building on the strong accessibility support in iOS, Apple Watch offers assistive features like VoiceOver and Zoom. Gain insights into how these accessibility features work on Apple Watch, and how to make sure your app can be accessible to all users.",
+      "topic": "App Frameworks",
+      "platforms": [
+        "watchOS"
+      ],
+      "speakers": [
+        "Qasid Sadiq"
+      ],
+      "apple_url": "",
+      "has_transcript": true
+    },
+    {
+      "session_id": "232",
+      "title": "Best Practices for Progress Reporting",
+      "description": "NSProgress lets you easily and accurately report the progress of work in your app. Understand the concepts behind progress reporting and how to design code that accurately and efficiently reports its progress. Gain specific insights on how to receive progress updates from framework APIs, fold that into your own progress reporting, and show that progress in your app. Hear from the experts about best practices and how to master the NSProgress APIs.",
+      "topic": "App Frameworks",
+      "platforms": [
+        "iOS",
+        "macOS"
+      ],
+      "speakers": [
+        "Vince Spader"
+      ],
+      "apple_url": "",
+      "has_transcript": true
+    },
+    {
+      "session_id": "213",
+      "title": "Building Apps with ResearchKit",
+      "description": "ResearchKit is an open source framework introduced by Apple that allows researchers and developers to create powerful apps for medical research. Learn how to easily create visual consent flows, real-time dynamic active tasks, and surveys using a variety of customizable modules that you can build upon and share with the community.",
+      "topic": "App Frameworks",
+      "platforms": [
+        "iOS"
+      ],
+      "speakers": [
+        "John Earl"
+      ],
+      "apple_url": "",
+      "has_transcript": true
+    },
+    {
+      "session_id": "234",
+      "title": "Building Document Based Apps",
+      "description": "UIDocument is a robust way to model user-generated content in your app. See how to easily integrate your app's documents with iCloud, file extensions, and document browsers. Learn how to build a document-based app from the ground up.",
+      "topic": "App Frameworks",
+      "platforms": [
+        "iOS"
+      ],
+      "speakers": [
+        "Mike Hess",
+        "Johannes Fortmann"
+      ],
+      "apple_url": "",
+      "has_transcript": true
+    },
+    {
+      "session_id": "231",
+      "title": "Cocoa Touch Best Practices",
+      "description": "Small improvements can make a big impact on your iOS app's performance and launch time. Learn best practices to optimize your UIKit-based applications. See how to future-proof your app for what may be next, and walk through numerous real world examples for more responsive and dynamic collection and table views.",
+      "topic": "App Frameworks",
+      "platforms": [
+        "iOS"
+      ],
+      "speakers": [
+        "Luke Hiesterman"
+      ],
+      "apple_url": "",
+      "has_transcript": true
+    },
+    {
+      "session_id": "209",
+      "title": "Creating Complications with ClockKit",
+      "description": "Making your app's information available to users on Apple Watch is even easier in watchOS 2. Learn how to create custom complications for Watch faces using the new ClockKit framework and see how to provide data through numerous templates using text and images.",
+      "topic": "App Frameworks",
+      "platforms": [
+        "watchOS"
+      ],
+      "speakers": [
+        "Eliza Block",
+        "Paul Salzman"
+      ],
+      "apple_url": "",
+      "has_transcript": true
+    },
+    {
+      "session_id": "205",
+      "title": "Getting Started with Multitasking on iPad in iOS 9",
+      "description": "iOS 9 on iPad introduces the ability to view and interact with more than one app at a time. Discover how to update your code to take advantage of enhancements to multitasking and how to participate in Slide Over and Split View. Learn specifics about how to architect your app and understand best practices for adapting to a dynamically sized interface.",
+      "topic": "App Frameworks",
+      "platforms": [
+        "iOS"
+      ],
+      "speakers": [
+        "Peter Hajas",
+        "Jacob Xiao",
+        "Kurt Revis"
+      ],
+      "apple_url": "",
+      "has_transcript": true
+    },
+    {
+      "session_id": "221",
+      "title": "Improving the Full Screen Window Experience",
+      "description": "Full screen windows enable people to focus on the task at hand by removing extra system UI and deferring to more of the content they care about. OS X 10.11 adds new flexibility to how these full screen windows can be configured and controlled. Hear from the experts how to get your Mac app ready to take advantage of this new functionality. Learn key strategies to making your window content be adaptive depending on the space available.",
+      "topic": "App Frameworks",
+      "platforms": [
+        "macOS"
+      ],
+      "speakers": [
+        "Corbin Dunn",
+        "Taylor Kelly"
+      ],
+      "apple_url": "",
+      "has_transcript": true
+    },
+    {
+      "session_id": "214",
+      "title": "Introducing On Demand Resources",
+      "description": "iOS 9 introduces On Demand Resources, enabling the efficient delivery of rich games and full featured applications using dynamically loaded content. Significantly reduce the time between purchasing and running an app from the App Store, while also decreasing the required storage space by downloading and retaining only content that is necessary. Dive into the latest enhancements in app packaging and learn the APIs to allow your app to acquire only its essential resources.",
+      "topic": "App Frameworks",
+      "platforms": [
+        "iOS",
+        "macOS"
+      ],
+      "speakers": [
+        "Steve Lewallen",
+        "Tony Parker"
+      ],
+      "apple_url": "",
+      "has_transcript": true
+    },
+    {
+      "session_id": "504",
+      "title": "Introducing Safari View Controller",
+      "description": "The new SFSafariViewController class enables you to deliver interactive web content in your app just like Safari, including the key Safari UI elements already familiar to your users. See how to easily bring Safari features like Reader and AutoFill into your app, and provide a great web viewing experience with fewer lines of code.",
+      "topic": "App Frameworks",
+      "platforms": [
+        "iOS",
+        "macOS"
+      ],
+      "speakers": [
+        "Ricky Mondello",
+        "Yongjun Zhang"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2015/504/",
+      "has_transcript": true
+    },
+    {
+      "session_id": "223",
+      "title": "Introducing the Contacts Framework for iOS and OS X",
+      "description": "Whether it's getting contact information, managing a social graph, or adding a new friend, Contacts are a critical piece of many apps. OS X El Capitan and iOS 9 now share a new Contacts API. Understand the design, goals, and benefits of this new framework. Gain critical insights into how to make a smooth transition for your app to this new framework.",
+      "topic": "App Frameworks",
+      "platforms": [
+        "iOS",
+        "macOS"
+      ],
+      "speakers": [
+        "Bruce Stadnyk",
+        "Dave Dribin",
+        "Julien Robert"
+      ],
+      "apple_url": "",
+      "has_transcript": true
+    },
+    {
+      "session_id": "216",
+      "title": "Layout and Animation Techniques for WatchKit",
+      "description": "Advanced layouts and animations are essential to your app's interface. Gain insights into group layout mechanics and the new element animation APIs introduced in WatchKit for watchOS 2. Understand how to create layouts that work well with animations and learn other techniques to add liveliness to your apps.",
+      "topic": "App Frameworks",
+      "platforms": [
+        "watchOS"
+      ],
+      "speakers": [
+        "Miguel Sanchez",
+        "Tom Witkin"
+      ],
+      "apple_url": "",
+      "has_transcript": true
+    },
+    {
+      "session_id": "211",
+      "title": "Multitasking Essentials for Media-Based Apps on iPad in iOS 9",
+      "description": "iOS 9 on iPad introduces the ability to view and interact with more than one app at a time. Learn advanced techniques for efficiently sharing resources and presenting media while other apps are in the foreground. Tap into the potential of Picture in Picture to allow your video content to play above other apps, and explore multitasking best practices for creating great experiences in this environment.",
+      "topic": "App Frameworks",
+      "platforms": [
+        "iOS"
+      ],
+      "speakers": [
+        "Stefan Hafeneger",
+        "Jonathan Bennett"
+      ],
+      "apple_url": "",
+      "has_transcript": true
+    },
+    {
+      "session_id": "218",
+      "title": "Mysteries of Auto Layout, Part 1",
+      "description": "Auto Layout is a powerful constraint-based layout engine that can drive complex and dynamic interfaces on both iOS and OS X. Learn about the new UIStackView, now your first stop for interfaces built with Auto Layout. See how to build self-sizing views using Auto Layout, and gain critical insights into the inner workings of Auto Layout.",
+      "topic": "App Frameworks",
+      "platforms": [
+        "iOS",
+        "macOS"
+      ],
+      "speakers": [
+        "Jason Yao",
+        "Kasia Wawer"
+      ],
+      "apple_url": "",
+      "has_transcript": true
+    },
+    {
+      "session_id": "219",
+      "title": "Mysteries of Auto Layout, Part 2",
+      "description": "Continue your pursuit of Auto Layout mastery. Gain high level insight into how Auto Layout works, and strategies for debugging layout issues. Learn how to use new APIs for constraint creation and layout guides to build more complex layouts.",
+      "topic": "App Frameworks",
+      "platforms": [
+        "iOS",
+        "macOS"
+      ],
+      "speakers": [
+        "Jesse Donaldson",
+        "Kasia Wawer"
+      ],
+      "apple_url": "",
+      "has_transcript": true
+    },
+    {
+      "session_id": "222",
+      "title": "New UIKit Support for International User Interfaces",
+      "description": "iOS 9 brings complete right-to-left support for Arabic, Hebrew, and other languages. Going beyond basic text, your app's entire interface can now flip to provide a native right-to-left experience. Learn what behavior you get for free from UIKit, and hear details about adding right-to-left support in custom interfaces. Hear from experts about how to evaluate the readiness of your app for these languages. Understand best practices to avoid common pitfalls and to create a seamless bi-directional app.",
+      "topic": "App Frameworks",
+      "platforms": [
+        "iOS"
+      ],
+      "speakers": [
+        "Sara Radi",
+        "Aaltan Ahmad",
+        "Paul Borokhov"
+      ],
+      "apple_url": "",
+      "has_transcript": true
+    },
+    {
+      "session_id": "212",
+      "title": "Optimizing Your App for Multitasking on iPad in iOS 9",
+      "description": "Multitasking in iOS 9 allows two side-by-side apps and the Picture-in-Picture window to simultaneously run onscreen at the same time. Discover essential techniques for designing efficient, responsive apps to give your users a fluid, immersive experience with Slide Over, Split View, and Picture-in-Picture.",
+      "topic": "App Frameworks",
+      "platforms": [
+        "iOS"
+      ],
+      "speakers": [
+        "Brittany Paine",
+        "Jon Drummond"
+      ],
+      "apple_url": "",
+      "has_transcript": true
+    },
+    {
+      "session_id": "230",
+      "title": "Performance on iOS and watchOS",
+      "description": "Great performance is a prerequisite for delivering a compelling and immersive app experience that keeps users engaged. Learn best practices and strategies for characterizing and improving the performance of your code for iPhone, iPad, and Apple Watch.",
+      "topic": "App Frameworks",
+      "platforms": [
+        "iOS",
+        "watchOS"
+      ],
+      "speakers": [
+        "Ben Englert"
+      ],
+      "apple_url": "",
+      "has_transcript": true
+    },
+    {
+      "session_id": "509",
+      "title": "Seamless Linking to Your App",
+      "description": "Learn how to increase app engagement by using universal links to lead users directly to your App when they tap links to your website. Discover how Smart App Banners and Shared Web Credentials give your users the most integrated mobile experience possible.",
+      "topic": "App Frameworks",
+      "platforms": [
+        "iOS"
+      ],
+      "speakers": [
+        "Conrad Shultz",
+        "Jonathan Grynspan"
+      ],
+      "apple_url": "",
+      "has_transcript": true
+    },
+    {
+      "session_id": "207",
+      "title": "WatchKit In-Depth, Part 1",
+      "description": "watchOS 2 provides a new architecture that runs your WatchKit extension directly on Apple Watch. Take an in-depth look at how this new architecture works. Learn how to migrate existing WatchKit apps to watchOS 2, how to support both versions of watchOS, and hear about updates to Glances and Notifications.",
+      "topic": "App Frameworks",
+      "platforms": [
+        "watchOS"
+      ],
+      "speakers": [
+        "Andrew Platzer",
+        "Forest Hill"
+      ],
+      "apple_url": "",
+      "has_transcript": true
+    },
+    {
+      "session_id": "208",
+      "title": "WatchKit In-Depth, Part 2",
+      "description": "Move beyond architecture changes for Watch apps and explore the different ways you can use the Digital Crown to enhance your apps. Find out how to create persistent app experiences to keep your Watch app at the ready for users and learn how to use the playback and recording APIs to add audio and video to your Watch apps.",
+      "topic": "App Frameworks",
+      "platforms": [
+        "watchOS"
+      ],
+      "speakers": [
+        "Nathan de Vries",
+        "Chloe Chang"
+      ],
+      "apple_url": "",
+      "has_transcript": true
+    },
+    {
+      "session_id": "228",
+      "title": "WatchKit Tips and Tricks",
+      "description": "Apple Watch apps should load quickly and be responsive to users. Learn tips and tricks for optimizing your existing apps and gain insights specific to communicating between Apple Watch and iPhone, creating responsive layouts, decreasing loading times, and more.",
+      "topic": "App Frameworks",
+      "platforms": [
+        "watchOS"
+      ],
+      "speakers": [
+        "Jake Behrens"
+      ],
+      "apple_url": "",
+      "has_transcript": true
+    },
+    {
+      "session_id": "202",
+      "title": "What's New in Cocoa",
+      "description": "Cocoa is a powerful set of frameworks on which OS X is built. Gain an overview of the advances in AppKit, Foundation, and related frameworks. Find out what technologies you need to focus on and what techniques you should adopt to develop state of the art apps for OS X. Start here for a high level view of what's changed, and get pointers to relevant sessions for more depth.",
+      "topic": "App Frameworks",
+      "platforms": [
+        "macOS"
+      ],
+      "speakers": [
+        "Ali Ozer"
+      ],
+      "apple_url": "",
+      "has_transcript": true
+    },
+    {
+      "session_id": "220",
+      "title": "What's New in Core Data",
+      "description": "Learn about the latest enhancements to the Core Data framework. Hear how to efficiently delete objects, ensure uniqueness, and easily migrate your persistent stores to new locations.",
+      "topic": "App Frameworks",
+      "platforms": [
+        "iOS",
+        "macOS"
+      ],
+      "speakers": [
+        "Rishi Verma",
+        "Scott Perry"
+      ],
+      "apple_url": "",
+      "has_transcript": true
+    },
+    {
+      "session_id": "203",
+      "title": "What's New in HealthKit",
+      "description": "HealthKit is Apple's framework to centralize the data storage of personal health information. Hear about the latest enhancements to the framework, supporting new types of data, efficiently deleting objects, and integrating HealthKit into your Apple Watch app.",
+      "topic": "App Frameworks",
+      "platforms": [
+        "iOS"
+      ],
+      "speakers": [
+        "Shannon Tan",
+        "Allan Shortlidge"
+      ],
+      "apple_url": "",
+      "has_transcript": true
+    },
+    {
+      "session_id": "210",
+      "title": "What's New in HomeKit",
+      "description": "HomeKit is Apple's framework that enables apps to easily and securely interact with HomeKit enabled accessories such as lights, locks, thermostats and more. Learn about the improvements to HomeKit, including support for new accessory types, easy ways to setup and remotely manage accessories.",
+      "topic": "App Frameworks",
+      "platforms": [
+        "iOS"
+      ],
+      "speakers": [
+        "Anush Nadathur",
+        "Naveen Kommareddi"
+      ],
+      "apple_url": "",
+      "has_transcript": true
+    },
+    {
+      "session_id": "227",
+      "title": "What's New in Internationalization",
+      "description": "With the majority of Apple's market outside of the US, it's critical to learn about the latest advancements in Internationalization support to make your app truly localized. Gain insight into best practices for using formatters to display information correctly, how to easily handle pluralization in any language, how to avoid the most common localization pitfalls, and much more. Whether you are looking to significantly expand your market or want to take advantage of powerful new features for all languages, you don't want to miss this session.",
+      "topic": "App Frameworks",
+      "platforms": [
+        "iOS",
+        "macOS",
+        "watchOS"
+      ],
+      "speakers": [
+        "Nat Hillard"
+      ],
+      "apple_url": "",
+      "has_transcript": true
+    },
+    {
+      "session_id": "206",
+      "title": "What's New in MapKit",
+      "description": "See what's new in MapKit. Learn about improvements to existing APIs and new ways of incorporating transit ETAs and Flyover map views in your app.",
+      "topic": "App Frameworks",
+      "platforms": [
+        "iOS",
+        "macOS"
+      ],
+      "speakers": [
+        "Sumit Lonkar",
+        "Elisabeth Lindkvist"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2015/206/",
+      "has_transcript": true
+    },
+    {
+      "session_id": "225",
+      "title": "What's New in NSCollectionView",
+      "description": "NSCollectionView has been displaying grids of views for many years. OS X 10.11 brings a major update to the capabilities of NSCollectionView. Much of the design of UICollectionView in iOS is now available for OS X apps. Understand the details of the enhancements and how you can harness them in your apps.",
+      "topic": "App Frameworks",
+      "platforms": [
+        "macOS"
+      ],
+      "speakers": [
+        "Troy Stephens"
+      ],
+      "apple_url": "",
+      "has_transcript": true
+    },
+    {
+      "session_id": "215",
+      "title": "What's New in Storyboards",
+      "description": "Storyboards are a great way to build the user interface and flow of your application on iOS and OS X. Gain an understanding of how to effectively organize your storyboards, define segues for your interface, and easily unwind transitions. Dive into a detailed discussion of the new APIs, and hear tips on how to create great user interfaces.",
+      "topic": "App Frameworks",
+      "platforms": [
+        "iOS",
+        "macOS"
+      ],
+      "speakers": [
+        "Kyle Sluder",
+        "Tony Ricciardi"
+      ],
+      "apple_url": "",
+      "has_transcript": true
+    },
+    {
+      "session_id": "229",
+      "title": "What's New in UIKit Dynamics and Visual Effects",
+      "description": "Dynamic interfaces create fluid and rich interactions. Hear about new dynamic behaviors that have been added in UIKit and how to take advantage of them in your applications. Gain a practical understanding of how to integrate dynamics with AutoLayout. Learn about enhancements to UI Kit Visual Effects.",
+      "topic": "App Frameworks",
+      "platforms": [
+        "iOS"
+      ],
+      "speakers": [
+        "Michael Turner",
+        "David Duncan"
+      ],
+      "apple_url": "",
+      "has_transcript": true
+    },
+    {
+      "session_id": "201",
+      "title": "iOS Accessibility",
+      "description": "iOS has transformed the lives of many users with a range of physical and learning disabilities. Learn how to create apps that leverage the power and simplicity of Apple's assistive technologies to make them accessible to the broadest audience possible. Hear about the latest advancements in iOS accessibility and how you can take advantage of them today.",
+      "topic": "App Frameworks",
+      "platforms": [
+        "iOS"
+      ],
+      "speakers": [
+        "Ian Fisch"
+      ],
+      "apple_url": "",
+      "has_transcript": true
+    }
+  ],
+  "Design": [
+    {
+      "session_id": "805",
+      "title": "Apple Watch Design Tips and Tricks",
+      "description": "Get essential design guidance for creating Apple Watch apps that support quick and efficient interaction, make accessing features and information more convenient, and compliment their companion iOS apps. Learn key tips about information architecture, layout, typography, color and app icon design that will make your app easy to use, beautiful and delightful.",
+      "topic": "Design",
+      "platforms": [
+        "watchOS"
+      ],
+      "speakers": [
+        "Mike Stern",
+        "Rachel Roth"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2015/805/",
+      "has_transcript": true
+    },
+    {
+      "session_id": "802",
+      "title": "Designing for Apple Watch",
+      "description": "Apple Watch represents a new chapter in the way people relate to technology. It's the most personal device Apple has ever designed, and it enables new ways to receive information and to interact with apps. Learn about the foundations on which Apple Watch was designed and how they lead to Apple Watch apps that complement the iPhone, support lightweight interaction and deliver timely and relevant information to the wrist. Discover how to create usable and beautiful apps, notifications and glances through effective use of typography, information design, layout, animation, and color.",
+      "topic": "Design",
+      "platforms": [
+        "watchOS"
+      ],
+      "speakers": [
+        "Mike Stern"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2015/802/",
+      "has_transcript": true
+    },
+    {
+      "session_id": "801",
+      "title": "Designing for Future Hardware",
+      "description": "Design for tomorrow's products today. See examples of how Apple and partners designed software for Apple Watch and other products before they even existed. Learn techniques for designing and prototyping so you can create great apps for hardware accessories and new products before they are available.",
+      "topic": "Design",
+      "platforms": [
+        "iOS",
+        "macOS",
+        "watchOS"
+      ],
+      "speakers": [
+        "Jeffrey Traer Bernstein",
+        "Matthaeus Krenn",
+        "Bill Lindmeier"
+      ],
+      "apple_url": "",
+      "has_transcript": true
+    },
+    {
+      "session_id": "803",
+      "title": "Designing with Animation",
+      "description": "Animation is a powerful tool for creating a delightful and intuitive app experience. We will show you how to get started with animations, how to make them effective for your user interface, and how to save time coding by building animations into interactive prototypes.",
+      "topic": "Design",
+      "platforms": [
+        "iOS",
+        "macOS",
+        "watchOS"
+      ],
+      "speakers": [
+        "Julian Missig",
+        "Joe Malia",
+        "Marek Bereza"
+      ],
+      "apple_url": "",
+      "has_transcript": true
+    },
+    {
+      "session_id": "804",
+      "title": "Introducing the New System Fonts",
+      "description": "Fonts lay at the intersection of design and engineering. Get introduced to typographic principles and how they apply to the San Francisco fonts. Hear what makes this family of fonts unique and how to effectively take advantage of their advanced features. Learn best practices when designing and implementing interfaces with text.",
+      "topic": "Design",
+      "platforms": [
+        "iOS",
+        "macOS"
+      ],
+      "speakers": [
+        "Antonio Cavedoni"
+      ],
+      "apple_url": "",
+      "has_transcript": true
+    }
+  ],
+  "Developer Tools": [
+    {
+      "session_id": "413",
+      "title": "Advanced Debugging and the Address Sanitizer",
+      "description": "Discover UI debugging and how to use advanced breakpoint actions to quickly explore and fix your app. Learn how the new Address Sanitizer feature finds buffer overflows, use-after-free errors, and other memory corruption bugs at run time.",
+      "topic": "Developer Tools",
+      "platforms": [
+        "iOS",
+        "macOS",
+        "watchOS"
+      ],
+      "speakers": [
+        "Mike Swingler",
+        "Anna Zaks"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2015/413/",
+      "has_transcript": true
+    },
+    {
+      "session_id": "404",
+      "title": "App Thinning in Xcode",
+      "description": "The app distribution pipeline is becoming more powerful and flexible. Learn to create full featured apps that are delivered to users devices with new App Thinning features such as slicing and ODR. See how to integrate these new features into your continuous integration and testing processes, and discover workflows for creating on-demand, tailored content.",
+      "topic": "Developer Tools",
+      "platforms": [
+        "iOS",
+        "macOS"
+      ],
+      "speakers": [
+        "Anders Bertelrud",
+        "Patrick Heynen"
+      ],
+      "apple_url": "",
+      "has_transcript": true
+    },
+    {
+      "session_id": "405",
+      "title": "Authoring Rich Playgrounds",
+      "description": "Learn about the new features in Xcode playgrounds such as inline results, auxiliary sources and resources, multiple pages, and markup for formatted text. Find out how to explore programming problems in a playground, and create engaging experiences for teaching and learning.",
+      "topic": "Developer Tools",
+      "platforms": [
+        "iOS",
+        "macOS"
+      ],
+      "speakers": [
+        "Sam Page",
+        "Connor Wakamo",
+        "Matt Patenaude"
+      ],
+      "apple_url": "",
+      "has_transcript": true
+    },
+    {
+      "session_id": "414",
+      "title": "Building Better Apps with Value Types in Swift",
+      "description": "Swift supports rich first-class value types in the form of powerful structs, which provide new ways to architect your apps. Learn about the differences between reference and value types, how value types help you elegantly solve common problems around mutability and thread safety, and discover how Swift's unique capabilities might change the way you think about abstraction.",
+      "topic": "Developer Tools",
+      "platforms": [
+        "iOS",
+        "macOS",
+        "watchOS"
+      ],
+      "speakers": [
+        "Doug Gregor",
+        "Bill Dudney"
+      ],
+      "apple_url": "",
+      "has_transcript": true
+    },
+    {
+      "session_id": "410",
+      "title": "Continuous Integration and Code Coverage in Xcode",
+      "description": "Xcode 7 includes new code coverage features to help you design a powerful test harness for your app. Learn all about coverage along with integration and improvements with Xcode Server.",
+      "topic": "Developer Tools",
+      "platforms": [
+        "iOS",
+        "macOS",
+        "watchOS"
+      ],
+      "speakers": [
+        "Matt Moriarity"
+      ],
+      "apple_url": "",
+      "has_transcript": true
+    },
+    {
+      "session_id": "407",
+      "title": "Implementing UI Designs in Interface Builder",
+      "description": "Apps that stand out must be attractive, intuitive, and easy to use. Interface Builder experts will give you the skills to turn your idea into a world class app. Learn to use the new stacks feature, create adaptable interfaces, employ asset catalogs, and design custom UI to build an outstanding app for Mac, iPhone, iPad and Apple Watch.",
+      "topic": "Developer Tools",
+      "platforms": [
+        "iOS",
+        "macOS",
+        "watchOS"
+      ],
+      "speakers": [
+        "Kevin Cathey",
+        "Tony Ricciardi"
+      ],
+      "apple_url": "",
+      "has_transcript": true
+    },
+    {
+      "session_id": "403",
+      "title": "Improving Your Existing Apps with Swift",
+      "description": "See how you can incrementally add Swift into your existing Objective-C codebase and app development workflow. Learn how to leverage Swift's powerful language features to develop robust applications that are faster to write and easier to maintain.",
+      "topic": "Developer Tools",
+      "platforms": [
+        "iOS",
+        "macOS",
+        "watchOS"
+      ],
+      "speakers": [
+        "Woody L."
+      ],
+      "apple_url": "",
+      "has_transcript": true
+    },
+    {
+      "session_id": "409",
+      "title": "Optimizing Swift Performance",
+      "description": "Hear from the experts about how you can write faster Swift code and use Instruments to identify performance bottlenecks. Dive deep into specific techniques that will help you produce the most efficient code possible.",
+      "topic": "Developer Tools",
+      "platforms": [
+        "iOS",
+        "macOS",
+        "watchOS"
+      ],
+      "speakers": [
+        "Nadav Rotem",
+        "Michael Gottesman",
+        "Joe Grzywacz"
+      ],
+      "apple_url": "",
+      "has_transcript": true
+    },
+    {
+      "session_id": "412",
+      "title": "Profiling in Depth",
+      "description": "Learn about time profiling down to the disassembly level to help you investigate the minute details of your application that affect its performance and responsiveness.",
+      "topic": "Developer Tools",
+      "platforms": [
+        "iOS",
+        "macOS",
+        "watchOS"
+      ],
+      "speakers": [
+        "Kris Markel",
+        "Chad Woolf"
+      ],
+      "apple_url": "",
+      "has_transcript": true
+    },
+    {
+      "session_id": "408",
+      "title": "Protocol-Oriented Programming in Swift",
+      "description": "At the heart of Swift's design are two incredibly powerful ideas: protocol-oriented programming and first class value semantics. Each of these concepts benefit predictability, performance, and productivity, but together they can change the way we think about programming. Find out how you can apply these ideas to improve the code you write.",
+      "topic": "Developer Tools",
+      "platforms": [
+        "iOS",
+        "macOS",
+        "watchOS"
+      ],
+      "speakers": [
+        "Dave Abrahams"
+      ],
+      "apple_url": "",
+      "has_transcript": true
+    },
+    {
+      "session_id": "401",
+      "title": "Swift and Objective-C Interoperability",
+      "description": "Discover new features that make it easier than ever to craft Objective-C APIs that work beautifully in Swift, as well as new Swift language features that provide even better interoperability. Apple engineers will also discuss enhancements to Apple's SDKs that improve the Swift experience.",
+      "topic": "Developer Tools",
+      "platforms": [
+        "iOS",
+        "macOS",
+        "watchOS"
+      ],
+      "speakers": [
+        "Jordan Rose",
+        "Doug Gregor"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2015/401/",
+      "has_transcript": true
+    },
+    {
+      "session_id": "411",
+      "title": "Swift in Practice",
+      "description": "Learn how Swift can help you define away some common pitfalls in app development, allowing your apps to benefit from safer runtime behavior while enjoying strong guarantees provided by Swift at compile-time. Hear about how API availability checking in Swift allows you to easily take advantage of new APIs while guaranteeing safe deployment to earlier OS releases. See how enumerations and protocols can help not only maintain compile-time invariants between your app's code and assets but also reduce boilerplate.",
+      "topic": "Developer Tools",
+      "platforms": [
+        "iOS",
+        "macOS",
+        "watchOS"
+      ],
+      "speakers": [
+        "Ted Kremenek",
+        "Alex Migicovsky"
+      ],
+      "apple_url": "",
+      "has_transcript": true
+    },
+    {
+      "session_id": "406",
+      "title": "UI Testing in Xcode",
+      "description": "Xcode 7 introduces new UI testing features fully integrated into the IDE. Learn about the new APIs and how UI testing fits in with existing testing features in Xcode. See how to get started by recording your app, and how to efficiently craft and maintain UI tests.",
+      "topic": "Developer Tools",
+      "platforms": [
+        "iOS",
+        "macOS",
+        "watchOS"
+      ],
+      "speakers": [
+        "Wil Turner",
+        "Brooke Callahan"
+      ],
+      "apple_url": "",
+      "has_transcript": true
+    },
+    {
+      "session_id": "402",
+      "title": "What's New in LLDB",
+      "description": "Enhancements to LLDB simplify life for Swift and Objective-C developers alike. Experienced developers will find new powers within the debugging console, and learn more about the connection between the debugger and Swift REPL. Newcomers will get insight into the range of possibilities hidden behind the LLDB prompt.",
+      "topic": "Developer Tools",
+      "platforms": [
+        "iOS",
+        "macOS",
+        "watchOS"
+      ],
+      "speakers": [
+        "Kate Stone",
+        "Sean Callanan",
+        "Enrico Granata"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2015/402/",
+      "has_transcript": true
+    }
+  ],
+  "Distribution": [
+    {
+      "session_id": "303",
+      "title": "Getting the Most out of App Analytics",
+      "description": "App Analytics is the powerful new tool inside iTunes Connect. Get a walk through of the metrics related to user engagement, marketing campaigns, monetization and more. Gain valuable insights from data that only Apple provides, so you can build better iOS apps and a more informed app business.",
+      "topic": "Distribution",
+      "platforms": [
+        "iOS"
+      ],
+      "speakers": [
+        "Trystan Kosmynka",
+        "David Hopkins"
+      ],
+      "apple_url": "",
+      "has_transcript": true
+    },
+    {
+      "session_id": "306",
+      "title": "Supporting the Enterprise with OS X Automation",
+      "description": "Automation is the life blood of any organization, providing speed, accuracy, and the ability to efficiently scale in-house processes. See how the automation technologies in OS X can easily and quickly configure shared-use iOS devices, generate, update, and distribute company documents and provide reliable desktop solutions for the back-office. With tools like Automator, AppleScript, and the new JavaScript for Automation (JXA), creating problem-solving solutions has become even easier and even more interesting.",
+      "topic": "Distribution",
+      "platforms": [
+        "iOS",
+        "macOS"
+      ],
+      "speakers": [
+        "Sal Soghoian"
+      ],
+      "apple_url": "",
+      "has_transcript": true
+    },
+    {
+      "session_id": "301",
+      "title": "What's New in Managing Apple Devices",
+      "description": "Learn about the latest developments in managing Apple devices in large organizations. Learn the latest techniques to wirelessly configure settings, monitor compliance with policies, install apps and bulk configure devices with ease.",
+      "topic": "Distribution",
+      "platforms": [
+        "iOS",
+        "macOS"
+      ],
+      "speakers": [
+        "Todd Fernandez"
+      ],
+      "apple_url": "",
+      "has_transcript": true
+    },
+    {
+      "session_id": "302",
+      "title": "What's New in iTunes Connect",
+      "description": "iTunes Connect is the gateway to sharing your creativity on the App Store. Learn about new opportunities to get your products out on Apple Watch. See how the latest improvements to TestFlight as well as other new upcoming features on the iTunes Connect, will help you make the most of Apple's digital storefront.",
+      "topic": "Distribution",
+      "platforms": [
+        "iOS",
+        "macOS",
+        "watchOS"
+      ],
+      "speakers": [
+        "Dave Van Tassell"
+      ],
+      "apple_url": "",
+      "has_transcript": true
+    },
+    {
+      "session_id": "304",
+      "title": "iTunes Connect: Development to Distribution",
+      "description": "Get more acquainted with iTunes Connect, your gateway to the App Store. Dive into unique services like TestFlight for beta testing and Transporter to help automate metadata setup for your apps. Discover the power of adding rich media to your app store page, the benefits of broadening your distribution path globally, and the abundance of help resources.",
+      "topic": "Distribution",
+      "platforms": [
+        "iOS",
+        "macOS",
+        "watchOS"
+      ],
+      "speakers": [
+        "Paul Turner"
+      ],
+      "apple_url": "",
+      "has_transcript": true
+    }
+  ],
+  "Graphics and Games": [
+    {
+      "session_id": "609",
+      "title": "Deeper into GameplayKit with DemoBots",
+      "description": "Dive into the tools and technologies used to construct the DemoBots developer sample. Gain a practical understanding of how DemoBots implements its gameplay logic with GameplayKit and visuals using SpriteKit.  See how the sample integrates On Demand Resources and other system services.",
+      "topic": "Graphics and Games",
+      "platforms": [
+        "iOS"
+      ],
+      "speakers": [
+        "Dave Addey",
+        "Dave Schaefgen",
+        "Michael DeWitt"
+      ],
+      "apple_url": "",
+      "has_transcript": true
+    },
+    {
+      "session_id": "606",
+      "title": "Enhancements to SceneKit",
+      "description": "SceneKit is a high-level graphics framework that helps you create 3D animated scenes and effects in your apps. See how to take advantage of the new capabilities and performance gains enabled by SceneKit's new Metal-based renderer. Check out the innovative Scene Editor, enabling you to build game levels and other scenes directly within Xcode. Learn about new features for realistic shading, enhancements for physics, and dynamic spatial audio.",
+      "topic": "Graphics and Games",
+      "platforms": [
+        "iOS",
+        "macOS"
+      ],
+      "speakers": [
+        "Thomas Goossens",
+        "Amaury Balliet",
+        "Se\u0301bastien Me\u0301trot"
+      ],
+      "apple_url": "",
+      "has_transcript": true
+    },
+    {
+      "session_id": "605",
+      "title": "Going Social with ReplayKit and Game Center",
+      "description": "ReplayKit provides an easy-to-use framework that lets players record their gameplay \u2014 amazing plays, great victories, or solutions to tough challenges \u2014 and share video with other players and viewers online. Get introduced to the ReplayKit framework and see how to enable its capability for sharing game video and audio in your games and other apps. Then get the latest news about Game Center, Apple's social gaming network. Learn about the new model for pre-release testing with Game Center and enhancements for multiplayer games.",
+      "topic": "Graphics and Games",
+      "platforms": [
+        "iOS",
+        "macOS"
+      ],
+      "speakers": [
+        "Edwin Iskandar",
+        "Megan Gardner"
+      ],
+      "apple_url": "",
+      "has_transcript": true
+    },
+    {
+      "session_id": "608",
+      "title": "Introducing GameplayKit",
+      "description": "GameplayKit provides a collection of essential tools and techniques used to implement gameplay logic. Get introduced to the GameplayKit framework and see how to put its capabilities to work in your own titles. Learn about managing state machines, controlling game entities, and implementing rule systems. Dive into its built-in tools for randomization, pathfinding, and advanced simulation.",
+      "topic": "Graphics and Games",
+      "platforms": [
+        "iOS",
+        "macOS"
+      ],
+      "speakers": [
+        "Bruno Sommer",
+        "Ross Dexter",
+        "Joshua Boggs"
+      ],
+      "apple_url": "",
+      "has_transcript": true
+    },
+    {
+      "session_id": "602",
+      "title": "Managing 3D Assets with Model I/O",
+      "description": "Model I/O provides a seamless infrastructure for accessing and managing 3D models. Its high-performance architecture supports reading and writing popular mesh and model formats, textures, and materials. Get introduced to the Model I/O framework and learn key details about its integration with SceneKit, MetalKit, and GLKit.",
+      "topic": "Graphics and Games",
+      "platforms": [
+        "iOS",
+        "macOS"
+      ],
+      "speakers": [
+        "Nick Porcino",
+        "Remi Palandri",
+        "Claudia Roberts"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2015/602/",
+      "has_transcript": true
+    },
+    {
+      "session_id": "610",
+      "title": "Metal Performance Optimization Techniques",
+      "description": "Learn best practices to maximize the efficiency of your Metal based apps and attain high frame rates. Gain insight into powerful tools for analyzing and optimizing performance for both the CPU and GPU. Discover how to identify bottlenecks, tune performance hot-spots, and overcome any hurdles that could keep your app from reaching its potential.",
+      "topic": "Graphics and Games",
+      "platforms": [
+        "iOS",
+        "macOS"
+      ],
+      "speakers": [
+        "Philip Bennett",
+        "Serhat Tekin"
+      ],
+      "apple_url": "",
+      "has_transcript": true
+    },
+    {
+      "session_id": "603",
+      "title": "What's New in Metal, Part 1",
+      "description": "Metal provides extremely efficient access to the GPU through its streamlined API and high-performance architecture. Check out what's new in Metal and dive into support for Metal on OS X. Understand enhancements to the Metal memory model and learn how to prepare assets for delivery in Metal-based apps and games.",
+      "topic": "Graphics and Games",
+      "platforms": [
+        "iOS",
+        "macOS"
+      ],
+      "speakers": [
+        "Rav Dhiraj"
+      ],
+      "apple_url": "",
+      "has_transcript": true
+    },
+    {
+      "session_id": "607",
+      "title": "What's New in Metal, Part 2",
+      "description": "Your app can be ready to harness the power of Metal starting with just a few lines of code. Get introduced to the new MetalKit framework and learn its simple API for model and texture loading, animation control, and other common tasks. Plug into Metal Performance Shaders and access a powerful library of image-processing operations tuned for Apple hardware.",
+      "topic": "Graphics and Games",
+      "platforms": [
+        "iOS",
+        "macOS"
+      ],
+      "speakers": [
+        "Dan Omachi",
+        "Anna Tikhonova"
+      ],
+      "apple_url": "",
+      "has_transcript": true
+    },
+    {
+      "session_id": "604",
+      "title": "What's New in SpriteKit",
+      "description": "SpriteKit provides everything you'll need to build 2D games with high-performance graphics and engaging gameplay. Check out new APIs for managing a virtual camera and delivering spatial audio. See the all-new timeline-based Actions editor built right into Xcode, and learn about deep integration with Metal, SceneKit, GameplayKit, and more.",
+      "topic": "Graphics and Games",
+      "platforms": [
+        "iOS",
+        "macOS"
+      ],
+      "speakers": [
+        "Tim Oriol",
+        "Norman Wang",
+        "Tyler Casella"
+      ],
+      "apple_url": "",
+      "has_transcript": true
+    }
+  ],
+  "Media": [
+    {
+      "session_id": "508",
+      "title": "Audio Unit Extensions",
+      "description": "Learn about using Audio Unit Extensions to provide your App with sophisticated audio manipulation and processing capabilities. Explore the architecture and  fundamentals of an App that uses Audio Unit Extensions, and how your app can benefit from their power.",
+      "topic": "Media",
+      "platforms": [
+        "iOS",
+        "macOS"
+      ],
+      "speakers": [
+        "Doug Wyatt"
+      ],
+      "apple_url": "",
+      "has_transcript": true
+    },
+    {
+      "session_id": "502",
+      "title": "Content Protection for HTTP Live Streaming",
+      "description": "FairPlay streaming provides industrial-grade protection for audio and video content. Learn how to implement and deploy FairPlay streaming to protect content when using HTTP Live Streaming.",
+      "topic": "Media",
+      "platforms": [
+        "iOS",
+        "macOS"
+      ],
+      "speakers": [
+        "Roger Pantos"
+      ],
+      "apple_url": "",
+      "has_transcript": true
+    },
+    {
+      "session_id": "506",
+      "title": "Editing Movies in AV Foundation",
+      "description": "Learn how to use the new AVMutableMovie class to modify media files and simplify your editing workflows. See how to support segment-based editing and discover the power of sample reference movies.",
+      "topic": "Media",
+      "platforms": [
+        "macOS"
+      ],
+      "speakers": [
+        "Tim Monroe"
+      ],
+      "apple_url": "",
+      "has_transcript": true
+    },
+    {
+      "session_id": "503",
+      "title": "Monetize and Promote Your App with iAd",
+      "description": "iAd is Apple's advertising platform, designed to enable developers to monetize and promote their apps in over 100 countries. See how iAd technologies built into iOS make it easy to enable advertising to generate revenue, identify user segments for re-engagement and understand the impact of your marketing campaigns. Learn how to promote your app to new users and create targeted campaigns designed to re-engage those you already have.",
+      "topic": "Media",
+      "platforms": [
+        "iOS"
+      ],
+      "speakers": [
+        "Carol Teng",
+        "Shashank Phadke"
+      ],
+      "apple_url": "",
+      "has_transcript": true
+    },
+    {
+      "session_id": "511",
+      "title": "Safari Extensibility: Content Blocking and Shared Links",
+      "description": "Safari in iOS 9 and OS X El Capitan delivers new ways for your app to extend Safari's behavior. Learn how to create Shared Links and Content Blocking extensions for iOS and OS X, and about changes to the Safari Extension development process.",
+      "topic": "Media",
+      "platforms": [
+        "macOS"
+      ],
+      "speakers": [
+        "Brian Weinstein",
+        "Alex Christensen"
+      ],
+      "apple_url": "",
+      "has_transcript": true
+    },
+    {
+      "session_id": "505",
+      "title": "Using Safari to Deliver and Debug a Responsive Web Design",
+      "description": "Safari has a powerful new interface for designing responsive web experiences. Explore this great new feature and other new capabilities and improvements to the Web Inspector-WebKit's built-in development tool. Discover how you can use Safari and Web Inspector to powerfully and efficiently design, debug, and optimize for the web.",
+      "topic": "Media",
+      "platforms": [
+        "iOS",
+        "macOS"
+      ],
+      "speakers": [
+        "Jono Wells"
+      ],
+      "apple_url": "",
+      "has_transcript": true
+    },
+    {
+      "session_id": "507",
+      "title": "What's New in Core Audio",
+      "description": "Learn about enhancements to AVAudioEngine such as Compressed audio format support, more flexible node connections and new Sequencer functionality. Learn how to take advantage of digital audio between your OS X and iOS devices via Lightning. Learn best practices and what's new in AVAudioSession.",
+      "topic": "Media",
+      "platforms": [
+        "iOS",
+        "macOS"
+      ],
+      "speakers": [
+        "Akshatha Nagesh",
+        "Torrey Holbrook Walker"
+      ],
+      "apple_url": "",
+      "has_transcript": true
+    },
+    {
+      "session_id": "510",
+      "title": "What's New in Core Image",
+      "description": "The newly-unified architecture of Core Image gives iOS and OS X apps access to even more image processing power. Learn about new CIFilters and enhancements to the CIKernel language. See how to use Core Image with AV Foundation and Metal to expand the capabilities of your app.",
+      "topic": "Media",
+      "platforms": [
+        "iOS",
+        "macOS"
+      ],
+      "speakers": [
+        "David Hayward",
+        "Tony Chu",
+        "Alexandre Naaman"
+      ],
+      "apple_url": "",
+      "has_transcript": true
+    },
+    {
+      "session_id": "501",
+      "title": "What's New in Web Development in WebKit and Safari",
+      "description": "Learn about exciting new features in WebKit and Safari that will help you make your content feel alive. See compelling new interactions made possible by the Force Touch trackpad and enhanced scrolling support. Expand your design toolkit with high performance filters for stunning image and backdrop effects, and embrace the connected living room with updated AirPlay support.",
+      "topic": "Media",
+      "platforms": [
+        "iOS",
+        "macOS"
+      ],
+      "speakers": [
+        "Brent Fulgham",
+        "Chris Young-Zawada"
+      ],
+      "apple_url": "",
+      "has_transcript": true
+    }
+  ],
+  "System Frameworks": [
+    {
+      "session_id": "707",
+      "title": "Achieving All-day Battery Life",
+      "description": "Learn why efficient software is the key to long battery life for both OS X and iOS devices. We'll explore where the energy in our batteries goes, how Apple hardware and software efficiently manage energy, and how you can make your code most efficient to ensure long battery life.",
+      "topic": "System Frameworks",
+      "platforms": [
+        "iOS",
+        "macOS"
+      ],
+      "speakers": [
+        "Jon Andrews",
+        "Soren Spies"
+      ],
+      "apple_url": "",
+      "has_transcript": true
+    },
+    {
+      "session_id": "702",
+      "title": "Apple Pay Within Apps",
+      "description": "Apple Pay is the easy, secure, and private way to pay for physical goods and services within apps on iPhone 6, iPad Air 2, and iPad mini 3. Find out how you can increase conversion rates in your checkout experience by integrating with Apple Pay APIs. And learn more about what's new with Apple Pay within apps in iOS 9.",
+      "topic": "System Frameworks",
+      "platforms": [
+        "iOS",
+        "watchOS"
+      ],
+      "speakers": [
+        "Nick Shearer",
+        "Rachel Roth"
+      ],
+      "apple_url": "",
+      "has_transcript": true
+    },
+    {
+      "session_id": "718",
+      "title": "Building Responsive and Efficient Apps with GCD",
+      "description": "watchOS and iOS Multitasking place increased demands on your application's efficiency and responsiveness.  With expert guidance from the GCD team, learn about threads, queues, runloops and best practices for their use in a modern app.  Take a deep dive into QoS, its propagation and advanced techniques for debugging your GCD-enabled app.",
+      "topic": "System Frameworks",
+      "platforms": [
+        "iOS",
+        "macOS",
+        "watchOS"
+      ],
+      "speakers": [
+        "Anthony J. Chivetta",
+        "Daniel A. Steffen"
+      ],
+      "apple_url": "",
+      "has_transcript": true
+    },
+    {
+      "session_id": "710",
+      "title": "CloudKit JS and Web Services",
+      "description": "CloudKit.js is the new library that provides web access to your app data stored in iCloud. Explore the new web service APIs and learn how to extend your iOS or OS X apps to the web using CloudKit.",
+      "topic": "System Frameworks",
+      "platforms": [
+        "iOS",
+        "macOS"
+      ],
+      "speakers": [
+        "Chris Edstrom",
+        "Onar Vikingstad"
+      ],
+      "apple_url": "",
+      "has_transcript": true
+    },
+    {
+      "session_id": "715",
+      "title": "CloudKit Tips and Tricks",
+      "description": "CloudKit makes it easy to store and retrieve any kind of data from iCloud. Dive into the API with the CloudKit framework team as they explore some of its lesser-known features, explore best practices around subscriptions and queries, and reveal its hidden gems.",
+      "topic": "System Frameworks",
+      "platforms": [
+        "iOS",
+        "macOS"
+      ],
+      "speakers": [
+        "Nihar Sharma"
+      ],
+      "apple_url": "",
+      "has_transcript": true
+    },
+    {
+      "session_id": "708",
+      "title": "Debugging Energy Issues",
+      "description": "Learn how to debug energy issues in your app. See the energy debugging tools on iOS and walk through debugging common energy issues in a sample app.",
+      "topic": "System Frameworks",
+      "platforms": [
+        "iOS",
+        "macOS"
+      ],
+      "speakers": [
+        "Abhinav Pathak",
+        "Pai-Han Huang"
+      ],
+      "apple_url": "",
+      "has_transcript": true
+    },
+    {
+      "session_id": "709",
+      "title": "Introducing Search APIs",
+      "description": "Making your app more discoverable leads to more downloads and generates revenue. iOS 9 adds a variety of ways to surface the rich content in your app making search results more relevant. Understand how you can enhance search results with App History and CoreSpotlight. See how small changes on your website can produce better Safari suggestions. Gain insights into how deep app links can bring people directly where they want to go in your app, making your app's content even more discoverable and searchable than content on the traditional web.",
+      "topic": "System Frameworks",
+      "platforms": [
+        "iOS",
+        "macOS"
+      ],
+      "speakers": [
+        "Vipul Ved Prakash",
+        "Dave Salim",
+        "Jason Douglas"
+      ],
+      "apple_url": "",
+      "has_transcript": true
+    },
+    {
+      "session_id": "713",
+      "title": "Introducing Watch Connectivity",
+      "description": "Getting information to your Watch app is crucial. Learn how to leverage NSURLSession to get your data from the Internet. Tap into the new WatchConnectivity framework for device to device communication and transferring of data. See real-world examples and learn best practices to understand when to use your WatchKit extension and when to leverage your iPhone app.",
+      "topic": "System Frameworks",
+      "platforms": [
+        "watchOS"
+      ],
+      "speakers": [
+        "Chris Jensen",
+        "Alex Ledwith"
+      ],
+      "apple_url": "",
+      "has_transcript": true
+    },
+    {
+      "session_id": "712",
+      "title": "Low Energy, High Performance: Compression and Accelerate",
+      "description": "The Accelerate framework gives you fast, energy efficient signal and image processing and linear algebra libraries. Learn about a new library, dedicated to high performance compression. simd.h, introduced in iOS 8 and OS X 10.10, is the unified 2d and 3d math library for graphics and games. Find out how you can use simd.h and what's new in iOS 9 and OS X 10.11.",
+      "topic": "System Frameworks",
+      "platforms": [
+        "iOS",
+        "macOS"
+      ],
+      "speakers": [
+        "Eric Bainville",
+        "Steve Canon",
+        "Luke Chang"
+      ],
+      "apple_url": "",
+      "has_transcript": true
+    },
+    {
+      "session_id": "711",
+      "title": "Networking with NSURLSession",
+      "description": "Learn about App Transport Security, HTTP/2 protocol support, new NSURLSession API, and best practices for networking in apps, extensions, and WatchKit apps.",
+      "topic": "System Frameworks",
+      "platforms": [
+        "iOS",
+        "macOS",
+        "watchOS"
+      ],
+      "speakers": [
+        "Luke Case",
+        "Andreas Garkuscha",
+        "Dan Vinegrad"
+      ],
+      "apple_url": "",
+      "has_transcript": true
+    },
+    {
+      "session_id": "703",
+      "title": "Privacy and Your App",
+      "description": "Learn about new developments in Privacy in iOS, OS X, and watchOS that impact your apps. Hear about best practices for delivering great features and respecting your customers' privacy.",
+      "topic": "System Frameworks",
+      "platforms": [
+        "iOS",
+        "macOS",
+        "watchOS"
+      ],
+      "speakers": [
+        "Katie Skinner",
+        "Jason Novak"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2015/703/",
+      "has_transcript": true
+    },
+    {
+      "session_id": "706",
+      "title": "Security and Your Apps",
+      "description": "Your reputation depends on protecting your users' data. Do this by taking advantage of the Security frameworks built into iOS, OS X and watchOS. Find out about new developments in Security and learn the best practices to develop secure apps and protect your users' data.",
+      "topic": "System Frameworks",
+      "platforms": [
+        "iOS",
+        "macOS",
+        "watchOS"
+      ],
+      "speakers": [
+        "Ivan Krstic\u0301",
+        "Pierre-Olivier Martel",
+        "Andrew Whalley"
+      ],
+      "apple_url": "",
+      "has_transcript": true
+    },
+    {
+      "session_id": "701",
+      "title": "Wallet - The home for Apple Pay and more",
+      "description": "Passbook is now Wallet. Wallet stores your coupons, boarding passes, event tickets, and even the credit and debit cards you use with Apple Pay. In iOS 9, Wallet makes the Apple Pay experience even better and integrates more with Apple Watch. Learn about the Wallet app, new kinds of passes, and how your app can integrate and interact with Wallet.",
+      "topic": "System Frameworks",
+      "platforms": [
+        "iOS",
+        "watchOS"
+      ],
+      "speakers": [
+        "Danvin Ruangchan"
+      ],
+      "apple_url": "",
+      "has_transcript": true
+    },
+    {
+      "session_id": "704",
+      "title": "What's New in CloudKit",
+      "description": "CloudKit is the framework that powers iCloud on iOS, OS X, and now iCloud on the web. Hear how we've been working to make CloudKit more accessible to all your users with the web services API and Javascript library. Learn about reporting available in the updated Dashboard and the new, more flexible public database storage pricing.",
+      "topic": "System Frameworks",
+      "platforms": [
+        "iOS",
+        "macOS"
+      ],
+      "speakers": [
+        "Olivier Bonnet",
+        "Eric Krugler"
+      ],
+      "apple_url": "",
+      "has_transcript": true
+    },
+    {
+      "session_id": "714",
+      "title": "What's New in Core Location",
+      "description": "Discover how to use Core Location with Apple Watch, and how to make the best use of location services to develop powerful and compelling apps.",
+      "topic": "System Frameworks",
+      "platforms": [
+        "iOS",
+        "macOS",
+        "watchOS"
+      ],
+      "speakers": [
+        "Adam Driscoll"
+      ],
+      "apple_url": "",
+      "has_transcript": true
+    },
+    {
+      "session_id": "705",
+      "title": "What's New in Core Motion",
+      "description": "Learn how your application can take advantage of the motion sensors on iOS devices. Walk through new features of the pedometer and learn how to use the altimeter to take your app to the next level. Get personal with motion APIs and sensor data on the Apple Watch. Run through a demo that uses motion-context awareness to make an application feel smarter!",
+      "topic": "System Frameworks",
+      "platforms": [
+        "iOS",
+        "watchOS"
+      ],
+      "speakers": [
+        "Anil Kandangath",
+        "Gabrielle Badie"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2015/705/",
+      "has_transcript": true
+    },
+    {
+      "session_id": "717",
+      "title": "What's New in Network Extension and VPN",
+      "description": "The Network Extension framework allows apps to customize and extend the core networking features of iOS and OS X. Learn how to use new VPN features and NetworkExtension API to create network security solutions for education and enterprise.",
+      "topic": "System Frameworks",
+      "platforms": [
+        "macOS",
+        "iOS"
+      ],
+      "speakers": [
+        "Jamie Wood",
+        "Tommy Pauly"
+      ],
+      "apple_url": "",
+      "has_transcript": true
+    },
+    {
+      "session_id": "720",
+      "title": "What's New in Notifications",
+      "description": "Remote notifications are sent by your server to the Apple Push Notification service, which pushes the notifications to each device. Your app may take different actions, such as displaying a message to the user or downloading new data. Find out about important changes to the provider protocol. Learn about enhancements to the way your app can respond to notifications.",
+      "topic": "System Frameworks",
+      "platforms": [
+        "iOS",
+        "macOS"
+      ],
+      "speakers": [
+        "Michele Campeotto",
+        "Gokul Thirumalai"
+      ],
+      "apple_url": "",
+      "has_transcript": true
+    },
+    {
+      "session_id": "719",
+      "title": "Your App and Next Generation Networks",
+      "description": "IPv6 is growing exponentially and carriers worldwide are moving to pure IPv6 APNs. Learn about new tools to test your apps for compatibility and get expert advice on making sure your apps work in all network environments.  iOS 9 and OS X 10.11 now support the latest TCP standards. Hear from the experts on TCP Fast Open and Explicit Congestion Notification, and find out how it benefits your apps.",
+      "topic": "System Frameworks",
+      "platforms": [
+        "iOS",
+        "macOS"
+      ],
+      "speakers": [
+        "Prabhakar Lakhera",
+        "Stuart Cheshire"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2015/719/",
+      "has_transcript": true
+    }
+  ]
+}

@@ -1,0 +1,341 @@
+{
+  "pathways": [
+    {
+      "id": "swift-concurrency-debut",
+      "name": "Swift Concurrency Debut Path",
+      "description": "Master Swift 5.5's brand-new concurrency model. Start with the language overview, then async/await fundamentals, structured concurrency with task groups, actors for safe shared state, then how it all integrates with SwiftUI and URLSession.",
+      "sessions": ["10192", "10132", "10134", "10133", "10254", "10019", "10095"],
+      "gateway": "10132",
+      "optional": ["10058", "10194", "10017"],
+      "estimated_hours": 6.5
+    },
+    {
+      "id": "shareplay-integration",
+      "name": "SharePlay Integration Path",
+      "description": "Add Group Activities to your media or custom-experience app so it works on FaceTime calls. Learn the framework, design principles, custom session APIs, and the AVFoundation integration.",
+      "sessions": ["10183", "10184", "10187", "10225"],
+      "gateway": "10183",
+      "optional": ["10189"],
+      "estimated_hours": 3.5
+    },
+    {
+      "id": "object-capture-realitykit2",
+      "name": "Object Capture & RealityKit 2 Path",
+      "description": "Photogrammetry on Mac plus the RealityKit 2 ECS overhaul. Generate USDZ models from photos, then enrich them with custom systems, materials, and character controllers in your AR app.",
+      "sessions": ["10076", "10074", "10075", "10078", "10073"],
+      "gateway": "10076",
+      "optional": ["10077", "10245"],
+      "estimated_hours": 5.0
+    },
+    {
+      "id": "xcode-cloud-setup",
+      "name": "Xcode Cloud Setup Path",
+      "description": "Adopt Apple-hosted CI/CD with Xcode Cloud. Onboard the project, build out workflows for PRs and releases, and customize with scripts and TestFlight deployment.",
+      "sessions": ["10267", "10268", "10269", "10204"],
+      "gateway": "10267",
+      "optional": ["10170", "10261"],
+      "estimated_hours": 3.5
+    },
+    {
+      "id": "docc-adoption",
+      "name": "DocC Adoption Path",
+      "description": "Document your Swift framework or package with DocC. Start with the overview, then organize with documentation catalogs, build interactive tutorials, then automate hosting.",
+      "sessions": ["10166", "10167", "10235", "10236"],
+      "gateway": "10166",
+      "optional": [],
+      "estimated_hours": 3.5
+    },
+    {
+      "id": "focus-notifications",
+      "name": "Focus & Notifications Path",
+      "description": "Adopt the new interruption-level system, donate communication intents for prominent presentation in iOS 15, and handle the new system-wide Focus modes correctly.",
+      "sessions": ["10091", "10049", "10048"],
+      "gateway": "10091",
+      "optional": ["10283", "10231"],
+      "estimated_hours": 2.5
+    },
+    {
+      "id": "live-text-vision",
+      "name": "Live Text & Vision Path",
+      "description": "Use the new ML-powered document segmentation and improved text recognition in Vision. Build scanning UIs that handle real documents, barcodes, and on-device OCR.",
+      "sessions": ["10041", "10040", "10038"],
+      "gateway": "10041",
+      "optional": ["10037", "10039"],
+      "estimated_hours": 3.0
+    },
+    {
+      "id": "ipados-15-productivity",
+      "name": "iPadOS 15 Productivity Path",
+      "description": "Adopt the new center-window scenes, keyboard navigation, the redesigned shortcut menu, and Quick Note. Make your iPad app feel as fluid as a Mac app.",
+      "sessions": ["10057", "10059", "10260", "10264"],
+      "gateway": "10057",
+      "optional": ["10052", "10056"],
+      "estimated_hours": 4.0
+    },
+    {
+      "id": "swiftui-2021",
+      "name": "SwiftUI 2021 Adoption Path",
+      "description": "Adopt the year's SwiftUI advances: AsyncImage, .task/.refreshable, Table for Mac, Canvas drawing, materials, search, FocusState, and the new button system.",
+      "sessions": ["10018", "10022", "10021", "10176", "10023"],
+      "gateway": "10018",
+      "optional": ["10119", "10062"],
+      "estimated_hours": 5.0
+    },
+    {
+      "id": "storekit2-modernization",
+      "name": "StoreKit 2 Modernization Path",
+      "description": "Replace your in-app purchase code with StoreKit 2's async/await APIs. JWS-signed transactions, automatic verification, and unified entitlements.",
+      "sessions": ["10114", "10174", "10175"],
+      "gateway": "10114",
+      "optional": ["10171", "10115"],
+      "estimated_hours": 3.0
+    },
+    {
+      "id": "http3-quic",
+      "name": "Networking with HTTP/3 & QUIC Path",
+      "description": "Speed up your app's networking with HTTP/3 (on by default in iOS 15), and build custom multiplexed protocols on top of QUIC via Network.framework.",
+      "sessions": ["10094", "10095", "10103", "10239"],
+      "gateway": "10094",
+      "optional": ["10212"],
+      "estimated_hours": 3.0
+    },
+    {
+      "id": "performance-and-hangs",
+      "name": "App Performance & Hang Elimination Path",
+      "description": "Diagnose and fix hangs, memory issues, and async/await pitfalls. Use Instruments, MetricKit field reports, and the Xcode Organizer to drive measurable improvements.",
+      "sessions": ["10258", "10180", "10181", "10254"],
+      "gateway": "10258",
+      "optional": ["10212", "10209"],
+      "estimated_hours": 4.0
+    },
+    {
+      "id": "mac-catalyst-polish",
+      "name": "Mac Catalyst Polish Path",
+      "description": "Take your iPad app to a Mac-native feel: tooltips, pop-up buttons, scene subtitles, printing, and proper menu bar integration.",
+      "sessions": ["10052", "10053", "10054"],
+      "gateway": "10052",
+      "optional": ["10056", "10052"],
+      "estimated_hours": 2.5
+    },
+    {
+      "id": "media-shareplay",
+      "name": "Modern Media Capture & Playback Path",
+      "description": "10-bit HDR video capture, Center Stage and Portrait video effects, AVAsset async inspection, HLS Content Steering, and Spatial Audio.",
+      "sessions": ["10047", "10146", "10141", "10265"],
+      "gateway": "10047",
+      "optional": ["10160", "10101"],
+      "estimated_hours": 4.0
+    }
+  ],
+  "prerequisites": {
+    "10133": ["10132"],
+    "10134": ["10132"],
+    "10254": ["10132", "10133", "10134"],
+    "10058": ["10132"],
+    "10095": ["10132", "10058"],
+    "10019": ["10132", "10018"],
+    "10017": ["10132"],
+    "10194": ["10132", "10133", "10134"],
+    "10184": ["10183"],
+    "10187": ["10183"],
+    "10189": ["10183"],
+    "10225": ["10183"],
+    "10074": ["10076"],
+    "10075": ["10074"],
+    "10078": ["10076"],
+    "10268": ["10267"],
+    "10269": ["10268"],
+    "10204": ["10267"],
+    "10167": ["10166"],
+    "10235": ["10166"],
+    "10236": ["10166"],
+    "10049": ["10048"],
+    "10174": ["10114"],
+    "10175": ["10114"],
+    "10171": ["10114"],
+    "10157": ["10148"],
+    "10150": ["10149"],
+    "10286": ["10148"],
+    "10059": ["10018"],
+    "10260": ["10059"],
+    "10264": ["10057"],
+    "10052": ["10059"],
+    "10053": ["10052"],
+    "10056": ["10052"],
+    "10022": ["10018"],
+    "10021": ["10018"],
+    "10176": ["10018"],
+    "10023": ["10018"],
+    "10119": ["10018"],
+    "10062": ["10018"],
+    "10289": ["10062"],
+    "10037": ["10038"],
+    "10040": ["10038"],
+    "10039": ["10037"],
+    "10041": ["10038"]
+  },
+  "clusters": [
+    {
+      "name": "Swift Concurrency Foundations",
+      "description": "async/await, actors, structured concurrency, AsyncSequence",
+      "sessions": ["10132", "10133", "10134", "10058", "10254"]
+    },
+    {
+      "name": "Swift Concurrency in Practice",
+      "description": "Adopting the new model in URLSession, SwiftUI, Core Data",
+      "sessions": ["10095", "10019", "10017", "10194"]
+    },
+    {
+      "name": "SharePlay & Group Activities",
+      "description": "Brand-new framework for FaceTime-anchored shared experiences",
+      "sessions": ["10183", "10184", "10187", "10189", "10225"]
+    },
+    {
+      "name": "Object Capture & RealityKit 2",
+      "description": "Photogrammetry on Mac, custom systems, character controllers, custom shaders",
+      "sessions": ["10076", "10074", "10075", "10078", "10077"]
+    },
+    {
+      "name": "Xcode Cloud",
+      "description": "Apple-hosted CI/CD, workflows, cloud signing",
+      "sessions": ["10267", "10268", "10269", "10204"]
+    },
+    {
+      "name": "DocC Documentation",
+      "description": "Documentation compiler debut, articles, tutorials, hosting",
+      "sessions": ["10166", "10167", "10235", "10236"]
+    },
+    {
+      "name": "Focus & Notifications",
+      "description": "Interruption levels, communication notifications, summary",
+      "sessions": ["10091", "10049", "10048", "10283"]
+    },
+    {
+      "name": "SwiftUI 2021",
+      "description": "AsyncImage, refreshable, Table, Canvas, materials, search, FocusState",
+      "sessions": ["10018", "10022", "10021", "10176", "10023", "10119"]
+    },
+    {
+      "name": "iPadOS 15 Productivity",
+      "description": "Center scenes, keyboard navigation, Quick Note",
+      "sessions": ["10057", "10059", "10260", "10264"]
+    },
+    {
+      "name": "Mac Catalyst Maturity",
+      "description": "Tooltips, pop-up buttons, scene subtitles, printing",
+      "sessions": ["10052", "10053", "10054", "10056"]
+    },
+    {
+      "name": "Vision & Live Text",
+      "description": "Document segmentation, OCR languages, barcode rev2",
+      "sessions": ["10041", "10040", "10122"]
+    },
+    {
+      "name": "Camera & Capture",
+      "description": "Center Stage, Portrait video, 10-bit HDR, ProRAW",
+      "sessions": ["10047", "10160", "10247", "10146"]
+    },
+    {
+      "name": "StoreKit 2",
+      "description": "Async product/purchase APIs, JWS transactions, server library",
+      "sessions": ["10114", "10174", "10175", "10171"]
+    },
+    {
+      "name": "Modern Networking",
+      "description": "HTTP/3 & QUIC, 5G optimization, Private Relay readiness, low-latency",
+      "sessions": ["10094", "10095", "10103", "10239", "10096"]
+    },
+    {
+      "name": "Performance & Diagnostics",
+      "description": "Hangs, memory issues, profiling tools",
+      "sessions": ["10258", "10180", "10181", "10212"]
+    },
+    {
+      "name": "ML & Core ML",
+      "description": "ML Programs, MLShapedArray, Create ML hand poses",
+      "sessions": ["10038", "10037", "10039"]
+    },
+    {
+      "name": "Spatial Audio & Media",
+      "description": "Spatial Audio, ShazamKit, HLS variants & content steering",
+      "sessions": ["10265", "10044", "10045", "10141", "10142"]
+    },
+    {
+      "name": "SwiftUI on the Mac",
+      "description": "Building Mac apps in SwiftUI from sidebar to fine details",
+      "sessions": ["10062", "10289"]
+    },
+    {
+      "name": "Accessibility 2021",
+      "description": "Full Keyboard Access, custom rotors, accessibility audit, charts",
+      "sessions": ["10119", "10120", "10121", "10122"]
+    }
+  ],
+  "standalone_sessions": [
+    {
+      "id": "101",
+      "title": "Keynote",
+      "reason": "Annual product reveal — context for everything else"
+    },
+    {
+      "id": "102",
+      "title": "Platforms State of the Union",
+      "reason": "Developer-focused overview of all WWDC 2021 announcements"
+    },
+    {
+      "id": "10084",
+      "title": "Explore UWB-based car keys",
+      "reason": "Self-contained car key + Nearby Interaction story"
+    },
+    {
+      "id": "10165",
+      "title": "Explore Nearby Interaction with third-party accessories",
+      "reason": "U1 chip integration for third-party hardware"
+    },
+    {
+      "id": "10298",
+      "title": "Add support for Matter in your smart home app",
+      "reason": "Matter / HomeKit interop standalone story"
+    },
+    {
+      "id": "10256",
+      "title": "Meet the Swift Algorithms and Collections packages",
+      "reason": "Self-contained Swift package overview"
+    },
+    {
+      "id": "10253",
+      "title": "Write a DSL in Swift using result builders",
+      "reason": "DSL authoring with newly-formalized result builder language feature"
+    },
+    {
+      "id": "10044",
+      "title": "Explore ShazamKit",
+      "reason": "Brand-new audio recognition framework"
+    },
+    {
+      "id": "10079",
+      "title": "Discover geometry-aware audio with PHASE",
+      "reason": "New spatialization engine"
+    },
+    {
+      "id": "10287",
+      "title": "Measure health with motion",
+      "reason": "Standalone HealthKit + CoreMotion story"
+    },
+    {
+      "id": "10089",
+      "title": "Explore Verifiable Health Records",
+      "reason": "SMART Health Cards framework"
+    },
+    {
+      "id": "10257",
+      "title": "Meet ClassKit for file-based apps",
+      "reason": "Standalone education framework"
+    },
+    {
+      "id": "10298",
+      "title": "Matter framework integration",
+      "reason": "Smart-home interoperability"
+    }
+  ]
+}

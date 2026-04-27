@@ -1,0 +1,430 @@
+{
+  "pathways": [
+    {
+      "id": "visionos-genesis",
+      "name": "visionOS Genesis Path",
+      "description": "Build your first visionOS app from zero. Start with the platform overview, develop a first immersive scene, learn ARKit's new spatial APIs, then add RealityKit content and Reality Composer Pro authoring.",
+      "sessions": ["10260", "10203", "10082", "10080", "10083"],
+      "gateway": "10260",
+      "optional": ["10072", "10073", "10078", "10094"],
+      "estimated_hours": 6.0
+    },
+    {
+      "id": "swiftdata-migration",
+      "name": "SwiftData Migration Path",
+      "description": "Adopt SwiftData for new apps or migrate existing Core Data code. Learn the core concepts, schema modeling, hands-on usage with SwiftUI, deeper persistence operations, and migration strategies.",
+      "sessions": ["10187", "10195", "10154", "10196", "10189"],
+      "gateway": "10187",
+      "optional": ["10149", "10186"],
+      "estimated_hours": 4.5
+    },
+    {
+      "id": "swift-macros",
+      "name": "Swift Macros Path",
+      "description": "Master Swift 5.9 macros from concept to authorship. Start with the Swift overview, then write your first macro, then go deep on macro roles, hygiene, and the SwiftSyntax tree.",
+      "sessions": ["10164", "10166", "10167"],
+      "gateway": "10164",
+      "optional": ["10168"],
+      "estimated_hours": 3.0
+    },
+    {
+      "id": "observation-adoption",
+      "name": "Observation Adoption Path",
+      "description": "Replace ObservableObject with @Observable across your SwiftUI app. Understand the macro, the simplified property-wrapper rules, and how it composes with SwiftData.",
+      "sessions": ["10149", "10148", "10160", "10187"],
+      "gateway": "10149",
+      "optional": ["10166"],
+      "estimated_hours": 3.5
+    },
+    {
+      "id": "swiftui-animation",
+      "name": "SwiftUI Animation Overhaul",
+      "description": "Adopt the new keyframe and phase animator APIs, native springs, visual effects, and scroll transitions. Covers the complete 2023 animation refresh.",
+      "sessions": ["10148", "10156", "10157", "10158", "10159"],
+      "gateway": "10148",
+      "optional": ["10160", "10162"],
+      "estimated_hours": 4.5
+    },
+    {
+      "id": "interactive-widgets",
+      "name": "Interactive Widgets & Live Activities",
+      "description": "Ship widgets that respond to user input via App Intents, including Live Activities with push updates and the watchOS 10 Smart Stack.",
+      "sessions": ["10027", "10028", "10103", "10184", "10185"],
+      "gateway": "10027",
+      "optional": ["10029", "10309", "10025"],
+      "estimated_hours": 4.5
+    },
+    {
+      "id": "xcode-15-tour",
+      "name": "Xcode 15 Productivity Path",
+      "description": "Get the full benefit of Xcode 15: programmatic previews, string catalogs, structured logging, mergeable libraries, and improved test reports.",
+      "sessions": ["10165", "10252", "10155", "10226", "10268"],
+      "gateway": "10165",
+      "optional": ["10248", "10175", "10244"],
+      "estimated_hours": 4.5
+    },
+    {
+      "id": "realitykit-deep-dive",
+      "name": "RealityKit Deep Dive",
+      "description": "Master RealityKit on visionOS from entities and components, through Reality Composer Pro authoring, custom systems, and performance.",
+      "sessions": ["10080", "10081", "10083", "10202", "10273", "10099"],
+      "gateway": "10080",
+      "optional": ["10095", "10100"],
+      "estimated_hours": 6.0
+    },
+    {
+      "id": "spatial-design",
+      "name": "Spatial Design Mastery",
+      "description": "Design visionOS apps that feel native and comfortable: spatial input, vision/motion considerations, sound design, and SharePlay layout patterns.",
+      "sessions": ["10072", "10076", "10073", "10078", "10271", "10075"],
+      "gateway": "10072",
+      "optional": ["10115"],
+      "estimated_hours": 4.5
+    },
+    {
+      "id": "swift-concurrency-2023",
+      "name": "Swift Concurrency Beyond Basics",
+      "description": "Go deeper into structured concurrency: discarding task groups, custom actor executors, cancellation patterns, and integration with C++ codebases.",
+      "sessions": ["10164", "10170", "10172"],
+      "gateway": "10164",
+      "optional": ["10171"],
+      "estimated_hours": 3.0
+    },
+    {
+      "id": "ml-on-device",
+      "name": "On-Device ML Path",
+      "description": "Ship ML features in your app: Core ML async prediction, model compression, multilingual NLP, and Vision/Camera integrations.",
+      "sessions": ["10049", "10047", "10044", "10042", "10176"],
+      "gateway": "10049",
+      "optional": ["10050", "10101", "111241"],
+      "estimated_hours": 4.0
+    },
+    {
+      "id": "watchos-10",
+      "name": "watchOS 10 Adoption",
+      "description": "Adopt the watchOS 10 redesign: full-screen color, vertical navigation, Smart Stack widgets, and the new container background API.",
+      "sessions": ["10026", "10031", "10138", "10029"],
+      "gateway": "10026",
+      "optional": ["10309", "10016", "10023"],
+      "estimated_hours": 4.0
+    },
+    {
+      "id": "accessibility-2023",
+      "name": "Accessibility Champion Path",
+      "description": "Make your app inclusive: cognitive accessibility via Assistive Access, accessibility audits in tests, custom voices, and modern SwiftUI/UIKit accessibility APIs.",
+      "sessions": ["10036", "10035", "10032", "10033", "10034"],
+      "gateway": "10036",
+      "optional": [],
+      "estimated_hours": 3.5
+    },
+    {
+      "id": "game-porting",
+      "name": "Game Porting to Mac",
+      "description": "Use the Game Porting Toolkit to evaluate Windows games on Mac, then port shaders and rendering to Metal 3 with ray tracing.",
+      "sessions": ["10123", "10124", "10125", "10128"],
+      "gateway": "10123",
+      "optional": ["10127", "10086"],
+      "estimated_hours": 4.5
+    }
+  ],
+  "prerequisites": {
+    "10166": ["10164"],
+    "10167": ["10164", "10166"],
+    "10168": ["10164"],
+    "10170": ["10164"],
+    "10172": ["10164"],
+    "10171": ["10164"],
+    "10195": ["10187"],
+    "10154": ["10187"],
+    "10196": ["10187", "10195"],
+    "10189": ["10187"],
+    "10148": ["10149"],
+    "10160": ["10148", "10149"],
+    "10156": ["10148"],
+    "10157": ["10148", "10156"],
+    "10158": ["10156"],
+    "10159": ["10148"],
+    "10161": ["10148"],
+    "10162": ["10148"],
+    "10037": ["10148"],
+    "10203": ["10260"],
+    "10082": ["10260"],
+    "10080": ["10260"],
+    "10081": ["10080"],
+    "10091": ["10082"],
+    "10083": ["10260"],
+    "10202": ["10083"],
+    "10273": ["10083", "10080"],
+    "10095": ["10080"],
+    "10099": ["10080"],
+    "10100": ["10080"],
+    "10094": ["10090"],
+    "10110": ["10094"],
+    "10109": ["10260", "10148"],
+    "10113": ["10109"],
+    "10111": ["10109"],
+    "111215": ["10260", "10055"],
+    "10089": ["10080"],
+    "10096": ["10080"],
+    "10093": ["10088"],
+    "10085": ["10260"],
+    "10274": ["10085"],
+    "10087": ["10075"],
+    "10075": ["10072"],
+    "10076": ["10072"],
+    "10073": ["10072"],
+    "10078": ["10072"],
+    "10271": ["10072"],
+    "10031": ["10026"],
+    "10138": ["10026"],
+    "10029": ["10026", "10027"],
+    "10309": ["10138"],
+    "10028": ["10027"],
+    "10103": ["10028"],
+    "10185": ["10184"],
+    "10194": ["10184"],
+    "10193": ["10102"],
+    "10102": ["10103"],
+    "10252": ["10165"],
+    "10155": ["10165"],
+    "10226": ["10165"],
+    "10268": ["10165"],
+    "10248": ["10165"],
+    "10175": ["10165"],
+    "10244": ["10165"],
+    "10250": ["10165"],
+    "10224": ["10165"],
+    "10278": ["10224"],
+    "10047": ["10049"],
+    "10050": ["10049"],
+    "10044": ["10049"],
+    "10101": ["10049"],
+    "10042": ["10049"],
+    "10045": ["10049"],
+    "111241": ["10049"],
+    "10176": ["10049"],
+    "10124": ["10123"],
+    "10125": ["10123", "10124"],
+    "10127": ["10125"],
+    "10128": ["10125"],
+    "10086": ["10080"],
+    "10035": ["10036"],
+    "10032": ["10036"],
+    "10033": ["10036"],
+    "10034": ["10036", "10080"],
+    "10257": ["10197"],
+    "10258": ["10197"],
+    "10142": ["10140"],
+    "10141": ["10140"],
+    "10143": ["10141"],
+    "10013": ["10140"],
+    "10186": ["10164"],
+    "10052": ["10164"],
+    "10180": ["10164"],
+    "10146": ["10260"],
+    "10025": ["10184"],
+    "10241": ["10239"],
+    "10238": ["10233"],
+    "10275": ["10238"],
+    "10122": ["10120"],
+    "10121": ["10120"],
+    "10118": ["10120"],
+    "10119": ["10120"],
+    "10262": ["10120"],
+    "10279": ["10120", "10260"]
+  },
+  "clusters": [
+    {
+      "name": "visionOS Foundations",
+      "description": "Get-started, ARKit, RealityKit, and the spatial app template",
+      "sessions": ["10260", "10203", "10082", "10080"]
+    },
+    {
+      "name": "Reality Composer Pro & USD Authoring",
+      "description": "Authoring 3D content and integrating it into Xcode",
+      "sessions": ["10083", "10202", "10273", "10086"]
+    },
+    {
+      "name": "SwiftUI for visionOS",
+      "description": "WindowGroup, volumetric, immersive spaces, and 3D layout",
+      "sessions": ["10109", "10113", "10111", "10110"]
+    },
+    {
+      "name": "SwiftData",
+      "description": "Code-only data persistence with macros, including SwiftUI integration and migration",
+      "sessions": ["10187", "10195", "10154", "10196", "10189"]
+    },
+    {
+      "name": "Observation Framework",
+      "description": "@Observable and the new SwiftUI data flow rules",
+      "sessions": ["10149", "10148"]
+    },
+    {
+      "name": "Swift 5.9 Language",
+      "description": "Macros, parameter packs, ownership, and language evolution",
+      "sessions": ["10164", "10166", "10167", "10168"]
+    },
+    {
+      "name": "SwiftUI Animation",
+      "description": "Keyframes, phase animators, springs, scroll transitions",
+      "sessions": ["10148", "10156", "10157", "10158"]
+    },
+    {
+      "name": "Interactive Widgets & Live Activities",
+      "description": "Widgets that fire App Intents, push-updated Live Activities, Smart Stack",
+      "sessions": ["10027", "10028", "10184", "10185", "10103"]
+    },
+    {
+      "name": "Xcode 15 Tooling",
+      "description": "Previews, string catalogs, structured logging, test reports, mergeable libs",
+      "sessions": ["10165", "10252", "10155", "10226", "10268", "10248", "10175"]
+    },
+    {
+      "name": "Spatial Design",
+      "description": "Apple's design principles for visionOS apps",
+      "sessions": ["10072", "10073", "10076", "10078", "10075", "10271"]
+    },
+    {
+      "name": "watchOS 10 Redesign",
+      "description": "New look, vertical Crown navigation, Smart Stack widgets",
+      "sessions": ["10026", "10031", "10138", "10029", "10309"]
+    },
+    {
+      "name": "Game Porting & Metal 3",
+      "description": "Bring Windows games to Mac, ray tracing, GPU optimization",
+      "sessions": ["10123", "10124", "10125", "10128", "10127"]
+    },
+    {
+      "name": "On-Device ML",
+      "description": "Async prediction, compression, NL multilingual, vision",
+      "sessions": ["10049", "10047", "10044", "10050", "10042"]
+    },
+    {
+      "name": "Privacy & Security",
+      "description": "Privacy manifests, signed SDKs, environment constraints",
+      "sessions": ["10060", "10061", "10053", "10266"]
+    },
+    {
+      "name": "App Store & StoreKit",
+      "description": "StoreKit for SwiftUI, server library, App Store Connect",
+      "sessions": ["10013", "10140", "10141", "10143", "10117"]
+    },
+    {
+      "name": "Camera & Cinematic",
+      "description": "Responsive capture, Cinematic API, HDR images",
+      "sessions": ["10105", "10137", "10181"]
+    },
+    {
+      "name": "Accessibility",
+      "description": "Inclusive design, Assistive Access, audits, custom voices",
+      "sessions": ["10036", "10035", "10032", "10033"]
+    },
+    {
+      "name": "Web & Safari",
+      "description": "Web apps, web push, CSS additions, Safari for visionOS",
+      "sessions": ["10120", "10121", "10262", "10279"]
+    }
+  ],
+  "standalone_sessions": [
+    {
+      "id": "101",
+      "title": "Keynote",
+      "reason": "Annual product reveal — context for everything else"
+    },
+    {
+      "id": "102",
+      "title": "Platforms State of the Union",
+      "reason": "Developer-focused overview of all WWDC 2023 announcements"
+    },
+    {
+      "id": "10004",
+      "title": "Reduce network delays with L4S",
+      "reason": "Self-contained networking improvement applicable to any networked app"
+    },
+    {
+      "id": "10002",
+      "title": "Ready, set, relay: Protect app traffic with network relays",
+      "reason": "Independent privacy-preserving networking feature"
+    },
+    {
+      "id": "10006",
+      "title": "Build robust and resumable file transfers",
+      "reason": "Standalone URLSession improvements for downloads"
+    },
+    {
+      "id": "10188",
+      "title": "Sync to iCloud with CKSyncEngine",
+      "reason": "New high-level CloudKit sync API; replaces hand-rolled change tracking"
+    },
+    {
+      "id": "10043",
+      "title": "Meet MapKit for SwiftUI",
+      "reason": "Self-contained SwiftUI-native MapKit"
+    },
+    {
+      "id": "10180",
+      "title": "Discover streamlined location updates",
+      "reason": "Standalone async/await Core Location API"
+    },
+    {
+      "id": "10229",
+      "title": "Make features discoverable with TipKit",
+      "reason": "New standalone framework for in-app feature tips"
+    },
+    {
+      "id": "10016",
+      "title": "Build custom workouts with WorkoutKit",
+      "reason": "New standalone WorkoutKit framework"
+    },
+    {
+      "id": "10007",
+      "title": "Create seamless experiences with Virtualization",
+      "reason": "macOS-only virtualization framework"
+    },
+    {
+      "id": "10052",
+      "title": "Discover Calendar and EventKit",
+      "reason": "EventKit changes including write-only access — applies to any calendar-using app"
+    },
+    {
+      "id": "10025",
+      "title": "Meet Push Notifications Console",
+      "reason": "Stand-alone web tool for push debugging"
+    },
+    {
+      "id": "10108",
+      "title": "What's new in Background Assets",
+      "reason": "Standalone asset delivery for large content apps"
+    },
+    {
+      "id": "10048",
+      "title": "What's new in VisionKit",
+      "reason": "Standalone visual look-up & subject extraction APIs"
+    },
+    {
+      "id": "10051",
+      "title": "Create a great ShazamKit experience",
+      "reason": "Standalone audio recognition framework"
+    },
+    {
+      "id": "10304",
+      "title": "Integrate with motorized iPhone stands using DockKit",
+      "reason": "Standalone DockKit framework"
+    },
+    {
+      "id": "10256",
+      "title": "Discover Continuity Camera for tvOS",
+      "reason": "tvOS-specific Continuity Camera support"
+    },
+    {
+      "id": "10115",
+      "title": "Design with SwiftUI",
+      "reason": "Universal SwiftUI design fundamentals"
+    },
+    {
+      "id": "10117",
+      "title": "What's new in App Store Connect",
+      "reason": "App Store Connect updates applicable to any developer"
+    }
+  ]
+}

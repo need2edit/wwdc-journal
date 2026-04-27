@@ -1,0 +1,130 @@
+{
+  "pathways": [
+    {
+      "id": "arkit-foundation",
+      "name": "ARKit Foundation Path",
+      "description": "Build your first augmented reality app on iOS. Start with the introduction (the only required ARKit session in 2017), then layer SceneKit and SpriteKit AR rendering, and round out with Model I/O for asset import.",
+      "sessions": ["602", "604", "609", "610"],
+      "gateway": "602",
+      "optional": ["704", "601", "510"],
+      "estimated_hours": 4.5
+    },
+    {
+      "id": "coreml-adoption",
+      "name": "Core ML & Vision Adoption Path",
+      "description": "Add on-device machine learning to your app. Start with the Core ML overview, master the Vision framework's image API, then go deep on model conversion and NLP integration.",
+      "sessions": ["703", "506", "710", "208"],
+      "gateway": "703",
+      "optional": ["711", "510"],
+      "estimated_hours": 5.0
+    },
+    {
+      "id": "drag-drop-integration",
+      "name": "Drag & Drop Integration Path",
+      "description": "Adopt iOS 11 drag and drop, the iPad's marquee productivity feature. Begin with the introduction, then master advanced previews and animations, integrate with collection / table views, and learn the data delivery story.",
+      "sessions": ["203", "213", "223", "227"],
+      "gateway": "203",
+      "optional": ["219", "201"],
+      "estimated_hours": 4.5
+    },
+    {
+      "id": "files-document-browser",
+      "name": "Files & Document Browser Path",
+      "description": "Make your app a first-class citizen of the new Files app. Adopt UIDocumentBrowserViewController, integrate with File Provider extensions, and add Quick Look thumbnail and preview extensions.",
+      "sessions": ["229", "243", "231"],
+      "gateway": "229",
+      "optional": ["241", "247", "250"],
+      "estimated_hours": 3.5
+    },
+    {
+      "id": "swift4-codable",
+      "name": "Swift 4 & Codable Path",
+      "description": "Master Swift 4's headline language additions: Codable for one-line JSON parsing, smart KeyPaths with type-safe KVO, the String overhaul, and the Swift 3.2/4 coexistence migration story.",
+      "sessions": ["402", "212", "207"],
+      "gateway": "402",
+      "optional": ["411", "414"],
+      "estimated_hours": 4.0
+    },
+    {
+      "id": "ios11-design-refresh",
+      "name": "iOS 11 Design Refresh Path",
+      "description": "Update your app for the iOS 11 visual language: large titles, condensed nav, full Dynamic Type, safe areas, and the iPhone X edge-to-edge canvas. The mandatory session is 204; add the design fundamentals after.",
+      "sessions": ["204", "201", "245", "230"],
+      "gateway": "204",
+      "optional": ["219", "242", "812", "810"],
+      "estimated_hours": 5.0
+    },
+    {
+      "id": "metal2-graphics",
+      "name": "Metal 2 & Graphics Path",
+      "description": "Adopt Metal 2's argument buffers and A11 GPU features (imageblocks, tile shading, raster order groups). Combine with SceneKit and Model I/O for content pipelines, and use MPS for GPU-accelerated ML.",
+      "sessions": ["601", "608", "607", "604"],
+      "gateway": "601",
+      "optional": ["603", "609", "610", "821"],
+      "estimated_hours": 5.5
+    },
+    {
+      "id": "heif-hevc-photos",
+      "name": "HEIF / HEVC Adoption Path",
+      "description": "Adopt the new image and video codecs. Understand the format, learn AVFoundation's HEVC encode pipeline, integrate with HLS, and unlock depth-aware photography.",
+      "sessions": ["503", "511", "513", "504"],
+      "gateway": "503",
+      "optional": ["507", "508", "510", "505"],
+      "estimated_hours": 4.5
+    },
+    {
+      "id": "sirikit-expansion",
+      "name": "SiriKit Expansion Path",
+      "description": "Add Siri to your app or expand beyond iOS 10's domains. Adopt the new Lists & Notes and Visual Codes intents, customize parameter-based UI, and adopt background workout handling.",
+      "sessions": ["214", "228"],
+      "gateway": "214",
+      "optional": ["234", "240"],
+      "estimated_hours": 2.5
+    },
+    {
+      "id": "networking-modernization",
+      "name": "Networking & GCD Modernization Path",
+      "description": "Adopt URLSession's multipath TCP, modernize GCD usage with the right QoS, and harden your app against the App Transport Security tightening.",
+      "sessions": ["707", "709", "706", "701"],
+      "gateway": "707",
+      "optional": ["238", "708"],
+      "estimated_hours": 4.5
+    },
+    {
+      "id": "core-bluetooth-nfc",
+      "name": "Bluetooth, NFC & Wireless Path",
+      "description": "Build connected accessory experiences. Adopt L2CAP for high-throughput BLE, ship Core NFC tag reading on iPhone 7+, and bring CarPlay templates to your app.",
+      "sessions": ["712", "718", "705", "719"],
+      "gateway": "712",
+      "optional": ["714", "713", "717"],
+      "estimated_hours": 4.5
+    },
+    {
+      "id": "accessibility-dynamic-type",
+      "name": "Accessibility & Dynamic Type Path",
+      "description": "Make your iOS 11 app work for every user. Adopt Smart Invert, the new accessibility content size categories with proper layout reflow, large content viewer, and inclusive sound design.",
+      "sessions": ["215", "245", "806", "217"],
+      "gateway": "215",
+      "optional": ["819", "813", "803"],
+      "estimated_hours": 4.0
+    },
+    {
+      "id": "xcode9-tooling",
+      "name": "Xcode 9 Workflow Path",
+      "description": "Master the most ambitious Xcode release of the decade: wireless install/debug, GitHub-aware source control, sanitizers integrated into the test runner, the new Swift build system, and the testing improvements.",
+      "sessions": ["404", "405", "411", "409"],
+      "gateway": "404",
+      "optional": ["406", "412", "413", "414", "403"],
+      "estimated_hours": 5.0
+    },
+    {
+      "id": "appstore-subscription",
+      "name": "App Store & Subscription Path",
+      "description": "Ship and grow on the new (2017) App Store. Adopt SKStoreReviewController properly, configure subscriptions, set up server-to-server notifications, and design for trial-to-paid conversion.",
+      "sessions": ["301", "303", "305", "814"],
+      "gateway": "301",
+      "optional": ["302", "816"],
+      "estimated_hours": 3.5
+    }
+  ]
+}

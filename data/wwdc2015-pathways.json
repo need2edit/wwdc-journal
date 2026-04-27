@@ -1,0 +1,130 @@
+{
+  "pathways": [
+    {
+      "id": "swift-2-adoption",
+      "name": "Swift 2 Adoption Path",
+      "description": "Master Swift 2's new error handling, guard, availability checking, and pattern matching. Then learn how protocol-oriented programming and value types reshape API design. The foundation of every other 2015 talk.",
+      "sessions": ["106", "408", "414", "411", "401"],
+      "gateway": "106",
+      "optional": ["403", "409", "405"],
+      "estimated_hours": 5.0
+    },
+    {
+      "id": "protocol-oriented-programming",
+      "name": "Protocol-Oriented Programming Path",
+      "description": "Crusty's famous talk plus the value-type companion. Learn the 'don't start with a class' philosophy, protocol extensions with Self requirements, and value semantics with copy-on-write. Then apply with compile-time safety patterns.",
+      "sessions": ["408", "414", "411"],
+      "gateway": "408",
+      "optional": ["106", "220"],
+      "estimated_hours": 3.0
+    },
+    {
+      "id": "ipad-multitasking",
+      "name": "iPad Multitasking Path",
+      "description": "The structural shift of WWDC 2015. Start with the fundamentals, then optimize media handling and memory pressure. Auto Layout and stack views are essential foundations.",
+      "sessions": ["205", "211", "212", "218", "219"],
+      "gateway": "205",
+      "optional": ["222", "215", "229"],
+      "estimated_hours": 5.5
+    },
+    {
+      "id": "watchos-2-native",
+      "name": "watchOS 2 Native Apps Path",
+      "description": "Move your watch extension from the iPhone to native execution on the watch. New frameworks: WatchConnectivity, ClockKit complications, layout/animation. Designing for the wrist follows.",
+      "sessions": ["105", "207", "208", "713", "209", "216"],
+      "gateway": "105",
+      "optional": ["228", "204", "802"],
+      "estimated_hours": 6.0
+    },
+    {
+      "id": "app-thinning-bitcode",
+      "name": "App Thinning, Bitcode & ODR Path",
+      "description": "Ship smaller apps via App Slicing, Bitcode for future-proof compilation, and On-Demand Resources for staged downloads. Asset catalog discipline is the foundation.",
+      "sessions": ["404", "214", "107"],
+      "gateway": "404",
+      "optional": ["604", "606"],
+      "estimated_hours": 2.5
+    },
+    {
+      "id": "search-and-deep-linking",
+      "name": "Search APIs & Universal Links Path",
+      "description": "Get your in-app content into Spotlight via NSUserActivity, Core Spotlight, and web markup. Universal Links replace custom URL schemes. Safari View Controller replaces in-app browsers.",
+      "sessions": ["709", "509", "504"],
+      "gateway": "709",
+      "optional": ["511", "703"],
+      "estimated_hours": 3.0
+    },
+    {
+      "id": "stack-views-auto-layout",
+      "name": "Stack Views & Auto Layout Path",
+      "description": "iOS finally gets layout containers. Master UIStackView, NSLayoutAnchor, and the new readable content guides. Best practices for performance and adaptivity.",
+      "sessions": ["218", "219", "231"],
+      "gateway": "218",
+      "optional": ["205", "222"],
+      "estimated_hours": 3.0
+    },
+    {
+      "id": "content-blockers-safari",
+      "name": "Content Blockers & Safari Extensibility Path",
+      "description": "Build a privacy-first content blocker for iOS Safari and Safari View Controller. Plus Shared Links extensions. Web development complements: backdrop filters, scroll snap, ES6.",
+      "sessions": ["511", "504", "501"],
+      "gateway": "511",
+      "optional": ["505"],
+      "estimated_hours": 2.5
+    },
+    {
+      "id": "tvos-foundation",
+      "name": "tvOS Foundation Path (announced)",
+      "description": "tvOS launched in fall 2015 — the WWDC talks were game and graphics frameworks that would underpin tvOS apps: SpriteKit, SceneKit, GameplayKit, Metal. Game-style apps use the same foundations on Apple TV.",
+      "sessions": ["604", "606", "608", "603"],
+      "gateway": "604",
+      "optional": ["609", "610", "602"],
+      "estimated_hours": 4.5
+    },
+    {
+      "id": "gameplaykit",
+      "name": "GameplayKit Path",
+      "description": "Apple's first dedicated gameplay framework: ECS, state machines, agents/steering, pathfinding, MinMax AI, random distributions, rule systems. Demo: DemoBots brings them together.",
+      "sessions": ["608", "609", "604"],
+      "gateway": "608",
+      "optional": ["605", "606"],
+      "estimated_hours": 3.5
+    },
+    {
+      "id": "energy-and-performance",
+      "name": "Energy & Performance Path",
+      "description": "Hit all-day battery life. QoS through GCD, NSOperation patterns, Energy gauge in Xcode, and the new ATS-driven networking model. Profile, measure, fix.",
+      "sessions": ["707", "718", "226", "412"],
+      "gateway": "707",
+      "optional": ["708", "230", "413", "712"],
+      "estimated_hours": 5.0
+    },
+    {
+      "id": "core-data-cloudkit",
+      "name": "Core Data & CloudKit Path",
+      "description": "Unique constraints, batch deletes, model caching make Core Data substantially more usable. CloudKit gains Web Services with a JS SDK, web Apple ID sign-in, and free pricing tier scaling with users.",
+      "sessions": ["220", "704", "710", "715"],
+      "gateway": "220",
+      "optional": ["234", "224"],
+      "estimated_hours": 4.0
+    },
+    {
+      "id": "privacy-security",
+      "name": "Privacy & Security Path",
+      "description": "ATS by default, canOpenURL whitelist, rotated identifiers, zero-knowledge public indexing. Plus Apple Pay in apps and Wallet rebrand.",
+      "sessions": ["703", "706", "702", "701"],
+      "gateway": "703",
+      "optional": ["717", "509"],
+      "estimated_hours": 3.5
+    },
+    {
+      "id": "design-for-watch",
+      "name": "Designing for Apple Watch Path",
+      "description": "Three themes: Personal Communication, Holistic Design, Lightweight Interaction. Design with animation. Learn the new system fonts. Plus accessibility for the wrist.",
+      "sessions": ["802", "803", "805", "801", "804"],
+      "gateway": "802",
+      "optional": ["204", "201"],
+      "estimated_hours": 4.5
+    }
+  ]
+}

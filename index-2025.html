@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WWDC 2025 Session Pathways & Analysis</title>
+<style>
+  :root {
+    --bg: #0a0a0f;
+    --surface: #14141f;
+    --surface2: #1e1e2e;
+    --border: #2a2a3e;
+    --text: #e8e8f0;
+    --text-dim: #8888a0;
+    --accent: #6366f1;
+    --accent2: #818cf8;
+    --green: #34d399;
+    --amber: #fbbf24;
+    --red: #f87171;
+    --pink: #f472b6;
+    --cyan: #22d3ee;
+    --orange: #fb923c;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', system-ui, sans-serif; background: var(--bg); color: var(--text); overflow-x: hidden; }
+
+  /* Header */
+  .hero { padding: 60px 40px 40px; text-align: center; position: relative; overflow: hidden; }
+  .hero::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(ellipse at center, rgba(99,102,241,0.08) 0%, transparent 60%); pointer-events: none; }
+  .hero h1 { font-size: 3em; font-weight: 700; background: linear-gradient(135deg, #818cf8, #c084fc, #f472b6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 8px; }
+  .hero .sub { color: var(--text-dim); font-size: 1.1em; margin-bottom: 30px; }
+
+  /* Stats bar */
+  .stats { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; margin-bottom: 40px; }
+  .stat { text-align: center; }
+  .stat .num { font-size: 2.4em; font-weight: 700; color: var(--accent2); }
+  .stat .label { font-size: 0.85em; color: var(--text-dim); margin-top: 2px; }
+
+  /* Nav tabs */
+  .tabs { display: flex; justify-content: center; gap: 8px; margin-bottom: 40px; flex-wrap: wrap; padding: 0 20px; }
+  .tab { padding: 10px 24px; border-radius: 24px; border: 1px solid var(--border); background: var(--surface); color: var(--text-dim); cursor: pointer; font-size: 0.9em; transition: all 0.2s; }
+  .tab:hover { border-color: var(--accent); color: var(--text); }
+  .tab.active { background: var(--accent); border-color: var(--accent); color: white; }
+
+  /* Sections */
+  .section { display: none; max-width: 1200px; margin: 0 auto; padding: 0 20px 60px; }
+  .section.active { display: block; }
+  .section h2 { font-size: 1.8em; margin-bottom: 24px; color: var(--text); }
+  .section h3 { font-size: 1.3em; margin: 24px 0 12px; color: var(--accent2); }
+
+  /* Pathway cards */
+  .pathway-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); gap: 20px; }
+  .pathway-card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 24px; cursor: pointer; transition: all 0.3s; position: relative; overflow: hidden; }
+  .pathway-card .badges-row { position: absolute; top: 14px; right: 14px; left: 14px; display: flex; gap: 6px; justify-content: flex-end; flex-wrap: wrap; pointer-events: none; z-index: 2; }
+  .pathway-card .badge.urgent, .pathway-card .badge.hours { pointer-events: auto; }
+
+  .pathway-card:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(99,102,241,0.15); }
+  .pathway-card .badge { padding: 4px 10px; border-radius: 12px; font-size: 0.75em; font-weight: 600; white-space: nowrap; }
+  .pathway-card .badge.urgent { background: rgba(248,113,113,0.15); color: var(--red); }
+  .pathway-card .badge.hours { background: rgba(99,102,241,0.15); color: var(--accent2); }
+  .pathway-card h4 { font-size: 1.15em; margin-bottom: 8px; padding-right: 0; padding-top: 32px; }
+  .pathway-card p { color: var(--text-dim); font-size: 0.88em; line-height: 1.5; margin-bottom: 16px; }
+  .pathway-sessions { display: flex; flex-wrap: wrap; gap: 6px; }
+  .session-pill { padding: 4px 10px; border-radius: 8px; font-size: 0.78em; font-weight: 500; background: var(--surface2); border: 1px solid var(--border); color: var(--text-dim); }
+  .session-pill.gateway { background: rgba(99,102,241,0.15); border-color: var(--accent); color: var(--accent2); }
+  .session-pill.optional { border-style: dashed; opacity: 0.6; }
+
+  /* Pathway detail / flow */
+  .pathway-detail { display: none; background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 32px; margin-bottom: 24px; }
+  .pathway-detail.active { display: block; }
+  .pathway-detail .back { color: var(--accent2); cursor: pointer; font-size: 0.9em; margin-bottom: 16px; display: inline-block; }
+  .pathway-detail .back:hover { text-decoration: underline; }
+  .flow { position: relative; padding-left: 32px; }
+  .flow-item { position: relative; padding: 16px 0 16px 24px; border-left: 2px solid var(--border); }
+  .flow-item:last-child { border-left-color: transparent; }
+  .flow-item::before { content: ''; position: absolute; left: -7px; top: 20px; width: 12px; height: 12px; border-radius: 50%; background: var(--accent); border: 2px solid var(--bg); }
+  .flow-item.gateway-item::before { background: var(--green); width: 14px; height: 14px; left: -8px; }
+  .flow-item.optional-item::before { background: var(--surface2); border: 2px solid var(--text-dim); }
+  .flow-item .step-num { font-size: 0.75em; color: var(--text-dim); margin-bottom: 4px; }
+  .flow-item .step-title { font-weight: 600; margin-bottom: 4px; }
+  .flow-item .step-id { color: var(--text-dim); font-size: 0.85em; }
+  .flow-item a.step-link { text-decoration: none; color: inherit; display: block; padding: 8px 12px; margin: -8px -12px; border-radius: 8px; transition: background 0.15s; }
+  .flow-item a.step-link:hover { background: var(--surface2); }
+  .flow-item a.step-link:hover .step-title { color: var(--accent2); }
+  .session-pill.linked { cursor: pointer; transition: all 0.15s; }
+  .session-pill.linked:hover { background: var(--accent); color: white; border-color: var(--accent); }
+
+  /* Cluster view */
+  .cluster-container { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
+  .cluster-badge.linked { cursor: pointer; transition: all 0.15s; }
+  .cluster-badge.linked:hover { background: var(--accent); color: white; }
+  .cluster-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 20px; }
+  .cluster-card h4 { font-size: 1em; margin-bottom: 8px; }
+  .cluster-card .desc { color: var(--text-dim); font-size: 0.82em; margin-bottom: 12px; }
+  .cluster-card .cluster-sessions { display: flex; flex-wrap: wrap; gap: 4px; }
+  .cluster-badge { padding: 3px 8px; border-radius: 6px; font-size: 0.75em; background: var(--surface2); color: var(--text-dim); }
+
+  /* Topic distribution chart */
+  .chart-container { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 32px; margin-bottom: 24px; }
+  .bar-chart { display: flex; flex-direction: column; gap: 8px; }
+  .bar-row { display: flex; align-items: center; gap: 12px; }
+  .bar-label { width: 220px; text-align: right; font-size: 0.85em; color: var(--text-dim); flex-shrink: 0; }
+  .bar-track { flex: 1; height: 28px; background: var(--surface2); border-radius: 6px; overflow: hidden; position: relative; }
+  .bar-fill { height: 100%; border-radius: 6px; display: flex; align-items: center; padding-left: 10px; font-size: 0.78em; font-weight: 600; color: white; transition: width 1s ease; }
+  .bar-count { width: 30px; text-align: center; font-size: 0.85em; color: var(--text-dim); }
+
+  /* Filter chips */
+  .filter-bar { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
+  .filter-chip { padding: 6px 14px; border-radius: 16px; border: 1px solid var(--border); background: var(--surface); color: var(--text-dim); cursor: pointer; font-size: 0.82em; transition: all 0.2s; }
+  .filter-chip:hover { border-color: var(--accent); color: var(--text); }
+  .filter-chip.active { background: var(--accent); border-color: var(--accent); color: white; }
+  .filter-chip .filter-count { opacity: 0.7; font-size: 0.85em; margin-left: 4px; }
+
+  /* Insights / gems */
+  .gems-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 16px; }
+  .gem-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 20px; cursor: pointer; transition: all 0.2s; text-decoration: none; color: inherit; display: block; }
+  .gem-card:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: 0 4px 16px rgba(99,102,241,0.12); }
+  .gem-card .gem-source-link { color: var(--accent2); text-decoration: none; }
+  .gem-card.hidden-by-filter { display: none; }
+  .gem-card .gem-type { font-size: 0.75em; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; }
+  .gem-card .gem-type.practice { color: var(--green); }
+  .gem-card .gem-type.hidden { color: var(--amber); }
+  .gem-card .gem-type.warning { color: var(--red); }
+  .gem-card .gem-type.perf { color: var(--cyan); }
+  .gem-card .gem-type.delta { color: var(--pink); }
+  .gem-card .gem-text { font-size: 0.92em; line-height: 1.5; margin-bottom: 8px; }
+  .gem-card .gem-source { color: var(--text-dim); font-size: 0.8em; }
+
+  /* Dependency graph */
+  .graph-svg { width: 100%; background: var(--surface); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .hero h1 { font-size: 2em; }
+    .stats { gap: 20px; }
+    .stat .num { font-size: 1.8em; }
+    .bar-label { width: 140px; font-size: 0.75em; }
+    .pathway-grid { grid-template-columns: 1fr; }
+    .gems-grid { grid-template-columns: 1fr; }
+  }
+
+  /* Breadcrumb back link */
+  .breadcrumb { color: var(--text-dim); font-size: 0.85em; margin-bottom: 10px; }
+  .breadcrumb a { color: var(--accent2); text-decoration: none; }
+  .breadcrumb a:hover { text-decoration: underline; }
+
+  /* Search bar */
+  .search-bar-container { max-width: 700px; margin: -8px auto 28px; padding: 0 20px; position: relative; }
+  .search-input-wrap { position: relative; }
+  .search-input { width: 100%; padding: 12px 16px 12px 40px; border-radius: 12px; border: 1px solid var(--border); background: var(--surface); color: var(--text); font-size: 0.95em; font-family: inherit; transition: border-color 0.15s; }
+  .search-input:focus { outline: none; border-color: var(--accent); }
+  .search-input::placeholder { color: var(--text-dim); }
+  .search-icon { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); color: var(--text-dim); font-size: 0.95em; pointer-events: none; }
+  .search-shortcut { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); color: var(--text-dim); font-size: 0.72em; padding: 2px 6px; border-radius: 4px; background: var(--surface2); border: 1px solid var(--border); pointer-events: none; }
+  .search-results { position: absolute; top: 100%; left: 20px; right: 20px; margin-top: 6px; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; box-shadow: 0 12px 32px rgba(0,0,0,0.4); max-height: 480px; overflow-y: auto; z-index: 1000; display: none; }
+  .search-results.open { display: block; }
+  .search-result-section { padding: 8px 0; border-bottom: 1px solid var(--border); }
+  .search-result-section:last-child { border-bottom: none; }
+  .search-result-section-label { padding: 6px 16px; color: var(--text-dim); font-size: 0.72em; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+  .search-result { padding: 10px 16px; cursor: pointer; display: flex; gap: 12px; align-items: flex-start; transition: background 0.1s; text-decoration: none; color: inherit; }
+  .search-result:hover, .search-result.selected { background: var(--surface2); }
+  .search-result-id { color: var(--text-dim); font-size: 0.78em; font-family: ui-monospace, 'SF Mono', monospace; min-width: 50px; padding-top: 1px; }
+  .search-result-title { flex: 1; font-size: 0.9em; }
+  .search-result-title strong { color: var(--accent2); font-weight: 600; }
+  .search-result-meta { color: var(--text-dim); font-size: 0.75em; margin-top: 2px; }
+  .search-no-results { padding: 24px 16px; text-align: center; color: var(--text-dim); font-size: 0.88em; }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="breadcrumb"><a href="index.html">&larr; WWDC Journal</a></div>
+  <h1>WWDC 2025 Deep Analysis</h1>
+  <p class="sub">118 Sessions / 13 Learning Pathways / 4,200+ Lines of Analysis</p>
+
+  <div class="stats">
+    <div class="stat"><div class="num">118</div><div class="label">Sessions Analyzed</div></div>
+    <div class="stat"><div class="num">13</div><div class="label">Learning Pathways</div></div>
+    <div class="stat"><div class="num">19</div><div class="label">Topic Categories</div></div>
+    <div class="stat"><div class="num">18</div><div class="label">Session Clusters</div></div>
+    <div class="stat"><div class="num">~55h</div><div class="label">Total Watch Time</div></div>
+  </div>
+</div>
+
+
+<div class="search-bar-container">
+  <div class="search-input-wrap">
+    <span class="search-icon">⌕</span>
+    <input id="search-input" class="search-input" type="text" placeholder="Search sessions, pathways, gems, clusters…" autocomplete="off" spellcheck="false" />
+    <span class="search-shortcut">/</span>
+  </div>
+  <div id="search-results" class="search-results"></div>
+</div>
+<div class="tabs">
+  <div class="tab active" onclick="showSection('pathways')">Learning Pathways</div>
+  <div class="tab" onclick="showSection('topics')">Topic Map</div>
+  <div class="tab" onclick="showSection('clusters')">Session Clusters</div>
+  <div class="tab" onclick="showSection('gems')">Hidden Gems & Best Practices</div>
+  <div class="tab" onclick="showSection('deltas')">Docs vs. Transcripts</div>
+  <div class="tab" onclick="showSection('graph')">Dependency Graph</div>
+</div>
+
+<!-- PATHWAYS SECTION -->
+<div class="section active" id="sec-pathways">
+  <h2>Learning Pathways</h2>
+  <p style="color:var(--text-dim);margin-bottom:24px;">Curated sequences for watching sessions in the optimal order. <span style="color:var(--green);">Green pills</span> = gateway session. <span style="opacity:0.6;">Dashed</span> = optional.</p>
+  <div id="pathway-detail-area"></div>
+  <div class="pathway-grid" id="pathway-grid"></div>
+</div>
+
+<!-- TOPICS SECTION -->
+<div class="section" id="sec-topics">
+  <h2>Sessions by Topic</h2>
+  <div class="chart-container">
+    <div class="bar-chart" id="topic-chart"></div>
+  </div>
+</div>
+
+<!-- CLUSTERS SECTION -->
+<div class="section" id="sec-clusters">
+  <h2>Session Clusters</h2>
+  <p style="color:var(--text-dim);margin-bottom:24px;">Groups of sessions covering the same feature from different angles.</p>
+  <div class="cluster-container" id="cluster-grid"></div>
+</div>
+
+<!-- GEMS SECTION -->
+<div class="section" id="sec-gems">
+  <h2>Hidden Gems & Best Practices</h2>
+  <p style="color:var(--text-dim);margin-bottom:16px;">The most valuable insights extracted from 118 session transcripts. Click any card to jump to the source video.</p>
+  <div class="filter-bar" id="gems-filter"></div>
+  <div class="gems-grid" id="gems-grid"></div>
+</div>
+
+<!-- DELTAS SECTION -->
+<div class="section" id="sec-deltas">
+  <h2>Transcripts vs. Official Docs</h2>
+  <p style="color:var(--text-dim);margin-bottom:16px;">Key differences between what Apple engineers said in sessions vs. what's in the official documentation. Click any card to jump to the source video.</p>
+  <div class="filter-bar" id="deltas-filter"></div>
+  <div class="gems-grid" id="deltas-grid"></div>
+</div>
+
+<!-- DEPENDENCY GRAPH SECTION -->
+<div class="section" id="sec-graph">
+  <h2>Session Dependency Graph</h2>
+  <p style="color:var(--text-dim);margin-bottom:24px;">Interactive prerequisite map showing how sessions connect. Click any node to open the video.</p>
+  <div style="overflow-x:auto;">
+    <svg class="graph-svg" id="dep-graph"></svg>
+  </div>
+</div>
+
+<script>
+const WWDC_YEAR = 2025;
+function sessionUrl(id) {
+  // Strip non-digit chars in case session ID has prefix
+  const cleanId = String(id).replace(/[^0-9]/g, '');
+  return `https://developer.apple.com/videos/play/wwdc${WWDC_YEAR}/${cleanId}/`;
+}
+// Parse "WWDC25-301" / "WWDC25-301, 286" / "wwdc25-301" into [301, 286]
+function extractSessionIds(sourceText) {
+  const matches = String(sourceText).match(/\d{3}/g) || [];
+  return [...new Set(matches)];
+}
+
+// Session titles map
+const sessionTitles = {
+  "101":"Keynote","102":"Platforms State of the Union",
+  "201":"What's new in Apple Pay","202":"What's new in Wallet",
+  "203":"Get to know the ManagedApp Framework","204":"Go further with MapKit",
+  "205":"Discover Metal 4","208":"Elevate the design of your iPad app",
+  "209":"Level up your games","211":"Go further with Metal 4 games",
+  "214":"Get started with Game Center","215":"Engage players with the Apple Games app",
+  "216":"Turbocharge your app for CarPlay","219":"Meet Liquid Glass",
+  "220":"Say hello to the new look of app icons","221":"What's new in AdAttributionKit",
+  "222":"Enhance your app's multilingual experience",
+  "224":"Evaluate your app for Accessibility Nutrition Labels",
+  "225":"Code-along: Explore localization with Xcode",
+  "226":"Profile and optimize power usage in your app",
+  "227":"Finish tasks in the background",
+  "228":"Supercharge device connectivity with Wi-Fi Aware",
+  "229":"Make your Mac app more accessible to everyone",
+  "230":"Wake up to the AlarmKit API",
+  "231":"Meet WebKit for SwiftUI","232":"Verify identity documents on the web",
+  "233":"What's new in Safari and WebKit","234":"Filter and tunnel network traffic",
+  "235":"Learn more about Declarative Web Push","236":"Unlock GPU computing with WebGPU",
+  "237":"What's new for the spatial web","238":"Customize your app for Assistive Access",
+  "241":"What's new in StoreKit and In-App Purchase",
+  "243":"What's new in UIKit","244":"Get to know App Intents",
+  "245":"What's new in Swift","246":"Integrate privacy into your development process",
+  "247":"What's new in Xcode","248":"Explore prompt design & safety",
+  "249":"Dive into App Store server APIs","250":"Structured concurrency with Network framework",
+  "251":"Enhance your app's audio recording","252":"Optimize monetization with App Analytics",
+  "253":"Enhancing your camera experience","254":"Explore Metal 4 games",
+  "255":"Design widgets for visionOS","256":"What's new in SwiftUI",
+  "257":"Optimize home electricity usage with EnergyKit",
+  "258":"What's new in Apple device management",
+  "259":"Code-along: Foundation Models framework",
+  "260":"Develop for Shortcuts and Spotlight",
+  "262":"Combine Metal 4 ML and graphics",
+  "265":"Dive deeper into Writing Tools","266":"Explore concurrency in SwiftUI",
+  "268":"Embracing Swift concurrency","270":"Code-along: Swift concurrency",
+  "272":"Read documents using Vision framework",
+  "273":"Meet SwiftUI spatial layout","274":"Better together: SwiftUI and RealityKit",
+  "275":"Explore new advances in App Intents","276":"What's new in BNNS Graph",
+  "277":"Bring advanced speech-to-text","278":"What's new in widgets",
+  "279":"What's new in passkeys","280":"Code-along: Rich text with AttributedString",
+  "281":"Design interactive snippets","282":"Make your UIKit app more flexible",
+  "284":"Build a UIKit app with the new design","285":"Meet PaperKit",
+  "286":"Meet the Foundation Models framework",
+  "287":"What's new in RealityKit","288":"Bring your SceneKit project to RealityKit",
+  "289":"Explore spatial accessory input","290":"Set the scene with SwiftUI in visionOS",
+  "291":"SwiftData: Inheritance and schema migration",
+  "293":"Enhance child safety with PermissionKit",
+  "294":"What's new in Metal rendering for immersive apps",
+  "296":"Support immersive video playback",
+  "297":"Learn about Apple Projected Media Profile",
+  "298":"Explore LLMs on Apple silicon with MLX",
+  "299":"Deliver age-appropriate experiences",
+  "300":"ML-based video effects","301":"Deep dive into Foundation Models framework",
+  "302":"Create seamless multiview playback","303":"Design hover interactions for visionOS",
+  "304":"Explore video experiences for visionOS",
+  "305":"Optimize custom environments for visionOS",
+  "306":"Optimize SwiftUI performance with Instruments",
+  "307":"Explore Swift and Java interoperability",
+  "308":"Optimize CPU performance with Instruments",
+  "310":"Build an AppKit app with the new design",
+  "311":"Safely mix C, C++, and Swift","312":"Improve memory usage and performance with Swift",
+  "313":"Bring Swift Charts to the third dimension",
+  "314":"Get ahead with quantum-secure cryptography",
+  "315":"Get started with MLX for Apple silicon",
+  "316":"Principles of inclusive app design",
+  "317":"What's new in visionOS 26","318":"Share visionOS experiences with nearby people",
+  "319":"Capture cinematic video","321":"Meet the HealthKit Medications API",
+  "322":"Track workouts with HealthKit","323":"Build a SwiftUI app with the new design",
+  "324":"Automate development with App Store Connect API",
+  "325":"Discover Apple-Hosted Background Assets",
+  "328":"What's new in App Store Connect",
+  "334":"What's new in watchOS 26","337":"What's new in SF Symbols 7",
+  "344":"Record, replay, review: UI automation with Xcode",
+  "346":"Meet Containerization","356":"Get to know the new design system",
+  "359":"Design foundations from idea to interface",
+  "360":"Discover ML & AI frameworks on Apple platforms",
+  "361":"Create icons with Icon Composer",
+  "403":"Learn about Apple Immersive Video technologies",
+  "404":"Make a big impact with small writing changes"
+};
+
+// Pathway data
+const pathways = [
+  {id:"swift-modernization",name:"Swift Modernization",desc:"Master Swift 6.2's approachable concurrency, new memory types, and modern data persistence.",sessions:["245","268","270","266","312","291"],gateway:"245",optional:["311","307"],hours:5.0,color:"#818cf8"},
+  {id:"ai-ml-developer",name:"AI/ML Developer",desc:"Build on-device AI features using the Foundation Models framework, from overview to safety.",sessions:["360","286","301","259","248"],gateway:"360",optional:["265","272","277"],hours:5.5,color:"#c084fc"},
+  {id:"liquid-glass",name:"Liquid Glass Adoption",desc:"Adopt the new Liquid Glass design system across all Apple platforms.",sessions:["219","356","323","284","310","220","361"],gateway:"219",optional:["208","337","404"],hours:5.5,color:"#f472b6"},
+  {id:"spatial-computing",name:"Spatial Computing",desc:"Build visionOS apps from windowed to fully immersive with RealityKit and spatial SwiftUI.",sessions:["317","273","274","290","287","318","303"],gateway:"317",optional:["289","255","305","288"],hours:6.0,color:"#22d3ee"},
+  {id:"performance",name:"Performance Mastery",desc:"Systematically optimize CPU, memory, SwiftUI rendering, and power consumption.",sessions:["312","306","308","226"],gateway:"312",optional:["266","268"],hours:4.0,color:"#34d399"},
+  {id:"uikit",name:"UIKit Modernization",desc:"Bring your UIKit app up to date with mandatory scene lifecycle and new design.",sessions:["243","284","282","208"],gateway:"243",optional:["356","219"],hours:3.5,color:"#f87171",urgent:true,urgentReason:"iOS 26 mandatory"},
+  {id:"app-intents",name:"App Intents & Intelligence",desc:"Make your app a first-class citizen of Siri, Spotlight, Shortcuts, and Apple Intelligence.",sessions:["244","275","260","281"],gateway:"244",optional:["286","265"],hours:3.5,color:"#fb923c"},
+  {id:"immersive-video",name:"Immersive Video",desc:"Create and play immersive video content for visionOS.",sessions:["304","296","297","403"],gateway:"304",optional:["317"],hours:3.5,color:"#a78bfa"},
+  {id:"security",name:"Security & Privacy",desc:"Quantum-secure crypto, passkeys, privacy integration, and child safety.",sessions:["246","314","279","299","293"],gateway:"246",optional:["232","234"],hours:4.0,color:"#fbbf24"},
+  {id:"metal4",name:"Metal 4 & Games",desc:"Adopt Metal 4 for game engines with phased strategy: compiler, encoding, resources, ML.",sessions:["205","254","211","262","209"],gateway:"205",optional:["214","215","288"],hours:5.5,color:"#ef4444"},
+  {id:"mlx",name:"MLX Research",desc:"Run and fine-tune LLMs locally on Apple Silicon. For ML engineers and researchers.",sessions:["315","298"],gateway:"315",optional:["360","262"],hours:2.0,color:"#06b6d4"},
+  {id:"new-dev",name:"New Developer Essentials",desc:"A curated introduction for newcomers covering design, SwiftUI, Xcode, accessibility, and AI.",sessions:["359","256","247","316","286","244"],gateway:"359",optional:["225","344","224"],hours:5.5,color:"#a3e635"},
+  {id:"accessibility",name:"Accessibility Champion",desc:"Make your app inclusive and accessible. Covers principles, evaluation, and implementation.",sessions:["316","224","229","238"],gateway:"316",optional:["299","293"],hours:3.0,color:"#2dd4bf"}
+];
+
+// Topic distribution
+const topicData = [
+  {name:"Spatial Computing",count:29,color:"#22d3ee"},
+  {name:"Graphics & Games",count:17,color:"#ef4444"},
+  {name:"Design",count:17,color:"#f472b6"},
+  {name:"Machine Learning & AI",count:16,color:"#c084fc"},
+  {name:"SwiftUI & UI Frameworks",count:14,color:"#818cf8"},
+  {name:"App Services",count:10,color:"#fb923c"},
+  {name:"Swift",count:8,color:"#fbbf24"},
+  {name:"System Services",count:6,color:"#34d399"},
+  {name:"Developer Tools",count:6,color:"#06b6d4"},
+  {name:"Privacy & Security",count:5,color:"#f87171"},
+  {name:"Safari & Web",count:5,color:"#a78bfa"},
+  {name:"Audio & Video",count:4,color:"#2dd4bf"},
+  {name:"App Store & Distribution",count:4,color:"#a3e635"},
+  {name:"Essentials",count:3,color:"#e879f9"},
+  {name:"Accessibility & Inclusion",count:3,color:"#38bdf8"},
+  {name:"Business & Education",count:3,color:"#fcd34d"},
+  {name:"Health & Fitness",count:2,color:"#4ade80"},
+  {name:"Photos & Camera",count:2,color:"#fb7185"},
+  {name:"Maps & Location",count:1,color:"#facc15"}
+];
+
+// Clusters
+const clusters = [
+  {name:"Liquid Glass Design System",desc:"Design material from concept to platform-specific implementation",sessions:["219","356","323","284","310"],color:"#f472b6"},
+  {name:"Swift Concurrency",desc:"Swift 6.2 concurrency from language changes to SwiftUI integration",sessions:["245","268","270","266"],color:"#818cf8"},
+  {name:"Foundation Models",desc:"On-device AI from intro to deep dive to code-along to safety",sessions:["286","301","259","248"],color:"#c084fc"},
+  {name:"Performance & Instruments",desc:"Profiling tools: SwiftUI, CPU, memory, and power",sessions:["306","308","312","226"],color:"#34d399"},
+  {name:"Metal 4",desc:"Metal 4 from introduction to game optimization to ML integration",sessions:["205","254","211","262"],color:"#ef4444"},
+  {name:"App Intents Ecosystem",desc:"Siri, Spotlight, Shortcuts, and Visual Intelligence integration",sessions:["244","275","260","281"],color:"#fb923c"},
+  {name:"visionOS Scene Management",desc:"Window, volume, and immersive space APIs",sessions:["317","273","274","290"],color:"#22d3ee"},
+  {name:"Immersive Video",desc:"Video profiles, playback, and production for visionOS",sessions:["304","296","297","403"],color:"#a78bfa"},
+  {name:"UIKit Modernization",desc:"New APIs, mandatory scene lifecycle, and design adoption",sessions:["243","284","282"],color:"#f87171"},
+  {name:"App Icon Refresh",desc:"New icon appearances and creation workflow",sessions:["220","361"],color:"#fbbf24"},
+  {name:"Child Safety & Age",desc:"Age-appropriate experiences and parental controls",sessions:["299","293"],color:"#fb7185"},
+  {name:"MLX on Apple Silicon",desc:"Running and fine-tuning LLMs locally",sessions:["315","298"],color:"#06b6d4"},
+  {name:"Widgets & Live Activities",desc:"Widget updates across platforms including visionOS and CarPlay",sessions:["278","334","255"],color:"#e879f9"},
+  {name:"Game Center & Games App",desc:"Social gaming features and the new Apple Games app",sessions:["214","215"],color:"#ef4444"},
+  {name:"Accessibility Fundamentals",desc:"Inclusive design principles, evaluation, and implementation",sessions:["316","224","229","238"],color:"#38bdf8"},
+  {name:"App Store & Commerce",desc:"StoreKit, server APIs, analytics, and App Store Connect",sessions:["241","249","252","324","328"],color:"#a3e635"},
+  {name:"Camera & Capture",desc:"Capture controls and cinematic video",sessions:["253","319","251"],color:"#fb7185"},
+  {name:"RealityKit Migration & APIs",desc:"RealityKit new features and SceneKit migration",sessions:["287","288"],color:"#22d3ee"}
+];
+
+// Hidden gems & best practices
+const gems = [
+  {type:"warning",label:"URGENT",text:"UIScene lifecycle adoption is MANDATORY in the release following iOS 26. Apps that don't adopt it will not launch.",source:"WWDC25-243"},
+  {type:"hidden",label:"HIDDEN GEM",text:"Data.dropFirst() is O(n), not O(1). Use Slice or the new Span type instead for zero-copy views into data.",source:"WWDC25-312"},
+  {type:"practice",label:"BEST PRACTICE",text:"Property declaration order in @Generable structs affects Foundation Models output quality. Put summaries LAST for better streaming UX and generation quality.",source:"WWDC25-301"},
+  {type:"perf",label:"PERFORMANCE",text:"SwiftUI Lists are 6x faster for large data sets. ForEach initialization is 16x faster. These gains are automatic with no code changes.",source:"WWDC25-306, 256"},
+  {type:"hidden",label:"HIDDEN GEM",text:"SwiftUI's visualEffect modifier runs on background threads. Never access @MainActor state inside it or you'll get concurrency violations.",source:"WWDC25-266"},
+  {type:"practice",label:"BEST PRACTICE",text:"For libraries, prefer 'nonisolated' over '@concurrent'. Let the caller decide whether to offload work to a background thread.",source:"WWDC25-268"},
+  {type:"warning",label:"DEPRECATION",text:"SceneKit is officially soft-deprecated. RealityKit with ECS architecture is the path forward. Start migration planning now.",source:"WWDC25-288"},
+  {type:"hidden",label:"HIDDEN GEM",text:"session.prewarm(promptPrefix:) can eliminate Foundation Models asset loading latency. Call it when the user navigates to a screen that will use AI.",source:"WWDC25-301"},
+  {type:"perf",label:"PERFORMANCE",text:"includeSchemaInPrompt = false saves hundreds of tokens per request when you've already provided examples in instructions.",source:"WWDC25-301"},
+  {type:"practice",label:"BEST PRACTICE",text:"Quantum-secure TLS is enabled by DEFAULT in iOS 26. Your app gets post-quantum protection automatically if using URLSession/Network.framework.",source:"WWDC25-314"},
+  {type:"hidden",label:"HIDDEN GEM",text:"Observable models don't need @MainActor annotation when main actor mode is on. Swift infers isolation from the instantiation context.",source:"WWDC25-266"},
+  {type:"warning",label:"DEPRECATION",text:"On-Demand Resources is deprecated. Background Assets with 200GB Apple hosting replaces it completely.",source:"WWDC25-325"},
+  {type:"perf",label:"PERFORMANCE",text:"Eytzinger layout for binary search is dramatically more cache-friendly than sorted arrays. Apple engineers recommend it for hot lookup paths.",source:"WWDC25-312"},
+  {type:"practice",label:"BEST PRACTICE",text:"In Swift 6.2, async functions no longer eagerly offload. A nonisolated async function called from @MainActor stays on the main actor unless marked @concurrent.",source:"WWDC25-245"},
+  {type:"hidden",label:"HIDDEN GEM",text:"App Intents now support the 'Use Model' Shortcuts action, letting users build AI-powered automations that run your app's Foundation Models sessions.",source:"WWDC25-275"},
+  {type:"practice",label:"BEST PRACTICE",text:"Profile BEFORE adding concurrency. Many perceived concurrency needs are actually algorithmic inefficiencies that should be fixed first.",source:"WWDC25-268, 312"},
+  {type:"hidden",label:"HIDDEN GEM",text:"PermissionKit models child safety as 'permission as a feature, not a gate' -- parents approve specific communication partners.",source:"WWDC25-293"},
+  {type:"perf",label:"PERFORMANCE",text:"The new SwiftUI Instrument shows cause-and-effect graphs: which state change caused which view body evaluation. Essential for performance debugging.",source:"WWDC25-306"}
+];
+
+// Doc vs Transcript deltas
+const deltas = [
+  {type:"delta",label:"DOCS MISS THIS",text:"UIScene lifecycle mandatory deadline is NOT in official docs. Docs still describe scene support as 'opt-in'. Transcripts say it's mandatory post-iOS 26.",source:"WWDC25-243 vs TN3187"},
+  {type:"delta",label:"DOCS MISS THIS",text:"Property declaration order affecting @Generable output quality is not documented. Docs cover schema structure but not the quality optimization of putting summaries last.",source:"WWDC25-301 vs DocC"},
+  {type:"delta",label:"DOCS MISS THIS",text:"Library vs. app guidance for @concurrent is transcript-only. Docs don't distinguish when to use @concurrent vs nonisolated.",source:"WWDC25-268 vs DocC"},
+  {type:"delta",label:"DOCS MISS THIS",text:"SwiftUI performance numbers (6x List, 16x ForEach) are exclusively in transcripts. Docs never make specific performance claims.",source:"WWDC25-306 vs DocC"},
+  {type:"delta",label:"DOCS MISS THIS",text:"The 'Improving app responsiveness' guide still describes the OLD Swift 5.7+ behavior where nonisolated async functions hop off the main actor.",source:"WWDC25-245 vs DocC"},
+  {type:"delta",label:"DOCS HAVE MORE",text:"TN3193 provides detailed context window management for Foundation Models that transcripts only reference. Read the tech note for session splitting strategies.",source:"DocC TN3193"},
+  {type:"delta",label:"DOCS HAVE MORE",text:"Official docs include a comprehensive prompt evaluation framework for systematically testing Foundation Models prompts. Not covered in any session.",source:"DocC FoundationModels"},
+  {type:"delta",label:"WELL ALIGNED",text:"SwiftData inheritance guidance matches closely between transcript and docs. Both use identical deep/shallow query terminology and Trip/BusinessTrip examples.",source:"WWDC25-291 vs DocC"},
+  {type:"delta",label:"WELL ALIGNED",text:"Liquid Glass API documentation is comprehensive. glassEffect modifier, GlassEffectContainer, and adoption guide all well-documented.",source:"WWDC25-323 vs DocC"},
+  {type:"delta",label:"DOCS HAVE MORE",text:"PaperKit docs include integration patterns with PencilKit that aren't detailed in the session transcript.",source:"DocC PaperKit"}
+];
+
+// Prerequisites for the graph
+const prereqs = {
+  "268":["245"],"270":["268"],"266":["268"],"312":["245"],"311":["312"],"307":["245"],
+  "306":["256"],"308":["312"],"226":["308"],"291":["256"],
+  "301":["286"],"259":["286"],"248":["286"],
+  "275":["244"],"260":["244"],"281":["275"],
+  "323":["219"],"284":["219"],"310":["219"],"361":["220"],
+  "282":["243"],"273":["317"],"274":["273"],"290":["317"],"287":["317"],
+  "318":["317"],"303":["317"],"289":["287"],"305":["317"],"288":["287"],
+  "254":["205"],"211":["254"],"262":["205"],"209":["205"],
+  "215":["214"],"296":["304"],"403":["304"],"297":["304"],
+  "293":["299"],"298":["315"],"250":["268"],"319":["253"]
+};
+
+// --- RENDER FUNCTIONS ---
+
+function showSection(id) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('sec-' + id).classList.add('active');
+  event.target.classList.add('active');
+}
+
+function renderPathways() {
+  const grid = document.getElementById('pathway-grid');
+  grid.innerHTML = pathways.map(p => `
+    <div class="pathway-card" onclick="showPathwayDetail('${p.id}')" style="border-left: 3px solid ${p.color}">
+      <div class="badges-row">
+        ${p.urgent ? `<div class="badge urgent">${(p.urgentReason || 'URGENT').replace(/[<>&'"]/g, c => ({'<':'&lt;','>':'&gt;','&':'&amp;',"'":'&#39;','"':'&quot;'}[c]))}</div>` : ''}
+        <div class="badge hours">${p.hours}h</div>
+      </div>
+      <h4>${p.name}</h4>
+      <p>${p.desc}</p>
+      <div class="pathway-sessions">
+        ${p.sessions.map(s => `<span class="session-pill linked ${s===p.gateway?'gateway':''}" onclick="event.stopPropagation();window.open('${sessionUrl(s)}','_blank');" title="${sessionTitles[s]||s} (open video)">${s}</span>`).join('')}
+        ${(p.optional||[]).map(s => `<span class="session-pill linked optional" onclick="event.stopPropagation();window.open('${sessionUrl(s)}','_blank');" title="${sessionTitles[s]||s} (open video)">${s}</span>`).join('')}
+      </div>
+    </div>
+  `).join('');
+}
+
+function showPathwayDetail(id) {
+  const p = pathways.find(x => x.id === id);
+  const area = document.getElementById('pathway-detail-area');
+  area.innerHTML = `
+    <div class="pathway-detail active">
+      <span class="back" onclick="this.parentElement.classList.remove('active')">&larr; Back to all pathways</span>
+      <h3 style="color:${p.color}">${p.name} Path</h3>
+      <p style="color:var(--text-dim);margin-bottom:20px;">${p.desc} &mdash; Estimated: ${p.hours} hours</p>
+      <div class="flow">
+        ${p.sessions.map((s,i) => `
+          <div class="flow-item ${s===p.gateway?'gateway-item':''}">
+            <a class="step-link" href="${sessionUrl(s)}" target="_blank" rel="noopener">
+              <div class="step-num">${s===p.gateway?'START':'Step '+(i+1)} &middot; opens video &rarr;</div>
+              <div class="step-title">${sessionTitles[s]||'Session '+s}</div>
+              <div class="step-id">WWDC${String(WWDC_YEAR).slice(-2)}-${s}</div>
+            </a>
+          </div>
+        `).join('')}
+        ${(p.optional||[]).length > 0 ? '<div style="margin:12px 0 4px 0;color:var(--text-dim);font-size:0.85em;">Optional enrichment:</div>' : ''}
+        ${(p.optional||[]).map(s => `
+          <div class="flow-item optional-item">
+            <a class="step-link" href="${sessionUrl(s)}" target="_blank" rel="noopener">
+              <div class="step-num">OPTIONAL &middot; opens video &rarr;</div>
+              <div class="step-title">${sessionTitles[s]||'Session '+s}</div>
+              <div class="step-id">WWDC${String(WWDC_YEAR).slice(-2)}-${s}</div>
+            </a>
+          </div>
+        `).join('')}
+      </div>
+    </div>
+  `;
+  area.scrollIntoView({behavior:'smooth', block:'start'});
+}
+
+function renderTopicChart() {
+  const maxCount = Math.max(...topicData.map(t => t.count));
+  document.getElementById('topic-chart').innerHTML = topicData.map(t => `
+    <div class="bar-row">
+      <div class="bar-label">${t.name}</div>
+      <div class="bar-track">
+        <div class="bar-fill" style="width:${(t.count/maxCount*100)}%;background:${t.color};">${t.count > 3 ? t.count : ''}</div>
+      </div>
+      <div class="bar-count">${t.count}</div>
+    </div>
+  `).join('');
+}
+
+function renderClusters() {
+  const yr = String(WWDC_YEAR).slice(-2);
+  document.getElementById('cluster-grid').innerHTML = clusters.map(c => `
+    <div class="cluster-card" style="border-left:3px solid ${c.color}">
+      <h4>${c.name}</h4>
+      <div class="desc">${c.desc}</div>
+      <div class="cluster-sessions">
+        ${c.sessions.map(s => `<span class="cluster-badge linked" onclick="window.open('${sessionUrl(s)}','_blank');" title="${sessionTitles[s]||s} (open video)">WWDC${yr}-${s}</span>`).join('')}
+      </div>
+    </div>
+  `).join('');
+}
+
+// Build the source label as a clickable link to the FIRST session referenced
+function buildSourceLink(source) {
+  const ids = extractSessionIds(source);
+  if (ids.length === 0) return `<span>${source}</span>`;
+  const primary = ids[0];
+  return `<a class="gem-source-link" href="${sessionUrl(primary)}" target="_blank" rel="noopener" onclick="event.stopPropagation();">${source} &rarr;</a>`;
+}
+
+// Make whole gem card clickable to first session
+function gemClickHandler(source) {
+  const ids = extractSessionIds(source);
+  if (ids.length === 0) return '';
+  return `onclick="window.open('${sessionUrl(ids[0])}','_blank');"`;
+}
+
+function renderFilterBar(containerId, items, onFilterChange) {
+  // Group by label
+  const counts = {};
+  items.forEach(it => { counts[it.label] = (counts[it.label] || 0) + 1; });
+  const labels = ['All', ...Object.keys(counts).sort()];
+  const container = document.getElementById(containerId);
+  container.innerHTML = labels.map(label => {
+    const count = label === 'All' ? items.length : counts[label];
+    return `<div class="filter-chip ${label==='All'?'active':''}" data-filter="${label}">${label}<span class="filter-count">${count}</span></div>`;
+  }).join('');
+  container.querySelectorAll('.filter-chip').forEach(chip => {
+    chip.addEventListener('click', () => {
+      container.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+      onFilterChange(chip.dataset.filter);
+    });
+  });
+}
+
+function renderGems() {
+  const html = gems.map((g, i) => `
+    <div class="gem-card" data-label="${g.label}" ${gemClickHandler(g.source)}>
+      <div class="gem-type ${g.type}">${g.label}</div>
+      <div class="gem-text">${g.text}</div>
+      <div class="gem-source">${buildSourceLink(g.source)}</div>
+    </div>
+  `).join('');
+  document.getElementById('gems-grid').innerHTML = html;
+
+  renderFilterBar('gems-filter', gems, (label) => {
+    document.querySelectorAll('#gems-grid .gem-card').forEach(card => {
+      const show = label === 'All' || card.dataset.label === label;
+      card.classList.toggle('hidden-by-filter', !show);
+    });
+  });
+}
+
+function renderDeltas() {
+  const html = deltas.map(d => `
+    <div class="gem-card" data-label="${d.label}" ${gemClickHandler(d.source)}>
+      <div class="gem-type delta">${d.label}</div>
+      <div class="gem-text">${d.text}</div>
+      <div class="gem-source">${buildSourceLink(d.source)}</div>
+    </div>
+  `).join('');
+  document.getElementById('deltas-grid').innerHTML = html;
+
+  renderFilterBar('deltas-filter', deltas, (label) => {
+    document.querySelectorAll('#deltas-grid .gem-card').forEach(card => {
+      const show = label === 'All' || card.dataset.label === label;
+      card.classList.toggle('hidden-by-filter', !show);
+    });
+  });
+}
+
+function renderGraph() {
+  const svg = document.getElementById('dep-graph');
+  // Build a layered graph of the main prerequisite chains
+  const chains = [
+    {label:"Swift",color:"#818cf8",nodes:["245","268","270","266"]},
+    {label:"Performance",color:"#34d399",nodes:["245","312","308","226"]},
+    {label:"Foundation Models",color:"#c084fc",nodes:["360","286","301","259","248"]},
+    {label:"App Intents",color:"#fb923c",nodes:["244","275","260","281"]},
+    {label:"Liquid Glass",color:"#f472b6",nodes:["219","356","323","284","310"]},
+    {label:"visionOS",color:"#22d3ee",nodes:["317","273","274","290","287"]},
+    {label:"Metal 4",color:"#ef4444",nodes:["205","254","211","262","209"]},
+    {label:"Security",color:"#fbbf24",nodes:["246","314","279","299","293"]}
+  ];
+
+  // Fixed-width layout, titles wrap to 2 lines
+  const LABEL_W = 140;
+  const PAD_X = 10;
+  const NODE_W = 160;
+  const NODE_H = 52;
+  const NODE_GAP = 20;
+  const ROW_H = 70;
+  const ROW_GAP = 20;
+  const TOP_PAD = 30;
+  const MAX_CHARS_PER_LINE = 24;
+
+  // Find longest chain for SVG width
+  const maxNodes = Math.max(...chains.map(c => c.nodes.length));
+  const svgW = LABEL_W + maxNodes * NODE_W + (maxNodes - 1) * NODE_GAP + 30;
+  const svgH = TOP_PAD + chains.length * (ROW_H + ROW_GAP);
+
+  svg.setAttribute('viewBox', `0 0 ${svgW} ${svgH}`);
+  svg.setAttribute('width', svgW);
+  svg.setAttribute('height', svgH);
+  svg.style.minWidth = svgW + 'px';
+
+  let s = `<defs>
+    <marker id="arrow" viewBox="0 0 10 6" refX="10" refY="3" markerWidth="8" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 3 L 0 6 z" fill="#555"/>
+    </marker>
+  </defs>`;
+
+  chains.forEach((chain, ri) => {
+    const cy = TOP_PAD + ri * (ROW_H + ROW_GAP) + ROW_H / 2;
+    const top = cy - NODE_H / 2;
+
+    // Row label
+    s += `<text x="20" y="${cy + 4}" fill="${chain.color}" font-size="13" font-weight="600" font-family="system-ui">${escXml(chain.label)}</text>`;
+
+    chain.nodes.forEach((id, i) => {
+      const x = LABEL_W + i * (NODE_W + NODE_GAP);
+      const title = sessionTitles[id] || ('Session ' + id);
+      const url = sessionUrl(id);
+      const lines = wrapTitle(title, MAX_CHARS_PER_LINE);
+
+      s += `<a href="${url}" target="_blank" rel="noopener" style="cursor:pointer;">`;
+      s += `<rect x="${x}" y="${top}" width="${NODE_W}" height="${NODE_H}" rx="8" fill="#1e1e2e" stroke="${chain.color}" stroke-width="1.5"><title>${escXml(title)} (open video)</title></rect>`;
+      // ID at top
+      s += `<text x="${x + PAD_X}" y="${cy - 14}" fill="${chain.color}" font-size="10" font-weight="700" font-family="system-ui" pointer-events="none">${id}</text>`;
+      // Title wrapped to up to 2 lines
+      s += `<text x="${x + PAD_X}" y="${cy + 1}" fill="#c8c8d8" font-size="10" font-family="system-ui" pointer-events="none">${escXml(lines[0])}</text>`;
+      if (lines[1]) {
+        s += `<text x="${x + PAD_X}" y="${cy + 14}" fill="#c8c8d8" font-size="10" font-family="system-ui" pointer-events="none">${escXml(lines[1])}</text>`;
+      }
+      s += `</a>`;
+
+      if (i < chain.nodes.length - 1) {
+        s += `<line x1="${x + NODE_W + 2}" y1="${cy}" x2="${x + NODE_W + NODE_GAP - 2}" y2="${cy}" stroke="#555" stroke-width="1.5" marker-end="url(#arrow)"/>`;
+      }
+    });
+  });
+
+  svg.innerHTML = s;
+}
+
+// Wrap a title onto at most 2 lines, breaking at word boundaries.
+// If the second line is still too long, ellipsize it.
+function wrapTitle(title, maxChars) {
+  if (title.length <= maxChars) return [title];
+  const words = title.split(' ');
+  let line1 = '';
+  let i = 0;
+  // Greedily fill line 1
+  while (i < words.length) {
+    const candidate = line1 ? line1 + ' ' + words[i] : words[i];
+    if (candidate.length > maxChars) break;
+    line1 = candidate;
+    i++;
+  }
+  // If even the first word doesn't fit, hard-cut
+  if (!line1) {
+    line1 = title.slice(0, maxChars - 1) + '\u2026';
+    return [line1];
+  }
+  let line2 = words.slice(i).join(' ');
+  if (line2.length > maxChars) line2 = line2.slice(0, maxChars - 1) + '\u2026';
+  return [line1, line2];
+}
+
+function escXml(t) {
+  return String(t).replace(/[<>&'"]/g, c => ({'<':'&lt;','>':'&gt;','&':'&amp;',"'":'&apos;','"':'&quot;'}[c]));
+}
+
+// Init
+renderPathways();
+renderTopicChart();
+renderClusters();
+renderGems();
+renderDeltas();
+renderGraph();
+
+// ============================================================================
+// SEARCH
+// ============================================================================
+(function setupSearch() {
+  // Build a unified search index from existing data sources
+  function buildIndex() {
+    const idx = [];
+    if (typeof sessionTitles === 'object') {
+      Object.entries(sessionTitles).forEach(([id, title]) => {
+        idx.push({ kind: 'Session', id, title, url: sessionUrl(id), action: 'open-video' });
+      });
+    }
+    if (typeof pathways !== 'undefined') {
+      pathways.forEach(p => {
+        idx.push({ kind: 'Pathway', id: p.id, title: p.name, desc: p.description || p.desc || '', action: 'open-pathway', pathwayId: p.id });
+      });
+    }
+    if (typeof clusters !== 'undefined') {
+      clusters.forEach(c => {
+        idx.push({ kind: 'Cluster', id: c.name, title: c.name, desc: c.description || c.desc || '', sessions: c.sessions || [], action: 'open-tab', tab: 'clusters' });
+      });
+    }
+    if (typeof gems !== 'undefined') {
+      gems.forEach(g => {
+        idx.push({ kind: 'Gem ' + g.label, id: g.source, title: g.text, source: g.source, action: 'open-source' });
+      });
+    }
+    if (typeof deltas !== 'undefined') {
+      deltas.forEach(d => {
+        idx.push({ kind: 'Delta ' + d.label, id: d.source, title: d.text, source: d.source, action: 'open-source' });
+      });
+    }
+    if (typeof topicData !== 'undefined') {
+      topicData.forEach(t => {
+        idx.push({ kind: 'Topic', id: t.name, title: t.name, action: 'open-tab', tab: 'topics' });
+      });
+    }
+    return idx;
+  }
+  const SEARCH_INDEX = buildIndex();
+
+  const input = document.getElementById('search-input');
+  const resultsEl = document.getElementById('search-results');
+  if (!input || !resultsEl) return;
+  let selected = -1;
+  let lastResults = [];
+
+  function highlight(text, q) {
+    if (!q) return escapeHtmlSafe(text);
+    const safe = escapeHtmlSafe(text);
+    const escQ = q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    return safe.replace(new RegExp('(' + escQ + ')', 'ig'), '<strong>$1</strong>');
+  }
+  function escapeHtmlSafe(s) {
+    return String(s).replace(/[<>&'"]/g, c => ({'<':'&lt;','>':'&gt;','&':'&amp;',"'":'&#39;','"':'&quot;'}[c]));
+  }
+
+  function search(q) {
+    if (!q || q.length < 1) { lastResults = []; return []; }
+    const ql = q.toLowerCase();
+    const scored = SEARCH_INDEX.map(it => {
+      const hay = (it.title + ' ' + (it.desc || '') + ' ' + (it.id || '')).toLowerCase();
+      let score = 0;
+      if (it.title && it.title.toLowerCase().startsWith(ql)) score += 100;
+      if (String(it.id || '').toLowerCase() === ql) score += 200;
+      if (hay.includes(ql)) score += 50;
+      // Word-boundary match
+      const wordRe = new RegExp('\\b' + ql.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'i');
+      if (wordRe.test(it.title || '')) score += 30;
+      return { it, score };
+    }).filter(x => x.score > 0).sort((a,b) => b.score - a.score).slice(0, 30);
+    lastResults = scored.map(x => x.it);
+    return lastResults;
+  }
+
+  function render(q) {
+    const results = search(q);
+    if (!q) { resultsEl.classList.remove('open'); resultsEl.innerHTML = ''; selected = -1; return; }
+    if (results.length === 0) {
+      resultsEl.classList.add('open');
+      resultsEl.innerHTML = '<div class="search-no-results">No matches for &ldquo;' + escapeHtmlSafe(q) + '&rdquo;</div>';
+      return;
+    }
+    // Group by kind
+    const groups = {};
+    results.forEach(r => { (groups[r.kind] = groups[r.kind] || []).push(r); });
+    let html = '';
+    let flatIdx = 0;
+    Object.entries(groups).forEach(([kind, items]) => {
+      html += '<div class="search-result-section">';
+      html += '<div class="search-result-section-label">' + escapeHtmlSafe(kind) + '</div>';
+      items.forEach(r => {
+        const idDisplay = (r.kind === 'Session') ? r.id : '';
+        const meta = r.desc ? escapeHtmlSafe(r.desc.length > 90 ? r.desc.slice(0,90) + '…' : r.desc) : '';
+        html += `<div class="search-result" data-flat-idx="${flatIdx++}">
+          <div class="search-result-id">${idDisplay}</div>
+          <div>
+            <div class="search-result-title">${highlight(r.title, q)}</div>
+            ${meta ? '<div class="search-result-meta">' + meta + '</div>' : ''}
+          </div>
+        </div>`;
+      });
+      html += '</div>';
+    });
+    resultsEl.innerHTML = html;
+    resultsEl.classList.add('open');
+    selected = -1;
+    // Wire up clicks
+    resultsEl.querySelectorAll('.search-result').forEach(el => {
+      el.addEventListener('click', () => activateResult(parseInt(el.dataset.flatIdx, 10)));
+      el.addEventListener('mouseenter', () => {
+        resultsEl.querySelectorAll('.search-result').forEach(x => x.classList.remove('selected'));
+        el.classList.add('selected');
+        selected = parseInt(el.dataset.flatIdx, 10);
+      });
+    });
+  }
+
+  function activateResult(idx) {
+    const r = lastResults[idx];
+    if (!r) return;
+    closeResults();
+    if (r.action === 'open-video' || r.action === 'open-source') {
+      const ids = (r.action === 'open-source') ? extractSessionIds(r.source || '') : [r.id];
+      const sid = ids[0];
+      if (sid) window.open(sessionUrl(sid), '_blank');
+    } else if (r.action === 'open-pathway') {
+      // Switch to pathways section, then open the pathway
+      switchToTab('pathways');
+      if (typeof showPathwayDetail === 'function') showPathwayDetail(r.pathwayId);
+    } else if (r.action === 'open-tab') {
+      switchToTab(r.tab);
+    }
+  }
+  function switchToTab(tabName) {
+    const tab = document.querySelector('.tab[onclick*="' + tabName + '"]');
+    if (tab) tab.click();
+  }
+  function closeResults() {
+    resultsEl.classList.remove('open');
+    resultsEl.innerHTML = '';
+    selected = -1;
+  }
+
+  input.addEventListener('input', e => render(e.target.value.trim()));
+  input.addEventListener('keydown', e => {
+    const visible = resultsEl.querySelectorAll('.search-result');
+    if (e.key === 'ArrowDown') { e.preventDefault(); selected = Math.min(selected + 1, visible.length - 1); updateSelection(visible); }
+    else if (e.key === 'ArrowUp') { e.preventDefault(); selected = Math.max(selected - 1, 0); updateSelection(visible); }
+    else if (e.key === 'Enter') { e.preventDefault(); if (selected >= 0) activateResult(selected); }
+    else if (e.key === 'Escape') { closeResults(); input.blur(); }
+  });
+  function updateSelection(elements) {
+    elements.forEach((el, i) => el.classList.toggle('selected', i === selected));
+    if (selected >= 0 && elements[selected]) elements[selected].scrollIntoView({ block: 'nearest' });
+  }
+  // Click outside closes
+  document.addEventListener('click', e => {
+    if (!input.contains(e.target) && !resultsEl.contains(e.target)) closeResults();
+  });
+  // Keyboard shortcut: '/' to focus
+  document.addEventListener('keydown', e => {
+    if (e.key === '/' && document.activeElement !== input && document.activeElement.tagName !== 'INPUT') {
+      e.preventDefault();
+      input.focus();
+    }
+    if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+      e.preventDefault();
+      input.focus();
+    }
+  });
+})();
+
+</script>
+</body>
+</html>

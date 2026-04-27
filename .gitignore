@@ -1,0 +1,18 @@
+# macOS
+.DS_Store
+
+# Claude local state
+.claude/
+
+# Transcripts — large (~48MB), re-fetchable from Nonstrict WWDC Index
+# See README.md for the fetch script
+transcripts/
+
+# Master WWDC index JSON — large (~4.4MB), re-fetchable
+data/wwdc-index.json
+
+# Editor state
+*.swp
+*.swo
+.idea/
+.vscode/

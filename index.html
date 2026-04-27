@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WWDC Journal — Multi-Year Analysis</title>
+<style>
+  :root {
+    --bg: #0a0a0f;
+    --surface: #14141f;
+    --surface2: #1e1e2e;
+    --border: #2a2a3e;
+    --text: #e8e8f0;
+    --text-dim: #8888a0;
+    --accent: #6366f1;
+    --accent2: #818cf8;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', system-ui, sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
+
+  .hero { padding: 80px 40px 40px; text-align: center; position: relative; overflow: hidden; }
+  .hero::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(ellipse at center, rgba(99,102,241,0.10) 0%, transparent 60%); pointer-events: none; }
+  .hero h1 { font-size: 3.4em; font-weight: 700; background: linear-gradient(135deg, #818cf8, #c084fc, #f472b6, #fb923c); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 12px; letter-spacing: -0.02em; }
+  .hero .sub { color: var(--text-dim); font-size: 1.15em; max-width: 640px; margin: 0 auto 8px; line-height: 1.5; }
+  .hero .meta { color: var(--text-dim); font-size: 0.9em; margin-top: 8px; opacity: 0.7; }
+
+  .totals { display: flex; justify-content: center; gap: 50px; flex-wrap: wrap; margin: 40px 0 60px; padding: 0 20px; }
+  .total { text-align: center; }
+  .total .num { font-size: 2.6em; font-weight: 700; color: var(--accent2); }
+  .total .label { font-size: 0.85em; color: var(--text-dim); margin-top: 2px; }
+
+  .years-container { max-width: 1320px; margin: 0 auto; padding: 0 24px 80px; }
+  .years { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+  .year-card { background: var(--surface); border: 1px solid var(--border); border-radius: 20px; padding: 30px 26px; text-decoration: none; color: inherit; cursor: pointer; transition: all 0.3s ease; position: relative; overflow: hidden; display: flex; flex-direction: column; min-height: 320px; }
+  .year-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; opacity: 0.9; }
+  .year-card:hover { transform: translateY(-4px); border-color: var(--accent); box-shadow: 0 16px 48px rgba(99,102,241,0.18); }
+  .year-card .year-num { font-size: 2.8em; font-weight: 800; line-height: 1; margin-bottom: 4px; letter-spacing: -0.02em; }
+  .year-card .theme { font-size: 0.95em; color: var(--text-dim); margin-bottom: 18px; min-height: 1.4em; }
+  .year-card .stats { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 16px; }
+  .year-card .stat-item { background: var(--surface2); padding: 5px 11px; border-radius: 8px; font-size: 0.76em; color: var(--text-dim); }
+  .year-card .stat-item strong { color: var(--text); font-weight: 600; }
+  .year-card .highlights { color: var(--text-dim); font-size: 0.84em; line-height: 1.6; flex: 1; }
+  .year-card .highlights ul { padding-left: 16px; margin: 0; }
+  .year-card .open-link { margin-top: 18px; color: var(--accent2); font-size: 0.9em; font-weight: 600; }
+  .year-card:hover .open-link { color: var(--text); }
+
+  .footer { text-align: center; color: var(--text-dim); font-size: 0.85em; padding: 0 20px 40px; max-width: 720px; margin: 0 auto; line-height: 1.6; }
+  .footer a { color: var(--accent2); text-decoration: none; }
+  .footer a:hover { text-decoration: underline; }
+
+  /* Year-specific accent stripes */
+  .y-2025::before { background: linear-gradient(90deg, #818cf8, #c084fc, #f472b6); }
+  .y-2024::before { background: linear-gradient(90deg, #fb923c, #f59e0b, #f472b6); }
+  .y-2023::before { background: linear-gradient(90deg, #22d3ee, #2dd4bf, #34d399); }
+  .y-2022::before { background: linear-gradient(90deg, #f87171, #fbbf24, #a3e635); }
+  .y-2021::before { background: linear-gradient(90deg, #a78bfa, #60a5fa, #34d399); }
+  .y-2020::before { background: linear-gradient(90deg, #f472b6, #ef4444, #fbbf24); }
+  .y-2019::before { background: linear-gradient(90deg, #06b6d4, #818cf8, #a78bfa); }
+  .y-2018::before { background: linear-gradient(90deg, #ec4899, #8b5cf6, #3b82f6); }
+  .y-2017::before { background: linear-gradient(90deg, #f97316, #ea580c, #dc2626); }
+  .y-2016::before { background: linear-gradient(90deg, #14b8a6, #0ea5e9, #6366f1); }
+  .y-2015::before { background: linear-gradient(90deg, #84cc16, #eab308, #f97316); }
+  .y-2014::before { background: linear-gradient(90deg, #f59e0b, #f97316, #ec4899); }
+
+  .y-2025 .year-num { color: #c084fc; }
+  .y-2024 .year-num { color: #fb923c; }
+  .y-2023 .year-num { color: #22d3ee; }
+  .y-2022 .year-num { color: #f87171; }
+  .y-2021 .year-num { color: #a78bfa; }
+  .y-2020 .year-num { color: #ef4444; }
+  .y-2019 .year-num { color: #06b6d4; }
+  .y-2018 .year-num { color: #ec4899; }
+  .y-2017 .year-num { color: #f97316; }
+  .y-2016 .year-num { color: #14b8a6; }
+  .y-2015 .year-num { color: #84cc16; }
+  .y-2014 .year-num { color: #f59e0b; }
+
+  @media (max-width: 600px) {
+    .hero h1 { font-size: 2.2em; }
+    .hero .sub { font-size: 1em; }
+    .totals { gap: 30px; }
+    .total .num { font-size: 2em; }
+    .year-card { min-height: auto; }
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <h1>WWDC Journal</h1>
+  <p class="sub">Deep transcript analysis, learning pathways, hidden gems, and developer-doc deltas across twelve years of Apple's Worldwide Developers Conference.</p>
+  <p class="meta">Pick a year to explore — or jump to the cross-year <a href="modernization.html" style="color:#c084fc;text-decoration:none;border-bottom:1px solid rgba(192,132,252,0.4);">Modernization Guide &rarr;</a></p>
+</div>
+
+<div class="totals">
+  <div class="total"><div class="num">1,895</div><div class="label">Sessions Indexed</div></div>
+  <div class="total"><div class="num">1,751</div><div class="label">Transcripts Analyzed</div></div>
+  <div class="total"><div class="num">166</div><div class="label">Learning Pathways</div></div>
+  <div class="total"><div class="num">12</div><div class="label">Years Covered</div></div>
+</div>
+
+<div class="years-container">
+  <div class="years">
+
+    <a class="year-card y-2025" href="index-2025.html">
+      <div class="year-num">2025</div>
+      <div class="theme">Liquid Glass &amp; Foundation Models</div>
+      <div class="stats">
+        <div class="stat-item"><strong>164</strong> sessions</div>
+        <div class="stat-item"><strong>119</strong> transcripts</div>
+        <div class="stat-item"><strong>13</strong> pathways</div>
+      </div>
+      <div class="highlights">
+        <ul>
+          <li>Liquid Glass design system across SwiftUI / UIKit / AppKit</li>
+          <li>Foundation Models on-device LLM framework</li>
+          <li>Swift 6.2 main-actor-by-default concurrency</li>
+          <li>visionOS 26 maturity, immersive video pipeline</li>
+        </ul>
+      </div>
+      <div class="open-link">Open dashboard &rarr;</div>
+    </a>
+
+    <a class="year-card y-2024" href="index-2024.html">
+      <div class="year-num">2024</div>
+      <div class="theme">Apple Intelligence debut</div>
+      <div class="stats">
+        <div class="stat-item"><strong>123</strong> sessions</div>
+        <div class="stat-item"><strong>119</strong> transcripts</div>
+        <div class="stat-item"><strong>13</strong> pathways</div>
+      </div>
+      <div class="highlights">
+        <ul>
+          <li>Apple Intelligence, Writing Tools, Genmoji, Image Playground</li>
+          <li>Swift 6 strict concurrency migration</li>
+          <li>Swift Testing framework debut</li>
+          <li>visionOS 2, RealityKit improvements, Translation framework</li>
+        </ul>
+      </div>
+      <div class="open-link">Open dashboard &rarr;</div>
+    </a>
+
+    <a class="year-card y-2023" href="index-2023.html">
+      <div class="year-num">2023</div>
+      <div class="theme">visionOS reveal</div>
+      <div class="stats">
+        <div class="stat-item"><strong>196</strong> sessions</div>
+        <div class="stat-item"><strong>177</strong> transcripts</div>
+        <div class="stat-item"><strong>14</strong> pathways</div>
+      </div>
+      <div class="highlights">
+        <ul>
+          <li>visionOS &amp; Vision Pro platform reveal</li>
+          <li>SwiftData &amp; Observation frameworks</li>
+          <li>Swift macros, parameter packs</li>
+          <li>Interactive widgets, watchOS 10 redesign</li>
+        </ul>
+      </div>
+      <div class="open-link">Open dashboard &rarr;</div>
+    </a>
+
+    <a class="year-card y-2022" href="index-2022.html">
+      <div class="year-num">2022</div>
+      <div class="theme">Async/await maturity &amp; Charts</div>
+      <div class="stats">
+        <div class="stat-item"><strong>191</strong> sessions</div>
+        <div class="stat-item"><strong>177</strong> transcripts</div>
+        <div class="stat-item"><strong>14</strong> pathways</div>
+      </div>
+      <div class="highlights">
+        <ul>
+          <li>Swift Async Algorithms, structured concurrency</li>
+          <li>SwiftUI Charts framework debut</li>
+          <li>NavigationStack / NavigationSplitView</li>
+          <li>App Intents debut, Live Activities, Lock Screen widgets</li>
+        </ul>
+      </div>
+      <div class="open-link">Open dashboard &rarr;</div>
+    </a>
+
+    <a class="year-card y-2021" href="index-2021.html">
+      <div class="year-num">2021</div>
+      <div class="theme">Swift Concurrency debut</div>
+      <div class="stats">
+        <div class="stat-item"><strong>211</strong> sessions</div>
+        <div class="stat-item"><strong>200</strong> transcripts</div>
+        <div class="stat-item"><strong>14</strong> pathways</div>
+      </div>
+      <div class="highlights">
+        <ul>
+          <li>async/await, actors, structured concurrency debut</li>
+          <li>SharePlay &amp; GroupActivities</li>
+          <li>Object Capture, RealityKit 2 custom systems</li>
+          <li>Xcode Cloud, DocC, Focus modes, Live Text</li>
+        </ul>
+      </div>
+      <div class="open-link">Open dashboard &rarr;</div>
+    </a>
+
+    <a class="year-card y-2020" href="index-2020.html">
+      <div class="year-num">2020</div>
+      <div class="theme">Apple Silicon transition</div>
+      <div class="stats">
+        <div class="stat-item"><strong>227</strong> sessions</div>
+        <div class="stat-item"><strong>212</strong> transcripts</div>
+        <div class="stat-item"><strong>14</strong> pathways</div>
+      </div>
+      <div class="highlights">
+        <ul>
+          <li>Apple Silicon Mac transition (M1 era begins)</li>
+          <li>macOS Big Sur design overhaul</li>
+          <li>iOS Home Screen Widgets &amp; WidgetKit debut</li>
+          <li>App Clips, Swift 5.3, watchOS 7 sleep tracking</li>
+        </ul>
+      </div>
+      <div class="open-link">Open dashboard &rarr;</div>
+    </a>
+
+    <a class="year-card y-2019" href="index-2019.html">
+      <div class="year-num">2019</div>
+      <div class="theme">SwiftUI &amp; Combine debut</div>
+      <div class="stats">
+        <div class="stat-item"><strong>165</strong> sessions</div>
+        <div class="stat-item"><strong>155</strong> transcripts</div>
+        <div class="stat-item"><strong>14</strong> pathways</div>
+      </div>
+      <div class="highlights">
+        <ul>
+          <li>SwiftUI declarative UI framework debut</li>
+          <li>Combine reactive framework debut</li>
+          <li>Sign In with Apple, Mac Catalyst, iPadOS launch</li>
+          <li>RealityKit &amp; Reality Composer debut, Dark Mode</li>
+        </ul>
+      </div>
+      <div class="open-link">Open dashboard &rarr;</div>
+    </a>
+
+    <a class="year-card y-2018" href="index-2018.html">
+      <div class="year-num">2018</div>
+      <div class="theme">iOS 12 Performance &amp; Siri Shortcuts</div>
+      <div class="stats">
+        <div class="stat-item"><strong>124</strong> sessions</div>
+        <div class="stat-item"><strong>116</strong> transcripts</div>
+        <div class="stat-item"><strong>14</strong> pathways</div>
+      </div>
+      <div class="highlights">
+        <ul>
+          <li>iOS 12 performance focus, Auto Layout linear complexity</li>
+          <li>Siri Shortcuts API &amp; Shortcuts app debut</li>
+          <li>ARKit 2 (shared experiences, persistent worlds), USDZ</li>
+          <li>Create ML, Core ML 2, Network framework, Marzipan preview</li>
+        </ul>
+      </div>
+      <div class="open-link">Open dashboard &rarr;</div>
+    </a>
+
+    <a class="year-card y-2017" href="index-2017.html">
+      <div class="year-num">2017</div>
+      <div class="theme">ARKit, Core ML &amp; Vision debut</div>
+      <div class="stats">
+        <div class="stat-item"><strong>155</strong> sessions</div>
+        <div class="stat-item"><strong>137</strong> transcripts</div>
+        <div class="stat-item"><strong>14</strong> pathways</div>
+      </div>
+      <div class="highlights">
+        <ul>
+          <li>ARKit, Core ML, and Vision framework debuts</li>
+          <li>Drag and Drop on iPad, Files app</li>
+          <li>iOS 11 design refresh, Swift 4 Codable</li>
+          <li>Metal 2 (argument buffers), HEIF/HEVC adoption</li>
+        </ul>
+      </div>
+      <div class="open-link">Open dashboard &rarr;</div>
+    </a>
+
+    <a class="year-card y-2016" href="index-2016.html">
+      <div class="year-num">2016</div>
+      <div class="theme">SiriKit, Swift 3 &amp; iMessage Apps</div>
+      <div class="stats">
+        <div class="stat-item"><strong>125</strong> sessions</div>
+        <div class="stat-item"><strong>125</strong> transcripts</div>
+        <div class="stat-item"><strong>14</strong> pathways</div>
+      </div>
+      <div class="highlights">
+        <ul>
+          <li>SiriKit DEBUT (intent domains, third-party Siri integration)</li>
+          <li>Swift 3 (huge breaking API guidelines refactor)</li>
+          <li>iMessage apps &amp; sticker packs DEBUT, CallKit DEBUT</li>
+          <li>watchOS 3 redesign, APFS sneak, Differential Privacy</li>
+        </ul>
+      </div>
+      <div class="open-link">Open dashboard &rarr;</div>
+    </a>
+
+    <a class="year-card y-2015" href="index-2015.html">
+      <div class="year-num">2015</div>
+      <div class="theme">Swift 2 &amp; Open Source announcement</div>
+      <div class="stats">
+        <div class="stat-item"><strong>106</strong> sessions</div>
+        <div class="stat-item"><strong>106</strong> transcripts</div>
+        <div class="stat-item"><strong>14</strong> pathways</div>
+      </div>
+      <div class="highlights">
+        <ul>
+          <li>Swift 2 &amp; open-sourcing announcement, error handling</li>
+          <li>Protocol-Oriented Programming paradigm shift</li>
+          <li>iPad multitasking debut, App Thinning &amp; Bitcode</li>
+          <li>watchOS 2 native apps, tvOS &amp; GameplayKit debut</li>
+        </ul>
+      </div>
+      <div class="open-link">Open dashboard &rarr;</div>
+    </a>
+
+    <a class="year-card y-2014" href="index-2014.html">
+      <div class="year-num">2014</div>
+      <div class="theme">Swift &amp; the Five Framework Debuts</div>
+      <div class="stats">
+        <div class="stat-item"><strong>108</strong> sessions</div>
+        <div class="stat-item"><strong>108</strong> transcripts</div>
+        <div class="stat-item"><strong>14</strong> pathways</div>
+      </div>
+      <div class="highlights">
+        <ul>
+          <li>Swift LANGUAGE DEBUT — Apple's new programming language</li>
+          <li>HealthKit, HomeKit, CloudKit, Metal, App Extensions all debut</li>
+          <li>iOS 8 widgets, custom keyboards, Continuity / Handoff</li>
+          <li>Adaptive UI / Size Classes, Touch ID API, PhotoKit, WatchKit preview</li>
+        </ul>
+      </div>
+      <div class="open-link">Open dashboard &rarr;</div>
+    </a>
+
+  </div>
+</div>
+
+<div class="footer">
+  Each dashboard contains: deep transcript analysis (best practices, hidden gems, performance tips, migration guidance), curated learning pathways with prerequisites, session clusters, transcript-vs-docs deltas, and an interactive dependency graph. <br><br>
+  Source transcripts from <a href="https://nonstrict.eu/wwdcindex/" target="_blank" rel="noopener">Nonstrict WWDC Index</a> and <a href="https://gist.github.com/auramagi/9c040c2233dfe71c24c76942e186f788" target="_blank" rel="noopener">auramagi gist</a>.
+</div>
+
+</body>
+</html>

@@ -1,0 +1,354 @@
+{
+  "pathways": [
+    {
+      "id": "ios-12-performance",
+      "name": "iOS 12 Performance Path",
+      "description": "Adopt iOS 12's performance wins: scrolling, layout, memory, and graphics. Start with the methodology overview, learn the new os_signpost API, dig into memory profiling, then adopt the Auto Layout and image best practices.",
+      "sessions": ["407", "405", "416", "220", "219"],
+      "gateway": "407",
+      "optional": ["202", "225", "229", "227", "410"],
+      "estimated_hours": 5.5
+    },
+    {
+      "id": "siri-shortcuts-adoption",
+      "name": "Siri Shortcuts Adoption Path",
+      "description": "Make your app's key actions available to Siri. Begin with the introduction and core concepts, learn how to build voice + custom UI experiences, then optimize donations and bring shortcuts to the watch.",
+      "sessions": ["211", "214", "217"],
+      "gateway": "211",
+      "optional": ["202", "206", "713"],
+      "estimated_hours": 3.5
+    },
+    {
+      "id": "arkit-2-usdz",
+      "name": "ARKit 2 & USDZ Path",
+      "description": "Master the new ARKit 2 features and the USDZ format. Start with the framework overview, learn AR Quick Look integration, design great AR content, then study Apple's open-source SwiftShot multiplayer game.",
+      "sessions": ["602", "603", "805", "605"],
+      "gateway": "602",
+      "optional": ["610", "808", "612"],
+      "estimated_hours": 5.0
+    },
+    {
+      "id": "create-ml-core-ml-2",
+      "name": "Create ML & Core ML 2 Path",
+      "description": "Train your own custom models in Swift, then ship them with Core ML 2's quantization and batch APIs. Begin with Create ML, learn the new Core ML 2 features, then explore Natural Language and Vision integration.",
+      "sessions": ["703", "708", "709", "713"],
+      "gateway": "703",
+      "optional": ["712", "717", "716", "609"],
+      "estimated_hours": 5.0
+    },
+    {
+      "id": "network-framework-migration",
+      "name": "Network Framework Migration Path",
+      "description": "Move off raw sockets to Network.framework's modern transport API. Learn smart connection establishment, async send/receive, and mobility handling for resilient connections across networks.",
+      "sessions": ["715", "714"],
+      "gateway": "715",
+      "optional": [],
+      "estimated_hours": 2.5
+    },
+    {
+      "id": "marzipan-mac-preview",
+      "name": "Marzipan / Mac Catalyst Preview Path",
+      "description": "Prepare your iPad app for the upcoming UIKit-on-Mac transition (releasing in 2019). Adopt the convergent APIs, safe area properly, and dark mode support that anticipate Catalyst.",
+      "sessions": ["202", "235", "210", "209"],
+      "gateway": "202",
+      "optional": ["220", "218", "224"],
+      "estimated_hours": 4.0
+    },
+    {
+      "id": "dark-mode-mojave",
+      "name": "Dark Mode for macOS Mojave Path",
+      "description": "Adopt Dark Mode in your Mac app. Master semantic system colors, NSVisualEffectView materials, asset catalog appearance variants, and the new contentTintColor API.",
+      "sessions": ["210", "218", "209"],
+      "gateway": "210",
+      "optional": ["802", "803"],
+      "estimated_hours": 3.0
+    },
+    {
+      "id": "notifications-grouped",
+      "name": "Grouped & Interactive Notifications Path",
+      "description": "Adopt iOS 12's grouped notifications, dynamic actions, user-interactive content extensions, provisional authorization, and (with entitlement) critical alerts.",
+      "sessions": ["710", "711", "806"],
+      "gateway": "710",
+      "optional": ["202"],
+      "estimated_hours": 2.5
+    },
+    {
+      "id": "watchos-5",
+      "name": "watchOS 5 Audio & Workouts Path",
+      "description": "Background audio for any app, the new HKWorkoutSession + HKLiveWorkoutBuilder API with crash recovery, and Siri Shortcuts on the Siri watch face.",
+      "sessions": ["206", "504", "707", "217"],
+      "gateway": "206",
+      "optional": ["706"],
+      "estimated_hours": 4.5
+    },
+    {
+      "id": "passwords-autofill",
+      "name": "Automatic Strong Passwords Path",
+      "description": "Adopt iOS 12's automatic password generation, suggested usernames, SMS code autofill, and the new ASWebAuthenticationSession for federated sign-in.",
+      "sessions": ["204", "721"],
+      "gateway": "204",
+      "optional": ["718", "207"],
+      "estimated_hours": 2.0
+    },
+    {
+      "id": "swift-42-modernization",
+      "name": "Swift 4.2 Modernization Path",
+      "description": "Adopt Swift 4.2's CaseIterable, conditional conformances, synthesized Hashable for enums-with-payloads, the new Hasher API, and the build-time speedups.",
+      "sessions": ["401", "406", "411", "415"],
+      "gateway": "401",
+      "optional": ["408", "412"],
+      "estimated_hours": 4.0
+    },
+    {
+      "id": "metal-2-graphics",
+      "name": "Metal 2 Graphics & Compute Path",
+      "description": "Move off OpenGL (deprecated in 2018), adopt GPU-driven command encoding, ray tracing acceleration, and ML training on Metal Performance Shaders.",
+      "sessions": ["604", "612", "606", "609"],
+      "gateway": "604",
+      "optional": ["608", "607", "611"],
+      "estimated_hours": 5.0
+    },
+    {
+      "id": "subscriptions-iap",
+      "name": "App Store & Subscriptions Path",
+      "description": "Adopt introductory pricing, free trials for non-subscription apps, server-to-server notifications, billing-retry handling, and the new App Store Connect API for automation.",
+      "sessions": ["704", "705", "301", "303"],
+      "gateway": "704",
+      "optional": ["302", "304"],
+      "estimated_hours": 3.5
+    },
+    {
+      "id": "fluid-interface-design",
+      "name": "Fluid Interface Design Path",
+      "description": "Internalize Apple's design principles for iPhone X-style fluid gestural interfaces. Cover principles, button design fidelity, and AR-specific interaction patterns.",
+      "sessions": ["803", "804", "805", "802"],
+      "gateway": "803",
+      "optional": ["808", "809", "811"],
+      "estimated_hours": 4.0
+    }
+  ],
+  "prerequisites": {
+    "405": ["407"],
+    "410": ["405"],
+    "416": ["407"],
+    "220": ["407"],
+    "219": ["416"],
+    "225": ["220"],
+    "229": ["220"],
+    "214": ["211"],
+    "217": ["211", "214"],
+    "603": ["602"],
+    "805": ["602", "603"],
+    "605": ["602"],
+    "808": ["602"],
+    "708": ["703"],
+    "709": ["708"],
+    "713": ["703"],
+    "717": ["708"],
+    "716": ["708"],
+    "709": ["708"],
+    "714": ["715"],
+    "218": ["210"],
+    "209": ["210"],
+    "711": ["710"],
+    "504": ["206"],
+    "707": ["206"],
+    "217": ["206"],
+    "706": ["206"],
+    "721": ["204"],
+    "406": ["401"],
+    "415": ["401"],
+    "408": ["401"],
+    "612": ["604"],
+    "606": ["604"],
+    "608": ["604"],
+    "607": ["604"],
+    "609": ["604"],
+    "611": ["604"],
+    "705": ["704"],
+    "303": ["301"],
+    "804": ["803"],
+    "210": ["802"],
+    "235": ["202"],
+    "224": ["202"]
+  },
+  "clusters": [
+    {
+      "name": "iOS 12 Performance Wins",
+      "description": "The headline year for iOS performance — scrolling, layout, memory, graphics, methodology",
+      "sessions": ["407", "405", "416", "220", "219", "225", "229", "227", "202"]
+    },
+    {
+      "name": "Siri Shortcuts (NEW)",
+      "description": "Custom intents, NSUserActivity-based donations, voice + UI extensions, watch face",
+      "sessions": ["211", "214", "217"]
+    },
+    {
+      "name": "ARKit 2 & USDZ",
+      "description": "Persistent worlds, multi-user, image tracking, 3D object detection, USDZ format, AR Quick Look",
+      "sessions": ["602", "603", "605", "610", "805", "808"]
+    },
+    {
+      "name": "Create ML & Core ML 2",
+      "description": "Train models in Swift, ship 4 to 8 times smaller models with quantization, customize via custom layers",
+      "sessions": ["703", "708", "709", "712", "713", "716", "717", "609"]
+    },
+    {
+      "name": "Network.framework",
+      "description": "Modern alternative to BSD sockets — connection logic, async I/O, mobility, user-space stack",
+      "sessions": ["715", "714"]
+    },
+    {
+      "name": "Dark Mode for macOS Mojave",
+      "description": "Semantic colors, vibrancy, accent colors, asset variants, NSVisualEffectView materials",
+      "sessions": ["210", "218", "209"]
+    },
+    {
+      "name": "Marzipan / Mac Catalyst Preview",
+      "description": "UIKit-on-Mac sneak peek; UIKit and AppKit converge in preparation for 2019",
+      "sessions": ["202", "209", "235", "210"]
+    },
+    {
+      "name": "Grouped Notifications",
+      "description": "Threaded grouping, custom actions, user-interactive UI, provisional auth, critical alerts",
+      "sessions": ["710", "711", "806"]
+    },
+    {
+      "name": "watchOS 5",
+      "description": "Background audio for any app, redesigned workout API + crash recovery, Siri shortcuts on the watch face",
+      "sessions": ["206", "504", "707", "217", "706"]
+    },
+    {
+      "name": "Automatic Strong Passwords",
+      "description": "Auto-generated 20-char passwords, OTP autofill, password manager extensions, federated auth",
+      "sessions": ["204", "721", "207"]
+    },
+    {
+      "name": "Swift 4.2 Language",
+      "description": "CaseIterable, conditional conformances, synthesized Hashable for enums, new Hasher API, faster builds",
+      "sessions": ["401", "406", "411", "408", "415"]
+    },
+    {
+      "name": "Metal 2 (OpenGL Deprecated)",
+      "description": "GPU-driven command encoding, ray tracing acceleration, ML training, OpenGL migration",
+      "sessions": ["604", "606", "607", "608", "609", "611", "612"]
+    },
+    {
+      "name": "App Store & Subscriptions",
+      "description": "Free trials for non-subscription apps, server-to-server notifications, billing retry, automation API",
+      "sessions": ["704", "705", "301", "302", "303", "304"]
+    },
+    {
+      "name": "Fluid Interface Design",
+      "description": "iPhone X-era design principles, button fidelity, fluid motion, AR design",
+      "sessions": ["803", "804", "805", "802", "801", "808", "809"]
+    },
+    {
+      "name": "Xcode 10 Tools",
+      "description": "os_signpost, Custom Instruments, multi-cursor editing, dark mode, source control change bar",
+      "sessions": ["408", "415", "410", "405", "412", "414", "417", "403", "418"]
+    },
+    {
+      "name": "Image, Graphics & Memory",
+      "description": "UIGraphicsImageRenderer, ImageIO thumbnails, automatic backing stores, memgraph debugging",
+      "sessions": ["219", "416", "227", "202"]
+    },
+    {
+      "name": "Auto Layout & Collections",
+      "description": "Linear-time layout, churn elimination, custom UICollectionView layouts, performBatchUpdates",
+      "sessions": ["220", "225", "229", "224"]
+    },
+    {
+      "name": "Privacy & Security",
+      "description": "Camera/mic gating, secure coding defaults, notarization, sandbox tightening, web content security",
+      "sessions": ["222", "718", "702", "207", "204"]
+    },
+    {
+      "name": "Health & Research",
+      "description": "Medical records via HealthKit, redesigned workout API, ResearchKit and CareKit refresh",
+      "sessions": ["706", "707", "205"]
+    },
+    {
+      "name": "Accessibility",
+      "description": "VoiceOver testing methodology, accessible drag-and-drop, custom actions, AR + accessibility",
+      "sessions": ["226", "230", "241", "603"]
+    }
+  ],
+  "standalone_sessions": [
+    {
+      "id": "215",
+      "title": "Introducing ClassKit",
+      "reason": "Self-contained education framework for K-12 apps integrating with Schoolwork"
+    },
+    {
+      "id": "232",
+      "title": "Getting Ready for Business Chat",
+      "reason": "Standalone customer-service chat platform via Messages"
+    },
+    {
+      "id": "212",
+      "title": "Introducing MapKit JS",
+      "reason": "Web SDK for embedding Apple Maps; independent from iOS MapKit work"
+    },
+    {
+      "id": "236",
+      "title": "AVSpeechSynthesizer: Making iOS Talk",
+      "reason": "Standalone TTS API; no dependency on other 2018 sessions"
+    },
+    {
+      "id": "237",
+      "title": "Quick Look Previews from the Ground Up",
+      "reason": "Foundational Quick Look API; AR Quick Look (603) is one specialization"
+    },
+    {
+      "id": "231",
+      "title": "HomeKit Deep Dive",
+      "reason": "Standalone HomeKit accessory framework deep-dive"
+    },
+    {
+      "id": "228",
+      "title": "What's New in Energy Debugging",
+      "reason": "Standalone profiling tool — energy reports in Xcode Organizer"
+    },
+    {
+      "id": "501",
+      "title": "Introducing Podcast Analytics",
+      "reason": "Self-contained podcast publisher tool"
+    },
+    {
+      "id": "238",
+      "title": "What's New in TVMLKit",
+      "reason": "tvOS-specific JavaScript framework, no cross-platform dependencies"
+    },
+    {
+      "id": "208",
+      "title": "What's New in tvOS 12",
+      "reason": "tvOS overview; mostly Dolby Atmos + UIKit refinements specific to TV"
+    },
+    {
+      "id": "201",
+      "title": "Creating Apps for a Global Audience",
+      "reason": "Localization, internationalization, plurals — standalone but applies everywhere"
+    },
+    {
+      "id": "203",
+      "title": "I Have This Idea For An App",
+      "reason": "Newcomer-oriented overview of Apple's developer tools"
+    },
+    {
+      "id": "239",
+      "title": "Designing Web Content for watchOS",
+      "reason": "Self-contained web design guidance for the watch"
+    },
+    {
+      "id": "508",
+      "title": "Getting and Using a MapKit JS Key",
+      "reason": "Operational guide for MapKit JS authentication"
+    },
+    {
+      "id": "506",
+      "title": "MusicKit on the Web",
+      "reason": "JavaScript SDK for Apple Music in browsers"
+    }
+  ]
+}

@@ -1,0 +1,322 @@
+{
+  "pathways": [
+    {
+      "id": "swift-3-migration",
+      "name": "Swift 3 Migration Path",
+      "description": "Master Swift 3's massive source-breaking release. Start with the new language features, internalize the API Design Guidelines that drove the Grand Renaming, then go deep on performance and the Foundation value-type modernization.",
+      "sessions": ["402", "403", "207", "416"],
+      "gateway": "402",
+      "optional": ["404", "419", "415"],
+      "estimated_hours": 5.0
+    },
+    {
+      "id": "sirikit-integration",
+      "name": "SiriKit Integration Path",
+      "description": "Bring third-party voice control to your app via Siri. Learn the intent/domain model, build the Intents and Intents UI extensions, then surface your app system-wide via NSUserActivity donations.",
+      "sessions": ["217", "225", "240"],
+      "gateway": "217",
+      "optional": ["230"],
+      "estimated_hours": 3.0
+    },
+    {
+      "id": "imessage-apps",
+      "name": "iMessage Apps & Stickers Path",
+      "description": "Ship your first iMessage app to the new Messages App Store. Start with sticker packs (zero code), graduate to programmatic sticker UIs, then build interactive collaborative messages.",
+      "sessions": ["204", "224"],
+      "gateway": "204",
+      "optional": ["703", "704"],
+      "estimated_hours": 2.5
+    },
+    {
+      "id": "callkit-voip",
+      "name": "CallKit & VoIP Path",
+      "description": "Make your VoIP app a first-party citizen. Adopt CallKit for native incoming-call UI, integrate with Recents/Favorites/Contacts, and combine with SiriKit for hands-free calling.",
+      "sessions": ["230", "217", "225"],
+      "gateway": "230",
+      "optional": ["240"],
+      "estimated_hours": 3.0
+    },
+    {
+      "id": "watchos3-performance",
+      "name": "watchOS 3 Performance Path",
+      "description": "Build an instant-launch, glanceable, responsive watch app. Master the new app lifecycle, Background App Refresh for snapshot/complication updates, and the 2-second-task design discipline.",
+      "sessions": ["208", "227", "218", "211"],
+      "gateway": "208",
+      "optional": ["804", "612"],
+      "estimated_hours": 4.0
+    },
+    {
+      "id": "ios10-notifications",
+      "name": "iOS 10 Notifications Path",
+      "description": "Adopt the new UserNotifications framework. Learn the unified delegate model, then add rich media attachments, content extensions for custom UI, and service extensions for end-to-end-encrypted pushes.",
+      "sessions": ["707", "708"],
+      "gateway": "707",
+      "optional": ["724", "211"],
+      "estimated_hours": 2.5
+    },
+    {
+      "id": "speech-framework",
+      "name": "Speech Framework Path",
+      "description": "Add voice-driven features to your app with the new Speech framework. Recognize live mic or pre-recorded audio, handle privacy authorization, and respect the throttling/duration limits.",
+      "sessions": ["509", "709"],
+      "gateway": "509",
+      "optional": ["217"],
+      "estimated_hours": 1.5
+    },
+    {
+      "id": "apple-pay-everywhere",
+      "name": "Apple Pay Everywhere Path",
+      "description": "Take Apple Pay beyond the iOS app. Add Apple Pay to your Safari website with the new JavaScript API, then bring it to watchOS, iMessage extensions, and SiriKit/Maps ride-sharing extensions.",
+      "sessions": ["703", "704"],
+      "gateway": "703",
+      "optional": ["702"],
+      "estimated_hours": 2.5
+    },
+    {
+      "id": "privacy-foundations",
+      "name": "Privacy & Differential Privacy Path",
+      "description": "Engineer privacy into your app from the ground up. Understand identifier hygiene, differential privacy for crowd-sourced learning, the new Info.plist permission requirements, and pasteboard/widget data discipline.",
+      "sessions": ["709", "706", "705"],
+      "gateway": "709",
+      "optional": ["407"],
+      "estimated_hours": 3.0
+    },
+    {
+      "id": "photos-camera-modernization",
+      "name": "Photos & Camera Modernization Path",
+      "description": "Migrate to the new AVCapturePhotoOutput API. Capture Live Photos and RAW DNGs in your app, then add Live Photo editing via the new PhotoKit context.",
+      "sessions": ["501", "505", "511"],
+      "gateway": "501",
+      "optional": ["712"],
+      "estimated_hours": 3.5
+    },
+    {
+      "id": "wide-color-display-p3",
+      "name": "Wide Color (Display P3) Path",
+      "description": "Adopt Display P3 wide-color rendering across your asset pipeline, drawing code, and color picking. Learn extended-range sRGB and the new UIGraphicsImageRenderer.",
+      "sessions": ["712", "511"],
+      "gateway": "712",
+      "optional": ["605"],
+      "estimated_hours": 2.0
+    },
+    {
+      "id": "homekit-cameras",
+      "name": "HomeKit Cameras & Home App Path",
+      "description": "Adopt the new HomeKit camera, doorbell, and air-treatment categories. Use HMCameraProfile for streaming/snapshot, the simplified single-API setup flow, and rich notifications for doorbell-camera combos.",
+      "sessions": ["710"],
+      "gateway": "710",
+      "optional": ["205"],
+      "estimated_hours": 1.0
+    },
+    {
+      "id": "search-spotlight",
+      "name": "Search APIs & Spotlight Path",
+      "description": "Make your app's content discoverable via Spotlight. Layer Core Spotlight, NSUserActivity, and Universal Links indexing; opt into Continue-Search-in-App; use the Core Spotlight Search API for in-app search.",
+      "sessions": ["223", "240"],
+      "gateway": "223",
+      "optional": ["241"],
+      "estimated_hours": 2.5
+    },
+    {
+      "id": "uikit-property-animator",
+      "name": "UIKit Animations & 3D Touch Path",
+      "description": "Adopt UIViewPropertyAnimator for interruptible animations and view-controller transitions. Use UIPreviewInteraction to add 3D-Touch micro-interactions with your own custom UI.",
+      "sessions": ["216", "228", "220"],
+      "gateway": "216",
+      "optional": ["219", "236"],
+      "estimated_hours": 3.0
+    }
+  ],
+  "prerequisites": {
+    "403": ["402"],
+    "207": ["402"],
+    "416": ["402"],
+    "419": ["416"],
+    "225": ["217"],
+    "240": ["217"],
+    "224": ["204"],
+    "227": ["208"],
+    "218": ["208"],
+    "211": ["208"],
+    "612": ["208"],
+    "708": ["707"],
+    "705": ["706"],
+    "704": ["703"],
+    "511": ["501"],
+    "505": ["501"],
+    "236": ["222"],
+    "233": ["222"],
+    "224_imessage": ["204"]
+  },
+  "clusters": [
+    {
+      "name": "SiriKit (DEBUT)",
+      "description": "Third-party voice integration via intent domains",
+      "sessions": ["217", "225", "240"]
+    },
+    {
+      "name": "iMessage Apps & Stickers (DEBUT)",
+      "description": "New app type, new App Store, new business model",
+      "sessions": ["204", "224"]
+    },
+    {
+      "name": "Swift 3 & API Guidelines",
+      "description": "The Grand Renaming and source-breaking modernization",
+      "sessions": ["402", "403", "404", "415", "416", "419", "207"]
+    },
+    {
+      "name": "CallKit (DEBUT)",
+      "description": "VoIP apps as first-party native call experiences",
+      "sessions": ["230"]
+    },
+    {
+      "name": "watchOS 3 Redesign",
+      "description": "Instant launch, Dock, background runtime, complications",
+      "sessions": ["208", "211", "218", "227", "235", "612", "804"]
+    },
+    {
+      "name": "iOS 10 Notifications Overhaul",
+      "description": "UserNotifications framework, service extensions, content extensions",
+      "sessions": ["707", "708", "724"]
+    },
+    {
+      "name": "APFS (Sneak Preview)",
+      "description": "Next-generation file system replacing HFS+",
+      "sessions": ["701", "719"]
+    },
+    {
+      "name": "Apple Pay Everywhere",
+      "description": "Safari web, watchOS, iMessage, Siri/Maps extensions",
+      "sessions": ["703", "704", "702"]
+    },
+    {
+      "name": "Privacy & Differential Privacy (DEBUT)",
+      "description": "Crowd-sourced learning without individual data",
+      "sessions": ["709", "706", "705"]
+    },
+    {
+      "name": "Speech Framework (DEBUT)",
+      "description": "Same Siri/Dictation engine for third-party apps",
+      "sessions": ["509"]
+    },
+    {
+      "name": "Wide Color & Display P3",
+      "description": "End-to-end color management on iPad Pro 9.7-inch",
+      "sessions": ["712", "511", "605"]
+    },
+    {
+      "name": "Photos, Camera, Live Photos & RAW",
+      "description": "AVCapturePhotoOutput, Live Photo editing, DNG capture",
+      "sessions": ["501", "505", "511", "503", "504", "506", "507", "510"]
+    },
+    {
+      "name": "HomeKit Expansion",
+      "description": "Cameras, doorbells, air treatment, Home app, tvOS framework",
+      "sessions": ["710"]
+    },
+    {
+      "name": "Search & Spotlight",
+      "description": "Continue-search-in-app, Core Spotlight Search API, ranking via differential privacy",
+      "sessions": ["223", "240"]
+    },
+    {
+      "name": "Maps Extensions & Transit",
+      "description": "Ride-sharing/restaurants/food via SiriKit intents, fully curated transit",
+      "sessions": ["241", "240", "716"]
+    },
+    {
+      "name": "UIKit Animations & 3D Touch",
+      "description": "UIViewPropertyAnimator, UIPreviewInteraction, force values",
+      "sessions": ["216", "228", "220", "219", "236", "222", "233"]
+    },
+    {
+      "name": "Performance, Profiling & Logging",
+      "description": "dyld diagnostics, Thread Sanitizer, Time Profiler, os_log",
+      "sessions": ["406", "411", "412", "417", "418", "421", "721"]
+    },
+    {
+      "name": "Health, Fitness & Care",
+      "description": "Background workouts, wheelchair distance, CareKit launch",
+      "sessions": ["209", "234", "235", "237", "713"]
+    },
+    {
+      "name": "CloudKit & Storage",
+      "description": "CKShare, database subscriptions, Core Data concurrent contexts",
+      "sessions": ["226", "231", "242"]
+    },
+    {
+      "name": "Metal, Graphics & Games",
+      "description": "Tessellation, MPS Image + CNN, SceneKit PBR, SpriteKit on Watch",
+      "sessions": ["602", "603", "604", "605", "606", "608", "609", "610", "612", "715"]
+    },
+    {
+      "name": "tvOS 10 & TVMLKit",
+      "description": "Dark mode, custom collection cells, JS bridging",
+      "sessions": ["206", "210", "212", "215", "229", "506", "607", "611", "802"]
+    },
+    {
+      "name": "App Store, Distribution & Subscriptions",
+      "description": "Subscription pricing model, Search Ads, MDM, business apps",
+      "sessions": ["301", "302", "303", "304", "305"]
+    },
+    {
+      "name": "Cocoa Modernization (macOS Sierra)",
+      "description": "NSGridView, native tabs, modern app patterns",
+      "sessions": ["203", "205", "239", "213"]
+    },
+    {
+      "name": "Networking & Background",
+      "description": "NSURLSession features, modern internet (IPv6/HTTP2), Core Location",
+      "sessions": ["711", "714", "716", "724"]
+    },
+    {
+      "name": "CarPlay Third-Party Audio/Maps",
+      "description": "Audio app extensions, parking apps, charging apps, mapping",
+      "sessions": ["722", "723"]
+    },
+    {
+      "name": "Accessibility & Design",
+      "description": "Inclusive app design, watchOS design, typography, design awards",
+      "sessions": ["202", "407", "801", "802", "803", "804", "805", "104"]
+    }
+  ],
+  "standalone_sessions": [
+    {"id": "101", "title": "Keynote", "reason": "The headline announcements for WWDC 2016 (SiriKit, iMessage Apps, Swift 3, watchOS 3, iOS 10, macOS Sierra, APFS sneak preview)"},
+    {"id": "102", "title": "Platforms State of the Union", "reason": "Developer-focused overview of all the year's platform changes"},
+    {"id": "103", "title": "Apple Design Awards", "reason": "Standalone design inspiration showcase"},
+    {"id": "104", "title": "Disability and Innovation: The Universal Benefits of Accessible Design", "reason": "Featured talk by Haben Girma — accessibility ethos"},
+    {"id": "105", "title": "Tapping into Innovative Solutions to Save the World's Wildlife", "reason": "Featured talk — World Wildlife Fund + tech"},
+    {"id": "106", "title": "Talking In Pictures: Reconstructing the Building Blocks of Language", "reason": "Featured — Avaz + FreeSpeech accessibility apps"},
+    {"id": "108", "title": "Marvel: Making a Difference in the Real World", "reason": "Featured — Marvel Games creative director keynote"},
+    {"id": "201", "title": "Internationalization Best Practices", "reason": "Locale-aware API + new Measurement value type, broadly applicable"},
+    {"id": "238", "title": "Measurements and Units", "reason": "New Foundation value-type formatter for units across the SDK"},
+    {"id": "232", "title": "What's New in International User Interfaces", "reason": "Bidirectional layout, locale + system font story"},
+    {"id": "242", "title": "What's New in Core Data", "reason": "Concurrent contexts + persistent history tracking, prep for CloudKit integration"},
+    {"id": "401", "title": "What's New in Xcode App Signing", "reason": "Xcode 8 signing simplification — independent of language/framework"},
+    {"id": "408", "title": "Introducing Swift Playgrounds", "reason": "Swift Playgrounds for iPad — education-focused"},
+    {"id": "409", "title": "Advanced Testing and Continuous Integration", "reason": "CI patterns and XCTest improvements"},
+    {"id": "410", "title": "Visual Debugging with Xcode", "reason": "View hierarchy debugger improvements"},
+    {"id": "413", "title": "Introduction to Xcode", "reason": "Beginner orientation"},
+    {"id": "414", "title": "Using and Extending the Xcode Source Editor", "reason": "Source editor + custom extensions API"},
+    {"id": "417", "title": "Debugging Tips and Tricks", "reason": "General Xcode debugging — broadly applicable"},
+    {"id": "420", "title": "Optimizing Web Content in Your App", "reason": "WKWebView optimization patterns"},
+    {"id": "601", "title": "Go Live with ReplayKit", "reason": "Live broadcasting/streaming framework"},
+    {"id": "415", "title": "Going Server-side with Swift Open Source", "reason": "Linux Foundation port + server-side Swift early days"},
+    {"id": "405", "title": "What's New in LLVM", "reason": "Compiler-level updates orthogonal to apps"},
+    {"id": "411", "title": "System Trace in Depth", "reason": "Instruments-only tooling for OS-level diagnostics"},
+    {"id": "418", "title": "Using Time Profiler in Instruments", "reason": "Time Profiler tutorial — universal performance tool"},
+    {"id": "412", "title": "Thread Sanitizer and Static Analysis", "reason": "TSAN runtime tool — broadly useful"},
+    {"id": "412_t2", "title": "Thread Sanitizer", "reason": "Adopt for any concurrent code"},
+    {"id": "421", "title": "System Trace", "reason": "Companion to 411 with broader audience"},
+    {"id": "725", "title": "Deploying AirPrint in Enterprise", "reason": "Enterprise-only printer deployment topic"},
+    {"id": "725_t2", "title": "AirPrint", "reason": "Niche enterprise content"},
+    {"id": "215", "title": "Focus Interaction on tvOS", "reason": "tvOS-specific focus engine details"},
+    {"id": "210", "title": "Mastering UIKit on tvOS", "reason": "tvOS UIKit patterns"},
+    {"id": "303", "title": "What's New in Apple Device Management", "reason": "MDM and supervised device improvements"},
+    {"id": "304", "title": "Best Practices for Building Apps Used in Business and Education", "reason": "Education + enterprise development patterns"},
+    {"id": "302", "title": "Introducing Search Ads", "reason": "App Store Search Ads launch — marketing topic"},
+    {"id": "301", "title": "Introducing Expanded Subscriptions in iTunes Connect", "reason": "All-categories subscription pricing model"},
+    {"id": "305", "title": "What's New in iTunes Connect", "reason": "App Store Connect updates — distribution-only"},
+    {"id": "108_t2", "title": "Marvel", "reason": "Featured speaker, no developer content"}
+  ]
+}

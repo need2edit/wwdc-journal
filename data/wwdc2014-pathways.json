@@ -1,0 +1,306 @@
+{
+  "pathways": [
+    {
+      "id": "swift-language-debut",
+      "name": "Swift Language Debut Path",
+      "description": "Learn Apple's brand new programming language from the ground up. Start with the fundamentals (var/let, optionals, type inference), advance to memory management, generics, and pattern matching, then learn how Swift coexists with your existing Objective-C codebase.",
+      "sessions": ["402", "403", "404", "406", "407"],
+      "gateway": "402",
+      "optional": ["408", "409", "410", "417"],
+      "estimated_hours": 7.5
+    },
+    {
+      "id": "app-extensions-adoption",
+      "name": "App Extensions Adoption Path",
+      "description": "Adopt iOS 8's six new extension points: Today widgets, Share, Action, Photo Editing, Document Provider, Custom Keyboard. Master the lifecycle, the data sharing model, embedded frameworks, and the JavaScript bridge for Safari action extensions.",
+      "sessions": ["205", "217", "416"],
+      "gateway": "205",
+      "optional": ["511", "234"],
+      "estimated_hours": 4.5
+    },
+    {
+      "id": "healthkit-integration",
+      "name": "HealthKit Integration Path",
+      "description": "Adopt HealthKit for centralized health and fitness data. Learn the model objects, characteristic vs sample types, the read-only-model + change-request pattern, queries, statistics, and per-type privacy permissions.",
+      "sessions": ["203"],
+      "gateway": "203",
+      "optional": ["715", "612"],
+      "estimated_hours": 1.5,
+      "urgent": true
+    },
+    {
+      "id": "homekit-foundation",
+      "name": "HomeKit Foundation Path",
+      "description": "Build the first generation of Apple-ecosystem smart-home apps. Cover the home/room/accessory/service/characteristic hierarchy, Siri integration, action sets, timer triggers, the HomeKit Accessory Simulator, and end-to-end encryption.",
+      "sessions": ["213"],
+      "gateway": "213",
+      "optional": ["701", "715"],
+      "estimated_hours": 1.5,
+      "urgent": true
+    },
+    {
+      "id": "cloudkit-adoption",
+      "name": "CloudKit Adoption Path",
+      "description": "Adopt Apple's new BaaS for Apple-only apps. Learn containers, public vs private databases, records, references, assets, queries, subscriptions, the operation API, and how to handle conflicts and notification coalescing.",
+      "sessions": ["208", "231"],
+      "gateway": "208",
+      "optional": ["707", "715"],
+      "estimated_hours": 3.0
+    },
+    {
+      "id": "metal-graphics",
+      "name": "Metal Graphics Path",
+      "description": "Adopt Apple's new low-overhead GPU API for 10x more draw calls per frame on A7+. Cover the architecture, command buffers and encoders, render pipelines, the shading language, and async multi-threaded encoding.",
+      "sessions": ["603", "604", "605"],
+      "gateway": "603",
+      "optional": ["601", "419"],
+      "estimated_hours": 4.5
+    },
+    {
+      "id": "adaptive-ui-size-classes",
+      "name": "Adaptive UI / Size Classes Path",
+      "description": "Build one universal app that adapts to iPhone, iPad, every orientation, and every device size. Learn trait collections, size classes, the new UIPresentationController architecture, adaptive segues, and the resizable simulator.",
+      "sessions": ["216", "214", "228", "411"],
+      "gateway": "216",
+      "optional": ["226", "232", "232"],
+      "estimated_hours": 5.0,
+      "urgent": true
+    },
+    {
+      "id": "continuity-handoff",
+      "name": "Continuity & Handoff Path",
+      "description": "Make activities flow seamlessly between Apple devices. Adopt NSUserActivity, AppKit/UIKit responder integration, native-to-web handoff via apple-app-site-association, shared web credentials, and continuation streams.",
+      "sessions": ["219", "506"],
+      "gateway": "219",
+      "optional": ["234", "711"],
+      "estimated_hours": 3.0
+    },
+    {
+      "id": "photokit-migration",
+      "name": "PhotoKit Migration Path",
+      "description": "Migrate from the deprecated ALAssetsLibrary to PhotoKit. Read-only model objects, change-request mutations, the change-observer pattern, PHCachingImageManager for grid scrolling, non-destructive editing, and Photo Editing Extensions.",
+      "sessions": ["511"],
+      "gateway": "511",
+      "optional": ["205", "217", "514"],
+      "estimated_hours": 1.5,
+      "urgent": true
+    },
+    {
+      "id": "touch-id-integration",
+      "name": "Touch ID Integration Path",
+      "description": "Add Touch ID authentication to your app. Choose between Keychain ACLs (Secure Enclave-backed) and the new LocalAuthentication framework. Master the WhenPasscodeSet accessibility class and biometric fallbacks.",
+      "sessions": ["711"],
+      "gateway": "711",
+      "optional": ["715", "506"],
+      "estimated_hours": 1.5
+    },
+    {
+      "id": "ios-8-modernization",
+      "name": "iOS 8 Modernization Path",
+      "description": "Catch your existing iOS 7 app up to iOS 8: adaptive size classes, presentation controller architecture, self-sizing cells with Dynamic Type, new privacy permissions, embedded frameworks, and the new push notifications model.",
+      "sessions": ["202", "216", "226", "713", "715", "411"],
+      "gateway": "202",
+      "optional": ["214", "218", "227"],
+      "estimated_hours": 7.0,
+      "urgent": true
+    },
+    {
+      "id": "yosemite-ui-adoption",
+      "name": "Yosemite UI Adoption Path",
+      "description": "Update your Mac app for Yosemite's flat design and Vibrancy. NSVisualEffectView, NSAppearance, full-size content views, transparent title bars, storyboards on macOS, and adaptive system colors.",
+      "sessions": ["209", "220", "227", "212"],
+      "gateway": "209",
+      "optional": ["411", "204"],
+      "estimated_hours": 4.5
+    },
+    {
+      "id": "modern-spritekit-scenekit",
+      "name": "Modern SpriteKit & SceneKit Path",
+      "description": "Build games with Apple's high-level frameworks. SpriteKit gains shaders, lighting, per-pixel physics, IK, and physics fields. SceneKit ships on iOS for the first time, with full Metal backing on A7+.",
+      "sessions": ["606", "608", "609", "610"],
+      "gateway": "606",
+      "optional": ["611", "612", "603"],
+      "estimated_hours": 5.0
+    },
+    {
+      "id": "energy-networking",
+      "name": "Energy & Modern Networking Path",
+      "description": "Adopt the new background networking model with NSURLSession (transparent SPDY), use NSBackgroundActivityScheduler on Mac for energy-aware deferred work, request granular Location permissions, and audit your app for energy use.",
+      "sessions": ["707", "710", "712", "706"],
+      "gateway": "707",
+      "optional": ["716", "714"],
+      "estimated_hours": 5.0
+    }
+  ],
+  "prerequisites": {
+    "403": ["402"],
+    "404": ["403"],
+    "406": ["402"],
+    "407": ["406"],
+    "408": ["402"],
+    "217": ["205"],
+    "511": ["205"],
+    "604": ["603"],
+    "605": ["604"],
+    "228": ["214"],
+    "232": ["226"],
+    "231": ["208"],
+    "608": ["606"],
+    "610": ["609"],
+    "609": ["606"],
+    "220": ["209"],
+    "227": ["209"],
+    "212": ["227"],
+    "411": ["216"],
+    "226": ["216"],
+    "713": ["202"],
+    "712": ["710"],
+    "414": ["401"],
+    "415": ["414"],
+    "418": ["401"],
+    "506": ["219"]
+  },
+  "clusters": [
+    {
+      "name": "Swift Language Debut",
+      "description": "Apple's brand new statically-typed compiled language",
+      "sessions": ["402", "403", "404", "406", "407", "408", "409", "410", "417"]
+    },
+    {
+      "name": "App Extensions Debut",
+      "description": "Six new extension points and the embedded frameworks they need",
+      "sessions": ["205", "217", "416"]
+    },
+    {
+      "name": "HealthKit",
+      "description": "Centralized health and fitness data store",
+      "sessions": ["203"]
+    },
+    {
+      "name": "HomeKit",
+      "description": "Smart home accessory protocol with Siri integration",
+      "sessions": ["213"]
+    },
+    {
+      "name": "CloudKit",
+      "description": "Apple's BaaS — public/private databases, push subscriptions",
+      "sessions": ["208", "231"]
+    },
+    {
+      "name": "Metal Graphics",
+      "description": "Low-overhead GPU API for A7+, 10x draw call increase",
+      "sessions": ["603", "604", "605"]
+    },
+    {
+      "name": "Adaptive UI / Size Classes",
+      "description": "Trait collections, size classes, presentation controllers",
+      "sessions": ["216", "214", "228", "226", "232", "411"]
+    },
+    {
+      "name": "Continuity / Handoff",
+      "description": "NSUserActivity-based activity continuation across Apple devices",
+      "sessions": ["219", "506"]
+    },
+    {
+      "name": "PhotoKit",
+      "description": "Modern photo library access replacing ALAssetsLibrary",
+      "sessions": ["511"]
+    },
+    {
+      "name": "Touch ID & Keychain",
+      "description": "Biometric auth via Secure Enclave; new ACL keychain attribute",
+      "sessions": ["711", "715"]
+    },
+    {
+      "name": "Yosemite UI",
+      "description": "Vibrancy, NSVisualEffectView, storyboards on Mac, flat design",
+      "sessions": ["209", "220", "227", "212"]
+    },
+    {
+      "name": "Modern WebKit",
+      "description": "WKWebView with Nitro JIT, user scripts, script messages",
+      "sessions": ["206", "504", "509", "512", "516", "517"]
+    },
+    {
+      "name": "SpriteKit & SceneKit",
+      "description": "High-level 2D and 3D game frameworks; SceneKit on iOS",
+      "sessions": ["606", "608", "609", "610", "611", "612"]
+    },
+    {
+      "name": "Xcode 6 Tools",
+      "description": "Live IB rendering, embedded frameworks, performance tests, CI",
+      "sessions": ["401", "411", "412", "413", "414", "415", "416", "418"]
+    },
+    {
+      "name": "Modern Networking",
+      "description": "Background NSURLSession, transparent SPDY, energy efficiency",
+      "sessions": ["707", "710", "712", "716"]
+    },
+    {
+      "name": "Core Location & Privacy",
+      "description": "When-in-use vs Always permissions, Visits API, indoor maps",
+      "sessions": ["706", "708", "715"]
+    },
+    {
+      "name": "Notifications & Push",
+      "description": "Interactive notifications with categories and actions",
+      "sessions": ["713"]
+    },
+    {
+      "name": "Core Data Modernization",
+      "description": "Batch updates, async fetching, Swift support, concurrency story",
+      "sessions": ["225", "234"]
+    },
+    {
+      "name": "Camera & Media",
+      "description": "Manual camera controls, AVAudioEngine, video encoding access",
+      "sessions": ["508", "501", "502", "503", "513", "514", "515"]
+    },
+    {
+      "name": "App Store & Distribution",
+      "description": "iTunes Connect overhaul, app previews, receipt validation, IAP",
+      "sessions": ["301", "302", "303", "304", "305", "218"]
+    },
+    {
+      "name": "Accessibility",
+      "description": "iOS and Mac accessibility improvements, web a11y",
+      "sessions": ["210", "207", "516"]
+    },
+    {
+      "name": "Enterprise & Devices",
+      "description": "Enterprise app distribution, MDM enhancements, enterprise apps",
+      "sessions": ["702", "704", "705"]
+    }
+  ],
+  "standalone_sessions": [
+    "101",
+    "102",
+    "103",
+    "201",
+    "202",
+    "204",
+    "211",
+    "218",
+    "221",
+    "222",
+    "223",
+    "224",
+    "229",
+    "230",
+    "233",
+    "235",
+    "236",
+    "237",
+    "306",
+    "419",
+    "510",
+    "601",
+    "602",
+    "701",
+    "703",
+    "709",
+    "714",
+    "717",
+    "718"
+  ]
+}

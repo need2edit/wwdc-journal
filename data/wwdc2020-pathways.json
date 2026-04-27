@@ -1,0 +1,402 @@
+{
+  "pathways": [
+    {
+      "id": "apple-silicon-mac",
+      "name": "Apple Silicon Mac Transition Path",
+      "description": "Bring your Mac app to Apple Silicon. Start with the system architecture, learn the porting workflow, get iOS apps onto Apple Silicon Macs, then dive into Metal optimization for the new TBDR GPU.",
+      "sessions": ["10686", "10214", "10114", "10631", "10632"],
+      "gateway": "10686",
+      "optional": ["10210", "10859", "10865"],
+      "estimated_hours": 5.0
+    },
+    {
+      "id": "big-sur-design",
+      "name": "Big Sur Design System Path",
+      "description": "Adopt the new look of macOS Big Sur. New toolbars, full-height sidebars, custom accent colors, SF Symbols on Mac, and the new typography stack.",
+      "sessions": ["10104", "10056", "10143", "10207", "10175"],
+      "gateway": "10104",
+      "optional": ["10117"],
+      "estimated_hours": 4.5
+    },
+    {
+      "id": "widgets-debut",
+      "name": "Widgets Adoption Path",
+      "description": "Build iOS 14 Home Screen widgets from scratch. WidgetKit overview, SwiftUI for widgets, design principles, then the three-part code-along to ship a real widget.",
+      "sessions": ["10028", "10033", "10103", "10034", "10035", "10036"],
+      "gateway": "10028",
+      "optional": ["10194"],
+      "estimated_hours": 5.5
+    },
+    {
+      "id": "app-clips",
+      "name": "App Clips Path",
+      "description": "Ship a lightweight on-demand experience. Start with App Clip fundamentals, configure the URLs and codes, then optimize the experience and design for streamlined flows.",
+      "sessions": ["10174", "10146", "10120", "10172"],
+      "gateway": "10174",
+      "optional": ["10118"],
+      "estimated_hours": 3.5
+    },
+    {
+      "id": "swiftui-2",
+      "name": "SwiftUI 2.0 Path",
+      "description": "Learn SwiftUI's second major release. Apps and Scenes architecture, data flow, lists/grids/outlines, and what's new across the framework.",
+      "sessions": ["10119", "10037", "10040", "10031", "10041"],
+      "gateway": "10119",
+      "optional": ["10039", "10185"],
+      "estimated_hours": 5.0
+    },
+    {
+      "id": "swift-5-3",
+      "name": "Swift 5.3 Path",
+      "description": "Master Swift 5.3's language additions, runtime improvements, and the expanding standard library packages. Multiple trailing closures, @main, multi-pattern catch, plus Logger.",
+      "sessions": ["10170", "10165", "10168", "10217", "10169"],
+      "gateway": "10170",
+      "optional": ["10147", "10648", "10644"],
+      "estimated_hours": 4.5
+    },
+    {
+      "id": "catalyst-modern",
+      "name": "Catalyst Modernization Path",
+      "description": "Bring your iPad app to Mac with first-class polish. What's new in Catalyst, then deeply optimize the interface for the Mac idiom.",
+      "sessions": ["10143", "10056", "10117"],
+      "gateway": "10143",
+      "optional": ["10104"],
+      "estimated_hours": 3.0
+    },
+    {
+      "id": "ipados-14",
+      "name": "iPadOS 14 Path",
+      "description": "Adopt iPadOS 14's hallmarks: multi-column sidebars, the new pointer experience, system-wide Scribble for handwriting, and PencilKit's open data model.",
+      "sessions": ["10105", "10093", "10106", "10094", "10148"],
+      "gateway": "10105",
+      "optional": ["10097", "10026", "10045", "10107"],
+      "estimated_hours": 5.0
+    },
+    {
+      "id": "watchos-7",
+      "name": "watchOS 7 Path",
+      "description": "Adopt watchOS 7's redesign and new features. Multiple complications per app, SwiftUI in complications, watch face sharing, design audit, mobility metrics.",
+      "sessions": ["10046", "10048", "10100", "10171", "10656"],
+      "gateway": "10046",
+      "optional": ["10049", "10083", "10190", "10184", "10182"],
+      "estimated_hours": 5.0
+    },
+    {
+      "id": "ml-on-device",
+      "name": "ML & Vision Path",
+      "description": "Ship on-device ML features. Vision's new hand and body pose detectors, Create ML action classification, PyTorch conversion, and Core ML model deployment & encryption.",
+      "sessions": ["10653", "10043", "10099", "10153", "10154", "10152"],
+      "gateway": "10653",
+      "optional": ["10155", "10156", "10677", "10657"],
+      "estimated_hours": 6.0
+    },
+    {
+      "id": "arkit-4",
+      "name": "ARKit 4 & RealityKit Path",
+      "description": "Build location-anchored AR with ARKit 4, leverage the LiDAR scanner for scene understanding, and add interactive content via RealityKit's video materials and physics.",
+      "sessions": ["10611", "10612", "10604", "10601"],
+      "gateway": "10611",
+      "optional": ["10613"],
+      "estimated_hours": 4.0
+    },
+    {
+      "id": "metal-tbdr",
+      "name": "Metal & GPU Path",
+      "description": "Master Metal on Apple Silicon Mac's TBDR architecture. Apple GPU fundamentals, optimization, ray tracing, debugging, and Pro Display XDR / HDR pipelines.",
+      "sessions": ["10602", "10632", "10603", "10012", "10023"],
+      "gateway": "10602",
+      "optional": ["10615", "10616", "10605", "10013"],
+      "estimated_hours": 5.5
+    },
+    {
+      "id": "privacy-2020",
+      "name": "Privacy & Security Path",
+      "description": "Adopt iOS 14's privacy model. App Tracking Transparency, Limited Photos Library, approximate location, local network privacy, encrypted DNS, and Sign in with Apple updates.",
+      "sessions": ["10676", "10641", "10110", "10162", "10047", "10173"],
+      "gateway": "10676",
+      "optional": ["10652", "10666", "10670", "10665", "10189"],
+      "estimated_hours": 6.0
+    },
+    {
+      "id": "background-execution",
+      "name": "Background Execution Path",
+      "description": "Understand how iOS schedules background work. The seven factors, then practical patterns for App Refresh, background pushes, URL sessions, and BGProcessingTask.",
+      "sessions": ["10063", "10078", "10081"],
+      "gateway": "10063",
+      "optional": ["10076", "10057"],
+      "estimated_hours": 2.5
+    }
+  ],
+  "prerequisites": {
+    "10214": ["10686"],
+    "10114": ["10686"],
+    "10631": ["10686", "10602"],
+    "10632": ["10631"],
+    "10056": ["10104", "10143"],
+    "10117": ["10104"],
+    "10033": ["10028"],
+    "10103": ["10028"],
+    "10034": ["10028", "10033"],
+    "10035": ["10034"],
+    "10036": ["10035"],
+    "10194": ["10028"],
+    "10146": ["10174"],
+    "10120": ["10174"],
+    "10172": ["10174"],
+    "10118": ["10174"],
+    "10037": ["10119"],
+    "10040": ["10037"],
+    "10041": ["10037"],
+    "10031": ["10037"],
+    "10039": ["10037"],
+    "10148": ["10037"],
+    "10185": ["10119"],
+    "10165": ["10170"],
+    "10168": ["10170"],
+    "10217": ["10170"],
+    "10169": ["10170"],
+    "10148": ["10107"],
+    "10093": ["10094"],
+    "10106": ["10093"],
+    "10097": ["10026"],
+    "10045": ["10097"],
+    "10048": ["10046"],
+    "10100": ["10046"],
+    "10049": ["10046"],
+    "10171": ["10046"],
+    "10043": ["10653"],
+    "10099": ["10043"],
+    "10153": ["10043"],
+    "10154": ["10153"],
+    "10155": ["10153"],
+    "10156": ["10153"],
+    "10152": ["10153"],
+    "10612": ["10611"],
+    "10604": ["10611"],
+    "10601": ["10611"],
+    "10613": ["10612"],
+    "10632": ["10602"],
+    "10603": ["10602"],
+    "10615": ["10602"],
+    "10616": ["10602"],
+    "10605": ["10602"],
+    "10012": ["10602"],
+    "10013": ["10012"],
+    "10641": ["10676"],
+    "10110": ["10676"],
+    "10162": ["10676"],
+    "10047": ["10676"],
+    "10173": ["10676"],
+    "10666": ["10173"],
+    "10670": ["10676"],
+    "10665": ["10676"],
+    "10652": ["10641"],
+    "10078": ["10063"],
+    "10081": ["10063"],
+    "10076": ["10081"]
+  },
+  "clusters": [
+    {
+      "name": "Apple Silicon Mac",
+      "description": "The single biggest hardware shift in 15 years — porting workflow, security model, app distribution, GPU architecture",
+      "sessions": ["10686", "10214", "10114", "10631", "10632"]
+    },
+    {
+      "name": "macOS Big Sur Design",
+      "description": "The new visual language: full-height sidebars, integrated toolbars, large controls, custom accent colors, SF Symbols on Mac",
+      "sessions": ["10104", "10056", "10143", "10117", "10207"]
+    },
+    {
+      "name": "WidgetKit",
+      "description": "iOS 14 Home Screen widgets from concept to shipped feature, plus the three-part code-along",
+      "sessions": ["10028", "10033", "10103", "10034", "10035", "10036", "10194"]
+    },
+    {
+      "name": "App Clips",
+      "description": "Lightweight on-demand experiences — fundamentals, configuration, design, optimization",
+      "sessions": ["10174", "10146", "10120", "10172", "10118"]
+    },
+    {
+      "name": "SwiftUI 2.0",
+      "description": "The Apps/Scenes architecture, data flow, lists/grids/outlines, multi-platform templates",
+      "sessions": ["10119", "10037", "10040", "10041", "10031", "10039"]
+    },
+    {
+      "name": "Swift 5.3 Language",
+      "description": "Multiple trailing closures, @main, multi-pattern catch, runtime perf wins, expanding stdlib packages",
+      "sessions": ["10170", "10165", "10168", "10217", "10169", "10147"]
+    },
+    {
+      "name": "iPadOS Pointer & Sidebars",
+      "description": "Multi-column SplitViewController, the iPadOS pointer customization API, modern UICollectionView",
+      "sessions": ["10105", "10093", "10094", "10097", "10026", "10045"]
+    },
+    {
+      "name": "Scribble & PencilKit",
+      "description": "System-wide handwriting input on iPad, plus PencilKit's newly open data model",
+      "sessions": ["10106", "10148", "10107"]
+    },
+    {
+      "name": "watchOS 7 Complications & Faces",
+      "description": "Multiple complications per app, SwiftUI in complications, watch face sharing, design overhaul",
+      "sessions": ["10046", "10048", "10049", "10100", "10171"]
+    },
+    {
+      "name": "Mobility Metrics & Health",
+      "description": "Lab-grade gait analysis from passive iPhone/Apple Watch wear, plus sleep & wind down",
+      "sessions": ["10656", "10182", "10184", "10083", "10664"]
+    },
+    {
+      "name": "Vision & ML",
+      "description": "Hand and body pose detection, Create ML action classification, Core ML deployment & encryption",
+      "sessions": ["10653", "10043", "10099", "10153", "10154", "10152", "10677"]
+    },
+    {
+      "name": "ARKit 4 & RealityKit",
+      "description": "Location anchors, LiDAR scene understanding, RealityKit's video materials and physics",
+      "sessions": ["10611", "10612", "10604", "10601"]
+    },
+    {
+      "name": "Metal on Apple GPU",
+      "description": "TBDR architecture comes to the Mac — feature detection, optimization, ray tracing, debugging",
+      "sessions": ["10602", "10632", "10603", "10012", "10615", "10616"]
+    },
+    {
+      "name": "HDR & Pro Display XDR",
+      "description": "HDR video editing/playback, Pro Display XDR support, ProRes decode acceleration",
+      "sessions": ["10023", "10009", "10010", "10090"]
+    },
+    {
+      "name": "Privacy 2020",
+      "description": "App Tracking Transparency, Limited Photos Library, approximate location, local network privacy",
+      "sessions": ["10676", "10641", "10652", "10110", "10162"]
+    },
+    {
+      "name": "Encrypted DNS & Networking",
+      "description": "DoH/DoT support, modern networking, Network framework PrivacyContext",
+      "sessions": ["10047", "10111", "10110"]
+    },
+    {
+      "name": "Authentication & Sign in with Apple",
+      "description": "Sign in with Apple updates, account upgrade flow, Face ID/Touch ID for the web",
+      "sessions": ["10173", "10666", "10670"]
+    },
+    {
+      "name": "Low-Latency HLS",
+      "description": "Sub-2-second live streaming with HLS — partial segments, blocking reload, preload hints, delta updates",
+      "sessions": ["10228", "10229", "10230", "10231", "10232", "10225"]
+    },
+    {
+      "name": "Audio Workgroups",
+      "description": "Critical for realtime audio on Apple Silicon — joining the kernel scheduler's deadline awareness",
+      "sessions": ["10224", "10226"]
+    },
+    {
+      "name": "StoreKit & In-App Purchase",
+      "description": "Local IAP testing in Xcode, subscription architecture, Family Sharing for IAP, App Store Connect API",
+      "sessions": ["10659", "10661", "10671", "10869", "10004"]
+    },
+    {
+      "name": "Siri, Intents & Shortcuts",
+      "description": "Compact Siri UI, Shortcuts on watchOS, in-app intent handling, Wind Down integration",
+      "sessions": ["10068", "10073", "10074", "10084", "10190", "10086"]
+    },
+    {
+      "name": "Background Execution",
+      "description": "Why background work runs (or doesn't) and how to be a good citizen",
+      "sessions": ["10063", "10078", "10081", "10076"]
+    },
+    {
+      "name": "Game Center Redesign",
+      "description": "Full UI overhaul with access point, dashboard, collectible achievements, redesigned multiplayer",
+      "sessions": ["10145", "10618", "10619"]
+    },
+    {
+      "name": "Xcode 12 & Tooling",
+      "description": "Multi-platform templates, code completion 15× faster, animation hitch detection, better test reports",
+      "sessions": ["10076", "10077", "10081", "10221", "10219", "10185"]
+    }
+  ],
+  "standalone_sessions": [
+    {
+      "id": "10063",
+      "title": "Background execution demystified",
+      "reason": "Self-contained framework for understanding all background-execution APIs and why they behave as they do"
+    },
+    {
+      "id": "10696",
+      "title": "Uniform Type Identifiers — a reintroduction",
+      "reason": "Brand-new modern Swift API for type-safe UTIs that touches every file/document API"
+    },
+    {
+      "id": "10160",
+      "title": "Formatters: Make data human-friendly",
+      "reason": "Self-contained Foundation guidance applicable to any app with user-facing dates/numbers/lists"
+    },
+    {
+      "id": "10650",
+      "title": "Sync a Core Data store with the CloudKit public database",
+      "reason": "Standalone addition extending NSPersistentCloudKitContainer to public-database scenarios"
+    },
+    {
+      "id": "10209",
+      "title": "What's new in Core NFC",
+      "reason": "Self-contained NFC reading improvements (vCard, Wi-Fi config, background)"
+    },
+    {
+      "id": "10668",
+      "title": "Meet Nearby Interaction",
+      "reason": "Brand new framework for U1 ultra-wideband ranging, no other dependencies"
+    },
+    {
+      "id": "10006",
+      "title": "Introducing Car Keys",
+      "reason": "New Wallet integration for digital car keys"
+    },
+    {
+      "id": "10219",
+      "title": "Build localization-friendly layouts using Xcode",
+      "reason": "Self-contained tooling and design-pattern guide applicable to any app"
+    },
+    {
+      "id": "10222",
+      "title": "Create custom apps for employees",
+      "reason": "Apple Business Manager Custom App distribution path"
+    },
+    {
+      "id": "10672",
+      "title": "What's new in ClassKit",
+      "reason": "Education-specific framework updates, self-contained"
+    },
+    {
+      "id": "10635",
+      "title": "Accelerate your app with CarPlay",
+      "reason": "CarPlay platform additions for new app categories"
+    },
+    {
+      "id": "10145",
+      "title": "Design for Game Center",
+      "reason": "Self-contained design overhaul of Game Center experience"
+    },
+    {
+      "id": "10017",
+      "title": "Core Data: Sundries and maxims",
+      "reason": "Refinements and best-practice patterns for Core Data, applicable to any app using it"
+    },
+    {
+      "id": "10677",
+      "title": "Build customized ML models with the Metal Performance Shaders Graph",
+      "reason": "Advanced standalone framework for direct GPU-side neural network construction"
+    },
+    {
+      "id": "10210",
+      "title": "Modernize PCI and SCSI drivers with DriverKit",
+      "reason": "Specialized but standalone — driver developers transitioning kexts to DriverKit"
+    },
+    {
+      "id": "10159",
+      "title": "Build an Endpoint Security app",
+      "reason": "Standalone framework for security/EDR Mac apps"
+    }
+  ]
+}

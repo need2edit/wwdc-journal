@@ -1,0 +1,3360 @@
+{
+  "Essentials": [
+    {
+      "session_id": "101",
+      "title": "Keynote",
+      "description": "The Apple Worldwide Developers Conference kicks off with exciting news, inspiration, and new opportunities. Join the worldwide developer community for an in-depth look at the future of Apple platforms, directly from Apple Park.",
+      "topic": "Essentials",
+      "platforms": [
+        "iOS",
+        "macOS",
+        "tvOS",
+        "watchOS"
+      ],
+      "speakers": [
+        "Tim Cook",
+        "John Ternus",
+        "Kate Bergeron",
+        "Jennifer Munn",
+        "Craig Federighi",
+        "Kim Beverett",
+        "Adeeti Ullal",
+        "Jenny Chen",
+        "Jeremy Sandmel",
+        "Hideo Kojima",
+        "Beth Dakin",
+        "Ron Huang",
+        "Anne Park Shedlosky",
+        "Kevin Lynch",
+        "Eric Charles",
+        "Sumbul Ahmad Desai",
+        "Alan Dye",
+        "Allessandra McGinnis",
+        "En Kelly",
+        "Bob Iger",
+        "Richard Howarth",
+        "Mike Rockwell",
+        "Susan Prescott"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/101/",
+      "has_transcript": true,
+      "transcript_file": "101.en.txt"
+    },
+    {
+      "session_id": "102",
+      "title": "Platforms State of the Union",
+      "description": "Learn about the latest tools, technologies, and advancements to help you create even better apps across Apple platforms, including the all-new visionOS.",
+      "topic": "Essentials",
+      "platforms": [
+        "iOS",
+        "macOS",
+        "tvOS",
+        "watchOS"
+      ],
+      "speakers": [
+        "Darin Adler",
+        "Holly Borla",
+        "Josh Shaffer",
+        "Jonathan Thomassian",
+        "Brandon Corey",
+        "Lori Hylan-Cho",
+        "Katie Skinner",
+        "Chris Markiewicz",
+        "Ken Orr",
+        "Mike Rockwell",
+        "Geoff Stahl",
+        "Enrica Casucci",
+        "Edwin Iskandar",
+        "Thessa Buscar-Alegria",
+        "Jason Cahill",
+        "Ralph Hauwert",
+        "Jeff Norris",
+        "Linda Dong"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/102/",
+      "has_transcript": true,
+      "transcript_file": "102.en.txt"
+    }
+  ],
+  "Audio & Video": [
+    {
+      "session_id": "10239",
+      "title": "Add SharePlay to your app",
+      "description": "Discover how your app can take advantage of SharePlay to turn any activity into a shareable experience with friends! We\u2019ll share the latest updates to SharePlay, explore the benefits of creating shared activities, dive into some exciting use cases, and take you through best practices to create engaging and fun moments of connection in your app.",
+      "topic": "Audio & Video",
+      "platforms": [
+        "iOS",
+        "macOS",
+        "tvOS"
+      ],
+      "speakers": [
+        "Justin Etzine",
+        "Priya Shah"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10239/",
+      "has_transcript": true,
+      "transcript_file": "10239.en.txt"
+    },
+    {
+      "session_id": "10233",
+      "title": "Enhance your app\u2019s audio experience with AirPods",
+      "description": "Discover how you can create transformative audio experiences in your app using AirPods. Learn how to incorporate AirPods Automatic Switching, use AVAudioApplication to support Mute Control, and take advantage of Spatial Audio to create immersive soundscapes in your app or game.",
+      "topic": "Audio & Video",
+      "platforms": [
+        "iOS",
+        "macOS",
+        "tvOS"
+      ],
+      "speakers": [
+        "Suraj Sumangala"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10233/",
+      "has_transcript": true,
+      "transcript_file": "10233.en.txt"
+    },
+    {
+      "session_id": "10238",
+      "title": "Tune up your AirPlay audio experience",
+      "description": "Learn how you can upgrade your app\u2019s AirPlay audio experience to be more robust and responsive. We\u2019ll show you how to adopt enhanced audio buffering with AVQueuePlayer, explore alternatives when building a custom player in your app, and share best practices.",
+      "topic": "Audio & Video",
+      "platforms": [
+        "iOS",
+        "macOS",
+        "tvOS"
+      ],
+      "speakers": [
+        "Kelly Sio"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10238/",
+      "has_transcript": true,
+      "transcript_file": "10238.en.txt"
+    },
+    {
+      "session_id": "10071",
+      "title": "Deliver video content for spatial experiences",
+      "description": "Learn how to prepare and deliver video content for visionOS using HTTP Live Streaming (HLS). Discover the current HLS delivery process for media and explore how you can expand your delivery pipeline to support 3D content. Get up to speed with tips and techniques for spatial media streaming and adapting your existing caption production workflows for 3D. And find out how to share audio tracks across video variants and add spatial audio to make your video content more immersive.",
+      "topic": "Audio & Video",
+      "platforms": [
+        "visionOS"
+      ],
+      "speakers": [
+        "Chris Flick"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10071/",
+      "has_transcript": true,
+      "transcript_file": "10071.en.txt"
+    },
+    {
+      "session_id": "10235",
+      "title": "What\u2019s new in voice processing",
+      "description": "Learn how to use the Apple voice processing APIs to achieve the best possible audio experience in your VoIP apps. We\u2019ll show you how to detect when someone is talking while muted, adjust ducking behavior of other audio, and more.",
+      "topic": "Audio & Video",
+      "platforms": [
+        "iOS",
+        "macOS",
+        "tvOS"
+      ],
+      "speakers": [
+        "Julian Yu"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10235/",
+      "has_transcript": true,
+      "transcript_file": "10235.en.txt"
+    },
+    {
+      "session_id": "10070",
+      "title": "Create a great spatial playback experience",
+      "description": "Get ready to support video in your visionOS app! Take a tour of the frameworks and APIs that power video playback and learn how you can update your app to play 3D content. We\u2019ll also share tips for customizing playback to create a more immersive watching experience.",
+      "topic": "Audio & Video",
+      "platforms": [
+        "visionOS"
+      ],
+      "speakers": [
+        "Jeremy Jones"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10070/",
+      "has_transcript": true,
+      "transcript_file": "10070.en.txt"
+    },
+    {
+      "session_id": "10275",
+      "title": "Explore AirPlay with interstitials",
+      "description": "Learn how you can use HLS Interstitials with AirPlay to create seamless transitions for your video content between advertisements. We\u2019ll share best practices and tips for creating a great experience when sharing content from Apple devices to popular smart TVs.",
+      "topic": "Audio & Video",
+      "platforms": [
+        "iOS",
+        "macOS",
+        "tvOS"
+      ],
+      "speakers": [
+        "Amit Suri"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10275/",
+      "has_transcript": true,
+      "transcript_file": "10275.en.txt"
+    },
+    {
+      "session_id": "10241",
+      "title": "Share files with SharePlay",
+      "description": "Discover how to work with files and attachments in a SharePlay activity. We\u2019ll explain how to use the GroupSessionJournal API to sync large amounts of data faster and show you how to adopt it in a demo of the sample app DrawTogether.",
+      "topic": "Audio & Video",
+      "platforms": [
+        "iOS",
+        "macOS",
+        "tvOS"
+      ],
+      "speakers": [
+        "Adam Syed"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10241/",
+      "has_transcript": true,
+      "transcript_file": "10241.en.txt"
+    }
+  ],
+  "App Services": [
+    {
+      "session_id": "10027",
+      "title": "Bring widgets to new places",
+      "description": "The widget ecosystem is expanding: Discover how you can use the latest WidgetKit APIs to make your widget look great everywhere. We\u2019ll show you how to identify your widget\u2019s background, adjust layout dynamically, and prepare colors for vibrant rendering so that your widget can sit seamlessly in any environment.",
+      "topic": "App Services",
+      "platforms": [
+        "iOS",
+        "macOS",
+        "watchOS"
+      ],
+      "speakers": [
+        "Kathryn Elrod"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10027/",
+      "has_transcript": true,
+      "transcript_file": "10027.en.txt"
+    },
+    {
+      "session_id": "10051",
+      "title": "Create a great ShazamKit experience",
+      "description": "Discover how your app can offer a great audio matching experience with the latest updates to ShazamKit. We\u2019ll take you through matching features, updates to audio recognition, and interactions with the Shazam library. Learn tips and best practices for using ShazamKit in your audio apps.\n\nFor more on ShazamKit, check out \"Create custom catalogs at scale with ShazamKit\" from WWDC22 as well as \"Explore ShazamKit\" and \"Create custom audio experiences with ShazamKit\" from WWDC21.",
+      "topic": "App Services",
+      "platforms": [
+        "iOS",
+        "macOS",
+        "tvOS",
+        "watchOS"
+      ],
+      "speakers": [
+        "David Ilenwabor"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10051/",
+      "has_transcript": true,
+      "transcript_file": "10051.en.txt"
+    },
+    {
+      "session_id": "10104",
+      "title": "Integrate your media app with HomePod",
+      "description": "Learn how people can interact with your media app directly from HomePod. We\u2019ll show you how to add a media intent to your iPhone or iPad app and help people stream your content to a HomePod speaker over AirPlay simply by using their voice. Explore implementation details and get tips and best practices on how to create a great experience for music, audiobooks, podcasts, meditations, or other media types.\n\nTo learn more about creating a great AirPlay experience, check out \"Tune up your AirPlay audio experience\u201d from WWDC23.",
+      "topic": "App Services",
+      "platforms": [
+        "iOS"
+      ],
+      "speakers": [
+        "Alex Abramets"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10104/",
+      "has_transcript": true,
+      "transcript_file": "10104.en.txt"
+    },
+    {
+      "session_id": "10229",
+      "title": "Make features discoverable with TipKit",
+      "description": "Teach people how to use your app with TipKit! Learn how you can create effective educational moments through tips. We\u2019ll share how you can build eligibility rules to reach the ideal audience, control tip frequency, and strategies for testing to ensure successful interactions.",
+      "topic": "App Services",
+      "platforms": [
+        "iOS",
+        "macOS",
+        "tvOS",
+        "watchOS"
+      ],
+      "speakers": [
+        "Ellie Gattozzi",
+        "Charlie Parks"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10229/",
+      "has_transcript": true,
+      "transcript_file": "10229.en.txt"
+    },
+    {
+      "session_id": "10184",
+      "title": "Meet ActivityKit",
+      "description": "Live Activities are a glanceable way for someone to keep track of the progress of a task within your app. We\u2019ll teach you how you can create helpful experiences for the Lock Screen, the Dynamic Island, and StandBy. Learn how to update your app\u2019s Live Activities, monitor activity state, and take advantage of WidgetKit and SwiftUI to build richer experiences.",
+      "topic": "App Services",
+      "platforms": [
+        "iOS"
+      ],
+      "speakers": [
+        "Can Aran"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10184/",
+      "has_transcript": true,
+      "transcript_file": "10184.en.txt"
+    },
+    {
+      "session_id": "10013",
+      "title": "Meet StoreKit for SwiftUI",
+      "description": "Discover how you can use App Store product metadata and Xcode Previews to add in-app purchases to your app with just a few lines of code. Explore a new collection of UI components in StoreKit and learn how you can easily merchandise your products, present subscriptions in a way that helps users make informed decisions, and more.",
+      "topic": "App Services",
+      "platforms": [
+        "iOS",
+        "macOS",
+        "tvOS",
+        "visionOS",
+        "watchOS"
+      ],
+      "speakers": [
+        "Greg Young"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10013/",
+      "has_transcript": true,
+      "transcript_file": "10013.en.txt"
+    },
+    {
+      "session_id": "10102",
+      "title": "Spotlight your app with App Shortcuts",
+      "description": "Discover how to use App Shortcuts to surface frequently used features from your app in Spotlight or through Siri. Find out how to configure search results for your app and learn best practices for creating great App Shortcuts. We\u2019ll also show you how to build great visual and voice experiences and extend to other Apple devices like Apple Watch and HomePod.\n\nFor more information about App Shortcuts and App Intents, check out \u201cExplore enhancements to App Intents\u201d and \u201cDesign Shortcuts for Spotlight\" from WWDC23.",
+      "topic": "App Services",
+      "platforms": [
+        "iOS",
+        "macOS",
+        "watchOS"
+      ],
+      "speakers": [
+        "Jerry Wong"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10102/",
+      "has_transcript": true,
+      "transcript_file": "10102.en.txt"
+    },
+    {
+      "session_id": "10140",
+      "title": "What\u2019s new in StoreKit 2 and StoreKit Testing in Xcode",
+      "description": "Get to know the latest enhancements to StoreKit 2 and StoreKit Testing in Xcode. Discover API updates for promoted in-app purchases, StoreKit messages, the Transaction model, the RenewalInfo model, and the App Store sheet for managing subscriptions. Learn how to upgrade to SHA-256 for on-device receipt validation and use APIs to create SwiftUI views.\n\nWe\u2019ll also help you get started with StoreKit Testing in Xcode so that you can debug and test your in-app purchases and subscriptions. Meet the Transaction Inspector, explore the latest updates to the StoreKit configuration editor, and find out how you can simulate StoreKit errors to test your app\u2019s error handling.",
+      "topic": "App Services",
+      "platforms": [
+        "iOS",
+        "macOS",
+        "tvOS",
+        "visionOS",
+        "watchOS"
+      ],
+      "speakers": [
+        "Ricky Dall'Armellina"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10140/",
+      "has_transcript": true,
+      "transcript_file": "10140.en.txt"
+    },
+    {
+      "session_id": "10048",
+      "title": "What\u2019s new in VisionKit",
+      "description": "Discover how VisionKit can help people quickly lift subjects from images in your app and learn more about the content of an image with Visual Look Up. We\u2019ll also take a tour of the latest updates to VisionKit for Live Text interaction, data scanning, and expanded support for macOS apps.\n\nFor more on VisionKit, check out \u201cLift subjects from images in your app\" from WWDC23.",
+      "topic": "App Services",
+      "platforms": [
+        "iOS",
+        "macOS"
+      ],
+      "speakers": [
+        "Adam Bradford"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10048/",
+      "has_transcript": true,
+      "transcript_file": "10048.en.txt"
+    },
+    {
+      "session_id": "10028",
+      "title": "Bring widgets to life",
+      "description": "Learn how to make animated and interactive widgets for your apps and games. We\u2019ll show you how to tweak animations for entry transitions and add interactivity using SwiftUI Button and Toggle so that you can create powerful moments right from the Home Screen and Lock Screen.",
+      "topic": "App Services",
+      "platforms": [
+        "iOS",
+        "macOS"
+      ],
+      "speakers": [
+        "Luca Bernardi"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10028/",
+      "has_transcript": true,
+      "transcript_file": "10028.en.txt"
+    },
+    {
+      "session_id": "10103",
+      "title": "Explore enhancements to App Intents",
+      "description": "Bring your widgets to life with App Intents! Explore the latest updates and learn how you can take advantage of dynamic options and user interactivity to build better experiences for your App Shortcuts. We\u2019ll share how you can integrate with Apple Pay, structure your code more efficiently, and take your Shortcuts app integration to the next level.\n\nFor more on App Intents and App Shortcuts, watch \u201cSpotlight your app with App Shortcuts\" from WWDC23.",
+      "topic": "App Services",
+      "platforms": [
+        "iOS",
+        "macOS",
+        "watchOS"
+      ],
+      "speakers": [
+        "Roman Efimov"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10103/",
+      "has_transcript": true,
+      "transcript_file": "10103.en.txt"
+    },
+    {
+      "session_id": "10178",
+      "title": "What\u2019s new in App Clips",
+      "description": "Explore the latest updates to App Clips. We\u2019ll show you how to build App Clips more easily using default App Clip links. Learn how you can take advantage of the increased App Clip size limit to build richer and more engaging experiences, and find out how you can launch App Clips directly from your app.",
+      "topic": "App Services",
+      "platforms": [
+        "iOS"
+      ],
+      "speakers": [
+        "Kevin Turner"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10178/",
+      "has_transcript": true,
+      "transcript_file": "10178.en.txt"
+    },
+    {
+      "session_id": "10141",
+      "title": "What\u2019s new in App Store server APIs",
+      "description": "Discover the latest updates to the App Store Server API and App Store Server Notifications. Explore the current API offerings and learn how to track subscription status with notifications, work with transactions on your server, and efficiently recover missed notifications. We\u2019ll also show you how your server can support apps using StoreKit or StoreKit 2, and share an important deprecation in the API and suggested migration workflow.",
+      "topic": "App Services",
+      "platforms": [
+        "iOS",
+        "macOS",
+        "tvOS",
+        "visionOS",
+        "watchOS"
+      ],
+      "speakers": [
+        "Ian Zanger"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10141/",
+      "has_transcript": true,
+      "transcript_file": "10141.en.txt"
+    },
+    {
+      "session_id": "10143",
+      "title": "Meet the App Store Server Library",
+      "description": "Discover the App Store Server Library and learn how you can take advantage of resources and configurations for your apps. We\u2019ll show you how to set up the library, call the App Store Server API, verify App Store Server Notifications, and use app receipts. Explore insights and best practices for using App Store Server API endpoints, verifying App Store signed data, and migrating away from verifyReceipt.",
+      "topic": "App Services",
+      "platforms": [
+        "iOS",
+        "macOS",
+        "tvOS",
+        "visionOS",
+        "watchOS"
+      ],
+      "speakers": [
+        "Dave Wendland",
+        "Alex Baker"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10143/",
+      "has_transcript": true,
+      "transcript_file": "10143.en.txt"
+    },
+    {
+      "session_id": "10185",
+      "title": "Update Live Activities with push notifications",
+      "description": "Discover how you can remotely update Live Activities in your app when you push content through Apple Push Notification service (APNs). We\u2019ll show you how to configure your first Live Activity push locally so you can quickly iterate on your implementation. Learn best practices for determining your push priority and configuring alerting updates, and explore how to further improve your Live Activities with relevance score and stale date.\n\nTo get the most out of this session, you should be familiar with ActivityKit and Live Activities. Check out \u201cMeet ActivityKit\u201d for an introduction to Live Activities.",
+      "topic": "App Services",
+      "platforms": [
+        "iOS"
+      ],
+      "speakers": [
+        "Jeff Wu"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10185/",
+      "has_transcript": true,
+      "transcript_file": "10185.en.txt"
+    },
+    {
+      "session_id": "10108",
+      "title": "What\u2019s new in Background Assets",
+      "description": "Waiting is no fun! Discover how Background Assets can help your app download content before it even launches. We\u2019ll show you how to integrate Background Assets into an existing app, explore when to use essential or non-essential assets, and learn how to make debugging your extension a breeze.",
+      "topic": "App Services",
+      "platforms": [
+        "iOS",
+        "macOS"
+      ],
+      "speakers": [
+        "Jared Jones"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10108/",
+      "has_transcript": true,
+      "transcript_file": "10108.en.txt"
+    },
+    {
+      "session_id": "10114",
+      "title": "What\u2019s new in Wallet and Apple Pay",
+      "description": "Discover the latest updates to Wallet and Apple Pay. Learn how to take advantage of preauthorized payments, funds transfer, and Apple Pay Later merchandising to create great Apple Pay experiences in your app or for the web. Explore improved support for Mail, Messages, Safari, and third-party apps in Wallet Order Tracking, and find out how you can add more information to an order\u2019s transaction or receipt details. And we\u2019ll introduce you to Tap to Present ID on iPhone (or ID Verifier), a new way to accept IDs in Wallet using iPhone \u2014 no additional hardware needed.",
+      "topic": "App Services",
+      "platforms": [
+        "iOS",
+        "macOS",
+        "tvOS",
+        "visionOS",
+        "watchOS"
+      ],
+      "speakers": [
+        "David Stockley",
+        "Jonathan Downing"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10114/",
+      "has_transcript": true,
+      "transcript_file": "10114.en.txt"
+    },
+    {
+      "session_id": "10142",
+      "title": "Explore testing in-app purchases",
+      "description": "Learn how you can test in-app purchases throughout development with StoreKit Testing in Xcode, App Store sandbox, and TestFlight. Explore how each tool functions and how you can combine them to build the right workflow for testing your apps and games. We\u2019ll also share a sneak preview of how you can test Family Sharing for in-app purchases & subscriptions in the App Store sandbox.",
+      "topic": "App Services",
+      "platforms": [
+        "iOS",
+        "macOS",
+        "tvOS",
+        "visionOS",
+        "watchOS"
+      ],
+      "speakers": [
+        "Hemant Sawle"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10142/",
+      "has_transcript": true,
+      "transcript_file": "10142.en.txt"
+    },
+    {
+      "session_id": "10281",
+      "title": "Keep up with the keyboard",
+      "description": "Each year, the keyboard evolves to support an increasing range of languages, sizes, and features. Discover how you can design your app to keep up with the keyboard, regardless of how it appears on a device. We\u2019ll show you how to create frictionless text entry and share important architectural changes to help you understand how the keyboard works within the system.",
+      "topic": "App Services",
+      "platforms": [
+        "iOS"
+      ],
+      "speakers": [
+        "Spencer Lewson"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10281/",
+      "has_transcript": true,
+      "transcript_file": "10281.en.txt"
+    },
+    {
+      "session_id": "10179",
+      "title": "What\u2019s new in Core Motion",
+      "description": "Learn how you can use the latest Core Motion updates to expand how your app uses motion data. Discover how to stream higher-frequency sensor data when recording a HealthKit workout on Apple Watch. We\u2019ll show you how you can get submersion data \u2014 including water depth and temperature \u2014 during water-based activities like snorkeling. Find out how to stream motion data like attitude, user acceleration, and rotation rate from audio devices like AirPods to connected devices like iPhone and Mac.",
+      "topic": "App Services",
+      "platforms": [
+        "iOS",
+        "macOS",
+        "visionOS",
+        "watchOS"
+      ],
+      "speakers": [
+        "Erin Paeng"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10179/",
+      "has_transcript": true,
+      "transcript_file": "10179.en.txt"
+    },
+    {
+      "session_id": "111384",
+      "title": "Discover the Journaling Suggestions API",
+      "description": "Find out how the new Journaling Suggestions API can help people reflect on the small moments and big events in their lives though your app \u2014 all while protecting their privacy. Learn how to leverage the API to retrieve assets and metadata for journaling suggestions, invoke a picker on top of the app, let people save suggested content, and more.",
+      "topic": "App Services",
+      "platforms": [
+        "iOS"
+      ],
+      "speakers": [
+        "Ren\u00e9 Aguirre Ramos"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/tech-talks/111384/",
+      "has_transcript": false,
+      "transcript_file": null
+    }
+  ],
+  "Graphics & Games": [
+    {
+      "session_id": "10123",
+      "title": "Bring your game to Mac, Part 1: Make a game plan",
+      "description": "Bring modern, high-end games to Mac and iPad with the powerful features of Metal and Apple silicon. Discover the game porting toolkit and learn how it can help you evaluate your existing Windows game for graphics feature compatibility and performance. We\u2019ll share best practices and technical resources for handling audio, input, and advanced display features.\n\nOnce you\u2019ve watched this session, check out \u201cBring your game to Mac, Part 2: Compile your shaders\u201d to learn more about bringing HLSL shaders to Metal.",
+      "topic": "Graphics & Games",
+      "platforms": [
+        "iOS",
+        "macOS",
+        "tvOS"
+      ],
+      "speakers": [
+        "Aiswariya Sreenivassan"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10123/",
+      "has_transcript": true,
+      "transcript_file": "10123.en.txt"
+    },
+    {
+      "session_id": "10124",
+      "title": "Bring your game to Mac, Part 2: Compile your shaders",
+      "description": "Discover how the Metal shader converter streamlines the process of bringing your HLSL shaders to Metal as we continue our three-part series on bringing your game to Mac. Find out how to build a fast, end-to-end shader pipeline from DXIL that supports all shader stages and allows you to leverage the advanced features of Apple GPUs. We\u2019ll also show you how to reduce app launch time and stutters by generating GPU binaries with the offline compiler.\n\nTo get the most out of this session, we recommend first watching \u201cBring your game to Mac, Part 1: Make a game plan.\" And once you\u2019re ready to level up, check out \u201cBring your game to Mac, Part 3: Render with Metal\" from WWDC23.",
+      "topic": "Graphics & Games",
+      "platforms": [
+        "iOS",
+        "macOS",
+        "tvOS"
+      ],
+      "speakers": [
+        "Varun Subramanian"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10124/",
+      "has_transcript": true,
+      "transcript_file": "10124.en.txt"
+    },
+    {
+      "session_id": "10125",
+      "title": "Bring your game to Mac, Part 3: Render with Metal",
+      "description": "Discover how you can support Metal in your rendering code as we close out our three-part series on bringing your game to Mac. Once you\u2019ve evaluated your existing Windows binary with the game porting toolkit and brought your HLSL shaders over to Metal, learn how you can optimally implement the features that high-end, modern games require. We\u2019ll show you how to manage GPU resource bindings, residency, and synchronization. Find out how to optimize GPU commands submission, render rich visuals with MetalFX Upscaling, and more.\n\nTo get the most out of this session, we recommend first watching \u201cBring your game to Mac, Part 1: Make a game plan\u201d and \u201cBring your game to Mac, Part 2: Compile your shaders\" from WWDC23.",
+      "topic": "Graphics & Games",
+      "platforms": [
+        "iOS",
+        "macOS",
+        "tvOS"
+      ],
+      "speakers": [
+        "Georgi Rakidov"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10125/",
+      "has_transcript": true,
+      "transcript_file": "10125.en.txt"
+    },
+    {
+      "session_id": "10096",
+      "title": "Build great games for spatial computing",
+      "description": "Find out how you can develop great gaming experiences for visionOS. We\u2019ll share some of the key building blocks that help you create games for this platform, explore how your experiences can fluidly move between levels of immersion, and provide a roadmap for exploring ARKit, RealityKit, Reality Composer Pro, Unity, Metal, and Compositor.",
+      "topic": "Graphics & Games",
+      "platforms": [
+        "visionOS"
+      ],
+      "speakers": [
+        "Tricia Gray"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10096/",
+      "has_transcript": true,
+      "transcript_file": "10096.en.txt"
+    },
+    {
+      "session_id": "10093",
+      "title": "Bring your Unity VR app to a fully immersive space",
+      "description": "Discover how you can bring your existing Unity VR apps and games to visionOS. We\u2019ll explore workflows that can help you get started and show you how to build for eyes and hands in your apps and games with the Unity Input System. Learn about Unity\u2019s XR Interaction Toolkit, tips for foveated rendering, and best practices.",
+      "topic": "Graphics & Games",
+      "platforms": [
+        "visionOS"
+      ],
+      "speakers": [
+        "Christopher Figueroa",
+        "Peter Kuhn"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10093/",
+      "has_transcript": true,
+      "transcript_file": "10093.en.txt"
+    },
+    {
+      "session_id": "10088",
+      "title": "Create immersive Unity apps",
+      "description": "Explore how you can use Unity to create engaging and immersive experiences for visionOS. We\u2019ll share how Unity integrates seamlessly with Apple frameworks, take you through the tools you can use to build natively for the platform, and show you how volume cameras can bring your existing scenes into visionOS windows, volumes, and spaces. \n\nDiscover how to incorporate visionOS features like passthrough and scene understanding, customize your visuals with Shader Graph, and adapt your interactions to work with spatial input.",
+      "topic": "Graphics & Games",
+      "platforms": [
+        "visionOS"
+      ],
+      "speakers": [
+        "John Calsbeek",
+        "Vladimir Vukicevic"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10088/",
+      "has_transcript": true,
+      "transcript_file": "10088.en.txt"
+    },
+    {
+      "session_id": "10128",
+      "title": "Your guide to Metal ray tracing",
+      "description": "Discover how you can enhance the visual quality of your games and apps with Metal ray tracing. We\u2019ll take you through the fundamentals of the Metal ray tracing API. Explore the latest enhancements and techniques that will enable you to create larger and more complex scenes, reduce memory usage and build times, and efficiently render visual content like hair and fur.",
+      "topic": "Graphics & Games",
+      "platforms": [
+        "iOS",
+        "macOS",
+        "tvOS"
+      ],
+      "speakers": [
+        "Pawel Szczerbuk"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10128/",
+      "has_transcript": true,
+      "transcript_file": "10128.en.txt"
+    },
+    {
+      "session_id": "10127",
+      "title": "Optimize GPU renderers with Metal",
+      "description": "Discover how to optimize your GPU renderer using the latest Metal features and best practices. We\u2019ll show you how to use function specialization and parallel shader compilation to maintain responsive authoring workflows and the fastest rendering speeds, and help you tune your compute shaders for optimal performance.",
+      "topic": "Graphics & Games",
+      "platforms": [
+        "macOS"
+      ],
+      "speakers": [
+        "Gauri Jog"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10127/",
+      "has_transcript": true,
+      "transcript_file": "10127.en.txt"
+    },
+    {
+      "session_id": "10136",
+      "title": "What\u2019s new in ScreenCaptureKit",
+      "description": "Level up your screen sharing experience with the latest features in ScreenCaptureKit. Explore the built-in system picker, Presenter Overlay, and screenshot capabilities, and learn how to incorporate these features into your existing ScreenCaptureKit app or game.",
+      "topic": "Graphics & Games",
+      "platforms": [
+        "macOS"
+      ],
+      "speakers": [
+        "Christopher Garrido",
+        "Natalie Lindsay"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10136/",
+      "has_transcript": true,
+      "transcript_file": "10136.en.txt"
+    },
+    {
+      "session_id": "10089",
+      "title": "Discover Metal for immersive apps",
+      "description": "Find out how you can use Metal to render fully immersive experiences for visionOS. We\u2019ll show you how to set up a rendering session on the platform and create a basic render loop, and share how you can make your experience interactive by incorporating spatial input.",
+      "topic": "Graphics & Games",
+      "platforms": [
+        "visionOS"
+      ],
+      "speakers": [
+        "Pau Sastre Miguel"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10089/",
+      "has_transcript": true,
+      "transcript_file": "10089.en.txt"
+    },
+    {
+      "session_id": "10086",
+      "title": "Explore the USD ecosystem",
+      "description": "Discover the latest updates to Universal Scene Description (USD) on Apple platforms and learn how you can deliver great 3D content for your apps, games, and websites. Get to know USD for visionOS, explore MaterialX shaders and color management, and find out about some of the other improvements to the USD ecosystem.",
+      "topic": "Graphics & Games",
+      "platforms": [
+        "iOS",
+        "macOS",
+        "visionOS"
+      ],
+      "speakers": [
+        "Dhruv Govil"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10086/",
+      "has_transcript": true,
+      "transcript_file": "10086.en.txt"
+    },
+    {
+      "session_id": "111372",
+      "title": "Bring your high-end game to iPhone 15 Pro",
+      "description": "Discover how the power of A17 Pro can help you maximize your game on iPhone 15 Pro and iPhone 15 Pro Max. We\u2019ll share best practices and technical resources, and explore ways to optimize game performance, input, and asset management.",
+      "topic": "Graphics & Games",
+      "platforms": [
+        "iOS"
+      ],
+      "speakers": [
+        "Jason Jane"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/tech-talks/111372/",
+      "has_transcript": false,
+      "transcript_file": null
+    },
+    {
+      "session_id": "111373",
+      "title": "Learn performance best practices for Metal shaders",
+      "description": "Discover how you can improve Metal shader performance using some of the latest advancements in Apple GPUs. Learn to reduce a shader\u2019s execution time by configuring function constants, and investigate ways to increase compiler optimization with function groups. Find out how to save run time by improving the shader\u2019s execution and ability to use resources in parallel. Explore the Apple family 9 GPU features and take advantage of hardware acceleration for ray tracing.",
+      "topic": "Graphics & Games",
+      "platforms": [
+        "iOS",
+        "macOS",
+        "tvOS"
+      ],
+      "speakers": [
+        "Srividya Karumuri"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/tech-talks/111373/",
+      "has_transcript": false,
+      "transcript_file": null
+    },
+    {
+      "session_id": "111374",
+      "title": "Discover new Metal profiling tools for M3 and A17 Pro",
+      "description": "Learn how the new profiling tools in Xcode 15 can help you achieve the best Metal performance on Apple family 9 GPUs. Discover how to use shader cost graphs, performance heat maps, and shader execution history tools to profile and optimize your Metal code. Find out how to use new GPU counters to optimize GPU occupancy and ray-tracing performance.",
+      "topic": "Graphics & Games",
+      "platforms": [
+        "iOS",
+        "macOS"
+      ],
+      "speakers": [
+        "Ruiwei Bu",
+        "Irfan Zaidi"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/tech-talks/111374/",
+      "has_transcript": false,
+      "transcript_file": null
+    },
+    {
+      "session_id": "111375",
+      "title": "Explore GPU advancements in M3 and A17 Pro",
+      "description": "Learn how Dynamic Caching, the next-generation shader core, hardware-accelerated ray tracing, and hardware-accelerated mesh shading of Apple family 9 GPUs can improve the performance of your Metal apps and games.",
+      "topic": "Graphics & Games",
+      "platforms": [
+        "macOS"
+      ],
+      "speakers": [
+        "Jedd Haberstro"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/tech-talks/111375/",
+      "has_transcript": false,
+      "transcript_file": null
+    },
+    {
+      "session_id": "111376",
+      "title": "Meet rule-based matchmaking in Game Center",
+      "description": "Learn how to incorporate the new rule-based matchmaking feature into your real-time multiplayer games. Discover how you can provide customized and flexible matchmaking to improve the quality of player matches and create a more fun and engaging experience for all players.",
+      "topic": "Graphics & Games",
+      "platforms": [
+        "iOS",
+        "macOS",
+        "tvOS"
+      ],
+      "speakers": [
+        "Philip Smith"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/tech-talks/111376/",
+      "has_transcript": false,
+      "transcript_file": null
+    },
+    {
+      "session_id": "111377",
+      "title": "Manage Game Center with the App Store Connect API",
+      "description": "Discover how you can use the App Store Connect API to automate your Game Center configurations outside of App Store Connect on the web. Find out how the API can help you create achievements and leaderboards and share them between related games using groups. And learn how to enable and configure matchmaking in multiplayer games.",
+      "topic": "Graphics & Games",
+      "platforms": [
+        "iOS",
+        "macOS",
+        "tvOS",
+        "visionOS"
+      ],
+      "speakers": [
+        "Hubert Ngu"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/tech-talks/111377/",
+      "has_transcript": false,
+      "transcript_file": null
+    }
+  ],
+  "Health & Fitness": [
+    {
+      "session_id": "10016",
+      "title": "Build custom workouts with WorkoutKit",
+      "description": "WorkoutKit makes it easy to create, preview, and schedule planned workouts for the Workout app on Apple Watch. Learn how to build custom intervals, create alerts, and use the built-in preview UI to send your own workout routines to Apple Watch.",
+      "topic": "Health & Fitness",
+      "platforms": [
+        "iOS",
+        "watchOS"
+      ],
+      "speakers": [
+        "Tu Nguyen",
+        "Abhiraj Pande"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10016/",
+      "has_transcript": true,
+      "transcript_file": "10016.en.txt"
+    },
+    {
+      "session_id": "10023",
+      "title": "Build a multi-device workout app",
+      "description": "Learn how you can get iPhone involved in your Apple Watch-based workout apps with HealthKit. We\u2019ll show you how to mirror workouts between devices and take a ride with cycling data types. Plus, get to know HealthKit for iPad.",
+      "topic": "Health & Fitness",
+      "platforms": [
+        "iOS",
+        "watchOS"
+      ],
+      "speakers": [
+        "Sirisha Paila"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10023/",
+      "has_transcript": true,
+      "transcript_file": "10023.en.txt"
+    }
+  ],
+  "Spatial Computing": [
+    {
+      "session_id": "10080",
+      "title": "Build spatial experiences with RealityKit",
+      "description": "Discover how RealityKit can bring your apps into a new dimension. Get started with RealityKit entities, components, and systems, and learn how you can add 3D models and effects to your app on visionOS. We\u2019ll also take you through the RealityView API and demonstrate how to add 3D objects to windows, volumes, and spaces to make your apps more immersive. And we\u2019ll explore combining RealityKit with spatial input, animation, and spatial audio.",
+      "topic": "Spatial Computing",
+      "platforms": [
+        "iOS",
+        "visionOS"
+      ],
+      "speakers": [
+        "John Calsbeek"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10080/",
+      "has_transcript": true,
+      "transcript_file": "10080.en.txt"
+    },
+    {
+      "session_id": "10203",
+      "title": "Develop your first immersive app",
+      "description": "Find out how you can build immersive apps for visionOS using Xcode and Reality Composer Pro. We\u2019ll show you how to get started with a new visionOS project, use Xcode Previews for your SwiftUI development, and take advantage of RealityKit and RealityView to render 3D content.",
+      "topic": "Spatial Computing",
+      "platforms": [
+        "macOS",
+        "visionOS"
+      ],
+      "speakers": [
+        "Peter Zion"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10203/",
+      "has_transcript": true,
+      "transcript_file": "10203.en.txt"
+    },
+    {
+      "session_id": "10192",
+      "title": "Explore enhancements to RoomPlan",
+      "description": "Join us for an exciting update to RoomPlan as we explore MultiRoom support and enhancements to room representations. Learn how you can scan areas with more detail, capture multiple rooms, and merge individual scans into one larger structure. We\u2019ll also share workflows and best practices when working with RoomPlan results that you want to combine into your existing 3D model library.",
+      "topic": "Spatial Computing",
+      "platforms": [
+        "iOS"
+      ],
+      "speakers": [
+        "Alex Ke",
+        "Antoine Tarault"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10192/",
+      "has_transcript": true,
+      "transcript_file": "10192.en.txt"
+    },
+    {
+      "session_id": "10260",
+      "title": "Get started with building apps for spatial computing",
+      "description": "Get ready to develop apps and games for visionOS! Discover the fundamental building blocks that make up spatial computing \u2014 windows, volumes, and spaces \u2014 and find out how you can use these elements to build engaging and immersive experiences.",
+      "topic": "Spatial Computing",
+      "platforms": [
+        "macOS",
+        "visionOS"
+      ],
+      "speakers": [
+        "Jim Tilander",
+        "Christopher Figueroa"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10260/",
+      "has_transcript": true,
+      "transcript_file": "10260.en.txt"
+    },
+    {
+      "session_id": "10082",
+      "title": "Meet ARKit for spatial computing",
+      "description": "Discover how you can use ARKit\u2019s tracking and scene understanding features to develop a whole new universe of immersive apps and games. Learn how visionOS and ARKit work together to help you create apps that understand a person\u2019s surroundings \u2014 all while preserving privacy. Explore the latest updates to the ARKit API and follow along as we demonstrate how to take advantage of hand tracking and scene geometry in your apps.",
+      "topic": "Spatial Computing",
+      "platforms": [
+        "visionOS"
+      ],
+      "speakers": [
+        "Ryan Taylor",
+        "Conner Brooks"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10082/",
+      "has_transcript": true,
+      "transcript_file": "10082.en.txt"
+    },
+    {
+      "session_id": "10083",
+      "title": "Meet Reality Composer Pro",
+      "description": "Discover how to easily compose, edit, and preview 3D content with Reality Composer Pro. Follow along as we explore this developer tool by setting up a new project, composing scenes, adding particle emitters and audio, and even previewing content on device.\n\nOnce you\u2019re familiar with the basics of Reality Composer Pro, check out \"Explore Materials in Reality Composer Pro\" and \"Work with Reality Composer Pro content in Xcode\" to learn more advanced techniques and tips.",
+      "topic": "Spatial Computing",
+      "platforms": [
+        "macOS",
+        "visionOS"
+      ],
+      "speakers": [
+        "Eric Chiu"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10083/",
+      "has_transcript": true,
+      "transcript_file": "10083.en.txt"
+    },
+    {
+      "session_id": "10081",
+      "title": "Enhance your spatial computing app with RealityKit",
+      "description": "Go beyond the window and learn how you can bring engaging and immersive 3D content to your apps with RealityKit. Discover how SwiftUI scenes work in tandem with RealityView and how you can embed your content into an entity hierarchy. We\u2019ll also explore how you can blend virtual content and the real world using anchors, bring particle effects into your apps, add video content, and create more immersive experiences with portals.",
+      "topic": "Spatial Computing",
+      "platforms": [
+        "iOS",
+        "visionOS"
+      ],
+      "speakers": [
+        "Yujin Ariza"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10081/",
+      "has_transcript": true,
+      "transcript_file": "10081.en.txt"
+    },
+    {
+      "session_id": "10091",
+      "title": "Evolve your ARKit app for spatial experiences",
+      "description": "Discover how you can bring your app\u2019s AR experience to visionOS. Learn how ARKit and RealityKit have evolved for spatial computing: We\u2019ll highlight conceptual and API changes for those coming from iPadOS and iOS and guide you to sessions with more details to help you bring your AR experience to this platform.",
+      "topic": "Spatial Computing",
+      "platforms": [
+        "iOS",
+        "visionOS"
+      ],
+      "speakers": [
+        "Omid Khalili",
+        "Oliver Dunkley"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10091/",
+      "has_transcript": true,
+      "transcript_file": "10091.en.txt"
+    },
+    {
+      "session_id": "10202",
+      "title": "Explore materials in Reality Composer Pro",
+      "description": "Learn how Reality Composer Pro can help you alter the appearance of your 3D objects using RealityKit materials. We\u2019ll introduce you to MaterialX and physically-based (PBR) shaders, show you how to design dynamic materials using the shader graph editor, and explore adding custom inputs to a material so that you can control it in your visionOS app.\n\nTo get the most out of this session, we recommend first watching \u201cMeet Reality Composer Pro.\u201d Once you\u2019re ready to learn how you can incorporate your models and materials into an Xcode project, check out \"Work with Reality Composer Pro content in Xcode.\"",
+      "topic": "Spatial Computing",
+      "platforms": [
+        "macOS",
+        "visionOS"
+      ],
+      "speakers": [
+        "Niels Gabel"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10202/",
+      "has_transcript": true,
+      "transcript_file": "10202.en.txt"
+    },
+    {
+      "session_id": "10191",
+      "title": "Meet Object Capture for iOS",
+      "description": "Discover how you can offer an end-to-end Object Capture experience directly in your iOS apps to help people turn their objects into ready-to-use 3D models. Learn how you can create a fully automated Object Capture scan flow with our sample app and how you can assist people in automatically capturing the best content for their model. We\u2019ll also discuss LiDAR data and provide best practices for scanning objects.",
+      "topic": "Spatial Computing",
+      "platforms": [
+        "iOS",
+        "macOS",
+        "visionOS"
+      ],
+      "speakers": [
+        "Lei Zhou",
+        "Mona Yousofshahi"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10191/",
+      "has_transcript": true,
+      "transcript_file": "10191.en.txt"
+    },
+    {
+      "session_id": "10273",
+      "title": "Work with Reality Composer Pro content in Xcode",
+      "description": "Learn how to bring content from Reality Composer Pro to life in Xcode. We\u2019ll show you how to load 3D scenes into Xcode, integrate your content with your code, and add interactivity to your app. We\u2019ll also share best practices and tips for using these tools together in your development workflow.\n\nTo get the most out of this session, we recommend first watching \u201cMeet Reality Composer Pro\u201d and \u201cExplore materials in Reality Composer Pro\" to learn more about creating 3D scenes.",
+      "topic": "Spatial Computing",
+      "platforms": [
+        "macOS",
+        "visionOS"
+      ],
+      "speakers": [
+        "Amanda Wixted"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10273/",
+      "has_transcript": true,
+      "transcript_file": "10273.en.txt"
+    },
+    {
+      "session_id": "10087",
+      "title": "Build spatial SharePlay experiences",
+      "description": "Discover how you can use the GroupActivities framework to build unique sharing and collaboration experiences for visionOS. We\u2019ll introduce you to SharePlay on this platform, learn how to create experiences that make people feel present as if they were in the same space, and explore how immersive apps can respect shared context between participants.",
+      "topic": "Spatial Computing",
+      "platforms": [
+        "visionOS"
+      ],
+      "speakers": [
+        "Willem Mattelaer",
+        "Mia Ren"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10087/",
+      "has_transcript": true,
+      "transcript_file": "10087.en.txt"
+    },
+    {
+      "session_id": "10274",
+      "title": "Create 3D models for Quick Look spatial experiences",
+      "description": "Discover best practices when creating 3D content for Quick Look on visionOS. We\u2019ll explore a few different ways to prepare your models for Quick Look, cover important considerations for 3D quality and performance, and show you how to use Reality Composer Pro and Reality Trace to inspect and fine-tune your content.",
+      "topic": "Spatial Computing",
+      "platforms": [
+        "visionOS"
+      ],
+      "speakers": [
+        "Shuai Song"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10274/",
+      "has_transcript": true,
+      "transcript_file": "10274.en.txt"
+    },
+    {
+      "session_id": "10085",
+      "title": "Discover Quick Look for spatial computing",
+      "description": "Learn how to use Quick Look on visionOS to add powerful previews for 3D content, spatial images and videos, and much more. We\u2019ll show you the different ways that the system presents these experiences, demonstrate how someone can drag and drop Quick Look content from an app or website to create a separate window with that content, and explore how you can present Quick Look directly within an app.",
+      "topic": "Spatial Computing",
+      "platforms": [
+        "visionOS"
+      ],
+      "speakers": [
+        "Youssef Elabd"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10085/",
+      "has_transcript": true,
+      "transcript_file": "10085.en.txt"
+    },
+    {
+      "session_id": "10095",
+      "title": "Explore rendering for spatial computing",
+      "description": "Find out how you can take control of RealityKit rendering to improve the look and feel of your apps and games on visionOS. Discover how you can customize lighting, add grounding shadows, and control tone mapping for your content. We\u2019ll also go over best practices for two key treatments on the platform: rasterization rate maps and dynamic content scaling.",
+      "topic": "Spatial Computing",
+      "platforms": [
+        "iOS",
+        "visionOS"
+      ],
+      "speakers": [
+        "Ivan Gavrenkov"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10095/",
+      "has_transcript": true,
+      "transcript_file": "10095.en.txt"
+    }
+  ],
+  "Accessibility & Inclusion": [
+    {
+      "session_id": "10034",
+      "title": "Create accessible spatial experiences",
+      "description": "Learn how you can make spatial computing apps that work well for everyone. Like all Apple platforms, visionOS is designed for accessibility: We\u2019ll share how we\u2019ve reimagined assistive technologies like VoiceOver and Pointer Control and designed features like Dwell Control to help people interact in the way that works best for them. Learn best practices for vision, motor, cognitive, and hearing accessibility and help everyone enjoy immersive experiences for visionOS.",
+      "topic": "Accessibility & Inclusion",
+      "platforms": [
+        "visionOS"
+      ],
+      "speakers": [
+        "Dan Golden",
+        "Drew Haas"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10034/",
+      "has_transcript": true,
+      "transcript_file": "10034.en.txt"
+    },
+    {
+      "session_id": "10035",
+      "title": "Perform accessibility audits for your app",
+      "description": "Discover how you can test your app for accessibility with every build. Learn how to perform automated audits for accessibility using XCTest and find out how to interpret the results. We\u2019ll also share enhancements to the accessibility API that can help you improve UI test coverage.",
+      "topic": "Accessibility & Inclusion",
+      "platforms": [
+        "iOS",
+        "macOS",
+        "tvOS",
+        "watchOS"
+      ],
+      "speakers": [
+        "Bhavya Garg"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10035/",
+      "has_transcript": true,
+      "transcript_file": "10035.en.txt"
+    },
+    {
+      "session_id": "10036",
+      "title": "Build accessible apps with SwiftUI and UIKit",
+      "description": "Discover how advancements in UI frameworks make it easier to build rich, accessible experiences. Find out how technologies like VoiceOver can better interact with your app\u2019s interface through accessibility traits and actions. We\u2019ll share the latest updates to SwiftUI that help you refine your accessibility experience and show you how to keep accessibility information up-to-date in your UIKit apps.",
+      "topic": "Accessibility & Inclusion",
+      "platforms": [
+        "iOS",
+        "macOS",
+        "tvOS",
+        "watchOS"
+      ],
+      "speakers": [
+        "Allison Lettiere"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10036/",
+      "has_transcript": true,
+      "transcript_file": "10036.en.txt"
+    },
+    {
+      "session_id": "10033",
+      "title": "Extend Speech Synthesis with personal and custom voices",
+      "description": "Bring the latest advancements in Speech Synthesis to your apps. Learn how you can integrate your custom speech synthesizer and voices into iOS and macOS. We\u2019ll show you how SSML is used to generate expressive speech synthesis, and explore how Personal Voice can enable your augmentative and assistive communication app to speak on a person\u2019s behalf in an authentic way.",
+      "topic": "Accessibility & Inclusion",
+      "platforms": [
+        "iOS",
+        "macOS"
+      ],
+      "speakers": [
+        "Grant Maloney"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10033/",
+      "has_transcript": true,
+      "transcript_file": "10033.en.txt"
+    },
+    {
+      "session_id": "10032",
+      "title": "Meet Assistive Access",
+      "description": "Learn how Assistive Access can help people with cognitive disabilities more easily use iPhone and iPad. Discover the design principles that guide Assistive Access and find out how the system experience adapts to lighten cognitive load. We\u2019ll show you how Assistive Access works and what you can do to support this experience in your app.",
+      "topic": "Accessibility & Inclusion",
+      "platforms": [
+        "iOS"
+      ],
+      "speakers": [
+        "Allen Whearry"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10032/",
+      "has_transcript": true,
+      "transcript_file": "10032.en.txt"
+    }
+  ],
+  "Developer Tools": [
+    {
+      "session_id": "10244",
+      "title": "Create rich documentation with Swift-DocC",
+      "description": "Learn how you can take advantage of the latest features in Swift-DocC to create rich and detailed documentation for your app or framework. We\u2019ll show you how to use the Xcode 15 Documentation Preview editor to efficiently iterate on your existing project\u2019s documentation, and explore expanded authoring capabilities like grid-based layouts, video support, and custom themes.\n\nTo get the most out of this session, you should have a working knowledge of the basics of Swift-DocC documentation.",
+      "topic": "Developer Tools",
+      "platforms": [
+        "iOS",
+        "macOS",
+        "tvOS",
+        "watchOS"
+      ],
+      "speakers": [
+        "Ethan Kusters"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10244/",
+      "has_transcript": true,
+      "transcript_file": "10244.en.txt"
+    },
+    {
+      "session_id": "10226",
+      "title": "Debug with structured logging",
+      "description": "Discover the debug console in Xcode 15 and learn how you can improve your diagnostic experience through logging. Explore how you can navigate your logs easily and efficiently using advanced filtering and improved visualization. We\u2019ll also show you how to use the dwim-print command to evaluate expressions in your code while debugging.",
+      "topic": "Developer Tools",
+      "platforms": [
+        "iOS",
+        "macOS",
+        "tvOS",
+        "visionOS",
+        "watchOS"
+      ],
+      "speakers": [
+        "Nathan Fusselman"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10226/",
+      "has_transcript": true,
+      "transcript_file": "10226.en.txt"
+    },
+    {
+      "session_id": "10155",
+      "title": "Discover String Catalogs",
+      "description": "Discover how Xcode 15 makes it easy to localize your app by managing all of your strings in one place. We\u2019ll show you how to extract, edit, export, and build strings in your project using String Catalogs. We\u2019ll also share how you can adopt String Catalogs in existing projects at your own pace by choosing which files to migrate.",
+      "topic": "Developer Tools",
+      "platforms": [
+        "iOS",
+        "macOS",
+        "tvOS",
+        "watchOS"
+      ],
+      "speakers": [
+        "Marina Aguilar",
+        "Matt Seaman"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10155/",
+      "has_transcript": true,
+      "transcript_file": "10155.en.txt"
+    },
+    {
+      "session_id": "10165",
+      "title": "What\u2019s new in Xcode 15",
+      "description": "Discover the latest productivity and performance improvements in Xcode 15. Explore enhancements to code completion and Xcode Previews, learn about the test navigator and test report, and find out more about the streamlined distribution process. We\u2019ll also highlight improved navigation, source control management, and debugging.",
+      "topic": "Developer Tools",
+      "platforms": [
+        "iOS",
+        "macOS",
+        "tvOS",
+        "visionOS",
+        "watchOS"
+      ],
+      "speakers": [
+        "Shilpa Chirackel",
+        "Ryan Golbeck"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10165/",
+      "has_transcript": true,
+      "transcript_file": "10165.en.txt"
+    },
+    {
+      "session_id": "10252",
+      "title": "Build programmatic UI with Xcode Previews",
+      "description": "Learn how you can use the #Preview macro on Xcode 15 to quickly iterate on your UI code written in SwiftUI, UIKit, or AppKit. Explore a collage of unique workflows for interacting with views right in the canvas, find out how to view multiple variations of UI simultaneously, and discover how you can travel through your widget\u2019s timeline in seconds to test the transitions between entries. We\u2019ll also show you how to add previews to libraries, provide sample assets, and preview your views in your physical devices to leverage their capabilities and existing data.",
+      "topic": "Developer Tools",
+      "platforms": [
+        "iOS",
+        "macOS",
+        "watchOS"
+      ],
+      "speakers": [
+        "Kevin Cathey"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10252/",
+      "has_transcript": true,
+      "transcript_file": "10252.en.txt"
+    },
+    {
+      "session_id": "10175",
+      "title": "Fix failures faster with Xcode test reports",
+      "description": "Discover how you can find, debug, and fix test failures faster with the test report in Xcode and Xcode Cloud. Learn how Xcode identifies failure patterns to help you find the right place to start investigating. We\u2019ll also show you how to use the UI automation explorer and video recordings to understand the events that led up to your UI test failure.",
+      "topic": "Developer Tools",
+      "platforms": [
+        "iOS",
+        "macOS",
+        "tvOS",
+        "watchOS"
+      ],
+      "speakers": [
+        "Sonu Chinta"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10175/",
+      "has_transcript": true,
+      "transcript_file": "10175.en.txt"
+    },
+    {
+      "session_id": "10099",
+      "title": "Meet RealityKit Trace",
+      "description": "Discover how you can use RealityKit Trace to improve the performance of your spatial computing apps. Explore performance profiling guidelines for this platform and learn how the RealityKit Trace template can help you optimize rendering for your apps. We\u2019ll also provide guidance on profiling various types of content in your app to help pinpoint performance issues.",
+      "topic": "Developer Tools",
+      "platforms": [
+        "visionOS"
+      ],
+      "speakers": [
+        "Sarina Wu",
+        "Harjas Monga"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10099/",
+      "has_transcript": true,
+      "transcript_file": "10099.en.txt"
+    },
+    {
+      "session_id": "10268",
+      "title": "Meet mergeable libraries",
+      "description": "Discover how mergeable libraries combine the best parts of static and dynamic libraries to help improve your app\u2019s productivity and runtime performance. Learn how you can enable faster development while shipping the smallest app. We\u2019ll show you how to adopt mergeable libraries in Xcode 15 and share best practices for working with your code.",
+      "topic": "Developer Tools",
+      "platforms": [
+        "iOS",
+        "macOS",
+        "tvOS",
+        "watchOS"
+      ],
+      "speakers": [
+        "Cyndy Mtenga Ishida"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10268/",
+      "has_transcript": true,
+      "transcript_file": "10268.en.txt"
+    },
+    {
+      "session_id": "10100",
+      "title": "Optimize app power and performance for spatial computing",
+      "description": "Learn how you can create powerful apps and games for visionOS by optimizing for performance and efficiency. We\u2019ll cover the unique power characteristics of the platform, explore building a performance plan, and share some of the tools and strategies to test and optimize your apps.",
+      "topic": "Developer Tools",
+      "platforms": [
+        "visionOS"
+      ],
+      "speakers": [
+        "Rikky Roy Koganti"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10100/",
+      "has_transcript": true,
+      "transcript_file": "10100.en.txt"
+    },
+    {
+      "session_id": "10224",
+      "title": "Simplify distribution in Xcode and Xcode Cloud",
+      "description": "Discover how to share your app using Xcode\u2019s streamlined distribution, which allows you to submit your app to TestFlight or the App Store with one click. We\u2019ll also show you how to use Xcode Cloud to simplify your distribution process by automatically including notes for testers in TestFlight, and use post-action to automatically notarize your Mac apps.",
+      "topic": "Developer Tools",
+      "platforms": [
+        "iOS",
+        "macOS",
+        "tvOS",
+        "watchOS"
+      ],
+      "speakers": [
+        "Chris D\u2019Angelo",
+        "Jason Wu"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10224/",
+      "has_transcript": true,
+      "transcript_file": "10224.en.txt"
+    },
+    {
+      "session_id": "10248",
+      "title": "Analyze hangs with Instruments",
+      "description": "User interface elements often mimic real-world interactions, including real-time responses. Apps with a noticeable delay in user interaction \u2014 a hang \u2014 can break that illusion and create frustration. We\u2019ll show you how to use Instruments to analyze, understand, and fix hangs in your apps on all Apple platforms. Discover how you can efficiently navigate an Instruments trace document, interpret trace data, and record additional profiling data to better understand your specific hang.\n\nIf you aren\u2019t familiar with using Instruments, we recommend first watching \"Getting Started with Instruments.\" And to learn about other tools that can help you discover hangs in your app, check out \"Track down hangs with Xcode and on-device detection.\"",
+      "topic": "Developer Tools",
+      "platforms": [
+        "iOS",
+        "macOS",
+        "tvOS",
+        "watchOS"
+      ],
+      "speakers": [
+        "Joachim Kurz"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10248/",
+      "has_transcript": true,
+      "transcript_file": "10248.en.txt"
+    },
+    {
+      "session_id": "10278",
+      "title": "Create practical workflows in Xcode Cloud",
+      "description": "Learn how Xcode Cloud can help teams of all shapes and sizes in their development process. We\u2019ll share different ways to configure actions to help you create simple yet powerful workflows, and show you how to extend Xcode Cloud when you integrate with additional tools.",
+      "topic": "Developer Tools",
+      "platforms": [
+        "iOS",
+        "macOS",
+        "tvOS",
+        "watchOS"
+      ],
+      "speakers": [
+        "Romain Pouclet"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10278/",
+      "has_transcript": true,
+      "transcript_file": "10278.en.txt"
+    },
+    {
+      "session_id": "10250",
+      "title": "Prototype with Xcode Playgrounds",
+      "description": "Speed up feature development by prototyping new code with Xcode Playgrounds, eliminating the need to keep rebuilding and relaunching your project to verify your changes. We\u2019ll show you how using a playground in your project or package can help you try out your code in various scenarios and take a close look at the returned values, including complex structures and user interface elements, so you can quickly iterate on a feature before integrating it into your project.",
+      "topic": "Developer Tools",
+      "platforms": [
+        "iOS",
+        "macOS"
+      ],
+      "speakers": [
+        "Dariusz Bukowski"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10250/",
+      "has_transcript": true,
+      "transcript_file": "10250.en.txt"
+    }
+  ],
+  "Design": [
+    {
+      "session_id": "10138",
+      "title": "Design and build apps for watchOS 10",
+      "description": "Dive into the details of watchOS design principles and learn how to apply them in your app using SwiftUI. We\u2019ll show you how to build an app for the redesigned user interface to surface timely information, communicate focused content at a glance, and make navigation consistent and predictable.",
+      "topic": "Design",
+      "platforms": [
+        "watchOS"
+      ],
+      "speakers": [
+        "Jennifer Patton",
+        "Matthew Koonce"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10138/",
+      "has_transcript": true,
+      "transcript_file": "10138.en.txt"
+    },
+    {
+      "session_id": "10073",
+      "title": "Design for spatial input",
+      "description": "Learn how to design great interactions for eyes and hands. We\u2019ll share the design principles for spatial input, explore best practices around input methods, and help you create spatial experiences that are comfortable, intuitive, and satisfying.",
+      "topic": "Design",
+      "platforms": [
+        "visionOS"
+      ],
+      "speakers": [
+        "Israel Pastrana Vicente",
+        "Eugene Krivoruchko"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10073/",
+      "has_transcript": true,
+      "transcript_file": "10073.en.txt"
+    },
+    {
+      "session_id": "10076",
+      "title": "Design for spatial user interfaces",
+      "description": "Learn how to design great interfaces for spatial computing apps. We\u2019ll share how your existing screen-based knowledge easily translates into creating great experiences for visionOS. Explore guidelines for UI components, materials, and typography and find out how you can design experiences that are familiar, legible, and easy to use.",
+      "topic": "Design",
+      "platforms": [
+        "visionOS"
+      ],
+      "speakers": [
+        "Lorena Pazmino",
+        "Miquel Estany Rodriguez"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10076/",
+      "has_transcript": true,
+      "transcript_file": "10076.en.txt"
+    },
+    {
+      "session_id": "10075",
+      "title": "Design spatial SharePlay experiences",
+      "description": "Explore the types of shared activities you can create in your visionOS apps and find out how your apps can use Spatial Persona templates to support meaningful interactions between people. Discover how to design your UI around a shared context, handle immersive content in a shared activity, and more.",
+      "topic": "Design",
+      "platforms": [
+        "visionOS"
+      ],
+      "speakers": [
+        "Carnaven Chiu",
+        "Jay Moon"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10075/",
+      "has_transcript": true,
+      "transcript_file": "10075.en.txt"
+    },
+    {
+      "session_id": "10026",
+      "title": "Meet watchOS 10",
+      "description": "Discover some of the most significant changes to Apple Watch since its introduction as we tour the redesigned user interface and the new Smart Stack. Learn how Apple designers approached the design of watchOS 10 as we explore layout, navigation, and visual style, and find out how you can apply them to create a great app for Apple Watch.",
+      "topic": "Design",
+      "platforms": [
+        "watchOS"
+      ],
+      "speakers": [
+        "Taylor Carrigan"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10026/",
+      "has_transcript": true,
+      "transcript_file": "10026.en.txt"
+    },
+    {
+      "session_id": "10072",
+      "title": "Principles of spatial design",
+      "description": "Discover the fundamentals of spatial design. Learn how to design with depth, scale, windows, and immersion, and apply best practices for creating comfortable, human-centered experiences that transform reality. Find out how you can use these spatial design principles to extend your existing app or bring a new idea to life.",
+      "topic": "Design",
+      "platforms": [
+        "visionOS"
+      ],
+      "speakers": [
+        "Nathan Gitter",
+        "Amy DeDonato"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10072/",
+      "has_transcript": true,
+      "transcript_file": "10072.en.txt"
+    },
+    {
+      "session_id": "10197",
+      "title": "What\u2019s new in SF Symbols 5",
+      "description": "Explore the latest updates to SF Symbols, Apple\u2019s library of iconography designed to integrate seamlessly with San Francisco, the system font for Apple platforms. Learn about symbol animations: a collection of expressive, configurable animations that can make your interface feel more lively and improve user feedback. See how to draw for animation when creating your own custom symbols, and discover the latest additions to the SF Symbols library. To get the most out of this session, we recommend first watching \u201cWhat\u2019s new in SF Symbols 4\u201d from WWDC22.",
+      "topic": "Design",
+      "platforms": [
+        "iOS",
+        "macOS",
+        "tvOS",
+        "watchOS"
+      ],
+      "speakers": [
+        "Thalia Echevarr\u00eda Fiol"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10197/",
+      "has_transcript": true,
+      "transcript_file": "10197.en.txt"
+    },
+    {
+      "session_id": "10257",
+      "title": "Create animated symbols",
+      "description": "Discover animation presets and learn how to use them with SF Symbols and custom symbols. We\u2019ll show you how to experiment with different options and configurations to find the perfect animation for your app. Learn how to update custom symbols for animation using annotation features, find out how to modify your custom symbols with symbol components, and explore the redesigned export process to help keep symbols looking great on all platforms.\n\nTo get the most out of this session, check out \u201cWhat\u2019s new in SF Symbols 5\u201d from WWDC23.",
+      "topic": "Design",
+      "platforms": [
+        "iOS",
+        "macOS",
+        "tvOS",
+        "watchOS"
+      ],
+      "speakers": [
+        "Paul Sim"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10257/",
+      "has_transcript": true,
+      "transcript_file": "10257.en.txt"
+    },
+    {
+      "session_id": "10309",
+      "title": "Design widgets for the Smart Stack on Apple Watch",
+      "description": "Bring your widgets to watchOS with the new Smart Stack. We\u2019ll show you how to use standard design layouts, color and iconography, and signal-based relevancy to ensure your app\u2019s widgets are glanceable, distinctive and smart.\n\nWhen you\u2019re ready to make your own, watch this code-along: \"Build widgets for the Smart Stack on watchOS\"",
+      "topic": "Design",
+      "platforms": [
+        "watchOS"
+      ],
+      "speakers": [
+        "Ed Chao"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10309/",
+      "has_transcript": true,
+      "transcript_file": "10309.en.txt"
+    },
+    {
+      "session_id": "10115",
+      "title": "Design with SwiftUI",
+      "description": "Discover how SwiftUI can help you quickly iterate and explore design ideas. Learn from Apple designers as they share how working with SwiftUI influenced the design of the Maps app in watchOS 10 and other elements of their work, and find out how you can incorporate these workflows in your own process.",
+      "topic": "Design",
+      "platforms": [
+        "iOS",
+        "macOS",
+        "tvOS",
+        "watchOS"
+      ],
+      "speakers": [
+        "Will Danner",
+        "Philip Davis"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10115/",
+      "has_transcript": true,
+      "transcript_file": "10115.en.txt"
+    },
+    {
+      "session_id": "10271",
+      "title": "Explore immersive sound design",
+      "description": "Discover how you can use sound to enhance the experience of your visionOS apps and games. Learn how Apple designers select sounds and build soundscapes to create textural, immersive experiences. We\u2019ll share how you can enrich basic interactions in your app with sound when you place audio cues spatially, vary repetitive sounds, and build moments of sonic delight into your app.",
+      "topic": "Design",
+      "platforms": [
+        "visionOS"
+      ],
+      "speakers": [
+        "Danielle Price"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10271/",
+      "has_transcript": true,
+      "transcript_file": "10271.en.txt"
+    },
+    {
+      "session_id": "10193",
+      "title": "Design Shortcuts for Spotlight",
+      "description": "Learn about the latest updates to the visual language of App Shortcuts and find out how to design your shortcut to appear as a top hit in Spotlight. We\u2019ll share how shortcuts can appear on iOS or iPadOS, and show you how to customize the visual appearance of a shortcut, personalize its order, select its correct behavior, and increase discoverability.",
+      "topic": "Design",
+      "platforms": [
+        "iOS"
+      ],
+      "speakers": [
+        "Cameron Burgess"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10193/",
+      "has_transcript": true,
+      "transcript_file": "10193.en.txt"
+    },
+    {
+      "session_id": "10194",
+      "title": "Design dynamic Live Activities",
+      "description": "Live Activities allow your app to display live information in key system locations on iOS and iPadOS. Learn the best way to create graphically rich layouts that update seamlessly on the Lock Screen, in StandBy, and in the Dynamic Island. Incorporate interactivity and animation to help people stay in touch with live updating events from your app as they navigate outside of your app.",
+      "topic": "Design",
+      "platforms": [
+        "iOS"
+      ],
+      "speakers": [
+        "Mac Tyler",
+        "Chan Karunamuni"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10194/",
+      "has_transcript": true,
+      "transcript_file": "10194.en.txt"
+    },
+    {
+      "session_id": "10078",
+      "title": "Design considerations for vision and motion",
+      "description": "Learn how to design engaging immersive experiences for visionOS that respect the limitations of human vision and motion perception. We\u2019ll show you how you can use depth cues, contrast, focus, and motion to keep people comfortable as they enjoy your apps and games.",
+      "topic": "Design",
+      "platforms": [
+        "visionOS"
+      ],
+      "speakers": [
+        "Manda Paul",
+        "Herman Damveld"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10078/",
+      "has_transcript": true,
+      "transcript_file": "10078.en.txt"
+    }
+  ],
+  "ML & Vision": [
+    {
+      "session_id": "10045",
+      "title": "Detect animal poses in Vision",
+      "description": "Go beyond detecting cats and dogs in images. We\u2019ll show you how to use Vision to detect the individual joints and poses of these animals as well \u2014 all in real time \u2014 and share how you can enable exciting features like animal tracking for a camera app, creative embellishment on an animal photo, and more. We\u2019ll also explore other important enhancements to Vision and share best practices.\n\nTo learn even more about what\u2019s new in the Vision framework, watch \"Explore 3D body pose and person segmentation in Vision\u201d and \"Lift subjects from images in your app.\u201d And to learn more about building live camera-tracking experiences, check out \"Integrate with motorized iPhone stands using DockKit\"",
+      "topic": "ML & Vision",
+      "platforms": [
+        "iOS",
+        "macOS",
+        "tvOS"
+      ],
+      "speakers": [
+        "Nadia Zouba"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10045/",
+      "has_transcript": true,
+      "transcript_file": "10045.en.txt"
+    },
+    {
+      "session_id": "10044",
+      "title": "Discover machine learning enhancements in Create ML",
+      "description": "Find out how Create ML can help you do even more with machine learning models. Learn about the latest updates to image understanding and text-based tasks with multilingual BERT embeddings. Discover how easy it is to train models that can understand the content of images using multi-label classification. We\u2019ll also share information about interactive model evaluation and the latest APIs for custom training data augmentations.\n\nTo learn more about the latest updates to machine learning, watch \u201cExplore Natural Language multilingual models\u201d and \u201cImprove Core ML integration with async prediction\" from WWDC23.",
+      "topic": "ML & Vision",
+      "platforms": [
+        "iOS",
+        "macOS"
+      ],
+      "speakers": [
+        "David Findlay"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10044/",
+      "has_transcript": true,
+      "transcript_file": "10044.en.txt"
+    },
+    {
+      "session_id": "10176",
+      "title": "Lift subjects from images in your app",
+      "description": "Discover how you can easily pull the subject of an image from its background in your apps. Learn how to lift the primary subject or to access the subject at a given point with VisionKit. We\u2019ll also share how you can lift subjects using Vision and combine that with lower-level frameworks like Core Image to create fun image effects and more complex compositing pipelines.\n\nFor more information about the latest updates to VisionKit, check out \u201cWhat\u2019s new in VisionKit.\" And for more information about person segmentation in images, watch \"Explore 3D body pose and person segmentation in Vision\" from WWDC23.",
+      "topic": "ML & Vision",
+      "platforms": [
+        "iOS",
+        "macOS"
+      ],
+      "speakers": [
+        "Lizzy Board",
+        "Saumitro Dasgupta"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10176/",
+      "has_transcript": true,
+      "transcript_file": "10176.en.txt"
+    },
+    {
+      "session_id": "111241",
+      "title": "Explore 3D body pose and person segmentation in Vision",
+      "description": "Discover how to build person-centric features with Vision. Learn how to detect human body poses and measure individual joint locations in 3D space. We\u2019ll also show you how to take advantage of person segmentation APIs to distinguish and segment up to four individuals in an image.\n\nTo learn more about the latest features in Vision, check out \u201cDetect animal poses in Vision\u201d from WWDC23.",
+      "topic": "ML & Vision",
+      "platforms": [
+        "iOS",
+        "macOS",
+        "tvOS"
+      ],
+      "speakers": [
+        "Andrew Rauh"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/111241/",
+      "has_transcript": true,
+      "transcript_file": "111241.en.txt"
+    },
+    {
+      "session_id": "10042",
+      "title": "Explore Natural Language multilingual models",
+      "description": "Learn how to create custom Natural Language models for text classification and word tagging using multilingual, transformer-based embeddings. We\u2019ll show you how to train with less data and support up to 27 different languages across three scripts. Find out how to use these embeddings to fine-tune complex models trained in PyTorch and TensorFlow.\n\nFor more on Natural Language, check out \"Make apps smarter with Natural Language\u201d from WWDC20.",
+      "topic": "ML & Vision",
+      "platforms": [
+        "iOS",
+        "macOS"
+      ],
+      "speakers": [
+        "Doug Davidson"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10042/",
+      "has_transcript": true,
+      "transcript_file": "10042.en.txt"
+    },
+    {
+      "session_id": "10049",
+      "title": "Improve Core ML integration with async prediction",
+      "description": "Learn how to speed up machine learning features in your app with the latest Core ML execution engine improvements and find out how aggressive asset caching can help with inference and faster model loads. We\u2019ll show you some of the latest options for async prediction and discuss considerations for balancing performance with overall memory usage to help you create a highly responsive app. Discover APIs to help you understand and maximize hardware utilization for your models.\n\nFor more on optimizing Core ML model usage, check out \"Use Core ML Tools for machine learning model compression\" from WWDC23.",
+      "topic": "ML & Vision",
+      "platforms": [
+        "iOS",
+        "macOS",
+        "tvOS",
+        "watchOS"
+      ],
+      "speakers": [
+        "Ben Levine"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10049/",
+      "has_transcript": true,
+      "transcript_file": "10049.en.txt"
+    },
+    {
+      "session_id": "10050",
+      "title": "Optimize machine learning for Metal apps",
+      "description": "Discover the latest enhancements to accelerated ML training in Metal. Find out about updates to PyTorch and TensorFlow, and learn about Metal acceleration for JAX. We\u2019ll show you how MPS Graph can support faster ML inference when you use both the GPU and Apple Neural Engine, and share how the same API can rapidly integrate your Core ML and ONNX models.\n\nFor more information on using Metal for machine learning, check out \u201cAccelerate machine learning with Metal\u201d from WWDC22.",
+      "topic": "ML & Vision",
+      "platforms": [
+        "iOS",
+        "macOS"
+      ],
+      "speakers": [
+        "Denis Vieriu"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10050/",
+      "has_transcript": true,
+      "transcript_file": "10050.en.txt"
+    },
+    {
+      "session_id": "10047",
+      "title": "Use Core ML Tools for machine learning model compression",
+      "description": "Discover how to reduce the footprint of machine learning models in your app with Core ML Tools. Learn how to use techniques like palettization, pruning, and quantization to dramatically reduce model size while still achieving great accuracy. Explore comparisons between compression during the training stages and on fully trained models, and learn how compressed models can run even faster when your app takes full advantage of the Apple Neural Engine.\n\nFor more on optimizing Core ML, check out \u201cImprove Core ML integration with async prediction\" from WWDC23.",
+      "topic": "ML & Vision",
+      "platforms": [
+        "iOS",
+        "macOS"
+      ],
+      "speakers": [
+        "Pulkit Agrawal",
+        "Srijan Mishra"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10047/",
+      "has_transcript": true,
+      "transcript_file": "10047.en.txt"
+    },
+    {
+      "session_id": "10101",
+      "title": "Customize on-device speech recognition",
+      "description": "Find out how you can improve on-device speech recognition in your app by customizing the underlying model with additional vocabulary. We\u2019ll share how speech recognition works on device and show you how to boost specific words and phrases for more predictable transcription. Learn how you can provide specific pronunciations for words and use template support to quickly generate a full set of custom phrases \u2014 all at runtime.\n\nFor more on the Speech framework, check out \u201cAdvances in Speech Recognition\u201d from WWDC19.",
+      "topic": "ML & Vision",
+      "platforms": [
+        "iOS",
+        "macOS"
+      ],
+      "speakers": [
+        "Ethan Peters"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10101/",
+      "has_transcript": true,
+      "transcript_file": "10101.en.txt"
+    }
+  ],
+  "SwiftUI & UI Frameworks": [
+    {
+      "session_id": "10149",
+      "title": "Discover Observation in SwiftUI",
+      "description": "Simplify your SwiftUI data models with Observation. We\u2019ll share how the Observable macro can help you simplify models and improve your app\u2019s performance. Get to know Observation, learn the fundamentals of the macro, and find out how to migrate from ObservableObject to Observable.",
+      "topic": "SwiftUI & UI Frameworks",
+      "platforms": [
+        "iOS",
+        "macOS",
+        "tvOS",
+        "watchOS"
+      ],
+      "speakers": [
+        "Philippe Hausler"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10149/",
+      "has_transcript": true,
+      "transcript_file": "10149.en.txt"
+    },
+    {
+      "session_id": "10094",
+      "title": "Enhance your iPad and iPhone apps for the Shared Space",
+      "description": "Get ready to enhance your iPad and iPhone apps for the Shared Space! We\u2019ll show you how to optimize your experience to make it feel great on visionOS and explore Designed for iPad app interaction, visual treatments, and media.",
+      "topic": "SwiftUI & UI Frameworks",
+      "platforms": [
+        "iOS",
+        "visionOS"
+      ],
+      "speakers": [
+        "John Marc Hickey"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10094/",
+      "has_transcript": true,
+      "transcript_file": "10094.en.txt"
+    },
+    {
+      "session_id": "10109",
+      "title": "Meet SwiftUI for spatial computing",
+      "description": "Take a tour of the solar system with us and explore SwiftUI for visionOS! Discover how you can build an entirely new universe of apps with windows, volumes, and spaces. We\u2019ll show you how to get started with SwiftUI on this platform as we build an astronomy app, add 3D content, and create a fully immersive experience to transport people to the stars.",
+      "topic": "SwiftUI & UI Frameworks",
+      "platforms": [
+        "visionOS"
+      ],
+      "speakers": [
+        "Andrew Richardson"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10109/",
+      "has_transcript": true,
+      "transcript_file": "10109.en.txt"
+    },
+    {
+      "session_id": "111215",
+      "title": "Meet UIKit for spatial computing",
+      "description": "Learn how to bring your UIKit app to visionOS. We\u2019ll show you how to build for a new destination, explore APIs and best practices for spatial computing, and take your content into the third dimension when you use SwiftUI with UIKit in visionOS.",
+      "topic": "SwiftUI & UI Frameworks",
+      "platforms": [
+        "iOS",
+        "visionOS"
+      ],
+      "speakers": [
+        "Grace Kendall",
+        "Andrew Finke"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/111215/",
+      "has_transcript": true,
+      "transcript_file": "111215.en.txt"
+    },
+    {
+      "session_id": "10090",
+      "title": "Run your iPad and iPhone apps in the Shared Space",
+      "description": "Discover how you can run your existing iPad and iPhone apps on Vision Pro. Learn how iPadOS and iOS apps operate on this platform, find out about the Designed for iPad experience, and explore the paths available for enhancing your app experience on visionOS.",
+      "topic": "SwiftUI & UI Frameworks",
+      "platforms": [
+        "iOS",
+        "visionOS"
+      ],
+      "speakers": [
+        "Kellie Banzon"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10090/",
+      "has_transcript": true,
+      "transcript_file": "10090.en.txt"
+    },
+    {
+      "session_id": "10057",
+      "title": "Unleash the UIKit trait system",
+      "description": "Discover powerful enhancements to the trait system in UIKit. Learn how you can define custom traits to add your own data to UITraitCollection, modify the data propagated to view controllers and views with trait override APIs, and adopt APIs to improve flexibility and performance. We\u2019ll also show you how to bridge UIKit traits with SwiftUI environment keys to seamlessly access data from both UIKit and SwiftUI components in your app.",
+      "topic": "SwiftUI & UI Frameworks",
+      "platforms": [
+        "iOS",
+        "macOS",
+        "watchOS"
+      ],
+      "speakers": [
+        "Tyler Fox"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10057/",
+      "has_transcript": true,
+      "transcript_file": "10057.en.txt"
+    },
+    {
+      "session_id": "10153",
+      "title": "Unlock the power of grammatical agreement",
+      "description": "Discover how you can use automatic grammatical agreement in your apps and games to create inclusive and more natural-sounding expressions. We\u2019ll share best practices for working with Foundation, showcase examples in multiple languages, and demonstrate how to use these APIs to enhance the user experience for your apps.\n\nFor an introduction to automatic grammatical agreement, watch \u201cWhat\u2019s new in Foundation\u201d from WWDC21.",
+      "topic": "SwiftUI & UI Frameworks",
+      "platforms": [
+        "iOS",
+        "macOS",
+        "tvOS",
+        "watchOS"
+      ],
+      "speakers": [
+        "Alla Shashkina"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10153/",
+      "has_transcript": true,
+      "transcript_file": "10153.en.txt"
+    },
+    {
+      "session_id": "10148",
+      "title": "What\u2019s new in SwiftUI",
+      "description": "Learn how you can use SwiftUI to build great apps for all Apple platforms. Explore the latest updates to SwiftUI and discover new scene types for visionOS. Simplify your data models with the latest data flow options and learn about the Inspector view. We\u2019ll also take you through enhanced animation APIs, powerful ScrollView improvements, and a host of refinements to help you make tidier tables, improve focus and keyboard input, and so much more.",
+      "topic": "SwiftUI & UI Frameworks",
+      "platforms": [
+        "iOS",
+        "macOS",
+        "tvOS",
+        "visionOS",
+        "watchOS"
+      ],
+      "speakers": [
+        "Curt Clifton",
+        "Jeff Robertson"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10148/",
+      "has_transcript": true,
+      "transcript_file": "10148.en.txt"
+    },
+    {
+      "session_id": "10055",
+      "title": "What\u2019s new in UIKit",
+      "description": "Explore enhancements and updates to UIKit and learn how to build better iOS, iPadOS, and Mac Catalyst apps. We\u2019ll show you the latest features and improvements in UIKit and share API refinements, performance improvements, and much more.",
+      "topic": "SwiftUI & UI Frameworks",
+      "platforms": [
+        "iOS",
+        "macOS",
+        "watchOS"
+      ],
+      "speakers": [
+        "Dima Gorbik"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10055/",
+      "has_transcript": true,
+      "transcript_file": "10055.en.txt"
+    },
+    {
+      "session_id": "10157",
+      "title": "Wind your way through advanced animations in SwiftUI",
+      "description": "Discover how you can take animation to the next level with the latest updates to SwiftUI. Join us as we wind our way through animation and build out multiple steps, use keyframes to add coordinated multi-track animated effects, and combine APIs in unique ways to make your app spring to life.",
+      "topic": "SwiftUI & UI Frameworks",
+      "platforms": [
+        "iOS",
+        "macOS",
+        "tvOS",
+        "watchOS"
+      ],
+      "speakers": [
+        "Tim Donnelly"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10157/",
+      "has_transcript": true,
+      "transcript_file": "10157.en.txt"
+    },
+    {
+      "session_id": "10159",
+      "title": "Beyond scroll views",
+      "description": "Find out how you can take your scroll views to the next level with the latest APIs in SwiftUI. We\u2019ll show you how to customize scroll views like never before. Explore the relationship between safe areas and a scroll view\u2019s margins, learn how to interact with the content offset of a scroll view, and discover how you can add a bit of flair to your content with scroll transitions.",
+      "topic": "SwiftUI & UI Frameworks",
+      "platforms": [
+        "iOS",
+        "macOS",
+        "tvOS",
+        "watchOS"
+      ],
+      "speakers": [
+        "Harry Lane"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10159/",
+      "has_transcript": true,
+      "transcript_file": "10159.en.txt"
+    },
+    {
+      "session_id": "10154",
+      "title": "Build an app with SwiftData",
+      "description": "Discover how SwiftData can help you persist data in your app. Code along with us as we bring SwiftData to a multi-platform SwiftUI app. Learn how to convert existing model classes into SwiftData models, set up the environment, reflect model layer changes in UI, and build document-based applications backed by SwiftData storage.\n\nTo get the most out of this session, you should be familiar SwiftData. For an introduction, check out \"Meet SwiftData\" from WWDC23.",
+      "topic": "SwiftUI & UI Frameworks",
+      "platforms": [
+        "iOS",
+        "macOS",
+        "tvOS",
+        "watchOS"
+      ],
+      "speakers": [
+        "Julia Vashchenko"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10154/",
+      "has_transcript": true,
+      "transcript_file": "10154.en.txt"
+    },
+    {
+      "session_id": "10029",
+      "title": "Build widgets for the Smart Stack on Apple Watch",
+      "description": "Follow along as we build a widget for the Smart Stack on watchOS 10 using the latest SwiftUI and WidgetKit APIs. Learn tips, techniques, and best practices for creating widgets that show relevant information on Apple Watch.",
+      "topic": "SwiftUI & UI Frameworks",
+      "platforms": [
+        "watchOS"
+      ],
+      "speakers": [
+        "Calvin Gaisford"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10029/",
+      "has_transcript": true,
+      "transcript_file": "10029.en.txt"
+    },
+    {
+      "session_id": "10156",
+      "title": "Explore SwiftUI animation",
+      "description": "Explore SwiftUI\u2019s powerful animation capabilities and find out how these features work together to produce impressive visual effects. Learn how SwiftUI refreshes the rendering of a view, determines what to animate, interpolates values over time, and propagates context for the current transaction.",
+      "topic": "SwiftUI & UI Frameworks",
+      "platforms": [
+        "iOS",
+        "macOS",
+        "tvOS",
+        "watchOS"
+      ],
+      "speakers": [
+        "Kyle Macomber"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10156/",
+      "has_transcript": true,
+      "transcript_file": "10156.en.txt"
+    },
+    {
+      "session_id": "10161",
+      "title": "Inspectors in SwiftUI: Discover the details",
+      "description": "Meet Inspectors \u2014 a structural API that can help bring a new level of detail to your apps. We\u2019ll take you through the fundamentals of the API and show you how to adopt it. Learn about the latest updates to sheet presentation customizations and find out how you can combine the two to create perfect presentation experiences.",
+      "topic": "SwiftUI & UI Frameworks",
+      "platforms": [
+        "iOS",
+        "macOS",
+        "tvOS",
+        "watchOS"
+      ],
+      "speakers": [
+        "Nick Teissler"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10161/",
+      "has_transcript": true,
+      "transcript_file": "10161.en.txt"
+    },
+    {
+      "session_id": "10113",
+      "title": "Take SwiftUI to the next dimension",
+      "description": "Get ready to add depth and dimension to your visionOS apps. Find out how to bring three-dimensional objects to your app using volumes, get to know the Model 3D API, and learn how to position and animate content. We\u2019ll also show you how to use UI attachments in RealityView and support gestures in your content.",
+      "topic": "SwiftUI & UI Frameworks",
+      "platforms": [
+        "visionOS"
+      ],
+      "speakers": [
+        "Mark Ebbole"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10113/",
+      "has_transcript": true,
+      "transcript_file": "10113.en.txt"
+    },
+    {
+      "session_id": "10031",
+      "title": "Update your app for watchOS 10",
+      "description": "Join us as we update an Apple Watch app to take advantage of the latest features in watchOS 10. In this code-along, we\u2019ll show you how to use the latest SwiftUI APIs to maximize glanceability and reorient app navigation around the Digital Crown.",
+      "topic": "SwiftUI & UI Frameworks",
+      "platforms": [
+        "watchOS"
+      ],
+      "speakers": [
+        "Nina Paripovic"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10031/",
+      "has_transcript": true,
+      "transcript_file": "10031.en.txt"
+    },
+    {
+      "session_id": "10054",
+      "title": "What\u2019s new in AppKit",
+      "description": "Discover the latest advances in Mac app development. We\u2019ll share improvements to controls and menus and explore the tools that can help you break free from your (view) bounds. Learn how to add motion to your user interface, take advantage of improvements to text input, and integrate your existing code with Swift and SwiftUI.",
+      "topic": "SwiftUI & UI Frameworks",
+      "platforms": [
+        "iOS",
+        "macOS",
+        "watchOS"
+      ],
+      "speakers": [
+        "Aasim Kandrikar",
+        "Raleigh Ledet"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10054/",
+      "has_transcript": true,
+      "transcript_file": "10054.en.txt"
+    },
+    {
+      "session_id": "10258",
+      "title": "Animate symbols in your app",
+      "description": "Bring delight to your app with animated symbols. Explore the new Symbols framework, which features a unified API to create and configure symbol effects. Learn how SwiftUI, AppKit, and UIKit make it easy to animate symbols in user interfaces. Discover tips and tricks to seamlessly integrate the new animations alongside other app content. To get the most from this session, we recommend first watching \u201cWhat\u2019s new in SF Symbols 5.\u201d",
+      "topic": "SwiftUI & UI Frameworks",
+      "platforms": [
+        "iOS",
+        "macOS",
+        "tvOS",
+        "watchOS"
+      ],
+      "speakers": [
+        "Anant Jain"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10258/",
+      "has_transcript": true,
+      "transcript_file": "10258.en.txt"
+    },
+    {
+      "session_id": "10056",
+      "title": "Build better document-based apps",
+      "description": "Discover how you can use the latest features in iPadOS to improve your document-based apps. We\u2019ll show you how to take advantage of UIDocument as well as existing desktop-class iPad and document-based APIs to add new features in your app. Find out how to convert data models to UIDocument, present documents with UIDocumentViewController, learn how to migrate your apps to the latest APIs, and explore best practices.",
+      "topic": "SwiftUI & UI Frameworks",
+      "platforms": [
+        "iOS",
+        "macOS",
+        "watchOS"
+      ],
+      "speakers": [
+        "Michael Ochs"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10056/",
+      "has_transcript": true,
+      "transcript_file": "10056.en.txt"
+    },
+    {
+      "session_id": "10160",
+      "title": "Demystify SwiftUI performance",
+      "description": "Learn how you can build a mental model for performance in SwiftUI and write faster, more efficient code. We\u2019ll share some of the common causes behind performance issues and help you triage hangs and hitches in SwiftUI to create more responsive views in your app.",
+      "topic": "SwiftUI & UI Frameworks",
+      "platforms": [
+        "iOS",
+        "macOS",
+        "tvOS",
+        "watchOS"
+      ],
+      "speakers": [
+        "Raj Ramamurthy"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10160/",
+      "has_transcript": true,
+      "transcript_file": "10160.en.txt"
+    },
+    {
+      "session_id": "10037",
+      "title": "Explore pie charts and interactivity in Swift Charts",
+      "description": "Swift Charts has come full circle: Get ready to bake up pie and donut charts in your app with the latest improvements to the framework. Learn how to make your charts scrollable, explore the chart selection API for revealing additional details in your data, and find out how enabling additional interactivity can make your charts even more delightful.",
+      "topic": "SwiftUI & UI Frameworks",
+      "platforms": [
+        "iOS",
+        "macOS",
+        "tvOS",
+        "watchOS"
+      ],
+      "speakers": [
+        "Richard Wei"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10037/",
+      "has_transcript": true,
+      "transcript_file": "10037.en.txt"
+    },
+    {
+      "session_id": "10111",
+      "title": "Go beyond the window with SwiftUI",
+      "description": "Get ready to launch into space \u2014 a new SwiftUI scene type that can help you make great immersive experiences for visionOS. We\u2019ll show you how to create a new scene with ImmersiveSpace, place 3D content, and integrate RealityView. Explore how you can use the immersionStyle scene modifier to increase the level of immersion in an app and learn best practices for managing spaces, adding virtual hands with ARKit, adding support for SharePlay, and building an \"out of this world\" experience!",
+      "topic": "SwiftUI & UI Frameworks",
+      "platforms": [
+        "visionOS"
+      ],
+      "speakers": [
+        "Raffael Hannemann",
+        "Mark Ma"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10111/",
+      "has_transcript": true,
+      "transcript_file": "10111.en.txt"
+    },
+    {
+      "session_id": "10058",
+      "title": "What\u2019s new with text and text interactions",
+      "description": "Text is an absolutely critical component of every app. Discover the latest features and enhancements for creating rich text experiences on Apple platforms. We\u2019ll show you how to take advantage of common text elements and create entirely custom interactions for your app. Learn about updates to dictation, text loupe, and text selection, and explore improvements to text clipping, line wrapping, and hyphenation.",
+      "topic": "SwiftUI & UI Frameworks",
+      "platforms": [
+        "iOS",
+        "macOS"
+      ],
+      "speakers": [
+        "James Magahern"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10058/",
+      "has_transcript": true,
+      "transcript_file": "10058.en.txt"
+    },
+    {
+      "session_id": "10158",
+      "title": "Animate with springs",
+      "description": "Discover how you can bring life to your app with animation! We\u2019ll show you how to create amazing animations when you take advantage of springs and help you learn how to use them in your app.",
+      "topic": "SwiftUI & UI Frameworks",
+      "platforms": [
+        "iOS",
+        "macOS",
+        "tvOS",
+        "watchOS"
+      ],
+      "speakers": [
+        "Jacob Xiao"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10158/",
+      "has_transcript": true,
+      "transcript_file": "10158.en.txt"
+    },
+    {
+      "session_id": "10110",
+      "title": "Elevate your windowed app for spatial computing",
+      "description": "Discover how you can bring your multiplatform SwiftUI app to visionOS and the Shared Space. We\u2019ll show you how to add the visionOS destination to an existing app and view your app in the Simulator. Explore how your SwiftUI code automatically adapts to support the unique context and presentation of the visionOS platform. Learn how you can update custom views, improve your app\u2019s UI, and add features and controls specific to this platform.",
+      "topic": "SwiftUI & UI Frameworks",
+      "platforms": [
+        "visionOS"
+      ],
+      "speakers": [
+        "Harlan Haskins"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10110/",
+      "has_transcript": true,
+      "transcript_file": "10110.en.txt"
+    },
+    {
+      "session_id": "10162",
+      "title": "The SwiftUI cookbook for focus",
+      "description": "The SwiftUI team is back in the coding \"kitchen\" with powerful tools to shape your app\u2019s focus experience. Join us and learn about the staple ingredients that support focus-driven interactions in your app. Discover focus interactions for custom views, find out about key-press handlers for keyboard input, and learn how to support movement and hierarchy with focus sections. We\u2019ll also go through some tasty recipes for common focus patterns in your app.",
+      "topic": "SwiftUI & UI Frameworks",
+      "platforms": [
+        "iOS",
+        "macOS",
+        "tvOS",
+        "watchOS"
+      ],
+      "speakers": [
+        "Cody Brimhall"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10162/",
+      "has_transcript": true,
+      "transcript_file": "10162.en.txt"
+    }
+  ],
+  "Swift": [
+    {
+      "session_id": "10167",
+      "title": "Expand on Swift macros",
+      "description": "Discover how Swift macros can help you reduce boilerplate in your codebase and adopt complex features more easily. Learn how macros can analyze code, emit rich compiler errors to guide developers towards correct usage, and generate new code that is automatically incorporated back into your project. We\u2019ll also take you through important concepts like macro roles, compiler plugins, and syntax trees.",
+      "topic": "Swift",
+      "platforms": [
+        "iOS",
+        "macOS",
+        "tvOS",
+        "visionOS",
+        "watchOS"
+      ],
+      "speakers": [
+        "Becca Royal-Gordon"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10167/",
+      "has_transcript": true,
+      "transcript_file": "10167.en.txt"
+    },
+    {
+      "session_id": "10168",
+      "title": "Generalize APIs with parameter packs",
+      "description": "Swift parameter packs are a powerful tool to expand what is possible in your generic code while also enabling you to simplify common generic patterns. We\u2019ll show you how to abstract over types as well as the number of arguments in generic code and simplify common generic patterns to avoid overloads.\n\nTo get the most out of this session, we recommend first checking out \u201cEmbrace Swift generics\" from WWDC22.",
+      "topic": "Swift",
+      "platforms": [
+        "iOS",
+        "macOS",
+        "tvOS",
+        "watchOS"
+      ],
+      "speakers": [
+        "Sophia Poirier"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10168/",
+      "has_transcript": true,
+      "transcript_file": "10168.en.txt"
+    },
+    {
+      "session_id": "10187",
+      "title": "Meet SwiftData",
+      "description": "SwiftData is a powerful and expressive persistence framework built for Swift. We\u2019ll show you how you can model your data directly from Swift code, use SwiftData to work with your models, and integrate with SwiftUI.",
+      "topic": "Swift",
+      "platforms": [
+        "iOS",
+        "macOS",
+        "tvOS",
+        "watchOS"
+      ],
+      "speakers": [
+        "Ben Trumbull"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10187/",
+      "has_transcript": true,
+      "transcript_file": "10187.en.txt"
+    },
+    {
+      "session_id": "10164",
+      "title": "What\u2019s new in Swift",
+      "description": "Join us for an update on Swift. We\u2019ll show you how APIs are becoming more extensible and expressive with features like parameter packs and macros. We\u2019ll also take you through improvements to interoperability and share how we\u2019re expanding Swift\u2019s performance and safety benefits everywhere from Foundation to large-scale distributed programs on the server.",
+      "topic": "Swift",
+      "platforms": [
+        "iOS",
+        "macOS",
+        "tvOS",
+        "watchOS"
+      ],
+      "speakers": [
+        "Ben Cohen",
+        "Doug Gregor"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10164/",
+      "has_transcript": true,
+      "transcript_file": "10164.en.txt"
+    },
+    {
+      "session_id": "10166",
+      "title": "Write Swift macros",
+      "description": "Discover how you can use Swift macros to make your codebase more expressive and easier to read. Code along as we explore how macros can help you avoid writing repetitive code and find out how to use them in your app. We\u2019ll share the building blocks of a macro, show you how to test it, and take you through how you can emit compilation errors from macros.",
+      "topic": "Swift",
+      "platforms": [
+        "iOS",
+        "macOS",
+        "tvOS",
+        "watchOS"
+      ],
+      "speakers": [
+        "Alex Hoppen"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10166/",
+      "has_transcript": true,
+      "transcript_file": "10166.en.txt"
+    },
+    {
+      "session_id": "10172",
+      "title": "Mix Swift and C++",
+      "description": "Learn how you can use Swift in your C++ and Objective-C++ projects to make your code safer, faster, and easier to develop. We\u2019ll show you how to use C++ and Swift APIs to incrementally incorporate Swift into your app.",
+      "topic": "Swift",
+      "platforms": [
+        "iOS",
+        "macOS",
+        "tvOS",
+        "watchOS"
+      ],
+      "speakers": [
+        "Zoe Carver"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10172/",
+      "has_transcript": true,
+      "transcript_file": "10172.en.txt"
+    },
+    {
+      "session_id": "10195",
+      "title": "Model your schema with SwiftData",
+      "description": "Learn how to use schema macros and migration plans with SwiftData to build more complex features for your app. We\u2019ll show you how to fine-tune your persistence with @Attribute and @Relationship options. Learn how to exclude properties from your data model with @Transient and migrate from one version of your schema to the next with ease.\n\nTo get the most out of this session, we recommend first watching \"Meet SwiftData\" and \"Build an app with SwiftData\" from WWDC23.",
+      "topic": "Swift",
+      "platforms": [
+        "iOS",
+        "macOS",
+        "tvOS",
+        "watchOS"
+      ],
+      "speakers": [
+        "Rishi Verma"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10195/",
+      "has_transcript": true,
+      "transcript_file": "10195.en.txt"
+    },
+    {
+      "session_id": "10170",
+      "title": "Beyond the basics of structured concurrency",
+      "description": "It\u2019s all about the task tree: Find out how structured concurrency can help your apps manage automatic task cancellation, task priority propagation, and useful task-local value patterns. Learn how to manage resources in your app with useful patterns and the latest task group APIs. We\u2019ll show you how you can leverage the power of the task tree and task-local values to gain insight into distributed systems.\n\nBefore watching, review the basics of Swift Concurrency and structured concurrency by checking out \u201cSwift concurrency: Behind the scenes\u201d and \u201cExplore structured concurrency in Swift\u201d from WWDC21.",
+      "topic": "Swift",
+      "platforms": [
+        "iOS",
+        "macOS",
+        "tvOS",
+        "watchOS"
+      ],
+      "speakers": [
+        "Evan Wilde"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10170/",
+      "has_transcript": true,
+      "transcript_file": "10170.en.txt"
+    },
+    {
+      "session_id": "10189",
+      "title": "Migrate to SwiftData",
+      "description": "Discover how you can start using SwiftData in your apps. We\u2019ll show you how to use Xcode to generate model classes from your existing Core Data object models, use SwiftData alongside your previous implementation, or even completely replace your existing solution.\n\nBefore watching this session, make sure you check out \"Meet SwiftData.\"",
+      "topic": "Swift",
+      "platforms": [
+        "iOS",
+        "macOS"
+      ],
+      "speakers": [
+        "Luvena Huo"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10189/",
+      "has_transcript": true,
+      "transcript_file": "10189.en.txt"
+    },
+    {
+      "session_id": "10196",
+      "title": "Dive deeper into SwiftData",
+      "description": "Learn how you can harness the power of SwiftData in your app. Find out how ModelContext and ModelContainer work together to persist your app\u2019s data. We\u2019ll show you how to track and make your changes manually and use SwiftData at scale with FetchDescriptor, SortDescriptor, and enumerate.\n\nTo get the most out of this session, we recommend first watching \"Meet SwiftData\" and \"Model your schema with SwiftData\" from WWDC23.",
+      "topic": "Swift",
+      "platforms": [
+        "iOS",
+        "macOS",
+        "tvOS",
+        "watchOS"
+      ],
+      "speakers": [
+        "Nick Gillett"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10196/",
+      "has_transcript": true,
+      "transcript_file": "10196.en.txt"
+    },
+    {
+      "session_id": "10171",
+      "title": "Meet Swift OpenAPI Generator",
+      "description": "Discover how Swift OpenAPI Generator can help you work with HTTP server APIs whether you\u2019re extending an iOS app or writing a server in Swift. We\u2019ll show you how this package plugin can streamline your workflow and simplify your codebase by generating code from an OpenAPI document.",
+      "topic": "Swift",
+      "platforms": [
+        "iOS",
+        "macOS",
+        "tvOS",
+        "watchOS"
+      ],
+      "speakers": [
+        "Si Beaumont"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10171/",
+      "has_transcript": true,
+      "transcript_file": "10171.en.txt"
+    }
+  ],
+  "App Store Distribution & Marketing": [
+    {
+      "session_id": "10012",
+      "title": "Explore App Store Connect for spatial computing",
+      "description": "App Store Connect provides the tools you need to test, submit, and manage your visionOS apps on the App Store. Explore basics and best practices for deploying your first spatial computing app, adding support for visionOS to an existing app, and managing compatibility. We\u2019ll also show you how TestFlight for visionOS can help you test your apps and collect valuable feedback as you iterate.",
+      "topic": "App Store Distribution & Marketing",
+      "platforms": [
+        "iOS",
+        "visionOS"
+      ],
+      "speakers": [
+        "Justin Thomas",
+        "Maciej Kujalowicz"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10012/",
+      "has_transcript": true,
+      "transcript_file": "10012.en.txt"
+    },
+    {
+      "session_id": "10117",
+      "title": "What\u2019s new in App Store Connect",
+      "description": "Discover the latest updates to App Store Connect, the suite of tools used to manage and submit apps to the App Store. Explore how you can use the latest features to test, price, promote, and automate the management of your app more easily. We\u2019ll also share enhancements to tools like TestFlight and the App Store Connect API.",
+      "topic": "App Store Distribution & Marketing",
+      "platforms": [
+        "iOS",
+        "macOS",
+        "tvOS",
+        "visionOS",
+        "watchOS"
+      ],
+      "speakers": [
+        "Laurel McAndrews"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10117/",
+      "has_transcript": true,
+      "transcript_file": "10117.en.txt"
+    },
+    {
+      "session_id": "10014",
+      "title": "What\u2019s new in App Store pricing",
+      "description": "Discover the latest updates to App Store pricing capabilities and tools. Learn how you can manage pricing for your apps and in-app purchases within App Store Connect and the App Store Connect API, how to set pricing by region, and more.",
+      "topic": "App Store Distribution & Marketing",
+      "platforms": [
+        "iOS",
+        "macOS",
+        "tvOS",
+        "visionOS",
+        "watchOS"
+      ],
+      "speakers": [
+        "Chong Chung",
+        "Claire Liu"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10014/",
+      "has_transcript": true,
+      "transcript_file": "10014.en.txt"
+    },
+    {
+      "session_id": "10015",
+      "title": "What\u2019s new in App Store pre-orders",
+      "description": "Discover the latest enhancements to App Store pre-orders, including regional publishing. We\u2019ll show you how to use App Store Connect to set up pre-orders to simultaneously soft launch your app and offer it in different regions.",
+      "topic": "App Store Distribution & Marketing",
+      "platforms": [
+        "iOS",
+        "macOS",
+        "tvOS",
+        "visionOS",
+        "watchOS"
+      ],
+      "speakers": [
+        "Will Lo"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10015/",
+      "has_transcript": true,
+      "transcript_file": "10015.en.txt"
+    }
+  ],
+  "Maps & Location": [
+    {
+      "session_id": "10043",
+      "title": "Meet MapKit for SwiftUI",
+      "description": "Discover how expanded SwiftUI support for MapKit has made it easier than ever for you to integrate Maps into your app. We\u2019ll show you how to use SwiftUI to add annotations and overlays to a map, control the camera, and more.",
+      "topic": "Maps & Location",
+      "platforms": [
+        "iOS",
+        "macOS",
+        "tvOS",
+        "visionOS",
+        "watchOS"
+      ],
+      "speakers": [
+        "Jeff Meininger"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10043/",
+      "has_transcript": true,
+      "transcript_file": "10043.en.txt"
+    },
+    {
+      "session_id": "10146",
+      "title": "Meet Core Location for spatial computing",
+      "description": "Discover how Core Location helps your app find its place in the world \u2014 literally. We\u2019ll share how you can build a spatial computing app that uses a person\u2019s location while respecting their privacy. You\u2019ll also learn how your app can request location access and how Core Location adapts requests from compatible iPad and iPhone apps.",
+      "topic": "Maps & Location",
+      "platforms": [
+        "visionOS"
+      ],
+      "speakers": [
+        "Ilya Veygman"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10146/",
+      "has_transcript": true,
+      "transcript_file": "10146.en.txt"
+    },
+    {
+      "session_id": "10147",
+      "title": "Meet Core Location Monitor",
+      "description": "Discover how Core Location Monitor can help you better understand location and beacon events in your app. Learn how to use Core Location Conditions to describe and track the state of events in your app, and find out how you can better respond to transitions in your apps through Swift semantics and improved reliability.",
+      "topic": "Maps & Location",
+      "platforms": [
+        "iOS",
+        "macOS",
+        "tvOS",
+        "watchOS"
+      ],
+      "speakers": [
+        "Nivash Karukankaatur Murugasamy"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10147/",
+      "has_transcript": true,
+      "transcript_file": "10147.en.txt"
+    },
+    {
+      "session_id": "10180",
+      "title": "Discover streamlined location updates",
+      "description": "Move into the future with Core Location! Meet the CLLocationUpdate class, designed for modern Swift concurrency, and learn how it simplifies getting location updates. We\u2019ll show you how this class works with your apps when they run in the foreground or background and share some best practices.",
+      "topic": "Maps & Location",
+      "platforms": [
+        "iOS",
+        "macOS",
+        "tvOS",
+        "visionOS",
+        "watchOS"
+      ],
+      "speakers": [
+        "Siraj Abidi"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10180/",
+      "has_transcript": true,
+      "transcript_file": "10180.en.txt"
+    }
+  ],
+  "Safari & Web": [
+    {
+      "session_id": "10279",
+      "title": "Meet Safari for spatial computing",
+      "description": "Discover the web for visionOS and learn how people can experience your web content in a whole new way. Explore the unique input model powering this platform and learn how you can optimize your website for spatial computing. We\u2019ll also share how emerging standards are helping shape 3D experiences for the web.",
+      "topic": "Safari & Web",
+      "platforms": [
+        "iOS",
+        "macOS",
+        "visionOS"
+      ],
+      "speakers": [
+        "Etienne Segonzac",
+        "Tim Horton"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10279/",
+      "has_transcript": true,
+      "transcript_file": "10279.en.txt"
+    },
+    {
+      "session_id": "10120",
+      "title": "What\u2019s new in web apps",
+      "description": "Discover web apps for Mac \u2014 a powerful way to experience your website from the Dock. Learn how you can customize your web app to give people the best experience when they add your site. We\u2019ll also share how to take advantage of push notifications and badging for web apps for Mac and Home Screen web apps for iOS and iPadOS.",
+      "topic": "Safari & Web",
+      "platforms": [
+        "iOS",
+        "macOS"
+      ],
+      "speakers": [
+        "Rachel Ginsberg"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10120/",
+      "has_transcript": true,
+      "transcript_file": "10120.en.txt"
+    },
+    {
+      "session_id": "10262",
+      "title": "Rediscover Safari developer features",
+      "description": "Get ready to explore Safari\u2019s rich set of tools for web developers and designers. Learn how you can inspect web content, find out about Responsive Design Mode and WebDriver, and get started with simulators and devices. We\u2019ll also show you how to pair with Vision Pro, make content inspectable in your apps, and use Open with Simulator in Responsive Design Mode to help you test your websites on any device.",
+      "topic": "Safari & Web",
+      "platforms": [
+        "iOS",
+        "macOS",
+        "tvOS",
+        "visionOS"
+      ],
+      "speakers": [
+        "Patrick Angle"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10262/",
+      "has_transcript": true,
+      "transcript_file": "10262.en.txt"
+    },
+    {
+      "session_id": "10121",
+      "title": "What\u2019s new in CSS",
+      "description": "Explore the latest advancements in CSS. Learn techniques and best practices for working with wide-gamut color, creating gorgeous typography, and writing simple and robust code. We\u2019ll also peer into the future and preview upcoming layout and typography features.",
+      "topic": "Safari & Web",
+      "platforms": [
+        "iOS",
+        "macOS",
+        "visionOS"
+      ],
+      "speakers": [
+        "Jen Simmons"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10121/",
+      "has_transcript": true,
+      "transcript_file": "10121.en.txt"
+    },
+    {
+      "session_id": "10122",
+      "title": "Explore media formats for the web",
+      "description": "Learn about the latest image formats and video technologies supported in Safari 17. Discover how you can use JPEG XL, AVIF, and HEIC in your websites and experiences and learn how they differ from previous formats. We\u2019ll also show you how the Managed Media Source API draws less power than Media Source Extensions (MSE) and explore how you can use it to more efficiently manage streaming video over 5G.",
+      "topic": "Safari & Web",
+      "platforms": [
+        "iOS",
+        "macOS",
+        "visionOS"
+      ],
+      "speakers": [
+        "Jean-Yves Avenard"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10122/",
+      "has_transcript": true,
+      "transcript_file": "10122.en.txt"
+    },
+    {
+      "session_id": "10119",
+      "title": "What\u2019s new in Safari extensions",
+      "description": "Learn about the latest improvements to Safari extensions. We\u2019ll take you through new APIs, explore per-site permissions for Safari app extensions, and share how you can make sure your extensions work great in both Private Browsing and Profiles.",
+      "topic": "Safari & Web",
+      "platforms": [
+        "iOS",
+        "macOS",
+        "visionOS"
+      ],
+      "speakers": [
+        "David Johnson"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10119/",
+      "has_transcript": true,
+      "transcript_file": "10119.en.txt"
+    },
+    {
+      "session_id": "10118",
+      "title": "What\u2019s new in Web Inspector",
+      "description": "Web Inspector provides a powerful set of tools to debug and inspect web pages, web extensions, and WKWebViews on macOS, iOS and iPadOS. We\u2019ll share the latest updates, including improved typography inspection, editing tools for variable fonts, controls to emulate people\u2019s preferences, element badges in the DOM node tree, and Symbolic breakpoints.",
+      "topic": "Safari & Web",
+      "platforms": [
+        "iOS",
+        "macOS"
+      ],
+      "speakers": [
+        "R\u0103zvan C\u0103liman"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10118/",
+      "has_transcript": true,
+      "transcript_file": "10118.en.txt"
+    }
+  ],
+  "System Services": [
+    {
+      "session_id": "10002",
+      "title": "Ready, set, relay: Protect app traffic with network relays",
+      "description": "Learn how relays can make your app\u2019s network traffic more private and secure without the overhead of a VPN. We\u2019ll show you how to integrate relay servers in your own app and explore how enterprise networks can use relays to securely access internal resources.",
+      "topic": "System Services",
+      "platforms": [
+        "iOS",
+        "macOS",
+        "tvOS"
+      ],
+      "speakers": [
+        "Keith Holleman"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10002/",
+      "has_transcript": true,
+      "transcript_file": "10002.en.txt"
+    },
+    {
+      "session_id": "10188",
+      "title": "Sync to iCloud with CKSyncEngine",
+      "description": "Discover how CKSyncEngine can help you sync people\u2019s CloudKit data to iCloud. Learn how you can reduce the amount of code in your app when you let the system handle scheduling for your sync operations. We\u2019ll share how you can automatically benefit from enhanced performance as CloudKit evolves, explore testing for your sync implementation, and more.\n\nTo get the most out of this session, you should be familiar with CloudKit and CKRecord types.",
+      "topic": "System Services",
+      "platforms": [
+        "iOS",
+        "macOS",
+        "tvOS",
+        "watchOS"
+      ],
+      "speakers": [
+        "Tim Mahoney",
+        "Aamer Husain"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10188/",
+      "has_transcript": true,
+      "transcript_file": "10188.en.txt"
+    },
+    {
+      "session_id": "10007",
+      "title": "Create seamless experiences with Virtualization",
+      "description": "Discover the latest updates to the Virtualization framework. We\u2019ll show you how to configure a virtual machine (VM) to automatically resize its display, take you through saving and restoring a running VM, and explore storage and performance options for Virtualization apps running on the desktop or in the data center.\n\nTo learn more about the Virtualization framework, check out \u201cCreate macOS or Linux virtual machines\u201d from WWDC22.",
+      "topic": "System Services",
+      "platforms": [
+        "macOS"
+      ],
+      "speakers": [
+        "Scott Mionis"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10007/",
+      "has_transcript": true,
+      "transcript_file": "10007.en.txt"
+    },
+    {
+      "session_id": "10052",
+      "title": "Discover Calendar and EventKit",
+      "description": "Discover how you can bring Calendar into your app and help people better manage their time. Find out how to create new events from your app, fetch events, and implement a virtual conference extension. We\u2019ll also take you through some of the changes to calendar access levels that help your app stay connected without compromising the privacy of someone\u2019s calendar data.",
+      "topic": "System Services",
+      "platforms": [
+        "iOS",
+        "macOS",
+        "watchOS"
+      ],
+      "speakers": [
+        "Adam Kemp"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10052/",
+      "has_transcript": true,
+      "transcript_file": "10052.en.txt"
+    },
+    {
+      "session_id": "10025",
+      "title": "Meet Push Notifications Console",
+      "description": "The Push Notifications Console is the best way to quickly test user notifications in your app. Learn how you can iterate on new ideas quickly by sending notifications directly from the console and analyze delivery logs to learn more about your pushes. We\u2019ll also show you how to generate and validate tokens to successfully authenticate with Apple Push Notification service (APNs).\n\nTo get the most out of this session, you should have a basic understanding of Apple Push Notification service (APNs) and user notifications.",
+      "topic": "System Services",
+      "platforms": [
+        "iOS",
+        "macOS",
+        "tvOS",
+        "watchOS"
+      ],
+      "speakers": [
+        "Artem Sokolov"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10025/",
+      "has_transcript": true,
+      "transcript_file": "10025.en.txt"
+    },
+    {
+      "session_id": "10150",
+      "title": "Optimize CarPlay for vehicle systems",
+      "description": "Discover how you can integrate CarPlay into modern vehicle systems. We\u2019ll show you how to adjust CarPlay for any high-resolution display \u2014 regardless of configuration or size. Learn how you can use CarPlay-supplied metadata and video streams to show information on additional displays, and find out how advances in wireless connectivity, audio, and video encoding can help prepare your vehicle system for the next generation of CarPlay.",
+      "topic": "System Services",
+      "platforms": [
+        "iOS"
+      ],
+      "speakers": [
+        "Kartik Vats"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10150/",
+      "has_transcript": true,
+      "transcript_file": "10150.en.txt"
+    },
+    {
+      "session_id": "10006",
+      "title": "Build robust and resumable file transfers",
+      "description": "Find out how URLSession can help your apps transfer large files and recover from network interruptions. Learn how to pause and resume HTTP file transfers and support resumable uploads, and explore best practices for using URLSession to transfer files even when your app is suspended in the background.",
+      "topic": "System Services",
+      "platforms": [
+        "iOS",
+        "macOS",
+        "tvOS",
+        "watchOS"
+      ],
+      "speakers": [
+        "Jonathan Flat"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10006/",
+      "has_transcript": true,
+      "transcript_file": "10006.en.txt"
+    },
+    {
+      "session_id": "10004",
+      "title": "Reduce network delays with L4S",
+      "description": "Streaming video, multiplayer games, and other real-time experiences depend on responsive, low latency networking. Learn how Low Latency, Low Loss, Scalable throughput (L4S) can reduce network delays and improve the overall experience in your app. We\u2019ll show you how to set up and test your app, network, and server with L4S.",
+      "topic": "System Services",
+      "platforms": [
+        "iOS",
+        "macOS",
+        "tvOS",
+        "watchOS"
+      ],
+      "speakers": [
+        "Shawn Zhang"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10004/",
+      "has_transcript": true,
+      "transcript_file": "10004.en.txt"
+    },
+    {
+      "session_id": "10186",
+      "title": "What\u2019s new in Core Data",
+      "description": "Elevate your app\u2019s data persistence with improvements in Core Data. Learn how you can use composite attributes to create more intuitive data models. We\u2019ll also show you how to migrate your schema through disruptive changes, when to defer intense migrations, and how to avoid overhead on a person\u2019s device.\n\nTo get the most out of this session, you should be familiar with handling different data types in Core Data as well as the basics of lightweight migration.",
+      "topic": "System Services",
+      "platforms": [
+        "iOS",
+        "macOS",
+        "tvOS",
+        "watchOS"
+      ],
+      "speakers": [
+        "David Stites"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10186/",
+      "has_transcript": true,
+      "transcript_file": "10186.en.txt"
+    }
+  ],
+  "Photos & Camera": [
+    {
+      "session_id": "10137",
+      "title": "Support Cinematic mode videos in your app",
+      "description": "Discover how the Cinematic Camera API helps your app work with Cinematic mode videos captured in the Camera app. We\u2019ll share the fundamentals \u2014 including Decision layers \u2014 that make up Cinematic mode video, show you how to access and update Decisions in your app, and help you save and load those changes.",
+      "topic": "Photos & Camera",
+      "platforms": [
+        "iOS",
+        "macOS"
+      ],
+      "speakers": [
+        "Rasmus Ramsbol Jensen"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10137/",
+      "has_transcript": true,
+      "transcript_file": "10137.en.txt"
+    },
+    {
+      "session_id": "10181",
+      "title": "Support HDR images in your app",
+      "description": "Learn how to identify, load, display, and create High Dynamic Range (HDR) still images in your app. Explore common HDR concepts and find out about the latest updates to the ISO specification. Learn how to identify and display HDR images with SwiftUI and UIKit, create them from ProRAW and RAW captures, and display them in CALayers. We\u2019ll also take you through CoreGraphics support for ISO HDR and share best practices for HDR adoption.",
+      "topic": "Photos & Camera",
+      "platforms": [
+        "iOS",
+        "macOS"
+      ],
+      "speakers": [
+        "Jackson Roland",
+        "David Hayward"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10181/",
+      "has_transcript": true,
+      "transcript_file": "10181.en.txt"
+    },
+    {
+      "session_id": "10105",
+      "title": "Create a more responsive camera experience",
+      "description": "Discover how AVCapture and PhotoKit can help you create more responsive and delightful apps. Learn about the camera capture process and find out how deferred photo processing can help create the best quality photo. We\u2019ll show you how zero shutter lag uses time travel to capture the perfect action photo, dive into building a responsive capture pipeline, and share how you can adopt the Video Effects API to recognize pre-defined gestures that trigger real-time video effects.",
+      "topic": "Photos & Camera",
+      "platforms": [
+        "iOS"
+      ],
+      "speakers": [
+        "Rob Simutis",
+        "Sebastian Medina"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10105/",
+      "has_transcript": true,
+      "transcript_file": "10105.en.txt"
+    },
+    {
+      "session_id": "10256",
+      "title": "Discover Continuity Camera for tvOS",
+      "description": "Discover how you can bring AVFoundation, AVFAudio, and AudioToolbox to your apps on tvOS and create camera and microphone experiences for the living room. Find out how to support tvOS in your existing iOS camera experience with the Device Discovery API, build apps that use iPhone as a webcam or FaceTime source, and explore special considerations when developing for tvOS. We\u2019ll also show you how to enable audio recording for tvOS, and how to use echo cancellation to create great voice-driven experiences.",
+      "topic": "Photos & Camera",
+      "platforms": [
+        "iOS",
+        "tvOS"
+      ],
+      "speakers": [
+        "Kevin Tulod",
+        "Somesh Ganesh"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10256/",
+      "has_transcript": true,
+      "transcript_file": "10256.en.txt"
+    },
+    {
+      "session_id": "10304",
+      "title": "Integrate with motorized iPhone stands using DockKit",
+      "description": "Discover how you can create incredible photo and video experiences in your camera app when integrating with DockKit-compatible motorized stands. We\u2019ll show how your app can automatically track subjects in live video across a 360-degree field of view, take direct control of the stand to customize framing, directly control the motors, and provide your own inference model for tracking other objects. Finally, we\u2019ll demonstrate how to create a sense of emotion through dynamic device animations.\n\nTo learn more techniques for image tracking, check out \u201cDetect animal poses in Vision\u201d from WWDC23 and \"Classify hand poses and actions with Create ML\u201d from WWDC21.",
+      "topic": "Photos & Camera",
+      "platforms": [
+        "iOS"
+      ],
+      "speakers": [
+        "Onur Tackin"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10304/",
+      "has_transcript": true,
+      "transcript_file": "10304.en.txt"
+    },
+    {
+      "session_id": "10106",
+      "title": "Support external cameras in your iPadOS app",
+      "description": "Learn how you can discover and connect to external cameras in your iPadOS app using the AVFoundation capture classes. We\u2019ll show you how to rotate video from both external and built-in cameras, support external microphones with USB-C, and perform audio routing. Explore telephony support, tunings for optimal echo cancellation, and best practices for external camera adoption.",
+      "topic": "Photos & Camera",
+      "platforms": [
+        "visionOS"
+      ],
+      "speakers": [
+        "Nikolas Gelo"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10106/",
+      "has_transcript": true,
+      "transcript_file": "10106.en.txt"
+    },
+    {
+      "session_id": "10107",
+      "title": "Embed the Photos Picker in your app",
+      "description": "Discover how you can simply, safely, and securely access the Photos Library in your app. Learn how to get started with the embedded picker and explore the options menu and HDR still image support. We\u2019ll also show you how to take advantage of UI customization options to help the picker blend into your existing interface.",
+      "topic": "Photos & Camera",
+      "platforms": [
+        "iOS",
+        "macOS",
+        "watchOS"
+      ],
+      "speakers": [
+        "Justin Jia"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10107/",
+      "has_transcript": true,
+      "transcript_file": "10107.en.txt"
+    }
+  ],
+  "Business & Education": [
+    {
+      "session_id": "10040",
+      "title": "What\u2019s new in managing Apple devices",
+      "description": "Learn about the latest management capabilities for iOS, iPadOS, and macOS. Discover how you can streamline the setup experience with enhancements to automated device enrollment and a new return-to-service option for iOS and iPadOS devices. We\u2019ll share how to use your identity provider in even more places on macOS and show you how Apple Configurator can help automate tasks.",
+      "topic": "Business & Education",
+      "platforms": [
+        "iOS",
+        "macOS",
+        "tvOS",
+        "watchOS"
+      ],
+      "speakers": [
+        "Patrick Gichuiri",
+        "Jonathan Broskey"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10040/",
+      "has_transcript": true,
+      "transcript_file": "10040.en.txt"
+    },
+    {
+      "session_id": "10263",
+      "title": "Deploy passkeys at work",
+      "description": "Discover how you can take advantage of passkeys in managed environments at work. We\u2019ll explore how passkeys can work well in enterprise environments through Managed Apple ID support for iCloud Keychain. We\u2019ll also share how administrators can manage passkeys for specific devices using Access Management controls in Apple Business Manager and Apple School Manager.",
+      "topic": "Business & Education",
+      "platforms": [
+        "iOS",
+        "macOS"
+      ],
+      "speakers": [
+        "Alex Sokolov"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10263/",
+      "has_transcript": true,
+      "transcript_file": "10263.en.txt"
+    },
+    {
+      "session_id": "10041",
+      "title": "Explore advances in declarative device management",
+      "description": "Learn how you can help IT administrators get the tools they need to manage their organization\u2019s devices. Discover the latest changes to declarative device management, including software update management, additional asset types, status reporting for FileVault, and more.",
+      "topic": "Business & Education",
+      "platforms": [
+        "iOS",
+        "macOS",
+        "tvOS",
+        "watchOS"
+      ],
+      "speakers": [
+        "Cyrus Daboo"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10041/",
+      "has_transcript": true,
+      "transcript_file": "10041.en.txt"
+    },
+    {
+      "session_id": "10254",
+      "title": "Do more with Managed Apple IDs",
+      "description": "Explore the latest updates to Managed Apple IDs and learn how you can use them in your organization. Take advantage of additional apps and services available to Managed Apple IDs, discover the Account-Driven Device Enrollment flow, and find out how to use access management controls to limit the devices and Apple services that Managed Apple IDs can access. We\u2019ll also show you how to federate with your identity provider to automate creation and sync with your directory.",
+      "topic": "Business & Education",
+      "platforms": [
+        "iOS",
+        "macOS",
+        "tvOS"
+      ],
+      "speakers": [
+        "Darsh Shah"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10254/",
+      "has_transcript": true,
+      "transcript_file": "10254.en.txt"
+    },
+    {
+      "session_id": "10039",
+      "title": "Meet device management for Apple Watch",
+      "description": "Organizations can now deploy and configure Apple Watch in addition to other Apple devices. Learn how to implement device management for watchOS to help organizations improve productivity, support wellness, and provide additional support for their employees.",
+      "topic": "Business & Education",
+      "platforms": [
+        "iOS",
+        "watchOS"
+      ],
+      "speakers": [
+        "Melissa Nierle"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10039/",
+      "has_transcript": true,
+      "transcript_file": "10039.en.txt"
+    }
+  ],
+  "Privacy & Security": [
+    {
+      "session_id": "10060",
+      "title": "Get started with privacy manifests",
+      "description": "Meet privacy manifests: a new tool that helps you accurately identify the privacy practices of your app\u2019s dependencies. Find out how third-party SDK developers can use these manifests to share privacy practices for their frameworks. We\u2019ll also share how Xcode can produce a full privacy report to help you more easily represent the privacy practices of all the code in your app.",
+      "topic": "Privacy & Security",
+      "platforms": [
+        "iOS",
+        "macOS",
+        "tvOS",
+        "watchOS"
+      ],
+      "speakers": [
+        "Tony Tan"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10060/",
+      "has_transcript": true,
+      "transcript_file": "10060.en.txt"
+    },
+    {
+      "session_id": "10061",
+      "title": "Verify app dependencies with digital signatures",
+      "description": "Discover how you can help secure your app\u2019s dependencies. We\u2019ll show you how Xcode can automatically verify any signed XCFrameworks you include within a project. Learn how code signatures work, the benefits they provide to help protect your software supply chain, and how SDK developers can sign their XCFrameworks to help keep your apps secure.",
+      "topic": "Privacy & Security",
+      "platforms": [
+        "iOS",
+        "macOS",
+        "tvOS",
+        "watchOS"
+      ],
+      "speakers": [
+        "Kay Xu"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10061/",
+      "has_transcript": true,
+      "transcript_file": "10061.en.txt"
+    },
+    {
+      "session_id": "10053",
+      "title": "What\u2019s new in privacy",
+      "description": "At Apple, we believe that privacy is a fundamental human right. Learn about new technologies on Apple platforms that make it easier for you to implement essential privacy patterns that build customer trust in your app. Discover privacy improvements for Apple\u2019s platforms, as well as a study of how privacy shaped the software architecture and design for the input model on visionOS.",
+      "topic": "Privacy & Security",
+      "platforms": [
+        "iOS",
+        "macOS",
+        "tvOS",
+        "visionOS",
+        "watchOS"
+      ],
+      "speakers": [
+        "Michael Hesse"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10053/",
+      "has_transcript": true,
+      "transcript_file": "10053.en.txt"
+    },
+    {
+      "session_id": "10266",
+      "title": "Protect your Mac app with environment constraints",
+      "description": "Learn how to improve the security of your Mac app by adopting environment constraints. We\u2019ll show you how to set limits on how processes are launched, make sure your Launch Agents and Launch Daemons aren\u2019t tampered with, and prevent unwanted code from running in your address space.",
+      "topic": "Privacy & Security",
+      "platforms": [
+        "macOS"
+      ],
+      "speakers": [
+        "Robert Kendall-Kuppe"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/wwdc2023/10266/",
+      "has_transcript": true,
+      "transcript_file": "10266.en.txt"
+    }
+  ],
+  "Tech Talk": [
+    {
+      "session_id": "110343",
+      "title": "Get started with TestFlight",
+      "description": "Discover how you can use TestFlight to improve your app experience and ready it for release on the App Store. We\u2019ll take you through an overview of TestFlight, including how to invite testers and provide information to them about testing. We\u2019ll also provide best practices for receiving feedback and explore how you can get the most out of the testing process.",
+      "topic": "Tech Talk",
+      "platforms": [],
+      "speakers": [
+        "Aneesha N.",
+        "Jerome B."
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/tech-talks/110343/",
+      "has_transcript": false,
+      "transcript_file": null
+    },
+    {
+      "session_id": "10168",
+      "title": "Migrate custom intents to App Intents",
+      "description": "Learn how you can easily convert your existing custom intents to App Intents. We'll take you through the conversion of your intents to Swift and discuss how you can improve discoverability of your app features when you create App Shortcuts.\n\nTo learn more about App Intents, watch \"Implement App Shortcuts with App Intents\" and \"Dive into App Intents\" from WWDC22.",
+      "topic": "Tech Talk",
+      "platforms": [],
+      "speakers": [
+        "Ari Weinstein"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/tech-talks/10168/",
+      "has_transcript": true,
+      "transcript_file": "10168.en.txt"
+    },
+    {
+      "session_id": "110336",
+      "title": "Implement Apple Pay and order management",
+      "description": "Apple Pay provides an easy and secure way for people to make payments in your iOS, iPadOS, and watchOS apps as well as on the web. We'll take you through the entire Apple Pay implementation workflow \u2013 including how you can signal support for Apple Pay, request payment and handling updates, and add order details at the end of a payment flow to help people track their purchases.",
+      "topic": "Tech Talk",
+      "platforms": [],
+      "speakers": [
+        "Katie Whitefield"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/tech-talks/110336/",
+      "has_transcript": false,
+      "transcript_file": null
+    },
+    {
+      "session_id": "110338",
+      "title": "Add SharePlay to your multiplayer game with Game Center",
+      "description": "Learn how to let your players jump into games with friends they're on FaceTime calls with, using SharePlay. We'll show you how easy it is to turn on SharePlay support if you are already using the Game Center multiplayer UI. And if you\u2019ve built a custom interface, we\u2019ll give you the few lines of code you need to support SharePlay.",
+      "topic": "Tech Talk",
+      "platforms": [],
+      "speakers": [
+        "Zhehong An"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/tech-talks/110338/",
+      "has_transcript": false,
+      "transcript_file": null
+    },
+    {
+      "session_id": "110339",
+      "title": "Discover Metal Performance HUD",
+      "description": "Get to know the new heads-up display panel built to help you analyze graphics performance in real time. Metal Performance HUD displays key graphics statistics so you can monitor, log, and identify tough-to-spot performance problems.",
+      "topic": "Tech Talk",
+      "platforms": [],
+      "speakers": [
+        "Nat Brown"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/tech-talks/110339/",
+      "has_transcript": false,
+      "transcript_file": null
+    },
+    {
+      "session_id": "110349",
+      "title": "Make the most of product page optimization",
+      "description": "Learn how to get more from your product page optimization tests. We\u2019ll explore best practices, provide data-based recommendations, and share success stories from developers who have used product page optimization to make their App Store product pages even more relevant and effective.",
+      "topic": "Tech Talk",
+      "platforms": [],
+      "speakers": [
+        "Seema V."
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/tech-talks/110349/",
+      "has_transcript": false,
+      "transcript_file": null
+    },
+    {
+      "session_id": "110356",
+      "title": "What's new for enterprise developers",
+      "description": "Discover how you can build compelling apps for your business on iOS, iPadOS, macOS, and watchOS. We'll take you through a curated overview of the latest updates to Apple platforms and explore relevant features that you can use to create engaging enterprise apps to transform workflows, inform business decisions, and boost employee productivity.",
+      "topic": "Tech Talk",
+      "platforms": [],
+      "speakers": [
+        "Andria Jensen"
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/tech-talks/110356/",
+      "has_transcript": false,
+      "transcript_file": null
+    },
+    {
+      "session_id": "110358",
+      "title": "Get started with app discovery and marketing",
+      "description": "Learn how you can improve the discovery of your app on the App Store. We\u2019ll explore the different ways people find apps on the App Store and show you how to make your own app more discoverable. Discover the elements of a great product page, the role of search, referral traffic, and promotional features you can use to encourage new downloads.",
+      "topic": "Tech Talk",
+      "platforms": [],
+      "speakers": [
+        "Meghana M.",
+        "Chris C."
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/tech-talks/110358/",
+      "has_transcript": false,
+      "transcript_file": null
+    },
+    {
+      "session_id": "110361",
+      "title": "Make the most of custom product pages",
+      "description": "Discover how you can maximize the effectiveness of your custom product pages on the App Store. We\u2019ll cover best practices, provide data-based recommendations, and share success stories from developers who have used custom product pages to reach specific audiences.",
+      "topic": "Tech Talk",
+      "platforms": [],
+      "speakers": [
+        "Savannah W.",
+        "Chris C."
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/tech-talks/110361/",
+      "has_transcript": false,
+      "transcript_file": null
+    },
+    {
+      "session_id": "110364",
+      "title": "Explore App Store pricing upgrades",
+      "description": "Learn about the newest pricing capabilities available on the App Store. We\u2019ll walk through enhanced global pricing, new tools to manage pricing by storefront, additional price points, and global equalization. We\u2019ll also share configuration examples.",
+      "topic": "Tech Talk",
+      "platforms": [],
+      "speakers": [
+        "Camille S."
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/tech-talks/110364/",
+      "has_transcript": false,
+      "transcript_file": null
+    },
+    {
+      "session_id": "110365",
+      "title": "Measure and improve acquisition with App Analytics",
+      "description": "Learn how App Analytics can help you better understand user acquisition, so you can make data\u2011informed decisions. Explore ways to find out where your users are coming from and review definitions of key metrics. We\u2019ll also discuss how peer group benchmarks and other features can help improve your acquisition strategy.",
+      "topic": "Tech Talk",
+      "platforms": [],
+      "speakers": [
+        "Nick K."
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/tech-talks/110365/",
+      "has_transcript": false,
+      "transcript_file": null
+    },
+    {
+      "session_id": "110366",
+      "title": "Use Game Center to boost discovery and engagement",
+      "description": "Explore how Game Center, Apple\u2019s social gaming network, helps players discover and engage with your game. Learn about Game Center and App Store features that can help you connect with new players and keep them coming back, as well as Apple technologies designed to deliver powerful gameplay experiences.",
+      "topic": "Tech Talk",
+      "platforms": [],
+      "speakers": [
+        "Micha S."
+      ],
+      "apple_url": "https://developer.apple.com/videos/play/tech-talks/110366/",
+      "has_transcript": false,
+      "transcript_file": null
+    }
+  ]
+}

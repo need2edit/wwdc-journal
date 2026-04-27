@@ -1,0 +1,3847 @@
+[
+  {
+    "id": "wwdc2018-101",
+    "title": "Keynote",
+    "description": "WWDC 2018 Keynote",
+    "eventId": "wwdc2018",
+    "eventContentId": "101",
+    "year": 2018,
+    "topic": "Featured",
+    "platforms": [
+      "iOS",
+      "macOS",
+      "tvOS",
+      "watchOS"
+    ],
+    "speakers": [
+      "Tim Cook",
+      "Craig Federighi",
+      "Abhay Parasnis",
+      "Martin Sanders",
+      "Kimberly Beverett",
+      "Susan Prescott",
+      "Kelsey Peterson",
+      "Kevin Lynch",
+      "Julz Arney",
+      "Jen Folse",
+      "Ann Thai"
+    ],
+    "appleYouTube": "https://www.youtube.com/watch?v=UThGcWBIMpU",
+    "media": {
+      "duration": 8181,
+      "streamHLS": "https://p-events-delivery.akamaized.net/18oijbasfvuhbfsdvoijhbsdfvljkb6/m3u8/hls_vod_mvp.m3u8",
+      "streamHLS_state": "available"
+    }
+  },
+  {
+    "id": "wwdc2018-102",
+    "title": "Platforms State of the Union",
+    "description": "WWDC 2018 Platforms State of the Union",
+    "eventId": "wwdc2018",
+    "eventContentId": "102",
+    "year": 2018,
+    "topic": "Featured",
+    "platforms": [
+      "iOS",
+      "macOS",
+      "tvOS",
+      "watchOS"
+    ],
+    "speakers": [
+      "Sebastien Marineau-Mes",
+      "Katie Skinner",
+      "Ken Orr",
+      "Matthew Furlich",
+      "Mike Rockwell",
+      "Abhay Parasnis"
+    ],
+    "media": {
+      "duration": 5653,
+      "streamHLS": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/102ly3xmvz1ssb1ill/102/hls_vod_mvp.m3u8",
+      "streamHLS_state": "available",
+      "downloadHD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/102ly3xmvz1ssb1ill/102/102_hd_platforms_state_of_the_union.mp4",
+      "downloadHD_size": 2919171347,
+      "downloadHD_state": "available",
+      "downloadSD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/102ly3xmvz1ssb1ill/102/102_sd_platforms_state_of_the_union.mp4",
+      "downloadSD_size": 753837584,
+      "downloadSD_state": "available"
+    }
+  },
+  {
+    "id": "wwdc2018-103",
+    "title": "Apple Design Awards",
+    "description": "Join us for an unforgettable award ceremony celebrating developers and their outstanding work. The 2018 Apple Design Awards recognize state of the art iOS, macOS, watchOS, and tvOS apps that reflect excellence in design and innovation.",
+    "eventId": "wwdc2018",
+    "eventContentId": "103",
+    "year": 2018,
+    "topic": "Featured",
+    "platforms": [
+      "iOS",
+      "macOS",
+      "tvOS",
+      "watchOS"
+    ],
+    "media": {
+      "duration": 2945,
+      "streamHLS": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/103zvtnsrnrijr/103/hls_vod_mvp.m3u8",
+      "streamHLS_state": "available",
+      "downloadHD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/103zvtnsrnrijr/103/103_hd_apple_design_awards.mp4",
+      "downloadHD_size": 1520845907,
+      "downloadHD_state": "available",
+      "downloadSD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/103zvtnsrnrijr/103/103_sd_apple_design_awards.mp4",
+      "downloadSD_size": 392735797,
+      "downloadSD_state": "available"
+    }
+  },
+  {
+    "id": "wwdc2018-236",
+    "title": "AVSpeechSynthesizer: Making iOS Talk",
+    "description": "Speech can enhance the audio experience of your app, whether you are generating spoken feedback for accessibility, or providing critical information beyond simple alerts or notifications. AVSpeechSynthesizer produces synthesized speech from text and allows you to control and monitor the progress of ongoing speech. Learn the ins and outs of AVSpeechSynthesizer and how to add computer-generated speech output to your app.",
+    "eventId": "wwdc2018",
+    "eventContentId": "236",
+    "year": 2018,
+    "topic": "App Store and Distribution",
+    "platforms": [
+      "iOS"
+    ],
+    "speakers": [
+      "Chris Fleizach"
+    ],
+    "media": {
+      "duration": 528,
+      "streamHLS": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/236mwbxbxjfsvns4jan/236/hls_vod_mvp.m3u8",
+      "streamHLS_state": "available",
+      "downloadHD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/236mwbxbxjfsvns4jan/236/236_hd_avspeechsynthesizer_making_ios_talk.mp4",
+      "downloadHD_size": 272781336,
+      "downloadHD_state": "available",
+      "downloadSD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/236mwbxbxjfsvns4jan/236/236_sd_avspeechsynthesizer_making_ios_talk.mp4",
+      "downloadSD_size": 70446708,
+      "downloadSD_state": "available",
+      "slides": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/236mwbxbxjfsvns4jan/236/236_avspeechsynthesizer_making_ios_talk.pdf",
+      "slides_size": 504040,
+      "slides_state": "available"
+    }
+  },
+  {
+    "id": "wwdc2018-241",
+    "title": "Accessible Drag and Drop",
+    "description": "Drag and Drop is a powerful API that allows apps to share and communicate data. No matter how you decide to implement Drag and Drop, there's a way to make it work for people with accessibility needs. Learn the details as we dive into accessible Drag and Drop for iOS.",
+    "eventId": "wwdc2018",
+    "eventContentId": "241",
+    "year": 2018,
+    "topic": "App Store and Distribution",
+    "platforms": [
+      "iOS"
+    ],
+    "speakers": [
+      "Conor Hughes"
+    ],
+    "media": {
+      "duration": 552,
+      "streamHLS": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/241fyqqiogmd6sv/241/hls_vod_mvp.m3u8",
+      "streamHLS_state": "available",
+      "downloadHD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/241fyqqiogmd6sv/241/241_hd_accessible_drag_and_drop.mp4",
+      "downloadHD_size": 285375290,
+      "downloadHD_state": "available",
+      "downloadSD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/241fyqqiogmd6sv/241/241_sd_accessible_drag_and_drop.mp4",
+      "downloadSD_size": 73698887,
+      "downloadSD_state": "available",
+      "slides": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/241fyqqiogmd6sv/241/241_accessible_drag_and_drop.pdf",
+      "slides_size": 211953,
+      "slides_state": "available"
+    }
+  },
+  {
+    "id": "wwdc2018-303",
+    "title": "Automating App Store Connect",
+    "description": "The new App Store Connect API provides a familiar and highly readable REST API designed to facilitate the automation of many tasks you would typically perform through the Apple Developer website and the App Store Connect browser interfaces. Learn how this API allows you to manage your apps and testers for TestFlight, create code signing resources, download reports, and even manage your organization. See how this API leverages JWT authentication and a JSON payload for all transactions to make this new service easy to integrate with your existing automated workflows.",
+    "eventId": "wwdc2018",
+    "eventContentId": "303",
+    "year": 2018,
+    "topic": "App Store and Distribution",
+    "platforms": [
+      "iOS",
+      "macOS",
+      "tvOS",
+      "watchOS"
+    ],
+    "speakers": [
+      "Geoff Coffey",
+      "Sehoon Shon",
+      "Julie Richards"
+    ],
+    "media": {
+      "duration": 2447,
+      "streamHLS": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/303ewlysk7t1l43/303/hls_vod_mvp.m3u8",
+      "streamHLS_state": "available",
+      "downloadHD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/303ewlysk7t1l43/303/303_hd_automating_app_store_connect.mp4",
+      "downloadHD_size": 1263719187,
+      "downloadHD_state": "available",
+      "downloadSD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/303ewlysk7t1l43/303/303_sd_automating_app_store_connect.mp4",
+      "downloadSD_size": 326349596,
+      "downloadSD_state": "available",
+      "slides": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/303ewlysk7t1l43/303/303_automating_app_store_connect.pdf",
+      "slides_size": 2702693,
+      "slides_state": "available"
+    }
+  },
+  {
+    "id": "wwdc2018-704",
+    "title": "Best Practices and What\u2019s New with In-App Purchases",
+    "description": "Learn about the latest updates in StoreKit, including offering introductory pricing for subscriptions, requesting ratings and reviews, promoting your in-app purchases within the App Store, and developing in the sandbox environment. Dive deep into best practices for processing transactions and validating receipts.",
+    "eventId": "wwdc2018",
+    "eventContentId": "704",
+    "year": 2018,
+    "topic": "App Store and Distribution",
+    "platforms": [
+      "iOS",
+      "macOS",
+      "tvOS"
+    ],
+    "speakers": [
+      "Dana DuBois",
+      "Ross LeBeau"
+    ],
+    "media": {
+      "duration": 2495,
+      "streamHLS": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/704n9oeu4famgn/704/hls_vod_mvp.m3u8",
+      "streamHLS_state": "available",
+      "downloadHD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/704n9oeu4famgn/704/704_hd_best_practices_and_whats_new_with_inapp_purchases.mp4",
+      "downloadHD_size": 1288283563,
+      "downloadHD_state": "available",
+      "downloadSD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/704n9oeu4famgn/704/704_sd_best_practices_and_whats_new_with_inapp_purchases.mp4",
+      "downloadSD_size": 332690776,
+      "downloadSD_state": "available",
+      "slides": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/704n9oeu4famgn/704/704_best_practices_and_whats_new_with_inapp_purchases.pdf",
+      "slides_size": 2816175,
+      "slides_state": "available"
+    }
+  },
+  {
+    "id": "wwdc2018-230",
+    "title": "Deliver an Exceptional Accessibility Experience",
+    "description": "Go beyond the basics and create apps with an exceptional accessibility experience. Learn how to design elements that appear in your app for maximum clarity and accessibility. Discover how to enhance the way users interact with your app even when presenting custom views, or drawing complex UI.",
+    "eventId": "wwdc2018",
+    "eventContentId": "230",
+    "year": 2018,
+    "topic": "App Store and Distribution",
+    "platforms": [
+      "iOS",
+      "macOS",
+      "tvOS",
+      "watchOS"
+    ],
+    "speakers": [
+      "Skylar Peterson",
+      "Bhavya Garg"
+    ],
+    "appleWeblink": "https://developer.apple.com/videos/play/wwdc2018/230/",
+    "media": {
+      "duration": 2429,
+      "streamHLS": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/230bqynnqagiq4p8/230/hls_vod_mvp.m3u8",
+      "streamHLS_state": "available",
+      "downloadHD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/230bqynnqagiq4p8/230/230_hd_deliver_an_exceptional_accessibility_experience.mp4",
+      "downloadHD_size": 1254547489,
+      "downloadHD_state": "available",
+      "downloadSD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/230bqynnqagiq4p8/230/230_sd_deliver_an_exceptional_accessibility_experience.mp4",
+      "downloadSD_size": 323980944,
+      "downloadSD_state": "available",
+      "slides": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/230bqynnqagiq4p8/230/230_deliver_an_exceptional_accessibility_experience.pdf",
+      "slides_size": 15341930,
+      "slides_state": "available"
+    }
+  },
+  {
+    "id": "wwdc2018-705",
+    "title": "Engineering Subscriptions",
+    "description": "Learn the best practices for architecting your subscription infrastructure using StoreKit and server-side logic. Find out about simple engineering techniques to keep your subscribers longer, and how to utilize new tools and APIs to give your subscribers the best experience.",
+    "eventId": "wwdc2018",
+    "eventContentId": "705",
+    "year": 2018,
+    "topic": "App Store and Distribution",
+    "platforms": [
+      "iOS",
+      "macOS",
+      "tvOS"
+    ],
+    "speakers": [
+      "Pete Hare",
+      "Michael Gargas"
+    ],
+    "media": {
+      "duration": 2675,
+      "streamHLS": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/705u9699a9lzqsghf2c/705/hls_vod_mvp.m3u8",
+      "streamHLS_state": "available",
+      "downloadHD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/705u9699a9lzqsghf2c/705/705_hd_engineering_subscriptions.mp4",
+      "downloadHD_size": 1381175396,
+      "downloadHD_state": "available",
+      "downloadSD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/705u9699a9lzqsghf2c/705/705_sd_engineering_subscriptions.mp4",
+      "downloadSD_size": 356688401,
+      "downloadSD_state": "available",
+      "slides": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/705u9699a9lzqsghf2c/705/705_engineering_subscriptions.pdf",
+      "slides_size": 4747153,
+      "slides_state": "available"
+    }
+  },
+  {
+    "id": "wwdc2018-232",
+    "title": "Getting Ready for Business Chat",
+    "description": "Business Chat is a powerful way for organizations to connect with customers directly from within Messages. Whether you are a Customer Service Platform provider, a brand looking to integrate chat for customer communication, or a brand app developer looking to extend your iOS app to enhance Business Chat conversations, you'll receive concrete guidance and learn the baseline requirements necessary to ensure you are ready to go live.",
+    "eventId": "wwdc2018",
+    "eventContentId": "232",
+    "year": 2018,
+    "topic": "App Store and Distribution",
+    "platforms": [
+      "iOS"
+    ],
+    "speakers": [
+      "Dan Servos",
+      "Scottie Lopatin"
+    ],
+    "media": {
+      "duration": 2604,
+      "streamHLS": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/232mj2p4q92uls5n/232/hls_vod_mvp.m3u8",
+      "streamHLS_state": "available",
+      "downloadHD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/232mj2p4q92uls5n/232/232_hd_getting_ready_for_business_chat.mp4",
+      "downloadHD_size": 1344660325,
+      "downloadHD_state": "available",
+      "downloadSD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/232mj2p4q92uls5n/232/232_sd_getting_ready_for_business_chat.mp4",
+      "downloadSD_size": 347245641,
+      "downloadSD_state": "available",
+      "slides": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/232mj2p4q92uls5n/232/232_getting_ready_for_business_chat.pdf",
+      "slides_size": 45551284,
+      "slides_state": "available"
+    }
+  },
+  {
+    "id": "wwdc2018-226",
+    "title": "VoiceOver: App Testing Beyond The Visuals",
+    "description": "VoiceOver provides spoken descriptions and braille output of onscreen elements. Learn how to go beyond the visuals to identify VoiceOver and functional issues to help improve the experience for all users.",
+    "eventId": "wwdc2018",
+    "eventContentId": "226",
+    "year": 2018,
+    "topic": "App Store and Distribution",
+    "platforms": [
+      "iOS"
+    ],
+    "speakers": [
+      "James Vest"
+    ],
+    "media": {
+      "duration": 1899,
+      "streamHLS": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/226s1li4vc2mjvj4j/226/hls_vod_mvp.m3u8",
+      "streamHLS_state": "available",
+      "downloadHD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/226s1li4vc2mjvj4j/226/226_hd_voiceover_app_testing_beyond_the_visuals.mp4",
+      "downloadHD_size": 980644132,
+      "downloadHD_state": "available",
+      "downloadSD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/226s1li4vc2mjvj4j/226/226_sd_voiceover_app_testing_beyond_the_visuals.mp4",
+      "downloadSD_size": 253243405,
+      "downloadSD_state": "available",
+      "slides": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/226s1li4vc2mjvj4j/226/226_voiceover_app_testing_beyond_the_visuals.pdf",
+      "slides_size": 4002078,
+      "slides_state": "available"
+    }
+  },
+  {
+    "id": "wwdc2018-301",
+    "title": "What's New in App Store Connect",
+    "description": "App Store Connect is constantly evolving to improve the experience of managing and deploying your app on App Store. Learn about the new App Store Connect API for managing frequently modified data such as users and groups, see the latest updates to Sales Trends and Analytics reporting, and TestFlight features enhanced to help you test and deploy your next masterpiece.",
+    "eventId": "wwdc2018",
+    "eventContentId": "301",
+    "year": 2018,
+    "topic": "App Store and Distribution",
+    "platforms": [
+      "iOS",
+      "macOS",
+      "tvOS",
+      "watchOS"
+    ],
+    "speakers": [
+      "Daniel Miao",
+      "Tommy McGlynn",
+      "Alex Miyamura"
+    ],
+    "media": {
+      "duration": 2221,
+      "streamHLS": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/301k4gd0t7y955ppg/301/hls_vod_mvp.m3u8",
+      "streamHLS_state": "available",
+      "downloadHD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/301k4gd0t7y955ppg/301/301_hd_whats_new_in_app_store_connect.mp4",
+      "downloadHD_size": 1146989951,
+      "downloadHD_state": "available",
+      "downloadSD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/301k4gd0t7y955ppg/301/301_sd_whats_new_in_app_store_connect.mp4",
+      "downloadSD_size": 296196499,
+      "downloadSD_state": "available",
+      "slides": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/301k4gd0t7y955ppg/301/301_whats_new_in_app_store_connect.pdf",
+      "slides_size": 15261025,
+      "slides_state": "available"
+    }
+  },
+  {
+    "id": "wwdc2018-302",
+    "title": "What's New in Managing Apple Devices",
+    "description": "Learn about new management capabilities for iOS, macOS, and tvOS, tool evolution over the past year, and important changes coming this fall. You'll discover how new MDM features help administrators manage devices more effectively, how educators can enhance the classroom learning environment, and how app developers can make their app a better fit for education and enterprise customers.",
+    "eventId": "wwdc2018",
+    "eventContentId": "302",
+    "year": 2018,
+    "topic": "App Store and Distribution",
+    "platforms": [
+      "iOS",
+      "macOS",
+      "tvOS",
+      "watchOS"
+    ],
+    "speakers": [
+      "Todd Fernandez"
+    ],
+    "media": {
+      "duration": 2423,
+      "streamHLS": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/302tw1pd3hkgmzuw47/302/hls_vod_mvp.m3u8",
+      "streamHLS_state": "available",
+      "downloadHD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/302tw1pd3hkgmzuw47/302/302_hd_whats_new_in_managing_apple_devices.mp4",
+      "downloadHD_size": 1251043511,
+      "downloadHD_state": "available",
+      "downloadSD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/302tw1pd3hkgmzuw47/302/302_sd_whats_new_in_managing_apple_devices.mp4",
+      "downloadSD_size": 323075300,
+      "downloadSD_state": "available",
+      "slides": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/302tw1pd3hkgmzuw47/302/302_whats_new_in_managing_apple_devices.pdf",
+      "slides_size": 37128285,
+      "slides_state": "available"
+    }
+  },
+  {
+    "id": "wwdc2018-304",
+    "title": "What's New in Search Ads",
+    "description": "Search Ads is a great way to help people discover your app in App Store search results. Learn how new market expansion will give you greater opportunities to reach high quality customers. See how Search Ads Advanced new creative variations will help make your app promotion even more effective.",
+    "eventId": "wwdc2018",
+    "eventContentId": "304",
+    "year": 2018,
+    "topic": "App Store and Distribution",
+    "platforms": [
+      "iOS"
+    ],
+    "speakers": [
+      "Lindsay Verity",
+      "Carol Hsu"
+    ],
+    "media": {
+      "duration": 1125,
+      "streamHLS": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/304o1mulfeyvd4wd/304/hls_vod_mvp.m3u8",
+      "streamHLS_state": "available",
+      "downloadHD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/304o1mulfeyvd4wd/304/304_hd_whats_new_in_search_ads.mp4",
+      "downloadHD_size": 581166210,
+      "downloadHD_state": "available",
+      "downloadSD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/304o1mulfeyvd4wd/304/304_sd_whats_new_in_search_ads.mp4",
+      "downloadSD_size": 150075484,
+      "downloadSD_state": "available",
+      "slides": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/304o1mulfeyvd4wd/304/304_whats_new_in_search_ads.pdf",
+      "slides_size": 8392876,
+      "slides_state": "available"
+    }
+  },
+  {
+    "id": "wwdc2018-412",
+    "title": "Advanced Debugging with Xcode and LLDB",
+    "description": "Discover advanced techniques, and tips and tricks for enhancing your Xcode debugging workflows. Learn how to take advantage of LLDB and custom breakpoints for more powerful debugging. Get the most out of Xcode\u2019s view debugging tools to solve UI issues in your app more efficiently.",
+    "eventId": "wwdc2018",
+    "eventContentId": "412",
+    "year": 2018,
+    "topic": "Developer Tools",
+    "platforms": [
+      "iOS",
+      "macOS",
+      "tvOS",
+      "watchOS"
+    ],
+    "speakers": [
+      "Chris Miles",
+      "Sebastian Fischer"
+    ],
+    "appleWeblink": "https://developer.apple.com/videos/play/wwdc2018/412/",
+    "media": {
+      "duration": 3220,
+      "streamHLS": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/412zw88j5aa4mr9/412/hls_vod_mvp.m3u8",
+      "streamHLS_state": "available",
+      "downloadHD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/412zw88j5aa4mr9/412/412_hd_advanced_debugging_with_xcode_and_lldb.mp4",
+      "downloadHD_size": 1662781734,
+      "downloadHD_state": "available",
+      "downloadSD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/412zw88j5aa4mr9/412/412_sd_advanced_debugging_with_xcode_and_lldb.mp4",
+      "downloadSD_size": 429416297,
+      "downloadSD_state": "available",
+      "slides": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/412zw88j5aa4mr9/412/412_advanced_debugging_with_xcode_and_lldb.pdf",
+      "slides_size": 442145,
+      "slides_state": "available"
+    }
+  },
+  {
+    "id": "wwdc2018-415",
+    "title": "Behind the Scenes of the Xcode Build Process",
+    "description": "Ever wonder what happens when you build your project in Xcode? Learn how Xcode automates the steps required to build an application, and go behind the scenes to learn how clang, swiftc, and the linker work together to turn your source code into a working program.",
+    "eventId": "wwdc2018",
+    "eventContentId": "415",
+    "year": 2018,
+    "topic": "Developer Tools",
+    "platforms": [
+      "iOS",
+      "macOS",
+      "tvOS",
+      "watchOS"
+    ],
+    "speakers": [
+      "Jake Petroules",
+      "Ju\u0308rgen Ributzka",
+      "Devin Coughlin",
+      "Louis Gerbarg"
+    ],
+    "media": {
+      "duration": 3453,
+      "streamHLS": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/415o65ozc2l1bc3/415/hls_vod_mvp.m3u8",
+      "streamHLS_state": "available",
+      "downloadHD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/415o65ozc2l1bc3/415/415_hd_behind_the_scenes_of_the_xcode_build_process.mp4",
+      "downloadHD_size": 1783001498,
+      "downloadHD_state": "available",
+      "downloadSD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/415o65ozc2l1bc3/415/415_sd_behind_the_scenes_of_the_xcode_build_process.mp4",
+      "downloadSD_size": 460443412,
+      "downloadSD_state": "available",
+      "slides": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/415o65ozc2l1bc3/415/415_behind_the_scenes_of_the_xcode_build_process.pdf",
+      "slides_size": 6793126,
+      "slides_state": "available"
+    }
+  },
+  {
+    "id": "wwdc2018-408",
+    "title": "Building Faster in Xcode",
+    "description": "Build your apps faster in Xcode 10. Learn how to structure your projects and tweak your code to take full advantage of all processor cores. Whether you've made a few small code changes you want to give a try, or you're building your full app for release, these techniques will cut the time it takes to build a running app.",
+    "eventId": "wwdc2018",
+    "eventContentId": "408",
+    "year": 2018,
+    "topic": "Developer Tools",
+    "platforms": [
+      "iOS",
+      "macOS",
+      "tvOS",
+      "watchOS"
+    ],
+    "speakers": [
+      "David Owens",
+      "Jordan Rose"
+    ],
+    "appleWeblink": "https://developer.apple.com/videos/play/wwdc2018/408/",
+    "media": {
+      "duration": 2388,
+      "streamHLS": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/408bhgyeffq8acmv/408/hls_vod_mvp.m3u8",
+      "streamHLS_state": "available",
+      "downloadHD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/408bhgyeffq8acmv/408/408_hd_building_faster_in_xcode.mp4",
+      "downloadHD_size": 1232911268,
+      "downloadHD_state": "available",
+      "downloadSD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/408bhgyeffq8acmv/408/408_sd_building_faster_in_xcode.mp4",
+      "downloadSD_size": 318393466,
+      "downloadSD_state": "available",
+      "slides": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/408bhgyeffq8acmv/408/408_building_faster_in_xcode.pdf",
+      "slides_size": 13288129,
+      "slides_state": "available"
+    }
+  },
+  {
+    "id": "wwdc2018-224",
+    "title": "Core Data Best Practices",
+    "description": "As your app gains more customers and becomes more feature-rich, you may find yourself with new problems to solve. Core Data is a powerful tool that has changed a lot over the years. Learn about the new best practices in Core Data, such as how to use concurrency and persistent history, and discover how to test for, and resolve, common problems using familiar technologies.",
+    "eventId": "wwdc2018",
+    "eventContentId": "224",
+    "year": 2018,
+    "topic": "Developer Tools",
+    "platforms": [
+      "iOS",
+      "macOS",
+      "tvOS",
+      "watchOS"
+    ],
+    "speakers": [
+      "Scott Perry",
+      "Nick Gillett"
+    ],
+    "media": {
+      "duration": 2066,
+      "streamHLS": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/224esqliuhnac9p11/224/hls_vod_mvp.m3u8",
+      "streamHLS_state": "available",
+      "downloadHD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/224esqliuhnac9p11/224/224_hd_core_data_best_practices.mp4",
+      "downloadHD_size": 1066866331,
+      "downloadHD_state": "available",
+      "downloadSD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/224esqliuhnac9p11/224/224_sd_core_data_best_practices.mp4",
+      "downloadSD_size": 275516126,
+      "downloadSD_state": "available",
+      "slides": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/224esqliuhnac9p11/224/224_core_data_best_practices.pdf",
+      "slides_size": 2675393,
+      "slides_state": "available"
+    }
+  },
+  {
+    "id": "wwdc2018-413",
+    "title": "Create Your Own Swift Playgrounds Subscription",
+    "description": "Swift Playgrounds is a revolutionary iPad app to teach coding with the powerful Swift programming language. Learn how to create your own content for Swift Playgrounds using the new template, and find out how to use the subscription format to host your own feed online for others to access.",
+    "eventId": "wwdc2018",
+    "eventContentId": "413",
+    "year": 2018,
+    "topic": "Developer Tools",
+    "platforms": [
+      "iOS"
+    ],
+    "speakers": [
+      "Holly Borla",
+      "Grace Kendall"
+    ],
+    "media": {
+      "duration": 2123,
+      "streamHLS": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/413mapolqk6ca7mozr/413/hls_vod_mvp.m3u8",
+      "streamHLS_state": "available",
+      "downloadHD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/413mapolqk6ca7mozr/413/413_hd_create_your_own_swift_playgrounds_subscription.mp4",
+      "downloadHD_size": 1096221861,
+      "downloadHD_state": "available",
+      "downloadSD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/413mapolqk6ca7mozr/413/413_sd_create_your_own_swift_playgrounds_subscription.mp4",
+      "downloadSD_size": 283092822,
+      "downloadSD_state": "available",
+      "slides": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/413mapolqk6ca7mozr/413/413_create_your_own_swift_playgrounds_subscription.pdf",
+      "slides_size": 6427161,
+      "slides_state": "available"
+    }
+  },
+  {
+    "id": "wwdc2018-410",
+    "title": "Creating Custom Instruments",
+    "description": "Understand how custom instruments are useful and when they should be used. Get an in-depth view of the architecture of custom instruments and how to create them. Understand the attributes of a good instrument. Dive into advanced modeling and how to use the CLIPS language.",
+    "eventId": "wwdc2018",
+    "eventContentId": "410",
+    "year": 2018,
+    "topic": "Developer Tools",
+    "platforms": [
+      "iOS",
+      "macOS",
+      "tvOS",
+      "watchOS"
+    ],
+    "speakers": [
+      "Chad Woolf",
+      "Kacper Harasim"
+    ],
+    "appleWeblink": "https://developer.apple.com/videos/play/wwdc2018/410/",
+    "media": {
+      "duration": 3340,
+      "streamHLS": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/410naz8a8zy0rq9cg/410/hls_vod_mvp.m3u8",
+      "streamHLS_state": "available",
+      "downloadHD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/410naz8a8zy0rq9cg/410/410_hd_creating_custom_instruments.mp4",
+      "downloadHD_size": 1724443686,
+      "downloadHD_state": "available",
+      "downloadSD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/410naz8a8zy0rq9cg/410/410_sd_creating_custom_instruments.mp4",
+      "downloadSD_size": 445320766,
+      "downloadSD_state": "available",
+      "slides": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/410naz8a8zy0rq9cg/410/410_creating_custom_instruments.pdf",
+      "slides_size": 6996127,
+      "slides_state": "available"
+    }
+  },
+  {
+    "id": "wwdc2018-222",
+    "title": "Data You Can Trust",
+    "description": "A lot can go wrong when loading data into your app. Whether you work directly with JSON and property lists, or with higher-level APIs such as NSCoding and Codable, learn how to defend your customers and secure your code against invalid or malicious data. Avoid fatal assumptions by validating payload structure, type information and domain correctness, to turn the data you work with into data you can trust.",
+    "eventId": "wwdc2018",
+    "eventContentId": "222",
+    "year": 2018,
+    "topic": "Developer Tools",
+    "platforms": [
+      "iOS",
+      "macOS"
+    ],
+    "speakers": [
+      "Itai Ferber"
+    ],
+    "media": {
+      "duration": 2304,
+      "streamHLS": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/222krhixqaeggyrn33/222/hls_vod_mvp.m3u8",
+      "streamHLS_state": "available",
+      "downloadHD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/222krhixqaeggyrn33/222/222_hd_data_you_can_trust.mp4",
+      "downloadHD_size": 1189571850,
+      "downloadHD_state": "available",
+      "downloadSD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/222krhixqaeggyrn33/222/222_sd_data_you_can_trust.mp4",
+      "downloadSD_size": 307204666,
+      "downloadSD_state": "available",
+      "slides": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/222krhixqaeggyrn33/222/222_data_you_can_trust.pdf",
+      "slides_size": 2805550,
+      "slides_state": "available"
+    }
+  },
+  {
+    "id": "wwdc2018-223",
+    "title": "Embracing Algorithms",
+    "description": "When you imagine building a new app, what do you think about? Models, views, and controllers deserve their prominent place in the design process, but we don't often give the same attention to the underlying work our apps need to do. Understand how to identify and optimize the algorithms in your app, and discover how implementing algorithms as generic protocol extensions results in efficient, effective, and maintainable code.",
+    "eventId": "wwdc2018",
+    "eventContentId": "223",
+    "year": 2018,
+    "topic": "Developer Tools",
+    "platforms": [
+      "iOS",
+      "macOS",
+      "tvOS",
+      "watchOS"
+    ],
+    "speakers": [
+      "Dave Abrahams"
+    ],
+    "media": {
+      "duration": 2412,
+      "streamHLS": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/223plbqb0sfpv80/223/hls_vod_mvp.m3u8",
+      "streamHLS_state": "available",
+      "downloadHD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/223plbqb0sfpv80/223/223_hd_embracing_algorithms.mp4",
+      "downloadHD_size": 1245785072,
+      "downloadHD_state": "available",
+      "downloadSD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/223plbqb0sfpv80/223/223_sd_embracing_algorithms.mp4",
+      "downloadSD_size": 321703554,
+      "downloadSD_state": "available",
+      "slides": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/223plbqb0sfpv80/223/223_embracing_algorithms.pdf",
+      "slides_size": 7977673,
+      "slides_state": "available"
+    }
+  },
+  {
+    "id": "wwdc2018-402",
+    "title": "Getting the Most out of Playgrounds in Xcode",
+    "description": "Discover major advancements in Xcode playgrounds. Learn advanced tips and techniques, hear about new and often overlooked workflows, and rediscover the tools provided when coding in playgrounds.",
+    "eventId": "wwdc2018",
+    "eventContentId": "402",
+    "year": 2018,
+    "topic": "Developer Tools",
+    "platforms": [
+      "iOS",
+      "macOS"
+    ],
+    "speakers": [
+      "Tibet Rooney-Rabdau",
+      "Alex Brown",
+      "TJ Usiyan"
+    ],
+    "media": {
+      "duration": 2299,
+      "streamHLS": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/402ta235oio1spobfi/402/hls_vod_mvp.m3u8",
+      "streamHLS_state": "available",
+      "downloadHD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/402ta235oio1spobfi/402/402_hd_getting_the_most_out_of_playgrounds_in_xcode.mp4",
+      "downloadHD_size": 1187195060,
+      "downloadHD_state": "available",
+      "downloadSD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/402ta235oio1spobfi/402/402_sd_getting_the_most_out_of_playgrounds_in_xcode.mp4",
+      "downloadSD_size": 306574471,
+      "downloadSD_state": "available",
+      "slides": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/402ta235oio1spobfi/402/402_getting_the_most_out_of_playgrounds_in_xcode.pdf",
+      "slides_size": 6640226,
+      "slides_state": "available"
+    }
+  },
+  {
+    "id": "wwdc2018-411",
+    "title": "Getting to Know Swift Package Manager",
+    "description": "The Swift Package Manager makes it possible to easily develop and distribute source code in the Swift ecosystem. Learn about its goals, design, unique features, and the opportunities it has for continued evolution.",
+    "eventId": "wwdc2018",
+    "eventContentId": "411",
+    "year": 2018,
+    "topic": "Developer Tools",
+    "platforms": [
+      "macOS"
+    ],
+    "speakers": [
+      "Rick Ballard",
+      "Boris Buegling"
+    ],
+    "appleWeblink": "https://developer.apple.com/videos/play/wwdc2018/411/",
+    "media": {
+      "duration": 2197,
+      "streamHLS": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/411gl7b9ztm2imp/411/hls_vod_mvp.m3u8",
+      "streamHLS_state": "available",
+      "downloadHD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/411gl7b9ztm2imp/411/411_hd_getting_to_know_swift_package_manager.mp4",
+      "downloadHD_size": 1134669927,
+      "downloadHD_state": "available",
+      "downloadSD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/411gl7b9ztm2imp/411/411_sd_getting_to_know_swift_package_manager.mp4",
+      "downloadSD_size": 293012632,
+      "downloadSD_state": "available",
+      "slides": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/411gl7b9ztm2imp/411/411_getting_to_know_swift_package_manager.pdf",
+      "slides_size": 4601937,
+      "slides_state": "available"
+    }
+  },
+  {
+    "id": "wwdc2018-210",
+    "title": "Introducing Dark Mode",
+    "description": "Hear from the Apple design team about the principles and concepts that anchor Dark Mode. Learn the basics of enhancing your app with this new appearance, and add an experience that people are sure to love.",
+    "eventId": "wwdc2018",
+    "eventContentId": "210",
+    "year": 2018,
+    "topic": "Developer Tools",
+    "platforms": [
+      "macOS"
+    ],
+    "speakers": [
+      "Raymond Sepulveda",
+      "Rachel Goldeen",
+      "Taylor Kelly"
+    ],
+    "media": {
+      "duration": 3549,
+      "streamHLS": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/210y2fene7yk01/210/hls_vod_mvp.m3u8",
+      "streamHLS_state": "available",
+      "downloadHD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/210y2fene7yk01/210/210_hd_introducing_dark_mode.mp4",
+      "downloadHD_size": 1832449441,
+      "downloadHD_state": "available",
+      "downloadSD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/210y2fene7yk01/210/210_sd_introducing_dark_mode.mp4",
+      "downloadSD_size": 473217879,
+      "downloadSD_state": "available",
+      "slides": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/210y2fene7yk01/210/210_introducing_dark_mode.pdf",
+      "slides_size": 52319889,
+      "slides_state": "available"
+    }
+  },
+  {
+    "id": "wwdc2018-405",
+    "title": "Measuring Performance Using Logging",
+    "description": "Learn how to use signposts and logging to measure performance.  Understand how the Points of Interest instrument can be used to examine logged data. Get an introduction into creating and using custom instruments.",
+    "eventId": "wwdc2018",
+    "eventContentId": "405",
+    "year": 2018,
+    "topic": "Developer Tools",
+    "platforms": [
+      "iOS",
+      "macOS",
+      "tvOS",
+      "watchOS"
+    ],
+    "speakers": [
+      "Shane Owara",
+      "Chad Woolf"
+    ],
+    "appleWeblink": "https://developer.apple.com/videos/play/wwdc2018/405/",
+    "media": {
+      "duration": 2124,
+      "streamHLS": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/405bjty1j94taqv8ii/405/hls_vod_mvp.m3u8",
+      "streamHLS_state": "available",
+      "downloadHD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/405bjty1j94taqv8ii/405/405_hd_measuring_performance_using_logging.mp4",
+      "downloadHD_size": 1097121146,
+      "downloadHD_state": "available",
+      "downloadSD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/405bjty1j94taqv8ii/405/405_sd_measuring_performance_using_logging.mp4",
+      "downloadSD_size": 283325739,
+      "downloadSD_state": "available",
+      "slides": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/405bjty1j94taqv8ii/405/405_measuring_performance_using_logging.pdf",
+      "slides_size": 9010235,
+      "slides_state": "available"
+    }
+  },
+  {
+    "id": "wwdc2018-609",
+    "title": "Metal for Accelerating Machine Learning",
+    "description": "Metal Performance Shaders (MPS) includes a highly tuned library of machine learning primitives leveraging the tremendous power of the GPU. With iOS 12 and macOS Mojave, MPS adds capabilities to accelerate the computationally intensive task of training a neural network. Learn performance optimizations for inference, and understand the training process for both convolutional and recurrent neural networks (CNNs and RNNs).",
+    "eventId": "wwdc2018",
+    "eventContentId": "609",
+    "year": 2018,
+    "topic": "Developer Tools",
+    "platforms": [
+      "iOS",
+      "macOS",
+      "tvOS"
+    ],
+    "speakers": [
+      "Anna Tikhonova"
+    ],
+    "media": {
+      "duration": 2306,
+      "streamHLS": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/609yyw42hw6wq6mte8p/609/hls_vod_mvp.m3u8",
+      "streamHLS_state": "available",
+      "downloadHD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/609yyw42hw6wq6mte8p/609/609_hd_metal_for_accelerating_machine_learning.mp4",
+      "downloadHD_size": 1190610936,
+      "downloadHD_state": "available",
+      "downloadSD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/609yyw42hw6wq6mte8p/609/609_sd_metal_for_accelerating_machine_learning.mp4",
+      "downloadSD_size": 307465270,
+      "downloadSD_state": "available",
+      "slides": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/609yyw42hw6wq6mte8p/609/609_metal_for_accelerating_machine_learning.pdf",
+      "slides_size": 4721908,
+      "slides_state": "available"
+    }
+  },
+  {
+    "id": "wwdc2018-404",
+    "title": "New Localization Workflows in Xcode 10",
+    "description": "The localization process in Xcode 10 has been updated to aid you through the lifecycle of exporting, importing, and testing localized content in your apps. See new functionality added in Xcode 10 and learn how the new localization catalog helps you build world-class, localized apps.",
+    "eventId": "wwdc2018",
+    "eventContentId": "404",
+    "year": 2018,
+    "topic": "Developer Tools",
+    "platforms": [
+      "iOS",
+      "macOS",
+      "tvOS",
+      "watchOS"
+    ],
+    "speakers": [
+      "Chris Hanson",
+      "Sara Radi",
+      "Vivian Robison"
+    ],
+    "media": {
+      "duration": 2501,
+      "streamHLS": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/404cpduaxf6gola/404/hls_vod_mvp.m3u8",
+      "streamHLS_state": "available",
+      "downloadHD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/404cpduaxf6gola/404/404_hd_new_localization_workflows_in_xcode_10.mp4",
+      "downloadHD_size": 1291409429,
+      "downloadHD_state": "available",
+      "downloadSD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/404cpduaxf6gola/404/404_sd_new_localization_workflows_in_xcode_10.mp4",
+      "downloadSD_size": 333507484,
+      "downloadSD_state": "available",
+      "slides": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/404cpduaxf6gola/404/404_new_localization_workflows_in_xcode_10.pdf",
+      "slides_size": 1782850,
+      "slides_state": "available"
+    }
+  },
+  {
+    "id": "wwdc2018-227",
+    "title": "Optimizing App Assets",
+    "description": "Learn how to use assets to bring visually compelling and data efficient artwork to your apps, leveraging new features in iOS 12. Gain insight into organizing, optimizing, and authoring artwork assets by using asset catalogs to their fullest. Learn techniques to better streamline workflows between designers and developers. Ensure better app delivery and a smaller footprint, maximizing target audiences of your app with full artwork asset fidelity.",
+    "eventId": "wwdc2018",
+    "eventContentId": "227",
+    "year": 2018,
+    "topic": "Developer Tools",
+    "platforms": [
+      "iOS",
+      "macOS",
+      "tvOS"
+    ],
+    "speakers": [
+      "Will Li",
+      "Patrick Heynen"
+    ],
+    "appleWeblink": "https://developer.apple.com/videos/play/wwdc2018/227/",
+    "media": {
+      "duration": 2804,
+      "streamHLS": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/227r61xi77ucgjz6zm/227/hls_vod_mvp.m3u8",
+      "streamHLS_state": "available",
+      "downloadHD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/227r61xi77ucgjz6zm/227/227_hd_optimizing_app_assets.mp4",
+      "downloadHD_size": 1447969376,
+      "downloadHD_state": "available",
+      "downloadSD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/227r61xi77ucgjz6zm/227/227_sd_optimizing_app_assets.mp4",
+      "downloadSD_size": 373925777,
+      "downloadSD_state": "available",
+      "slides": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/227r61xi77ucgjz6zm/227/227_optimizing_app_assets.pdf",
+      "slides_size": 8839714,
+      "slides_state": "available"
+    }
+  },
+  {
+    "id": "wwdc2018-407",
+    "title": "Practical Approaches to Great App Performance",
+    "description": "All apps benefit from a focus on performance and an increase in overall responsiveness. This information packed session gives you strategies for fixing performance problems using Instruments and other tools. Additionally, get practical advice based on experience in tuning Apple's own apps including Xcode and Photos on iOS.",
+    "eventId": "wwdc2018",
+    "eventContentId": "407",
+    "year": 2018,
+    "topic": "Developer Tools",
+    "platforms": [
+      "iOS",
+      "macOS",
+      "tvOS",
+      "watchOS"
+    ],
+    "speakers": [
+      "Jon Hess",
+      "Matthieu Lucas"
+    ],
+    "media": {
+      "duration": 3020,
+      "streamHLS": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/407akll3nbwls9yn4qt/407/hls_vod_mvp.m3u8",
+      "streamHLS_state": "available",
+      "downloadHD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/407akll3nbwls9yn4qt/407/407_hd_practical_approaches_to_great_app_performance.mp4",
+      "downloadHD_size": 1559739101,
+      "downloadHD_state": "available",
+      "downloadSD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/407akll3nbwls9yn4qt/407/407_sd_practical_approaches_to_great_app_performance.mp4",
+      "downloadSD_size": 402795679,
+      "downloadSD_state": "available",
+      "slides": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/407akll3nbwls9yn4qt/407/407_practical_approaches_to_great_app_performance.pdf",
+      "slides_size": 11352001,
+      "slides_state": "available"
+    }
+  },
+  {
+    "id": "wwdc2018-811",
+    "title": "Presenting Design Work",
+    "description": "Ideas can live or die by their presentation. Learn indispensable and proven techniques for presenting your design work to better communicate your objectives and receive helpful, valuable and constructive feedback.",
+    "eventId": "wwdc2018",
+    "eventContentId": "811",
+    "year": 2018,
+    "topic": "Developer Tools",
+    "platforms": [
+      "iOS",
+      "macOS"
+    ],
+    "speakers": [
+      "Alexander James O\u2019Connell"
+    ],
+    "media": {
+      "duration": 908,
+      "streamHLS": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/811tcr2wk13t3uq/811/hls_vod_mvp.m3u8",
+      "streamHLS_state": "available",
+      "downloadHD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/811tcr2wk13t3uq/811/811_hd_presenting_design_work.mp4",
+      "downloadHD_size": 468838658,
+      "downloadHD_state": "available",
+      "downloadSD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/811tcr2wk13t3uq/811/811_sd_presenting_design_work.mp4",
+      "downloadSD_size": 121069388,
+      "downloadSD_state": "available",
+      "slides": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/811tcr2wk13t3uq/811/811_presenting_design_work.pdf",
+      "slides_size": 3819825,
+      "slides_state": "available"
+    }
+  },
+  {
+    "id": "wwdc2018-418",
+    "title": "Source Control Workflows in Xcode",
+    "description": "Xcode integrates with GitHub, Bitbucket, and GitLab to help you manage your source code, back up your files, and collaborate with others. Find out how to easily see the changes in your project right in the source editor, and learn how to use Xcode for common source control workflows with Git. See how conflicts occur, how to resolve them, and how to avoid them before they even happen.",
+    "eventId": "wwdc2018",
+    "eventContentId": "418",
+    "year": 2018,
+    "topic": "Developer Tools",
+    "platforms": [
+      "iOS",
+      "macOS",
+      "tvOS",
+      "watchOS"
+    ],
+    "speakers": [
+      "Eric Dudiak"
+    ],
+    "media": {
+      "duration": 1290,
+      "streamHLS": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/418ernlc0c54xrb8sn/418/hls_vod_mvp.m3u8",
+      "streamHLS_state": "available",
+      "downloadHD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/418ernlc0c54xrb8sn/418/418_hd_source_control_workflows_in_xcode.mp4",
+      "downloadHD_size": 666217381,
+      "downloadHD_state": "available",
+      "downloadSD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/418ernlc0c54xrb8sn/418/418_sd_source_control_workflows_in_xcode.mp4",
+      "downloadSD_size": 172046886,
+      "downloadSD_state": "available",
+      "slides": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/418ernlc0c54xrb8sn/418/418_source_control_workflows_in_xcode.pdf",
+      "slides_size": 14512921,
+      "slides_state": "available"
+    }
+  },
+  {
+    "id": "wwdc2018-406",
+    "title": "Swift Generics (Expanded)",
+    "description": "Generics are one of the most powerful features of Swift, enabling you to write flexible, reusable components while maintaining static type information. Learn about the design of Swift's generics, including how to generalize protocols, leverage protocol inheritance to express the varying capabilities of related types, build composable generic components with conditional conformances, and reason about the interaction between class inheritance and generics. This expanded version of the WWDC 2018 session includes a brand-new discussion of recursive constraints.",
+    "eventId": "wwdc2018",
+    "eventContentId": "406",
+    "year": 2018,
+    "topic": "Developer Tools",
+    "platforms": [
+      "iOS",
+      "macOS",
+      "tvOS",
+      "watchOS"
+    ],
+    "speakers": [
+      "Ben Cohen",
+      "Doug Gregor"
+    ],
+    "media": {
+      "duration": 3415,
+      "streamHLS": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/406z8wpyv2jdenet9rc/406/hls_vod_mvp.m3u8",
+      "streamHLS_state": "available",
+      "downloadHD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/406z8wpyv2jdenet9rc/406/406_hd_swift_generics.mp4",
+      "downloadHD_size": 1764494587,
+      "downloadHD_state": "available",
+      "downloadSD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/406z8wpyv2jdenet9rc/406/406_sd_swift_generics.mp4",
+      "downloadSD_size": 456568835,
+      "downloadSD_state": "available",
+      "slides": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/406z8wpyv2jdenet9rc/406/406_swift_generics.pdf",
+      "slides_size": 1214113,
+      "slides_state": "available"
+    }
+  },
+  {
+    "id": "wwdc2018-417",
+    "title": "Testing Tips & Tricks",
+    "description": "Testing is an essential tool to consistently verify your code works correctly, but often your code has dependencies that are out of your control. Discover techniques for making hard-to-test code testable on Apple platforms using XCTest. Learn a variety of tips for writing higher-quality tests that run fast and require less maintenance.",
+    "eventId": "wwdc2018",
+    "eventContentId": "417",
+    "year": 2018,
+    "topic": "Developer Tools",
+    "platforms": [
+      "iOS",
+      "macOS",
+      "tvOS"
+    ],
+    "speakers": [
+      "Brian Croom",
+      "Stuart Montgomery"
+    ],
+    "appleWeblink": "https://developer.apple.com/videos/play/wwdc2018/417/",
+    "media": {
+      "duration": 2246,
+      "streamHLS": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/417j8ucs9p8w7seip/417/hls_vod_mvp.m3u8",
+      "streamHLS_state": "available",
+      "downloadHD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/417j8ucs9p8w7seip/417/417_hd_testing_tips__tricks.mp4",
+      "downloadHD_size": 1159925186,
+      "downloadHD_state": "available",
+      "downloadSD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/417j8ucs9p8w7seip/417/417_sd_testing_tips__tricks.mp4",
+      "downloadSD_size": 299543065,
+      "downloadSD_state": "available",
+      "slides": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/417j8ucs9p8w7seip/417/417_testing_tips__tricks.pdf",
+      "slides_size": 3852334,
+      "slides_state": "available"
+    }
+  },
+  {
+    "id": "wwdc2018-414",
+    "title": "Understanding Crashes and Crash Logs",
+    "description": "Sudden app crashes are a source of bad user experience and app review rejections. Learn how crash logs can be analyzed, what information they contain and how to diagnose the causes of crashes, including hard-to-reproduce memory corruptions and multithreading issues.",
+    "eventId": "wwdc2018",
+    "eventContentId": "414",
+    "year": 2018,
+    "topic": "Developer Tools",
+    "platforms": [
+      "iOS",
+      "macOS",
+      "tvOS",
+      "watchOS"
+    ],
+    "speakers": [
+      "Chris D\u2019Angelo",
+      "Greg Parker",
+      "Kuba Mracek"
+    ],
+    "appleWeblink": "https://developer.apple.com/videos/play/wwdc2018/414/",
+    "media": {
+      "duration": 3437,
+      "streamHLS": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/414djzbkfdpkvf50/414/hls_vod_mvp.m3u8",
+      "streamHLS_state": "available",
+      "downloadHD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/414djzbkfdpkvf50/414/414_hd_understanding_crashes_and_crash_logs.mp4",
+      "downloadHD_size": 1774759392,
+      "downloadHD_state": "available",
+      "downloadSD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/414djzbkfdpkvf50/414/414_sd_understanding_crashes_and_crash_logs.mp4",
+      "downloadSD_size": 458309949,
+      "downloadSD_state": "available",
+      "slides": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/414djzbkfdpkvf50/414/414_understanding_crashes_and_crash_logs.pdf",
+      "slides_size": 3251907,
+      "slides_state": "available"
+    }
+  },
+  {
+    "id": "wwdc2018-229",
+    "title": "Using Collections Effectively",
+    "description": "Every app uses collections! Go beyond the basics with specific tips on how best to use indices, slices, bridging, laziness, and reference types. Gain better understanding of when to use each collection for best performance.",
+    "eventId": "wwdc2018",
+    "eventContentId": "229",
+    "year": 2018,
+    "topic": "Developer Tools",
+    "platforms": [
+      "macOS"
+    ],
+    "speakers": [
+      "Michael LeHew"
+    ],
+    "media": {
+      "duration": 2273,
+      "streamHLS": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/229aa99vrkiplc/229/hls_vod_mvp.m3u8",
+      "streamHLS_state": "available",
+      "downloadHD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/229aa99vrkiplc/229/229_hd_using_collections_effectively.mp4",
+      "downloadHD_size": 1173573374,
+      "downloadHD_state": "available",
+      "downloadSD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/229aa99vrkiplc/229/229_sd_using_collections_effectively.mp4",
+      "downloadSD_size": 303079895,
+      "downloadSD_state": "available",
+      "slides": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/229aa99vrkiplc/229/229_using_collections_effectively.pdf",
+      "slides_size": 2764406,
+      "slides_state": "available"
+    }
+  },
+  {
+    "id": "wwdc2018-209",
+    "title": "What's New in Cocoa for macOS",
+    "description": "Gain insights into the latest in Cocoa frameworks for macOS. Hear about Dark Mode, control tinting, contextual workflows for Touch Bar and Finder, and other improvements in AppKit, Foundation, and related areas. Get an overview and guide to the sessions that we have this year covering advancements in Cocoa.",
+    "eventId": "wwdc2018",
+    "eventContentId": "209",
+    "year": 2018,
+    "topic": "Developer Tools",
+    "platforms": [
+      "macOS"
+    ],
+    "speakers": [
+      "Ali Ozer",
+      "Chris Dreessen",
+      "Jesse Donaldson"
+    ],
+    "media": {
+      "duration": 2438,
+      "streamHLS": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/209pydirtfgavpnj/209/hls_vod_mvp.m3u8",
+      "streamHLS_state": "available",
+      "downloadHD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/209pydirtfgavpnj/209/209_hd_whats_new_in_cocoa_for_macos.mp4",
+      "downloadHD_size": 1259028780,
+      "downloadHD_state": "available",
+      "downloadSD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/209pydirtfgavpnj/209/209_sd_whats_new_in_cocoa_for_macos.mp4",
+      "downloadSD_size": 325144977,
+      "downloadSD_state": "available",
+      "slides": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/209pydirtfgavpnj/209/209_whats_new_in_cocoa_for_macos.pdf",
+      "slides_size": 7735226,
+      "slides_state": "available"
+    }
+  },
+  {
+    "id": "wwdc2018-409",
+    "title": "What's New in LLVM",
+    "description": "The LLVM suite of compiler tools in Xcode 10 have new language features, improved diagnostics, and more powerful optimizations. Find out about improvements to ARC for Objective-C, keep up with the newest additions to C++, get an overview of new and improved diagnostics and static analyzer checks, and learn about how LLVM compiler technology is delivering faster build times and better runtime performance for your apps.",
+    "eventId": "wwdc2018",
+    "eventContentId": "409",
+    "year": 2018,
+    "topic": "Developer Tools",
+    "platforms": [
+      "iOS",
+      "macOS",
+      "tvOS",
+      "watchOS"
+    ],
+    "speakers": [
+      "Jim Grosbach",
+      "Alex Lorenz",
+      "George Karpenkov",
+      "Ahmed Bougacha"
+    ],
+    "media": {
+      "duration": 2534,
+      "streamHLS": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/409t8zw7rumablsh/409/hls_vod_mvp.m3u8",
+      "streamHLS_state": "available",
+      "downloadHD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/409t8zw7rumablsh/409/409_hd_whats_new_in_llvm.mp4",
+      "downloadHD_size": 1308596205,
+      "downloadHD_state": "available",
+      "downloadSD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/409t8zw7rumablsh/409/409_sd_whats_new_in_llvm.mp4",
+      "downloadSD_size": 337925611,
+      "downloadSD_state": "available",
+      "slides": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/409t8zw7rumablsh/409/409_whats_new_in_llvm.pdf",
+      "slides_size": 4474086,
+      "slides_state": "available"
+    }
+  },
+  {
+    "id": "wwdc2018-401",
+    "title": "What's New in Swift",
+    "description": "Hear about the latest advancements in Swift, the safe, fast, and expressive language. Find out about improvements to build times, code size, and runtime performance. Learn how to take advantage of new features in your code that eliminate boilerplate, increase safety and security, and improve your overall development productivity.",
+    "eventId": "wwdc2018",
+    "eventContentId": "401",
+    "year": 2018,
+    "topic": "Developer Tools",
+    "platforms": [
+      "iOS",
+      "macOS",
+      "tvOS",
+      "watchOS"
+    ],
+    "speakers": [
+      "Ted Kremenek",
+      "Slava Pestov"
+    ],
+    "media": {
+      "duration": 2249,
+      "streamHLS": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/401ieeclipzse3tz3fg/401/hls_vod_mvp.m3u8",
+      "streamHLS_state": "available",
+      "downloadHD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/401ieeclipzse3tz3fg/401/401_hd_whats_new_in_swift.mp4",
+      "downloadHD_size": 1161176801,
+      "downloadHD_state": "available",
+      "downloadSD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/401ieeclipzse3tz3fg/401/401_sd_whats_new_in_swift.mp4",
+      "downloadSD_size": 299866601,
+      "downloadSD_state": "available",
+      "slides": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/401ieeclipzse3tz3fg/401/401_whats_new_in_swift.pdf",
+      "slides_size": 5060978,
+      "slides_state": "available"
+    }
+  },
+  {
+    "id": "wwdc2018-403",
+    "title": "What's New in Testing",
+    "description": "Hear about exciting improvements to code coverage, including how you can build your own automation on top of Xcode\u2019s coverage reports. Learn how to dramatically speed up the execution of your tests by leveraging distributed parallel testing, new in Xcode 10.",
+    "eventId": "wwdc2018",
+    "eventContentId": "403",
+    "year": 2018,
+    "topic": "Developer Tools",
+    "platforms": [
+      "iOS",
+      "macOS",
+      "tvOS"
+    ],
+    "speakers": [
+      "Honza Dvorsky",
+      "Ethan Vaughan"
+    ],
+    "media": {
+      "duration": 1854,
+      "streamHLS": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/403r3eh2u29dfeml/403/hls_vod_mvp.m3u8",
+      "streamHLS_state": "available",
+      "downloadHD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/403r3eh2u29dfeml/403/403_hd_whats_new_in_testing.mp4",
+      "downloadHD_size": 957590197,
+      "downloadHD_state": "available",
+      "downloadSD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/403r3eh2u29dfeml/403/403_sd_whats_new_in_testing.mp4",
+      "downloadSD_size": 247283835,
+      "downloadSD_state": "available",
+      "slides": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/403r3eh2u29dfeml/403/403_whats_new_in_testing.pdf",
+      "slides_size": 3176740,
+      "slides_state": "available"
+    }
+  },
+  {
+    "id": "wwdc2018-228",
+    "title": "What\u2019s New in Energy Debugging",
+    "description": "People expect long battery life on their mobile devices, and apps play a vital role in achieving that experience. Understand how app behavior affects battery consumption, and learn strategies to conserve energy while providing the best experience for your app. Find out how Xcode Energy Reports can help you tune your app to use the least amount of power possible.",
+    "eventId": "wwdc2018",
+    "eventContentId": "228",
+    "year": 2018,
+    "topic": "Developer Tools",
+    "platforms": [
+      "iOS"
+    ],
+    "speakers": [
+      "Phillip Azar",
+      "David Choi"
+    ],
+    "media": {
+      "duration": 3051,
+      "streamHLS": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/228cp3feot1iav3gy4x/228/hls_vod_mvp.m3u8",
+      "streamHLS_state": "available",
+      "downloadHD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/228cp3feot1iav3gy4x/228/228_hd_whats_new_in_energy_debugging.mp4",
+      "downloadHD_size": 1575603557,
+      "downloadHD_state": "available",
+      "downloadSD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/228cp3feot1iav3gy4x/228/228_sd_whats_new_in_energy_debugging.mp4",
+      "downloadSD_size": 406888017,
+      "downloadSD_state": "available",
+      "slides": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/228cp3feot1iav3gy4x/228/228_whats_new_in_energy_debugging.pdf",
+      "slides_size": 3129913,
+      "slides_state": "available"
+    }
+  },
+  {
+    "id": "wwdc2018-416",
+    "title": "iOS Memory Deep Dive",
+    "description": "Discover how memory graphs can be used to get a close up look at what is contributing to an app\u2019s memory footprint. Understand the true memory cost of an image. Learn some tips and tricks for reducing the memory footprint of an app.",
+    "eventId": "wwdc2018",
+    "eventContentId": "416",
+    "year": 2018,
+    "topic": "Developer Tools",
+    "platforms": [
+      "iOS",
+      "tvOS",
+      "watchOS"
+    ],
+    "speakers": [
+      "Kyle Howarth",
+      "James Snee",
+      "Kris Markel"
+    ],
+    "appleWeblink": "https://developer.apple.com/videos/play/wwdc2018/416/",
+    "media": {
+      "duration": 3088,
+      "streamHLS": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/416n2fmzz0fz88f/416/hls_vod_mvp.m3u8",
+      "streamHLS_state": "available",
+      "downloadHD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/416n2fmzz0fz88f/416/416_hd_ios_memory_deep_dive.mp4",
+      "downloadHD_size": 1594536012,
+      "downloadHD_state": "available",
+      "downloadSD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/416n2fmzz0fz88f/416/416_sd_ios_memory_deep_dive.mp4",
+      "downloadSD_size": 411778761,
+      "downloadSD_state": "available",
+      "slides": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/416n2fmzz0fz88f/416/416_ios_memory_deep_dive.pdf",
+      "slides_size": 9575316,
+      "slides_state": "available"
+    }
+  },
+  {
+    "id": "wwdc2018-712",
+    "title": "A Guide to Turi Create",
+    "description": "Turi Create is an open source toolset for creating Core ML models, for tasks such as image classification, object detection, style transfers, recommendations, and more. Learn how you can use Turi Create to build models for your apps.",
+    "eventId": "wwdc2018",
+    "eventContentId": "712",
+    "year": 2018,
+    "topic": "Frameworks",
+    "platforms": [
+      "iOS",
+      "macOS",
+      "tvOS",
+      "watchOS"
+    ],
+    "speakers": [
+      "Aaron Franklin",
+      "Zach Nation"
+    ],
+    "media": {
+      "duration": 2177,
+      "streamHLS": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/712rgcvlbuehdk/712/hls_vod_mvp.m3u8",
+      "streamHLS_state": "available",
+      "downloadHD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/712rgcvlbuehdk/712/712_hd_a_guide_to_turi_create.mp4",
+      "downloadHD_size": 1123989128,
+      "downloadHD_state": "available",
+      "downloadSD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/712rgcvlbuehdk/712/712_sd_a_guide_to_turi_create.mp4",
+      "downloadSD_size": 290261840,
+      "downloadSD_state": "available",
+      "slides": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/712rgcvlbuehdk/712/712_a_guide_to_turi_create.pdf",
+      "slides_size": 7978903,
+      "slides_state": "available"
+    }
+  },
+  {
+    "id": "wwdc2018-225",
+    "title": "A Tour of UICollectionView",
+    "description": "UICollectionView is a flexible, powerful tool to help you achieve great user experiences in your applications. Hear how you can leverage these rich APIs to rapidly move from initial design ideas to polished shipping applications. Topics range from getting started to advanced update animations and layouts.",
+    "eventId": "wwdc2018",
+    "eventContentId": "225",
+    "year": 2018,
+    "topic": "Frameworks",
+    "platforms": [
+      "iOS"
+    ],
+    "speakers": [
+      "Steve Breen",
+      "Mohammed Jisrawi"
+    ],
+    "media": {
+      "duration": 2421,
+      "streamHLS": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/225s90wcvt1fjg6b/225/hls_vod_mvp.m3u8",
+      "streamHLS_state": "available",
+      "downloadHD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/225s90wcvt1fjg6b/225/225_hd_a_tour_of_uicollectionview.mp4",
+      "downloadHD_size": 1250244868,
+      "downloadHD_state": "available",
+      "downloadSD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/225s90wcvt1fjg6b/225/225_sd_a_tour_of_uicollectionview.mp4",
+      "downloadSD_size": 322869987,
+      "downloadSD_state": "available",
+      "slides": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/225s90wcvt1fjg6b/225/225_a_tour_of_uicollectionview.pdf",
+      "slides_size": 854873,
+      "slides_state": "available"
+    }
+  },
+  {
+    "id": "wwdc2018-706",
+    "title": "Accessing Health Records with HealthKit",
+    "description": "HealthKit provides a consolidated repository for a variety of data including health records containing information such as lab results, immunizations, and medications downloaded directly from institutions. Discover new health records classes and types created to provide easy access to high-level record types without preventing access to the underlying raw data.  Learn new authorization techniques that allows your app to access health record data for analysis and presentation in a manner that respects your customer's privacy.",
+    "eventId": "wwdc2018",
+    "eventContentId": "706",
+    "year": 2018,
+    "topic": "Frameworks",
+    "platforms": [
+      "iOS",
+      "watchOS"
+    ],
+    "speakers": [
+      "Jason Morley",
+      "Peyton Randolph"
+    ],
+    "media": {
+      "duration": 2281,
+      "streamHLS": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/706pjh63zj75v07w6/706/hls_vod_mvp.m3u8",
+      "streamHLS_state": "available",
+      "downloadHD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/706pjh63zj75v07w6/706/706_hd_accessing_health_records_with_healthkit.mp4",
+      "downloadHD_size": 1177791495,
+      "downloadHD_state": "available",
+      "downloadSD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/706pjh63zj75v07w6/706/706_sd_accessing_health_records_with_healthkit.mp4",
+      "downloadSD_size": 304147259,
+      "downloadSD_state": "available",
+      "slides": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/706pjh63zj75v07w6/706/706_accessing_health_records_with_healthkit.pdf",
+      "slides_size": 35189300,
+      "slides_state": "available"
+    }
+  },
+  {
+    "id": "wwdc2018-233",
+    "title": "Adding Delight to your iOS App",
+    "description": "iOS contains powerful technologies you can use to make your app truly delightful. Learn how to take your app to the next level with easy-to-implement features such as Handoff and External Display support. Preserve that feeling of magic in your app with pro-tips that combine animations, gestures and layout, while keeping your scrolling smooth, and your code scalable. Dive into the anatomy of a launch to get your app responsive quickly, and learn some great debugging tricks from the pros!",
+    "eventId": "wwdc2018",
+    "eventContentId": "233",
+    "year": 2018,
+    "topic": "Frameworks",
+    "platforms": [
+      "iOS"
+    ],
+    "speakers": [
+      "Ben Fearnley",
+      "Peter Hajas"
+    ],
+    "media": {
+      "duration": 3081,
+      "streamHLS": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/233uq0n4zauq0ili/233/hls_vod_mvp.m3u8",
+      "streamHLS_state": "available",
+      "downloadHD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/233uq0n4zauq0ili/233/233_hd_adding_delight_to_your_ios_app.mp4",
+      "downloadHD_size": 1590924585,
+      "downloadHD_state": "available",
+      "downloadSD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/233uq0n4zauq0ili/233/233_sd_adding_delight_to_your_ios_app.mp4",
+      "downloadSD_size": 410841786,
+      "downloadSD_state": "available",
+      "slides": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/233uq0n4zauq0ili/233/233_adding_delight_to_your_ios_app.pdf",
+      "slides_size": 56673187,
+      "slides_state": "available"
+    }
+  },
+  {
+    "id": "wwdc2018-218",
+    "title": "Advanced Dark Mode",
+    "description": "Step deeper into Dark Mode adoption in your macOS application. Learn about the powerful Cocoa technologies at the core of Dark Mode, and take a detailed look at the APIs and best practices for adapting to this beautiful new look.",
+    "eventId": "wwdc2018",
+    "eventContentId": "218",
+    "year": 2018,
+    "topic": "Frameworks",
+    "platforms": [
+      "macOS"
+    ],
+    "speakers": [
+      "Matt Jacobson",
+      "Jeff Nadeau"
+    ],
+    "media": {
+      "duration": 3080,
+      "streamHLS": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/218o6oial8c68yom/218/hls_vod_mvp.m3u8",
+      "streamHLS_state": "available",
+      "downloadHD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/218o6oial8c68yom/218/218_hd_advanced_dark_mode.mp4",
+      "downloadHD_size": 1590496356,
+      "downloadHD_state": "available",
+      "downloadSD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/218o6oial8c68yom/218/218_sd_advanced_dark_mode.mp4",
+      "downloadSD_size": 410733202,
+      "downloadSD_state": "available",
+      "slides": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/218o6oial8c68yom/218/218_advanced_dark_mode.pdf",
+      "slides_size": 32805357,
+      "slides_state": "available"
+    }
+  },
+  {
+    "id": "wwdc2018-205",
+    "title": "Advances in Research and Care Frameworks",
+    "description": "HealthKit, CoreMotion, and other iOS frameworks combined with the ResearchKit and CareKit open-source projects, provide a deep platform for the creation of game-changing apps for care teams, researchers, and the medical community. Discover new active tasks that leverage calibrated device data and how new CoreMotion APIs deliver insightful results capable of assisting diagnosis and improving care. Hear about updates and contributions from the open-source community and gain practical guidance you need to rapidly deliver your next research or care app.",
+    "eventId": "wwdc2018",
+    "eventContentId": "205",
+    "year": 2018,
+    "topic": "Frameworks",
+    "platforms": [
+      "iOS"
+    ],
+    "speakers": [
+      "Srinath Tupil Muralidharan",
+      "Gabriel Blanco",
+      "Akshay Yadav"
+    ],
+    "media": {
+      "duration": 2248,
+      "streamHLS": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/205tyzmd4sury4r/205/hls_vod_mvp.m3u8",
+      "streamHLS_state": "available",
+      "downloadHD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/205tyzmd4sury4r/205/205_hd_advances_in_research_and_care_frameworks.mp4",
+      "downloadHD_size": 1161096560,
+      "downloadHD_state": "available",
+      "downloadSD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/205tyzmd4sury4r/205/205_sd_advances_in_research_and_care_frameworks.mp4",
+      "downloadSD_size": 299839816,
+      "downloadSD_state": "available",
+      "slides": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/205tyzmd4sury4r/205/205_advances_in_research_and_care_frameworks.pdf",
+      "slides_size": 14138702,
+      "slides_state": "available"
+    }
+  },
+  {
+    "id": "wwdc2018-809",
+    "title": "Apple Pencil Design Essentials",
+    "description": "Make your apps even more powerful and expressive with Apple Pencil. Learn Apple Pencil design best practices such as correctly balancing touch and pencil interactions, fully harnessing Apple Pencil sensors, and creating more efficient and natural user flows.",
+    "eventId": "wwdc2018",
+    "eventContentId": "809",
+    "year": 2018,
+    "topic": "Frameworks",
+    "platforms": [
+      "iOS"
+    ],
+    "speakers": [
+      "Guillaume Ardaud"
+    ],
+    "media": {
+      "duration": 646,
+      "streamHLS": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/809kx2o95wevp48/809/hls_vod_mvp.m3u8",
+      "streamHLS_state": "available",
+      "downloadHD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/809kx2o95wevp48/809/809_hd_apple_pencil_design_essentials.mp4",
+      "downloadHD_size": 333859743,
+      "downloadHD_state": "available",
+      "downloadSD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/809kx2o95wevp48/809/809_sd_apple_pencil_design_essentials.mp4",
+      "downloadSD_size": 86217706,
+      "downloadSD_state": "available",
+      "slides": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/809kx2o95wevp48/809/809_apple_pencil_design_essentials.pdf",
+      "slides_size": 7895336,
+      "slides_state": "available"
+    }
+  },
+  {
+    "id": "wwdc2018-204",
+    "title": "Automatic Strong Passwords and Security Code AutoFill",
+    "description": "Passwords and security codes are a modern necessity required for security and privacy. iOS 12 eases the tedious aspects of account setup and sign-in by automatically suggesting and using strong, unique passwords \u2014 even from within apps \u2014  and by bringing one-time codes to the QuickType bar so users can fill them with one tap. Learn how to optimize your app to ensure that password, security code, and other AutoFill features provide a seamless way for your users to be more secure.",
+    "eventId": "wwdc2018",
+    "eventContentId": "204",
+    "year": 2018,
+    "topic": "Frameworks",
+    "platforms": [
+      "iOS",
+      "macOS",
+      "tvOS"
+    ],
+    "speakers": [
+      "Chelsea Pugh",
+      "Reza Abbasian",
+      "Harris Papadopoulos"
+    ],
+    "media": {
+      "duration": 2201,
+      "streamHLS": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/204jfuuku83cex/204/hls_vod_mvp.m3u8",
+      "streamHLS_state": "available",
+      "downloadHD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/204jfuuku83cex/204/204_hd_automatic_strong_passwords_and_security_code_autofill.mp4",
+      "downloadHD_size": 1136637640,
+      "downloadHD_state": "available",
+      "downloadSD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/204jfuuku83cex/204/204_sd_automatic_strong_passwords_and_security_code_autofill.mp4",
+      "downloadSD_size": 293527196,
+      "downloadSD_state": "available",
+      "slides": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/204jfuuku83cex/204/204_automatic_strong_passwords_and_security_code_autofill.pdf",
+      "slides_size": 5023739,
+      "slides_state": "available"
+    }
+  },
+  {
+    "id": "wwdc2018-718",
+    "title": "Better Apps through Better Privacy",
+    "description": "At Apple, we believe in building products with both great features and great privacy. Learn how to apply privacy engineering techniques to your apps so you can build trust with users to unlock better experiences and engagement.  And find out how new privacy features can benefit you and your users.",
+    "eventId": "wwdc2018",
+    "eventContentId": "718",
+    "year": 2018,
+    "topic": "Frameworks",
+    "platforms": [
+      "iOS",
+      "macOS",
+      "tvOS",
+      "watchOS"
+    ],
+    "speakers": [
+      "Joey Tyson",
+      "Brandon Van Ryswyk"
+    ],
+    "media": {
+      "duration": 2185,
+      "streamHLS": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/718twnl0ca4qp1rrm7/718/hls_vod_mvp.m3u8",
+      "streamHLS_state": "available",
+      "downloadHD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/718twnl0ca4qp1rrm7/718/718_hd_better_apps_through_better_privacy.mp4",
+      "downloadHD_size": 1128361094,
+      "downloadHD_state": "available",
+      "downloadSD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/718twnl0ca4qp1rrm7/718/718_sd_better_apps_through_better_privacy.mp4",
+      "downloadSD_size": 291390340,
+      "downloadSD_state": "available",
+      "slides": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/718twnl0ca4qp1rrm7/718/718_better_apps_through_better_privacy.pdf",
+      "slides_size": 5948787,
+      "slides_state": "available"
+    }
+  },
+  {
+    "id": "wwdc2018-214",
+    "title": "Building for Voice with Siri Shortcuts",
+    "description": "Siri Shortcuts are a great way to help people execute actions or get information from your app, but shortcuts can be made even more powerful by adding them to Siri to be used with a simple phrase. Learn how you can now customize responses from Siri and add custom UI to make a great shortcuts experience across iOS, watchOS and HomePod. See how to allow users to add and manage shortcuts from right within your app and learn best practices to make shortcut suggestions that can be exposed through Settings.",
+    "eventId": "wwdc2018",
+    "eventContentId": "214",
+    "year": 2018,
+    "topic": "Frameworks",
+    "platforms": [
+      "iOS",
+      "watchOS"
+    ],
+    "speakers": [
+      "Amit Jain",
+      "Ayaka Nonaka"
+    ],
+    "media": {
+      "duration": 2187,
+      "streamHLS": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/214w2w1racklnrc0l/214/hls_vod_mvp.m3u8",
+      "streamHLS_state": "available",
+      "downloadHD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/214w2w1racklnrc0l/214/214_hd_building_for_voice_with_siri_shortcuts.mp4",
+      "downloadHD_size": 1129482779,
+      "downloadHD_state": "available",
+      "downloadSD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/214w2w1racklnrc0l/214/214_sd_building_for_voice_with_siri_shortcuts.mp4",
+      "downloadSD_size": 291679664,
+      "downloadSD_state": "available",
+      "slides": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/214w2w1racklnrc0l/214/214_building_for_voice_with_siri_shortcuts.pdf",
+      "slides_size": 5796223,
+      "slides_state": "available"
+    }
+  },
+  {
+    "id": "wwdc2018-213",
+    "title": "CarPlay Audio and Navigation Apps",
+    "description": "Learn how to update your audio or navigation app to support CarPlay. Apps in CarPlay are optimized for use in the car, and automatically adapt to available vehicle screens and input controls. Audio apps can deliver music, news, podcasts, and more. With the new CarPlay framework, Navigation apps can provide detailed maps, destination search, turn-by-turn guidance, and user notifications.",
+    "eventId": "wwdc2018",
+    "eventContentId": "213",
+    "year": 2018,
+    "topic": "Frameworks",
+    "platforms": [
+      "iOS"
+    ],
+    "speakers": [
+      "Jonathan Hersh",
+      "Albert Wan",
+      "Mike Knippers"
+    ],
+    "appleWeblink": "https://developer.apple.com/videos/play/wwdc2018/213/",
+    "media": {
+      "duration": 2312,
+      "streamHLS": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/213ivbgp77y4z4/213/hls_vod_mvp.m3u8",
+      "streamHLS_state": "available",
+      "downloadHD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/213ivbgp77y4z4/213/213_hd_carplay_audio_and_navigation_apps.mp4",
+      "downloadHD_size": 1194104829,
+      "downloadHD_state": "available",
+      "downloadSD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/213ivbgp77y4z4/213/213_sd_carplay_audio_and_navigation_apps.mp4",
+      "downloadSD_size": 308375218,
+      "downloadSD_state": "available",
+      "slides": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/213ivbgp77y4z4/213/213_carplay_audio_and_navigation_apps.pdf",
+      "slides_size": 6396166,
+      "slides_state": "available"
+    }
+  },
+  {
+    "id": "wwdc2018-201",
+    "title": "Creating Apps for a Global Audience",
+    "description": "Common assumptions can break when your app is used by a global audience. Learn about the many aspects of creating apps for different regions and languages. Understand how to use fonts and typography, layout techniques, and support text input so your app shines in all languages.",
+    "eventId": "wwdc2018",
+    "eventContentId": "201",
+    "year": 2018,
+    "topic": "Frameworks",
+    "platforms": [
+      "iOS",
+      "macOS",
+      "tvOS",
+      "watchOS"
+    ],
+    "speakers": [
+      "Joaquim Lobo Silva",
+      "Dongyuan Liu",
+      "Karan Mi\u015bra"
+    ],
+    "media": {
+      "duration": 2307,
+      "streamHLS": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/201bam0z9pcq7bs5km/201/hls_vod_mvp.m3u8",
+      "streamHLS_state": "available",
+      "downloadHD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/201bam0z9pcq7bs5km/201/201_hd_creating_apps_for_a_global_audience.mp4",
+      "downloadHD_size": 1191203212,
+      "downloadHD_state": "available",
+      "downloadSD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/201bam0z9pcq7bs5km/201/201_sd_creating_apps_for_a_global_audience.mp4",
+      "downloadSD_size": 307622904,
+      "downloadSD_state": "available",
+      "slides": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/201bam0z9pcq7bs5km/201/201_creating_apps_for_a_global_audience.pdf",
+      "slides_size": 22567990,
+      "slides_state": "available"
+    }
+  },
+  {
+    "id": "wwdc2018-803",
+    "title": "Designing Fluid Interfaces",
+    "description": "Discover the techniques used to create the fluid gestural interface of iPhone X. Learn how to design with gestures and motion that feel intuitive and natural, making your app a delight to use.",
+    "eventId": "wwdc2018",
+    "eventContentId": "803",
+    "year": 2018,
+    "topic": "Frameworks",
+    "platforms": [
+      "iOS",
+      "macOS",
+      "tvOS",
+      "watchOS"
+    ],
+    "speakers": [
+      "Chan Karunamuni",
+      "Nathan de Vries",
+      "Marcos Alonso"
+    ],
+    "appleWeblink": "https://developer.apple.com/videos/play/wwdc2018/803/",
+    "media": {
+      "duration": 3881,
+      "streamHLS": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/803lpnlacvg2jsndx/803/hls_vod_mvp.m3u8",
+      "streamHLS_state": "available",
+      "downloadHD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/803lpnlacvg2jsndx/803/803_hd_designing_fluid_interfaces.mp4",
+      "downloadHD_size": 2004013898,
+      "downloadHD_state": "available",
+      "downloadSD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/803lpnlacvg2jsndx/803/803_sd_designing_fluid_interfaces.mp4",
+      "downloadSD_size": 517521193,
+      "downloadSD_state": "available",
+      "slides": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/803lpnlacvg2jsndx/803/803_designing_fluid_interfaces.pdf",
+      "slides_size": 14751569,
+      "slides_state": "available"
+    }
+  },
+  {
+    "id": "wwdc2018-806",
+    "title": "Designing Notifications",
+    "description": "Thoughtfully designed notifications are a powerful way to communicate timely information to people that they will find valuable and useful. Learn how you can design notifications people want to receive by making them beautiful, helpful, actionable, and respectful of their valuable time and attention.",
+    "eventId": "wwdc2018",
+    "eventContentId": "806",
+    "year": 2018,
+    "topic": "Frameworks",
+    "platforms": [
+      "iOS",
+      "macOS",
+      "watchOS"
+    ],
+    "speakers": [
+      "Jon Dascola",
+      "Heena Ko"
+    ],
+    "media": {
+      "duration": 2314,
+      "streamHLS": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/806d34jrsj444iqhb/806/hls_vod_mvp.m3u8",
+      "streamHLS_state": "available",
+      "downloadHD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/806d34jrsj444iqhb/806/806_hd_designing_notifications.mp4",
+      "downloadHD_size": 1194830919,
+      "downloadHD_state": "available",
+      "downloadSD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/806d34jrsj444iqhb/806/806_sd_designing_notifications.mp4",
+      "downloadSD_size": 308567328,
+      "downloadSD_state": "available",
+      "slides": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/806d34jrsj444iqhb/806/806_designing_notifications.pdf",
+      "slides_size": 16988393,
+      "slides_state": "available"
+    }
+  },
+  {
+    "id": "wwdc2018-239",
+    "title": "Designing Web Content for watchOS",
+    "description": "watchOS 5 brings web content to Apple Watch by rendering rich HTML in Messages and Mail. Gain insights into how watchOS maintains compatibility with existing web content, and find out what you can do to optimize your web content for Apple Watch.",
+    "eventId": "wwdc2018",
+    "eventContentId": "239",
+    "year": 2018,
+    "topic": "Frameworks",
+    "platforms": [
+      "watchOS"
+    ],
+    "speakers": [
+      "Wenson Hsieh"
+    ],
+    "media": {
+      "duration": 480,
+      "streamHLS": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/239oqke16leldnu3010/239/hls_vod_mvp.m3u8",
+      "streamHLS_state": "available",
+      "downloadHD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/239oqke16leldnu3010/239/239_hd_designing_web_content_for_watchos.mp4",
+      "downloadHD_size": 248048452,
+      "downloadHD_state": "available",
+      "downloadSD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/239oqke16leldnu3010/239/239_sd_designing_web_content_for_watchos.mp4",
+      "downloadSD_size": 64057210,
+      "downloadSD_state": "available",
+      "slides": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/239oqke16leldnu3010/239/239_designing_web_content_for_watchos.pdf",
+      "slides_size": 2313265,
+      "slides_state": "available"
+    }
+  },
+  {
+    "id": "wwdc2018-508",
+    "title": "Getting and Using a MapKit JS Key",
+    "description": "MapKit JS uses the JWT standard for ensuring a secure connection between your site and the MapKit JS services.  Learn how to create, protect, and use site-specific keys to ensure only your servers are accessing APIs linked to your domain.",
+    "eventId": "wwdc2018",
+    "eventContentId": "508",
+    "year": 2018,
+    "topic": "Frameworks",
+    "platforms": [
+      "iOS",
+      "macOS"
+    ],
+    "speakers": [
+      "Eric Gelinas"
+    ],
+    "media": {
+      "duration": 836,
+      "streamHLS": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/508g9tgxpjyfuwr1ap/508/hls_vod_mvp.m3u8",
+      "streamHLS_state": "available",
+      "downloadHD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/508g9tgxpjyfuwr1ap/508/508_hd_getting_and_using_a_mapkit_js_key.mp4",
+      "downloadHD_size": 431810627,
+      "downloadHD_state": "available",
+      "downloadSD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/508g9tgxpjyfuwr1ap/508/508_sd_getting_and_using_a_mapkit_js_key.mp4",
+      "downloadSD_size": 111512643,
+      "downloadSD_state": "available",
+      "slides": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/508g9tgxpjyfuwr1ap/508/508_getting_and_using_a_mapkit_js_key.pdf",
+      "slides_size": 2407303,
+      "slides_state": "available"
+    }
+  },
+  {
+    "id": "wwdc2018-220",
+    "title": "High Performance Auto Layout",
+    "description": "Get a glimpse inside to find out what happens when you add a constraint! Dive into the internals of Auto Layout to develop intuition for how your code affects what happens under the hood. Learn how to measure and refine your approach to Auto Layout and see how its improved performance in iOS 12 will speed up your app.",
+    "eventId": "wwdc2018",
+    "eventContentId": "220",
+    "year": 2018,
+    "topic": "Frameworks",
+    "platforms": [
+      "iOS"
+    ],
+    "speakers": [
+      "Ken Ferry",
+      "Kasia Wawer"
+    ],
+    "media": {
+      "duration": 2455,
+      "streamHLS": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/220f49ijgby0rma/220/hls_vod_mvp.m3u8",
+      "streamHLS_state": "available",
+      "downloadHD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/220f49ijgby0rma/220/220_hd_high_performance_auto_layout.mp4",
+      "downloadHD_size": 1267636239,
+      "downloadHD_state": "available",
+      "downloadSD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/220f49ijgby0rma/220/220_sd_high_performance_auto_layout.mp4",
+      "downloadSD_size": 327359855,
+      "downloadSD_state": "available",
+      "slides": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/220f49ijgby0rma/220/220_high_performance_auto_layout.pdf",
+      "slides_size": 2040568,
+      "slides_state": "available"
+    }
+  },
+  {
+    "id": "wwdc2018-231",
+    "title": "HomeKit Deep Dive",
+    "description": "Get a fresh look at the HomeKit APIs. Understand how Siri and the Apple Home App use Action Sets and Accessory Services & Characteristics to provide a great home automation experience.",
+    "eventId": "wwdc2018",
+    "eventContentId": "231",
+    "year": 2018,
+    "topic": "Frameworks",
+    "platforms": [
+      "iOS",
+      "tvOS",
+      "watchOS"
+    ],
+    "speakers": [
+      "Keith Rauenbuehler"
+    ],
+    "media": {
+      "duration": 2563,
+      "streamHLS": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/231yewsuorvvh0v47z/231/hls_vod_mvp.m3u8",
+      "streamHLS_state": "available",
+      "downloadHD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/231yewsuorvvh0v47z/231/231_hd_homekit_deep_dive.mp4",
+      "downloadHD_size": 1323371517,
+      "downloadHD_state": "available",
+      "downloadSD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/231yewsuorvvh0v47z/231/231_sd_homekit_deep_dive.mp4",
+      "downloadSD_size": 341746059,
+      "downloadSD_state": "available",
+      "slides": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/231yewsuorvvh0v47z/231/231_homekit_deep_dive.pdf",
+      "slides_size": 17761134,
+      "slides_state": "available"
+    }
+  },
+  {
+    "id": "wwdc2018-203",
+    "title": "I Have This Idea For An App...",
+    "description": "Do you have an idea for an app that you think would be useful to others, but you don't know how to make it a reality? You're not alone! Lots of people are interested in app development, but they aren't sure how to turn their idea to code and then into a finished app. From first steps to Xcode, we'll explain the building blocks you need to turn your iOS app idea into reality.",
+    "eventId": "wwdc2018",
+    "eventContentId": "203",
+    "year": 2018,
+    "topic": "Frameworks",
+    "platforms": [
+      "iOS"
+    ],
+    "speakers": [
+      "Jessie Pease",
+      "Tanu Singhal"
+    ],
+    "media": {
+      "duration": 3272,
+      "streamHLS": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/203zyni18c4phf/203/hls_vod_mvp.m3u8",
+      "streamHLS_state": "available",
+      "downloadHD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/203zyni18c4phf/203/203_hd_i_have_this_idea_for_an_app.mp4",
+      "downloadHD_size": 1689592556,
+      "downloadHD_state": "available",
+      "downloadSD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/203zyni18c4phf/203/203_sd_i_have_this_idea_for_an_app.mp4",
+      "downloadSD_size": 436309832,
+      "downloadSD_state": "available",
+      "slides": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/203zyni18c4phf/203/203_i_have_this_idea_for_an_app.pdf",
+      "slides_size": 6611835,
+      "slides_state": "available"
+    }
+  },
+  {
+    "id": "wwdc2018-721",
+    "title": "Implementing AutoFill Credential Provider Extensions",
+    "description": "Password AutoFill delivers the ability to fill passwords seamlessly within iOS apps and Safari. Join us to learn how app developers who provide credential management can surface their credentials during sign-in within apps and on the web.",
+    "eventId": "wwdc2018",
+    "eventContentId": "721",
+    "year": 2018,
+    "topic": "Frameworks",
+    "platforms": [
+      "iOS",
+      "macOS"
+    ],
+    "speakers": [
+      "David Quesada"
+    ],
+    "media": {
+      "duration": 1557,
+      "streamHLS": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/721w2b36lz4yno7f4/721/hls_vod_mvp.m3u8",
+      "streamHLS_state": "available",
+      "downloadHD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/721w2b36lz4yno7f4/721/721_hd_implementing_autofill_credential_provider_extensions.mp4",
+      "downloadHD_size": 804224009,
+      "downloadHD_state": "available",
+      "downloadSD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/721w2b36lz4yno7f4/721/721_sd_implementing_autofill_credential_provider_extensions.mp4",
+      "downloadSD_size": 207691121,
+      "downloadSD_state": "available",
+      "slides": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/721w2b36lz4yno7f4/721/721_implementing_autofill_credential_provider_extensions.pdf",
+      "slides_size": 1839357,
+      "slides_state": "available"
+    }
+  },
+  {
+    "id": "wwdc2018-802",
+    "title": "Intentional Design",
+    "description": "Great app experiences leap off the screen. They are dynamic, immersive, personal, and, above all else, the result of a strong and clear intent. Learn key techniques for being intentional with your design by choosing appropriate metaphors, making extreme choices, and making every interaction feel more authentic and natural.",
+    "eventId": "wwdc2018",
+    "eventContentId": "802",
+    "year": 2018,
+    "topic": "Frameworks",
+    "platforms": [
+      "iOS",
+      "macOS",
+      "tvOS",
+      "watchOS"
+    ],
+    "speakers": [
+      "Doug LeMoine"
+    ],
+    "appleWeblink": "https://developer.apple.com/videos/play/wwdc2018/802/",
+    "media": {
+      "duration": 2404,
+      "streamHLS": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/802shgxe9sj19r/802/hls_vod_mvp.m3u8",
+      "streamHLS_state": "available",
+      "downloadHD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/802shgxe9sj19r/802/802_hd_intentional_design.mp4",
+      "downloadHD_size": 1241275450,
+      "downloadHD_state": "available",
+      "downloadSD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/802shgxe9sj19r/802/802_sd_intentional_design.mp4",
+      "downloadSD_size": 320543430,
+      "downloadSD_state": "available",
+      "slides": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/802shgxe9sj19r/802/802_intentional_design.pdf",
+      "slides_size": 143999651,
+      "slides_state": "available"
+    }
+  },
+  {
+    "id": "wwdc2018-215",
+    "title": "Introducing ClassKit",
+    "description": "The new ClassKit framework lets you organize educational content in your app so that teachers can discover and assign specific activities and view students\u2019 progress in the new Schoolwork app. Learn how to adopt ClassKit to your content structure, declare assignable content, and share student progress on activities teachers assign in Schoolwork.",
+    "eventId": "wwdc2018",
+    "eventContentId": "215",
+    "year": 2018,
+    "topic": "Frameworks",
+    "platforms": [
+      "iOS"
+    ],
+    "speakers": [
+      "Pavel Dudrenov",
+      "Marin Eubanks"
+    ],
+    "media": {
+      "duration": 2304,
+      "streamHLS": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/215xraudwwyzg2lgu2l/215/hls_vod_mvp.m3u8",
+      "streamHLS_state": "available",
+      "downloadHD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/215xraudwwyzg2lgu2l/215/215_hd_introducing_classkit.mp4",
+      "downloadHD_size": 1189865167,
+      "downloadHD_state": "available",
+      "downloadSD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/215xraudwwyzg2lgu2l/215/215_sd_introducing_classkit.mp4",
+      "downloadSD_size": 307272042,
+      "downloadSD_state": "available",
+      "slides": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/215xraudwwyzg2lgu2l/215/215_introducing_classkit.pdf",
+      "slides_size": 4004115,
+      "slides_state": "available"
+    }
+  },
+  {
+    "id": "wwdc2018-703",
+    "title": "Introducing Create ML",
+    "description": "Create ML is a new framework designed to help you easily build machine learning models using Swift and Xcode. Designed for Simplicity and Performance. Learn how you can build customized models from data that will enable new and powerful features in your apps using Create ML.",
+    "eventId": "wwdc2018",
+    "eventContentId": "703",
+    "year": 2018,
+    "topic": "Frameworks",
+    "platforms": [
+      "iOS",
+      "macOS",
+      "tvOS",
+      "watchOS"
+    ],
+    "speakers": [
+      "Gaurav Kapoor",
+      "Lizi Ottens",
+      "Tao Jia"
+    ],
+    "media": {
+      "duration": 2060,
+      "streamHLS": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/703r5lx362so6b/703/hls_vod_mvp.m3u8",
+      "streamHLS_state": "available",
+      "downloadHD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/703r5lx362so6b/703/703_hd_introducing_create_ml.mp4",
+      "downloadHD_size": 1063989663,
+      "downloadHD_state": "available",
+      "downloadSD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/703r5lx362so6b/703/703_sd_introducing_create_ml.mp4",
+      "downloadSD_size": 274760102,
+      "downloadSD_state": "available",
+      "slides": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/703r5lx362so6b/703/703_introducing_create_ml.pdf",
+      "slides_size": 11783148,
+      "slides_state": "available"
+    }
+  },
+  {
+    "id": "wwdc2018-212",
+    "title": "Introducing MapKit JS",
+    "description": "MapKit JS brings Apple Maps to your website. See how MapKit JS provides map rendering that is optimized for various browsers and devices, and supports native gestures such as pinch-to-zoom, two-finger rotate, and more. Learn how to add annotations and overlays, and how to use JavaScript interfaces to Apple Maps services such as Search and Directions to deliver an amazing map experience on your website.",
+    "eventId": "wwdc2018",
+    "eventContentId": "212",
+    "year": 2018,
+    "topic": "Frameworks",
+    "platforms": [
+      "iOS",
+      "macOS"
+    ],
+    "speakers": [
+      "Vicki Murley",
+      "Julien Quint",
+      "Melody Kelly"
+    ],
+    "media": {
+      "duration": 3434,
+      "streamHLS": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/212nan45edr4qp/212/hls_vod_mvp.m3u8",
+      "streamHLS_state": "available",
+      "downloadHD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/212nan45edr4qp/212/212_hd_introducing_mapkit_js.mp4",
+      "downloadHD_size": 1773196753,
+      "downloadHD_state": "available",
+      "downloadSD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/212nan45edr4qp/212/212_sd_introducing_mapkit_js.mp4",
+      "downloadSD_size": 457910177,
+      "downloadSD_state": "available",
+      "slides": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/212nan45edr4qp/212/212_introducing_mapkit_js.pdf",
+      "slides_size": 7616310,
+      "slides_state": "available"
+    }
+  },
+  {
+    "id": "wwdc2018-713",
+    "title": "Introducing Natural Language Framework",
+    "description": "Natural Language is a redesigned framework designed to provide high-performance, on-device APIs for fundamental NLP tasks across all Apple platforms. Through the deep integration of the framework with Core ML and Create ML, you now have the ability to train custom NLP models to perform many different inferences and leverage the power of NLP in your apps. Join us for this exciting session to learn all the details and to see it in action.",
+    "eventId": "wwdc2018",
+    "eventContentId": "713",
+    "year": 2018,
+    "topic": "Frameworks",
+    "platforms": [
+      "iOS",
+      "macOS",
+      "tvOS",
+      "watchOS"
+    ],
+    "speakers": [
+      "Doug Davidson",
+      "Vivek Kumar Rangarajan Sridhar"
+    ],
+    "media": {
+      "duration": 2303,
+      "streamHLS": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/713u3ysohtlec95j3ir/713/hls_vod_mvp.m3u8",
+      "streamHLS_state": "available",
+      "downloadHD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/713u3ysohtlec95j3ir/713/713_hd_introducing_natural_language_framework.mp4",
+      "downloadHD_size": 1189271948,
+      "downloadHD_state": "available",
+      "downloadSD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/713u3ysohtlec95j3ir/713/713_sd_introducing_natural_language_framework.mp4",
+      "downloadSD_size": 307116366,
+      "downloadSD_state": "available",
+      "slides": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/713u3ysohtlec95j3ir/713/713_introducing_natural_language_framework.pdf",
+      "slides_size": 2366161,
+      "slides_state": "available"
+    }
+  },
+  {
+    "id": "wwdc2018-715",
+    "title": "Introducing Network.framework: A modern alternative to Sockets",
+    "description": "The new Network.framework API gives you direct access to the same high-performance user-space networking stack used by URLSession. If you\u2019re considering using Berkeley Sockets in your app or library, learn what better options are available to you.",
+    "eventId": "wwdc2018",
+    "eventContentId": "715",
+    "year": 2018,
+    "topic": "Frameworks",
+    "platforms": [
+      "iOS",
+      "macOS",
+      "tvOS"
+    ],
+    "speakers": [
+      "Josh Graessley",
+      "Tommy Pauly",
+      "Eric Kinnear"
+    ],
+    "appleWeblink": "https://developer.apple.com/videos/play/wwdc2018/715/",
+    "media": {
+      "duration": 3703,
+      "streamHLS": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/715o2fzpdzzzf5f0/715/hls_vod_mvp.m3u8",
+      "streamHLS_state": "available",
+      "downloadHD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/715o2fzpdzzzf5f0/715/715_hd_introducing_networkframework_a_modern_alternative_to_sockets.mp4",
+      "downloadHD_size": 1912012142,
+      "downloadHD_state": "available",
+      "downloadSD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/715o2fzpdzzzf5f0/715/715_sd_introducing_networkframework_a_modern_alternative_to_sockets.mp4",
+      "downloadSD_size": 493760596,
+      "downloadSD_state": "available",
+      "slides": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/715o2fzpdzzzf5f0/715/715_introducing_networkframework_a_modern_alternative_to_sockets.pdf",
+      "slides_size": 5589837,
+      "slides_state": "available"
+    }
+  },
+  {
+    "id": "wwdc2018-211",
+    "title": "Introduction to Siri Shortcuts",
+    "description": "Siri Shortcuts are a powerful new feature in iOS 12 that allow your app to expose its functionality to Siri. This enables Siri to suggest your shortcut at relevant times based on various context. Shortcuts can also be added to Siri to run with a voice phrase on iOS, HomePod and watchOS. Learn how to expose shortcuts in your app using NSUserActivity and discover the benefits of creating custom intents with SiriKit for a richer user experience.",
+    "eventId": "wwdc2018",
+    "eventContentId": "211",
+    "year": 2018,
+    "topic": "Frameworks",
+    "platforms": [
+      "iOS",
+      "watchOS"
+    ],
+    "speakers": [
+      "Ari Weinstein",
+      "Willem Mattelaer"
+    ],
+    "appleWeblink": "https://developer.apple.com/videos/play/wwdc2018/211/",
+    "media": {
+      "duration": 2925,
+      "streamHLS": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/211fjjqs9t1cbwzwgf0/211/hls_vod_mvp.m3u8",
+      "streamHLS_state": "available",
+      "downloadHD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/211fjjqs9t1cbwzwgf0/211/211_hd_introduction_to_siri_shortcuts.mp4",
+      "downloadHD_size": 1510651157,
+      "downloadHD_state": "available",
+      "downloadSD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/211fjjqs9t1cbwzwgf0/211/211_sd_introduction_to_siri_shortcuts.mp4",
+      "downloadSD_size": 390113902,
+      "downloadSD_state": "available",
+      "slides": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/211fjjqs9t1cbwzwgf0/211/211_introduction_to_siri_shortcuts.pdf",
+      "slides_size": 2182323,
+      "slides_state": "available"
+    }
+  },
+  {
+    "id": "wwdc2018-216",
+    "title": "Managing Documents In Your iOS Apps",
+    "description": "Last year we introduced the Files App and an easy way to view, edit, and share documents within your application. Learn best practices for implementing this technology, how to effectively manage documents in your app, and how to avoid common document manager pitfalls. Hear about the difference between a Document Browser and a Document Picker and when to use them. Gain a better understanding into how this technology works in a sandbox. Learn how to give your customers a great experience, beginning at sign-in and continuing throughout your app!",
+    "eventId": "wwdc2018",
+    "eventContentId": "216",
+    "year": 2018,
+    "topic": "Frameworks",
+    "platforms": [
+      "iOS"
+    ],
+    "speakers": [
+      "Brandon Tennant",
+      "Thomas Deniau",
+      "Rony Fadel"
+    ],
+    "media": {
+      "duration": 3059,
+      "streamHLS": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/216dvfcqmzmak5qs/216/hls_vod_mvp.m3u8",
+      "streamHLS_state": "available",
+      "downloadHD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/216dvfcqmzmak5qs/216/216_hd_managing_documents_in_your_ios_apps.mp4",
+      "downloadHD_size": 1579757668,
+      "downloadHD_state": "available",
+      "downloadSD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/216dvfcqmzmak5qs/216/216_sd_managing_documents_in_your_ios_apps.mp4",
+      "downloadSD_size": 407952588,
+      "downloadSD_state": "available",
+      "slides": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/216dvfcqmzmak5qs/216/216_managing_documents_in_your_ios_apps.pdf",
+      "slides_size": 5354541,
+      "slides_state": "available"
+    }
+  },
+  {
+    "id": "wwdc2018-707",
+    "title": "New Ways to Work with Workouts",
+    "description": "Tracking workouts with Apple Watch is popular with fitness professionals and novices alike.  See how the new workout API streamlines the entire lifecycle of a workout, complete with ability to restart a session after a crash to prevent you from losing data. Learn how the new workout classes, types, and queries provide quick access to baseline sample data you would typical calculate without limiting access to the fine grained samples you may occasionally require.",
+    "eventId": "wwdc2018",
+    "eventContentId": "707",
+    "year": 2018,
+    "topic": "Frameworks",
+    "platforms": [
+      "iOS",
+      "watchOS"
+    ],
+    "speakers": [
+      "Niharika Bedekar",
+      "Karim Benhmida"
+    ],
+    "media": {
+      "duration": 2399,
+      "streamHLS": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/707liyrusj4qu2rj1z/707/hls_vod_mvp.m3u8",
+      "streamHLS_state": "available",
+      "downloadHD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/707liyrusj4qu2rj1z/707/707_hd_new_ways_to_work_with_workouts.mp4",
+      "downloadHD_size": 1238753423,
+      "downloadHD_state": "available",
+      "downloadSD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/707liyrusj4qu2rj1z/707/707_sd_new_ways_to_work_with_workouts.mp4",
+      "downloadSD_size": 319891621,
+      "downloadSD_state": "available",
+      "slides": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/707liyrusj4qu2rj1z/707/707_new_ways_to_work_with_workouts.pdf",
+      "slides_size": 1098623,
+      "slides_state": "available"
+    }
+  },
+  {
+    "id": "wwdc2018-714",
+    "title": "Optimizing Your App for Today\u2019s Internet",
+    "description": "Learn what Apple has been doing to help your app get the most out of the network with the least effort. Let Apple\u2019s networking APIs do the heavy lifting for you. Learn best practices for getting top networking performance from your app using the URLSession APIs.",
+    "eventId": "wwdc2018",
+    "eventContentId": "714",
+    "year": 2018,
+    "topic": "Frameworks",
+    "platforms": [
+      "iOS",
+      "macOS",
+      "tvOS",
+      "watchOS"
+    ],
+    "speakers": [
+      "Stuart Cheshire",
+      "Jiten Mehta"
+    ],
+    "media": {
+      "duration": 2290,
+      "streamHLS": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/714px070n75l8ri/714/hls_vod_mvp.m3u8",
+      "streamHLS_state": "available",
+      "downloadHD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/714px070n75l8ri/714/714_hd_optimizing_your_app_for_todays_internet.mp4",
+      "downloadHD_size": 1182596854,
+      "downloadHD_state": "available",
+      "downloadSD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/714px070n75l8ri/714/714_sd_optimizing_your_app_for_todays_internet.mp4",
+      "downloadSD_size": 305391350,
+      "downloadSD_state": "available",
+      "slides": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/714px070n75l8ri/714/714_optimizing_your_app_for_todays_internet.pdf",
+      "slides_size": 1348099,
+      "slides_state": "available"
+    }
+  },
+  {
+    "id": "wwdc2018-237",
+    "title": "Quick Look Previews from the Ground Up",
+    "description": "Quicklook Previews are an easy way preview documents in your app. Hear about the basics as well as some advanced implementations. Learn to present a variety of types of documents from within your app without reinventing the wheel, and make sure your custom file format works great with the built-in support offered by iOS.",
+    "eventId": "wwdc2018",
+    "eventContentId": "237",
+    "year": 2018,
+    "topic": "Frameworks",
+    "platforms": [
+      "iOS",
+      "macOS"
+    ],
+    "speakers": [
+      "Raffael Hannemann",
+      "Maxime Uzan"
+    ],
+    "media": {
+      "duration": 2542,
+      "streamHLS": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/237fjfpla4kbr1m/237/hls_vod_mvp.m3u8",
+      "streamHLS_state": "available",
+      "downloadHD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/237fjfpla4kbr1m/237/237_hd_quick_look_previews_from_the_ground_up.mp4",
+      "downloadHD_size": 1312862419,
+      "downloadHD_state": "available",
+      "downloadSD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/237fjfpla4kbr1m/237/237_sd_quick_look_previews_from_the_ground_up.mp4",
+      "downloadSD_size": 339030613,
+      "downloadSD_state": "available",
+      "slides": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/237fjfpla4kbr1m/237/237_quick_look_previews_from_the_ground_up.pdf",
+      "slides_size": 1863182,
+      "slides_state": "available"
+    }
+  },
+  {
+    "id": "wwdc2018-217",
+    "title": "Siri Shortcuts on the Siri Watch Face",
+    "description": "Learn how to use Siri Shortcuts to bring glanceable information and custom interactions to the Siri watch face. Walk through how to create a compelling user experience by providing relevant shortcuts and by donating interactions from your app. See how these experiences can be created from both watchOS and iOS.",
+    "eventId": "wwdc2018",
+    "eventContentId": "217",
+    "year": 2018,
+    "topic": "Frameworks",
+    "platforms": [
+      "iOS",
+      "watchOS"
+    ],
+    "speakers": [
+      "Paul Salzman",
+      "Josh Ford"
+    ],
+    "media": {
+      "duration": 2791,
+      "streamHLS": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/217qlkasup9hplnx0r3/217/hls_vod_mvp.m3u8",
+      "streamHLS_state": "available",
+      "downloadHD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/217qlkasup9hplnx0r3/217/217_hd_siri_shortcuts_on_the_siri_watch_face.mp4",
+      "downloadHD_size": 1441453692,
+      "downloadHD_state": "available",
+      "downloadSD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/217qlkasup9hplnx0r3/217/217_sd_siri_shortcuts_on_the_siri_watch_face.mp4",
+      "downloadSD_size": 372259168,
+      "downloadSD_state": "available",
+      "slides": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/217qlkasup9hplnx0r3/217/217_siri_shortcuts_on_the_siri_watch_face.pdf",
+      "slides_size": 3562795,
+      "slides_state": "available"
+    }
+  },
+  {
+    "id": "wwdc2018-207",
+    "title": "Strategies for Securing Web Content",
+    "description": "Whether you use web content in your app via an embedded WebKit view, deliver pure web apps, or create web content to be embedded by others, it's important to ensure that you are using the most current web security standards. Learn techniques like such as special cookie attributes and HTTP response headers designed to secure your web content against the latest threats that include cross-site scripting, cross-site request forgeries, and speculative execution attacks, commonly known as Spectre.",
+    "eventId": "wwdc2018",
+    "eventContentId": "207",
+    "year": 2018,
+    "topic": "Frameworks",
+    "platforms": [
+      "iOS",
+      "macOS",
+      "tvOS",
+      "watchOS"
+    ],
+    "speakers": [
+      "John Wilander"
+    ],
+    "media": {
+      "duration": 2669,
+      "streamHLS": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/207m5757sq9wfhvby/207/hls_vod_mvp.m3u8",
+      "streamHLS_state": "available",
+      "downloadHD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/207m5757sq9wfhvby/207/207_hd_strategies_for_securing_web_content.mp4",
+      "downloadHD_size": 1378024752,
+      "downloadHD_state": "available",
+      "downloadSD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/207m5757sq9wfhvby/207/207_sd_strategies_for_securing_web_content.mp4",
+      "downloadSD_size": 355863024,
+      "downloadSD_state": "available",
+      "slides": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/207m5757sq9wfhvby/207/207_strategies_for_securing_web_content.pdf",
+      "slides_size": 827397,
+      "slides_state": "available"
+    }
+  },
+  {
+    "id": "wwdc2018-221",
+    "title": "TextKit Best Practices",
+    "description": "Leverage the abilities of TextKit to provide the best experience possible displaying and editing text. Get the best performance out of your app by using TextKit effectively. Learn the concepts to do more complex handling, layout and presentation.",
+    "eventId": "wwdc2018",
+    "eventContentId": "221",
+    "year": 2018,
+    "topic": "Frameworks",
+    "platforms": [
+      "iOS",
+      "macOS"
+    ],
+    "speakers": [
+      "Donna Tom",
+      "Emily Van Haren"
+    ],
+    "media": {
+      "duration": 2274,
+      "streamHLS": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/221dm4k4kaqjqapkxt/221/hls_vod_mvp.m3u8",
+      "streamHLS_state": "available",
+      "downloadHD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/221dm4k4kaqjqapkxt/221/221_hd_textkit_best_practices.mp4",
+      "downloadHD_size": 1174544350,
+      "downloadHD_state": "available",
+      "downloadSD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/221dm4k4kaqjqapkxt/221/221_sd_textkit_best_practices.mp4",
+      "downloadSD_size": 303327210,
+      "downloadSD_state": "available",
+      "slides": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/221dm4k4kaqjqapkxt/221/221_textkit_best_practices.pdf",
+      "slides_size": 13593974,
+      "slides_state": "available"
+    }
+  },
+  {
+    "id": "wwdc2018-804",
+    "title": "The Life of a Button",
+    "description": "An in-depth exploration of essential interaction, visual and sound design principles and techniques through the design of a simple button.",
+    "eventId": "wwdc2018",
+    "eventContentId": "804",
+    "year": 2018,
+    "topic": "Frameworks",
+    "platforms": [
+      "iOS",
+      "macOS",
+      "tvOS",
+      "watchOS"
+    ],
+    "speakers": [
+      "Julian Missig",
+      "Hugo Verweij"
+    ],
+    "media": {
+      "duration": 2157,
+      "streamHLS": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/804hwsr1us28uuau99o/804/hls_vod_mvp.m3u8",
+      "streamHLS_state": "available",
+      "downloadHD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/804hwsr1us28uuau99o/804/804_hd_the_life_of_a_button.mp4",
+      "downloadHD_size": 1113906248,
+      "downloadHD_state": "available",
+      "downloadSD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/804hwsr1us28uuau99o/804/804_sd_the_life_of_a_button.mp4",
+      "downloadSD_size": 287649102,
+      "downloadSD_state": "available",
+      "slides": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/804hwsr1us28uuau99o/804/804_the_life_of_a_button.pdf",
+      "slides_size": 36385263,
+      "slides_state": "available"
+    }
+  },
+  {
+    "id": "wwdc2018-801",
+    "title": "The Qualities of Great Design",
+    "description": "Great Design isn\u2019t magic, it is crafted with care by real people. Explore the characteristics of great design through the voices of designers from Apple and our developer community. Learn how they take inspiration from everyday life, conceive and refine ideas, and push themselves to design apps and games that can stand the test of time.",
+    "eventId": "wwdc2018",
+    "eventContentId": "801",
+    "year": 2018,
+    "topic": "Frameworks",
+    "platforms": [
+      "iOS",
+      "macOS",
+      "tvOS",
+      "watchOS"
+    ],
+    "speakers": [
+      "Lauren Strehlow"
+    ],
+    "appleWeblink": "https://developer.apple.com/videos/play/wwdc2018/801/",
+    "appleYouTube": "https://www.youtube.com/watch?v=RsbS5JWxFyk",
+    "media": {
+      "duration": 3202,
+      "streamHLS": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/801srpnrtij2lqi6/801/hls_vod_mvp.m3u8",
+      "streamHLS_state": "available",
+      "downloadHD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/801srpnrtij2lqi6/801/801_hd_the_qualities_of_great_design.mp4",
+      "downloadHD_size": 1653425489,
+      "downloadHD_state": "available",
+      "downloadSD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/801srpnrtij2lqi6/801/801_sd_the_qualities_of_great_design.mp4",
+      "downloadSD_size": 426976546,
+      "downloadSD_state": "available",
+      "slides": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/801srpnrtij2lqi6/801/801_the_qualities_of_great_design.pdf",
+      "slides_size": 229821160,
+      "slides_state": "available"
+    }
+  },
+  {
+    "id": "wwdc2018-810",
+    "title": "Tips for Great Maps",
+    "description": "Maps are powerful tools for conveying information. Learn key cartographic principles that will help you create beautiful, useful maps so that your users can get the most out of your apps.",
+    "eventId": "wwdc2018",
+    "eventContentId": "810",
+    "year": 2018,
+    "topic": "Frameworks",
+    "platforms": [
+      "iOS",
+      "macOS"
+    ],
+    "speakers": [
+      "Sarah Harling"
+    ],
+    "media": {
+      "duration": 1019,
+      "streamHLS": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/810yhhz7j3k7d7y/810/hls_vod_mvp.m3u8",
+      "streamHLS_state": "available",
+      "downloadHD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/810yhhz7j3k7d7y/810/810_hd_tips_for_great_maps.mp4",
+      "downloadHD_size": 526060528,
+      "downloadHD_state": "available",
+      "downloadSD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/810yhhz7j3k7d7y/810/810_sd_tips_for_great_maps.mp4",
+      "downloadSD_size": 135850386,
+      "downloadSD_state": "available",
+      "slides": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/810yhhz7j3k7d7y/810/810_tips_for_great_maps.pdf",
+      "slides_size": 18915037,
+      "slides_state": "available"
+    }
+  },
+  {
+    "id": "wwdc2018-235",
+    "title": "UIKit: Apps for Every Size and Shape",
+    "description": "Ground-up coverage of how to make an app that can fit on devices of every size and shape. Make your app fit beautifully on Apple's full range of devices with the minimum amount of effort, future-proofing your user experience along the way.",
+    "eventId": "wwdc2018",
+    "eventContentId": "235",
+    "year": 2018,
+    "topic": "Frameworks",
+    "platforms": [
+      "iOS"
+    ],
+    "speakers": [
+      "David Duncan",
+      "Tyler Fox",
+      "Russell Ladd"
+    ],
+    "media": {
+      "duration": 2417,
+      "streamHLS": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/235gkyrtsva0gy/235/hls_vod_mvp.m3u8",
+      "streamHLS_state": "available",
+      "downloadHD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/235gkyrtsva0gy/235/235_hd_uikit_apps_for_every_size_and_shape.mp4",
+      "downloadHD_size": 1247973507,
+      "downloadHD_state": "available",
+      "downloadSD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/235gkyrtsva0gy/235/235_sd_uikit_apps_for_every_size_and_shape.mp4",
+      "downloadSD_size": 322280993,
+      "downloadSD_state": "available",
+      "slides": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/235gkyrtsva0gy/235/235_uikit_apps_for_every_size_and_shape.pdf",
+      "slides_size": 16207996,
+      "slides_state": "available"
+    }
+  },
+  {
+    "id": "wwdc2018-701",
+    "title": "Using Accelerate and simd",
+    "description": "Learn how to use sophisticated Signal and Image Processing techniques to bring higher performance to your apps while lowering battery consumption.  See compelling use cases for the Accelerate framework with interactive demos. Explore using simd\u2014a valuable addition that effortlessly brings vector programming to your apps.",
+    "eventId": "wwdc2018",
+    "eventContentId": "701",
+    "year": 2018,
+    "topic": "Frameworks",
+    "platforms": [
+      "iOS",
+      "macOS",
+      "tvOS",
+      "watchOS"
+    ],
+    "speakers": [
+      "Matthew Badin",
+      "Luke Chang"
+    ],
+    "media": {
+      "duration": 2208,
+      "streamHLS": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/701bd0jri1hppm1q4/701/hls_vod_mvp.m3u8",
+      "streamHLS_state": "available",
+      "downloadHD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/701bd0jri1hppm1q4/701/701_hd_using_accelerate_and_simd.mp4",
+      "downloadHD_size": 1140137492,
+      "downloadHD_state": "available",
+      "downloadSD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/701bd0jri1hppm1q4/701/701_sd_using_accelerate_and_simd.mp4",
+      "downloadSD_size": 294429051,
+      "downloadSD_state": "available",
+      "slides": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/701bd0jri1hppm1q4/701/701_using_accelerate_and_simd.pdf",
+      "slides_size": 1052587,
+      "slides_state": "available"
+    }
+  },
+  {
+    "id": "wwdc2018-711",
+    "title": "Using Grouped Notifications",
+    "description": "Grouping the notifications your app sends helps people get more information at a glance and manage multiple notifications at once. Learn how to implement Grouped Notifications in your app.",
+    "eventId": "wwdc2018",
+    "eventContentId": "711",
+    "year": 2018,
+    "topic": "Frameworks",
+    "platforms": [
+      "iOS"
+    ],
+    "speakers": [
+      "Michele Campeotto"
+    ],
+    "media": {
+      "duration": 1916,
+      "streamHLS": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/711c5be5c6ma8yy/711/hls_vod_mvp.m3u8",
+      "streamHLS_state": "available",
+      "downloadHD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/711c5be5c6ma8yy/711/711_hd_using_grouped_notifications.mp4",
+      "downloadHD_size": 989686988,
+      "downloadHD_state": "available",
+      "downloadSD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/711c5be5c6ma8yy/711/711_sd_using_grouped_notifications.mp4",
+      "downloadSD_size": 255571736,
+      "downloadSD_state": "available",
+      "slides": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/711c5be5c6ma8yy/711/711_using_grouped_notifications.pdf",
+      "slides_size": 5027054,
+      "slides_state": "available"
+    }
+  },
+  {
+    "id": "wwdc2018-720",
+    "title": "Wallet and Apple Pay: Creating Great Customer Experiences",
+    "description": "Get the latest news and updates from the Wallet and Apple Pay team. Learn how iPhone and Apple Watch can power innovative commerce experiences. Hear about the latest design best practices for Apple Pay. And discover how to create your own contactless passes for rewards cards, gift cards, tickets and more.",
+    "eventId": "wwdc2018",
+    "eventContentId": "720",
+    "year": 2018,
+    "topic": "Frameworks",
+    "platforms": [
+      "iOS",
+      "macOS",
+      "watchOS"
+    ],
+    "speakers": [
+      "Ben Chester",
+      "Katie Calabro"
+    ],
+    "media": {
+      "duration": 2325,
+      "streamHLS": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/720gofzcqcp431kcasf/720/hls_vod_mvp.m3u8",
+      "streamHLS_state": "available",
+      "downloadHD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/720gofzcqcp431kcasf/720/720_hd_wallet_and_apple_pay_creating_great_customer_experiences.mp4",
+      "downloadHD_size": 1200463843,
+      "downloadHD_state": "available",
+      "downloadSD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/720gofzcqcp431kcasf/720/720_sd_wallet_and_apple_pay_creating_great_customer_experiences.mp4",
+      "downloadSD_size": 310014588,
+      "downloadSD_state": "available",
+      "slides": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/720gofzcqcp431kcasf/720/720_wallet_and_apple_pay_creating_great_customer_experiences.pdf",
+      "slides_size": 38996878,
+      "slides_state": "available"
+    }
+  },
+  {
+    "id": "wwdc2018-202",
+    "title": "What's New in Cocoa Touch",
+    "description": "iOS 12 enhances the Cocoa Touch frameworks to improve app performance and deliver exciting new features. Learn about performance best practices, security improvements, tools for supporting multiple screen sizes and shapes, new APIs for iMessage apps, Siri Shortcuts, and Swift refinements. Find out which sessions you won't want to miss throughout the week.",
+    "eventId": "wwdc2018",
+    "eventContentId": "202",
+    "year": 2018,
+    "topic": "Frameworks",
+    "platforms": [
+      "iOS"
+    ],
+    "speakers": [
+      "Josh Shaffer",
+      "Eliza Block"
+    ],
+    "media": {
+      "duration": 2431,
+      "streamHLS": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/202gr4vfnb8iayqu/202/hls_vod_mvp.m3u8",
+      "streamHLS_state": "available",
+      "downloadHD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/202gr4vfnb8iayqu/202/202_hd_whats_new_in_cocoa_touch.mp4",
+      "downloadHD_size": 1255165636,
+      "downloadHD_state": "available",
+      "downloadSD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/202gr4vfnb8iayqu/202/202_sd_whats_new_in_cocoa_touch.mp4",
+      "downloadSD_size": 324141401,
+      "downloadSD_state": "available",
+      "slides": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/202gr4vfnb8iayqu/202/202_whats_new_in_cocoa_touch.pdf",
+      "slides_size": 3702775,
+      "slides_state": "available"
+    }
+  },
+  {
+    "id": "wwdc2018-238",
+    "title": "What's New in TVMLKit",
+    "description": "With TVMLKit you can quickly and easily develop tvOS apps that deliver intuitive and engaging media experiences. Learn about enhancements to data binding that allow you to separate your application logic and user interface, and new features and functions to customize the media playback experience.",
+    "eventId": "wwdc2018",
+    "eventContentId": "238",
+    "year": 2018,
+    "topic": "Frameworks",
+    "platforms": [
+      "tvOS"
+    ],
+    "speakers": [
+      "Jeremy Foo"
+    ],
+    "media": {
+      "duration": 1183,
+      "streamHLS": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/238l85zhwz7192hqb/238/hls_vod_mvp.m3u8",
+      "streamHLS_state": "available",
+      "downloadHD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/238l85zhwz7192hqb/238/238_hd_whats_new_in_tvmlkit.mp4",
+      "downloadHD_size": 611334461,
+      "downloadHD_state": "available",
+      "downloadSD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/238l85zhwz7192hqb/238/238_sd_whats_new_in_tvmlkit.mp4",
+      "downloadSD_size": 157878344,
+      "downloadSD_state": "available",
+      "slides": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/238l85zhwz7192hqb/238/238_whats_new_in_tvmlkit.pdf",
+      "slides_size": 1588596,
+      "slides_state": "available"
+    }
+  },
+  {
+    "id": "wwdc2018-208",
+    "title": "What's New in tvOS 12",
+    "description": "Apps on tvOS entertain, inform, and inspire with their content and interactive experiences. tvOS 12 brings new technologies that help make these experiences even more enjoyable and engaging. Get an introduction to focus engine support for non-UIKit apps, new UI elements, and Password AutoFill. Learn how to bring it all together to create incredible tvOS apps and experiences.",
+    "eventId": "wwdc2018",
+    "eventContentId": "208",
+    "year": 2018,
+    "topic": "Frameworks",
+    "platforms": [
+      "tvOS"
+    ],
+    "speakers": [
+      "Hans Kim"
+    ],
+    "media": {
+      "duration": 2373,
+      "streamHLS": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/208piymryv9im6/208/hls_vod_mvp.m3u8",
+      "streamHLS_state": "available",
+      "downloadHD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/208piymryv9im6/208/208_hd_whats_new_in_tvos_12.mp4",
+      "downloadHD_size": 1225498514,
+      "downloadHD_state": "available",
+      "downloadSD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/208piymryv9im6/208/208_sd_whats_new_in_tvos_12.mp4",
+      "downloadSD_size": 316475308,
+      "downloadSD_state": "available",
+      "slides": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/208piymryv9im6/208/208_whats_new_in_tvos_12.pdf",
+      "slides_size": 6152581,
+      "slides_state": "available"
+    }
+  },
+  {
+    "id": "wwdc2018-708",
+    "title": "What\u2019s New in Core ML, Part 1",
+    "description": "Introduced just one year ago, Core ML has already revolutionized the way apps can benefit from machine learning, by enabling fast and private on device machine learning features for your app. Find out how new Core ML features let you reduce the size of models, make them more flexible, and dramatically improve performance.",
+    "eventId": "wwdc2018",
+    "eventContentId": "708",
+    "year": 2018,
+    "topic": "Frameworks",
+    "platforms": [
+      "iOS",
+      "macOS",
+      "tvOS",
+      "watchOS"
+    ],
+    "speakers": [
+      "Michael Siracusa",
+      "Francesco Rossi",
+      "Bill March"
+    ],
+    "media": {
+      "duration": 2244,
+      "streamHLS": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/708ax570wjtpxze/708/hls_vod_mvp.m3u8",
+      "streamHLS_state": "available",
+      "downloadHD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/708ax570wjtpxze/708/708_hd_whats_new_in_core_ml_part_1.mp4",
+      "downloadHD_size": 1159040457,
+      "downloadHD_state": "available",
+      "downloadSD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/708ax570wjtpxze/708/708_sd_whats_new_in_core_ml_part_1.mp4",
+      "downloadSD_size": 299315588,
+      "downloadSD_state": "available",
+      "slides": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/708ax570wjtpxze/708/708_whats_new_in_core_ml_part_1.pdf",
+      "slides_size": 9388183,
+      "slides_state": "available"
+    }
+  },
+  {
+    "id": "wwdc2018-709",
+    "title": "What\u2019s New in Core ML, Part 2",
+    "description": "The Core ML tools ecosystem gives you many options for building and optimizing models to meet your app requirements. Learn how to add flexibility to existing models, quantize them, and take advantage of Core ML's support for customization.",
+    "eventId": "wwdc2018",
+    "eventContentId": "709",
+    "year": 2018,
+    "topic": "Frameworks",
+    "platforms": [
+      "iOS",
+      "macOS",
+      "tvOS",
+      "watchOS"
+    ],
+    "speakers": [
+      "Aseem Wadhwa",
+      "Sohaib Qureshi"
+    ],
+    "media": {
+      "duration": 2077,
+      "streamHLS": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/709ofa44hqrgje7a4c/709/hls_vod_mvp.m3u8",
+      "streamHLS_state": "available",
+      "downloadHD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/709ofa44hqrgje7a4c/709/709_hd_whats_new_in_core_ml_part_2.mp4",
+      "downloadHD_size": 1072440906,
+      "downloadHD_state": "available",
+      "downloadSD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/709ofa44hqrgje7a4c/709/709_sd_whats_new_in_core_ml_part_2.mp4",
+      "downloadSD_size": 276945113,
+      "downloadSD_state": "available",
+      "slides": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/709ofa44hqrgje7a4c/709/709_whats_new_in_core_ml_part_2.pdf",
+      "slides_size": 4652799,
+      "slides_state": "available"
+    }
+  },
+  {
+    "id": "wwdc2018-234",
+    "title": "What\u2019s New in Safari and WebKit",
+    "description": "Safari and WebKit are continually evolving with new features, APIs, and cutting edge web standards. Learn about this year\u2019s biggest feature highlights, designed to help you create richer experiences with better performance and security \u2014 whether you are developing content for a browser or developing an app with embedded web content.",
+    "eventId": "wwdc2018",
+    "eventContentId": "234",
+    "year": 2018,
+    "topic": "Frameworks",
+    "platforms": [
+      "iOS",
+      "macOS"
+    ],
+    "speakers": [
+      "Shloka Kini",
+      "Jason Sandmeyer"
+    ],
+    "media": {
+      "duration": 2724,
+      "streamHLS": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/234iphi7iwpe8ew16w/234/hls_vod_mvp.m3u8",
+      "streamHLS_state": "available",
+      "downloadHD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/234iphi7iwpe8ew16w/234/234_hd_whats_new_in_safari_and_webkit.mp4",
+      "downloadHD_size": 1406788371,
+      "downloadHD_state": "available",
+      "downloadSD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/234iphi7iwpe8ew16w/234/234_sd_whats_new_in_safari_and_webkit.mp4",
+      "downloadSD_size": 363289919,
+      "downloadSD_state": "available",
+      "slides": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/234iphi7iwpe8ew16w/234/234_whats_new_in_safari_and_webkit.pdf",
+      "slides_size": 15835578,
+      "slides_state": "available"
+    }
+  },
+  {
+    "id": "wwdc2018-710",
+    "title": "What\u2019s New in User Notifications",
+    "description": "Local and push notifications enable your app to keep users informed with timely and relevant content, by displaying messages and accepting users\u2019 actions, or playing distinctive sounds, or updating the badge on your app icon. Improvements to rich notifications help you create more engaging content and better manage notifications. Find out what\u2019s new and get expert advice on implementing user notifications in your app.",
+    "eventId": "wwdc2018",
+    "eventContentId": "710",
+    "year": 2018,
+    "topic": "Frameworks",
+    "platforms": [
+      "iOS",
+      "watchOS"
+    ],
+    "speakers": [
+      "Kritarth Jain",
+      "Teja Kondapalli"
+    ],
+    "media": {
+      "duration": 2368,
+      "streamHLS": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/710kz0ncc1u8bfxn6/710/hls_vod_mvp.m3u8",
+      "streamHLS_state": "available",
+      "downloadHD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/710kz0ncc1u8bfxn6/710/710_hd_whats_new_in_user_notifications.mp4",
+      "downloadHD_size": 1222931484,
+      "downloadHD_state": "available",
+      "downloadSD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/710kz0ncc1u8bfxn6/710/710_sd_whats_new_in_user_notifications.mp4",
+      "downloadSD_size": 315809980,
+      "downloadSD_state": "available",
+      "slides": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/710kz0ncc1u8bfxn6/710/710_whats_new_in_user_notifications.pdf",
+      "slides_size": 5743476,
+      "slides_state": "available"
+    }
+  },
+  {
+    "id": "wwdc2018-702",
+    "title": "Your Apps and the Future of macOS Security",
+    "description": "Apple is on a mission to advance the state of Mac security, and we want your apps to be there with us. Learn about new protections for user data, new capabilities with Developer ID, and how you can best secure your apps.",
+    "eventId": "wwdc2018",
+    "eventContentId": "702",
+    "year": 2018,
+    "topic": "Frameworks",
+    "platforms": [
+      "macOS"
+    ],
+    "speakers": [
+      "Pierre-Olivier Martel",
+      "Kelly Yancey",
+      "Garrett Jacobson"
+    ],
+    "media": {
+      "duration": 2418,
+      "streamHLS": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/702zi9t7twhu9310kz5/702/hls_vod_mvp.m3u8",
+      "streamHLS_state": "available",
+      "downloadHD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/702zi9t7twhu9310kz5/702/702_hd_your_apps_and_the_future_of_macos_security.mp4",
+      "downloadHD_size": 1248536975,
+      "downloadHD_state": "available",
+      "downloadSD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/702zi9t7twhu9310kz5/702/702_sd_your_apps_and_the_future_of_macos_security.mp4",
+      "downloadSD_size": 322421405,
+      "downloadSD_state": "available",
+      "slides": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/702zi9t7twhu9310kz5/702/702_your_apps_and_the_future_of_macos_security.pdf",
+      "slides_size": 2102188,
+      "slides_state": "available"
+    }
+  },
+  {
+    "id": "wwdc2018-719",
+    "title": "Core Image: Performance, Prototyping, and Python",
+    "description": "Core Image is the essential framework for handling image processing tasks in your photo and video apps. In this session, we'll explore new additions to the framework that allow you to achieve great performance in your filter chains and custom CIKernels. We'll also demo a new approach to prototyping in Core Image through the use of an interactive Python environment. Through these techniques you'll discover new ideas for building new creative effects as well as practical approaches to batch processing images for tasks such as image compositing and data boosting for machine learning.",
+    "eventId": "wwdc2018",
+    "eventContentId": "719",
+    "year": 2018,
+    "topic": "Graphics and Games",
+    "platforms": [
+      "iOS",
+      "macOS"
+    ],
+    "speakers": [
+      "David Hayward",
+      "Emmanuel Piuze-Phaneuf"
+    ],
+    "media": {
+      "duration": 2684,
+      "streamHLS": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/719mml6x0gqj3b7udf/719/hls_vod_mvp.m3u8",
+      "streamHLS_state": "available",
+      "downloadHD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/719mml6x0gqj3b7udf/719/719_hd_core_image_performance_prototyping_and_python.mp4",
+      "downloadHD_size": 1386228209,
+      "downloadHD_state": "available",
+      "downloadSD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/719mml6x0gqj3b7udf/719/719_sd_core_image_performance_prototyping_and_python.mp4",
+      "downloadSD_size": 357990686,
+      "downloadSD_state": "available",
+      "slides": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/719mml6x0gqj3b7udf/719/719_core_image_performance_prototyping_and_python.pdf",
+      "slides_size": 21354515,
+      "slides_state": "available"
+    }
+  },
+  {
+    "id": "wwdc2018-805",
+    "title": "Creating Great AR Experiences",
+    "description": "Engaging AR experiences are easy to start and navigate, persuasively realistic, and highly immersive. Learn best practices for successfully bringing people into an AR experience, teaching them about how to interact and engage with virtual content, and making your AR content look beautiful and grounded in the real world.",
+    "eventId": "wwdc2018",
+    "eventContentId": "805",
+    "year": 2018,
+    "topic": "Graphics and Games",
+    "platforms": [
+      "iOS"
+    ],
+    "speakers": [
+      "Grant Paul",
+      "Omar Khan"
+    ],
+    "media": {
+      "duration": 3757,
+      "streamHLS": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/805llmiw0zwkox4zhuc/805/hls_vod_mvp.m3u8",
+      "streamHLS_state": "available",
+      "downloadHD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/805llmiw0zwkox4zhuc/805/805_hd_creating_great_ar_experiences.mp4",
+      "downloadHD_size": 1940020450,
+      "downloadHD_state": "available",
+      "downloadSD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/805llmiw0zwkox4zhuc/805/805_sd_creating_great_ar_experiences.mp4",
+      "downloadSD_size": 500998764,
+      "downloadSD_state": "available",
+      "slides": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/805llmiw0zwkox4zhuc/805/805_creating_great_ar_experiences.pdf",
+      "slides_size": 19702074,
+      "slides_state": "available"
+    }
+  },
+  {
+    "id": "wwdc2018-605",
+    "title": "Inside SwiftShot: Creating an AR Game",
+    "description": "Developed by Apple, SwiftShot is an energetic and immersive multiplayer AR game built with key iOS technologies. Glimpse behind the curtain and see how SwiftShot was designed and developed using ARKit, SceneKit, and Swift. Understand the intricacies of designing great gameplay for AR, and learn practical techniques for multiplayer synchronization and physics simulation.",
+    "eventId": "wwdc2018",
+    "eventContentId": "605",
+    "year": 2018,
+    "topic": "Graphics and Games",
+    "platforms": [
+      "iOS"
+    ],
+    "speakers": [
+      "Alex Rosenberg"
+    ],
+    "media": {
+      "duration": 2575,
+      "streamHLS": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/605sgm2hb3oxmy/605/hls_vod_mvp.m3u8",
+      "streamHLS_state": "available",
+      "downloadHD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/605sgm2hb3oxmy/605/605_hd_inside_swiftshot_creating_an_ar_game.mp4",
+      "downloadHD_size": 1329508662,
+      "downloadHD_state": "available",
+      "downloadSD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/605sgm2hb3oxmy/605/605_sd_inside_swiftshot_creating_an_ar_game.mp4",
+      "downloadSD_size": 343339666,
+      "downloadSD_state": "available",
+      "slides": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/605sgm2hb3oxmy/605/605_inside_swiftshot_creating_an_ar_game.pdf",
+      "slides_size": 10716698,
+      "slides_state": "available"
+    }
+  },
+  {
+    "id": "wwdc2018-603",
+    "title": "Integrating Apps and Content with AR Quick Look",
+    "description": "With iOS 12, ARKit includes a built-in viewer for displaying and sharing high-quality 3D content using Pixar's usdz file format. Get introduced to the capabilities of AR Quick Look and see how to easily integrate AR into your app. Learn best practices for preparing 3D models for AR, and see how to deliver usdz content for viewing across Safari, Mail, Messages, and other built-in apps.",
+    "eventId": "wwdc2018",
+    "eventContentId": "603",
+    "year": 2018,
+    "topic": "Graphics and Games",
+    "platforms": [
+      "iOS"
+    ],
+    "speakers": [
+      "David Lui",
+      "Dave Addey"
+    ],
+    "media": {
+      "duration": 2514,
+      "streamHLS": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/603augiuv41xoowslk8/603/hls_vod_mvp.m3u8",
+      "streamHLS_state": "available",
+      "downloadHD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/603augiuv41xoowslk8/603/603_hd_integrating_apps_and_content_with_ar_quick_look.mp4",
+      "downloadHD_size": 1297982581,
+      "downloadHD_state": "available",
+      "downloadSD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/603augiuv41xoowslk8/603/603_sd_integrating_apps_and_content_with_ar_quick_look.mp4",
+      "downloadSD_size": 335193131,
+      "downloadSD_state": "available",
+      "slides": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/603augiuv41xoowslk8/603/603_integrating_apps_and_content_with_ar_quick_look.pdf",
+      "slides_size": 11784865,
+      "slides_state": "available"
+    }
+  },
+  {
+    "id": "wwdc2018-612",
+    "title": "Metal Game Performance Optimization",
+    "description": "Realize the full potential of your Metal-based games by tackling common issues that cause frame rate slowdowns, stutters, and stalls. Discover how to clear up jitter and maintain a silky-smooth frame rate with simple changes in frame pacing. Get introduced to new tools for analyzing rendering passes and pinpoint expensive or unexpected work. Learn how to avoid thread stalls and get specific advice about handling thermal notifications.",
+    "eventId": "wwdc2018",
+    "eventContentId": "612",
+    "year": 2018,
+    "topic": "Graphics and Games",
+    "platforms": [
+      "iOS",
+      "macOS"
+    ],
+    "speakers": [
+      "Guillem Vin\u0303als Gangolells",
+      "Ohad Frenkel"
+    ],
+    "appleWeblink": "https://developer.apple.com/videos/play/wwdc2018/612/",
+    "media": {
+      "duration": 2015,
+      "streamHLS": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/612wlpc4tnd47e9245/612/hls_vod_mvp.m3u8",
+      "streamHLS_state": "available",
+      "downloadHD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/612wlpc4tnd47e9245/612/612_hd_metal_game_performance_optimization.mp4",
+      "downloadHD_size": 1040309004,
+      "downloadHD_state": "available",
+      "downloadSD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/612wlpc4tnd47e9245/612/612_sd_metal_game_performance_optimization.mp4",
+      "downloadSD_size": 268649563,
+      "downloadSD_state": "available",
+      "slides": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/612wlpc4tnd47e9245/612/612_metal_game_performance_optimization.pdf",
+      "slides_size": 5430206,
+      "slides_state": "available"
+    }
+  },
+  {
+    "id": "wwdc2018-608",
+    "title": "Metal Shader Debugging and Profiling",
+    "description": "Metal provides powerful tools for analyzing shader behavior and optimizing performance. Dive into troubleshooting vertex-stage problems with new geometry viewing capabilities in Xcode. Use the shader debugger to step through vertex, fragment, and compute shader execution line-by-line. Get details about analyzing GPU workload, and check out shader profiler enhancements for A11 Bionic.",
+    "eventId": "wwdc2018",
+    "eventContentId": "608",
+    "year": 2018,
+    "topic": "Graphics and Games",
+    "platforms": [
+      "iOS",
+      "macOS",
+      "tvOS"
+    ],
+    "speakers": [
+      "Alp Yucebilgin"
+    ],
+    "appleWeblink": "https://developer.apple.com/videos/play/wwdc2018/608/",
+    "media": {
+      "duration": 2293,
+      "streamHLS": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/608u6qpg6mh0uq/608/hls_vod_mvp.m3u8",
+      "streamHLS_state": "available",
+      "downloadHD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/608u6qpg6mh0uq/608/608_hd_metal_shader_debugging_and_profiling.mp4",
+      "downloadHD_size": 1184070570,
+      "downloadHD_state": "available",
+      "downloadSD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/608u6qpg6mh0uq/608/608_sd_metal_shader_debugging_and_profiling.mp4",
+      "downloadSD_size": 305771548,
+      "downloadSD_state": "available",
+      "slides": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/608u6qpg6mh0uq/608/608_metal_shader_debugging_and_profiling.pdf",
+      "slides_size": 8113615,
+      "slides_state": "available"
+    }
+  },
+  {
+    "id": "wwdc2018-607",
+    "title": "Metal for Game Developers",
+    "description": "Metal 2 is Apple-designed graphics software that lets developers build console\u2011style games. Learn key aspects of the Metal architecture that support the techniques for modern high-performance game rendering. See how Metal now enables the GPU to schedule work for itself, allowing complete scenes and compute workloads to be built and executed with little to no CPU interaction. Understand how the seamless integration of Metal 2 with the A11 Bionic chip lets your apps and games realize entirely new levels of performance and capability.",
+    "eventId": "wwdc2018",
+    "eventContentId": "607",
+    "year": 2018,
+    "topic": "Graphics and Games",
+    "platforms": [
+      "iOS",
+      "macOS",
+      "tvOS"
+    ],
+    "speakers": [
+      "Brian Ross",
+      "Michael Imbrogno"
+    ],
+    "media": {
+      "duration": 3604,
+      "streamHLS": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/607buro3d9jn66/607/hls_vod_mvp.m3u8",
+      "streamHLS_state": "available",
+      "downloadHD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/607buro3d9jn66/607/607_hd_metal_for_game_developers.mp4",
+      "downloadHD_size": 1861033954,
+      "downloadHD_state": "available",
+      "downloadSD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/607buro3d9jn66/607/607_sd_metal_for_game_developers.mp4",
+      "downloadSD_size": 480600791,
+      "downloadSD_state": "available",
+      "slides": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/607buro3d9jn66/607/607_metal_for_game_developers.pdf",
+      "slides_size": 9044965,
+      "slides_state": "available"
+    }
+  },
+  {
+    "id": "wwdc2018-604",
+    "title": "Metal for OpenGL Developers",
+    "description": "Metal is the foundation for accelerated graphics and compute on Apple platforms, enabling your apps and games to tap into the incredible power of the GPU. Get introduced to essential Metal capabilities and understand the recommended approach for transitioning OpenGL-based apps onto the Metal API.",
+    "eventId": "wwdc2018",
+    "eventContentId": "604",
+    "year": 2018,
+    "topic": "Graphics and Games",
+    "platforms": [
+      "iOS",
+      "macOS",
+      "tvOS"
+    ],
+    "speakers": [
+      "Dan Omachi",
+      "Sukanya Sudugu"
+    ],
+    "media": {
+      "duration": 3351,
+      "streamHLS": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/604lh97z18yv96g6nhf/604/hls_vod_mvp.m3u8",
+      "streamHLS_state": "available",
+      "downloadHD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/604lh97z18yv96g6nhf/604/604_hd_metal_for_opengl_developers.mp4",
+      "downloadHD_size": 1730517799,
+      "downloadHD_state": "available",
+      "downloadSD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/604lh97z18yv96g6nhf/604/604_sd_metal_for_opengl_developers.mp4",
+      "downloadSD_size": 446883824,
+      "downloadSD_state": "available",
+      "slides": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/604lh97z18yv96g6nhf/604/604_metal_for_opengl_developers.pdf",
+      "slides_size": 5848114,
+      "slides_state": "available"
+    }
+  },
+  {
+    "id": "wwdc2018-606",
+    "title": "Metal for Ray Tracing Acceleration",
+    "description": "Metal Performance Shaders (MPS) harnesses the massive parallelism of the GPU to dramatically accelerate calculations at the heart of modern ray tracing and ray casting techniques. See how ray tracing can provide greater realism in 3D scenes through improved shading, soft shadows, and global illumination. Understand how MPS accelerates ray-triangle intersections while enabling dynamic scene updates, and learn how to extend your app across multiple GPUs for even greater performance.",
+    "eventId": "wwdc2018",
+    "eventContentId": "606",
+    "year": 2018,
+    "topic": "Graphics and Games",
+    "platforms": [
+      "iOS",
+      "macOS"
+    ],
+    "speakers": [
+      "Sean James",
+      "Wayne Lister"
+    ],
+    "media": {
+      "duration": 2236,
+      "streamHLS": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/606id8hzoex3kf/606/hls_vod_mvp.m3u8",
+      "streamHLS_state": "available",
+      "downloadHD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/606id8hzoex3kf/606/606_hd_metal_for_ray_tracing_acceleration.mp4",
+      "downloadHD_size": 1154454678,
+      "downloadHD_state": "available",
+      "downloadSD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/606id8hzoex3kf/606/606_sd_metal_for_ray_tracing_acceleration.mp4",
+      "downloadSD_size": 298131467,
+      "downloadSD_state": "available",
+      "slides": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/606id8hzoex3kf/606/606_metal_for_ray_tracing_acceleration.pdf",
+      "slides_size": 6963400,
+      "slides_state": "available"
+    }
+  },
+  {
+    "id": "wwdc2018-611",
+    "title": "Metal for VR",
+    "description": "On macOS, Metal 2 adds specialized support for virtual reality (VR) rendering and external GPUs. Learn about new features and optimizations to take advantage of these technologies within your Metal 2-based apps and games. Understand best practices for scheduling workloads across multiple GPUs and techniques for frame pacing while multi-threading.",
+    "eventId": "wwdc2018",
+    "eventContentId": "611",
+    "year": 2018,
+    "topic": "Graphics and Games",
+    "platforms": [
+      "macOS"
+    ],
+    "speakers": [
+      "Karol Gasin\u0301ski"
+    ],
+    "media": {
+      "duration": 2076,
+      "streamHLS": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/611q31k82j69jxqw/611/hls_vod_mvp.m3u8",
+      "streamHLS_state": "available",
+      "downloadHD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/611q31k82j69jxqw/611/611_hd_metal_for_vr.mp4",
+      "downloadHD_size": 1071896150,
+      "downloadHD_state": "available",
+      "downloadSD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/611q31k82j69jxqw/611/611_sd_metal_for_vr.mp4",
+      "downloadSD_size": 276797871,
+      "downloadSD_state": "available",
+      "slides": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/611q31k82j69jxqw/611/611_metal_for_vr.pdf",
+      "slides_size": 4406528,
+      "slides_state": "available"
+    }
+  },
+  {
+    "id": "wwdc2018-808",
+    "title": "Prototyping for AR",
+    "description": "Designing for AR can be intimidating and discovering design flaws late in the process can be costly. See how low-tech traditional prototyping techniques can help you validate and refine your AR app and game design ideas.",
+    "eventId": "wwdc2018",
+    "eventContentId": "808",
+    "year": 2018,
+    "topic": "Graphics and Games",
+    "platforms": [
+      "iOS"
+    ],
+    "speakers": [
+      "Praveen Sharma"
+    ],
+    "media": {
+      "duration": 638,
+      "streamHLS": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/808j4pqwu6uymymjq/808/hls_vod_mvp.m3u8",
+      "streamHLS_state": "available",
+      "downloadHD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/808j4pqwu6uymymjq/808/808_hd_prototyping_for_ar.mp4",
+      "downloadHD_size": 329531558,
+      "downloadHD_state": "available",
+      "downloadSD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/808j4pqwu6uymymjq/808/808_sd_prototyping_for_ar.mp4",
+      "downloadSD_size": 85098860,
+      "downloadSD_state": "available",
+      "slides": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/808j4pqwu6uymymjq/808/808_prototyping_for_ar.pdf",
+      "slides_size": 7484102,
+      "slides_state": "available"
+    }
+  },
+  {
+    "id": "wwdc2018-610",
+    "title": "Understanding ARKit Tracking and Detection",
+    "description": "With ARKit your app can see the world and place virtual objects on horizontal and vertical surfaces and recognize images and objects. Go beyond the API to gain insights into the innovative methods and techniques underlying these capabilities. See how ARKit combines device motion with the camera to provide accurate tracking and plane detection. Get a deeper understanding of persistence and multi-device AR and learn the recommended approach for image tracking and object detection.",
+    "eventId": "wwdc2018",
+    "eventContentId": "610",
+    "year": 2018,
+    "topic": "Graphics and Games",
+    "platforms": [
+      "iOS"
+    ],
+    "speakers": [
+      "Marion Maerz",
+      "Michele Stoppa"
+    ],
+    "media": {
+      "duration": 3479,
+      "streamHLS": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/610qbth3em1ngixst/610/hls_vod_mvp.m3u8",
+      "streamHLS_state": "available",
+      "downloadHD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/610qbth3em1ngixst/610/610_hd_understanding_arkit_tracking_and_detection.mp4",
+      "downloadHD_size": 1796211251,
+      "downloadHD_state": "available",
+      "downloadSD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/610qbth3em1ngixst/610/610_sd_understanding_arkit_tracking_and_detection.mp4",
+      "downloadSD_size": 463852264,
+      "downloadSD_state": "available",
+      "slides": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/610qbth3em1ngixst/610/610_understanding_arkit_tracking_and_detection.pdf",
+      "slides_size": 20864624,
+      "slides_state": "available"
+    }
+  },
+  {
+    "id": "wwdc2018-602",
+    "title": "What\u2019s New in ARKit 2",
+    "description": "ARKit 2 makes it easy to develop vivid augmented reality experiences and enable apps to interact with the real world in entirely new ways. Discover how multiple iOS devices can simultaneously view an AR scene or play multiplayer AR games. Learn about new capabilities for tracking 2D images, and see how to detect known 3D objects like sculptures, toys, and furniture.",
+    "eventId": "wwdc2018",
+    "eventContentId": "602",
+    "year": 2018,
+    "topic": "Graphics and Games",
+    "platforms": [
+      "iOS"
+    ],
+    "speakers": [
+      "Arsalan Malik",
+      "Reinhard Klapfer"
+    ],
+    "media": {
+      "duration": 3440,
+      "streamHLS": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/602r0zx2q17fqbk/602/hls_vod_mvp.m3u8",
+      "streamHLS_state": "available",
+      "downloadHD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/602r0zx2q17fqbk/602/602_hd_whats_new_in_arkit_2.mp4",
+      "downloadHD_size": 1776373337,
+      "downloadHD_state": "available",
+      "downloadSD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/602r0zx2q17fqbk/602/602_sd_whats_new_in_arkit_2.mp4",
+      "downloadSD_size": 458709276,
+      "downloadSD_state": "available",
+      "slides": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/602r0zx2q17fqbk/602/602_whats_new_in_arkit_2.pdf",
+      "slides_size": 7058934,
+      "slides_state": "available"
+    }
+  },
+  {
+    "id": "wwdc2018-507",
+    "title": "AVContentKeySession Best Practices",
+    "description": "AVContentKeySession allows for the management of FairPlay content decryption keys for HTTP Live Streaming. It offers a simplified key loading process that provides applications with control over the lifecycle of content keys, and features such as dual-expiry keys for offline movie rentals. Learn about best practices and recommended patterns for adopting this API.",
+    "eventId": "wwdc2018",
+    "eventContentId": "507",
+    "year": 2018,
+    "topic": "Media",
+    "platforms": [
+      "iOS",
+      "tvOS"
+    ],
+    "speakers": [
+      "Anil Katti"
+    ],
+    "media": {
+      "duration": 923,
+      "streamHLS": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/507axjplrd0yjzixfz/507/hls_vod_mvp.m3u8",
+      "streamHLS_state": "available",
+      "downloadHD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/507axjplrd0yjzixfz/507/507_hd_avcontentkeysession_best_practices.mp4",
+      "downloadHD_size": 476569735,
+      "downloadHD_state": "available",
+      "downloadSD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/507axjplrd0yjzixfz/507/507_sd_avcontentkeysession_best_practices.mp4",
+      "downloadSD_size": 123070936,
+      "downloadSD_state": "available",
+      "slides": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/507axjplrd0yjzixfz/507/507_avcontentkeysession_best_practices.pdf",
+      "slides_size": 243025,
+      "slides_state": "available"
+    }
+  },
+  {
+    "id": "wwdc2018-504",
+    "title": "Creating Audio Apps for watchOS",
+    "description": "Apps in watchOS 5 have control over audio playback like never before.  With a full-fledged background mode for local audio playback using AVFoundation, people can listen to content on the go right from Apple Watch. Learn how to use the new volume control and how to respond to MediaRemote commands. Dive into best practices for getting audio onto Apple Watch with URLSession and update progress when using WatchConnectivity to transfer files from iPhone. Explore how to control playback on iPhone from your app with the new Now Playing view.",
+    "eventId": "wwdc2018",
+    "eventContentId": "504",
+    "year": 2018,
+    "topic": "Media",
+    "platforms": [
+      "watchOS"
+    ],
+    "speakers": [
+      "Neil Desai"
+    ],
+    "media": {
+      "duration": 1928,
+      "streamHLS": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/504uv2gj8r9250n/504/hls_vod_mvp.m3u8",
+      "streamHLS_state": "available",
+      "downloadHD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/504uv2gj8r9250n/504/504_hd_creating_audio_apps_for_watchos.mp4",
+      "downloadHD_size": 995661798,
+      "downloadHD_state": "available",
+      "downloadSD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/504uv2gj8r9250n/504/504_sd_creating_audio_apps_for_watchos.mp4",
+      "downloadSD_size": 257124674,
+      "downloadSD_state": "available",
+      "slides": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/504uv2gj8r9250n/504/504_creating_audio_apps_for_watchos.pdf",
+      "slides_size": 3027786,
+      "slides_state": "available"
+    }
+  },
+  {
+    "id": "wwdc2018-503",
+    "title": "Creating Photo and Video Effects Using Depth",
+    "description": "The TrueDepth camera in the iPhone X streams high-quality depth data in real time allowing you to enhance your photo and video apps in fun and creative ways. Dive deep into the principles and best practices for working with depth data, learn how to use the new Portrait Segmentation API for still images, and see how these techniques can create special effects like background replacement and perspective changes.",
+    "eventId": "wwdc2018",
+    "eventContentId": "503",
+    "year": 2018,
+    "topic": "Media",
+    "platforms": [
+      "iOS"
+    ],
+    "speakers": [
+      "Emmanuel Piuze-Phaneuf",
+      "Ron Sokolovsky"
+    ],
+    "media": {
+      "duration": 2032,
+      "streamHLS": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/503rfgg72ckqxj2fi/503/hls_vod_mvp.m3u8",
+      "streamHLS_state": "available",
+      "downloadHD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/503rfgg72ckqxj2fi/503/503_hd_creating_photo_and_video_effects_using_depth.mp4",
+      "downloadHD_size": 1049199194,
+      "downloadHD_state": "available",
+      "downloadSD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/503rfgg72ckqxj2fi/503/503_sd_creating_photo_and_video_effects_using_depth.mp4",
+      "downloadSD_size": 270941670,
+      "downloadSD_state": "available",
+      "slides": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/503rfgg72ckqxj2fi/503/503_creating_photo_and_video_effects_using_depth.pdf",
+      "slides_size": 10037142,
+      "slides_state": "available"
+    }
+  },
+  {
+    "id": "wwdc2018-219",
+    "title": "Image and Graphics Best Practices",
+    "description": "Whether it's for UI elements or a fundamental part of your application, at some point, you have to handle images. This session is packed with engaging insight into how images are handled in iOS including discussion of UIImage, UIImageView, custom drawing in UIKit, plus advanced CPU and GPU techniques that can help you maximize performance and minimize memory footprint.",
+    "eventId": "wwdc2018",
+    "eventContentId": "219",
+    "year": 2018,
+    "topic": "Media",
+    "platforms": [
+      "iOS"
+    ],
+    "speakers": [
+      "Kyle Sluder"
+    ],
+    "media": {
+      "duration": 2011,
+      "streamHLS": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/219mybpx95zm9x/219/hls_vod_mvp.m3u8",
+      "streamHLS_state": "available",
+      "downloadHD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/219mybpx95zm9x/219/219_hd_image_and_graphics_best_practices.mp4",
+      "downloadHD_size": 1038403121,
+      "downloadHD_state": "available",
+      "downloadSD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/219mybpx95zm9x/219/219_sd_image_and_graphics_best_practices.mp4",
+      "downloadSD_size": 268157618,
+      "downloadSD_state": "available",
+      "slides": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/219mybpx95zm9x/219/219_image_and_graphics_best_practices.pdf",
+      "slides_size": 6288238,
+      "slides_state": "available"
+    }
+  },
+  {
+    "id": "wwdc2018-505",
+    "title": "Integrating with Photos on macOS",
+    "description": "Make your apps even better through improved integration with Photos on macOS. We'll dive deep into the Photos Project Extension API that was introduced in macOS High Sierra and update you on what's new. You'll also learn best practices for handling file promises and image URLs to better handle drag & drop from Photos to your app.",
+    "eventId": "wwdc2018",
+    "eventContentId": "505",
+    "year": 2018,
+    "topic": "Media",
+    "platforms": [
+      "macOS"
+    ],
+    "speakers": [
+      "Eric Hanson",
+      "Tobias Conradi",
+      "Sanaa Squalli",
+      "Joachim Fornallaz"
+    ],
+    "media": {
+      "duration": 2229,
+      "streamHLS": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/505em1a6u6lq35/505/hls_vod_mvp.m3u8",
+      "streamHLS_state": "available",
+      "downloadHD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/505em1a6u6lq35/505/505_hd_integrating_with_photos_on_macos.mp4",
+      "downloadHD_size": 1150919738,
+      "downloadHD_state": "available",
+      "downloadSD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/505em1a6u6lq35/505/505_sd_integrating_with_photos_on_macos.mp4",
+      "downloadSD_size": 297211396,
+      "downloadSD_state": "available",
+      "slides": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/505em1a6u6lq35/505/505_integrating_with_photos_on_macos.pdf",
+      "slides_size": 35707197,
+      "slides_state": "available"
+    }
+  },
+  {
+    "id": "wwdc2018-501",
+    "title": "Introducing Podcast Analytics",
+    "description": "Podcasts are created and enjoyed by millions of people around the world. With the addition of Podcast Analytics, podcasters can gather actionable and insightful intelligence into how their show is consumed, while respecting the privacy of their listeners. Learn how to interpret and use these new analytics to improve your show.",
+    "eventId": "wwdc2018",
+    "eventContentId": "501",
+    "year": 2018,
+    "topic": "Media",
+    "platforms": [
+      "iOS",
+      "macOS",
+      "watchOS"
+    ],
+    "speakers": [
+      "James O. Boggs",
+      "Anne Wootton",
+      "Alec Reitter"
+    ],
+    "media": {
+      "duration": 2109,
+      "streamHLS": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/501rzej45eysiycpu/501/hls_vod_mvp.m3u8",
+      "streamHLS_state": "available",
+      "downloadHD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/501rzej45eysiycpu/501/501_hd_introducing_podcast_analytics.mp4",
+      "downloadHD_size": 1088844603,
+      "downloadHD_state": "available",
+      "downloadSD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/501rzej45eysiycpu/501/501_sd_introducing_podcast_analytics.mp4",
+      "downloadSD_size": 281186132,
+      "downloadSD_state": "available",
+      "slides": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/501rzej45eysiycpu/501/501_introducing_podcast_analytics.pdf",
+      "slides_size": 15562086,
+      "slides_state": "available"
+    }
+  },
+  {
+    "id": "wwdc2018-601",
+    "title": "Live Screen Broadcast with ReplayKit",
+    "description": "ReplayKit 2 provides built-in services for broadcasting your screen from iOS and tvOS to viewers online. See how broadcasts can be started right within Control Center or from standard UI included in your own apps and games. Hear about developing broadcast extensions for ReplayKit 2 and get best practices for handling account sign-in.",
+    "eventId": "wwdc2018",
+    "eventContentId": "601",
+    "year": 2018,
+    "topic": "Media",
+    "platforms": [
+      "iOS",
+      "tvOS"
+    ],
+    "speakers": [
+      "Alexander Subbotin"
+    ],
+    "media": {
+      "duration": 1693,
+      "streamHLS": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/601nz4m863hyf0/601/hls_vod_mvp.m3u8",
+      "streamHLS_state": "available",
+      "downloadHD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/601nz4m863hyf0/601/601_hd_live_screen_broadcast_with_replaykit.mp4",
+      "downloadHD_size": 874359442,
+      "downloadHD_state": "available",
+      "downloadSD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/601nz4m863hyf0/601/601_sd_live_screen_broadcast_with_replaykit.mp4",
+      "downloadSD_size": 225790690,
+      "downloadSD_state": "available",
+      "slides": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/601nz4m863hyf0/601/601_live_screen_broadcast_with_replaykit.pdf",
+      "slides_size": 6030963,
+      "slides_state": "available"
+    }
+  },
+  {
+    "id": "wwdc2018-502",
+    "title": "Measuring and Optimizing HLS Performance",
+    "description": "HTTP Live Streaming (HLS) is used to stream live and on-demand content to global audiences. Discover how to adjust and tune stream authoring and delivery elements to improve the viewing experience. Learn how to accurately measure your streaming performance, identify optimization opportunities, and implement changes to your HLS streams that can significantly improve the user experience.",
+    "eventId": "wwdc2018",
+    "eventContentId": "502",
+    "year": 2018,
+    "topic": "Media",
+    "platforms": [
+      "iOS",
+      "macOS",
+      "tvOS"
+    ],
+    "speakers": [
+      "Emil Andriescu"
+    ],
+    "media": {
+      "duration": 2972,
+      "streamHLS": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/502plwzfxg5p7w4na/502/hls_vod_mvp.m3u8",
+      "streamHLS_state": "available",
+      "downloadHD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/502plwzfxg5p7w4na/502/502_hd_measuring_and_optimizing_hls_performance.mp4",
+      "downloadHD_size": 1534615353,
+      "downloadHD_state": "available",
+      "downloadSD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/502plwzfxg5p7w4na/502/502_sd_measuring_and_optimizing_hls_performance.mp4",
+      "downloadSD_size": 396293060,
+      "downloadSD_state": "available",
+      "slides": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/502plwzfxg5p7w4na/502/502_measuring_and_optimizing_hls_performance.pdf",
+      "slides_size": 3387863,
+      "slides_state": "available"
+    }
+  },
+  {
+    "id": "wwdc2018-506",
+    "title": "MusicKit on the Web",
+    "description": "MusicKit has enabled the creation of new, compelling, and engaging Apple Music powered app experiences. With the introduction of MusicKit on the web, as a developer, you can now bring Apple Music powered experiences to the web. Learn how to use declarative markup or javascript to enable Apple Music on your website.",
+    "eventId": "wwdc2018",
+    "eventContentId": "506",
+    "year": 2018,
+    "topic": "Media",
+    "platforms": [
+      "iOS",
+      "macOS"
+    ],
+    "speakers": [
+      "Betim Deva",
+      "DJ Davis",
+      "Jae Hess"
+    ],
+    "media": {
+      "duration": 1496,
+      "streamHLS": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/506dgb08enfpgn2c58s/506/hls_vod_mvp.m3u8",
+      "streamHLS_state": "available",
+      "downloadHD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/506dgb08enfpgn2c58s/506/506_hd_musickit_on_the_web.mp4",
+      "downloadHD_size": 772732509,
+      "downloadHD_state": "available",
+      "downloadSD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/506dgb08enfpgn2c58s/506/506_sd_musickit_on_the_web.mp4",
+      "downloadSD_size": 199546899,
+      "downloadSD_state": "available",
+      "slides": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/506dgb08enfpgn2c58s/506/506_musickit_on_the_web.pdf",
+      "slides_size": 1752392,
+      "slides_state": "available"
+    }
+  },
+  {
+    "id": "wwdc2018-716",
+    "title": "Object Tracking in Vision",
+    "description": "Vision is a high-level framework that provides an easy to use API for handling many computer vision tasks. We'll dive deep into a particularly powerful feature of Vision\u2014tracking objects in video streams. Learn best practices for using Vision in your app. Gain a greater understanding of how request handlers function in terms of lifecycle, performance, and memory utilization.",
+    "eventId": "wwdc2018",
+    "eventContentId": "716",
+    "year": 2018,
+    "topic": "Media",
+    "platforms": [
+      "iOS",
+      "macOS"
+    ],
+    "speakers": [
+      "Sergey Kamensky"
+    ],
+    "media": {
+      "duration": 2445,
+      "streamHLS": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/716xqb0exkswff/716/hls_vod_mvp.m3u8",
+      "streamHLS_state": "available",
+      "downloadHD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/716xqb0exkswff/716/716_hd_object_tracking_in_vision.mp4",
+      "downloadHD_size": 1262553800,
+      "downloadHD_state": "available",
+      "downloadSD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/716xqb0exkswff/716/716_sd_object_tracking_in_vision.mp4",
+      "downloadSD_size": 326046991,
+      "downloadSD_state": "available",
+      "slides": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/716xqb0exkswff/716/716_object_tracking_in_vision.pdf",
+      "slides_size": 42330633,
+      "slides_state": "available"
+    }
+  },
+  {
+    "id": "wwdc2018-717",
+    "title": "Vision with Core ML",
+    "description": "Using Core ML models in Vision makes the creation of powerful Computer Vision applications easy. Learn how easy it is to use custom trained classifiers and object recognition models in a live camera capture. In addition, you'll learn about the latest additions to the Vision Framework along with a deeper dive into some its fundamentals.",
+    "eventId": "wwdc2018",
+    "eventContentId": "717",
+    "year": 2018,
+    "topic": "Media",
+    "platforms": [
+      "iOS",
+      "macOS"
+    ],
+    "speakers": [
+      "Frank Doepke"
+    ],
+    "media": {
+      "duration": 2372,
+      "streamHLS": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/717nagdm5s7ynqf/717/hls_vod_mvp.m3u8",
+      "streamHLS_state": "available",
+      "downloadHD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/717nagdm5s7ynqf/717/717_hd_vision_with_core_ml.mp4",
+      "downloadHD_size": 1224950465,
+      "downloadHD_state": "available",
+      "downloadSD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/717nagdm5s7ynqf/717/717_sd_vision_with_core_ml.mp4",
+      "downloadSD_size": 316330682,
+      "downloadSD_state": "available",
+      "slides": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/717nagdm5s7ynqf/717/717_vision_with_core_ml.pdf",
+      "slides_size": 5228360,
+      "slides_state": "available"
+    }
+  },
+  {
+    "id": "wwdc2018-206",
+    "title": "What's New in watchOS",
+    "description": "watchOS 5 makes creating great experiences on Apple Watch easier than ever before. Learn about robust capabilities to create rich and interactive notifications, a new background mode and controls for audio playback, shortcuts that bring your apps to the Siri watch face, and more. See what\u2019s new in watchOS and discover how to expand your app\u2019s presence on the wrist.",
+    "eventId": "wwdc2018",
+    "eventContentId": "206",
+    "year": 2018,
+    "topic": "Media",
+    "platforms": [
+      "watchOS"
+    ],
+    "speakers": [
+      "Lori Hylan-Cho"
+    ],
+    "media": {
+      "duration": 1764,
+      "streamHLS": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/206jn5qnngdzy9/206/hls_vod_mvp.m3u8",
+      "streamHLS_state": "available",
+      "downloadHD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/206jn5qnngdzy9/206/206_hd_whats_new_in_watchos.mp4",
+      "downloadHD_size": 911220507,
+      "downloadHD_state": "available",
+      "downloadSD": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/206jn5qnngdzy9/206/206_sd_whats_new_in_watchos.mp4",
+      "downloadSD_size": 235313513,
+      "downloadSD_state": "available",
+      "slides": "https://devstreaming-cdn.apple.com/videos/wwdc/2018/206jn5qnngdzy9/206/206_whats_new_in_watchos.pdf",
+      "slides_size": 3935505,
+      "slides_state": "available"
+    }
+  },
+  {
+    "id": "tech-talks-207",
+    "title": "Building Apps for iPhone XS, iPhone XS Max, and iPhone XR",
+    "description": "If your app has already adopted safe area insets, there's not much you will need to do to update your app for iPhone XS, iPhone XS Max, and iPhone XR. Learn how to set a collection view\u2019s section inset reference to the safe area with no code changes. Hear about an API change unique to iPhone XS Max, iPhone XR. Make sure your full-screen app is scaled correctly by using the proper number of points and the correct resolution. Defend against some common pitfalls to ensure your app provides its full feature-set to all of your customers while maintaining best practices that will save you time and effort in the future.",
+    "eventId": "tech-talks",
+    "eventContentId": "207",
+    "year": 2018,
+    "topic": "Tech Talk",
+    "speakers": [
+      "Betsy Langowski"
+    ],
+    "appleWeblink": "https://developer.apple.com/videos/play/tech-talks/207/",
+    "media": {
+      "duration": 541,
+      "streamHLS": "https://devstreaming-cdn.apple.com/videos/tutorials/20180912/207naklypn7hewo9/building_apps_for_iphone_xs_iphone_xs_max_and_iphone_xr/hls_vod_mvp.m3u8",
+      "streamHLS_state": "available",
+      "downloadHD": "https://devstreaming-cdn.apple.com/videos/tutorials/20180912/207naklypn7hewo9/building_apps_for_iphone_xs_iphone_xs_max_and_iphone_xr/building_apps_for_iphone_xs_iphone_xs_max_and_iphone_xr_hd.mp4",
+      "downloadHD_size": 347336877,
+      "downloadHD_state": "available",
+      "downloadSD": "https://devstreaming-cdn.apple.com/videos/tutorials/20180912/207naklypn7hewo9/building_apps_for_iphone_xs_iphone_xs_max_and_iphone_xr/building_apps_for_iphone_xs_iphone_xs_max_and_iphone_xr_sd.mp4",
+      "downloadSD_size": 279705167,
+      "downloadSD_state": "available"
+    }
+  },
+  {
+    "id": "tech-talks-208",
+    "title": "Developing Complications for Apple Watch Series 4",
+    "description": "Complications allow people to quickly glance and stay connected with your app on the watch face throughout their day. The new Infograph and Infograph Modular watch faces on Apple Watch Series 4 allow all new ways to create engaging, full-color complications. Learn about the new complication families and how to create complications that take advantage of the incredible new display of Apple Watch Series 4.",
+    "eventId": "tech-talks",
+    "eventContentId": "208",
+    "year": 2018,
+    "topic": "Tech Talk",
+    "speakers": [
+      "Jake Behrens"
+    ],
+    "appleWeblink": "https://developer.apple.com/videos/play/tech-talks/208/",
+    "media": {
+      "duration": 713,
+      "streamHLS": "https://devstreaming-cdn.apple.com/videos/tutorials/20180912/208ktg0b9qmeyaik/developing_complications_for_apple_watch_series_4/hls_vod_mvp.m3u8",
+      "streamHLS_state": "available",
+      "downloadHD": "https://devstreaming-cdn.apple.com/videos/tutorials/20180912/208ktg0b9qmeyaik/developing_complications_for_apple_watch_series_4/developing_complications_for_apple_watch_series_4_hd.mp4",
+      "downloadHD_size": 457450018,
+      "downloadHD_state": "available",
+      "downloadSD": "https://devstreaming-cdn.apple.com/videos/tutorials/20180912/208ktg0b9qmeyaik/developing_complications_for_apple_watch_series_4/developing_complications_for_apple_watch_series_4_sd.mp4",
+      "downloadSD_size": 368391685,
+      "downloadSD_state": "available",
+      "slides": "https://devstreaming-cdn.apple.com/videos/tutorials/20180912/208ktg0b9qmeyaik/developing_complications_for_apple_watch_series_4/developing_complications_for_apple_watch_series_4.pdf",
+      "slides_size": 66929305,
+      "slides_state": "available"
+    }
+  },
+  {
+    "id": "tech-talks-209",
+    "title": "Bringing Your Apps to the New iPad Pro",
+    "description": "Take advantage of the all-screen design of the new iPad Pro by building your app with the iOS 12.1 SDK and making sure it appears correctly with the display's rounded corners and home indicator. Learn about the new common inset compatibility mode and what it means for apps running in multitasking mode. Find out how to provide support for Face ID and for the second generation Apple Pencil with its double-tap feature.",
+    "eventId": "tech-talks",
+    "eventContentId": "209",
+    "year": 2018,
+    "topic": "Tech Talk",
+    "speakers": [
+      "Betsy Langowski"
+    ],
+    "appleWeblink": "https://developer.apple.com/videos/play/tech-talks/209/",
+    "media": {
+      "duration": 526,
+      "streamHLS": "https://devstreaming-cdn.apple.com/videos/tutorials/20181030/209vnatfwjud/Brining_your_apps_to_iPadPro/hls_vod_mvp.m3u8",
+      "streamHLS_state": "available",
+      "downloadHD": "https://devstreaming-cdn.apple.com/videos/tutorials/20181030/209vnatfwjud/Brining_your_apps_to_iPadPro/Brining_your_apps_to_iPadPro_hd.mp4",
+      "downloadHD_size": 337873025,
+      "downloadHD_state": "available",
+      "downloadSD": "https://devstreaming-cdn.apple.com/videos/tutorials/20181030/209vnatfwjud/Brining_your_apps_to_iPadPro/Brining_your_apps_to_iPadPro_sd.mp4",
+      "downloadSD_size": 272097246,
+      "downloadSD_state": "available"
+    }
+  },
+  {
+    "id": "tech-talks-702",
+    "title": "What's New in Core NFC",
+    "description": "Background reading of NFC tags is a new feature for iPhone XS, iPhone XS Max, and iPhone XR. Learn how to associate your app with an NFC tag to make it even easier for people to benefit from the NFC capabilities of new iPhones.",
+    "eventId": "tech-talks",
+    "eventContentId": "702",
+    "year": 2018,
+    "topic": "Tech Talk",
+    "speakers": [
+      "Lawrence Chung"
+    ],
+    "appleWeblink": "https://developer.apple.com/videos/play/tech-talks/702/",
+    "media": {
+      "duration": 371,
+      "streamHLS": "https://devstreaming-cdn.apple.com/videos/tutorials/20180912/702jaaopvi9pptas/whats_new_in_core_nfc/hls_vod_mvp.m3u8",
+      "streamHLS_state": "available",
+      "downloadHD": "https://devstreaming-cdn.apple.com/videos/tutorials/20180912/702jaaopvi9pptas/whats_new_in_core_nfc/whats_new_in_core_nfc_hd.mp4",
+      "downloadHD_size": 238545169,
+      "downloadHD_state": "available",
+      "downloadSD": "https://devstreaming-cdn.apple.com/videos/tutorials/20180912/702jaaopvi9pptas/whats_new_in_core_nfc/whats_new_in_core_nfc_sd.mp4",
+      "downloadSD_size": 192128502,
+      "downloadSD_state": "available"
+    }
+  },
+  {
+    "id": "tech-talks-703",
+    "title": "GDPR & CloudKit",
+    "description": "The General Data Protection Regulation (GDPR) is a European Union regulation that requires developers to give users visibility and control over the personal data you store on their behalf. Learn how to use new and existing CloudKit APIs to build privacy into your apps and make sure customers can exercise their GDPR rights.",
+    "eventId": "tech-talks",
+    "eventContentId": "703",
+    "year": 2018,
+    "topic": "Tech Talk",
+    "speakers": [
+      "Michael D. Ford"
+    ],
+    "appleWeblink": "https://developer.apple.com/videos/play/tech-talks/703/",
+    "media": {
+      "duration": 812,
+      "streamHLS": "https://devstreaming-cdn.apple.com/videos/tutorials/20180912/703j00nzmafjd72j/gdpr_and_cloudkit/hls_vod_mvp.m3u8",
+      "streamHLS_state": "available",
+      "downloadHD": "https://devstreaming-cdn.apple.com/videos/tutorials/20180912/703j00nzmafjd72j/gdpr_and_cloudkit/gdpr_and_cloudkit_hd.mp4",
+      "downloadHD_size": 521241875,
+      "downloadHD_state": "available",
+      "downloadSD": "https://devstreaming-cdn.apple.com/videos/tutorials/20180912/703j00nzmafjd72j/gdpr_and_cloudkit/gdpr_and_cloudkit_sd.mp4",
+      "downloadSD_size": 419724212,
+      "downloadSD_state": "available"
+    }
+  },
+  {
+    "id": "tech-talks-802",
+    "title": "Designing for Apple Watch Series 4",
+    "description": "Apple Watch Series 4 provides new opportunities for designers and developers to do more with their apps. Series 4 watches have new displays with larger dimensions, and other enhancements that allow developers to deliver richer and more immersive experiences.",
+    "eventId": "tech-talks",
+    "eventContentId": "802",
+    "year": 2018,
+    "topic": "Tech Talk",
+    "speakers": [
+      "Doug LeMoine"
+    ],
+    "appleWeblink": "https://developer.apple.com/videos/play/tech-talks/802/",
+    "media": {
+      "duration": 565,
+      "streamHLS": "https://devstreaming-cdn.apple.com/videos/tutorials/20180912/802xfgu0ylbq0q0w/designing_for_apple_watch_series_4/hls_vod_mvp.m3u8",
+      "streamHLS_state": "available",
+      "downloadHD": "https://devstreaming-cdn.apple.com/videos/tutorials/20180912/802xfgu0ylbq0q0w/designing_for_apple_watch_series_4/designing_for_apple_watch_series_4_hd.mp4",
+      "downloadHD_size": 362946585,
+      "downloadHD_state": "available",
+      "downloadSD": "https://devstreaming-cdn.apple.com/videos/tutorials/20180912/802xfgu0ylbq0q0w/designing_for_apple_watch_series_4/designing_for_apple_watch_series_4_sd.mp4",
+      "downloadSD_size": 292274320,
+      "downloadSD_state": "available"
+    }
+  },
+  {
+    "id": "tech-talks-803",
+    "title": "Designing for Subscription Success",
+    "description": "Providing a great subscription experience within your app makes it easier to acquire new subscribers. Learn how to more clearly communicate the value of your subscriptions, streamline your sign up flow, and make subscriptions appealing and effortless.",
+    "eventId": "tech-talks",
+    "eventContentId": "803",
+    "year": 2018,
+    "topic": "Tech Talk",
+    "speakers": [
+      "Lauren Strehlow"
+    ],
+    "appleWeblink": "https://developer.apple.com/videos/play/tech-talks/803/",
+    "media": {
+      "duration": 552,
+      "streamHLS": "https://devstreaming-cdn.apple.com/videos/tutorials/20180912/803b0tqqpfjflrad/designing_for_subscription_success/hls_vod_mvp.m3u8",
+      "streamHLS_state": "available",
+      "downloadHD": "https://devstreaming-cdn.apple.com/videos/tutorials/20180912/803b0tqqpfjflrad/designing_for_subscription_success/designing_for_subscription_success_hd.mp4",
+      "downloadHD_size": 354179274,
+      "downloadHD_state": "available",
+      "downloadSD": "https://devstreaming-cdn.apple.com/videos/tutorials/20180912/803b0tqqpfjflrad/designing_for_subscription_success/designing_for_subscription_success_sd.mp4",
+      "downloadSD_size": 285237607,
+      "downloadSD_state": "available"
+    }
+  },
+  {
+    "id": "tech-talks-804",
+    "title": "Designing for iPad Pro and Apple Pencil",
+    "description": "Learn how to make your app look great on the amazing, edge-to-edge display of iPad Pro and get essential guidance on which app behaviors are appropriate for the double-tap gesture on Apple Pencil.",
+    "eventId": "tech-talks",
+    "eventContentId": "804",
+    "year": 2018,
+    "topic": "Tech Talk",
+    "speakers": [
+      "Mike Stern"
+    ],
+    "media": {
+      "duration": 543,
+      "streamHLS": "https://devstreaming-cdn.apple.com/videos/tutorials/20181030/804dgbsjyr/Designing_For_iPad_Pro/hls_vod_mvp.m3u8",
+      "streamHLS_state": "available",
+      "downloadHD": "https://devstreaming-cdn.apple.com/videos/tutorials/20181030/804dgbsjyr/Designing_For_iPad_Pro/Designing_For_iPad_Pro_ad_hd.mp4",
+      "downloadHD_size": 348898698,
+      "downloadHD_state": "available",
+      "downloadSD": "https://devstreaming-cdn.apple.com/videos/tutorials/20181030/804dgbsjyr/Designing_For_iPad_Pro/Designing_For_iPad_Pro_ad_sd.mp4",
+      "downloadSD_size": 280914636,
+      "downloadSD_state": "available"
+    }
+  }
+]

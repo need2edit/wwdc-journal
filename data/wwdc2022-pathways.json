@@ -1,0 +1,383 @@
+{
+  "pathways": [
+    {
+      "id": "swift-concurrency-maturity",
+      "name": "Swift Concurrency Maturity Path",
+      "description": "Master the second-generation Swift concurrency model: Sendable, distributed actors, and the Async Algorithms package. Start with the Swift release overview, then dive deep into the data-race elimination model, and finish with practical patterns.",
+      "sessions": ["110354", "110351", "110355", "110353"],
+      "gateway": "110354",
+      "optional": ["110356", "110357", "110358"],
+      "estimated_hours": 5.0
+    },
+    {
+      "id": "swiftui-charts-debut",
+      "name": "Swift Charts Path",
+      "description": "Adopt Apple's brand-new declarative charting framework. Begin with the introduction, then advance to mark composition, plot styling, and interactive charts. Wraps up with the design lessons from Apple's evangelism team.",
+      "sessions": ["10052", "10136", "10137"],
+      "gateway": "10136",
+      "optional": ["110340", "110342"],
+      "estimated_hours": 3.5
+    },
+    {
+      "id": "navigationstack-migration",
+      "name": "NavigationStack & Split View Migration Path",
+      "description": "Migrate from the deprecated NavigationView APIs to the data-driven NavigationStack and NavigationSplitView. Learn the cookbook of recipes, then apply to multi-platform apps with proper state restoration and deep linking.",
+      "sessions": ["10052", "10054", "10058", "110343"],
+      "gateway": "10054",
+      "optional": ["10061", "10076"],
+      "estimated_hours": 4.5
+    },
+    {
+      "id": "app-intents-foundation",
+      "name": "App Intents Foundation Path",
+      "description": "Adopt the new App Intents framework to expose your app's functionality to Siri, Spotlight, Shortcuts, and Focus filters with zero user setup. Start with the deep dive, then add App Shortcuts, then wire up Focus filters.",
+      "sessions": ["10032", "10170", "10121"],
+      "gateway": "10032",
+      "optional": ["10169"],
+      "estimated_hours": 4.0
+    },
+    {
+      "id": "lock-screen-widgets",
+      "name": "Lock Screen Widgets & Complications Path",
+      "description": "Build accessory widgets for iOS Lock Screen and unified complications for watchOS using a single WidgetKit codebase. Covers rendering modes, always-on display, and SwiftUI-only complications.",
+      "sessions": ["10050", "10051", "10142"],
+      "gateway": "10050",
+      "optional": ["10133", "10056"],
+      "estimated_hours": 4.0
+    },
+    {
+      "id": "passkeys-adoption",
+      "name": "Passkeys & Modern Auth Path",
+      "description": "Replace passwords with passkeys in your apps and websites. Covers the WebAuthn fundamentals, ASAuthorization API patterns for iOS, and JavaScript adoption for web.",
+      "sessions": ["10092", "10122", "10108"],
+      "gateway": "10092",
+      "optional": ["10077", "10079"],
+      "estimated_hours": 3.5
+    },
+    {
+      "id": "performance-launch",
+      "name": "App Performance & Launch Time Path",
+      "description": "Systematically reduce app size and launch time. Covers the new linker options, dyld page-in linking, and runtime size wins from compiler/runtime improvements.",
+      "sessions": ["110362", "110363", "110364"],
+      "gateway": "110362",
+      "optional": ["10082", "10083"],
+      "estimated_hours": 4.0
+    },
+    {
+      "id": "hang-detection",
+      "name": "Hang Detection & Diagnosis Path",
+      "description": "Discover, diagnose, and resolve hangs across the entire app lifecycle: at-desk with Thread Performance Checker, in beta with on-device hang detection, and in production via the Xcode Organizer.",
+      "sessions": ["10082", "110427"],
+      "gateway": "10082",
+      "optional": ["110363", "110364"],
+      "estimated_hours": 2.5
+    },
+    {
+      "id": "metal-3-graphics",
+      "name": "Metal 3 & Modern Graphics Path",
+      "description": "Adopt Metal 3 for AAA graphics on Apple silicon: fast resource loading, MetalFX upscaling, mesh shaders, ray tracing, and ML-accelerated post-processing. Designed for game engines and graphics-intensive apps.",
+      "sessions": ["10066", "10104", "10103", "10162", "10105"],
+      "gateway": "10066",
+      "optional": ["10101", "10102", "10063"],
+      "estimated_hours": 6.0
+    },
+    {
+      "id": "ml-pytorch-tensorflow",
+      "name": "ML on Apple Silicon Path",
+      "description": "Train and run ML models on Apple silicon GPUs. Covers PyTorch's new MPS backend, TensorFlow custom ops, MPSGraph, and Vision framework's revision-3 ML-based detectors.",
+      "sessions": ["10063", "10024", "10027"],
+      "gateway": "10063",
+      "optional": ["10017", "10019", "10020"],
+      "estimated_hours": 5.0
+    },
+    {
+      "id": "desktop-class-ipad",
+      "name": "Desktop-Class iPad Path",
+      "description": "Build productive iPad apps with the new desktop-class APIs: customizable navigation bars, find/replace, edit menus, multi-select tables, and toolbar customization. Pairs with Mac Catalyst improvements.",
+      "sessions": ["10069", "10070", "10071", "10058", "110343"],
+      "gateway": "10069",
+      "optional": ["10068", "10076"],
+      "estimated_hours": 5.5
+    },
+    {
+      "id": "background-tasks-data",
+      "name": "Background Tasks & Data Sync Path",
+      "description": "Build apps that refresh data reliably in the background. Covers the unified SwiftUI BackgroundTask API, Background Assets framework for large downloads, Core Data + CloudKit observability, and schema migration.",
+      "sessions": ["10142", "110403", "10120", "10119"],
+      "gateway": "10142",
+      "optional": ["10003", "110339"],
+      "estimated_hours": 5.0
+    },
+    {
+      "id": "live-text-vision",
+      "name": "Live Text & VisionKit Path",
+      "description": "Add machine-readable code and live text capture to your apps using VisionKit's drop-in DataScannerViewController. Covers Vision framework revisions, image-analysis interactions, and accessibility integration.",
+      "sessions": ["10025", "10026", "10024"],
+      "gateway": "10025",
+      "optional": ["10022", "10023"],
+      "estimated_hours": 3.0
+    },
+    {
+      "id": "sf-symbols-design",
+      "name": "SF Symbols 4 & Design Path",
+      "description": "Adopt Variable Color, master the new automatic rendering mode, and design symbols/charts that adapt across rendering contexts. Covers SF Symbols engineering and the design counterparts for charts.",
+      "sessions": ["10157", "10158", "110340", "110342"],
+      "gateway": "10157",
+      "optional": ["10037", "110381"],
+      "estimated_hours": 3.5
+    }
+  ],
+  "prerequisites": {
+    "110351": ["110354"],
+    "110355": ["110354", "110351"],
+    "110357": ["110354"],
+    "110358": ["110357"],
+    "110353": ["110354"],
+    "110356": ["110354", "110351"],
+    "10054": ["10052"],
+    "10058": ["10052", "10054"],
+    "110343": ["10058"],
+    "10056": ["10052"],
+    "10061": ["10052"],
+    "10062": ["10052"],
+    "10072": ["10052"],
+    "10075": ["10052"],
+    "10068": [],
+    "10069": ["10068"],
+    "10070": ["10069"],
+    "10071": ["10069"],
+    "10076": ["10068", "10069"],
+    "10136": ["10052"],
+    "10137": ["10136"],
+    "110340": ["10136"],
+    "110342": ["10136", "110340"],
+    "10170": ["10032"],
+    "10121": ["10032"],
+    "10169": ["10032"],
+    "10050": [],
+    "10051": ["10050"],
+    "10142": ["110354"],
+    "10133": ["10050"],
+    "110362": [],
+    "110363": ["110362"],
+    "110364": ["110362"],
+    "10082": ["110427"],
+    "110427": [],
+    "10083": [],
+    "10092": [],
+    "10122": ["10092"],
+    "10108": ["10092"],
+    "10077": [],
+    "10079": [],
+    "10066": [],
+    "10101": ["10066"],
+    "10102": ["10066"],
+    "10103": ["10066"],
+    "10104": ["10066"],
+    "10105": ["10066"],
+    "10162": ["10066"],
+    "10063": ["10066"],
+    "10160": ["10066"],
+    "10024": [],
+    "10025": ["10024"],
+    "10026": ["10024"],
+    "10027": [],
+    "110403": [],
+    "10120": [],
+    "10119": ["10120"],
+    "10115": [],
+    "10003": [],
+    "10157": [],
+    "10158": ["10157"],
+    "10037": [],
+    "110381": [],
+    "10044": [],
+    "10043": [],
+    "10007": [],
+    "10039": ["10007"],
+    "10040": ["10007"],
+    "110404": ["10007"],
+    "110345": ["10007"],
+    "10110": [],
+    "10034": ["10110"],
+    "10107": ["10110"],
+    "110441": ["10034"],
+    "10089": [],
+    "110565": ["10113"],
+    "10114": ["10113"]
+  },
+  "clusters": [
+    {
+      "name": "Swift Concurrency & Language",
+      "description": "Swift 5.7's concurrency maturity and modern language features",
+      "sessions": ["110354", "110351", "110355", "110353", "110356", "110357", "110358"]
+    },
+    {
+      "name": "Swift Charts",
+      "description": "Apple's new declarative chart framework from intro to interactivity",
+      "sessions": ["10136", "10137", "110340", "110342"]
+    },
+    {
+      "name": "NavigationStack & Split View",
+      "description": "Data-driven navigation across stacks and multi-column layouts",
+      "sessions": ["10052", "10054", "10058", "110343"]
+    },
+    {
+      "name": "App Intents Ecosystem",
+      "description": "Siri, Spotlight, Shortcuts, and Focus filters via the new App Intents framework",
+      "sessions": ["10032", "10170", "10169", "10121"]
+    },
+    {
+      "name": "Lock Screen Widgets & Complications",
+      "description": "Unified WidgetKit complications and accessory widgets across iOS and watchOS",
+      "sessions": ["10050", "10051", "10142", "10133"]
+    },
+    {
+      "name": "Passkeys & Auth",
+      "description": "Passkeys, Sign in with Apple improvements, and CAPTCHA replacement via Private Access Tokens",
+      "sessions": ["10092", "10122", "10077", "10108"]
+    },
+    {
+      "name": "Performance & Launch",
+      "description": "Linker improvements, dyld page-in linking, and compiler/runtime size wins",
+      "sessions": ["110362", "110363", "110364"]
+    },
+    {
+      "name": "Hang Detection",
+      "description": "Tracking down hangs from at-desk to production",
+      "sessions": ["10082", "110427"]
+    },
+    {
+      "name": "Metal 3",
+      "description": "Fast resource loading, MetalFX, mesh shaders, ray tracing, ML acceleration",
+      "sessions": ["10066", "10104", "10103", "10162", "10105", "10101", "10102"]
+    },
+    {
+      "name": "ML on Apple Silicon",
+      "description": "PyTorch MPS, TensorFlow custom ops, MPSGraph, Core ML, Create ML Components",
+      "sessions": ["10063", "10027", "10017", "10019", "10020", "110332"]
+    },
+    {
+      "name": "Vision & VisionKit",
+      "description": "Live text/barcode scanning UI components and revision-3 ML-based detectors",
+      "sessions": ["10024", "10025", "10026"]
+    },
+    {
+      "name": "Desktop-Class iPad",
+      "description": "Productive iPad apps with new navigation, edit, find, and toolbar APIs",
+      "sessions": ["10068", "10069", "10070", "10071", "10076"]
+    },
+    {
+      "name": "Core Data & CloudKit",
+      "description": "Schema evolution, lightweight migration, and observability for synced apps",
+      "sessions": ["10119", "10120", "10115"]
+    },
+    {
+      "name": "WeatherKit & Background Data",
+      "description": "Apple Weather Service, background tasks, and Background Assets",
+      "sessions": ["10003", "10142", "110403"]
+    },
+    {
+      "name": "SF Symbols 4 & Variable Color",
+      "description": "New symbols, automatic rendering, and Variable Color across all rendering modes",
+      "sessions": ["10157", "10158"]
+    },
+    {
+      "name": "App Store & Business",
+      "description": "Benchmarking, in-app events, custom product pages, and family-shared IAP",
+      "sessions": ["10043", "10044", "110347", "110345", "110404"]
+    },
+    {
+      "name": "Camera & Capture",
+      "description": "Continuity Camera, ScreenCaptureKit, and iOS camera advances",
+      "sessions": ["10018", "10155", "10156", "10022", "110429"]
+    },
+    {
+      "name": "ARKit & USD",
+      "description": "ARKit 6, RoomPlan, and USD as Apple's first-class 3D format",
+      "sessions": ["10126", "10127", "10128", "10129", "10131", "10141"]
+    }
+  ],
+  "standalone_sessions": [
+    {
+      "id": "10076",
+      "title": "Bring your iOS app to the Mac",
+      "reason": "Self-contained guide for iOS-to-Mac transitions including Touch Alternatives and Mac Catalyst APIs"
+    },
+    {
+      "id": "10003",
+      "title": "Meet WeatherKit",
+      "reason": "New standalone framework with Swift and REST APIs for hyperlocal weather"
+    },
+    {
+      "id": "10166",
+      "title": "Explore App Tracking Transparency",
+      "reason": "Independent privacy framework for tracking-permission flows"
+    },
+    {
+      "id": "10167",
+      "title": "Create your Privacy Nutrition Label",
+      "reason": "Self-contained App Store Connect feature for privacy disclosures"
+    },
+    {
+      "id": "110344",
+      "title": "Get to know Developer Mode",
+      "reason": "Standalone iOS 16 security feature; required for development-signed installs"
+    },
+    {
+      "id": "10009",
+      "title": "What's new in iPad app design",
+      "reason": "Design overview for iPadOS 16 redesigns"
+    },
+    {
+      "id": "10094",
+      "title": "Add Shared with You to your app",
+      "reason": "Self-contained Messages framework integration"
+    },
+    {
+      "id": "10148",
+      "title": "Meet Apple Music API and MusicKit",
+      "reason": "Independent music playback and library framework"
+    },
+    {
+      "id": "10146",
+      "title": "Meet ScreenCaptureKit / take it to the next level",
+      "reason": "Standalone macOS screen-recording framework replacing legacy CGWindowList APIs"
+    },
+    {
+      "id": "10089",
+      "title": "What's new in PDFKit",
+      "reason": "Independent PDF rendering and annotation updates"
+    },
+    {
+      "id": "110353",
+      "title": "Meet high-performance MapKit JS",
+      "reason": "Independent web-mapping API with hardware-accelerated rendering"
+    },
+    {
+      "id": "10078",
+      "title": "Reduce networking delays for a more responsive app",
+      "reason": "Self-contained networking-responsiveness guide covering HTTP/3, QUIC, server tuning, and L4S"
+    },
+    {
+      "id": "110374",
+      "title": "Get the most out of Xcode Cloud",
+      "reason": "Independent CI/CD service for Apple platform development"
+    },
+    {
+      "id": "10117",
+      "title": "Enhance voice communication with Push to Talk",
+      "reason": "New standalone framework for walkie-talkie style voice apps"
+    },
+    {
+      "id": "10097",
+      "title": "What's new in App Clips",
+      "reason": "App Clip updates including new size limits and discovery surfaces"
+    },
+    {
+      "id": "10116",
+      "title": "Meet CKTool JS",
+      "reason": "Self-contained CloudKit JavaScript developer tool"
+    }
+  ]
+}

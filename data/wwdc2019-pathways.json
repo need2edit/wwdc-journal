@@ -1,0 +1,375 @@
+{
+  "pathways": [
+    {
+      "id": "swiftui-debut",
+      "name": "SwiftUI Debut Path",
+      "description": "Learn the brand-new declarative UI framework from the ground up. Start with the building-from-scratch demo, master the essentials, understand data flow, then explore preview-driven development and cross-platform reach.",
+      "sessions": ["204", "216", "226", "237", "233", "240"],
+      "gateway": "204",
+      "optional": ["238", "231", "219"],
+      "estimated_hours": 6.0
+    },
+    {
+      "id": "combine-framework",
+      "name": "Combine Framework Path",
+      "description": "Master Apple's reactive programming framework. Start with the conceptual introduction (publishers, subscribers, operators), then go hands-on with practical patterns and SwiftUI integration.",
+      "sessions": ["722", "721", "226"],
+      "gateway": "722",
+      "optional": ["712"],
+      "estimated_hours": 3.0
+    },
+    {
+      "id": "catalyst-migration",
+      "name": "Catalyst Migration Path",
+      "description": "Bring your iPad app to the Mac as a first-class citizen. Cover the basics first (Xcode setup, framework differences), then go deep on Mac-style refinements like sidebars, NSToolbar, and menu bars.",
+      "sessions": ["205", "235", "809"],
+      "gateway": "205",
+      "optional": ["416", "808"],
+      "estimated_hours": 3.5
+    },
+    {
+      "id": "ipados-multiwindow",
+      "name": "iPadOS & Multi-Window Path",
+      "description": "Adopt the new scene-based lifecycle and multiple windows on iPad. Modernize your bars, sheets, and presentations for iOS 13. Add desktop-class browsing and modern layout APIs.",
+      "sessions": ["212", "224", "258", "215", "220"],
+      "gateway": "212",
+      "optional": ["246", "259", "203"],
+      "estimated_hours": 5.0
+    },
+    {
+      "id": "sign-in-apple",
+      "name": "Sign In with Apple Path",
+      "description": "Adopt Apple's privacy-first authentication. Add the button, implement the QuickSignIn flow that resolves existing Apple ID + iCloud Keychain credentials, and handle credential state changes correctly.",
+      "sessions": ["706", "516"],
+      "gateway": "706",
+      "optional": ["709", "708"],
+      "estimated_hours": 2.0
+    },
+    {
+      "id": "realitykit-intro",
+      "name": "RealityKit Introduction Path",
+      "description": "Build your first AR app with the new high-level Swift framework above ARKit. Learn the entity-component-system model, anchors, scene management, then integrate ARKit 3 features like people occlusion and motion capture.",
+      "sessions": ["603", "605", "604", "612"],
+      "gateway": "603",
+      "optional": ["602", "607", "609"],
+      "estimated_hours": 4.5
+    },
+    {
+      "id": "dark-mode-adoption",
+      "name": "Dark Mode Adoption Path",
+      "description": "Add Dark Mode to your iOS 13 app. Master semantic colors, materials, vibrancy, dynamic asset catalog images, and CGColor traps. Adopt SF Symbols for proper light/dark glyphs.",
+      "sessions": ["214", "206", "224"],
+      "gateway": "214",
+      "optional": ["244", "808", "511"],
+      "estimated_hours": 3.0
+    },
+    {
+      "id": "modern-swift-51",
+      "name": "Modern Swift 5.1 Path",
+      "description": "Master Swift 5 ABI stability, Swift 5.1 module stability, property wrappers, opaque return types, and modern API design principles. The language foundation under SwiftUI and Combine.",
+      "sessions": ["402", "415", "416"],
+      "gateway": "402",
+      "optional": ["408", "410", "405"],
+      "estimated_hours": 3.5
+    },
+    {
+      "id": "performance-launch",
+      "name": "Performance & Launch Optimization Path",
+      "description": "Hit the 400ms first-frame goal. Profile launch with the new Instruments template, instrument production with MetricKit, and add XCTest performance metrics to CI.",
+      "sessions": ["423", "411", "417"],
+      "gateway": "423",
+      "optional": ["421", "414", "419"],
+      "estimated_hours": 3.5
+    },
+    {
+      "id": "ml-on-device",
+      "name": "On-Device ML Path",
+      "description": "Train models on Mac with Create ML, run them with Core ML 3 (now with on-device personalization), and use Vision/Speech for high-quality on-device perception that respects user privacy.",
+      "sessions": ["209", "430", "704", "222", "256"],
+      "gateway": "209",
+      "optional": ["234", "232", "228"],
+      "estimated_hours": 5.0
+    },
+    {
+      "id": "background-networking",
+      "name": "Background & Network Modernization Path",
+      "description": "Adopt the new BackgroundTasks framework, support Low Data Mode in URLSession and Network framework, and add native WebSocket support to your app.",
+      "sessions": ["707", "712", "713"],
+      "gateway": "707",
+      "optional": ["422", "710"],
+      "estimated_hours": 3.5
+    },
+    {
+      "id": "core-data-cloudkit",
+      "name": "Core Data + CloudKit Path",
+      "description": "Add transparent iCloud sync to a Core Data app with NSPersistentCloudKitContainer. Learn multi-store patterns, history tracking, and the NSFetchedResultsController + diffable data sources bridge.",
+      "sessions": ["202", "230", "220"],
+      "gateway": "202",
+      "optional": ["706"],
+      "estimated_hours": 3.0
+    },
+    {
+      "id": "watchos6-independent",
+      "name": "watchOS 6 Independent Apps Path",
+      "description": "Ship a watch app to the Watch App Store with no iPhone counterpart required. Use SwiftUI, networking, audio streaming, and extended runtime sessions correctly.",
+      "sessions": ["208", "219", "716", "251"],
+      "gateway": "208",
+      "optional": ["706"],
+      "estimated_hours": 3.5
+    },
+    {
+      "id": "haptics-immersion",
+      "name": "Core Haptics & Sensory Path",
+      "description": "Design custom haptic + audio patterns with the new Core Haptics framework. Build engines, schedule transient and continuous events, and synchronize with audio.",
+      "sessions": ["520", "223", "810"],
+      "gateway": "520",
+      "optional": ["510"],
+      "estimated_hours": 2.5
+    }
+  ],
+  "prerequisites": {
+    "216": ["204"],
+    "226": ["204", "216"],
+    "237": ["216"],
+    "238": ["216"],
+    "231": ["216"],
+    "240": ["216"],
+    "219": ["216"],
+    "233": ["204"],
+    "721": ["722"],
+    "712": ["722"],
+    "235": ["205"],
+    "416": ["205"],
+    "258": ["212"],
+    "246": ["212"],
+    "259": ["258"],
+    "215": ["220"],
+    "224": ["205"],
+    "605": ["603"],
+    "604": ["603"],
+    "612": ["603"],
+    "607": ["604"],
+    "609": ["604"],
+    "610": ["604"],
+    "206": ["214"],
+    "415": ["402"],
+    "408": ["402"],
+    "410": ["408"],
+    "411": ["423"],
+    "417": ["423"],
+    "421": ["411"],
+    "414": ["411"],
+    "704": ["209"],
+    "430": ["209"],
+    "222": ["209"],
+    "234": ["222"],
+    "256": ["209"],
+    "232": ["209"],
+    "228": ["209"],
+    "713": ["712"],
+    "230": ["202"],
+    "220": ["230"],
+    "219_v2": ["208"],
+    "251": ["208"],
+    "716": ["208"],
+    "223": ["520"],
+    "810": ["520"],
+    "516": ["706"],
+    "709": ["706"],
+    "708": ["706"]
+  },
+  "clusters": [
+    {
+      "name": "SwiftUI Debut",
+      "description": "The brand-new declarative UI framework, top to bottom",
+      "sessions": ["204", "216", "226", "237", "233", "240", "238", "231", "219"]
+    },
+    {
+      "name": "Combine Framework",
+      "description": "Apple's reactive programming framework",
+      "sessions": ["722", "721"]
+    },
+    {
+      "name": "Catalyst (iPad Apps for Mac)",
+      "description": "Bringing UIKit to macOS Catalina natively",
+      "sessions": ["205", "235", "809"]
+    },
+    {
+      "name": "iPadOS & Multi-Window",
+      "description": "Scene-based lifecycle, sheets, modern bars, multiple windows",
+      "sessions": ["212", "224", "258", "246", "259", "203"]
+    },
+    {
+      "name": "Modern Collection Views",
+      "description": "Compositional Layout + Diffable Data Sources end the performBatchUpdates era",
+      "sessions": ["215", "220"]
+    },
+    {
+      "name": "Sign In with Apple & Auth",
+      "description": "Privacy-first authentication and identity",
+      "sessions": ["706", "516"]
+    },
+    {
+      "name": "RealityKit & ARKit 3",
+      "description": "AR-first Swift framework above ARKit, with people occlusion and motion capture",
+      "sessions": ["603", "605", "604", "612", "602", "607", "609", "610"]
+    },
+    {
+      "name": "Dark Mode & Design",
+      "description": "Semantic colors, materials, SF Symbols, modernized UI for iOS 13",
+      "sessions": ["214", "206", "224", "244", "808", "809", "511"]
+    },
+    {
+      "name": "Modern Swift 5.1",
+      "description": "ABI/module stability, property wrappers, opaque return types, packages",
+      "sessions": ["402", "415", "408", "410", "416"]
+    },
+    {
+      "name": "Performance & Launch",
+      "description": "App Launch instrument, MetricKit, XCTest performance metrics",
+      "sessions": ["423", "411", "417", "421", "414"]
+    },
+    {
+      "name": "Core ML 3 & Create ML",
+      "description": "On-device personalization, Create ML standalone app, Vision/Speech improvements",
+      "sessions": ["209", "704", "430", "222", "234", "232", "256"]
+    },
+    {
+      "name": "Networking Modernization",
+      "description": "Low Data Mode, native WebSocket, Combine + URLSession, BackgroundTasks",
+      "sessions": ["712", "713", "707", "716"]
+    },
+    {
+      "name": "Core Data + CloudKit",
+      "description": "NSPersistentCloudKitContainer transparent sync, history tracking",
+      "sessions": ["202", "230"]
+    },
+    {
+      "name": "watchOS 6 Independent Apps",
+      "description": "Standalone watch apps with networking, audio streaming, extended runtime",
+      "sessions": ["208", "219", "251", "716"]
+    },
+    {
+      "name": "Core Haptics",
+      "description": "Custom haptic + audio patterns",
+      "sessions": ["520", "223", "810"]
+    },
+    {
+      "name": "Accessibility",
+      "description": "Voice Control, Full Keyboard Access, custom actions, SwiftUI accessibility",
+      "sessions": ["238", "250", "254", "257", "261", "248", "244"]
+    },
+    {
+      "name": "Metal & Graphics",
+      "description": "Modern Metal, A13 enhancements, ray tracing, OpenGL deprecation",
+      "sessions": ["601", "608", "613", "611", "606", "614"]
+    },
+    {
+      "name": "Shortcuts & Siri Intents",
+      "description": "Parameters in custom intents, Siri Event Suggestions, Media Intents",
+      "sessions": ["213", "243", "207", "805", "806"]
+    },
+    {
+      "name": "Camera & Capture",
+      "description": "Multi-camera capture, semantic segmentation mattes",
+      "sessions": ["249", "225", "260"]
+    },
+    {
+      "name": "App Store & Distribution",
+      "description": "S2S notifications, subscription offers, notarization, distribution paths",
+      "sessions": ["302", "305", "703", "304", "303"]
+    }
+  ],
+  "standalone_sessions": [
+    {
+      "id": "101",
+      "title": "Keynote",
+      "reason": "The headline announcements for WWDC 2019 (SwiftUI, Catalyst, iPadOS, Sign In with Apple, etc.)"
+    },
+    {
+      "id": "103",
+      "title": "Platforms State of the Union",
+      "reason": "Developer-focused overview of all the year's platform changes"
+    },
+    {
+      "id": "104",
+      "title": "Apple Design Awards",
+      "reason": "Standalone design inspiration showcase"
+    },
+    {
+      "id": "227",
+      "title": "Font Management and Text Scaling",
+      "reason": "Self-contained text rendering and dynamic type guidance"
+    },
+    {
+      "id": "262",
+      "title": "Embedding and Sharing Visually Rich Links",
+      "reason": "LPLinkMetadata API for rich link previews"
+    },
+    {
+      "id": "236",
+      "title": "What's New in MapKit and MapKit JS",
+      "reason": "Standalone MapKit and JavaScript map updates"
+    },
+    {
+      "id": "245",
+      "title": "Introducing the Indoor Maps Program",
+      "reason": "Indoor map authoring program intro for venues"
+    },
+    {
+      "id": "241",
+      "title": "Adding Indoor Maps to your App and Website",
+      "reason": "Companion to 245 but covers a different consumer-facing topic"
+    },
+    {
+      "id": "239",
+      "title": "Great Developer Habits",
+      "reason": "Universal best-practices session not tied to a framework"
+    },
+    {
+      "id": "247",
+      "title": "What's New in ClassKit",
+      "reason": "Education-app-specific framework"
+    },
+    {
+      "id": "252",
+      "title": "Advances in CarPlay Systems",
+      "reason": "Standalone CarPlay third-party app framework"
+    },
+    {
+      "id": "210",
+      "title": "What's New in Sharing",
+      "reason": "Independent share extension and AirDrop updates"
+    },
+    {
+      "id": "221",
+      "title": "Introducing PencilKit",
+      "reason": "New standalone framework for Apple Pencil drawing"
+    },
+    {
+      "id": "615",
+      "title": "Game Center Player Identifiers",
+      "reason": "Important standalone migration topic"
+    },
+    {
+      "id": "616",
+      "title": "Supporting New Game Controllers",
+      "reason": "Adding Xbox One / DualShock 4 support"
+    },
+    {
+      "id": "501",
+      "title": "Reaching the Big Screen with AirPlay 2",
+      "reason": "Multi-room audio framework standalone"
+    },
+    {
+      "id": "718",
+      "title": "Introducing Accelerate for Swift",
+      "reason": "Vectorized math wrappers for Swift"
+    },
+    {
+      "id": "702",
+      "title": "System Extensions and DriverKit",
+      "reason": "Independent Mac kernel-replacement architecture"
+    }
+  ]
+}
