@@ -155,69 +155,13 @@
 
 <div class="hero">
   <h1>WWDC Journal</h1>
-  <p class="sub">Deep transcript analysis, learning pathways, hidden gems, and developer-doc deltas across twelve years of Apple's Worldwide Developers Conference.</p>
-  <p class="meta">Pick a year to explore — or jump to a cross-year guide below.</p>
+  <p class="sub"><strong>12 years</strong> &middot; <strong>1,895 sessions</strong> &middot; <strong>1,751 transcripts</strong> &middot; <strong>166 learning pathways</strong></p>
+  <p class="meta">Deep transcript analysis, hidden gems, and developer-doc deltas. Pick a year to start.</p>
 </div>
 
-<style>
-  .guides-bar { max-width: 1200px; margin: 0 auto 40px; padding: 0 24px; }
-  .guides-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
-  .guide-card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 22px 24px; text-decoration: none; color: inherit; transition: all 0.25s; position: relative; overflow: hidden; display: block; }
-  .guide-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; opacity: 0.95; }
-  .guide-card:hover { transform: translateY(-3px); border-color: var(--accent); box-shadow: 0 12px 36px rgba(99,102,241,0.15); }
-  .guide-card .guide-label { font-size: 0.72em; color: var(--text-dim); font-weight: 600; text-transform: uppercase; letter-spacing: 0.6px; margin-bottom: 6px; }
-  .guide-card .guide-title { font-size: 1.15em; font-weight: 700; margin-bottom: 6px; }
-  .guide-card .guide-desc { color: var(--text-dim); font-size: 0.85em; line-height: 1.5; margin-bottom: 10px; }
-  .guide-card .guide-link { color: var(--accent2); font-size: 0.82em; font-weight: 600; }
-  .g-modernization::before { background: linear-gradient(90deg, #818cf8, #c084fc, #f472b6); }
-  .g-featured::before { background: linear-gradient(90deg, #facc15, #f59e0b, #fb923c); }
-  .g-marketing::before { background: linear-gradient(90deg, #6ee7b7, #34d399, #22d3ee); }
-  .g-modernization .guide-title { color: #c084fc; }
-  .g-featured .guide-title { color: #f59e0b; }
-  .g-marketing .guide-title { color: #34d399; }
-</style>
 
-<div class="guides-bar">
-  <div class="guides-grid">
-    <a class="guide-card g-modernization" href="modernization.html">
-      <div class="guide-label">Cross-Year Guide</div>
-      <div class="guide-title">Modernization</div>
-      <div class="guide-desc">Bring a dated project up to speed. 5-phase pathway with checkable items, year-of-refresh filter, deprecation reference.</div>
-      <div class="guide-link">Open guide &rarr;</div>
-    </a>
-    <a class="guide-card g-featured" href="featured.html">
-      <div class="guide-label">Cross-Year Guide</div>
-      <div class="guide-title">Getting Featured</div>
-      <div class="guide-desc">What makes Apple's editorial team feature your app — quality bars, ASO polish, featured-friendly APIs, editorial visibility, sustained engagement.</div>
-      <div class="guide-link">Open guide &rarr;</div>
-    </a>
-    <a class="guide-card g-marketing" href="marketing.html">
-      <div class="guide-label">Cross-Year Guide</div>
-      <div class="guide-title">Marketing &amp; Acquisition</div>
-      <div class="guide-desc">Hit list for your marketing team. ASO, paid acquisition, push, widgets, Live Activities, attribution, scale to international markets.</div>
-      <div class="guide-link">Open guide &rarr;</div>
-    </a>
-  </div>
 
-  <div class="explore-bar">
-    <a class="explore-link" href="timeline.html">📈 Topic Timeline &mdash; 12 years of theme rise &amp; fall</a>
-    <a class="explore-link" href="speakers.html">👤 Speaker Index &mdash; 1,907 speakers, 254 multi-year</a>
-    <a class="explore-link" href="glossary.html">📖 Apple Glossary &mdash; 60 frameworks &amp; concepts</a>
-    <a class="explore-link" href="bookmarks.html">★ My Bookmarks &mdash; items you&rsquo;ve starred</a>
-  </div>
-</div>
 
-<style>
-  .explore-bar { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; padding-top: 24px; border-top: 1px solid var(--border); justify-content: center; }
-  .explore-link { padding: 10px 18px; border-radius: 12px; background: var(--surface); border: 1px solid var(--border); color: var(--text-dim); text-decoration: none; font-size: 0.88em; transition: all 0.15s; }
-  .explore-link:hover { border-color: var(--accent); color: var(--text); transform: translateY(-1px); }
-</style>
-
-<div class="totals">
-  <div class="total"><div class="num">1,895</div><div class="label">Sessions Indexed</div></div>
-  <div class="total"><div class="num">1,751</div><div class="label">Transcripts Analyzed</div></div>
-  <div class="total"><div class="num">166</div><div class="label">Learning Pathways</div></div>
-  <div class="total"><div class="num">12</div><div class="label">Years Covered</div></div>
 </div>
 
 <div class="xy-search">
@@ -463,6 +407,35 @@
       <div class="open-link">Open dashboard &rarr;</div>
     </a>
 
+  </div>
+</div>
+
+<style>
+  .more-bar { max-width: 1200px; margin: 12px auto 32px; padding: 0 24px; }
+  .more-bar .more-label { color: var(--text-dim); font-size: 0.78em; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px; text-align: center; }
+  .more-chips { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+  .more-chip { display: inline-flex; align-items: center; gap: 6px; padding: 8px 14px; border-radius: 999px; border: 1px solid var(--border); background: var(--surface); color: var(--text-dim); text-decoration: none; font-size: 0.84em; transition: all 0.15s; }
+  .more-chip:hover { border-color: var(--c, var(--accent2)); color: var(--c, var(--text)); transform: translateY(-1px); }
+  .more-chip.guide-modernization { --c: #c084fc; }
+  .more-chip.guide-featured      { --c: #f59e0b; }
+  .more-chip.guide-marketing     { --c: #34d399; }
+  .more-chip.tool-timeline       { --c: #818cf8; }
+  .more-chip.tool-speakers       { --c: #22d3ee; }
+  .more-chip.tool-glossary       { --c: #f472b6; }
+  .more-chip.tool-bookmarks      { --c: #fbbf24; }
+</style>
+
+<div class="more-bar">
+  <div class="more-label">Cross-year guides &amp; tools</div>
+  <div class="more-chips">
+    <a class="more-chip guide-modernization" href="modernization.html">★ Modernization</a>
+    <a class="more-chip guide-featured" href="featured.html">🎯 Getting Featured</a>
+    <a class="more-chip guide-marketing" href="marketing.html">📈 Marketing</a>
+    <span style="width:10px"></span>
+    <a class="more-chip tool-timeline" href="timeline.html">📊 Topic Timeline</a>
+    <a class="more-chip tool-speakers" href="speakers.html">👤 Speaker Index</a>
+    <a class="more-chip tool-glossary" href="glossary.html">📖 Apple Glossary</a>
+    <a class="more-chip tool-bookmarks" href="bookmarks.html">☆ My Bookmarks</a>
   </div>
 </div>
 

@@ -58,7 +58,7 @@ GUIDE_REQUIREMENTS = {
     ],
     "index.html": [
         ("year cards",        "year-card"),
-        ("guide cards",       "guide-card"),
+        ("guide chips",       "more-chip"),
         ("shuffle button",    "shuffle-btn"),
         ("gems data",         "all-gems-data"),
     ],
