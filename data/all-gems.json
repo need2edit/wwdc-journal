@@ -39,7 +39,8 @@
     "type": "hidden",
     "label": "HIDDEN GEM",
     "text": "Optional in Swift is just an enum: enum Optional<T> { case none; case some(T) }. nil works with ANY type \u2014 Int?, Bool?, custom struct? \u2014 replacing every NSNotFound, -1, and ad-hoc sentinel from Objective-C.",
-    "source": "WWDC14-403"
+    "source": "WWDC14-403",
+    "docUrl": "https://developer.apple.com/documentation/swift/optional"
   },
   {
     "year": 2014,
@@ -67,28 +68,32 @@
     "type": "hidden",
     "label": "HIDDEN GEM",
     "text": "In iOS 8 Asset Catalogs, an image set can have per-size-class variants. UIImageView automatically picks the right variant for its current trait collection AND updates intrinsic content size \u2014 your Auto Layout reflows for free when traits change.",
-    "source": "WWDC14-216"
+    "source": "WWDC14-216",
+    "docUrl": "https://developer.apple.com/documentation/uikit"
   },
   {
     "year": 2014,
     "type": "hidden",
     "label": "HIDDEN GEM",
     "text": "The HealthKit metadata dictionary on every HKObject lets you stamp app-specific provenance ([\"mealContext\": \"before_breakfast\"]) without bloating Apple's schema. Predicate-queryable later.",
-    "source": "WWDC14-203"
+    "source": "WWDC14-203",
+    "docUrl": "https://developer.apple.com/documentation/healthkit"
   },
   {
     "year": 2014,
     "type": "hidden",
     "label": "HIDDEN GEM",
     "text": "CloudKit's discoverAllContactUserInfos returns user info for every iCloud user in your address book who has installed your app AND opted-in to discoverability \u2014 WITHOUT requiring address book permission. The framework hashes the address book locally; only matched opted-in users come back.",
-    "source": "WWDC14-208"
+    "source": "WWDC14-208",
+    "docUrl": "https://developer.apple.com/documentation/cloudkit"
   },
   {
     "year": 2014,
     "type": "hidden",
     "label": "HIDDEN GEM",
     "text": "PHFetchResult is lazy \u2014 fetching 100,000 assets does NOT load 100,000 objects. Backing storage is lightweight asset IDs; full PHAsset objects are realized in batches as you access them. iCloud Photo Library scales gracefully.",
-    "source": "WWDC14-511"
+    "source": "WWDC14-511",
+    "docUrl": "https://developer.apple.com/documentation/photokit"
   },
   {
     "year": 2014,
@@ -102,7 +107,8 @@
     "type": "hidden",
     "label": "HIDDEN GEM",
     "text": "WKWebView's out-of-process content rendering means JS memory leaks DON'T leak your app. Under memory pressure, the web content process is killed and recreated cleanly, with minimal disruption to your app.",
-    "source": "WWDC14-206"
+    "source": "WWDC14-206",
+    "docUrl": "https://developer.apple.com/documentation/webkit"
   },
   {
     "year": 2014,
@@ -123,14 +129,16 @@
     "type": "hidden",
     "label": "HIDDEN GEM",
     "text": "NSVisualEffectView with .behindWindow blending is implemented in the Window Server. Moving the window doesn't redraw your app's content \u2014 the blur is composited out-of-process. Massive performance win over manual translucency.",
-    "source": "WWDC14-220"
+    "source": "WWDC14-220",
+    "docUrl": "https://developer.apple.com/documentation/appkit"
   },
   {
     "year": 2014,
     "type": "hidden",
     "label": "HIDDEN GEM",
     "text": "The HomeKit Accessory Simulator (downloadable from developer.apple.com) lets you build the full HomeKit app experience before any real accessory hardware exists. Simulated accessories behave identically to real ones from your app's perspective.",
-    "source": "WWDC14-213"
+    "source": "WWDC14-213",
+    "docUrl": "https://developer.apple.com/documentation/homekit"
   },
   {
     "year": 2014,
@@ -144,7 +152,8 @@
     "type": "hidden",
     "label": "HIDDEN GEM",
     "text": "SpriteKit's automatic normal map generation: sprite.normalTexture = SKTexture.texture(byGeneratingNormalMapWithSmoothness:contrast:). Your sprite gets fake-3D bumpiness with one line, no artist work required.",
-    "source": "WWDC14-606"
+    "source": "WWDC14-606",
+    "docUrl": "https://developer.apple.com/documentation/spritekit"
   },
   {
     "year": 2014,
@@ -172,14 +181,16 @@
     "type": "practice",
     "label": "BEST PRACTICE",
     "text": "In CloudKit, prefer back-references (child points to parent) over forward-references (parent holds an array of children). Forward references create save-bottlenecks on the parent record under contention; back-references scale to millions of clients.",
-    "source": "WWDC14-231"
+    "source": "WWDC14-231",
+    "docUrl": "https://developer.apple.com/documentation/cloudkit"
   },
   {
     "year": 2014,
     "type": "practice",
     "label": "BEST PRACTICE",
     "text": "Always check the CloudKit notification collection on push receipt. APNs only stores ONE pending push per app per client \u2014 drops earlier ones. The notification collection is your safety net.",
-    "source": "WWDC14-231"
+    "source": "WWDC14-231",
+    "docUrl": "https://developer.apple.com/documentation/cloudkit"
   },
   {
     "year": 2014,
@@ -256,21 +267,24 @@
     "type": "perf",
     "label": "PERFORMANCE",
     "text": "Self-sizing table view cells eliminate tableView(_:heightForRowAt:) \u2014 set estimatedRowHeight, use Auto Layout in cells, get adaptive Dynamic Type for free. Built-in cell labels (textLabel, detailTextLabel) automatically use Dynamic Type fonts in iOS 8.",
-    "source": "WWDC14-226"
+    "source": "WWDC14-226",
+    "docUrl": "https://developer.apple.com/documentation/uikit"
   },
   {
     "year": 2014,
     "type": "warning",
     "label": "DEPRECATION",
     "text": "ALAssetsLibrary is deprecated in iOS 8. The audience APPLAUDED when the speaker said this in session 511. Migrate to PhotoKit \u2014 read-only model objects, change-request mutations, system-wide change observation, non-destructive editing.",
-    "source": "WWDC14-511"
+    "source": "WWDC14-511",
+    "docUrl": "https://developer.apple.com/documentation/photokit"
   },
   {
     "year": 2014,
     "type": "warning",
     "label": "DEPRECATION",
     "text": "UIPopoverController is soft-deprecated in iOS 8. Use UIViewController.modalPresentationStyle = .popover instead \u2014 same behavior, integrated into the new presentation controller architecture, adapts to iPhone via the delegate.",
-    "source": "WWDC14-214"
+    "source": "WWDC14-214",
+    "docUrl": "https://developer.apple.com/documentation/uikit"
   },
   {
     "year": 2014,
@@ -284,7 +298,8 @@
     "type": "warning",
     "label": "DEPRECATION",
     "text": "All UIViewController rotation callbacks (willRotateToInterfaceOrientation, willAnimateRotationToInterfaceOrientation, didRotateFromInterfaceOrientation) are deprecated in iOS 8. Replace with viewWillTransition(to:with:) using the transition coordinator.",
-    "source": "WWDC14-214"
+    "source": "WWDC14-214",
+    "docUrl": "https://developer.apple.com/documentation/uikit"
   },
   {
     "year": 2015,
@@ -354,7 +369,8 @@
     "type": "hidden",
     "label": "HIDDEN GEM",
     "text": "NSUserActivity's eligibleForPublicIndexing uses a zero-knowledge proof: each engaging device sends only a hash. Apple only fetches the actual content after enough distinct devices have hashed identical activity. An accidentally-public personal activity never leaves the device.",
-    "source": "WWDC15-709"
+    "source": "WWDC15-709",
+    "docUrl": "https://developer.apple.com/documentation/appintents"
   },
   {
     "year": 2015,
@@ -382,14 +398,16 @@
     "type": "hidden",
     "label": "HIDDEN GEM",
     "text": "ODR (On-Demand Resources) is hosted by Xcode itself during dev, by your own web server for ad-hoc/enterprise distribution, AND by Xcode Server for CI builds. No need to test against TestFlight to verify ODR behavior.",
-    "source": "WWDC15-214"
+    "source": "WWDC15-214",
+    "docUrl": "https://developer.apple.com/testflight/"
   },
   {
     "year": 2015,
     "type": "hidden",
     "label": "HIDDEN GEM",
     "text": "GameplayKit's GKObstacleGraph integrates directly with SpriteKit \u2014 call SKNode.obstaclesFromNodeBounds, .obstaclesFromNodePhysicsBodies, or .obstaclesFromSpriteTextures to live-update the navigation graph as you place towers in a tower-defense game.",
-    "source": "WWDC15-608"
+    "source": "WWDC15-608",
+    "docUrl": "https://developer.apple.com/documentation/spritekit"
   },
   {
     "year": 2015,
@@ -550,7 +568,8 @@
     "type": "warning",
     "label": "DEPRECATION",
     "text": "MKPinAnnotationView.pinColor is deprecated in favor of pinTintColor (UIColor on iOS, NSColor on macOS). The old enum exposed only red/green/purple; the new property exposes any color.",
-    "source": "WWDC15-206"
+    "source": "WWDC15-206",
+    "docUrl": "https://developer.apple.com/documentation/appkit"
   },
   {
     "year": 2015,
@@ -571,7 +590,8 @@
     "type": "warning",
     "label": "URGENT",
     "text": "VoIP push handlers MUST call CallKit's reportNewIncomingCall(with:update:completion:) SYNCHRONOUSLY inside didReceiveIncomingPushWith. No await, no network round-trip first. Repeated failures cause iOS to stop launching your app for VoIP pushes entirely \u2014 users perceive 'Skype calls just stopped working' with nothing to debug.",
-    "source": "WWDC16-230"
+    "source": "WWDC16-230",
+    "docUrl": "https://developer.apple.com/documentation/callkit"
   },
   {
     "year": 2016,
@@ -585,14 +605,16 @@
     "type": "warning",
     "label": "URGENT",
     "text": "In CallKit, do NOT call setActive(true) on your audio session yourself. The system activates it at boosted priority on par with phone/FaceTime when it's ready. Self-activation gets you a non-boosted session that other apps can interrupt. Configure category/mode/options only \u2014 wait for provider(_:didActivate:).",
-    "source": "WWDC16-230"
+    "source": "WWDC16-230",
+    "docUrl": "https://developer.apple.com/documentation/callkit"
   },
   {
     "year": 2016,
     "type": "warning",
     "label": "URGENT",
     "text": "Update your SiriKit vocabulary the instant data changes. New contact added \u2192 register on save tap. Contact deleted \u2192 wipe in the same tick. Users will be furious if Siri keeps recognizing a contact they deleted yesterday. Wipe vocabulary entirely on logout/reset.",
-    "source": "WWDC16-217"
+    "source": "WWDC16-217",
+    "docUrl": "https://developer.apple.com/documentation/appintents"
   },
   {
     "year": 2016,
@@ -606,7 +628,8 @@
     "type": "hidden",
     "label": "HIDDEN GEM",
     "text": "Adopt SiriKit for ride-booking (INRequestRideIntent) and you AUTOMATICALLY appear inside Apple Maps' new ride-sharing UI and CarPlay \u2014 same Intents extension, three surfaces, zero extra code. Same is true for restaurant reservations and food ordering.",
-    "source": "WWDC16-217"
+    "source": "WWDC16-217",
+    "docUrl": "https://developer.apple.com/documentation/appintents"
   },
   {
     "year": 2016,
@@ -697,14 +720,16 @@
     "type": "practice",
     "label": "BEST PRACTICE",
     "text": "Move all SiriKit business logic into an embedded framework (e.g. UnicornCore) shared between app, intents extension, and intents UI extension. Lets you UNIT TEST with mock INIntent objects \u2014 no live Siri needed. Group naturally-related intents into the SAME extension to minimize process churn (audio + video call together; messaging separate).",
-    "source": "WWDC16-225"
+    "source": "WWDC16-225",
+    "docUrl": "https://developer.apple.com/documentation/appintents"
   },
   {
     "year": 2016,
     "type": "practice",
     "label": "BEST PRACTICE",
     "text": "In SiriKit, return .failureRequiringAppLaunch from confirm when the user is logged out \u2014 Siri then offers to launch your app and your NSUserActivity carries custom error strings via userInfo. Donate INInteraction after every successful send/call to be promoted as the default communication channel for that contact in the Contacts app.",
-    "source": "WWDC16-217"
+    "source": "WWDC16-217",
+    "docUrl": "https://developer.apple.com/documentation/appintents"
   },
   {
     "year": 2016,
@@ -739,7 +764,8 @@
     "type": "hidden",
     "label": "HIDDEN GEM",
     "text": "UIPasteboard in iOS 10 gained .expirationDate (auto-clear copies of passwords/OTPs after N seconds) and .localOnly (keep off Universal Clipboard). For lock-screen widgets, set file protection class .complete so sensitive data shows a 'Unlock to view' placeholder pre-unlock \u2014 the Find My Friends widget is the canonical pattern.",
-    "source": "WWDC16-709"
+    "source": "WWDC16-709",
+    "docUrl": "https://developer.apple.com/documentation/widgetkit"
   },
   {
     "year": 2016,
@@ -753,7 +779,8 @@
     "type": "warning",
     "label": "DEPRECATION",
     "text": "Persistent NAMED pasteboards trigger deprecation warnings in iOS 10 and find/items return empty. Use App Groups (shared containers) for cross-app data within your team. Pasteboards are user-facing only. Limit Ad Tracking now returns the IDFA as ALL ZEROS \u2014 don't cache the ad identifier; re-fetch and check for zeros every time.",
-    "source": "WWDC16-709"
+    "source": "WWDC16-709",
+    "docUrl": "https://developer.apple.com/documentation/apptrackingtransparency"
   },
   {
     "year": 2016,
@@ -774,28 +801,32 @@
     "type": "warning",
     "label": "URGENT",
     "text": "topLayoutGuide and bottomLayoutGuide are deprecated in iOS 11. Migrate every UIViewController to view.safeAreaLayoutGuide before a future SDK removes them entirely.",
-    "source": "WWDC17-204"
+    "source": "WWDC17-204",
+    "docUrl": "https://developer.apple.com/documentation/uikit"
   },
   {
     "year": 2017,
     "type": "warning",
     "label": "URGENT",
     "text": "VoIP push handlers must call CallKit's reportNewIncomingCall synchronously \u2014 repeated failures cause iOS to permanently stop launching your app for VoIP pushes.",
-    "source": "WWDC17-707"
+    "source": "WWDC17-707",
+    "docUrl": "https://developer.apple.com/documentation/callkit"
   },
   {
     "year": 2017,
     "type": "hidden",
     "label": "HIDDEN GEM",
     "text": "In iOS 11, Core ML auto-generates a strongly-typed Swift class for each .mlmodel \u2014 input/output types are checked at compile time. You can hot-swap a 41 MB ResNet for a 5.4 MB SqueezeNet by changing only the class name.",
-    "source": "WWDC17-703"
+    "source": "WWDC17-703",
+    "docUrl": "https://developer.apple.com/documentation/coreml"
   },
   {
     "year": 2017,
     "type": "hidden",
     "label": "HIDDEN GEM",
     "text": "ARKit's ARFrame.capturedImage is vended by AVFoundation. Holding too many frames (or their CVPixelBuffers) starves AV capture and your session stops receiving updates. Drop references promptly.",
-    "source": "WWDC17-602"
+    "source": "WWDC17-602",
+    "docUrl": "https://developer.apple.com/documentation/vision"
   },
   {
     "year": 2017,
@@ -823,7 +854,8 @@
     "type": "practice",
     "label": "BEST PRACTICE",
     "text": "Codable + JSONDecoder.dateDecodingStrategy = .iso8601 + .keyDecodingStrategy = .convertFromSnakeCase covers the two most common server-API gotchas with two lines. No more custom date parsers, no more snake_case adapters.",
-    "source": "WWDC17-402"
+    "source": "WWDC17-402",
+    "docUrl": "https://developer.apple.com/documentation/swift/codable"
   },
   {
     "year": 2017,
@@ -844,7 +876,8 @@
     "type": "perf",
     "label": "PERFORMANCE",
     "text": "Argument buffers in Metal 2 cut a 5,000-draw scene's CPU encoding time from ~200ms/frame to ~40ms/frame. CPU-bound scenes scale 5-10x. Required for any large-scene engine on iOS.",
-    "source": "WWDC17-601"
+    "source": "WWDC17-601",
+    "docUrl": "https://developer.apple.com/metal/"
   },
   {
     "year": 2017,
@@ -865,14 +898,16 @@
     "type": "hidden",
     "label": "HIDDEN GEM",
     "text": "PDF widget hasComb = true paired with maximumLength = N divides a text field into N equal cells \u2014 perfect for date fields like MM/DD/YYYY. Two properties replace dozens of lines of custom drawing.",
-    "source": "WWDC17-241"
+    "source": "WWDC17-241",
+    "docUrl": "https://developer.apple.com/documentation/widgetkit"
   },
   {
     "year": 2017,
     "type": "hidden",
     "label": "HIDDEN GEM",
     "text": "PDFActionResetForm with fieldsIncludedAreCleared = false and an EMPTY field list resets every widget in the document. One line of code clears any form.",
-    "source": "WWDC17-241"
+    "source": "WWDC17-241",
+    "docUrl": "https://developer.apple.com/documentation/widgetkit"
   },
   {
     "year": 2017,
@@ -921,7 +956,8 @@
     "type": "hidden",
     "label": "HIDDEN GEM",
     "text": "Workout SiriKit intents now run the app in the BACKGROUND when handled with .handleInApp response code. Users pause workouts via voice with the phone locked in their pocket \u2014 screen never lights up.",
-    "source": "WWDC17-214"
+    "source": "WWDC17-214",
+    "docUrl": "https://developer.apple.com/documentation/appintents"
   },
   {
     "year": 2017,
@@ -949,7 +985,8 @@
     "type": "hidden",
     "label": "HIDDEN GEM",
     "text": "In MapKit, MKMarkerAnnotationView.clusteringIdentifier (any non-nil string) opts annotations into automatic background-thread clustering. The collection no longer locks the main thread on pan/zoom.",
-    "source": "WWDC17-237"
+    "source": "WWDC17-237",
+    "docUrl": "https://developer.apple.com/documentation/mapkit"
   },
   {
     "year": 2017,
@@ -1005,14 +1042,16 @@
     "type": "warning",
     "label": "URGENT",
     "text": "Critical alerts (bypass DND + ringer mute) require a SPECIFIC ENTITLEMENT from Apple via the developer portal. Misuse for marketing/engagement notifications gets your entitlement revoked and degrades the privilege for legitimate medical/safety apps.",
-    "source": "WWDC18-710"
+    "source": "WWDC18-710",
+    "docUrl": "https://developer.apple.com/documentation/usernotifications"
   },
   {
     "year": 2018,
     "type": "warning",
     "label": "DEPRECATION",
     "text": "NSLinguisticTagger is deprecated as the future of NLP on Apple platforms - move to the new Natural Language framework (NLTagger, NLTokenizer, NLLanguageRecognizer). NSLinguisticTagger continues to work but won't get new features.",
-    "source": "WWDC18-713"
+    "source": "WWDC18-713",
+    "docUrl": "https://developer.apple.com/documentation/naturallanguage"
   },
   {
     "year": 2018,
@@ -1026,14 +1065,16 @@
     "type": "perf",
     "label": "PERFORMANCE",
     "text": "iOS 12 Auto Layout dropped exponential complexity for dependent siblings AND nested views down to LINEAR. Apps with deep view hierarchies see massive scrolling/launch wins from just relinking against iOS 12 - no code changes needed.",
-    "source": "WWDC18-220"
+    "source": "WWDC18-220",
+    "docUrl": "https://developer.apple.com/documentation/uikit"
   },
   {
     "year": 2018,
     "type": "perf",
     "label": "PERFORMANCE",
     "text": "Network.framework + URLSession on iOS/tvOS use user-space networking - the TCP/UDP stack lives in your app's address space sharing memory-mapped buffers with the driver. ~30% less CPU on packet-heavy workloads (live streaming, gaming) compared to BSD sockets.",
-    "source": "WWDC18-715"
+    "source": "WWDC18-715",
+    "docUrl": "https://developer.apple.com/documentation/foundation/urlsession"
   },
   {
     "year": 2018,
@@ -1047,14 +1088,16 @@
     "type": "perf",
     "label": "PERFORMANCE",
     "text": "Core ML 2 quantization can shrink a 100 MB neural network model down to under 5 MB at 4-bit weights with no visible quality loss for most tasks. ResNet-50 went from 102 MB (32-bit) to 12.8 MB (4-bit). Use coremltools' compare_models to validate before shipping.",
-    "source": "WWDC18-708"
+    "source": "WWDC18-708",
+    "docUrl": "https://developer.apple.com/documentation/coreml"
   },
   {
     "year": 2018,
     "type": "perf",
     "label": "PERFORMANCE",
     "text": "Create ML's transfer learning ships only the model HEAD (kilobytes), not the base. A typical custom image classifier goes from ~100 MB (full model) down to ~80 KB (head only) because the base is in iOS 12 itself. Three orders of magnitude.",
-    "source": "WWDC18-703"
+    "source": "WWDC18-703",
+    "docUrl": "https://developer.apple.com/documentation/coreml"
   },
   {
     "year": 2018,
@@ -1068,14 +1111,16 @@
     "type": "hidden",
     "label": "HIDDEN GEM",
     "text": "Custom UICollectionView layouts: in prepare() cache layout attributes sorted by minY. Then in layoutAttributesForElementsInRect, use BINARY SEARCH to find the first visible cell, walk up/down until you exit the rect. This is the difference between smooth scrolling and a janky mosaic at 10,000 cells.",
-    "source": "WWDC18-225"
+    "source": "WWDC18-225",
+    "docUrl": "https://developer.apple.com/documentation/uikit"
   },
   {
     "year": 2018,
     "type": "hidden",
     "label": "HIDDEN GEM",
     "text": "In ARKit 2, the ARImageTrackingConfiguration is stand-alone (doesn't use motion sensor) and works in scenarios where world tracking fails - elevators, trains, cars, moving platforms. If you only need image tracking, use this lighter config and don't depend on world tracking initialization.",
-    "source": "WWDC18-602"
+    "source": "WWDC18-602",
+    "docUrl": "https://developer.apple.com/documentation/arkit"
   },
   {
     "year": 2018,
@@ -1117,14 +1162,16 @@
     "type": "hidden",
     "label": "HIDDEN GEM",
     "text": "Swift 4.2 conditional conformances make Array, Optional, Dictionary, Set automatically Equatable / Hashable / Codable when their element type is. A Set<[String]> 'just works' now without boilerplate - and Hashable + Equatable can be auto-synthesized for enums with associated values via a 1-line conditional extension.",
-    "source": "WWDC18-401"
+    "source": "WWDC18-401",
+    "docUrl": "https://developer.apple.com/documentation/swift/codable"
   },
   {
     "year": 2018,
     "type": "hidden",
     "label": "HIDDEN GEM",
     "text": "All UIKit value types (CGRect, CGPoint, CGSize, CGVector, UIEdgeInsets, UIOffset) now conform to Codable in Swift 4.2. JSON-encode a CGRect directly with no wrapper. The old NSStringFromCGRect string conversion functions move to NSCoder, emphasizing they're for archive/encoding intent.",
-    "source": "WWDC18-202"
+    "source": "WWDC18-202",
+    "docUrl": "https://developer.apple.com/documentation/uikit"
   },
   {
     "year": 2018,
@@ -1152,21 +1199,24 @@
     "type": "practice",
     "label": "BEST PRACTICE",
     "text": "For NSUserActivity-based shortcuts, ALWAYS set requiredUserInfoKeys. Without it, Siri compares the entire userInfo verbatim - any varying key (scroll position, last-viewed timestamp) destroys all pattern matching. Most under-performing shortcuts fail because of this.",
-    "source": "WWDC18-211"
+    "source": "WWDC18-211",
+    "docUrl": "https://developer.apple.com/documentation/appintents"
   },
   {
     "year": 2018,
     "type": "practice",
     "label": "BEST PRACTICE",
     "text": "In Dark Mode, NSVisualEffectView semantic materials (.titlebar, .menu, .popover, .sidebar, .sheet, .windowBackground, .contentBackground...) replace .light/.medium/.dark/.ultraDark. Semantic materials adapt automatically across appearances; literal materials don't. The literal ones still compile but Apple wants you off them.",
-    "source": "WWDC18-210"
+    "source": "WWDC18-210",
+    "docUrl": "https://developer.apple.com/documentation/appkit"
   },
   {
     "year": 2018,
     "type": "practice",
     "label": "BEST PRACTICE",
     "text": "Don't use NSColor.currentControlTint (Aqua/Graphite enum) anymore - 8 accent colors in Mojave overflow that binary distinction. Use controlAccentColor for system-tracking buttons; systemBlue when you need 'always blue' for branding; linkColor specifically for hyperlinks.",
-    "source": "WWDC18-210"
+    "source": "WWDC18-210",
+    "docUrl": "https://developer.apple.com/documentation/appkit"
   },
   {
     "year": 2018,
@@ -1194,7 +1244,8 @@
     "type": "practice",
     "label": "BEST PRACTICE",
     "text": "Move stale DocC-style 'send up to 16 shortcut types per intent' to actually defining a hierarchy: parameter A alone, A+B, A+B+C. Siri picks the most specific match available, falling back as needed. A single 'all parameters' shortcut type handicaps prediction.",
-    "source": "WWDC18-211"
+    "source": "WWDC18-211",
+    "docUrl": "https://developer.apple.com/documentation/docc"
   },
   {
     "year": 2018,
@@ -1208,14 +1259,16 @@
     "type": "practice",
     "label": "BEST PRACTICE",
     "text": "In Auto Layout for self-sizing UICollectionView/UITableView cells: NEVER forward systemLayoutSizeFitting() from the cell to its content view. That call creates a NEW layout engine internally on every invocation and tanks scrolling. The cell's content view gets sized via existing optimized paths.",
-    "source": "WWDC18-220"
+    "source": "WWDC18-220",
+    "docUrl": "https://developer.apple.com/documentation/uikit"
   },
   {
     "year": 2018,
     "type": "practice",
     "label": "BEST PRACTICE",
     "text": "Add the StoreKit Transaction Observer in application(_:didFinishLaunchingWithOptions:) - NOT lazy when the user opens your IAP UI. Subscription renewals, ASK-to-Buy approvals, promoted IAPs, and crashed mid-transactions all surface here. Late observation = bad UX or duplicate prompts.",
-    "source": "WWDC18-704"
+    "source": "WWDC18-704",
+    "docUrl": "https://developer.apple.com/documentation/storekit"
   },
   {
     "year": 2018,
@@ -1229,14 +1282,16 @@
     "type": "hidden",
     "label": "HIDDEN GEM",
     "text": "Custom Instruments packages can include Clips production rules that detect application-specific anti-patterns automatically. The os_signpost interval schema element auto-generates a modeler from signpost names - for simple cases, zero Clips code needed.",
-    "source": "WWDC18-410"
+    "source": "WWDC18-410",
+    "docUrl": "https://developer.apple.com/documentation/xcode/improving-your-app-s-performance"
   },
   {
     "year": 2018,
     "type": "perf",
     "label": "PERFORMANCE",
     "text": "iOS 12 ramps the CPU performance state in advance of scrolling demand by passing scrolling intent from UIKit down through the kernel scheduler. Apps see smoother scrolling for free. Counterintuitively, idle devices used to drop more frames than lightly-loaded ones in iOS 11 because of this.",
-    "source": "WWDC18-202"
+    "source": "WWDC18-202",
+    "docUrl": "https://developer.apple.com/documentation/uikit"
   },
   {
     "year": 2019,
@@ -1250,42 +1305,48 @@
     "type": "warning",
     "label": "URGENT",
     "text": "Catalyst data protection APIs (.completeFileProtection) silently no-op on macOS. Files are NOT encrypted at rest. Use Keychain or CryptoKit AES.GCM for sensitive data.",
-    "source": "WWDC19-205"
+    "source": "WWDC19-205",
+    "docUrl": "https://developer.apple.com/documentation/cryptokit"
   },
   {
     "year": 2019,
     "type": "hidden",
     "label": "HIDDEN GEM",
     "text": "SwiftUI sends accessibility notifications automatically when state changes. You no longer need to call UIAccessibility.post() \u2014 even for custom controls.",
-    "source": "WWDC19-238"
+    "source": "WWDC19-238",
+    "docUrl": "https://developer.apple.com/documentation/swiftui"
   },
   {
     "year": 2019,
     "type": "practice",
     "label": "BEST PRACTICE",
     "text": "In SwiftUI, push conditions INTO modifiers (.rotationEffect(flip ? .degrees(180) : .zero)) instead of branching with if/else. SwiftUI gives you a smooth animation between the two states for free.",
-    "source": "WWDC19-216"
+    "source": "WWDC19-216",
+    "docUrl": "https://developer.apple.com/documentation/swiftui"
   },
   {
     "year": 2019,
     "type": "hidden",
     "label": "HIDDEN GEM",
     "text": "In SwiftUI, Text with a string literal is automatically localizable, but Text(stringVariable) passes through unchanged. String interpolation in Text produces a properly-localized format string. No more manual NSLocalizedString wrapping.",
-    "source": "WWDC19-204"
+    "source": "WWDC19-204",
+    "docUrl": "https://developer.apple.com/documentation/swiftui"
   },
   {
     "year": 2019,
     "type": "hidden",
     "label": "HIDDEN GEM",
     "text": "Combine's AnyCancellable automatically calls cancel() on deinit. Just store cancellables in a Set<AnyCancellable> ivar and ARC handles everything \u2014 no manual cancellation needed.",
-    "source": "WWDC19-721"
+    "source": "WWDC19-721",
+    "docUrl": "https://developer.apple.com/documentation/combine"
   },
   {
     "year": 2019,
     "type": "practice",
     "label": "BEST PRACTICE",
     "text": "At every API boundary in Combine, call .eraseToAnyPublisher() to hide implementation details. Otherwise the type signature exposes every internal operator.",
-    "source": "WWDC19-721"
+    "source": "WWDC19-721",
+    "docUrl": "https://developer.apple.com/documentation/combine"
   },
   {
     "year": 2019,
@@ -1306,28 +1367,32 @@
     "type": "hidden",
     "label": "HIDDEN GEM",
     "text": "Sign In with Apple's combined startup flow returns the user's existing iCloud Keychain password OR existing Apple ID credential in a single tap, preventing duplicate accounts. Call performRequests with both ASAuthorizationAppleIDProvider AND ASAuthorizationPasswordProvider.",
-    "source": "WWDC19-706"
+    "source": "WWDC19-706",
+    "docUrl": "https://developer.apple.com/sign-in-with-apple/"
   },
   {
     "year": 2019,
     "type": "warning",
     "label": "DEPRECATION",
     "text": "OpenGL ES on iOS and OpenGL/OpenCL on macOS are deprecated. Migrate to Metal, Metal Performance Shaders, and MetalKit. UIWebView is also deprecated \u2014 migrate to WKWebView.",
-    "source": "WWDC19-611"
+    "source": "WWDC19-611",
+    "docUrl": "https://developer.apple.com/metal/"
   },
   {
     "year": 2019,
     "type": "warning",
     "label": "URGENT",
     "text": "VoIP push handlers MUST call CallKit's reportNewIncomingCall() synchronously inside didReceiveIncomingPush. If you fail to do so repeatedly, the system will stop launching your app for VoIP pushes entirely.",
-    "source": "WWDC19-707"
+    "source": "WWDC19-707",
+    "docUrl": "https://developer.apple.com/documentation/callkit"
   },
   {
     "year": 2019,
     "type": "hidden",
     "label": "HIDDEN GEM",
     "text": "Diffable Data Sources (UICollectionViewDiffableDataSource / UITableViewDiffableDataSource) eliminate every performBatchUpdates crash. NSFetchedResultsController in iOS 13 has a snapshot() method that returns an NSDiffableDataSourceSnapshot directly.",
-    "source": "WWDC19-220"
+    "source": "WWDC19-220",
+    "docUrl": "https://developer.apple.com/documentation/uikit"
   },
   {
     "year": 2019,
@@ -1355,28 +1420,32 @@
     "type": "perf",
     "label": "PERFORMANCE",
     "text": "On OLED devices (iPhone X/XS), MetricKit's average pixel luminance (APL) directly correlates to battery drain. Lighter UI = more energy. Dark Mode is a measurable battery win on OLED \u2014 verify it with MetricKit.",
-    "source": "WWDC19-417"
+    "source": "WWDC19-417",
+    "docUrl": "https://developer.apple.com/documentation/metrickit"
   },
   {
     "year": 2019,
     "type": "hidden",
     "label": "HIDDEN GEM",
     "text": "Xcode 11 Development Assets group lets you ship preview-only assets in your project that are automatically stripped from the App Store build. Perfect for placeholder images in SwiftUI Previews.",
-    "source": "WWDC19-233"
+    "source": "WWDC19-233",
+    "docUrl": "https://developer.apple.com/documentation/swiftui"
   },
   {
     "year": 2019,
     "type": "practice",
     "label": "BEST PRACTICE",
     "text": "In RealityKit, custom Components (entity-component-system data) automatically network-sync to all peers via MultipeerConnectivity with zero extra code. Just conform to Component & Codable.",
-    "source": "WWDC19-603"
+    "source": "WWDC19-603",
+    "docUrl": "https://developer.apple.com/documentation/realitykit"
   },
   {
     "year": 2019,
     "type": "hidden",
     "label": "HIDDEN GEM",
     "text": "RealityKit's ARView automatically applies camera grain matching the live camera image to virtual content. Without it, virtual objects look 'stuck on top' of the camera. With it, they feel embedded.",
-    "source": "WWDC19-603"
+    "source": "WWDC19-603",
+    "docUrl": "https://developer.apple.com/documentation/realitykit"
   },
   {
     "year": 2019,
@@ -1390,14 +1459,16 @@
     "type": "perf",
     "label": "PERFORMANCE",
     "text": "On-device speech recognition (SFSpeechRecognizer.requiresOnDeviceRecognition = true) has no rate or duration limits, unlike server-based recognition. A9+ devices supported.",
-    "source": "WWDC19-256"
+    "source": "WWDC19-256",
+    "docUrl": "https://developer.apple.com/documentation/speech"
   },
   {
     "year": 2019,
     "type": "practice",
     "label": "BEST PRACTICE",
     "text": "For Combine in URLSession, cancel subscriptions in a UITableViewCell's prepareForReuse() via AnyCancellable. This eliminates the classic 'wrong image in reused cell' bug that has plagued every iOS developer.",
-    "source": "WWDC19-712"
+    "source": "WWDC19-712",
+    "docUrl": "https://developer.apple.com/documentation/combine"
   },
   {
     "year": 2019,
@@ -1418,14 +1489,16 @@
     "type": "warning",
     "label": "URGENT",
     "text": "Apple Silicon Macs change PAGE_SIZE from a compile-time constant to a runtime value. Use PAGE_MAX_SIZE for upper bounds at compile time, vm_page_size at runtime. Compile failures here are an early porting signal.",
-    "source": "WWDC20-10214"
+    "source": "WWDC20-10214",
+    "docUrl": "https://developer.apple.com/documentation/apple-silicon"
   },
   {
     "year": 2020,
     "type": "warning",
     "label": "URGENT",
     "text": "mach_absolute_time() does NOT return nanoseconds. Its tick frequency varies by CPU architecture. Code assuming nanoseconds runs ~40x slower or faster on Apple Silicon. Switch to clock_gettime(CLOCK_UPTIME_RAW) or use mach_timebase_info to convert.",
-    "source": "WWDC20-10214"
+    "source": "WWDC20-10214",
+    "docUrl": "https://developer.apple.com/documentation/apple-silicon"
   },
   {
     "year": 2020,
@@ -1446,49 +1519,56 @@
     "type": "perf",
     "label": "PERFORMANCE",
     "text": "Swift 5.3 cuts heap memory overhead by over 2/3 vs. Swift 5.2 for apps targeting iOS 14. SwiftUI app code size dropped 40% (MovieSwiftUI). Foundation, OSLog, and runtime caches all became dramatically more efficient.",
-    "source": "WWDC20-10170"
+    "source": "WWDC20-10170",
+    "docUrl": "https://developer.apple.com/documentation/swiftui"
   },
   {
     "year": 2020,
     "type": "hidden",
     "label": "HIDDEN GEM",
     "text": "@StateObject solves the silent bug where @ObservedObject var store = MyStore() re-allocates the store every render. SwiftUI instantiates @StateObject once before first body. Rule: created in this view = StateObject, passed in = ObservedObject.",
-    "source": "WWDC20-10040"
+    "source": "WWDC20-10040",
+    "docUrl": "https://developer.apple.com/documentation/swiftui"
   },
   {
     "year": 2020,
     "type": "practice",
     "label": "BEST PRACTICE",
     "text": "In WidgetKit, your widget is NOT a mini-app. No buttons, no scrolling, no animated images, no videos. Use Text(date, style:.relative)/.timer to make widgets feel alive without your extension running.",
-    "source": "WWDC20-10028, 10033"
+    "source": "WWDC20-10028, 10033",
+    "docUrl": "https://developer.apple.com/documentation/widgetkit"
   },
   {
     "year": 2020,
     "type": "hidden",
     "label": "HIDDEN GEM",
     "text": "ContainerRelativeShape is the right way to do widget corner radii. Hardcoded .cornerRadius(12) breaks across device shapes. ContainerRelativeShape adopts the path of the nearest container automatically.",
-    "source": "WWDC20-10033"
+    "source": "WWDC20-10033",
+    "docUrl": "https://developer.apple.com/documentation/widgetkit"
   },
   {
     "year": 2020,
     "type": "warning",
     "label": "URGENT",
     "text": "Audio apps creating realtime threads on Apple Silicon MUST join the device's os_workgroup, or threads may be scheduled on E-cores causing glitches. The 'fix' is os_workgroup_join() in your audio thread.",
-    "source": "WWDC20-10224"
+    "source": "WWDC20-10224",
+    "docUrl": "https://developer.apple.com/documentation/apple-silicon"
   },
   {
     "year": 2020,
     "type": "warning",
     "label": "URGENT",
     "text": "App Tracking Transparency: Apps must call requestTrackingAuthorization before reading IDFA. If unset, users denied, or system-wide toggle off, IDFA returns all zeros. Add NSUserTrackingUsageDescription and call before every IDFA use.",
-    "source": "WWDC20-10676"
+    "source": "WWDC20-10676",
+    "docUrl": "https://developer.apple.com/documentation/apptrackingtransparency"
   },
   {
     "year": 2020,
     "type": "hidden",
     "label": "HIDDEN GEM",
     "text": "For most apps, replace UIImagePickerController with PHPicker -- it runs out-of-process and requires NO Photos permission prompt. Only what the user picks is returned. Most apps need zero library access.",
-    "source": "WWDC20-10652, 10641"
+    "source": "WWDC20-10652, 10641",
+    "docUrl": "https://developer.apple.com/documentation/photokit"
   },
   {
     "year": 2020,
@@ -1502,21 +1582,24 @@
     "type": "hidden",
     "label": "HIDDEN GEM",
     "text": "StoreKit Testing in Xcode lets you test in-app purchases entirely locally with no sandbox accounts. Time-shift renewal dates to compress months into seconds; trigger refunds, billing failures, interruptions.",
-    "source": "WWDC20-10659"
+    "source": "WWDC20-10659",
+    "docUrl": "https://developer.apple.com/documentation/storekit"
   },
   {
     "year": 2020,
     "type": "practice",
     "label": "BEST PRACTICE",
     "text": "Sign in with Apple: ALWAYS set both nonce and state on the request. Server validates the JWT identityToken's nonce; app validates the credential's state locally. Prevents replay attacks.",
-    "source": "WWDC20-10173"
+    "source": "WWDC20-10173",
+    "docUrl": "https://developer.apple.com/sign-in-with-apple/"
   },
   {
     "year": 2020,
     "type": "hidden",
     "label": "HIDDEN GEM",
     "text": "Vision body pose: For Create ML action classification, use Vision (not ARKit) to extract poses both for training AND inference. They're not interchangeable. ARKit body pose has no per-point confidence.",
-    "source": "WWDC20-10653, 10043"
+    "source": "WWDC20-10653, 10043",
+    "docUrl": "https://developer.apple.com/documentation/coreml"
   },
   {
     "year": 2020,
@@ -1551,14 +1634,16 @@
     "type": "hidden",
     "label": "HIDDEN GEM",
     "text": "Scene understanding (RealityKit + LiDAR) gives you four interactions in one option set: occlusion, receivesLighting (shadows), physics, collision. Real-world objects appear in your scene as read-only entities with HasSceneUnderstanding trait.",
-    "source": "WWDC20-10612"
+    "source": "WWDC20-10612",
+    "docUrl": "https://developer.apple.com/documentation/realitykit"
   },
   {
     "year": 2020,
     "type": "perf",
     "label": "PERFORMANCE",
     "text": "Swift code completion in Xcode 12 is up to 15x faster for SwiftUI -- common completions went from ~0.5s to under 0.1s. The compiler diagnostic engine also rewrites SwiftUI errors to point at the actual problem.",
-    "source": "WWDC20-10170, 10165"
+    "source": "WWDC20-10170, 10165",
+    "docUrl": "https://developer.apple.com/documentation/swiftui"
   },
   {
     "year": 2020,
@@ -1586,7 +1671,8 @@
     "type": "practice",
     "label": "BEST PRACTICE",
     "text": "Use os.Logger (not print). Compiler optimizes away message construction for debug-level logs when not streaming. Numeric data is public by default; strings/objects are PRIVATE (redacted) by default. Use .private(mask:.hash) to log a stable hash.",
-    "source": "WWDC20-10168"
+    "source": "WWDC20-10168",
+    "docUrl": "https://developer.apple.com/documentation/os/logger"
   },
   {
     "year": 2020,
@@ -1600,42 +1686,48 @@
     "type": "hidden",
     "label": "HIDDEN GEM",
     "text": "App Clip shared group container survives even after iOS deletes the App Clip on full-app install. Store data you want to migrate (cached order, partial state) in the shared container, not the App Clip's standard container.",
-    "source": "WWDC20-10174"
+    "source": "WWDC20-10174",
+    "docUrl": "https://developer.apple.com/documentation/app_clips"
   },
   {
     "year": 2020,
     "type": "practice",
     "label": "BEST PRACTICE",
     "text": "Mac Catalyst Optimized for Mac: gesture recognizers on UIButton STOP firing when the button has the native Mac appearance. Move long-press patterns to UIButton.menu (real menu) or to menu-bar items. Custom (non-system) buttons keep iPad event model.",
-    "source": "WWDC20-10056"
+    "source": "WWDC20-10056",
+    "docUrl": "https://developer.apple.com/documentation/uikit/mac_catalyst"
   },
   {
     "year": 2021,
     "type": "warning",
     "label": "URGENT",
     "text": "Semaphores, condition variables, and dispatch_semaphore_wait are UNSAFE inside Swift Concurrency tasks. They hide dependencies from the runtime and can deadlock the cooperative thread pool. Set LIBDISPATCH_COOPERATIVE_POOL_STRICT=1 in Xcode to assert on violations.",
-    "source": "WWDC21-10254"
+    "source": "WWDC21-10254",
+    "docUrl": "https://developer.apple.com/documentation/swift/concurrency"
   },
   {
     "year": 2021,
     "type": "hidden",
     "label": "HIDDEN GEM",
     "text": "URL itself has .lines and .bytes async sequence accessors. for try await line in url.lines { \u2026 } streams a remote JSON-Lines endpoint OR a local file with no URLSession or FileHandle setup at all.",
-    "source": "WWDC21-10058"
+    "source": "WWDC21-10058",
+    "docUrl": "https://developer.apple.com/documentation/foundation/urlsession"
   },
   {
     "year": 2021,
     "type": "practice",
     "label": "BEST PRACTICE",
     "text": "Mark UI-facing observable objects with @MainActor so the SwiftUI run-loop ordering of objectWillChange \u2192 state mutation \u2192 next tick is guaranteed. Mutating from off-main-actor can silently swallow updates.",
-    "source": "WWDC21-10019"
+    "source": "WWDC21-10019",
+    "docUrl": "https://developer.apple.com/documentation/swiftui"
   },
   {
     "year": 2021,
     "type": "perf",
     "label": "PERFORMANCE",
     "text": "Swift Concurrency's cooperative pool spawns ONLY as many threads as CPU cores. Compare to GCD which can spawn 64+ on contention. Thread explosion is impossible by construction when you stay inside the async/actor world.",
-    "source": "WWDC21-10254"
+    "source": "WWDC21-10254",
+    "docUrl": "https://developer.apple.com/documentation/swift/concurrency"
   },
   {
     "year": 2021,
@@ -1649,7 +1741,8 @@
     "type": "warning",
     "label": "URGENT",
     "text": "AVCaptureDevice.videoHDREnabled is actually EDR (alternating-exposure highlight recovery), NOT 10-bit HDR. The genuinely-new 10-bit HDR video uses pixel format x420 (kCVPixelFormatType_420YpCbCr10BiPlanarVideoRange).",
-    "source": "WWDC21-10047"
+    "source": "WWDC21-10047",
+    "docUrl": "https://developer.apple.com/documentation/avfoundation/cameras-and-media-capture"
   },
   {
     "year": 2021,
@@ -1670,7 +1763,8 @@
     "type": "hidden",
     "label": "HIDDEN GEM",
     "text": "GroupSession's messaging channel is end-to-end encrypted, even from Apple. The framework explicitly states no one outside your app on the device can read the data. Free private channel for any custom multi-device experience.",
-    "source": "WWDC21-10183"
+    "source": "WWDC21-10183",
+    "docUrl": "https://developer.apple.com/documentation/groupactivities"
   },
   {
     "year": 2021,
@@ -1684,7 +1778,8 @@
     "type": "practice",
     "label": "BEST PRACTICE",
     "text": "Use accessibilityRepresentation(representation:) for custom controls \u2014 wrap your bespoke view's accessibility behind a stock Slider/Toggle/Stepper. You inherit ALL platform behaviors with one modifier.",
-    "source": "WWDC21-10119"
+    "source": "WWDC21-10119",
+    "docUrl": "https://developer.apple.com/accessibility/"
   },
   {
     "year": 2021,
@@ -1705,14 +1800,16 @@
     "type": "hidden",
     "label": "HIDDEN GEM",
     "text": "AsyncImage(url:) \u2014 finally a built-in remote image loader in SwiftUI. Use the phase-based overload for placeholder, error, animated success states.",
-    "source": "WWDC21-10018"
+    "source": "WWDC21-10018",
+    "docUrl": "https://developer.apple.com/documentation/swiftui"
   },
   {
     "year": 2021,
     "type": "practice",
     "label": "BEST PRACTICE",
     "text": "Use Quick Note via NSUserActivity. The same identifier (must be unique, global, stable) powers Handoff, Spotlight, Reminders, Quick Note, and state restoration. Never use file paths or session IDs as identifiers.",
-    "source": "WWDC21-10264"
+    "source": "WWDC21-10264",
+    "docUrl": "https://developer.apple.com/documentation/appintents"
   },
   {
     "year": 2021,
@@ -1726,7 +1823,8 @@
     "type": "warning",
     "label": "DEPRECATION",
     "text": "loadValuesAsynchronously(forKeys:) on AVAsset is being deprecated for Swift. Switch to try await asset.load(.duration, .tracks) \u2014 multi-property loading is batched in one round-trip.",
-    "source": "WWDC21-10146"
+    "source": "WWDC21-10146",
+    "docUrl": "https://developer.apple.com/documentation/avfoundation"
   },
   {
     "year": 2021,
@@ -1740,7 +1838,8 @@
     "type": "hidden",
     "label": "HIDDEN GEM",
     "text": "StoreKit 2 transactions are JSON Web Signatures (JWS) \u2014 a web standard. Server-side verification works with any JWS library; you don't need an Apple-specific receipt validator any more.",
-    "source": "WWDC21-10114"
+    "source": "WWDC21-10114",
+    "docUrl": "https://developer.apple.com/documentation/storekit"
   },
   {
     "year": 2021,
@@ -1754,7 +1853,8 @@
     "type": "hidden",
     "label": "HIDDEN GEM",
     "text": "DocC was open-sourced in late 2021. The CLI plus a static-site web app (Swift-DocC-Render) is on github.com/apple/swift-docc \u2014 render archives outside Xcode and host on your own infrastructure.",
-    "source": "WWDC21-10166"
+    "source": "WWDC21-10166",
+    "docUrl": "https://developer.apple.com/documentation/docc"
   },
   {
     "year": 2021,
@@ -1775,7 +1875,8 @@
     "type": "hidden",
     "label": "HIDDEN GEM",
     "text": "RealityKit 2's CharacterControllerComponent gives you a capsule-shaped physical controller that interacts with LiDAR-generated room mesh. move(to:) honors obstacles; teleport(to:) ignores them. Drop-in collision-aware avatar movement.",
-    "source": "WWDC21-10074"
+    "source": "WWDC21-10074",
+    "docUrl": "https://developer.apple.com/documentation/realitykit"
   },
   {
     "year": 2021,
@@ -1789,7 +1890,8 @@
     "type": "hidden",
     "label": "HIDDEN GEM",
     "text": "In SwiftUI, .privacySensitive() auto-redacts a view in widgets-on-Lock-Screen, watchOS Always-On display, and AOD modes. One modifier, three platforms covered.",
-    "source": "WWDC21-10018"
+    "source": "WWDC21-10018",
+    "docUrl": "https://developer.apple.com/documentation/swiftui"
   },
   {
     "year": 2021,
@@ -1803,14 +1905,16 @@
     "type": "hidden",
     "label": "HIDDEN GEM",
     "text": "FocusState property wrapper in SwiftUI: @FocusState var field: Field?, then .focused($field, equals: .someCase). Programmatically move keyboard focus, dismiss with field = nil.",
-    "source": "WWDC21-10018, 10023"
+    "source": "WWDC21-10018, 10023",
+    "docUrl": "https://developer.apple.com/documentation/swiftui"
   },
   {
     "year": 2021,
     "type": "practice",
     "label": "BEST PRACTICE",
     "text": "For Mac Catalyst pop-up buttons: changesSelectionAsPrimaryAction=true + showsMenuAsPrimaryAction=true + non-nil menu = real macOS pop-up. Without all three you get a different style. Easy to misconfigure.",
-    "source": "WWDC21-10052"
+    "source": "WWDC21-10052",
+    "docUrl": "https://developer.apple.com/documentation/uikit/mac_catalyst"
   },
   {
     "year": 2021,
@@ -1824,7 +1928,8 @@
     "type": "warning",
     "label": "URGENT",
     "text": "NavigationLink(isActive:) and NavigationLink(tag:selection:) are deprecated in iOS 16. Move to value-presenting NavigationLink + navigationDestination, or NavigationView with stack style \u2192 NavigationStack.",
-    "source": "WWDC22-10054"
+    "source": "WWDC22-10054",
+    "docUrl": "https://developer.apple.com/documentation/swiftui"
   },
   {
     "year": 2022,
@@ -1866,7 +1971,8 @@
     "type": "hidden",
     "label": "HIDDEN GEM",
     "text": "NavigationStack's navigationDestination modifier MUST be placed OUTSIDE lazy containers (List, LazyVGrid, Table). Lazy views may not be loaded yet, so the stack won't see the modifier.",
-    "source": "WWDC22-10054"
+    "source": "WWDC22-10054",
+    "docUrl": "https://developer.apple.com/documentation/swiftui"
   },
   {
     "year": 2022,
@@ -1880,28 +1986,32 @@
     "type": "practice",
     "label": "BEST PRACTICE",
     "text": "Adopt EntityPropertyQuery on App Intents entities to get free Find/Filter/Sort actions in Shortcuts with a flexible predicate editor. Map each comparator combination to NSPredicate or your own type.",
-    "source": "WWDC22-10032"
+    "source": "WWDC22-10032",
+    "docUrl": "https://developer.apple.com/documentation/appintents"
   },
   {
     "year": 2022,
     "type": "practice",
     "label": "BEST PRACTICE",
     "text": "For passkey AutoFill, start the ASAuthorization request EARLY in view lifetime \u2014 before the user focuses the field. Otherwise the QuickType suggestion isn't ready when the keyboard appears.",
-    "source": "WWDC22-10092"
+    "source": "WWDC22-10092",
+    "docUrl": "https://developer.apple.com/passkeys/"
   },
   {
     "year": 2022,
     "type": "practice",
     "label": "BEST PRACTICE",
     "text": "Use auto-updating views (ProgressView(timerInterval:), Text(_:date:), Text(_:style:.timer)) in widgets/complications instead of multiple timeline entries \u2014 they work in always-on with reduced fidelity automatically.",
-    "source": "WWDC22-10050"
+    "source": "WWDC22-10050",
+    "docUrl": "https://developer.apple.com/documentation/widgetkit"
   },
   {
     "year": 2022,
     "type": "practice",
     "label": "BEST PRACTICE",
     "text": "watchOS background network requests MUST go through a background URLSession with sessionSendsLaunchEvents = true. Foreground sessions are silently killed when the watch sleeps.",
-    "source": "WWDC22-10142"
+    "source": "WWDC22-10142",
+    "docUrl": "https://developer.apple.com/documentation/foundation/urlsession"
   },
   {
     "year": 2022,
@@ -1929,14 +2039,16 @@
     "type": "perf",
     "label": "PERFORMANCE",
     "text": "Swift Charts gets Dark Mode, Localization, Dynamic Type, VoiceOver descriptions, Audio Graphs sonification, High-Contrast mode, and ALL Apple platforms \u2014 entirely automatically with .value(_:_:) data.",
-    "source": "WWDC22-10136"
+    "source": "WWDC22-10136",
+    "docUrl": "https://developer.apple.com/documentation/swiftui"
   },
   {
     "year": 2022,
     "type": "perf",
     "label": "PERFORMANCE",
     "text": "PyTorch on Apple silicon (MPS backend) delivers up to 20x speedup vs CPU. One-line change: model.to('mps'). The MPS backend is fully open source and merged into the official PyTorch GitHub repo.",
-    "source": "WWDC22-10063"
+    "source": "WWDC22-10063",
+    "docUrl": "https://developer.apple.com/documentation/apple-silicon"
   },
   {
     "year": 2022,
@@ -1957,7 +2069,8 @@
     "type": "practice",
     "label": "BEST PRACTICE",
     "text": "For RTL languages, mirror layout but NOT content with intrinsic direction (clocks, charts, numbers, video controls). Use UISemanticContentAttribute on UIKit views; SwiftUI handles flipping automatically.",
-    "source": "WWDC22-10107"
+    "source": "WWDC22-10107",
+    "docUrl": "https://developer.apple.com/documentation/swiftui"
   },
   {
     "year": 2022,
@@ -1978,7 +2091,8 @@
     "type": "hidden",
     "label": "HIDDEN GEM",
     "text": "@preconcurrency import is the right escape hatch for libraries that haven't audited Sendable yet \u2014 NOT @unchecked Sendable. The compiler rechecks once the import gets stricter.",
-    "source": "WWDC22-110351"
+    "source": "WWDC22-110351",
+    "docUrl": "https://developer.apple.com/documentation/swift/concurrency"
   },
   {
     "year": 2022,
@@ -1999,7 +2113,8 @@
     "type": "hidden",
     "label": "HIDDEN GEM",
     "text": "DataScannerViewController.recognizedItems is an AsyncStream \u2014 perfect for SwiftUI .task { for await } patterns. No need for delegate methods if you don't draw custom highlights.",
-    "source": "WWDC22-10025"
+    "source": "WWDC22-10025",
+    "docUrl": "https://developer.apple.com/documentation/swiftui"
   },
   {
     "year": 2022,
@@ -2013,35 +2128,40 @@
     "type": "warning",
     "label": "URGENT",
     "text": "visionOS RealityKit entities silently fail hit testing if missing EITHER InputTargetComponent OR CollisionComponent. Both are required to receive any gestures.",
-    "source": "WWDC23-10080"
+    "source": "WWDC23-10080",
+    "docUrl": "https://developer.apple.com/documentation/realitykit"
   },
   {
     "year": 2023,
     "type": "hidden",
     "label": "HIDDEN GEM",
     "text": "@Model implies @Observable. A SwiftData model class is automatically observable -- you get persistence + observation in one annotation.",
-    "source": "WWDC23-10187"
+    "source": "WWDC23-10187",
+    "docUrl": "https://developer.apple.com/documentation/swiftdata"
   },
   {
     "year": 2023,
     "type": "practice",
     "label": "BEST PRACTICE",
     "text": "For SwiftUI Observable types, use only @State, @Environment, or @Bindable. None of @ObservedObject, @StateObject, @EnvironmentObject, @Published are needed any more.",
-    "source": "WWDC23-10149"
+    "source": "WWDC23-10149",
+    "docUrl": "https://developer.apple.com/documentation/swiftui"
   },
   {
     "year": 2023,
     "type": "perf",
     "label": "PERFORMANCE",
     "text": "@Observable invalidates views per-property accessed in body, not per-class. Migrating from ObservableObject typically gives a 1.2x-3x view-update speedup with no other code changes.",
-    "source": "WWDC23-10160, 10149"
+    "source": "WWDC23-10160, 10149",
+    "docUrl": "https://developer.apple.com/documentation/combine"
   },
   {
     "year": 2023,
     "type": "hidden",
     "label": "HIDDEN GEM",
     "text": "You can open a Core Data store WITH SwiftData. They share the same underlying persistent store, so you can incrementally migrate one screen at a time without copying data.",
-    "source": "WWDC23-10189"
+    "source": "WWDC23-10189",
+    "docUrl": "https://developer.apple.com/documentation/swiftdata"
   },
   {
     "year": 2023,
@@ -2062,7 +2182,8 @@
     "type": "hidden",
     "label": "HIDDEN GEM",
     "text": "Drag gesture values inside RealityView are in SwiftUI POINTS, but entity positions are in METERS. Always convert via content.convert(value.location3D, from: .local, to: .scene).",
-    "source": "WWDC23-10080"
+    "source": "WWDC23-10080",
+    "docUrl": "https://developer.apple.com/documentation/swiftui"
   },
   {
     "year": 2023,
@@ -2076,14 +2197,16 @@
     "type": "practice",
     "label": "BEST PRACTICE",
     "text": "visionOS apps are a SPECTRUM of immersion (window -> volume -> mixed -> progressive -> full). Design to flex between modes during a single session, not pick one upfront.",
-    "source": "WWDC23-10260, 10072"
+    "source": "WWDC23-10260, 10072",
+    "docUrl": "https://developer.apple.com/documentation/visionos"
   },
   {
     "year": 2023,
     "type": "hidden",
     "label": "HIDDEN GEM",
     "text": "#Preview macro replaces PreviewProvider for SwiftUI AND brings preview to UIKit/AppKit. Widget previews show the timeline animations between entries.",
-    "source": "WWDC23-10252"
+    "source": "WWDC23-10252",
+    "docUrl": "https://developer.apple.com/documentation/swiftui"
   },
   {
     "year": 2023,
@@ -2125,14 +2248,16 @@
     "type": "practice",
     "label": "BEST PRACTICE",
     "text": "Use os.Logger (not print). Xcode 15 console filters by subsystem/category/severity, jumps to source from a log line, and respects privacy redaction.",
-    "source": "WWDC23-10226"
+    "source": "WWDC23-10226",
+    "docUrl": "https://developer.apple.com/documentation/os/logger"
   },
   {
     "year": 2023,
     "type": "perf",
     "label": "PERFORMANCE",
     "text": "Spring is now the DEFAULT animation for new SwiftUI apps on iOS 17+. They match prior velocity, settle naturally. Use .snappy / .bouncy / .smooth for variants.",
-    "source": "WWDC23-10148, 10158"
+    "source": "WWDC23-10148, 10158",
+    "docUrl": "https://developer.apple.com/documentation/swiftui"
   },
   {
     "year": 2023,
@@ -2146,21 +2271,24 @@
     "type": "practice",
     "label": "BEST PRACTICE",
     "text": "Test interactive widgets carefully: AppIntents in widgets execute IN THE WIDGET EXTENSION (~15s budget), not in the host app. Must be deterministic and idempotent.",
-    "source": "WWDC23-10028, 10103"
+    "source": "WWDC23-10028, 10103",
+    "docUrl": "https://developer.apple.com/documentation/appintents"
   },
   {
     "year": 2023,
     "type": "hidden",
     "label": "HIDDEN GEM",
     "text": "performAccessibilityAudit() in XCUITest catches the 80% of mechanical accessibility issues automatically: hit target size, contrast, missing labels, navigation order.",
-    "source": "WWDC23-10035"
+    "source": "WWDC23-10035",
+    "docUrl": "https://developer.apple.com/accessibility/"
   },
   {
     "year": 2023,
     "type": "warning",
     "label": "URGENT",
     "text": "Privacy manifest (PrivacyInfo.xcprivacy) is required for SDKs accessing certain APIs (UserDefaults, file timestamps, disk space, boot time, keyboards). Audit your dependencies NOW before App Store enforcement.",
-    "source": "WWDC23-10060"
+    "source": "WWDC23-10060",
+    "docUrl": "https://developer.apple.com/documentation/bundleresources/privacy_manifest_files"
   },
   {
     "year": 2023,
@@ -2174,7 +2302,8 @@
     "type": "hidden",
     "label": "HIDDEN GEM",
     "text": "CKSyncEngine PERSISTS its state across app launches via stateSerialization data. Save it after every sync to disk; pass it back on next session start. Replaces hand-rolled change-token bookkeeping.",
-    "source": "WWDC23-10188"
+    "source": "WWDC23-10188",
+    "docUrl": "https://developer.apple.com/documentation/cloudkit"
   },
   {
     "year": 2023,
@@ -2195,14 +2324,16 @@
     "type": "warning",
     "label": "URGENT",
     "text": "Adopt the Swift 6 language mode incrementally PER TARGET. Set 'Swift Concurrency Checking' to 'Complete' first to get warnings, fix them, then flip 'Swift Language Mode' to Swift 6 to lock in.",
-    "source": "WWDC24-10169"
+    "source": "WWDC24-10169",
+    "docUrl": "https://developer.apple.com/documentation/swift/concurrency"
   },
   {
     "year": 2024,
     "type": "hidden",
     "label": "HIDDEN GEM",
     "text": "In Xcode 16's SDK, all SwiftUI views are now @MainActor automatically. You can REMOVE explicit @MainActor annotations from your view types -- they're redundant.",
-    "source": "WWDC24-10169, 10144"
+    "source": "WWDC24-10169, 10144",
+    "docUrl": "https://developer.apple.com/documentation/swiftui"
   },
   {
     "year": 2024,
@@ -2223,14 +2354,16 @@
     "type": "perf",
     "label": "PERFORMANCE",
     "text": "Core ML stateful models with KV-cache deliver a 1.6x speedup for token generation on Mistral 7B. Just preallocate state via model.makeState() instead of input/output buffers.",
-    "source": "WWDC24-10161"
+    "source": "WWDC24-10161",
+    "docUrl": "https://developer.apple.com/documentation/coreml"
   },
   {
     "year": 2024,
     "type": "hidden",
     "label": "HIDDEN GEM",
     "text": "iOS 18 makes many Core ML models faster automatically -- WITHOUT recompiling. The OS-level inference stack improvements apply to existing model files.",
-    "source": "WWDC24-10161"
+    "source": "WWDC24-10161",
+    "docUrl": "https://developer.apple.com/documentation/coreml"
   },
   {
     "year": 2024,
@@ -2265,14 +2398,16 @@
     "type": "practice",
     "label": "BEST PRACTICE",
     "text": "App Intents parameter rule: parameters that refer to entities should be ENTITIES, not IDs or names. So `OpenTrailIntent(target: TrailEntity)`, NOT `OpenTrailIntent(name: String)`.",
-    "source": "WWDC24-10210"
+    "source": "WWDC24-10210",
+    "docUrl": "https://developer.apple.com/documentation/appintents"
   },
   {
     "year": 2024,
     "type": "hidden",
     "label": "HIDDEN GEM",
     "text": "With iOS 18 SDK, App Intents derives string-search and predicate-search from `EnumerableEntityQuery` automatically. You usually only need allEntities() -- skip the more complex protocols.",
-    "source": "WWDC24-10210"
+    "source": "WWDC24-10210",
+    "docUrl": "https://developer.apple.com/documentation/appintents"
   },
   {
     "year": 2024,
@@ -2293,14 +2428,16 @@
     "type": "perf",
     "label": "PERFORMANCE",
     "text": "3D asset texture packing: combine roughness + metallic + AO into one RGB texture. Up to 40% asset size reduction PLUS lossless compression (single-channel grayscale doesn't compress).",
-    "source": "WWDC24-10186"
+    "source": "WWDC24-10186",
+    "docUrl": "https://developer.apple.com/documentation/combine"
   },
   {
     "year": 2024,
     "type": "hidden",
     "label": "HIDDEN GEM",
     "text": "For visionOS object tracking, your viewing-angle hint (.allAngles, .upright, .front) dramatically affects training quality. Pick correctly to skip irrelevant viewpoints during ML training.",
-    "source": "WWDC24-10101"
+    "source": "WWDC24-10101",
+    "docUrl": "https://developer.apple.com/documentation/visionos"
   },
   {
     "year": 2024,
@@ -2314,7 +2451,8 @@
     "type": "hidden",
     "label": "HIDDEN GEM",
     "text": "In visionOS 2, volumes inherit min/max size FROM CONTENT FRAMES. To enable corner-handle resize, change `.frame(width: ...)` to `.frame(minWidth: ...)`. One change unlocks resize.",
-    "source": "WWDC24-10153"
+    "source": "WWDC24-10153",
+    "docUrl": "https://developer.apple.com/documentation/visionos"
   },
   {
     "year": 2024,
@@ -2328,14 +2466,16 @@
     "type": "hidden",
     "label": "HIDDEN GEM",
     "text": "WKWebView's Writing Tools default is .limited (panel only), NOT .complete (inline). Set writingToolsBehavior explicitly if you want the full inline experience in WebKit-based content.",
-    "source": "WWDC24-10168"
+    "source": "WWDC24-10168",
+    "docUrl": "https://developer.apple.com/documentation/webkit"
   },
   {
     "year": 2024,
     "type": "perf",
     "label": "PERFORMANCE",
     "text": "Swift Testing parallelizes test functions BY DEFAULT, including parameterized cases. Each argument runs as an independent test that can re-run individually in Xcode 16.",
-    "source": "WWDC24-10179, 10195"
+    "source": "WWDC24-10179, 10195",
+    "docUrl": "https://developer.apple.com/documentation/testing"
   },
   {
     "year": 2024,
@@ -2363,7 +2503,8 @@
     "type": "warning",
     "label": "DEPRECATION",
     "text": "On-Demand Resources is deprecated. Migrate to Background Assets. Custom in-app purchase flows may also be affected by App Store server API v1 deprecations.",
-    "source": "WWDC24-10061"
+    "source": "WWDC24-10061",
+    "docUrl": "https://developer.apple.com/documentation/backgroundassets"
   },
   {
     "year": 2024,
@@ -2391,7 +2532,8 @@
     "type": "perf",
     "label": "PERFORMANCE",
     "text": "For autorelease pool growth in tight loops touching Foundation/UIKit, wrap loop bodies in `autoreleasepool { ... }`. Especially critical when generating thumbnails or processing collections of files.",
-    "source": "WWDC24-10173"
+    "source": "WWDC24-10173",
+    "docUrl": "https://developer.apple.com/documentation/uikit"
   },
   {
     "year": 2024,
@@ -2405,42 +2547,48 @@
     "type": "hidden",
     "label": "HIDDEN GEM",
     "text": "PhotoKit on the Lock Screen: when device is locked, only photos written DURING the current capture session are readable. Privacy by default -- no leak of older photos.",
-    "source": "WWDC24-10204"
+    "source": "WWDC24-10204",
+    "docUrl": "https://developer.apple.com/documentation/photokit"
   },
   {
     "year": 2024,
     "type": "practice",
     "label": "BEST PRACTICE",
     "text": "Automatic passkey upgrades: pass `.requestStyle = .conditional`. The system silently creates a passkey after password sign-in if conditions are met. NO upsell screen -- delete that code.",
-    "source": "WWDC24-10125"
+    "source": "WWDC24-10125",
+    "docUrl": "https://developer.apple.com/passkeys/"
   },
   {
     "year": 2024,
     "type": "hidden",
     "label": "HIDDEN GEM",
     "text": "For RealityKit portal crossing in visionOS 2, use EnvironmentLightingConfigurationComponent + a 0..1 weight to smoothly blend IBL across the portal surface. Avoids the harsh light cutoff at the boundary.",
-    "source": "WWDC24-10103"
+    "source": "WWDC24-10103",
+    "docUrl": "https://developer.apple.com/documentation/realitykit"
   },
   {
     "year": 2024,
     "type": "perf",
     "label": "PERFORMANCE",
     "text": "Polygon budget for Vision Pro: <500K triangles for immersive scenes; <250K for shared space; aim for ~100K visible at any one time. Split large models into chunks for culling.",
-    "source": "WWDC24-10186"
+    "source": "WWDC24-10186",
+    "docUrl": "https://developer.apple.com/documentation/visionos"
   },
   {
     "year": 2024,
     "type": "practice",
     "label": "BEST PRACTICE",
     "text": "For accessibility on cards/rows, use .accessibilityElement(children: .combine) to merge multiple stops into one element with custom actions. Massive UX win for VoiceOver list navigation.",
-    "source": "WWDC24-10073"
+    "source": "WWDC24-10073",
+    "docUrl": "https://developer.apple.com/documentation/combine"
   },
   {
     "year": 2024,
     "type": "hidden",
     "label": "HIDDEN GEM",
     "text": "In iOS 18, accessibility modifiers accept an isEnabled parameter. Conditional .accessibilityLabel(\"Super favorite\", isEnabled: isSuper) preserves the system default when not active.",
-    "source": "WWDC24-10073"
+    "source": "WWDC24-10073",
+    "docUrl": "https://developer.apple.com/accessibility/"
   },
   {
     "year": 2025,
@@ -2461,42 +2609,48 @@
     "type": "practice",
     "label": "BEST PRACTICE",
     "text": "Property declaration order in @Generable structs affects Foundation Models output quality. Put summaries LAST for better streaming UX and generation quality.",
-    "source": "WWDC25-301"
+    "source": "WWDC25-301",
+    "docUrl": "https://developer.apple.com/documentation/foundationmodels"
   },
   {
     "year": 2025,
     "type": "perf",
     "label": "PERFORMANCE",
     "text": "SwiftUI Lists are 6x faster for large data sets. ForEach initialization is 16x faster. These gains are automatic with no code changes.",
-    "source": "WWDC25-306, 256"
+    "source": "WWDC25-306, 256",
+    "docUrl": "https://developer.apple.com/documentation/swiftui"
   },
   {
     "year": 2025,
     "type": "hidden",
     "label": "HIDDEN GEM",
     "text": "SwiftUI's visualEffect modifier runs on background threads. Never access @MainActor state inside it or you'll get concurrency violations.",
-    "source": "WWDC25-266"
+    "source": "WWDC25-266",
+    "docUrl": "https://developer.apple.com/documentation/swiftui"
   },
   {
     "year": 2025,
     "type": "practice",
     "label": "BEST PRACTICE",
     "text": "For libraries, prefer 'nonisolated' over '@concurrent'. Let the caller decide whether to offload work to a background thread.",
-    "source": "WWDC25-268"
+    "source": "WWDC25-268",
+    "docUrl": "https://developer.apple.com/documentation/swift/concurrency"
   },
   {
     "year": 2025,
     "type": "warning",
     "label": "DEPRECATION",
     "text": "SceneKit is officially soft-deprecated. RealityKit with ECS architecture is the path forward. Start migration planning now.",
-    "source": "WWDC25-288"
+    "source": "WWDC25-288",
+    "docUrl": "https://developer.apple.com/documentation/realitykit"
   },
   {
     "year": 2025,
     "type": "hidden",
     "label": "HIDDEN GEM",
     "text": "session.prewarm(promptPrefix:) can eliminate Foundation Models asset loading latency. Call it when the user navigates to a screen that will use AI.",
-    "source": "WWDC25-301"
+    "source": "WWDC25-301",
+    "docUrl": "https://developer.apple.com/documentation/foundationmodels"
   },
   {
     "year": 2025,
@@ -2510,7 +2664,8 @@
     "type": "practice",
     "label": "BEST PRACTICE",
     "text": "Quantum-secure TLS is enabled by DEFAULT in iOS 26. Your app gets post-quantum protection automatically if using URLSession/Network.framework.",
-    "source": "WWDC25-314"
+    "source": "WWDC25-314",
+    "docUrl": "https://developer.apple.com/documentation/foundation/urlsession"
   },
   {
     "year": 2025,
@@ -2524,7 +2679,8 @@
     "type": "warning",
     "label": "DEPRECATION",
     "text": "On-Demand Resources is deprecated. Background Assets with 200GB Apple hosting replaces it completely.",
-    "source": "WWDC25-325"
+    "source": "WWDC25-325",
+    "docUrl": "https://developer.apple.com/documentation/backgroundassets"
   },
   {
     "year": 2025,
@@ -2538,14 +2694,16 @@
     "type": "practice",
     "label": "BEST PRACTICE",
     "text": "In Swift 6.2, async functions no longer eagerly offload. A nonisolated async function called from @MainActor stays on the main actor unless marked @concurrent.",
-    "source": "WWDC25-245"
+    "source": "WWDC25-245",
+    "docUrl": "https://developer.apple.com/documentation/swift/concurrency"
   },
   {
     "year": 2025,
     "type": "hidden",
     "label": "HIDDEN GEM",
     "text": "App Intents now support the 'Use Model' Shortcuts action, letting users build AI-powered automations that run your app's Foundation Models sessions.",
-    "source": "WWDC25-275"
+    "source": "WWDC25-275",
+    "docUrl": "https://developer.apple.com/documentation/foundationmodels"
   },
   {
     "year": 2025,
@@ -2566,6 +2724,7 @@
     "type": "perf",
     "label": "PERFORMANCE",
     "text": "The new SwiftUI Instrument shows cause-and-effect graphs: which state change caused which view body evaluation. Essential for performance debugging.",
-    "source": "WWDC25-306"
+    "source": "WWDC25-306",
+    "docUrl": "https://developer.apple.com/documentation/swiftui"
   }
 ]

@@ -19,7 +19,8 @@ GEMS_OUTPUT = PROJECT_ROOT / "data" / "all-gems.json"
 
 GEM_PATTERN = re.compile(
     r'\{\s*type\s*:\s*"([^"]+)"\s*,\s*label\s*:\s*"([^"]+)"\s*,'
-    r'\s*text\s*:\s*"((?:[^"\\]|\\.)*)"\s*,\s*source\s*:\s*"([^"]+)"\s*\}',
+    r'\s*text\s*:\s*"((?:[^"\\]|\\.)*)"\s*,\s*source\s*:\s*"([^"]+)"'
+    r'(?:\s*,\s*docUrl\s*:\s*"([^"]+)")?\s*\}',
     re.DOTALL,
 )
 
@@ -37,20 +38,23 @@ def main() -> int:
             continue
         matches = GEM_PATTERN.findall(m.group(1))
         print(f"  {year}: {len(matches)} gems")
-        for type_, label, text, source in matches:
+        for type_, label, text, source, docUrl in matches:
             text_clean = (
                 text.replace('\\"', '"')
                 .replace("\\'", "'")
                 .replace("\\n", " ")
                 .replace("\\\\", "\\")
             )
-            all_gems.append({
+            entry = {
                 "year": year,
                 "type": type_,
                 "label": label,
                 "text": text_clean,
                 "source": source,
-            })
+            }
+            if docUrl:
+                entry["docUrl"] = docUrl
+            all_gems.append(entry)
 
     print(f"\nTotal gems: {len(all_gems)}")
     GEMS_OUTPUT.parent.mkdir(parents=True, exist_ok=True)

@@ -116,6 +116,9 @@
   .gem-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 20px; cursor: pointer; transition: all 0.2s; text-decoration: none; color: inherit; display: block; }
   .gem-card:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: 0 4px 16px rgba(99,102,241,0.12); }
   .gem-card .gem-source-link { color: var(--accent2); text-decoration: none; }
+  .gem-card .gem-doc-link { color: var(--text-faint, #5a5a70); text-decoration: none; margin-left: 8px; transition: color 0.15s; }
+  .gem-card .gem-doc-link:hover { color: var(--accent2, #818cf8); }
+  .gem-card .gem-doc-link::before { content: "·  "; color: var(--text-faint, #5a5a70); }
   .gem-card.hidden-by-filter { display: none; }
   .gem-card .gem-type { font-size: 0.75em; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; }
   .gem-card .gem-type.practice { color: var(--green); }
@@ -545,35 +548,35 @@ const clusters = [
 
 // Hidden gems & best practices
 const gems = [
-  {type:"warning",label:"URGENT",text:"Semaphores, condition variables, and dispatch_semaphore_wait are UNSAFE inside Swift Concurrency tasks. They hide dependencies from the runtime and can deadlock the cooperative thread pool. Set LIBDISPATCH_COOPERATIVE_POOL_STRICT=1 in Xcode to assert on violations.",source:"WWDC21-10254"},
-  {type:"hidden",label:"HIDDEN GEM",text:"URL itself has .lines and .bytes async sequence accessors. for try await line in url.lines { … } streams a remote JSON-Lines endpoint OR a local file with no URLSession or FileHandle setup at all.",source:"WWDC21-10058"},
-  {type:"practice",label:"BEST PRACTICE",text:"Mark UI-facing observable objects with @MainActor so the SwiftUI run-loop ordering of objectWillChange → state mutation → next tick is guaranteed. Mutating from off-main-actor can silently swallow updates.",source:"WWDC21-10019"},
-  {type:"perf",label:"PERFORMANCE",text:"Swift Concurrency's cooperative pool spawns ONLY as many threads as CPU cores. Compare to GCD which can spawn 64+ on contention. Thread explosion is impossible by construction when you stay inside the async/actor world.",source:"WWDC21-10254"},
+  {type:"warning",label:"URGENT",text:"Semaphores, condition variables, and dispatch_semaphore_wait are UNSAFE inside Swift Concurrency tasks. They hide dependencies from the runtime and can deadlock the cooperative thread pool. Set LIBDISPATCH_COOPERATIVE_POOL_STRICT=1 in Xcode to assert on violations.",source:"WWDC21-10254", docUrl:"https://developer.apple.com/documentation/swift/concurrency"},
+  {type:"hidden",label:"HIDDEN GEM",text:"URL itself has .lines and .bytes async sequence accessors. for try await line in url.lines { … } streams a remote JSON-Lines endpoint OR a local file with no URLSession or FileHandle setup at all.",source:"WWDC21-10058", docUrl:"https://developer.apple.com/documentation/foundation/urlsession"},
+  {type:"practice",label:"BEST PRACTICE",text:"Mark UI-facing observable objects with @MainActor so the SwiftUI run-loop ordering of objectWillChange → state mutation → next tick is guaranteed. Mutating from off-main-actor can silently swallow updates.",source:"WWDC21-10019", docUrl:"https://developer.apple.com/documentation/swiftui"},
+  {type:"perf",label:"PERFORMANCE",text:"Swift Concurrency's cooperative pool spawns ONLY as many threads as CPU cores. Compare to GCD which can spawn 64+ on contention. Thread explosion is impossible by construction when you stay inside the async/actor world.",source:"WWDC21-10254", docUrl:"https://developer.apple.com/documentation/swift/concurrency"},
   {type:"hidden",label:"HIDDEN GEM",text:"Actor hopping is NOT a thread switch when uncontended — the runtime turns the existing thread's work item into the new actor's work item. Two-call ping-pong is O(function-call), not O(context-switch). MainActor hops ARE real switches; batch your work.",source:"WWDC21-10254"},
-  {type:"warning",label:"URGENT",text:"AVCaptureDevice.videoHDREnabled is actually EDR (alternating-exposure highlight recovery), NOT 10-bit HDR. The genuinely-new 10-bit HDR video uses pixel format x420 (kCVPixelFormatType_420YpCbCr10BiPlanarVideoRange).",source:"WWDC21-10047"},
+  {type:"warning",label:"URGENT",text:"AVCaptureDevice.videoHDREnabled is actually EDR (alternating-exposure highlight recovery), NOT 10-bit HDR. The genuinely-new 10-bit HDR video uses pixel format x420 (kCVPixelFormatType_420YpCbCr10BiPlanarVideoRange).",source:"WWDC21-10047", docUrl:"https://developer.apple.com/documentation/avfoundation/cameras-and-media-capture"},
   {type:"hidden",label:"HIDDEN GEM",text:"GCVirtualController is an Apple-vended on-screen joystick UI that appears to your code as a regular GCController. Customizable button shapes via Bezier paths. Replaces hand-rolled touch overlays with no input-handling code changes.",source:"WWDC21-10081"},
   {type:"practice",label:"BEST PRACTICE",text:"For Group Activities, ALWAYS call prepareForActivation() first, not activate(). The system shows the user a sheet asking whether to share or play locally. This consent step is mandatory and prevents surprising the user.",source:"WWDC21-10183"},
-  {type:"hidden",label:"HIDDEN GEM",text:"GroupSession's messaging channel is end-to-end encrypted, even from Apple. The framework explicitly states no one outside your app on the device can read the data. Free private channel for any custom multi-device experience.",source:"WWDC21-10183"},
+  {type:"hidden",label:"HIDDEN GEM",text:"GroupSession's messaging channel is end-to-end encrypted, even from Apple. The framework explicitly states no one outside your app on the device can read the data. Free private channel for any custom multi-device experience.",source:"WWDC21-10183", docUrl:"https://developer.apple.com/documentation/groupactivities"},
   {type:"warning",label:"URGENT",text:"Default UNNotificationContent interruption level is .active and that's wrong for most apps. Audit every notification and lower most to .passive. .timeSensitive breaks through Focus and Notification Summary — use only for genuinely urgent (delivery, account security, transit).",source:"WWDC21-10091"},
-  {type:"practice",label:"BEST PRACTICE",text:"Use accessibilityRepresentation(representation:) for custom controls — wrap your bespoke view's accessibility behind a stock Slider/Toggle/Stepper. You inherit ALL platform behaviors with one modifier.",source:"WWDC21-10119"},
+  {type:"practice",label:"BEST PRACTICE",text:"Use accessibilityRepresentation(representation:) for custom controls — wrap your bespoke view's accessibility behind a stock Slider/Toggle/Stepper. You inherit ALL platform behaviors with one modifier.",source:"WWDC21-10119", docUrl:"https://developer.apple.com/accessibility/"},
   {type:"hidden",label:"HIDDEN GEM",text:"Object Capture: iPhone 12 Pro/Pro Max images embed depth+gravity automatically. The HelloPhotogrammetry CLI sample lets you produce a USDZ from a folder of photos before writing a single line of code.",source:"WWDC21-10076"},
   {type:"perf",label:"PERFORMANCE",text:"iOS 15 collection-view cell prefetching gives apps up to ~2x more lead-time (almost two visual frames) before display. Free if you build for iOS 15 SDK — no code changes needed.",source:"WWDC21-10059, 10252"},
-  {type:"hidden",label:"HIDDEN GEM",text:"AsyncImage(url:) — finally a built-in remote image loader in SwiftUI. Use the phase-based overload for placeholder, error, animated success states.",source:"WWDC21-10018"},
-  {type:"practice",label:"BEST PRACTICE",text:"Use Quick Note via NSUserActivity. The same identifier (must be unique, global, stable) powers Handoff, Spotlight, Reminders, Quick Note, and state restoration. Never use file paths or session IDs as identifiers.",source:"WWDC21-10264"},
+  {type:"hidden",label:"HIDDEN GEM",text:"AsyncImage(url:) — finally a built-in remote image loader in SwiftUI. Use the phase-based overload for placeholder, error, animated success states.",source:"WWDC21-10018", docUrl:"https://developer.apple.com/documentation/swiftui"},
+  {type:"practice",label:"BEST PRACTICE",text:"Use Quick Note via NSUserActivity. The same identifier (must be unique, global, stable) powers Handoff, Spotlight, Reminders, Quick Note, and state restoration. Never use file paths or session IDs as identifiers.",source:"WWDC21-10264", docUrl:"https://developer.apple.com/documentation/appintents"},
   {type:"hidden",label:"HIDDEN GEM",text:"NotificationCenter.notifications(named:) is now an AsyncSequence — for await note in NotificationCenter.default.notifications(named: …) replaces the add-observer/remove-observer dance entirely.",source:"WWDC21-10058"},
-  {type:"warning",label:"DEPRECATION",text:"loadValuesAsynchronously(forKeys:) on AVAsset is being deprecated for Swift. Switch to try await asset.load(.duration, .tracks) — multi-property loading is batched in one round-trip.",source:"WWDC21-10146"},
+  {type:"warning",label:"DEPRECATION",text:"loadValuesAsynchronously(forKeys:) on AVAsset is being deprecated for Swift. Switch to try await asset.load(.duration, .tracks) — multi-property loading is batched in one round-trip.",source:"WWDC21-10146", docUrl:"https://developer.apple.com/documentation/avfoundation"},
   {type:"perf",label:"PERFORMANCE",text:"MainActor hops are real thread switches because main is disjoint from the cooperative pool. Batch work that touches MainActor: process arrays in one hop instead of looping with one hop per element.",source:"WWDC21-10254"},
-  {type:"hidden",label:"HIDDEN GEM",text:"StoreKit 2 transactions are JSON Web Signatures (JWS) — a web standard. Server-side verification works with any JWS library; you don't need an Apple-specific receipt validator any more.",source:"WWDC21-10114"},
+  {type:"hidden",label:"HIDDEN GEM",text:"StoreKit 2 transactions are JSON Web Signatures (JWS) — a web standard. Server-side verification works with any JWS library; you don't need an Apple-specific receipt validator any more.",source:"WWDC21-10114", docUrl:"https://developer.apple.com/documentation/storekit"},
   {type:"practice",label:"BEST PRACTICE",text:"Use .task instead of .onAppear { Task { … } }. .task is async by default, ties the lifetime to the view, and cancels automatically on disappear. No manual cancellation token to manage.",source:"WWDC21-10018, 10019"},
-  {type:"hidden",label:"HIDDEN GEM",text:"DocC was open-sourced in late 2021. The CLI plus a static-site web app (Swift-DocC-Render) is on github.com/apple/swift-docc — render archives outside Xcode and host on your own infrastructure.",source:"WWDC21-10166"},
+  {type:"hidden",label:"HIDDEN GEM",text:"DocC was open-sourced in late 2021. The CLI plus a static-site web app (Swift-DocC-Render) is on github.com/apple/swift-docc — render archives outside Xcode and host on your own infrastructure.",source:"WWDC21-10166", docUrl:"https://developer.apple.com/documentation/docc"},
   {type:"perf",label:"PERFORMANCE",text:"Bindless rendering with Metal argument buffers cuts CPU overhead by 10-50% for scenes with hundreds of materials. Replace per-draw setVertexBuffer/setFragmentTexture calls with a single argument buffer holding a heap of resources.",source:"WWDC21-10286"},
   {type:"warning",label:"URGENT",text:"App Store Privacy: iCloud Private Relay rewrites Safari and unencrypted-app traffic via two-hop proxies. Server-side IP geolocation will see relay IPs in known ranges. Audit hardcoded http:// URLs and IP-based logic before users opt in.",source:"WWDC21-10096"},
-  {type:"hidden",label:"HIDDEN GEM",text:"RealityKit 2's CharacterControllerComponent gives you a capsule-shaped physical controller that interacts with LiDAR-generated room mesh. move(to:) honors obstacles; teleport(to:) ignores them. Drop-in collision-aware avatar movement.",source:"WWDC21-10074"},
+  {type:"hidden",label:"HIDDEN GEM",text:"RealityKit 2's CharacterControllerComponent gives you a capsule-shaped physical controller that interacts with LiDAR-generated room mesh. move(to:) honors obstacles; teleport(to:) ignores them. Drop-in collision-aware avatar movement.",source:"WWDC21-10074", docUrl:"https://developer.apple.com/documentation/realitykit"},
   {type:"practice",label:"BEST PRACTICE",text:"For Time Sensitive notifications you need the com.apple.developer.usernotifications.time-sensitive entitlement, but it's a self-grant via Xcode Capabilities — no review process for the basic level.",source:"WWDC21-10091"},
-  {type:"hidden",label:"HIDDEN GEM",text:"In SwiftUI, .privacySensitive() auto-redacts a view in widgets-on-Lock-Screen, watchOS Always-On display, and AOD modes. One modifier, three platforms covered.",source:"WWDC21-10018"},
+  {type:"hidden",label:"HIDDEN GEM",text:"In SwiftUI, .privacySensitive() auto-redacts a view in widgets-on-Lock-Screen, watchOS Always-On display, and AOD modes. One modifier, three platforms covered.",source:"WWDC21-10018", docUrl:"https://developer.apple.com/documentation/swiftui"},
   {type:"perf",label:"PERFORMANCE",text:"HTTP/3 connection setup drops from 2 round-trips (TCP+TLS) to 1 (QUIC+TLS combined). Per-stream packet loss doesn't head-of-line block other streams. Connection migration across Wi-Fi → cellular happens with no new handshake.",source:"WWDC21-10094"},
-  {type:"hidden",label:"HIDDEN GEM",text:"FocusState property wrapper in SwiftUI: @FocusState var field: Field?, then .focused($field, equals: .someCase). Programmatically move keyboard focus, dismiss with field = nil.",source:"WWDC21-10018, 10023"},
-  {type:"practice",label:"BEST PRACTICE",text:"For Mac Catalyst pop-up buttons: changesSelectionAsPrimaryAction=true + showsMenuAsPrimaryAction=true + non-nil menu = real macOS pop-up. Without all three you get a different style. Easy to misconfigure.",source:"WWDC21-10052"},
+  {type:"hidden",label:"HIDDEN GEM",text:"FocusState property wrapper in SwiftUI: @FocusState var field: Field?, then .focused($field, equals: .someCase). Programmatically move keyboard focus, dismiss with field = nil.",source:"WWDC21-10018, 10023", docUrl:"https://developer.apple.com/documentation/swiftui"},
+  {type:"practice",label:"BEST PRACTICE",text:"For Mac Catalyst pop-up buttons: changesSelectionAsPrimaryAction=true + showsMenuAsPrimaryAction=true + non-nil menu = real macOS pop-up. Without all three you get a different style. Easy to misconfigure.",source:"WWDC21-10052", docUrl:"https://developer.apple.com/documentation/uikit/mac_catalyst"},
   {type:"hidden",label:"HIDDEN GEM",text:"Center Stage uses the M1 iPad Pro's 12MP Ultra Wide front camera and works in EVERY video conferencing app system-wide via Control Center — no app changes needed. Adopt the cooperative control mode to add your own UI toggle.",source:"WWDC21-10047"}
 ];
 
@@ -696,11 +699,17 @@ function renderClusters() {
 }
 
 // Build the source label as a clickable link to the FIRST session referenced
-function buildSourceLink(source) {
+function buildSourceLink(source, docUrl) {
   const ids = extractSessionIds(source);
-  if (ids.length === 0) return `<span>${source}</span>`;
-  const primary = ids[0];
-  return `<a class="gem-source-link" href="${sessionUrl(primary)}" target="_blank" rel="noopener" onclick="event.stopPropagation();">${source} &rarr;</a>`;
+  let videoLink;
+  if (ids.length === 0) {
+    videoLink = `<span>${source}</span>`;
+  } else {
+    const primary = ids[0];
+    videoLink = `<a class="gem-source-link" href="${sessionUrl(primary)}" target="_blank" rel="noopener" onclick="event.stopPropagation();">${source} &rarr;</a>`;
+  }
+  const docLink = docUrl ? `<a class="gem-doc-link" href="${docUrl}" target="_blank" rel="noopener" onclick="event.stopPropagation();" title="Apple documentation">docs</a>` : '';
+  return videoLink + docLink;
 }
 
 // Make whole gem card clickable to first session
@@ -734,7 +743,7 @@ function renderGems() {
     <div class="gem-card" data-label="${g.label}" ${gemClickHandler(g.source)}>
       <div class="gem-type ${g.type}">${g.label}</div>
       <div class="gem-text">${g.text}</div>
-      <div class="gem-source">${buildSourceLink(g.source)}</div>
+      <div class="gem-source">${buildSourceLink(g.source, g.docUrl)}</div>
     </div>
   `).join('');
   document.getElementById('gems-grid').innerHTML = html;
@@ -752,7 +761,7 @@ function renderDeltas() {
     <div class="gem-card" data-label="${d.label}" ${gemClickHandler(d.source)}>
       <div class="gem-type delta">${d.label}</div>
       <div class="gem-text">${d.text}</div>
-      <div class="gem-source">${buildSourceLink(d.source)}</div>
+      <div class="gem-source">${buildSourceLink(d.source, d.docUrl)}</div>
     </div>
   `).join('');
   document.getElementById('deltas-grid').innerHTML = html;

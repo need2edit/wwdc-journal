@@ -116,6 +116,9 @@
   .gem-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 20px; cursor: pointer; transition: all 0.2s; text-decoration: none; color: inherit; display: block; }
   .gem-card:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: 0 4px 16px rgba(99,102,241,0.12); }
   .gem-card .gem-source-link { color: var(--accent2); text-decoration: none; }
+  .gem-card .gem-doc-link { color: var(--text-faint, #5a5a70); text-decoration: none; margin-left: 8px; transition: color 0.15s; }
+  .gem-card .gem-doc-link:hover { color: var(--accent2, #818cf8); }
+  .gem-card .gem-doc-link::before { content: "·  "; color: var(--text-faint, #5a5a70); }
   .gem-card.hidden-by-filter { display: none; }
   .gem-card .gem-type { font-size: 0.75em; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; }
   .gem-card .gem-type.practice { color: var(--green); }
@@ -457,42 +460,42 @@ const clusters = [
 
 // Hidden gems & best practices -- WWDC 2024
 const gems = [
-  {type:"warning",label:"URGENT",text:"Adopt the Swift 6 language mode incrementally PER TARGET. Set 'Swift Concurrency Checking' to 'Complete' first to get warnings, fix them, then flip 'Swift Language Mode' to Swift 6 to lock in.",source:"WWDC24-10169"},
-  {type:"hidden",label:"HIDDEN GEM",text:"In Xcode 16's SDK, all SwiftUI views are now @MainActor automatically. You can REMOVE explicit @MainActor annotations from your view types -- they're redundant.",source:"WWDC24-10169, 10144"},
+  {type:"warning",label:"URGENT",text:"Adopt the Swift 6 language mode incrementally PER TARGET. Set 'Swift Concurrency Checking' to 'Complete' first to get warnings, fix them, then flip 'Swift Language Mode' to Swift 6 to lock in.",source:"WWDC24-10169", docUrl:"https://developer.apple.com/documentation/swift/concurrency"},
+  {type:"hidden",label:"HIDDEN GEM",text:"In Xcode 16's SDK, all SwiftUI views are now @MainActor automatically. You can REMOVE explicit @MainActor annotations from your view types -- they're redundant.",source:"WWDC24-10169, 10144", docUrl:"https://developer.apple.com/documentation/swiftui"},
   {type:"practice",label:"BEST PRACTICE",text:"When migrating to Swift 6, start at the UI/extension target FIRST -- not your library/framework. UI code is easiest to fix and produces fewer warnings to clean.",source:"WWDC24-10169"},
   {type:"hidden",label:"HIDDEN GEM",text:"For unmaintained frameworks emitting non-isolated callbacks, use @preconcurrency on the protocol conformance. It generates assumeIsolated calls that trap (instead of corrupt) if the contract is violated.",source:"WWDC24-10169"},
-  {type:"perf",label:"PERFORMANCE",text:"Core ML stateful models with KV-cache deliver a 1.6x speedup for token generation on Mistral 7B. Just preallocate state via model.makeState() instead of input/output buffers.",source:"WWDC24-10161"},
-  {type:"hidden",label:"HIDDEN GEM",text:"iOS 18 makes many Core ML models faster automatically -- WITHOUT recompiling. The OS-level inference stack improvements apply to existing model files.",source:"WWDC24-10161"},
+  {type:"perf",label:"PERFORMANCE",text:"Core ML stateful models with KV-cache deliver a 1.6x speedup for token generation on Mistral 7B. Just preallocate state via model.makeState() instead of input/output buffers.",source:"WWDC24-10161", docUrl:"https://developer.apple.com/documentation/coreml"},
+  {type:"hidden",label:"HIDDEN GEM",text:"iOS 18 makes many Core ML models faster automatically -- WITHOUT recompiling. The OS-level inference stack improvements apply to existing model files.",source:"WWDC24-10161", docUrl:"https://developer.apple.com/documentation/coreml"},
   {type:"practice",label:"BEST PRACTICE",text:"Translation API batches: Group requests by source language. Mixing German + Spanish in one batch produces nonsense. Use separate batches in the same TranslationSession.",source:"WWDC24-10117"},
   {type:"warning",label:"URGENT",text:"TranslationSession is anchored to its view -- if the view disappears, the session breaks. NEVER store it in a model object or singleton.",source:"WWDC24-10117"},
   {type:"hidden",label:"HIDDEN GEM",text:"Translation APIs DO NOT FUNCTION IN THE SIMULATOR. You must develop on iPhone, iPad, or Mac. Builds will compile but runtime calls fail silently.",source:"WWDC24-10117"},
   {type:"perf",label:"PERFORMANCE",text:"For large data sets in MPS Graph, use the new strided ND-array API for Fourier transforms. Significant speedup over the previous kernel-based approach.",source:"WWDC24-10218"},
-  {type:"practice",label:"BEST PRACTICE",text:"App Intents parameter rule: parameters that refer to entities should be ENTITIES, not IDs or names. So `OpenTrailIntent(target: TrailEntity)`, NOT `OpenTrailIntent(name: String)`.",source:"WWDC24-10210"},
-  {type:"hidden",label:"HIDDEN GEM",text:"With iOS 18 SDK, App Intents derives string-search and predicate-search from `EnumerableEntityQuery` automatically. You usually only need allEntities() -- skip the more complex protocols.",source:"WWDC24-10210"},
+  {type:"practice",label:"BEST PRACTICE",text:"App Intents parameter rule: parameters that refer to entities should be ENTITIES, not IDs or names. So `OpenTrailIntent(target: TrailEntity)`, NOT `OpenTrailIntent(name: String)`.",source:"WWDC24-10210", docUrl:"https://developer.apple.com/documentation/appintents"},
+  {type:"hidden",label:"HIDDEN GEM",text:"With iOS 18 SDK, App Intents derives string-search and predicate-search from `EnumerableEntityQuery` automatically. You usually only need allEntities() -- skip the more complex protocols.",source:"WWDC24-10210", docUrl:"https://developer.apple.com/documentation/appintents"},
   {type:"practice",label:"BEST PRACTICE",text:"Apple Intelligence Assistant Schemas: conform with @AssistantIntent(schema: .photos.openAsset). The compiler validates your intent against the trained schema -- missing required fields fail to build.",source:"WWDC24-10133"},
   {type:"hidden",label:"HIDDEN GEM",text:"For App Intent results to Siri, return BOTH dialog AND view: `.result(dialog: \"...\") { Snippet() }`. On HomePod/AirPods, dialog speaks. On screen, snippet shows. Siri picks contextually.",source:"WWDC24-10210"},
-  {type:"perf",label:"PERFORMANCE",text:"3D asset texture packing: combine roughness + metallic + AO into one RGB texture. Up to 40% asset size reduction PLUS lossless compression (single-channel grayscale doesn't compress).",source:"WWDC24-10186"},
-  {type:"hidden",label:"HIDDEN GEM",text:"For visionOS object tracking, your viewing-angle hint (.allAngles, .upright, .front) dramatically affects training quality. Pick correctly to skip irrelevant viewpoints during ML training.",source:"WWDC24-10101"},
+  {type:"perf",label:"PERFORMANCE",text:"3D asset texture packing: combine roughness + metallic + AO into one RGB texture. Up to 40% asset size reduction PLUS lossless compression (single-channel grayscale doesn't compress).",source:"WWDC24-10186", docUrl:"https://developer.apple.com/documentation/combine"},
+  {type:"hidden",label:"HIDDEN GEM",text:"For visionOS object tracking, your viewing-angle hint (.allAngles, .upright, .front) dramatically affects training quality. Pick correctly to skip irrelevant viewpoints during ML training.",source:"WWDC24-10101", docUrl:"https://developer.apple.com/documentation/visionos"},
   {type:"warning",label:"URGENT",text:"In mixed immersion Metal apps, you MUST use the new scene-aware projection matrix (cp_view_compute_projection). The old projection matrix from compositor services no longer works.",source:"WWDC24-10092"},
-  {type:"hidden",label:"HIDDEN GEM",text:"In visionOS 2, volumes inherit min/max size FROM CONTENT FRAMES. To enable corner-handle resize, change `.frame(width: ...)` to `.frame(minWidth: ...)`. One change unlocks resize.",source:"WWDC24-10153"},
+  {type:"hidden",label:"HIDDEN GEM",text:"In visionOS 2, volumes inherit min/max size FROM CONTENT FRAMES. To enable corner-handle resize, change `.frame(width: ...)` to `.frame(minWidth: ...)`. One change unlocks resize.",source:"WWDC24-10153", docUrl:"https://developer.apple.com/documentation/visionos"},
   {type:"practice",label:"BEST PRACTICE",text:"Writing Tools modifies your text storage IN-PLACE while active, including pushing to undo. Don't persist your text storage when isWritingToolsActive==true. Use the new will/did delegate methods.",source:"WWDC24-10168"},
-  {type:"hidden",label:"HIDDEN GEM",text:"WKWebView's Writing Tools default is .limited (panel only), NOT .complete (inline). Set writingToolsBehavior explicitly if you want the full inline experience in WebKit-based content.",source:"WWDC24-10168"},
-  {type:"perf",label:"PERFORMANCE",text:"Swift Testing parallelizes test functions BY DEFAULT, including parameterized cases. Each argument runs as an independent test that can re-run individually in Xcode 16.",source:"WWDC24-10179, 10195"},
+  {type:"hidden",label:"HIDDEN GEM",text:"WKWebView's Writing Tools default is .limited (panel only), NOT .complete (inline). Set writingToolsBehavior explicitly if you want the full inline experience in WebKit-based content.",source:"WWDC24-10168", docUrl:"https://developer.apple.com/documentation/webkit"},
+  {type:"perf",label:"PERFORMANCE",text:"Swift Testing parallelizes test functions BY DEFAULT, including parameterized cases. Each argument runs as an independent test that can re-run individually in Xcode 16.",source:"WWDC24-10179, 10195", docUrl:"https://developer.apple.com/documentation/testing"},
   {type:"practice",label:"BEST PRACTICE",text:"Use #require instead of XCTUnwrap for optional values: `let v = try #require(maybeNil)`. Test stops cleanly if nil; works in async/throwing contexts.",source:"WWDC24-10179"},
   {type:"hidden",label:"HIDDEN GEM",text:"withKnownIssue is strictly better than .disabled for flaky tests. The test still compiles and runs; expected failures don't break CI; you're alerted when the issue is fixed.",source:"WWDC24-10195"},
   {type:"perf",label:"PERFORMANCE",text:"Explicitly Built Modules in Xcode 16 -- enable for Swift in build settings. Better build parallelism + LLDB reuses build modules instead of re-building (huge first-`p` speedup).",source:"WWDC24-10171, 10135"},
-  {type:"warning",label:"DEPRECATION",text:"On-Demand Resources is deprecated. Migrate to Background Assets. Custom in-app purchase flows may also be affected by App Store server API v1 deprecations.",source:"WWDC24-10061"},
+  {type:"warning",label:"DEPRECATION",text:"On-Demand Resources is deprecated. Migrate to Background Assets. Custom in-app purchase flows may also be affected by App Store server API v1 deprecations.",source:"WWDC24-10061", docUrl:"https://developer.apple.com/documentation/backgroundassets"},
   {type:"hidden",label:"HIDDEN GEM",text:"Spotlight semantic search (NEW in iOS 18) finds entities by MEANING -- searching 'pets' finds entities tagged with cats, dogs, snakes. Adopt IndexedEntity to opt your AppEntities in.",source:"WWDC24-10131, 10134"},
   {type:"practice",label:"BEST PRACTICE",text:"For LLDB high-firing breakpoints: a Swift Error breakpoint stops on ANY thrown error -- often more precise than ignoring counts or recompiling with conditionals.",source:"WWDC24-10198"},
   {type:"hidden",label:"HIDDEN GEM",text:"Swift's @DebugDescription macro is strictly better than CustomDebugStringConvertible for string-interpolation descriptions. The macro produces output `p` understands without evaluating code.",source:"WWDC24-10198"},
-  {type:"perf",label:"PERFORMANCE",text:"For autorelease pool growth in tight loops touching Foundation/UIKit, wrap loop bodies in `autoreleasepool { ... }`. Especially critical when generating thumbnails or processing collections of files.",source:"WWDC24-10173"},
+  {type:"perf",label:"PERFORMANCE",text:"For autorelease pool growth in tight loops touching Foundation/UIKit, wrap loop bodies in `autoreleasepool { ... }`. Especially critical when generating thumbnails or processing collections of files.",source:"WWDC24-10173", docUrl:"https://developer.apple.com/documentation/uikit"},
   {type:"warning",label:"URGENT",text:"Lock-Screen Camera Capture extensions MUST show a viewfinder immediately at launch -- or get terminated. They also CANNOT use network or shared containers. Plan around this.",source:"WWDC24-10204"},
-  {type:"hidden",label:"HIDDEN GEM",text:"PhotoKit on the Lock Screen: when device is locked, only photos written DURING the current capture session are readable. Privacy by default -- no leak of older photos.",source:"WWDC24-10204"},
-  {type:"practice",label:"BEST PRACTICE",text:"Automatic passkey upgrades: pass `.requestStyle = .conditional`. The system silently creates a passkey after password sign-in if conditions are met. NO upsell screen -- delete that code.",source:"WWDC24-10125"},
-  {type:"hidden",label:"HIDDEN GEM",text:"For RealityKit portal crossing in visionOS 2, use EnvironmentLightingConfigurationComponent + a 0..1 weight to smoothly blend IBL across the portal surface. Avoids the harsh light cutoff at the boundary.",source:"WWDC24-10103"},
-  {type:"perf",label:"PERFORMANCE",text:"Polygon budget for Vision Pro: <500K triangles for immersive scenes; <250K for shared space; aim for ~100K visible at any one time. Split large models into chunks for culling.",source:"WWDC24-10186"},
-  {type:"practice",label:"BEST PRACTICE",text:"For accessibility on cards/rows, use .accessibilityElement(children: .combine) to merge multiple stops into one element with custom actions. Massive UX win for VoiceOver list navigation.",source:"WWDC24-10073"},
-  {type:"hidden",label:"HIDDEN GEM",text:"In iOS 18, accessibility modifiers accept an isEnabled parameter. Conditional .accessibilityLabel(\"Super favorite\", isEnabled: isSuper) preserves the system default when not active.",source:"WWDC24-10073"}
+  {type:"hidden",label:"HIDDEN GEM",text:"PhotoKit on the Lock Screen: when device is locked, only photos written DURING the current capture session are readable. Privacy by default -- no leak of older photos.",source:"WWDC24-10204", docUrl:"https://developer.apple.com/documentation/photokit"},
+  {type:"practice",label:"BEST PRACTICE",text:"Automatic passkey upgrades: pass `.requestStyle = .conditional`. The system silently creates a passkey after password sign-in if conditions are met. NO upsell screen -- delete that code.",source:"WWDC24-10125", docUrl:"https://developer.apple.com/passkeys/"},
+  {type:"hidden",label:"HIDDEN GEM",text:"For RealityKit portal crossing in visionOS 2, use EnvironmentLightingConfigurationComponent + a 0..1 weight to smoothly blend IBL across the portal surface. Avoids the harsh light cutoff at the boundary.",source:"WWDC24-10103", docUrl:"https://developer.apple.com/documentation/realitykit"},
+  {type:"perf",label:"PERFORMANCE",text:"Polygon budget for Vision Pro: <500K triangles for immersive scenes; <250K for shared space; aim for ~100K visible at any one time. Split large models into chunks for culling.",source:"WWDC24-10186", docUrl:"https://developer.apple.com/documentation/visionos"},
+  {type:"practice",label:"BEST PRACTICE",text:"For accessibility on cards/rows, use .accessibilityElement(children: .combine) to merge multiple stops into one element with custom actions. Massive UX win for VoiceOver list navigation.",source:"WWDC24-10073", docUrl:"https://developer.apple.com/documentation/combine"},
+  {type:"hidden",label:"HIDDEN GEM",text:"In iOS 18, accessibility modifiers accept an isEnabled parameter. Conditional .accessibilityLabel(\"Super favorite\", isEnabled: isSuper) preserves the system default when not active.",source:"WWDC24-10073", docUrl:"https://developer.apple.com/accessibility/"}
 ];
 
 // Doc vs Transcript deltas -- 6 items, mostly DOCS MISS THIS for the most surprising
@@ -615,11 +618,17 @@ function renderClusters() {
 }
 
 // Build the source label as a clickable link to the FIRST session referenced
-function buildSourceLink(source) {
+function buildSourceLink(source, docUrl) {
   const ids = extractSessionIds(source);
-  if (ids.length === 0) return `<span>${source}</span>`;
-  const primary = ids[0];
-  return `<a class="gem-source-link" href="${sessionUrl(primary)}" target="_blank" rel="noopener" onclick="event.stopPropagation();">${source} &rarr;</a>`;
+  let videoLink;
+  if (ids.length === 0) {
+    videoLink = `<span>${source}</span>`;
+  } else {
+    const primary = ids[0];
+    videoLink = `<a class="gem-source-link" href="${sessionUrl(primary)}" target="_blank" rel="noopener" onclick="event.stopPropagation();">${source} &rarr;</a>`;
+  }
+  const docLink = docUrl ? `<a class="gem-doc-link" href="${docUrl}" target="_blank" rel="noopener" onclick="event.stopPropagation();" title="Apple documentation">docs</a>` : '';
+  return videoLink + docLink;
 }
 
 // Make whole gem card clickable to first session
@@ -653,7 +662,7 @@ function renderGems() {
     <div class="gem-card" data-label="${g.label}" ${gemClickHandler(g.source)}>
       <div class="gem-type ${g.type}">${g.label}</div>
       <div class="gem-text">${g.text}</div>
-      <div class="gem-source">${buildSourceLink(g.source)}</div>
+      <div class="gem-source">${buildSourceLink(g.source, g.docUrl)}</div>
     </div>
   `).join('');
   document.getElementById('gems-grid').innerHTML = html;
@@ -671,7 +680,7 @@ function renderDeltas() {
     <div class="gem-card" data-label="${d.label}" ${gemClickHandler(d.source)}>
       <div class="gem-type delta">${d.label}</div>
       <div class="gem-text">${d.text}</div>
-      <div class="gem-source">${buildSourceLink(d.source)}</div>
+      <div class="gem-source">${buildSourceLink(d.source, d.docUrl)}</div>
     </div>
   `).join('');
   document.getElementById('deltas-grid').innerHTML = html;

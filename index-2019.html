@@ -116,6 +116,9 @@
   .gem-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 20px; cursor: pointer; transition: all 0.2s; text-decoration: none; color: inherit; display: block; }
   .gem-card:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: 0 4px 16px rgba(99,102,241,0.12); }
   .gem-card .gem-source-link { color: var(--accent2); text-decoration: none; }
+  .gem-card .gem-doc-link { color: var(--text-faint, #5a5a70); text-decoration: none; margin-left: 8px; transition: color 0.15s; }
+  .gem-card .gem-doc-link:hover { color: var(--accent2, #818cf8); }
+  .gem-card .gem-doc-link::before { content: "·  "; color: var(--text-faint, #5a5a70); }
   .gem-card.hidden-by-filter { display: none; }
   .gem-card .gem-type { font-size: 0.75em; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; }
   .gem-card .gem-type.practice { color: var(--green); }
@@ -491,28 +494,28 @@ const clusters = [
 // Hidden gems & best practices (extracted from the 2019 transcripts)
 const gems = [
   {type:"warning",label:"URGENT",text:"Launch Storyboards become MANDATORY by April 2020 for all iOS 13 SDK apps. Apps still using Launch Images will be rejected by App Review.",source:"WWDC19-224"},
-  {type:"warning",label:"URGENT",text:"Catalyst data protection APIs (.completeFileProtection) silently no-op on macOS. Files are NOT encrypted at rest. Use Keychain or CryptoKit AES.GCM for sensitive data.",source:"WWDC19-205"},
-  {type:"hidden",label:"HIDDEN GEM",text:"SwiftUI sends accessibility notifications automatically when state changes. You no longer need to call UIAccessibility.post() — even for custom controls.",source:"WWDC19-238"},
-  {type:"practice",label:"BEST PRACTICE",text:"In SwiftUI, push conditions INTO modifiers (.rotationEffect(flip ? .degrees(180) : .zero)) instead of branching with if/else. SwiftUI gives you a smooth animation between the two states for free.",source:"WWDC19-216"},
-  {type:"hidden",label:"HIDDEN GEM",text:"In SwiftUI, Text with a string literal is automatically localizable, but Text(stringVariable) passes through unchanged. String interpolation in Text produces a properly-localized format string. No more manual NSLocalizedString wrapping.",source:"WWDC19-204"},
-  {type:"hidden",label:"HIDDEN GEM",text:"Combine's AnyCancellable automatically calls cancel() on deinit. Just store cancellables in a Set<AnyCancellable> ivar and ARC handles everything — no manual cancellation needed.",source:"WWDC19-721"},
-  {type:"practice",label:"BEST PRACTICE",text:"At every API boundary in Combine, call .eraseToAnyPublisher() to hide implementation details. Otherwise the type signature exposes every internal operator.",source:"WWDC19-721"},
+  {type:"warning",label:"URGENT",text:"Catalyst data protection APIs (.completeFileProtection) silently no-op on macOS. Files are NOT encrypted at rest. Use Keychain or CryptoKit AES.GCM for sensitive data.",source:"WWDC19-205", docUrl:"https://developer.apple.com/documentation/cryptokit"},
+  {type:"hidden",label:"HIDDEN GEM",text:"SwiftUI sends accessibility notifications automatically when state changes. You no longer need to call UIAccessibility.post() — even for custom controls.",source:"WWDC19-238", docUrl:"https://developer.apple.com/documentation/swiftui"},
+  {type:"practice",label:"BEST PRACTICE",text:"In SwiftUI, push conditions INTO modifiers (.rotationEffect(flip ? .degrees(180) : .zero)) instead of branching with if/else. SwiftUI gives you a smooth animation between the two states for free.",source:"WWDC19-216", docUrl:"https://developer.apple.com/documentation/swiftui"},
+  {type:"hidden",label:"HIDDEN GEM",text:"In SwiftUI, Text with a string literal is automatically localizable, but Text(stringVariable) passes through unchanged. String interpolation in Text produces a properly-localized format string. No more manual NSLocalizedString wrapping.",source:"WWDC19-204", docUrl:"https://developer.apple.com/documentation/swiftui"},
+  {type:"hidden",label:"HIDDEN GEM",text:"Combine's AnyCancellable automatically calls cancel() on deinit. Just store cancellables in a Set<AnyCancellable> ivar and ARC handles everything — no manual cancellation needed.",source:"WWDC19-721", docUrl:"https://developer.apple.com/documentation/combine"},
+  {type:"practice",label:"BEST PRACTICE",text:"At every API boundary in Combine, call .eraseToAnyPublisher() to hide implementation details. Otherwise the type signature exposes every internal operator.",source:"WWDC19-721", docUrl:"https://developer.apple.com/documentation/combine"},
   {type:"perf",label:"PERFORMANCE",text:"Swift 5 with the in-OS runtime eliminates the historical ~5% launch-time overhead of Swift apps versus Objective-C. App Store also strips the embedded runtime, saving ~30MB on download.",source:"WWDC19-402"},
   {type:"perf",label:"PERFORMANCE",text:"Swift 5 switched String to UTF-8 internally. Passing a Swift String to a C API now requires zero allocation, zero copy, zero transcoding. Dictionary↔NSDictionary bridging is 1.6x faster; String→NSString operations up to 15x faster.",source:"WWDC19-402"},
-  {type:"hidden",label:"HIDDEN GEM",text:"Sign In with Apple's combined startup flow returns the user's existing iCloud Keychain password OR existing Apple ID credential in a single tap, preventing duplicate accounts. Call performRequests with both ASAuthorizationAppleIDProvider AND ASAuthorizationPasswordProvider.",source:"WWDC19-706"},
-  {type:"warning",label:"DEPRECATION",text:"OpenGL ES on iOS and OpenGL/OpenCL on macOS are deprecated. Migrate to Metal, Metal Performance Shaders, and MetalKit. UIWebView is also deprecated — migrate to WKWebView.",source:"WWDC19-611"},
-  {type:"warning",label:"URGENT",text:"VoIP push handlers MUST call CallKit's reportNewIncomingCall() synchronously inside didReceiveIncomingPush. If you fail to do so repeatedly, the system will stop launching your app for VoIP pushes entirely.",source:"WWDC19-707"},
-  {type:"hidden",label:"HIDDEN GEM",text:"Diffable Data Sources (UICollectionViewDiffableDataSource / UITableViewDiffableDataSource) eliminate every performBatchUpdates crash. NSFetchedResultsController in iOS 13 has a snapshot() method that returns an NSDiffableDataSourceSnapshot directly.",source:"WWDC19-220"},
+  {type:"hidden",label:"HIDDEN GEM",text:"Sign In with Apple's combined startup flow returns the user's existing iCloud Keychain password OR existing Apple ID credential in a single tap, preventing duplicate accounts. Call performRequests with both ASAuthorizationAppleIDProvider AND ASAuthorizationPasswordProvider.",source:"WWDC19-706", docUrl:"https://developer.apple.com/sign-in-with-apple/"},
+  {type:"warning",label:"DEPRECATION",text:"OpenGL ES on iOS and OpenGL/OpenCL on macOS are deprecated. Migrate to Metal, Metal Performance Shaders, and MetalKit. UIWebView is also deprecated — migrate to WKWebView.",source:"WWDC19-611", docUrl:"https://developer.apple.com/metal/"},
+  {type:"warning",label:"URGENT",text:"VoIP push handlers MUST call CallKit's reportNewIncomingCall() synchronously inside didReceiveIncomingPush. If you fail to do so repeatedly, the system will stop launching your app for VoIP pushes entirely.",source:"WWDC19-707", docUrl:"https://developer.apple.com/documentation/callkit"},
+  {type:"hidden",label:"HIDDEN GEM",text:"Diffable Data Sources (UICollectionViewDiffableDataSource / UITableViewDiffableDataSource) eliminate every performBatchUpdates crash. NSFetchedResultsController in iOS 13 has a snapshot() method that returns an NSDiffableDataSourceSnapshot directly.",source:"WWDC19-220", docUrl:"https://developer.apple.com/documentation/uikit"},
   {type:"perf",label:"PERFORMANCE",text:"dyld 3 is now used for third-party apps' warm launches in iOS 13. Avoid linking unused frameworks (hidden cost). Avoid dlopen/Bundle.load (forfeits the cache). Hard-link all real dependencies.",source:"WWDC19-423"},
   {type:"practice",label:"BEST PRACTICE",text:"In Dark Mode: CGColor and CALayer don't know about dynamic colors. Setting layer.borderColor = UIColor.label.cgColor resolves once. Override traitCollectionDidChange and re-set CGColors when traitCollection.hasDifferentColorAppearance(comparedTo:) returns true.",source:"WWDC19-214"},
   {type:"hidden",label:"HIDDEN GEM",text:"In Dark Mode, system background colors are LIGHTER at the elevated level (presented sheets, popovers) to differentiate from the black base. Foreground colors stay the same. Light mode behaves identically at both levels.",source:"WWDC19-214"},
-  {type:"perf",label:"PERFORMANCE",text:"On OLED devices (iPhone X/XS), MetricKit's average pixel luminance (APL) directly correlates to battery drain. Lighter UI = more energy. Dark Mode is a measurable battery win on OLED — verify it with MetricKit.",source:"WWDC19-417"},
-  {type:"hidden",label:"HIDDEN GEM",text:"Xcode 11 Development Assets group lets you ship preview-only assets in your project that are automatically stripped from the App Store build. Perfect for placeholder images in SwiftUI Previews.",source:"WWDC19-233"},
-  {type:"practice",label:"BEST PRACTICE",text:"In RealityKit, custom Components (entity-component-system data) automatically network-sync to all peers via MultipeerConnectivity with zero extra code. Just conform to Component & Codable.",source:"WWDC19-603"},
-  {type:"hidden",label:"HIDDEN GEM",text:"RealityKit's ARView automatically applies camera grain matching the live camera image to virtual content. Without it, virtual objects look 'stuck on top' of the camera. With it, they feel embedded.",source:"WWDC19-603"},
+  {type:"perf",label:"PERFORMANCE",text:"On OLED devices (iPhone X/XS), MetricKit's average pixel luminance (APL) directly correlates to battery drain. Lighter UI = more energy. Dark Mode is a measurable battery win on OLED — verify it with MetricKit.",source:"WWDC19-417", docUrl:"https://developer.apple.com/documentation/metrickit"},
+  {type:"hidden",label:"HIDDEN GEM",text:"Xcode 11 Development Assets group lets you ship preview-only assets in your project that are automatically stripped from the App Store build. Perfect for placeholder images in SwiftUI Previews.",source:"WWDC19-233", docUrl:"https://developer.apple.com/documentation/swiftui"},
+  {type:"practice",label:"BEST PRACTICE",text:"In RealityKit, custom Components (entity-component-system data) automatically network-sync to all peers via MultipeerConnectivity with zero extra code. Just conform to Component & Codable.",source:"WWDC19-603", docUrl:"https://developer.apple.com/documentation/realitykit"},
+  {type:"hidden",label:"HIDDEN GEM",text:"RealityKit's ARView automatically applies camera grain matching the live camera image to virtual content. Without it, virtual objects look 'stuck on top' of the camera. With it, they feel embedded.",source:"WWDC19-603", docUrl:"https://developer.apple.com/documentation/realitykit"},
   {type:"warning",label:"URGENT",text:"Notarization is effectively MANDATORY for all macOS apps distributed outside the App Store starting Catalina (Oct 2019). Enable Hardened Runtime, submit via altool, staple the ticket. Includes internal tools and CI artifacts.",source:"WWDC19-703"},
-  {type:"perf",label:"PERFORMANCE",text:"On-device speech recognition (SFSpeechRecognizer.requiresOnDeviceRecognition = true) has no rate or duration limits, unlike server-based recognition. A9+ devices supported.",source:"WWDC19-256"},
-  {type:"practice",label:"BEST PRACTICE",text:"For Combine in URLSession, cancel subscriptions in a UITableViewCell's prepareForReuse() via AnyCancellable. This eliminates the classic 'wrong image in reused cell' bug that has plagued every iOS developer.",source:"WWDC19-712"},
+  {type:"perf",label:"PERFORMANCE",text:"On-device speech recognition (SFSpeechRecognizer.requiresOnDeviceRecognition = true) has no rate or duration limits, unlike server-based recognition. A9+ devices supported.",source:"WWDC19-256", docUrl:"https://developer.apple.com/documentation/speech"},
+  {type:"practice",label:"BEST PRACTICE",text:"For Combine in URLSession, cancel subscriptions in a UITableViewCell's prepareForReuse() via AnyCancellable. This eliminates the classic 'wrong image in reused cell' bug that has plagued every iOS developer.",source:"WWDC19-712", docUrl:"https://developer.apple.com/documentation/combine"},
   {type:"hidden",label:"HIDDEN GEM",text:"In LLDB, use 'v' (or 'frame variable') to inspect known variables instantly without executing any code. Much faster than 'po' which JIT-compiles an expression. Use 'p' over 'po' for richer debugDescription output.",source:"WWDC19-429"},
   {type:"practice",label:"BEST PRACTICE",text:"Test Plans (.xctestplan, new in Xcode 11) let one set of tests run under multiple configurations (localizations, sanitizers, screenshots, environment). Replace per-environment scheme duplication.",source:"WWDC19-413"}
 ];
@@ -638,11 +641,17 @@ function renderClusters() {
 }
 
 // Build the source label as a clickable link to the FIRST session referenced
-function buildSourceLink(source) {
+function buildSourceLink(source, docUrl) {
   const ids = extractSessionIds(source);
-  if (ids.length === 0) return `<span>${source}</span>`;
-  const primary = ids[0];
-  return `<a class="gem-source-link" href="${sessionUrl(primary)}" target="_blank" rel="noopener" onclick="event.stopPropagation();">${source} &rarr;</a>`;
+  let videoLink;
+  if (ids.length === 0) {
+    videoLink = `<span>${source}</span>`;
+  } else {
+    const primary = ids[0];
+    videoLink = `<a class="gem-source-link" href="${sessionUrl(primary)}" target="_blank" rel="noopener" onclick="event.stopPropagation();">${source} &rarr;</a>`;
+  }
+  const docLink = docUrl ? `<a class="gem-doc-link" href="${docUrl}" target="_blank" rel="noopener" onclick="event.stopPropagation();" title="Apple documentation">docs</a>` : '';
+  return videoLink + docLink;
 }
 
 // Make whole gem card clickable to first session
@@ -676,7 +685,7 @@ function renderGems() {
     <div class="gem-card" data-label="${g.label}" ${gemClickHandler(g.source)}>
       <div class="gem-type ${g.type}">${g.label}</div>
       <div class="gem-text">${g.text}</div>
-      <div class="gem-source">${buildSourceLink(g.source)}</div>
+      <div class="gem-source">${buildSourceLink(g.source, g.docUrl)}</div>
     </div>
   `).join('');
   document.getElementById('gems-grid').innerHTML = html;
@@ -694,7 +703,7 @@ function renderDeltas() {
     <div class="gem-card" data-label="${d.label}" ${gemClickHandler(d.source)}>
       <div class="gem-type delta">${d.label}</div>
       <div class="gem-text">${d.text}</div>
-      <div class="gem-source">${buildSourceLink(d.source)}</div>
+      <div class="gem-source">${buildSourceLink(d.source, d.docUrl)}</div>
     </div>
   `).join('');
   document.getElementById('deltas-grid').innerHTML = html;

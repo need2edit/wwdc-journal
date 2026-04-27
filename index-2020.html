@@ -116,6 +116,9 @@
   .gem-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 20px; cursor: pointer; transition: all 0.2s; text-decoration: none; color: inherit; display: block; }
   .gem-card:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: 0 4px 16px rgba(99,102,241,0.12); }
   .gem-card .gem-source-link { color: var(--accent2); text-decoration: none; }
+  .gem-card .gem-doc-link { color: var(--text-faint, #5a5a70); text-decoration: none; margin-left: 8px; transition: color 0.15s; }
+  .gem-card .gem-doc-link:hover { color: var(--accent2, #818cf8); }
+  .gem-card .gem-doc-link::before { content: "·  "; color: var(--text-faint, #5a5a70); }
   .gem-card.hidden-by-filter { display: none; }
   .gem-card .gem-type { font-size: 0.75em; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; }
   .gem-card .gem-type.practice { color: var(--green); }
@@ -552,34 +555,34 @@ const clusters = [
 
 // Hidden gems & best practices
 const gems = [
-  {type:"warning",label:"URGENT",text:"Apple Silicon Macs change PAGE_SIZE from a compile-time constant to a runtime value. Use PAGE_MAX_SIZE for upper bounds at compile time, vm_page_size at runtime. Compile failures here are an early porting signal.",source:"WWDC20-10214"},
-  {type:"warning",label:"URGENT",text:"mach_absolute_time() does NOT return nanoseconds. Its tick frequency varies by CPU architecture. Code assuming nanoseconds runs ~40x slower or faster on Apple Silicon. Switch to clock_gettime(CLOCK_UPTIME_RAW) or use mach_timebase_info to convert.",source:"WWDC20-10214"},
+  {type:"warning",label:"URGENT",text:"Apple Silicon Macs change PAGE_SIZE from a compile-time constant to a runtime value. Use PAGE_MAX_SIZE for upper bounds at compile time, vm_page_size at runtime. Compile failures here are an early porting signal.",source:"WWDC20-10214", docUrl:"https://developer.apple.com/documentation/apple-silicon"},
+  {type:"warning",label:"URGENT",text:"mach_absolute_time() does NOT return nanoseconds. Its tick frequency varies by CPU architecture. Code assuming nanoseconds runs ~40x slower or faster on Apple Silicon. Switch to clock_gettime(CLOCK_UPTIME_RAW) or use mach_timebase_info to convert.",source:"WWDC20-10214", docUrl:"https://developer.apple.com/documentation/apple-silicon"},
   {type:"hidden",label:"HIDDEN GEM",text:"The Apple GPU's SIMD group size is 32, not 64 like AMD. Compute shaders that 'got lucky' assuming SIMD == threadgroup size produce visual artifacts on Apple GPUs. Always query threads_per_simdgroup or threadExecutionWidth.",source:"WWDC20-10631"},
   {type:"warning",label:"DEPRECATION",text:"hitTest is deprecated for AR object placement. Use ARRaycastQuery (single-shot or tracked). On LiDAR devices, raycasting works on featureless surfaces like white walls thanks to scene depth.",source:"WWDC20-10611"},
-  {type:"perf",label:"PERFORMANCE",text:"Swift 5.3 cuts heap memory overhead by over 2/3 vs. Swift 5.2 for apps targeting iOS 14. SwiftUI app code size dropped 40% (MovieSwiftUI). Foundation, OSLog, and runtime caches all became dramatically more efficient.",source:"WWDC20-10170"},
-  {type:"hidden",label:"HIDDEN GEM",text:"@StateObject solves the silent bug where @ObservedObject var store = MyStore() re-allocates the store every render. SwiftUI instantiates @StateObject once before first body. Rule: created in this view = StateObject, passed in = ObservedObject.",source:"WWDC20-10040"},
-  {type:"practice",label:"BEST PRACTICE",text:"In WidgetKit, your widget is NOT a mini-app. No buttons, no scrolling, no animated images, no videos. Use Text(date, style:.relative)/.timer to make widgets feel alive without your extension running.",source:"WWDC20-10028, 10033"},
-  {type:"hidden",label:"HIDDEN GEM",text:"ContainerRelativeShape is the right way to do widget corner radii. Hardcoded .cornerRadius(12) breaks across device shapes. ContainerRelativeShape adopts the path of the nearest container automatically.",source:"WWDC20-10033"},
-  {type:"warning",label:"URGENT",text:"Audio apps creating realtime threads on Apple Silicon MUST join the device's os_workgroup, or threads may be scheduled on E-cores causing glitches. The 'fix' is os_workgroup_join() in your audio thread.",source:"WWDC20-10224"},
-  {type:"warning",label:"URGENT",text:"App Tracking Transparency: Apps must call requestTrackingAuthorization before reading IDFA. If unset, users denied, or system-wide toggle off, IDFA returns all zeros. Add NSUserTrackingUsageDescription and call before every IDFA use.",source:"WWDC20-10676"},
-  {type:"hidden",label:"HIDDEN GEM",text:"For most apps, replace UIImagePickerController with PHPicker -- it runs out-of-process and requires NO Photos permission prompt. Only what the user picks is returned. Most apps need zero library access.",source:"WWDC20-10652, 10641"},
+  {type:"perf",label:"PERFORMANCE",text:"Swift 5.3 cuts heap memory overhead by over 2/3 vs. Swift 5.2 for apps targeting iOS 14. SwiftUI app code size dropped 40% (MovieSwiftUI). Foundation, OSLog, and runtime caches all became dramatically more efficient.",source:"WWDC20-10170", docUrl:"https://developer.apple.com/documentation/swiftui"},
+  {type:"hidden",label:"HIDDEN GEM",text:"@StateObject solves the silent bug where @ObservedObject var store = MyStore() re-allocates the store every render. SwiftUI instantiates @StateObject once before first body. Rule: created in this view = StateObject, passed in = ObservedObject.",source:"WWDC20-10040", docUrl:"https://developer.apple.com/documentation/swiftui"},
+  {type:"practice",label:"BEST PRACTICE",text:"In WidgetKit, your widget is NOT a mini-app. No buttons, no scrolling, no animated images, no videos. Use Text(date, style:.relative)/.timer to make widgets feel alive without your extension running.",source:"WWDC20-10028, 10033", docUrl:"https://developer.apple.com/documentation/widgetkit"},
+  {type:"hidden",label:"HIDDEN GEM",text:"ContainerRelativeShape is the right way to do widget corner radii. Hardcoded .cornerRadius(12) breaks across device shapes. ContainerRelativeShape adopts the path of the nearest container automatically.",source:"WWDC20-10033", docUrl:"https://developer.apple.com/documentation/widgetkit"},
+  {type:"warning",label:"URGENT",text:"Audio apps creating realtime threads on Apple Silicon MUST join the device's os_workgroup, or threads may be scheduled on E-cores causing glitches. The 'fix' is os_workgroup_join() in your audio thread.",source:"WWDC20-10224", docUrl:"https://developer.apple.com/documentation/apple-silicon"},
+  {type:"warning",label:"URGENT",text:"App Tracking Transparency: Apps must call requestTrackingAuthorization before reading IDFA. If unset, users denied, or system-wide toggle off, IDFA returns all zeros. Add NSUserTrackingUsageDescription and call before every IDFA use.",source:"WWDC20-10676", docUrl:"https://developer.apple.com/documentation/apptrackingtransparency"},
+  {type:"hidden",label:"HIDDEN GEM",text:"For most apps, replace UIImagePickerController with PHPicker -- it runs out-of-process and requires NO Photos permission prompt. Only what the user picks is returned. Most apps need zero library access.",source:"WWDC20-10652, 10641", docUrl:"https://developer.apple.com/documentation/photokit"},
   {type:"perf",label:"PERFORMANCE",text:"Low-Latency HLS reduces live-stream latency from 6-30s down to under 2s while staying CDN-cacheable. Partial segments + blocking playlist reload + preload hints + delta updates eliminate polling round-trips.",source:"WWDC20-10228, 10231, 10229"},
-  {type:"hidden",label:"HIDDEN GEM",text:"StoreKit Testing in Xcode lets you test in-app purchases entirely locally with no sandbox accounts. Time-shift renewal dates to compress months into seconds; trigger refunds, billing failures, interruptions.",source:"WWDC20-10659"},
-  {type:"practice",label:"BEST PRACTICE",text:"Sign in with Apple: ALWAYS set both nonce and state on the request. Server validates the JWT identityToken's nonce; app validates the credential's state locally. Prevents replay attacks.",source:"WWDC20-10173"},
-  {type:"hidden",label:"HIDDEN GEM",text:"Vision body pose: For Create ML action classification, use Vision (not ARKit) to extract poses both for training AND inference. They're not interchangeable. ARKit body pose has no per-point confidence.",source:"WWDC20-10653, 10043"},
+  {type:"hidden",label:"HIDDEN GEM",text:"StoreKit Testing in Xcode lets you test in-app purchases entirely locally with no sandbox accounts. Time-shift renewal dates to compress months into seconds; trigger refunds, billing failures, interruptions.",source:"WWDC20-10659", docUrl:"https://developer.apple.com/documentation/storekit"},
+  {type:"practice",label:"BEST PRACTICE",text:"Sign in with Apple: ALWAYS set both nonce and state on the request. Server validates the JWT identityToken's nonce; app validates the credential's state locally. Prevents replay attacks.",source:"WWDC20-10173", docUrl:"https://developer.apple.com/sign-in-with-apple/"},
+  {type:"hidden",label:"HIDDEN GEM",text:"Vision body pose: For Create ML action classification, use Vision (not ARKit) to extract poses both for training AND inference. They're not interchangeable. ARKit body pose has no per-point confidence.",source:"WWDC20-10653, 10043", docUrl:"https://developer.apple.com/documentation/coreml"},
   {type:"perf",label:"PERFORMANCE",text:"Memoryless render targets (storageMode = .memoryless) on Apple GPU TBDR cost ZERO VRAM. Use for any G-buffer attachment that never leaves a single render pass. Combined with MSAA, the multisample texture itself can be memoryless.",source:"WWDC20-10602, 10632"},
   {type:"warning",label:"URGENT",text:"watchOS 7 deletes ALL gesture-based contextual menus. Long-press secret menus = old. Surface every action visibly via swipe actions, More buttons, sort/filter pickers, or the new toolbar button. Audit every watchOS app this year.",source:"WWDC20-10171"},
   {type:"hidden",label:"HIDDEN GEM",text:"watchOS 7 supports MULTIPLE complications per app. Implement getComplicationDescriptors with CLKComplicationDescriptors -- one app can fill an entire watch face with branded complications. Always handle CLKDefaultComplicationIdentifier as fallback.",source:"WWDC20-10046"},
   {type:"practice",label:"BEST PRACTICE",text:"Local network access: don't browse Bonjour on launch -- wait for a user action. The system prompts the first time; timing it to a user-tap-on-Find-Devices makes the prompt feel intentional, not invasive.",source:"WWDC20-10110"},
-  {type:"hidden",label:"HIDDEN GEM",text:"Scene understanding (RealityKit + LiDAR) gives you four interactions in one option set: occlusion, receivesLighting (shadows), physics, collision. Real-world objects appear in your scene as read-only entities with HasSceneUnderstanding trait.",source:"WWDC20-10612"},
-  {type:"perf",label:"PERFORMANCE",text:"Swift code completion in Xcode 12 is up to 15x faster for SwiftUI -- common completions went from ~0.5s to under 0.1s. The compiler diagnostic engine also rewrites SwiftUI errors to point at the actual problem.",source:"WWDC20-10170, 10165"},
+  {type:"hidden",label:"HIDDEN GEM",text:"Scene understanding (RealityKit + LiDAR) gives you four interactions in one option set: occlusion, receivesLighting (shadows), physics, collision. Real-world objects appear in your scene as read-only entities with HasSceneUnderstanding trait.",source:"WWDC20-10612", docUrl:"https://developer.apple.com/documentation/realitykit"},
+  {type:"perf",label:"PERFORMANCE",text:"Swift code completion in Xcode 12 is up to 15x faster for SwiftUI -- common completions went from ~0.5s to under 0.1s. The compiler diagnostic engine also rewrites SwiftUI errors to point at the actual problem.",source:"WWDC20-10170, 10165", docUrl:"https://developer.apple.com/documentation/swiftui"},
   {type:"hidden",label:"HIDDEN GEM",text:"@AppStorage and @SceneStorage are NEW property wrappers that auto-persist UI state via UserDefaults / per-scene restoration. Don't use them for your model -- they're for lightweight UI state that should survive process restarts.",source:"WWDC20-10040"},
   {type:"warning",label:"URGENT",text:"Big Sur Metal: apps built against Catalina or earlier SDK get THREE silent compatibility workarounds for TBDR bugs (DontCare load actions, position invariance, depth attachment sampling). Building against Big Sur SDK loses these -- your code must be correct.",source:"WWDC20-10631"},
   {type:"hidden",label:"HIDDEN GEM",text:"Limited Photos Library mode: if your code calls the new authorizationStatus(for: .readWrite) it returns .limited. The OLD APIs return .authorized even when limited -- back-compat. Adopt the new ones to detect limited mode correctly.",source:"WWDC20-10641"},
-  {type:"practice",label:"BEST PRACTICE",text:"Use os.Logger (not print). Compiler optimizes away message construction for debug-level logs when not streaming. Numeric data is public by default; strings/objects are PRIVATE (redacted) by default. Use .private(mask:.hash) to log a stable hash.",source:"WWDC20-10168"},
+  {type:"practice",label:"BEST PRACTICE",text:"Use os.Logger (not print). Compiler optimizes away message construction for debug-level logs when not streaming. Numeric data is public by default; strings/objects are PRIVATE (redacted) by default. Use .private(mask:.hash) to log a stable hash.",source:"WWDC20-10168", docUrl:"https://developer.apple.com/documentation/os/logger"},
   {type:"perf",label:"PERFORMANCE",text:"Background pushes are rate-limited even with frequent pushes. 14 incoming pushes may produce 7 launches at ~15-min intervals. Optimize for energy budget per launch (under 100KB cellular data) not delivery rate.",source:"WWDC20-10063"},
-  {type:"hidden",label:"HIDDEN GEM",text:"App Clip shared group container survives even after iOS deletes the App Clip on full-app install. Store data you want to migrate (cached order, partial state) in the shared container, not the App Clip's standard container.",source:"WWDC20-10174"},
-  {type:"practice",label:"BEST PRACTICE",text:"Mac Catalyst Optimized for Mac: gesture recognizers on UIButton STOP firing when the button has the native Mac appearance. Move long-press patterns to UIButton.menu (real menu) or to menu-bar items. Custom (non-system) buttons keep iPad event model.",source:"WWDC20-10056"}
+  {type:"hidden",label:"HIDDEN GEM",text:"App Clip shared group container survives even after iOS deletes the App Clip on full-app install. Store data you want to migrate (cached order, partial state) in the shared container, not the App Clip's standard container.",source:"WWDC20-10174", docUrl:"https://developer.apple.com/documentation/app_clips"},
+  {type:"practice",label:"BEST PRACTICE",text:"Mac Catalyst Optimized for Mac: gesture recognizers on UIButton STOP firing when the button has the native Mac appearance. Move long-press patterns to UIButton.menu (real menu) or to menu-bar items. Custom (non-system) buttons keep iPad event model.",source:"WWDC20-10056", docUrl:"https://developer.apple.com/documentation/uikit/mac_catalyst"}
 ];
 
 // Doc vs Transcript deltas
@@ -700,11 +703,17 @@ function renderClusters() {
 }
 
 // Build the source label as a clickable link to the FIRST session referenced
-function buildSourceLink(source) {
+function buildSourceLink(source, docUrl) {
   const ids = extractSessionIds(source);
-  if (ids.length === 0) return `<span>${source}</span>`;
-  const primary = ids[0];
-  return `<a class="gem-source-link" href="${sessionUrl(primary)}" target="_blank" rel="noopener" onclick="event.stopPropagation();">${source} &rarr;</a>`;
+  let videoLink;
+  if (ids.length === 0) {
+    videoLink = `<span>${source}</span>`;
+  } else {
+    const primary = ids[0];
+    videoLink = `<a class="gem-source-link" href="${sessionUrl(primary)}" target="_blank" rel="noopener" onclick="event.stopPropagation();">${source} &rarr;</a>`;
+  }
+  const docLink = docUrl ? `<a class="gem-doc-link" href="${docUrl}" target="_blank" rel="noopener" onclick="event.stopPropagation();" title="Apple documentation">docs</a>` : '';
+  return videoLink + docLink;
 }
 
 // Make whole gem card clickable to first session
@@ -738,7 +747,7 @@ function renderGems() {
     <div class="gem-card" data-label="${g.label}" ${gemClickHandler(g.source)}>
       <div class="gem-type ${g.type}">${g.label}</div>
       <div class="gem-text">${g.text}</div>
-      <div class="gem-source">${buildSourceLink(g.source)}</div>
+      <div class="gem-source">${buildSourceLink(g.source, g.docUrl)}</div>
     </div>
   `).join('');
   document.getElementById('gems-grid').innerHTML = html;
@@ -756,7 +765,7 @@ function renderDeltas() {
     <div class="gem-card" data-label="${d.label}" ${gemClickHandler(d.source)}>
       <div class="gem-type delta">${d.label}</div>
       <div class="gem-text">${d.text}</div>
-      <div class="gem-source">${buildSourceLink(d.source)}</div>
+      <div class="gem-source">${buildSourceLink(d.source, d.docUrl)}</div>
     </div>
   `).join('');
   document.getElementById('deltas-grid').innerHTML = html;

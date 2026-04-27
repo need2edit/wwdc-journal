@@ -37,6 +37,22 @@ or adding a new year.
 bin/refresh-gems.py
 ```
 
+### `check-doc-links.py [--strict]`
+Validates that every Apple documentation link in the cross-year guides
+actually resolves to a real page. Apple's developer site serves a
+custom 404 page with HTTP 200, so this script does a full GET and
+sniffs the body for known soft-404 markers.
+
+```bash
+bin/check-doc-links.py                    # show all results
+bin/check-doc-links.py --quiet            # only show broken links
+bin/check-doc-links.py --strict           # exit 1 on any broken link
+bin/check-doc-links.py --output report.json
+```
+
+Network-bound (~10s for 100 URLs). Run before commits that touch
+`docUrl` values, or include in CI.
+
 ### `validate-dashboards.py [--strict]`
 Validates every dashboard parses cleanly and contains the expected
 features (search, breadcrumb, badges-row, etc.). Use in CI or before

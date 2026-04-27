@@ -116,6 +116,9 @@
   .gem-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 20px; cursor: pointer; transition: all 0.2s; text-decoration: none; color: inherit; display: block; }
   .gem-card:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: 0 4px 16px rgba(99,102,241,0.12); }
   .gem-card .gem-source-link { color: var(--accent2); text-decoration: none; }
+  .gem-card .gem-doc-link { color: var(--text-faint, #5a5a70); text-decoration: none; margin-left: 8px; transition: color 0.15s; }
+  .gem-card .gem-doc-link:hover { color: var(--accent2, #818cf8); }
+  .gem-card .gem-doc-link::before { content: "·  "; color: var(--text-faint, #5a5a70); }
   .gem-card.hidden-by-filter { display: none; }
   .gem-card .gem-type { font-size: 0.75em; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; }
   .gem-card .gem-type.practice { color: var(--green); }
@@ -443,12 +446,12 @@ const gems = [
   {type:"hidden",label:"HIDDEN GEM",text:"dispatch_semaphore_wait does NOT participate in priority inversion resolution because semaphores have no concept of ownership. Use dispatch_block_wait when you need the system to raise the worker's QoS.",source:"WWDC15-718"},
   {type:"hidden",label:"HIDDEN GEM",text:"NSPurgeableData lets you tell the system 'this dirty memory can be reclaimed when needed.' The system reclaims silently — no memory warning, no app intervention. Combined with memory-mapped files (NSData mapped option), you can keep gigabytes of cache while staying under your dirty memory limit.",source:"WWDC15-212"},
   {type:"hidden",label:"HIDDEN GEM",text:"Watch Keychain inherits the wrist-detection lock. Wrist on = unlocked = your stored credential is accessible. Wrist off = locked = inaccessible. Best place to stash credentials for a seamless auto-login experience.",source:"WWDC15-105"},
-  {type:"hidden",label:"HIDDEN GEM",text:"NSUserActivity's eligibleForPublicIndexing uses a zero-knowledge proof: each engaging device sends only a hash. Apple only fetches the actual content after enough distinct devices have hashed identical activity. An accidentally-public personal activity never leaves the device.",source:"WWDC15-709"},
+  {type:"hidden",label:"HIDDEN GEM",text:"NSUserActivity's eligibleForPublicIndexing uses a zero-knowledge proof: each engaging device sends only a hash. Apple only fetches the actual content after enough distinct devices have hashed identical activity. An accidentally-public personal activity never leaves the device.",source:"WWDC15-709", docUrl:"https://developer.apple.com/documentation/appintents"},
   {type:"hidden",label:"HIDDEN GEM",text:"Search results' time-from-tap-to-content-shown is a ranking factor. No interstitials, no loading screens, no modals between the result tap and the destination view. Speed wins ranking battles.",source:"WWDC15-709"},
   {type:"hidden",label:"HIDDEN GEM",text:"Watch can wake the iPhone in the background via WCSession sendMessage — perfect for kicking off a long-running iPhone task from the watch. The reverse is NOT supported (energy reasons).",source:"WWDC15-713"},
   {type:"hidden",label:"HIDDEN GEM",text:"ClockKit complications use a TIMELINE — past, present, and future data points. The system pre-fetches your timeline so when the user raises their wrist the data is already correct, AND time travel (digital crown to past/future) just consults the timeline you already provided. Zero extra code.",source:"WWDC15-209"},
-  {type:"hidden",label:"HIDDEN GEM",text:"ODR (On-Demand Resources) is hosted by Xcode itself during dev, by your own web server for ad-hoc/enterprise distribution, AND by Xcode Server for CI builds. No need to test against TestFlight to verify ODR behavior.",source:"WWDC15-214"},
-  {type:"hidden",label:"HIDDEN GEM",text:"GameplayKit's GKObstacleGraph integrates directly with SpriteKit — call SKNode.obstaclesFromNodeBounds, .obstaclesFromNodePhysicsBodies, or .obstaclesFromSpriteTextures to live-update the navigation graph as you place towers in a tower-defense game.",source:"WWDC15-608"},
+  {type:"hidden",label:"HIDDEN GEM",text:"ODR (On-Demand Resources) is hosted by Xcode itself during dev, by your own web server for ad-hoc/enterprise distribution, AND by Xcode Server for CI builds. No need to test against TestFlight to verify ODR behavior.",source:"WWDC15-214", docUrl:"https://developer.apple.com/testflight/"},
+  {type:"hidden",label:"HIDDEN GEM",text:"GameplayKit's GKObstacleGraph integrates directly with SpriteKit — call SKNode.obstaclesFromNodeBounds, .obstaclesFromNodePhysicsBodies, or .obstaclesFromSpriteTextures to live-update the navigation graph as you place towers in a tower-defense game.",source:"WWDC15-608", docUrl:"https://developer.apple.com/documentation/spritekit"},
   {type:"hidden",label:"HIDDEN GEM",text:"In iOS 9, NSManagedObjectContext.shouldDeleteInaccessibleFaults = true marks unloadable faults as deleted instead of crashing with the dreaded 'Could not load fault' exception. One property prevents one of the top Core Data crash categories.",source:"WWDC15-220"},
   {type:"hidden",label:"HIDDEN GEM",text:"Swift's @testable import lets unit tests reach internal symbols without making them public. Release builds keep full access protection — best of both worlds.",source:"WWDC15-106"},
   {type:"hidden",label:"HIDDEN GEM",text:"Force Touch in any text input UI on watchOS brings up an on-the-fly language switcher (showing every keyboard you have on iPhone). Works inside notification text replies too.",source:"WWDC15-207"},
@@ -471,7 +474,7 @@ const gems = [
   {type:"perf",label:"PERFORMANCE",text:"Core Data NSBatchDeleteRequest operates directly on the persistent store without materializing any objects. Deleting 30,000 rows that wouldn't even fit in memory becomes a single SQL command. WARNING: not reflected in your context, no notifications fire — manually merge.",source:"WWDC15-220"},
   {type:"perf",label:"PERFORMANCE",text:"In iOS 9, low-latency Core Animation collapses the 'app frame' and 'CA frame' into one when no animations are active. Cancel animations during touch tracking for the absolute lowest latency. Saves an entire frame.",source:"WWDC15-233"},
   {type:"warning",label:"DEPRECATION",text:"NSManagedObjectContext's confinementConcurrencyType (the default for plain init()) is deprecated. Migrate to init(concurrencyType:) with .privateQueueConcurrencyType or .mainQueueConcurrencyType and the perform/performAndWait block APIs.",source:"WWDC15-220"},
-  {type:"warning",label:"DEPRECATION",text:"MKPinAnnotationView.pinColor is deprecated in favor of pinTintColor (UIColor on iOS, NSColor on macOS). The old enum exposed only red/green/purple; the new property exposes any color.",source:"WWDC15-206"},
+  {type:"warning",label:"DEPRECATION",text:"MKPinAnnotationView.pinColor is deprecated in favor of pinTintColor (UIColor on iOS, NSColor on macOS). The old enum exposed only red/green/purple; the new property exposes any color.",source:"WWDC15-206", docUrl:"https://developer.apple.com/documentation/appkit"},
   {type:"warning",label:"DEPRECATION",text:"WatchKit 1's openParentApplication is gone in watchOS 2 — use WCSession sendMessage. Image caching APIs are gone — use setImage with UIImage data or push assets via Watch Connectivity.",source:"WWDC15-105"},
   {type:"warning",label:"DEPRECATION",text:"Mac Safari extensions' canLoad callback (per-load consultation) is deprecated. Migrate to the new content blocker JSON list model — same format as iOS, compiled once into bytecode for fast evaluation.",source:"WWDC15-511"}
 ];
@@ -595,11 +598,17 @@ function renderClusters() {
 }
 
 // Build the source label as a clickable link to the FIRST session referenced
-function buildSourceLink(source) {
+function buildSourceLink(source, docUrl) {
   const ids = extractSessionIds(source);
-  if (ids.length === 0) return `<span>${source}</span>`;
-  const primary = ids[0];
-  return `<a class="gem-source-link" href="${sessionUrl(primary)}" target="_blank" rel="noopener" onclick="event.stopPropagation();">${source} &rarr;</a>`;
+  let videoLink;
+  if (ids.length === 0) {
+    videoLink = `<span>${source}</span>`;
+  } else {
+    const primary = ids[0];
+    videoLink = `<a class="gem-source-link" href="${sessionUrl(primary)}" target="_blank" rel="noopener" onclick="event.stopPropagation();">${source} &rarr;</a>`;
+  }
+  const docLink = docUrl ? `<a class="gem-doc-link" href="${docUrl}" target="_blank" rel="noopener" onclick="event.stopPropagation();" title="Apple documentation">docs</a>` : '';
+  return videoLink + docLink;
 }
 
 // Make whole gem card clickable to first session
@@ -633,7 +642,7 @@ function renderGems() {
     <div class="gem-card" data-label="${g.label}" ${gemClickHandler(g.source)}>
       <div class="gem-type ${g.type}">${g.label}</div>
       <div class="gem-text">${g.text}</div>
-      <div class="gem-source">${buildSourceLink(g.source)}</div>
+      <div class="gem-source">${buildSourceLink(g.source, g.docUrl)}</div>
     </div>
   `).join('');
   document.getElementById('gems-grid').innerHTML = html;
@@ -651,7 +660,7 @@ function renderDeltas() {
     <div class="gem-card" data-label="${d.label}" ${gemClickHandler(d.source)}>
       <div class="gem-type delta">${d.label}</div>
       <div class="gem-text">${d.text}</div>
-      <div class="gem-source">${buildSourceLink(d.source)}</div>
+      <div class="gem-source">${buildSourceLink(d.source, d.docUrl)}</div>
     </div>
   `).join('');
   document.getElementById('deltas-grid').innerHTML = html;

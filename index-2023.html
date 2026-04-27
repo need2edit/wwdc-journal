@@ -116,6 +116,9 @@
   .gem-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 20px; cursor: pointer; transition: all 0.2s; text-decoration: none; color: inherit; display: block; }
   .gem-card:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: 0 4px 16px rgba(99,102,241,0.12); }
   .gem-card .gem-source-link { color: var(--accent2); text-decoration: none; }
+  .gem-card .gem-doc-link { color: var(--text-faint, #5a5a70); text-decoration: none; margin-left: 8px; transition: color 0.15s; }
+  .gem-card .gem-doc-link:hover { color: var(--accent2, #818cf8); }
+  .gem-card .gem-doc-link::before { content: "·  "; color: var(--text-faint, #5a5a70); }
   .gem-card.hidden-by-filter { display: none; }
   .gem-card .gem-type { font-size: 0.75em; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; }
   .gem-card .gem-type.practice { color: var(--green); }
@@ -508,30 +511,30 @@ const clusters = [
 
 // Hidden gems & best practices
 const gems = [
-  {type:"warning",label:"URGENT",text:"visionOS RealityKit entities silently fail hit testing if missing EITHER InputTargetComponent OR CollisionComponent. Both are required to receive any gestures.",source:"WWDC23-10080"},
-  {type:"hidden",label:"HIDDEN GEM",text:"@Model implies @Observable. A SwiftData model class is automatically observable -- you get persistence + observation in one annotation.",source:"WWDC23-10187"},
-  {type:"practice",label:"BEST PRACTICE",text:"For SwiftUI Observable types, use only @State, @Environment, or @Bindable. None of @ObservedObject, @StateObject, @EnvironmentObject, @Published are needed any more.",source:"WWDC23-10149"},
-  {type:"perf",label:"PERFORMANCE",text:"@Observable invalidates views per-property accessed in body, not per-class. Migrating from ObservableObject typically gives a 1.2x-3x view-update speedup with no other code changes.",source:"WWDC23-10160, 10149"},
-  {type:"hidden",label:"HIDDEN GEM",text:"You can open a Core Data store WITH SwiftData. They share the same underlying persistent store, so you can incrementally migrate one screen at a time without copying data.",source:"WWDC23-10189"},
+  {type:"warning",label:"URGENT",text:"visionOS RealityKit entities silently fail hit testing if missing EITHER InputTargetComponent OR CollisionComponent. Both are required to receive any gestures.",source:"WWDC23-10080", docUrl:"https://developer.apple.com/documentation/realitykit"},
+  {type:"hidden",label:"HIDDEN GEM",text:"@Model implies @Observable. A SwiftData model class is automatically observable -- you get persistence + observation in one annotation.",source:"WWDC23-10187", docUrl:"https://developer.apple.com/documentation/swiftdata"},
+  {type:"practice",label:"BEST PRACTICE",text:"For SwiftUI Observable types, use only @State, @Environment, or @Bindable. None of @ObservedObject, @StateObject, @EnvironmentObject, @Published are needed any more.",source:"WWDC23-10149", docUrl:"https://developer.apple.com/documentation/swiftui"},
+  {type:"perf",label:"PERFORMANCE",text:"@Observable invalidates views per-property accessed in body, not per-class. Migrating from ObservableObject typically gives a 1.2x-3x view-update speedup with no other code changes.",source:"WWDC23-10160, 10149", docUrl:"https://developer.apple.com/documentation/combine"},
+  {type:"hidden",label:"HIDDEN GEM",text:"You can open a Core Data store WITH SwiftData. They share the same underlying persistent store, so you can incrementally migrate one screen at a time without copying data.",source:"WWDC23-10189", docUrl:"https://developer.apple.com/documentation/swiftdata"},
   {type:"practice",label:"BEST PRACTICE",text:"Always emit DIAGNOSTICS from your macros for misuse. Adopters should never need to read the expanded source to debug a misapplied macro.",source:"WWDC23-10166"},
   {type:"warning",label:"URGENT",text:"watchOS 10 changes the entire design language. Apps that ship the watchOS 9 visual style look dated immediately. Adopt containerBackground, vertical TabView, full-screen color.",source:"WWDC23-10026"},
-  {type:"hidden",label:"HIDDEN GEM",text:"Drag gesture values inside RealityView are in SwiftUI POINTS, but entity positions are in METERS. Always convert via content.convert(value.location3D, from: .local, to: .scene).",source:"WWDC23-10080"},
+  {type:"hidden",label:"HIDDEN GEM",text:"Drag gesture values inside RealityView are in SwiftUI POINTS, but entity positions are in METERS. Always convert via content.convert(value.location3D, from: .local, to: .scene).",source:"WWDC23-10080", docUrl:"https://developer.apple.com/documentation/swiftui"},
   {type:"perf",label:"PERFORMANCE",text:"L4S (Low Latency, Low Loss) can drop network latency from ~100ms to ~5ms on congested links WITHOUT throughput loss. Opt in via NWProtocolTCP.Options.enableL4S = true.",source:"WWDC23-10004"},
-  {type:"practice",label:"BEST PRACTICE",text:"visionOS apps are a SPECTRUM of immersion (window -> volume -> mixed -> progressive -> full). Design to flex between modes during a single session, not pick one upfront.",source:"WWDC23-10260, 10072"},
-  {type:"hidden",label:"HIDDEN GEM",text:"#Preview macro replaces PreviewProvider for SwiftUI AND brings preview to UIKit/AppKit. Widget previews show the timeline animations between entries.",source:"WWDC23-10252"},
+  {type:"practice",label:"BEST PRACTICE",text:"visionOS apps are a SPECTRUM of immersion (window -> volume -> mixed -> progressive -> full). Design to flex between modes during a single session, not pick one upfront.",source:"WWDC23-10260, 10072", docUrl:"https://developer.apple.com/documentation/visionos"},
+  {type:"hidden",label:"HIDDEN GEM",text:"#Preview macro replaces PreviewProvider for SwiftUI AND brings preview to UIKit/AppKit. Widget previews show the timeline animations between entries.",source:"WWDC23-10252", docUrl:"https://developer.apple.com/documentation/swiftui"},
   {type:"warning",label:"DEPRECATION",text:"CGWindowList + AVCaptureScreenInput screen capture APIs are deprecated on macOS Sonoma. New apps MUST use ScreenCaptureKit.",source:"WWDC23-10136"},
   {type:"perf",label:"PERFORMANCE",text:"Mergeable libraries: set MERGEABLE_LIBRARY=YES on framework targets and MERGED_BINARY_TYPE=automatic on the app target. Frameworks merge at link time in release; launch time can drop 1.5x-3x for apps with 30+ frameworks.",source:"WWDC23-10268"},
   {type:"practice",label:"BEST PRACTICE",text:"Use the new EventKit write-only access for apps that only ADD events. Major privacy win -- you never see the user's existing calendar.",source:"WWDC23-10052"},
   {type:"hidden",label:"HIDDEN GEM",text:"4-bit palettization via coremltools 7 can shrink an LLM by ~8x with minimal quality loss for many language tasks. Critical for shipping on-device gen-AI within App Store binary limits.",source:"WWDC23-10047"},
   {type:"hidden",label:"HIDDEN GEM",text:"Personal Voice generation runs ENTIRELY on-device. Apps can use the user's synthetic voice via AVSpeechSynthesisVoice.personalVoice -- ALS apps love this.",source:"WWDC23-10033"},
-  {type:"practice",label:"BEST PRACTICE",text:"Use os.Logger (not print). Xcode 15 console filters by subsystem/category/severity, jumps to source from a log line, and respects privacy redaction.",source:"WWDC23-10226"},
-  {type:"perf",label:"PERFORMANCE",text:"Spring is now the DEFAULT animation for new SwiftUI apps on iOS 17+. They match prior velocity, settle naturally. Use .snappy / .bouncy / .smooth for variants.",source:"WWDC23-10148, 10158"},
+  {type:"practice",label:"BEST PRACTICE",text:"Use os.Logger (not print). Xcode 15 console filters by subsystem/category/severity, jumps to source from a log line, and respects privacy redaction.",source:"WWDC23-10226", docUrl:"https://developer.apple.com/documentation/os/logger"},
+  {type:"perf",label:"PERFORMANCE",text:"Spring is now the DEFAULT animation for new SwiftUI apps on iOS 17+. They match prior velocity, settle naturally. Use .snappy / .bouncy / .smooth for variants.",source:"WWDC23-10148, 10158", docUrl:"https://developer.apple.com/documentation/swiftui"},
   {type:"hidden",label:"HIDDEN GEM",text:"String catalogs (.xcstrings) replace .strings, .stringsdict, and localized storyboards in ONE file. Edit > Convert to String Catalog migrates everything automatically.",source:"WWDC23-10155"},
-  {type:"practice",label:"BEST PRACTICE",text:"Test interactive widgets carefully: AppIntents in widgets execute IN THE WIDGET EXTENSION (~15s budget), not in the host app. Must be deterministic and idempotent.",source:"WWDC23-10028, 10103"},
-  {type:"hidden",label:"HIDDEN GEM",text:"performAccessibilityAudit() in XCUITest catches the 80% of mechanical accessibility issues automatically: hit target size, contrast, missing labels, navigation order.",source:"WWDC23-10035"},
-  {type:"warning",label:"URGENT",text:"Privacy manifest (PrivacyInfo.xcprivacy) is required for SDKs accessing certain APIs (UserDefaults, file timestamps, disk space, boot time, keyboards). Audit your dependencies NOW before App Store enforcement.",source:"WWDC23-10060"},
+  {type:"practice",label:"BEST PRACTICE",text:"Test interactive widgets carefully: AppIntents in widgets execute IN THE WIDGET EXTENSION (~15s budget), not in the host app. Must be deterministic and idempotent.",source:"WWDC23-10028, 10103", docUrl:"https://developer.apple.com/documentation/appintents"},
+  {type:"hidden",label:"HIDDEN GEM",text:"performAccessibilityAudit() in XCUITest catches the 80% of mechanical accessibility issues automatically: hit target size, contrast, missing labels, navigation order.",source:"WWDC23-10035", docUrl:"https://developer.apple.com/accessibility/"},
+  {type:"warning",label:"URGENT",text:"Privacy manifest (PrivacyInfo.xcprivacy) is required for SDKs accessing certain APIs (UserDefaults, file timestamps, disk space, boot time, keyboards). Audit your dependencies NOW before App Store enforcement.",source:"WWDC23-10060", docUrl:"https://developer.apple.com/documentation/bundleresources/privacy_manifest_files"},
   {type:"perf",label:"PERFORMANCE",text:"Foundation rewrite in Swift gives JSON encoding/decoding 2x-5x speedup, Date FormatStyle ~150% faster, Calendar calcs ~20% faster. No code changes required -- just iOS 17+/Sonoma.",source:"WWDC23-10164"},
-  {type:"hidden",label:"HIDDEN GEM",text:"CKSyncEngine PERSISTS its state across app launches via stateSerialization data. Save it after every sync to disk; pass it back on next session start. Replaces hand-rolled change-token bookkeeping.",source:"WWDC23-10188"},
+  {type:"hidden",label:"HIDDEN GEM",text:"CKSyncEngine PERSISTS its state across app launches via stateSerialization data. Save it after every sync to disk; pass it back on next session start. Replaces hand-rolled change-token bookkeeping.",source:"WWDC23-10188", docUrl:"https://developer.apple.com/documentation/cloudkit"},
   {type:"practice",label:"BEST PRACTICE",text:"Use 'consuming' methods on non-copyable types (e.g. close() on a FileDescriptor). Calling another method after a consuming call is a COMPILE-TIME error, not a runtime crash.",source:"WWDC23-10164"},
   {type:"hidden",label:"HIDDEN GEM",text:"Custom actor executors let an actor synchronize with EXISTING dispatch queues (e.g., Obj-C code on a known queue). Set unownedExecutor to dispatch queue's UnownedSerialExecutor.",source:"WWDC23-10164, 10170"}
 ];
@@ -655,11 +658,17 @@ function renderClusters() {
 }
 
 // Build the source label as a clickable link to the FIRST session referenced
-function buildSourceLink(source) {
+function buildSourceLink(source, docUrl) {
   const ids = extractSessionIds(source);
-  if (ids.length === 0) return `<span>${source}</span>`;
-  const primary = ids[0];
-  return `<a class="gem-source-link" href="${sessionUrl(primary)}" target="_blank" rel="noopener" onclick="event.stopPropagation();">${source} &rarr;</a>`;
+  let videoLink;
+  if (ids.length === 0) {
+    videoLink = `<span>${source}</span>`;
+  } else {
+    const primary = ids[0];
+    videoLink = `<a class="gem-source-link" href="${sessionUrl(primary)}" target="_blank" rel="noopener" onclick="event.stopPropagation();">${source} &rarr;</a>`;
+  }
+  const docLink = docUrl ? `<a class="gem-doc-link" href="${docUrl}" target="_blank" rel="noopener" onclick="event.stopPropagation();" title="Apple documentation">docs</a>` : '';
+  return videoLink + docLink;
 }
 
 // Make whole gem card clickable to first session
@@ -693,7 +702,7 @@ function renderGems() {
     <div class="gem-card" data-label="${g.label}" ${gemClickHandler(g.source)}>
       <div class="gem-type ${g.type}">${g.label}</div>
       <div class="gem-text">${g.text}</div>
-      <div class="gem-source">${buildSourceLink(g.source)}</div>
+      <div class="gem-source">${buildSourceLink(g.source, g.docUrl)}</div>
     </div>
   `).join('');
   document.getElementById('gems-grid').innerHTML = html;
@@ -711,7 +720,7 @@ function renderDeltas() {
     <div class="gem-card" data-label="${d.label}" ${gemClickHandler(d.source)}>
       <div class="gem-type delta">${d.label}</div>
       <div class="gem-text">${d.text}</div>
-      <div class="gem-source">${buildSourceLink(d.source)}</div>
+      <div class="gem-source">${buildSourceLink(d.source, d.docUrl)}</div>
     </div>
   `).join('');
   document.getElementById('deltas-grid').innerHTML = html;
