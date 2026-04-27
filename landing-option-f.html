@@ -77,12 +77,6 @@
 
   /* Cross-year search */
   .xy-search { max-width: 720px; margin: 0 auto 40px; padding: 0 24px; position: relative; }
-  .xy-filters { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; align-items: center; }
-  .xy-filter-group { display: flex; gap: 4px; flex-wrap: wrap; align-items: center; }
-  .xy-filter-label { color: var(--text-dim); font-size: 0.7em; font-weight: 600; text-transform: uppercase; letter-spacing: 0.4px; margin-right: 4px; }
-  .xy-filter-chip { padding: 3px 9px; border-radius: 12px; border: 1px solid var(--border); background: var(--surface); color: var(--text-dim); cursor: pointer; font-size: 0.74em; transition: all 0.15s; font-family: inherit; }
-  .xy-filter-chip:hover { border-color: #c084fc; color: var(--text); }
-  .xy-filter-chip.active { background: #c084fc; border-color: #c084fc; color: #1a0e2e; font-weight: 600; }
   .xy-search-wrap { position: relative; }
   .xy-search-input { width: 100%; padding: 14px 18px 14px 44px; border-radius: 14px; border: 1px solid var(--border); background: var(--surface); color: var(--text); font-size: 1em; font-family: inherit; transition: border-color 0.15s; }
   .xy-search-input:focus { outline: none; border-color: #c084fc; }
@@ -170,7 +164,6 @@
     <input id="xy-search-input" class="xy-search-input" type="text" placeholder="Search 1,895 sessions, pathways, gems &amp; clusters across all years…" autocomplete="off" spellcheck="false" />
     <span class="xy-search-shortcut">/</span>
   </div>
-  <div class="xy-filters" id="xy-filters"></div>
   <div id="xy-results" class="xy-results"></div>
 </div>
 
@@ -574,39 +567,9 @@ window.bm = window.bm || (function() {
 
   const input = document.getElementById('xy-search-input');
   const resultsEl = document.getElementById('xy-results');
-  const filtersEl = document.getElementById('xy-filters');
   if (!input || !resultsEl) return;
   let selected = -1;
   let lastResults = [];
-  const filterState = { year: 'all', kind: 'all' };
-
-  // Render filter chips
-  function renderFilters() {
-    if (!filtersEl) return;
-    const years = [2025, 2024, 2023, 2022, 2021, 2020, 2019, 2018, 2017, 2016, 2015, 2014];
-    const kinds = [['S','Sessions'], ['P','Pathways'], ['C','Clusters'], ['G','Gems'], ['T','Topics']];
-    filtersEl.innerHTML = `
-      <div class="xy-filter-group">
-        <span class="xy-filter-label">Year</span>
-        <button class="xy-filter-chip ${filterState.year==='all'?'active':''}" data-fk="year" data-fv="all">All</button>
-        ${years.map(y => `<button class="xy-filter-chip ${filterState.year==String(y)?'active':''}" data-fk="year" data-fv="${y}">${y}</button>`).join('')}
-      </div>
-      <div class="xy-filter-group">
-        <span class="xy-filter-label">Kind</span>
-        <button class="xy-filter-chip ${filterState.kind==='all'?'active':''}" data-fk="kind" data-fv="all">All</button>
-        ${kinds.map(([k, label]) => `<button class="xy-filter-chip ${filterState.kind===k?'active':''}" data-fk="kind" data-fv="${k}">${label}</button>`).join('')}
-      </div>
-    `;
-    filtersEl.querySelectorAll('.xy-filter-chip').forEach(chip => {
-      chip.addEventListener('click', () => {
-        filterState[chip.dataset.fk] = chip.dataset.fv;
-        renderFilters();
-        render(input.value.trim());
-      });
-    });
-  }
-  renderFilters();
-
   // Year color palette (matches landing-page accent stripes)
   const YEAR_COLORS = {
     2014:'#f59e0b', 2015:'#84cc16', 2016:'#14b8a6', 2017:'#f97316',
@@ -626,19 +589,11 @@ window.bm = window.bm || (function() {
     const escQ = q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
     return safe.replace(new RegExp('(' + escQ + ')', 'ig'), '<strong>$1</strong>');
   }
-
-  function passesFilters(it) {
-    if (filterState.year !== 'all' && String(it.y) !== filterState.year) return false;
-    if (filterState.kind !== 'all' && it.k !== filterState.kind) return false;
-    return true;
-  }
-
   function search(q) {
     if (!q || q.length < 2) return [];
     const ql = q.toLowerCase();
     const scored = [];
     for (const it of index) {
-      if (!passesFilters(it)) continue;
       const t = (it.t || '').toLowerCase();
       const d = (it.d || '').toLowerCase();
       const id = String(it.i || '').toLowerCase();
