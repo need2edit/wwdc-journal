@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Landing Page Layout Demo — WWDC Journal</title>
+<style>
+  :root {
+    --bg: #0a0a0f; --surface: #14141f; --surface2: #1e1e2e;
+    --border: #2a2a3e; --border-bright: #3a3a4e;
+    --text: #e8e8f0; --text-dim: #8888a0; --text-faint: #5a5a70;
+    --accent: #c084fc;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { height: 100%; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', system-ui, sans-serif; background: var(--bg); color: var(--text); display: flex; flex-direction: column; overflow: hidden; }
+
+  .demo-bar { flex-shrink: 0; background: rgba(10,10,15,0.96); border-bottom: 1px solid var(--border); padding: 10px 16px; display: flex; gap: 12px; align-items: center; flex-wrap: wrap; backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); z-index: 10; }
+  .demo-brand { display: flex; align-items: baseline; gap: 8px; flex-shrink: 0; }
+  .demo-brand .lbl { font-size: 0.78em; font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px; color: var(--text-faint); }
+  .demo-brand .name { font-weight: 700; background: linear-gradient(135deg, #818cf8, #c084fc, #f472b6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+  .options { display: flex; gap: 6px; flex: 1; flex-wrap: wrap; min-width: 0; }
+  .opt { padding: 7px 14px; border-radius: 999px; border: 1px solid var(--border); background: var(--surface); color: var(--text-dim); cursor: pointer; font-size: 0.86em; font-family: inherit; transition: all 0.15s; display: inline-flex; flex-direction: column; align-items: flex-start; gap: 0; line-height: 1.2; }
+  .opt:hover { border-color: var(--accent); color: var(--text); }
+  .opt.active { background: var(--accent); border-color: var(--accent); color: #1a0e2e; font-weight: 600; }
+  .opt .opt-letter { font-weight: 700; font-size: 0.95em; }
+  .opt .opt-tag { font-size: 0.7em; opacity: 0.85; }
+
+  .open-direct { padding: 7px 12px; border-radius: 999px; border: 1px solid var(--border); background: transparent; color: var(--text-dim); text-decoration: none; font-size: 0.78em; transition: all 0.15s; flex-shrink: 0; }
+  .open-direct:hover { color: var(--text); border-color: var(--accent); }
+
+  .info-toggle { padding: 7px 12px; border-radius: 999px; border: 1px solid var(--border); background: transparent; color: var(--text-dim); cursor: pointer; font-size: 0.78em; font-family: inherit; transition: all 0.15s; flex-shrink: 0; }
+  .info-toggle:hover { color: var(--text); border-color: var(--accent); }
+
+  .info-panel { display: none; position: fixed; top: 64px; right: 16px; width: 360px; max-width: calc(100vw - 32px); background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 18px 20px; box-shadow: 0 16px 48px rgba(0,0,0,0.5); z-index: 20; }
+  .info-panel.open { display: block; }
+  .info-panel h3 { font-size: 1.05em; margin-bottom: 4px; color: var(--accent); }
+  .info-panel .meta { color: var(--text-faint); font-size: 0.75em; font-family: ui-monospace, 'SF Mono', monospace; margin-bottom: 10px; }
+  .info-panel p { color: var(--text-dim); font-size: 0.88em; line-height: 1.5; margin-bottom: 8px; }
+  .info-panel .pros, .info-panel .cons { padding-left: 18px; margin-top: 4px; font-size: 0.85em; line-height: 1.5; }
+  .info-panel .pros li { color: #6ee7b7; }
+  .info-panel .cons li { color: #fbbf24; }
+  .info-panel h4 { font-size: 0.78em; text-transform: uppercase; letter-spacing: 0.5px; margin-top: 10px; color: var(--text); }
+
+  .frame-wrap { flex: 1; min-height: 0; position: relative; }
+  iframe.preview { width: 100%; height: 100%; border: none; display: block; background: var(--bg); }
+
+  .hint { color: var(--text-faint); font-size: 0.75em; margin-left: auto; padding-right: 4px; flex-shrink: 0; }
+</style>
+</head>
+<body>
+
+<header class="demo-bar">
+  <div class="demo-brand">
+    <span class="lbl">Landing demo</span>
+    <span class="name">WWDC Journal</span>
+  </div>
+
+  <div class="options" id="options"></div>
+
+  <button class="info-toggle" onclick="toggleInfo()">ⓘ About</button>
+  <a class="open-direct" id="open-direct" target="_blank" rel="noopener">↗ Open in new tab</a>
+  <span class="hint">Press 1–6 to switch</span>
+</header>
+
+<div class="info-panel" id="info-panel"></div>
+
+<div class="frame-wrap">
+  <iframe class="preview" id="preview"></iframe>
+</div>
+
+<script>
+const OPTIONS = [
+  { key: 'A', file: 'landing-option-a.html', commit: 'bca22aa', tag: 'Years first',
+    title: 'Option A — Years up top, "More" section below',
+    description: 'Slim hero, year grid moved to top, totals + 3 guide cards + explore links collected as a "More" section below the year grid.',
+    pros: ['Smallest behavioral change', 'Keeps all existing pieces', 'Year grid above the fold'],
+    cons: ['Page is still long', 'Guide cards still visually similar to year cards'] },
+  { key: 'B', file: 'landing-option-b.html', commit: '67f2d3b', tag: 'Sticky top bar',
+    title: 'Option B — Slim sticky top bar',
+    description: 'Logo + search + condensed totals in a sticky top bar that follows you. Year grid takes ~85% of the page. Most app-like.',
+    pros: ['Most year-focused', 'Search always available', 'Modern app feel'],
+    cons: ['Loses guide-card visual richness', 'Sticky bar adds blur perf cost'] },
+  { key: 'C', file: 'landing-option-c.html', commit: '6b0c067', tag: 'Featured 2025',
+    title: 'Option C — Featured 2025 hero card + grid',
+    description: '2025 promoted to a 2× hero card with gradient numeral, theme, highlights, "LATEST" badge. 11 earlier years below in standard grid.',
+    pros: ['Strong visual hierarchy', 'Signals "current year matters most"', 'Welcoming first impression'],
+    cons: ['Asymmetric layouts have edge cases', 'Less democratic across years'] },
+  { key: 'D', file: 'landing-option-d.html', commit: '7ad9122', tag: 'Tabs',
+    title: 'Option D — Tabs at top',
+    description: 'Years (default) / Guides / Explore / Search. Each tab swaps content. Search bar globally accessible.',
+    pros: ['Each section uncluttered', 'Easy to scan one thing at a time'],
+    cons: ['Hides content behind clicks', 'Users may not discover guides/explore'] },
+  { key: 'E', file: 'landing-option-e.html', commit: 'ee09b51', tag: 'Sidebar',
+    title: 'Option E — Sidebar + main area',
+    description: '280px sticky sidebar (search, totals, 3 guides, 4 explore links). Year grid takes the rest.',
+    pros: ['Desktop power-user feel', 'All tools persistently visible', 'Year grid unambiguous focus'],
+    cons: ['Sidebar collapses to top on mobile', 'Less open feel than B'] },
+  { key: 'F', file: 'landing-option-f.html', commit: '37f74e9', tag: 'Chip strip',
+    title: 'Option F — Inline guide chips',
+    description: 'Compressed hero (totals integrated into subtitle), search, year grid, then a chip strip below combining all 7 cross-year guides + tools.',
+    pros: ['No competing card visuals', 'Smallest page footprint', 'Year grid clearly the star'],
+    cons: ['Loses the rich guide-card descriptions', 'Chips are easy to overlook'] },
+];
+
+const STORAGE_KEY = 'wwdc_demo_choice_v1';
+
+function load() {
+  try { return localStorage.getItem(STORAGE_KEY); } catch (e) { return null; }
+}
+function save(key) {
+  try { localStorage.setItem(STORAGE_KEY, key); } catch (e) {}
+}
+
+function renderOptions() {
+  document.getElementById('options').innerHTML = OPTIONS.map(o => `
+    <button class="opt" data-key="${o.key}" onclick="selectOption('${o.key}')">
+      <span class="opt-letter">${o.key}</span>
+      <span class="opt-tag">${o.tag}</span>
+    </button>
+  `).join('');
+}
+
+function selectOption(key) {
+  const opt = OPTIONS.find(o => o.key === key);
+  if (!opt) return;
+  document.querySelectorAll('.opt').forEach(el => {
+    el.classList.toggle('active', el.dataset.key === key);
+  });
+  document.getElementById('preview').src = opt.file;
+  document.getElementById('open-direct').href = opt.file;
+  // Update info panel content (but don't auto-open)
+  document.getElementById('info-panel').innerHTML = `
+    <h3>${escapeHtml(opt.title)}</h3>
+    <div class="meta">commit ${opt.commit} · ${opt.file}</div>
+    <p>${escapeHtml(opt.description)}</p>
+    <h4>Pros</h4>
+    <ul class="pros">${opt.pros.map(p => `<li>${escapeHtml(p)}</li>`).join('')}</ul>
+    <h4>Cons</h4>
+    <ul class="cons">${opt.cons.map(c => `<li>${escapeHtml(c)}</li>`).join('')}</ul>
+  `;
+  save(key);
+  document.title = `${opt.title} — Demo`;
+}
+
+function toggleInfo() {
+  document.getElementById('info-panel').classList.toggle('open');
+}
+
+function escapeHtml(s) {
+  return String(s).replace(/[<>&'"]/g, c => ({'<':'&lt;','>':'&gt;','&':'&amp;',"'":'&#39;','"':'&quot;'}[c]));
+}
+
+// Keyboard 1-6 = switch
+document.addEventListener('keydown', e => {
+  if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+  const n = parseInt(e.key, 10);
+  if (n >= 1 && n <= OPTIONS.length) {
+    selectOption(OPTIONS[n - 1].key);
+  } else if (e.key === 'i' || e.key === 'I') {
+    toggleInfo();
+  }
+});
+
+// Click outside info panel closes it
+document.addEventListener('click', e => {
+  const panel = document.getElementById('info-panel');
+  if (panel.classList.contains('open') && !panel.contains(e.target) && !e.target.closest('.info-toggle')) {
+    panel.classList.remove('open');
+  }
+});
+
+renderOptions();
+selectOption(load() || 'B');
+</script>
+</body>
+</html>
