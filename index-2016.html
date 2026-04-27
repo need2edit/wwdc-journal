@@ -1027,7 +1027,7 @@ window.bm = (function() {
 })();
 
 function renderStarButton(item) {
-  const starred = window.bm.has(item);
+  const starred = window.bm && window.bm.has(item);
   const dataAttrs = `data-bm-type="${item.type}" data-bm-year="${item.year}" data-bm-id="${escapeBmAttr(item.id || item.source || '')}"`;
   return `<button class="bm-star ${starred?'starred':''}" ${dataAttrs} title="${starred?'Remove bookmark':'Add bookmark'}" onclick="toggleBookmarkBtn(event, this)">${starred ? '\u2605' : '\u2606'}</button>`;
 }
