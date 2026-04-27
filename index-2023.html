@@ -536,7 +536,7 @@ const gems = [
   {type:"perf",label:"PERFORMANCE",text:"Foundation rewrite in Swift gives JSON encoding/decoding 2x-5x speedup, Date FormatStyle ~150% faster, Calendar calcs ~20% faster. No code changes required -- just iOS 17+/Sonoma.",source:"WWDC23-10164"},
   {type:"hidden",label:"HIDDEN GEM",text:"CKSyncEngine PERSISTS its state across app launches via stateSerialization data. Save it after every sync to disk; pass it back on next session start. Replaces hand-rolled change-token bookkeeping.",source:"WWDC23-10188", docUrl:"https://developer.apple.com/documentation/cloudkit"},
   {type:"practice",label:"BEST PRACTICE",text:"Use 'consuming' methods on non-copyable types (e.g. close() on a FileDescriptor). Calling another method after a consuming call is a COMPILE-TIME error, not a runtime crash.",source:"WWDC23-10164"},
-  {type:"hidden",label:"HIDDEN GEM",text:"Custom actor executors let an actor synchronize with EXISTING dispatch queues (e.g., Obj-C code on a known queue). Set unownedExecutor to dispatch queue's UnownedSerialExecutor.",source:"WWDC23-10164, 10170"}
+  {type:"hidden",label:"HIDDEN GEM",text:"Custom actor executors let an actor synchronize with EXISTING dispatch queues (e.g., Obj-C code on a known queue). Set unownedExecutor to dispatch queue's UnownedSerialExecutor.",source:"WWDC23-10164, 10170", docUrl:"https://developer.apple.com/documentation/dispatch"}
 ];
 
 // Doc vs Transcript deltas

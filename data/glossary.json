@@ -1,0 +1,1210 @@
+[
+  {
+    "term": "Swift",
+    "category": "Language",
+    "definition": "Apple's primary language (2014+)",
+    "total_mentions": 217,
+    "years_seen": [
+      2014,
+      2015,
+      2016,
+      2017,
+      2018,
+      2019,
+      2020,
+      2021,
+      2022,
+      2023,
+      2024,
+      2025
+    ],
+    "year_count": 12,
+    "first_seen": 2014,
+    "last_seen": 2025,
+    "sample": {
+      "id": "313",
+      "title": "Bring Swift Charts to the third dimension"
+    }
+  },
+  {
+    "term": "SwiftUI",
+    "category": "Framework",
+    "definition": "Declarative UI framework",
+    "total_mentions": 157,
+    "years_seen": [
+      2019,
+      2020,
+      2021,
+      2022,
+      2023,
+      2024,
+      2025
+    ],
+    "year_count": 7,
+    "first_seen": 2019,
+    "last_seen": 2025,
+    "sample": {
+      "id": "274",
+      "title": "Better together: SwiftUI and RealityKit"
+    }
+  },
+  {
+    "term": "Metal",
+    "category": "Framework",
+    "definition": "Low-level GPU API",
+    "total_mentions": 123,
+    "years_seen": [
+      2014,
+      2015,
+      2016,
+      2017,
+      2018,
+      2019,
+      2020,
+      2021,
+      2022,
+      2023,
+      2024,
+      2025
+    ],
+    "year_count": 12,
+    "first_seen": 2014,
+    "last_seen": 2025,
+    "sample": {
+      "id": "262",
+      "title": "Combine Metal 4 machine learning and graphics"
+    }
+  },
+  {
+    "term": "UIKit",
+    "category": "Framework",
+    "definition": "iOS UI framework",
+    "total_mentions": 61,
+    "years_seen": [
+      2014,
+      2015,
+      2016,
+      2017,
+      2018,
+      2019,
+      2020,
+      2021,
+      2022,
+      2023,
+      2024,
+      2025
+    ],
+    "year_count": 12,
+    "first_seen": 2014,
+    "last_seen": 2025,
+    "sample": {
+      "id": "284",
+      "title": "Build a UIKit app with the new design"
+    }
+  },
+  {
+    "term": "Vision",
+    "category": "Framework",
+    "definition": "Image / video analysis",
+    "total_mentions": 58,
+    "years_seen": [
+      2014,
+      2017,
+      2018,
+      2019,
+      2020,
+      2021,
+      2022,
+      2023,
+      2024,
+      2025
+    ],
+    "year_count": 10,
+    "first_seen": 2014,
+    "last_seen": 2025,
+    "sample": {
+      "id": "282",
+      "title": "Make your UIKit app more flexible"
+    }
+  },
+  {
+    "term": "Network",
+    "category": "Framework",
+    "definition": "Modern networking",
+    "total_mentions": 57,
+    "years_seen": [
+      2014,
+      2015,
+      2016,
+      2017,
+      2018,
+      2019,
+      2020,
+      2021,
+      2022,
+      2023,
+      2024,
+      2025
+    ],
+    "year_count": 12,
+    "first_seen": 2014,
+    "last_seen": 2025,
+    "sample": {
+      "id": "223",
+      "title": "Explore enhancements to your spatial business app"
+    }
+  },
+  {
+    "term": "Combine",
+    "category": "Framework",
+    "definition": "Reactive (eclipsed by Swift Concurrency)",
+    "total_mentions": 42,
+    "years_seen": [
+      2014,
+      2015,
+      2017,
+      2018,
+      2019,
+      2020,
+      2021,
+      2022,
+      2023,
+      2024,
+      2025
+    ],
+    "year_count": 11,
+    "first_seen": 2014,
+    "last_seen": 2025,
+    "sample": {
+      "id": "262",
+      "title": "Combine Metal 4 machine learning and graphics"
+    }
+  },
+  {
+    "term": "RealityKit",
+    "category": "Framework",
+    "definition": "3D rendering for AR",
+    "total_mentions": 41,
+    "years_seen": [
+      2019,
+      2020,
+      2021,
+      2022,
+      2023,
+      2024,
+      2025
+    ],
+    "year_count": 7,
+    "first_seen": 2019,
+    "last_seen": 2025,
+    "sample": {
+      "id": "274",
+      "title": "Better together: SwiftUI and RealityKit"
+    }
+  },
+  {
+    "term": "ARKit",
+    "category": "Framework",
+    "definition": "Augmented reality",
+    "total_mentions": 34,
+    "years_seen": [
+      2017,
+      2018,
+      2019,
+      2020,
+      2021,
+      2022,
+      2023,
+      2024,
+      2025
+    ],
+    "year_count": 9,
+    "first_seen": 2017,
+    "last_seen": 2025,
+    "sample": {
+      "id": "318",
+      "title": "Share visionOS experiences with nearby people"
+    }
+  },
+  {
+    "term": "Apple Silicon",
+    "category": "Hardware",
+    "definition": "ARM-based Mac/iPad chips",
+    "total_mentions": 32,
+    "years_seen": [
+      2020,
+      2021,
+      2022,
+      2023,
+      2024,
+      2025
+    ],
+    "year_count": 6,
+    "first_seen": 2020,
+    "last_seen": 2025,
+    "sample": {
+      "id": "205",
+      "title": "Discover Metal 4"
+    }
+  },
+  {
+    "term": "StoreKit",
+    "category": "Framework",
+    "definition": "In-app purchases",
+    "total_mentions": 28,
+    "years_seen": [
+      2014,
+      2016,
+      2017,
+      2018,
+      2019,
+      2020,
+      2021,
+      2022,
+      2023,
+      2024,
+      2025
+    ],
+    "year_count": 11,
+    "first_seen": 2014,
+    "last_seen": 2025,
+    "sample": {
+      "id": "241",
+      "title": "What\u2019s new in StoreKit and In-App Purchase"
+    }
+  },
+  {
+    "term": "CloudKit",
+    "category": "Framework",
+    "definition": "Cloud database",
+    "total_mentions": 27,
+    "years_seen": [
+      2014,
+      2015,
+      2016,
+      2017,
+      2018,
+      2019,
+      2020,
+      2021,
+      2022,
+      2023,
+      2024
+    ],
+    "year_count": 11,
+    "first_seen": 2014,
+    "last_seen": 2024,
+    "sample": {
+      "id": "10070",
+      "title": "Customize feature discovery with TipKit"
+    }
+  },
+  {
+    "term": "HealthKit",
+    "category": "Framework",
+    "definition": "Health data",
+    "total_mentions": 25,
+    "years_seen": [
+      2014,
+      2015,
+      2016,
+      2017,
+      2018,
+      2019,
+      2020,
+      2021,
+      2022,
+      2023,
+      2024,
+      2025
+    ],
+    "year_count": 12,
+    "first_seen": 2014,
+    "last_seen": 2025,
+    "sample": {
+      "id": "321",
+      "title": "Meet the HealthKit Medications API"
+    }
+  },
+  {
+    "term": "AVFoundation",
+    "category": "Framework",
+    "definition": "Audio / video",
+    "total_mentions": 24,
+    "years_seen": [
+      2016,
+      2017,
+      2018,
+      2020,
+      2021,
+      2022,
+      2023,
+      2024,
+      2025
+    ],
+    "year_count": 9,
+    "first_seen": 2016,
+    "last_seen": 2025,
+    "sample": {
+      "id": "251",
+      "title": "Enhance your app\u2019s audio recording capabilities"
+    }
+  },
+  {
+    "term": "AppKit",
+    "category": "Framework",
+    "definition": "macOS UI framework",
+    "total_mentions": 21,
+    "years_seen": [
+      2015,
+      2017,
+      2018,
+      2019,
+      2020,
+      2021,
+      2022,
+      2023,
+      2024,
+      2025
+    ],
+    "year_count": 10,
+    "first_seen": 2015,
+    "last_seen": 2025,
+    "sample": {
+      "id": "310",
+      "title": "Build an AppKit app with the new design"
+    }
+  },
+  {
+    "term": "Vision Pro",
+    "category": "Hardware",
+    "definition": "Spatial computing headset",
+    "total_mentions": 21,
+    "years_seen": [
+      2023,
+      2024,
+      2025
+    ],
+    "year_count": 3,
+    "first_seen": 2023,
+    "last_seen": 2025,
+    "sample": {
+      "id": "282",
+      "title": "Make your UIKit app more flexible"
+    }
+  },
+  {
+    "term": "Mac Catalyst",
+    "category": "Concept",
+    "definition": "iPad app on Mac",
+    "total_mentions": 20,
+    "years_seen": [
+      2020,
+      2021,
+      2022,
+      2023
+    ],
+    "year_count": 4,
+    "first_seen": 2020,
+    "last_seen": 2023,
+    "sample": {
+      "id": "10055",
+      "title": "What\u2019s new in UIKit"
+    }
+  },
+  {
+    "term": "TestFlight",
+    "category": "Service",
+    "definition": "Beta distribution",
+    "total_mentions": 19,
+    "years_seen": [
+      2014,
+      2015,
+      2017,
+      2018,
+      2020,
+      2021,
+      2022,
+      2023,
+      2024,
+      2025
+    ],
+    "year_count": 10,
+    "first_seen": 2014,
+    "last_seen": 2025,
+    "sample": {
+      "id": "328",
+      "title": "What\u2019s new in App Store Connect"
+    }
+  },
+  {
+    "term": "SceneKit",
+    "category": "Framework",
+    "definition": "3D scene graph (deprecated 2025)",
+    "total_mentions": 18,
+    "years_seen": [
+      2014,
+      2015,
+      2016,
+      2017,
+      2018,
+      2025
+    ],
+    "year_count": 6,
+    "first_seen": 2014,
+    "last_seen": 2025,
+    "sample": {
+      "id": "288",
+      "title": "Bring your SceneKit project to RealityKit"
+    }
+  },
+  {
+    "term": "Swift Concurrency",
+    "category": "Language",
+    "definition": "async/await + actors",
+    "total_mentions": 17,
+    "years_seen": [
+      2021,
+      2022,
+      2023,
+      2024,
+      2025
+    ],
+    "year_count": 5,
+    "first_seen": 2021,
+    "last_seen": 2025,
+    "sample": {
+      "id": "270",
+      "title": "Code-along: Elevate an app with Swift concurrency"
+    }
+  },
+  {
+    "term": "SpriteKit",
+    "category": "Framework",
+    "definition": "2D game framework",
+    "total_mentions": 15,
+    "years_seen": [
+      2014,
+      2015,
+      2016,
+      2017
+    ],
+    "year_count": 4,
+    "first_seen": 2014,
+    "last_seen": 2017,
+    "sample": {
+      "id": "224",
+      "title": "Focus Interaction in tvOS 11"
+    }
+  },
+  {
+    "term": "URLSession",
+    "category": "Framework",
+    "definition": "HTTP networking",
+    "total_mentions": 15,
+    "years_seen": [
+      2017,
+      2018,
+      2019,
+      2020,
+      2021,
+      2022,
+      2023,
+      2024,
+      2025
+    ],
+    "year_count": 9,
+    "first_seen": 2017,
+    "last_seen": 2025,
+    "sample": {
+      "id": "WWDC25-314",
+      "title": "Quantum-secure TLS is enabled by DEFAULT in iOS 26. Your app gets post-quantum p\u2026"
+    }
+  },
+  {
+    "term": "WebKit",
+    "category": "Framework",
+    "definition": "Web rendering",
+    "total_mentions": 15,
+    "years_seen": [
+      2014,
+      2015,
+      2018,
+      2019,
+      2020,
+      2021,
+      2022,
+      2024,
+      2025
+    ],
+    "year_count": 9,
+    "first_seen": 2014,
+    "last_seen": 2025,
+    "sample": {
+      "id": "231",
+      "title": "Meet WebKit for SwiftUI"
+    }
+  },
+  {
+    "term": "MapKit",
+    "category": "Framework",
+    "definition": "Maps",
+    "total_mentions": 14,
+    "years_seen": [
+      2015,
+      2017,
+      2018,
+      2019,
+      2022,
+      2023,
+      2024,
+      2025
+    ],
+    "year_count": 8,
+    "first_seen": 2015,
+    "last_seen": 2025,
+    "sample": {
+      "id": "204",
+      "title": "Go further with MapKit"
+    }
+  },
+  {
+    "term": "Speech",
+    "category": "Framework",
+    "definition": "Speech recognition / synthesis",
+    "total_mentions": 14,
+    "years_seen": [
+      2016,
+      2017,
+      2018,
+      2019,
+      2020,
+      2023,
+      2024,
+      2025
+    ],
+    "year_count": 8,
+    "first_seen": 2016,
+    "last_seen": 2025,
+    "sample": {
+      "id": "277",
+      "title": "Bring advanced speech-to-text to your app with SpeechAnalyzer"
+    }
+  },
+  {
+    "term": "SwiftData",
+    "category": "Framework",
+    "definition": "Persistence (Swift-first)",
+    "total_mentions": 12,
+    "years_seen": [
+      2023,
+      2024,
+      2025
+    ],
+    "year_count": 3,
+    "first_seen": 2023,
+    "last_seen": 2025,
+    "sample": {
+      "id": "291",
+      "title": "SwiftData: Dive into inheritance and schema migration"
+    }
+  },
+  {
+    "term": "WidgetKit",
+    "category": "Framework",
+    "definition": "Home/Lock-screen widgets",
+    "total_mentions": 12,
+    "years_seen": [
+      2020,
+      2022,
+      2023,
+      2024,
+      2025
+    ],
+    "year_count": 5,
+    "first_seen": 2020,
+    "last_seen": 2025,
+    "sample": {
+      "id": "278",
+      "title": "What\u2019s new in widgets"
+    }
+  },
+  {
+    "term": "Xcode Cloud",
+    "category": "Service",
+    "definition": "Apple-hosted CI/CD",
+    "total_mentions": 12,
+    "years_seen": [
+      2021,
+      2022,
+      2023,
+      2024
+    ],
+    "year_count": 4,
+    "first_seen": 2021,
+    "last_seen": 2024,
+    "sample": {
+      "id": "10200",
+      "title": "Extend your Xcode Cloud workflows"
+    }
+  },
+  {
+    "term": "App Clips",
+    "category": "Concept",
+    "definition": "Lightweight app entry",
+    "total_mentions": 11,
+    "years_seen": [
+      2020,
+      2021,
+      2022,
+      2023
+    ],
+    "year_count": 4,
+    "first_seen": 2020,
+    "last_seen": 2023,
+    "sample": {
+      "id": "10178",
+      "title": "What\u2019s new in App Clips"
+    }
+  },
+  {
+    "term": "Live Activities",
+    "category": "Concept",
+    "definition": "Time-sensitive Lock-screen content",
+    "total_mentions": 11,
+    "years_seen": [
+      2023,
+      2024,
+      2025
+    ],
+    "year_count": 3,
+    "first_seen": 2023,
+    "last_seen": 2025,
+    "sample": {
+      "id": "322",
+      "title": "Track workouts with HealthKit on iOS and iPadOS"
+    }
+  },
+  {
+    "term": "Liquid Glass",
+    "category": "Design system",
+    "definition": "iOS 26 design material",
+    "total_mentions": 10,
+    "years_seen": [
+      2025
+    ],
+    "year_count": 1,
+    "first_seen": 2025,
+    "last_seen": 2025,
+    "sample": {
+      "id": "323",
+      "title": "Build a SwiftUI app with the new design"
+    }
+  },
+  {
+    "term": "Universal Links",
+    "category": "Concept",
+    "definition": "Web \u2192 app deep links",
+    "total_mentions": 10,
+    "years_seen": [
+      2015,
+      2017,
+      2019,
+      2020
+    ],
+    "year_count": 4,
+    "first_seen": 2015,
+    "last_seen": 2020,
+    "sample": {
+      "id": "10146",
+      "title": "Configure and link your App Clips"
+    }
+  },
+  {
+    "term": "DocC",
+    "category": "Framework",
+    "definition": "Documentation tooling",
+    "total_mentions": 9,
+    "years_seen": [
+      2018,
+      2021,
+      2022,
+      2023
+    ],
+    "year_count": 4,
+    "first_seen": 2018,
+    "last_seen": 2023,
+    "sample": {
+      "id": "10244",
+      "title": "Create rich documentation with Swift-DocC"
+    }
+  },
+  {
+    "term": "HomeKit",
+    "category": "Framework",
+    "definition": "Smart home",
+    "total_mentions": 9,
+    "years_seen": [
+      2014,
+      2015,
+      2016,
+      2017,
+      2018,
+      2021
+    ],
+    "year_count": 6,
+    "first_seen": 2014,
+    "last_seen": 2021,
+    "sample": {
+      "id": "10298",
+      "title": "Add support for Matter in your smart home app"
+    }
+  },
+  {
+    "term": "Sign In with Apple",
+    "category": "Concept",
+    "definition": "Privacy-preserving auth",
+    "total_mentions": 9,
+    "years_seen": [
+      2019,
+      2020,
+      2022
+    ],
+    "year_count": 3,
+    "first_seen": 2019,
+    "last_seen": 2022,
+    "sample": {
+      "id": "10053",
+      "title": "Discover Sign in with Apple at Work & School"
+    }
+  },
+  {
+    "term": "Apple Intelligence",
+    "category": "Concept",
+    "definition": "Apple's on-device AI suite (2024+)",
+    "total_mentions": 8,
+    "years_seen": [
+      2024,
+      2025
+    ],
+    "year_count": 2,
+    "first_seen": 2024,
+    "last_seen": 2025,
+    "sample": {
+      "id": "260",
+      "title": "Develop for Shortcuts and Spotlight with App Intents"
+    }
+  },
+  {
+    "term": "MainActor",
+    "category": "Language",
+    "definition": "Main-thread isolation",
+    "total_mentions": 7,
+    "years_seen": [
+      2021,
+      2024,
+      2025
+    ],
+    "year_count": 3,
+    "first_seen": 2021,
+    "last_seen": 2025,
+    "sample": {
+      "id": "WWDC25-266",
+      "title": "SwiftUI's visualEffect modifier runs on background threads. Never access @MainAc\u2026"
+    }
+  },
+  {
+    "term": "Observation",
+    "category": "Framework",
+    "definition": "Reactive view models (post-Combine)",
+    "total_mentions": 7,
+    "years_seen": [
+      2014,
+      2016,
+      2017,
+      2018,
+      2023,
+      2025
+    ],
+    "year_count": 6,
+    "first_seen": 2014,
+    "last_seen": 2025,
+    "sample": {
+      "id": "243",
+      "title": "What\u2019s new in UIKit"
+    }
+  },
+  {
+    "term": "PhotoKit",
+    "category": "Framework",
+    "definition": "Photos library access",
+    "total_mentions": 7,
+    "years_seen": [
+      2014,
+      2017,
+      2021,
+      2022,
+      2023,
+      2024
+    ],
+    "year_count": 6,
+    "first_seen": 2014,
+    "last_seen": 2024,
+    "sample": {
+      "id": "WWDC24-10204",
+      "title": "PhotoKit on the Lock Screen: when device is locked, only photos written DURING t\u2026"
+    }
+  },
+  {
+    "term": "GameplayKit",
+    "category": "Framework",
+    "definition": "Game AI / pathfinding",
+    "total_mentions": 6,
+    "years_seen": [
+      2015,
+      2016
+    ],
+    "year_count": 2,
+    "first_seen": 2015,
+    "last_seen": 2016,
+    "sample": {
+      "id": "608",
+      "title": "What's New in GameplayKit"
+    }
+  },
+  {
+    "term": "Codable",
+    "category": "Language",
+    "definition": "Auto-synthesized serialization",
+    "total_mentions": 5,
+    "years_seen": [
+      2017,
+      2018,
+      2019
+    ],
+    "year_count": 3,
+    "first_seen": 2017,
+    "last_seen": 2019,
+    "sample": {
+      "id": "WWDC19-603",
+      "title": "In RealityKit, custom Components (entity-component-system data) automatically ne\u2026"
+    }
+  },
+  {
+    "term": "CryptoKit",
+    "category": "Framework",
+    "definition": "Cryptography",
+    "total_mentions": 4,
+    "years_seen": [
+      2019,
+      2021,
+      2025
+    ],
+    "year_count": 3,
+    "first_seen": 2019,
+    "last_seen": 2025,
+    "sample": {
+      "id": "314",
+      "title": "Get ahead with quantum-secure cryptography"
+    }
+  },
+  {
+    "term": "MetricKit",
+    "category": "Framework",
+    "definition": "On-device perf metrics",
+    "total_mentions": 4,
+    "years_seen": [
+      2019,
+      2020
+    ],
+    "year_count": 2,
+    "first_seen": 2019,
+    "last_seen": 2020,
+    "sample": {
+      "id": "10081",
+      "title": "What's new in MetricKit"
+    }
+  },
+  {
+    "term": "Passkeys",
+    "category": "Concept",
+    "definition": "Phishing-resistant auth",
+    "total_mentions": 4,
+    "years_seen": [
+      2022,
+      2023,
+      2024,
+      2025
+    ],
+    "year_count": 4,
+    "first_seen": 2022,
+    "last_seen": 2025,
+    "sample": {
+      "id": "279",
+      "title": "What\u2019s new in passkeys"
+    }
+  },
+  {
+    "term": "VisionKit",
+    "category": "Framework",
+    "definition": "Document scanning",
+    "total_mentions": 4,
+    "years_seen": [
+      2022,
+      2023
+    ],
+    "year_count": 2,
+    "first_seen": 2022,
+    "last_seen": 2023,
+    "sample": {
+      "id": "10176",
+      "title": "Lift subjects from images in your app"
+    }
+  },
+  {
+    "term": "ActivityKit",
+    "category": "Framework",
+    "definition": "Live Activities",
+    "total_mentions": 3,
+    "years_seen": [
+      2023,
+      2025
+    ],
+    "year_count": 2,
+    "first_seen": 2023,
+    "last_seen": 2025,
+    "sample": {
+      "id": "230",
+      "title": "Wake up to the AlarmKit API"
+    }
+  },
+  {
+    "term": "Core Audio",
+    "category": "Framework",
+    "definition": "Audio low-level",
+    "total_mentions": 3,
+    "years_seen": [
+      2014,
+      2015,
+      2021
+    ],
+    "year_count": 3,
+    "first_seen": 2014,
+    "last_seen": 2021,
+    "sample": {
+      "id": "10190",
+      "title": "Create audio drivers with DriverKit"
+    }
+  },
+  {
+    "term": "Dynamic Island",
+    "category": "Concept",
+    "definition": "iPhone Pro pill UI",
+    "total_mentions": 3,
+    "years_seen": [
+      2023,
+      2025
+    ],
+    "year_count": 2,
+    "first_seen": 2023,
+    "last_seen": 2025,
+    "sample": {
+      "id": "230",
+      "title": "Wake up to the AlarmKit API"
+    }
+  },
+  {
+    "term": "App Tracking Transparency",
+    "category": "Concept",
+    "definition": "Permission for cross-app tracking",
+    "total_mentions": 2,
+    "years_seen": [
+      2020,
+      2022
+    ],
+    "year_count": 2,
+    "first_seen": 2020,
+    "last_seen": 2022,
+    "sample": {
+      "id": "10166",
+      "title": "Explore App Tracking Transparency"
+    }
+  },
+  {
+    "term": "MLX",
+    "category": "Framework",
+    "definition": "Apple-silicon ML research",
+    "total_mentions": 2,
+    "years_seen": [
+      2025
+    ],
+    "year_count": 1,
+    "first_seen": 2025,
+    "last_seen": 2025,
+    "sample": {
+      "id": "298",
+      "title": "Explore large language models on Apple silicon with MLX"
+    }
+  },
+  {
+    "term": "PermissionKit",
+    "category": "Framework",
+    "definition": "Child-safety permission UX (2025)",
+    "total_mentions": 2,
+    "years_seen": [
+      2025
+    ],
+    "year_count": 1,
+    "first_seen": 2025,
+    "last_seen": 2025,
+    "sample": {
+      "id": "293",
+      "title": "Enhance child safety with PermissionKit"
+    }
+  },
+  {
+    "term": "Sendable",
+    "category": "Language",
+    "definition": "Concurrency-safe protocol",
+    "total_mentions": 2,
+    "years_seen": [
+      2022
+    ],
+    "year_count": 1,
+    "first_seen": 2022,
+    "last_seen": 2022,
+    "sample": {
+      "id": "110351",
+      "title": "Eliminate data races using Swift Concurrency"
+    }
+  },
+  {
+    "term": "WeatherKit",
+    "category": "Framework",
+    "definition": "Weather data",
+    "total_mentions": 2,
+    "years_seen": [
+      2022,
+      2024
+    ],
+    "year_count": 2,
+    "first_seen": 2022,
+    "last_seen": 2024,
+    "sample": {
+      "id": "10067",
+      "title": "Bring context to today\u2019s weather"
+    }
+  },
+  {
+    "term": "AlarmKit",
+    "category": "Framework",
+    "definition": "Alarms / timers (2025)",
+    "total_mentions": 1,
+    "years_seen": [
+      2025
+    ],
+    "year_count": 1,
+    "first_seen": 2025,
+    "last_seen": 2025,
+    "sample": {
+      "id": "230",
+      "title": "Wake up to the AlarmKit API"
+    }
+  },
+  {
+    "term": "AppIntents",
+    "category": "Framework",
+    "definition": "Siri / Spotlight / Shortcuts integration",
+    "total_mentions": 1,
+    "years_seen": [
+      2023
+    ],
+    "year_count": 1,
+    "first_seen": 2023,
+    "last_seen": 2023,
+    "sample": {
+      "id": "WWDC23-10028, 10103",
+      "title": "Test interactive widgets carefully: AppIntents in widgets execute IN THE WIDGET \u2026"
+    }
+  },
+  {
+    "term": "CoreML",
+    "category": "Framework",
+    "definition": "On-device ML inference",
+    "total_mentions": 1,
+    "years_seen": [
+      2017
+    ],
+    "year_count": 1,
+    "first_seen": 2017,
+    "last_seen": 2017,
+    "sample": {
+      "id": "506",
+      "title": "Vision Framework: Building on Core ML"
+    }
+  },
+  {
+    "term": "EnergyKit",
+    "category": "Framework",
+    "definition": "Home electricity (2025)",
+    "total_mentions": 1,
+    "years_seen": [
+      2025
+    ],
+    "year_count": 1,
+    "first_seen": 2025,
+    "last_seen": 2025,
+    "sample": {
+      "id": "257",
+      "title": "Optimize home electricity usage with EnergyKit"
+    }
+  },
+  {
+    "term": "GroupActivities",
+    "category": "Framework",
+    "definition": "SharePlay",
+    "total_mentions": 1,
+    "years_seen": [
+      2023
+    ],
+    "year_count": 1,
+    "first_seen": 2023,
+    "last_seen": 2023,
+    "sample": {
+      "id": "10087",
+      "title": "Build spatial SharePlay experiences"
+    }
+  },
+  {
+    "term": "PaperKit",
+    "category": "Framework",
+    "definition": "Markup / drawing (2025)",
+    "total_mentions": 1,
+    "years_seen": [
+      2025
+    ],
+    "year_count": 1,
+    "first_seen": 2025,
+    "last_seen": 2025,
+    "sample": {
+      "id": "285",
+      "title": "Meet PaperKit"
+    }
+  },
+  {
+    "term": "Privacy Manifest",
+    "category": "Concept",
+    "definition": "PrivacyInfo.xcprivacy",
+    "total_mentions": 1,
+    "years_seen": [
+      2023
+    ],
+    "year_count": 1,
+    "first_seen": 2023,
+    "last_seen": 2023,
+    "sample": {
+      "id": "WWDC23-10060",
+      "title": "Privacy manifest (PrivacyInfo.xcprivacy) is required for SDKs accessing certain \u2026"
+    }
+  }
+]

@@ -411,7 +411,7 @@ const clusters = [
 
 // Hidden gems & best practices
 const gems = [
-  {type:"warning",label:"URGENT",text:"UIScene lifecycle adoption is MANDATORY in the release following iOS 26. Apps that don't adopt it will not launch.",source:"WWDC25-243"},
+  {type:"warning",label:"URGENT",text:"UIScene lifecycle adoption is MANDATORY in the release following iOS 26. Apps that don't adopt it will not launch.",source:"WWDC25-243", docUrl:"https://developer.apple.com/documentation/uikit/uiscenedelegate"},
   {type:"hidden",label:"HIDDEN GEM",text:"Data.dropFirst() is O(n), not O(1). Use Slice or the new Span type instead for zero-copy views into data.",source:"WWDC25-312"},
   {type:"practice",label:"BEST PRACTICE",text:"Property declaration order in @Generable structs affects Foundation Models output quality. Put summaries LAST for better streaming UX and generation quality.",source:"WWDC25-301", docUrl:"https://developer.apple.com/documentation/foundationmodels"},
   {type:"perf",label:"PERFORMANCE",text:"SwiftUI Lists are 6x faster for large data sets. ForEach initialization is 16x faster. These gains are automatic with no code changes.",source:"WWDC25-306, 256", docUrl:"https://developer.apple.com/documentation/swiftui"},
@@ -421,7 +421,7 @@ const gems = [
   {type:"hidden",label:"HIDDEN GEM",text:"session.prewarm(promptPrefix:) can eliminate Foundation Models asset loading latency. Call it when the user navigates to a screen that will use AI.",source:"WWDC25-301", docUrl:"https://developer.apple.com/documentation/foundationmodels"},
   {type:"perf",label:"PERFORMANCE",text:"includeSchemaInPrompt = false saves hundreds of tokens per request when you've already provided examples in instructions.",source:"WWDC25-301"},
   {type:"practice",label:"BEST PRACTICE",text:"Quantum-secure TLS is enabled by DEFAULT in iOS 26. Your app gets post-quantum protection automatically if using URLSession/Network.framework.",source:"WWDC25-314", docUrl:"https://developer.apple.com/documentation/foundation/urlsession"},
-  {type:"hidden",label:"HIDDEN GEM",text:"Observable models don't need @MainActor annotation when main actor mode is on. Swift infers isolation from the instantiation context.",source:"WWDC25-266"},
+  {type:"hidden",label:"HIDDEN GEM",text:"Observable models don't need @MainActor annotation when main actor mode is on. Swift infers isolation from the instantiation context.",source:"WWDC25-266", docUrl:"https://developer.apple.com/documentation/swift/concurrency"},
   {type:"warning",label:"DEPRECATION",text:"On-Demand Resources is deprecated. Background Assets with 200GB Apple hosting replaces it completely.",source:"WWDC25-325", docUrl:"https://developer.apple.com/documentation/backgroundassets"},
   {type:"perf",label:"PERFORMANCE",text:"Eytzinger layout for binary search is dramatically more cache-friendly than sorted arrays. Apple engineers recommend it for hot lookup paths.",source:"WWDC25-312"},
   {type:"practice",label:"BEST PRACTICE",text:"In Swift 6.2, async functions no longer eagerly offload. A nonisolated async function called from @MainActor stays on the main actor unless marked @concurrent.",source:"WWDC25-245", docUrl:"https://developer.apple.com/documentation/swift/concurrency"},

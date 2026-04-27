@@ -25,7 +25,8 @@
     "type": "warning",
     "label": "URGENT",
     "text": "Share extensions get killed within seconds of completeRequestReturningItems. ALWAYS upload via background NSURLSession with file-based source \u2014 the system completes the upload after your extension dies.",
-    "source": "WWDC14-205"
+    "source": "WWDC14-205",
+    "docUrl": "https://developer.apple.com/documentation/foundation/urlsession"
   },
   {
     "year": 2014,
@@ -160,7 +161,8 @@
     "type": "practice",
     "label": "BEST PRACTICE",
     "text": "Use 'let' until the compiler complains. Starting with 'var' everywhere is a Swift code smell. Immutable bindings let the optimizer work harder, document intent, and prevent multi-threaded races.",
-    "source": "WWDC14-402"
+    "source": "WWDC14-402",
+    "docUrl": "https://developer.apple.com/documentation/sirikit"
   },
   {
     "year": 2014,
@@ -232,21 +234,24 @@
     "type": "perf",
     "label": "PERFORMANCE",
     "text": "Metal delivers up to 10x more draw calls per frame on A7+. The Crytek Collectables demo at WWDC ran 4,000 draw calls per frame on iPad Air \u2014 qualitatively new content (full destruction physics) impossible on OpenGL ES.",
-    "source": "WWDC14-603"
+    "source": "WWDC14-603",
+    "docUrl": "https://developer.apple.com/metal/"
   },
   {
     "year": 2014,
     "type": "perf",
     "label": "PERFORMANCE",
     "text": "NSURLSession in iOS 8 transparently uses SPDY when the server supports it (no code changes). Apple measured up to 25% faster end-to-end vs HTTP/1.1, with a single multiplexed long-lived TCP connection eliminating head-of-line blocking.",
-    "source": "WWDC14-707"
+    "source": "WWDC14-707",
+    "docUrl": "https://developer.apple.com/documentation/foundation/urlsession"
   },
   {
     "year": 2014,
     "type": "perf",
     "label": "PERFORMANCE",
     "text": "Metal's load/store actions on framebuffer attachments save massive memory bandwidth on the A7's tile-based deferred renderer. Setting depth attachment storeAction = .dontCare on every frame eliminates a write that OpenGL ES had no equivalent control over.",
-    "source": "WWDC14-603"
+    "source": "WWDC14-603",
+    "docUrl": "https://developer.apple.com/metal/"
   },
   {
     "year": 2014,
@@ -306,7 +311,8 @@
     "type": "warning",
     "label": "URGENT",
     "text": "App Transport Security is ON by default in iOS 9. All higher-level network APIs require HTTPS + TLS 1.2 + forward secrecy or you get an error. Per-domain exceptions go in NSExceptionDomains; never blanket-disable with NSAllowsArbitraryLoads.",
-    "source": "WWDC15-711"
+    "source": "WWDC15-711",
+    "docUrl": "https://developer.apple.com/documentation/security/preventing-insecure-network-connections"
   },
   {
     "year": 2015,
@@ -327,7 +333,8 @@
     "type": "warning",
     "label": "URGENT",
     "text": "In iOS 9, the system kills processes when memory runs out \u2014 and the killed app may not be the one that caused the spike. Audit your working set and adopt NSPurgeableData / memory mapping aggressively.",
-    "source": "WWDC15-212"
+    "source": "WWDC15-212",
+    "docUrl": "https://developer.apple.com/documentation/foundation"
   },
   {
     "year": 2015,
@@ -341,21 +348,24 @@
     "type": "hidden",
     "label": "HIDDEN GEM",
     "text": "In Swift 2, dispatch_block_create_with_qos_class lets you tag a block with explicit QoS that overrides automatic propagation. Combine with dispatch_block_assign_current to capture the calling thread's QoS for later async submission.",
-    "source": "WWDC15-718"
+    "source": "WWDC15-718",
+    "docUrl": "https://developer.apple.com/documentation/dispatch"
   },
   {
     "year": 2015,
     "type": "hidden",
     "label": "HIDDEN GEM",
     "text": "dispatch_semaphore_wait does NOT participate in priority inversion resolution because semaphores have no concept of ownership. Use dispatch_block_wait when you need the system to raise the worker's QoS.",
-    "source": "WWDC15-718"
+    "source": "WWDC15-718",
+    "docUrl": "https://developer.apple.com/documentation/dispatch"
   },
   {
     "year": 2015,
     "type": "hidden",
     "label": "HIDDEN GEM",
     "text": "NSPurgeableData lets you tell the system 'this dirty memory can be reclaimed when needed.' The system reclaims silently \u2014 no memory warning, no app intervention. Combined with memory-mapped files (NSData mapped option), you can keep gigabytes of cache while staying under your dirty memory limit.",
-    "source": "WWDC15-212"
+    "source": "WWDC15-212",
+    "docUrl": "https://developer.apple.com/documentation/foundation"
   },
   {
     "year": 2015,
@@ -391,7 +401,8 @@
     "type": "hidden",
     "label": "HIDDEN GEM",
     "text": "ClockKit complications use a TIMELINE \u2014 past, present, and future data points. The system pre-fetches your timeline so when the user raises their wrist the data is already correct, AND time travel (digital crown to past/future) just consults the timeline you already provided. Zero extra code.",
-    "source": "WWDC15-209"
+    "source": "WWDC15-209",
+    "docUrl": "https://developer.apple.com/documentation/clockkit"
   },
   {
     "year": 2015,
@@ -414,7 +425,8 @@
     "type": "hidden",
     "label": "HIDDEN GEM",
     "text": "In iOS 9, NSManagedObjectContext.shouldDeleteInaccessibleFaults = true marks unloadable faults as deleted instead of crashing with the dreaded 'Could not load fault' exception. One property prevents one of the top Core Data crash categories.",
-    "source": "WWDC15-220"
+    "source": "WWDC15-220",
+    "docUrl": "https://developer.apple.com/documentation/coredata"
   },
   {
     "year": 2015,
@@ -477,7 +489,8 @@
     "type": "practice",
     "label": "BEST PRACTICE",
     "text": "In Swift 2, type-safe asset catalog identifiers via a nested enum: extension UIImage { enum AssetIdentifier: String { case unicornBrowser } init(asset: AssetIdentifier) }. Compile-time typo detection AND non-optional UIImage return.",
-    "source": "WWDC15-411"
+    "source": "WWDC15-411",
+    "docUrl": "https://developer.apple.com/documentation/uikit"
   },
   {
     "year": 2015,
@@ -491,7 +504,8 @@
     "type": "practice",
     "label": "BEST PRACTICE",
     "text": "Always wrap NSOperation logic in operations even for UI elements (alerts, login sheets, video playback). Operations get dependencies, conditions, observers \u2014 and the WWDC sample app proves you can serialize all your async work this way.",
-    "source": "WWDC15-226"
+    "source": "WWDC15-226",
+    "docUrl": "https://developer.apple.com/documentation/dispatch"
   },
   {
     "year": 2015,
@@ -519,14 +533,16 @@
     "type": "perf",
     "label": "PERFORMANCE",
     "text": "iPad Air 2 scans touches at 120Hz. Use UIEvent.coalescedTouchesForTouch for double the touch fidelity in drawing apps. Use UIEvent.predictedTouchesForTouch to render approximately 1 frame into the future \u2014 total latency drops from iOS 8's ~4 frames to iOS 9's ~1.5 frames.",
-    "source": "WWDC15-233"
+    "source": "WWDC15-233",
+    "docUrl": "https://developer.apple.com/documentation/uikit"
   },
   {
     "year": 2015,
     "type": "perf",
     "label": "PERFORMANCE",
     "text": "Cellular networking has a HUGE post-transmission keep-alive cost \u2014 sending 1KB can keep the radio on for 2-10 seconds. ALWAYS coalesce networking. Use NSURLSession background sessions to let the OS schedule, never force immediate transmission for non-critical work.",
-    "source": "WWDC15-707"
+    "source": "WWDC15-707",
+    "docUrl": "https://developer.apple.com/documentation/foundation/urlsession"
   },
   {
     "year": 2015,
@@ -540,7 +556,8 @@
     "type": "perf",
     "label": "PERFORMANCE",
     "text": "UIStackView uses a CATransformLayer (no own backing) \u2014 extremely lightweight, faster than ordinary container views. Adopt it everywhere you would have used a plain UIView wrapper.",
-    "source": "WWDC15-218"
+    "source": "WWDC15-218",
+    "docUrl": "https://developer.apple.com/documentation/uikit"
   },
   {
     "year": 2015,
@@ -561,7 +578,8 @@
     "type": "warning",
     "label": "DEPRECATION",
     "text": "NSManagedObjectContext's confinementConcurrencyType (the default for plain init()) is deprecated. Migrate to init(concurrencyType:) with .privateQueueConcurrencyType or .mainQueueConcurrencyType and the perform/performAndWait block APIs.",
-    "source": "WWDC15-220"
+    "source": "WWDC15-220",
+    "docUrl": "https://developer.apple.com/documentation/coredata"
   },
   {
     "year": 2015,
@@ -576,14 +594,16 @@
     "type": "warning",
     "label": "DEPRECATION",
     "text": "WatchKit 1's openParentApplication is gone in watchOS 2 \u2014 use WCSession sendMessage. Image caching APIs are gone \u2014 use setImage with UIImage data or push assets via Watch Connectivity.",
-    "source": "WWDC15-105"
+    "source": "WWDC15-105",
+    "docUrl": "https://developer.apple.com/documentation/uikit"
   },
   {
     "year": 2015,
     "type": "warning",
     "label": "DEPRECATION",
     "text": "Mac Safari extensions' canLoad callback (per-load consultation) is deprecated. Migrate to the new content blocker JSON list model \u2014 same format as iOS, compiled once into bytecode for fast evaluation.",
-    "source": "WWDC15-511"
+    "source": "WWDC15-511",
+    "docUrl": "https://developer.apple.com/documentation/safariservices"
   },
   {
     "year": 2016,
@@ -621,7 +641,8 @@
     "type": "warning",
     "label": "URGENT",
     "text": "watchOS 3 caps each WatchKit extension at 30 MB. Exceed it and the system terminates your extension ABRUPTLY with no chance to clean up \u2014 meaning your snapshot won't update either. Use small images, narrow data sets, separate watch-specific endpoints if your iPhone API is too verbose.",
-    "source": "WWDC16-227"
+    "source": "WWDC16-227",
+    "docUrl": "https://developer.apple.com/documentation/watchkit"
   },
   {
     "year": 2016,
@@ -657,21 +678,24 @@
     "type": "hidden",
     "label": "HIDDEN GEM",
     "text": "UNNotificationContentExtension can host a CUSTOM inputAccessoryView when text-input actions fire. Return true from canBecomeFirstResponder, build any UIView as the accessory, and the system uses your custom buttons (accept/decline alongside the typed reply) instead of the plain Send button. Calendar/Mail use this internally.",
-    "source": "WWDC16-708"
+    "source": "WWDC16-708",
+    "docUrl": "https://developer.apple.com/documentation/uikit"
   },
   {
     "year": 2016,
     "type": "hidden",
     "label": "HIDDEN GEM",
     "text": "Foundation's FileManager.copyItem and replaceItem AUTOMATICALLY clone or atomic-rename on APFS \u2014 no opt-in needed. Document bundles (directories!) finally get atomic safe-save via the new renamex_np RENAME_SWAP primitive. The 1980s 'move-old-aside, hope-power-doesn't-fail' bundle race is gone.",
-    "source": "WWDC16-701"
+    "source": "WWDC16-701",
+    "docUrl": "https://developer.apple.com/documentation/foundation"
   },
   {
     "year": 2016,
     "type": "hidden",
     "label": "HIDDEN GEM",
     "text": "In Swift 3, Foundation gets value-type bridging: NSDate \u2192 Date (struct), NSData \u2192 Data, NSURL \u2192 URL, NSIndexPath \u2192 IndexPath, NSCharacterSet \u2192 CharacterSet. Mutation is in-place, copy-on-write, NS-prefix dropped. New default-argument DateComponents init (DateComponents(year:2016, month:6)) replaces create-then-mutate.",
-    "source": "WWDC16-207"
+    "source": "WWDC16-207",
+    "docUrl": "https://developer.apple.com/documentation/foundation"
   },
   {
     "year": 2016,
@@ -692,7 +716,8 @@
     "type": "perf",
     "label": "PERFORMANCE",
     "text": "WKInterface property setters in watchOS are IPC messages from extension to app process \u2014 average ~200ms latency, worst case 1.4s on launch. CACHE values in your row controller and only set when values change. WKInterfaceTable EAGERLY creates all row controllers (no cell reuse); cap tables at ~20 rows and use insertRows/removeRows over setNumberOfRows.",
-    "source": "WWDC16-227"
+    "source": "WWDC16-227",
+    "docUrl": "https://developer.apple.com/documentation/watchkit"
   },
   {
     "year": 2016,
@@ -713,7 +738,8 @@
     "type": "perf",
     "label": "PERFORMANCE",
     "text": "Swift 3 made dictionary 1.6x faster, String\u2192NSString conversions up to 15x faster (UTF-8 internal storage, zero-copy/zero-transcoding to C APIs). Stack-promoted class instances for array literals. Don't churn back-and-forth across the Obj-C bridge in tight loops \u2014 small value types like Date allocate an NSDate per crossing.",
-    "source": "WWDC16-416"
+    "source": "WWDC16-416",
+    "docUrl": "https://developer.apple.com/documentation/foundation/date"
   },
   {
     "year": 2016,
@@ -736,7 +762,8 @@
     "type": "practice",
     "label": "BEST PRACTICE",
     "text": "Migrate from UIGraphicsBeginImageContext to UIGraphicsImageRenderer in iOS 10. The old API is documented to ONLY return RGBA8 contexts \u2014 no wide color, ever. The new renderer auto-picks RGBAh on wide-gamut devices, RGBA8 elsewhere, manages context lifetime, and is fully color-managed. Compatible with UIGraphicsGetCurrentContext for legacy code.",
-    "source": "WWDC16-712"
+    "source": "WWDC16-712",
+    "docUrl": "https://developer.apple.com/documentation/uikit"
   },
   {
     "year": 2016,
@@ -750,7 +777,8 @@
     "type": "practice",
     "label": "BEST PRACTICE",
     "text": "Wrap a UIView.animateKeyframes block inside a UIViewPropertyAnimator and the entire keyframe sequence becomes scrubbable, pauseable, and reversible. The animator's isManualHitTestingEnabled defaults to FALSE \u2014 the system hit-tests against the presentation layer (where it APPEARS), so you can tap and 'catch' moving views. UISpring's initialVelocity is now a 2D CGVector honoring gesture direction.",
-    "source": "WWDC16-216"
+    "source": "WWDC16-216",
+    "docUrl": "https://developer.apple.com/documentation/uikit"
   },
   {
     "year": 2016,
@@ -772,7 +800,8 @@
     "type": "warning",
     "label": "DEPRECATION",
     "text": "OSSpinLock has a priority inversion bug (low-pri holder blocks high-pri waiter forever) and is effectively deprecated. Use os_unfair_lock from C, or wrap a mutex in an Obj-C base class \u2014 Swift's struct lock can be moved by ARC, breaking the mutex. For most cases just use a serial DispatchQueue with .sync.",
-    "source": "WWDC16-720"
+    "source": "WWDC16-720",
+    "docUrl": "https://developer.apple.com/documentation/dispatch"
   },
   {
     "year": 2016,
@@ -840,14 +869,16 @@
     "type": "hidden",
     "label": "HIDDEN GEM",
     "text": "NSItemProvider's preferredPresentationSize is a side-channel hint that lets the destination size the drop preview BEFORE the data finishes loading. That's how Mail's compose sheet pre-allocates space for an image dragged from Photos.",
-    "source": "WWDC17-213"
+    "source": "WWDC17-213",
+    "docUrl": "https://developer.apple.com/documentation/foundation/nsitemprovider"
   },
   {
     "year": 2017,
     "type": "hidden",
     "label": "HIDDEN GEM",
     "text": "For in-app drag and drop, skip the NSItemProvider boilerplate entirely \u2014 UIDragItem.localObject is a free Any? slot. Stash a reference; read back via session.items.first?.localObject.",
-    "source": "WWDC17-213"
+    "source": "WWDC17-213",
+    "docUrl": "https://developer.apple.com/documentation/foundation/nsitemprovider"
   },
   {
     "year": 2017,
@@ -869,7 +900,8 @@
     "type": "perf",
     "label": "PERFORMANCE",
     "text": "Swift 4 String storage moved to UTF-8 internally. Bridging Swift String to a C char* is now zero-copy. String\u2192NSString operations are dramatically faster in Cocoa interop paths.",
-    "source": "WWDC17-402"
+    "source": "WWDC17-402",
+    "docUrl": "https://developer.apple.com/documentation/foundation"
   },
   {
     "year": 2017,
@@ -884,7 +916,8 @@
     "type": "perf",
     "label": "PERFORMANCE",
     "text": "On APFS (default in iOS 10.3+ and macOS High Sierra), FileManager.copyItem(at:to:) is now near-instant regardless of file size \u2014 it creates a clone with copy-on-write storage. Use it freely; the old cost is gone.",
-    "source": "WWDC17-715"
+    "source": "WWDC17-715",
+    "docUrl": "https://developer.apple.com/documentation/foundation"
   },
   {
     "year": 2017,
@@ -914,7 +947,8 @@
     "type": "warning",
     "label": "URGENT",
     "text": "Catalyst-precursor reality: TLS 1.2 with forward-secrecy ciphers is required by ATS for new apps. NSAllowsArbitraryLoads is increasingly rejected at App Review without strong justification.",
-    "source": "WWDC17-701"
+    "source": "WWDC17-701",
+    "docUrl": "https://developer.apple.com/documentation/security/preventing-insecure-network-connections"
   },
   {
     "year": 2017,
@@ -928,14 +962,16 @@
     "type": "warning",
     "label": "DEPRECATION",
     "text": "OpenGL ES on iOS and OpenGL on macOS are officially deprecated in 2017 (legacy in WWDC 2017, formally deprecated in 2018). Migrate to Metal/MPS now \u2014 your apps will keep running but no new features ship.",
-    "source": "WWDC17-601"
+    "source": "WWDC17-601",
+    "docUrl": "https://developer.apple.com/metal/"
   },
   {
     "year": 2017,
     "type": "warning",
     "label": "URGENT",
     "text": "dispatch_once_t MUST be in static or global storage \u2014 never in instance variables or heap memory. Re-use of memory addresses can cause the once block to run twice. The Xcode 9 static analyzer now warns on this.",
-    "source": "WWDC17-706"
+    "source": "WWDC17-706",
+    "docUrl": "https://developer.apple.com/documentation/dispatch"
   },
   {
     "year": 2017,
@@ -1000,7 +1036,8 @@
     "type": "hidden",
     "label": "HIDDEN GEM",
     "text": "The depth/disparity map from iPhone 7 Plus and TrueDepth cameras is written into the HEIF as an auxiliary track. It survives AirDrop and iCloud Photo Library \u2014 apps can re-edit Portrait mode days later.",
-    "source": "WWDC17-507"
+    "source": "WWDC17-507",
+    "docUrl": "https://developer.apple.com/documentation/imageio"
   },
   {
     "year": 2017,
@@ -1014,14 +1051,16 @@
     "type": "warning",
     "label": "URGENT",
     "text": "OpenGL ES on iOS and OpenGL/OpenCL on macOS are DEPRECATED in 2018. Apps continue to work but get no new features. Migrate to Metal, MPS, MetalKit, or MTKView. macOS Mojave is also the LAST release to support 32-bit apps at all - frameworks like QuickTime and Apple Java go with it.",
-    "source": "WWDC18-604"
+    "source": "WWDC18-604",
+    "docUrl": "https://developer.apple.com/metal/"
   },
   {
     "year": 2018,
     "type": "warning",
     "label": "URGENT",
     "text": "NSKeyedArchiver and NSKeyedUnarchiver insecure APIs are deprecated immediately (no soft-deprecation). Use NSKeyedUnarchiver.unarchivedObject(ofClass:from:) which is secure-by-default and returns errors instead of throwing exceptions.",
-    "source": "WWDC18-222"
+    "source": "WWDC18-222",
+    "docUrl": "https://developer.apple.com/documentation/foundation/nskeyedarchiver"
   },
   {
     "year": 2018,
@@ -1104,7 +1143,8 @@
     "type": "hidden",
     "label": "HIDDEN GEM",
     "text": "iOS 12's UIGraphicsImageRenderer automatically picks the smallest backing-store format (Alpha 8 for grayscale, sRGB for color, P3 for HDR). A grayscale sketch on iPhone X uses 275 KB instead of 2.2 MB. Drop UIGraphicsBeginImageContextWithOptions - it always uses 4 bytes/pixel sRGB.",
-    "source": "WWDC18-219"
+    "source": "WWDC18-219",
+    "docUrl": "https://developer.apple.com/documentation/uikit"
   },
   {
     "year": 2018,
@@ -1127,7 +1167,8 @@
     "type": "hidden",
     "label": "HIDDEN GEM",
     "text": "Siri's INRelevantShortcut on watchOS 5 works EVEN WITHOUT a Watch app. As long as the underlying intent is background-executable and doesn't need encrypted data, watchOS 5 executes it on iPhone via the watch's connection. Donate from your iOS app - the platter shows up on the Siri face.",
-    "source": "WWDC18-217"
+    "source": "WWDC18-217",
+    "docUrl": "https://developer.apple.com/documentation/sirikit"
   },
   {
     "year": 2018,
@@ -1230,7 +1271,8 @@
     "type": "practice",
     "label": "BEST PRACTICE",
     "text": "For free trials in non-subscription apps, use TWO non-consumable IAPs: a $0 'Free Trial' and a paid 'Full Unlock'. Show the trial duration, the post-trial price, and what features expire BEFORE the trial begins. Verify trial state via DeviceCheck (clock can be changed) plus receipt parsing.",
-    "source": "WWDC18-704"
+    "source": "WWDC18-704",
+    "docUrl": "https://developer.apple.com/documentation/devicecheck"
   },
   {
     "year": 2018,
@@ -1360,7 +1402,8 @@
     "type": "perf",
     "label": "PERFORMANCE",
     "text": "Swift 5 switched String to UTF-8 internally. Passing a Swift String to a C API now requires zero allocation, zero copy, zero transcoding. Dictionary\u2194NSDictionary bridging is 1.6x faster; String\u2192NSString operations up to 15x faster.",
-    "source": "WWDC19-402"
+    "source": "WWDC19-402",
+    "docUrl": "https://developer.apple.com/documentation/foundation"
   },
   {
     "year": 2019,
@@ -1482,7 +1525,8 @@
     "type": "practice",
     "label": "BEST PRACTICE",
     "text": "Test Plans (.xctestplan, new in Xcode 11) let one set of tests run under multiple configurations (localizations, sanitizers, screenshots, environment). Replace per-environment scheme duplication.",
-    "source": "WWDC19-413"
+    "source": "WWDC19-413",
+    "docUrl": "https://developer.apple.com/documentation/swiftui"
   },
   {
     "year": 2020,
@@ -1734,7 +1778,8 @@
     "type": "hidden",
     "label": "HIDDEN GEM",
     "text": "Actor hopping is NOT a thread switch when uncontended \u2014 the runtime turns the existing thread's work item into the new actor's work item. Two-call ping-pong is O(function-call), not O(context-switch). MainActor hops ARE real switches; batch your work.",
-    "source": "WWDC21-10254"
+    "source": "WWDC21-10254",
+    "docUrl": "https://developer.apple.com/documentation/swift/concurrency"
   },
   {
     "year": 2021,
@@ -1816,7 +1861,8 @@
     "type": "hidden",
     "label": "HIDDEN GEM",
     "text": "NotificationCenter.notifications(named:) is now an AsyncSequence \u2014 for await note in NotificationCenter.default.notifications(named: \u2026) replaces the add-observer/remove-observer dance entirely.",
-    "source": "WWDC21-10058"
+    "source": "WWDC21-10058",
+    "docUrl": "https://developer.apple.com/documentation/foundation/notificationcenter"
   },
   {
     "year": 2021,
@@ -1831,7 +1877,8 @@
     "type": "perf",
     "label": "PERFORMANCE",
     "text": "MainActor hops are real thread switches because main is disjoint from the cooperative pool. Batch work that touches MainActor: process arrays in one hop instead of looping with one hop per element.",
-    "source": "WWDC21-10254"
+    "source": "WWDC21-10254",
+    "docUrl": "https://developer.apple.com/documentation/swift/concurrency"
   },
   {
     "year": 2021,
@@ -1979,7 +2026,8 @@
     "type": "hidden",
     "label": "HIDDEN GEM",
     "text": "Use Layout protocol (not GeometryReader) to size a parent based on its children. GeometryReader measures container \u2192 reports to subviews \u2014 wrong direction. Layout participates correctly and avoids infinite-loop hazards.",
-    "source": "WWDC22-10056"
+    "source": "WWDC22-10056",
+    "docUrl": "https://developer.apple.com/documentation/swiftui"
   },
   {
     "year": 2022,
@@ -2084,7 +2132,8 @@
     "type": "warning",
     "label": "DEPRECATION",
     "text": "UIMenuController is deprecated. Use UIEditMenuInteraction for the new menu API. UIMenuController menus won't get the iOS 16 redesign.",
-    "source": "WWDC22-10071"
+    "source": "WWDC22-10071",
+    "docUrl": "https://developer.apple.com/documentation/uikit"
   },
   {
     "year": 2022,
@@ -2317,7 +2366,8 @@
     "type": "hidden",
     "label": "HIDDEN GEM",
     "text": "Custom actor executors let an actor synchronize with EXISTING dispatch queues (e.g., Obj-C code on a known queue). Set unownedExecutor to dispatch queue's UnownedSerialExecutor.",
-    "source": "WWDC23-10164, 10170"
+    "source": "WWDC23-10164, 10170",
+    "docUrl": "https://developer.apple.com/documentation/dispatch"
   },
   {
     "year": 2024,
@@ -2370,21 +2420,24 @@
     "type": "practice",
     "label": "BEST PRACTICE",
     "text": "Translation API batches: Group requests by source language. Mixing German + Spanish in one batch produces nonsense. Use separate batches in the same TranslationSession.",
-    "source": "WWDC24-10117"
+    "source": "WWDC24-10117",
+    "docUrl": "https://developer.apple.com/documentation/translation"
   },
   {
     "year": 2024,
     "type": "warning",
     "label": "URGENT",
     "text": "TranslationSession is anchored to its view -- if the view disappears, the session breaks. NEVER store it in a model object or singleton.",
-    "source": "WWDC24-10117"
+    "source": "WWDC24-10117",
+    "docUrl": "https://developer.apple.com/documentation/translation"
   },
   {
     "year": 2024,
     "type": "hidden",
     "label": "HIDDEN GEM",
     "text": "Translation APIs DO NOT FUNCTION IN THE SIMULATOR. You must develop on iPhone, iPad, or Mac. Builds will compile but runtime calls fail silently.",
-    "source": "WWDC24-10117"
+    "source": "WWDC24-10117",
+    "docUrl": "https://developer.apple.com/documentation/translation"
   },
   {
     "year": 2024,
@@ -2414,14 +2467,16 @@
     "type": "practice",
     "label": "BEST PRACTICE",
     "text": "Apple Intelligence Assistant Schemas: conform with @AssistantIntent(schema: .photos.openAsset). The compiler validates your intent against the trained schema -- missing required fields fail to build.",
-    "source": "WWDC24-10133"
+    "source": "WWDC24-10133",
+    "docUrl": "https://developer.apple.com/documentation/sirikit"
   },
   {
     "year": 2024,
     "type": "hidden",
     "label": "HIDDEN GEM",
     "text": "For App Intent results to Siri, return BOTH dialog AND view: `.result(dialog: \"...\") { Snippet() }`. On HomePod/AirPods, dialog speaks. On screen, snippet shows. Siri picks contextually.",
-    "source": "WWDC24-10210"
+    "source": "WWDC24-10210",
+    "docUrl": "https://developer.apple.com/documentation/sirikit"
   },
   {
     "year": 2024,
@@ -2595,7 +2650,8 @@
     "type": "warning",
     "label": "URGENT",
     "text": "UIScene lifecycle adoption is MANDATORY in the release following iOS 26. Apps that don't adopt it will not launch.",
-    "source": "WWDC25-243"
+    "source": "WWDC25-243",
+    "docUrl": "https://developer.apple.com/documentation/uikit/uiscenedelegate"
   },
   {
     "year": 2025,
@@ -2672,7 +2728,8 @@
     "type": "hidden",
     "label": "HIDDEN GEM",
     "text": "Observable models don't need @MainActor annotation when main actor mode is on. Swift infers isolation from the instantiation context.",
-    "source": "WWDC25-266"
+    "source": "WWDC25-266",
+    "docUrl": "https://developer.apple.com/documentation/swift/concurrency"
   },
   {
     "year": 2025,
