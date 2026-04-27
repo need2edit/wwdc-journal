@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Getting Featured on the App Store</title>
+<style>
+  :root {
+    --bg: #0a0a0f;
+    --surface: #14141f;
+    --surface2: #1e1e2e;
+    --surface3: #252535;
+    --border: #2a2a3e;
+    --border-bright: #3a3a4e;
+    --text: #e8e8f0;
+    --text-dim: #8888a0;
+    --text-faint: #5a5a70;
+    --accent: #f59e0b;
+    --accent2: #fbbf24;
+    --green: #34d399;
+    --amber: #fbbf24;
+    --red: #f87171;
+    --pink: #f472b6;
+    --cyan: #22d3ee;
+    --orange: #fb923c;
+    --purple: #c084fc;
+    --gold: #facc15;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', system-ui, sans-serif; background: var(--bg); color: var(--text); overflow-x: hidden; }
+
+  .hero { padding: 56px 40px 28px; text-align: center; position: relative; overflow: hidden; }
+  .hero::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(ellipse at center, rgba(245,158,11,0.10) 0%, transparent 60%); pointer-events: none; }
+  .breadcrumb { color: var(--text-dim); font-size: 0.85em; margin-bottom: 10px; }
+  .breadcrumb a { color: var(--accent2); text-decoration: none; }
+  .breadcrumb a:hover { text-decoration: underline; }
+  .hero h1 { font-size: 2.8em; font-weight: 700; background: linear-gradient(135deg, #facc15, #f59e0b, #fb923c, #f472b6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 8px; letter-spacing: -0.02em; }
+  .hero .sub { color: var(--text-dim); font-size: 1.05em; max-width: 720px; margin: 0 auto; line-height: 1.5; }
+
+  .progress-bar-container { max-width: 1100px; margin: 30px auto 16px; padding: 0 20px; }
+  .progress-card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 20px 24px; }
+  .progress-row { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; }
+  .progress-row .label { color: var(--text); font-weight: 600; font-size: 0.95em; }
+  .progress-row .pct { color: var(--accent2); font-weight: 700; font-size: 1.2em; }
+  .progress-track { height: 8px; background: var(--surface2); border-radius: 4px; overflow: hidden; }
+  .progress-fill { height: 100%; background: linear-gradient(90deg, #facc15, #f59e0b, #fb923c); border-radius: 4px; transition: width 0.4s ease; }
+  .phase-pcts { display: flex; gap: 16px; margin-top: 14px; flex-wrap: wrap; }
+  .phase-pct { flex: 1; min-width: 120px; }
+  .phase-pct-label { color: var(--text-dim); font-size: 0.72em; margin-bottom: 4px; }
+  .phase-pct-mini { height: 4px; background: var(--surface2); border-radius: 2px; overflow: hidden; margin-top: 4px; }
+  .phase-pct-fill { height: 100%; border-radius: 2px; transition: width 0.4s ease; }
+  .reset-link { float: right; color: var(--text-faint); cursor: pointer; font-size: 0.78em; }
+  .reset-link:hover { color: var(--red); }
+
+  .tabs { display: flex; justify-content: center; gap: 8px; margin: 24px 0 32px; flex-wrap: wrap; padding: 0 20px; }
+  .tab { padding: 10px 22px; border-radius: 24px; border: 1px solid var(--border); background: var(--surface); color: var(--text-dim); cursor: pointer; font-size: 0.9em; transition: all 0.2s; font-family: inherit; }
+  .tab:hover { border-color: var(--accent); color: var(--text); }
+  .tab.active { background: var(--accent); border-color: var(--accent); color: #1a1a1a; }
+
+  .section { display: none; max-width: 1200px; margin: 0 auto; padding: 0 20px 80px; }
+  .section.active { display: block; }
+  .section h2 { font-size: 1.6em; margin-bottom: 8px; color: var(--text); }
+  .section .section-sub { color: var(--text-dim); font-size: 0.95em; margin-bottom: 24px; line-height: 1.5; }
+
+  .phase-list { display: flex; flex-direction: column; gap: 16px; }
+  .phase-block { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; }
+  .phase-header { padding: 20px 24px; cursor: pointer; display: flex; align-items: center; gap: 16px; user-select: none; transition: background 0.15s; }
+  .phase-header:hover { background: var(--surface2); }
+  .phase-num { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1.1em; color: #1a1a1a; flex-shrink: 0; }
+  .phase-1 .phase-num { background: linear-gradient(135deg, #facc15, #f59e0b); }
+  .phase-2 .phase-num { background: linear-gradient(135deg, #f59e0b, #fb923c); }
+  .phase-3 .phase-num { background: linear-gradient(135deg, #fb923c, #f472b6); color: white; }
+  .phase-4 .phase-num { background: linear-gradient(135deg, #f472b6, #c084fc); color: white; }
+  .phase-5 .phase-num { background: linear-gradient(135deg, #c084fc, #818cf8); color: white; }
+  .phase-title { flex: 1; }
+  .phase-title h3 { font-size: 1.15em; margin-bottom: 2px; }
+  .phase-title .desc { color: var(--text-dim); font-size: 0.85em; }
+  .phase-meta { color: var(--text-faint); font-size: 0.8em; text-align: right; flex-shrink: 0; }
+  .phase-meta .phase-progress-text { color: var(--accent2); font-weight: 600; }
+  .chevron { color: var(--text-faint); font-size: 0.8em; transition: transform 0.2s; }
+  .phase-block.expanded .chevron { transform: rotate(90deg); }
+  .phase-items { display: none; padding: 0 24px 20px; }
+  .phase-block.expanded .phase-items { display: block; }
+
+  .item-list { display: flex; flex-direction: column; gap: 8px; }
+  .item { background: var(--surface2); border: 1px solid var(--border); border-radius: 12px; padding: 16px 18px; cursor: pointer; transition: all 0.15s; display: flex; gap: 14px; align-items: flex-start; }
+  .item:hover { border-color: var(--border-bright); }
+  .item.checked { opacity: 0.55; }
+  .item.checked .item-title { text-decoration: line-through; color: var(--text-dim); }
+  .item.hidden-by-filter { display: none; }
+  .checkbox { width: 22px; height: 22px; border-radius: 6px; border: 2px solid var(--border-bright); flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 14px; color: white; transition: all 0.15s; margin-top: 1px; }
+  .item.checked .checkbox { background: var(--green); border-color: var(--green); }
+  .item-body { flex: 1; min-width: 0; }
+  .item-header { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 4px; }
+  .item-title { font-weight: 600; font-size: 0.98em; color: var(--text); }
+  .item-tags { display: flex; gap: 6px; flex-wrap: wrap; }
+  .item-tag { font-size: 0.68em; padding: 2px 8px; border-radius: 6px; background: var(--surface3); color: var(--text-dim); font-weight: 600; letter-spacing: 0.3px; text-transform: uppercase; }
+  .item-tag.impact-high { background: rgba(250,204,21,0.20); color: var(--gold); }
+  .item-tag.impact-medium { background: rgba(251,146,60,0.16); color: var(--orange); }
+  .item-tag.impact-low { background: rgba(52,211,153,0.16); color: var(--green); }
+  .item-tag.effort-small { background: rgba(52,211,153,0.16); color: var(--green); }
+  .item-tag.effort-medium { background: rgba(251,191,36,0.16); color: var(--amber); }
+  .item-tag.effort-large { background: rgba(248,113,113,0.16); color: var(--red); }
+  .item-tag.cat { background: rgba(192,132,252,0.16); color: var(--purple); }
+  .item-desc { color: var(--text-dim); font-size: 0.86em; line-height: 1.5; margin-top: 2px; }
+  .item-meta { color: var(--text-faint); font-size: 0.78em; margin-top: 6px; display: flex; gap: 12px; flex-wrap: wrap; }
+  .item-meta a { color: var(--accent2); text-decoration: none; }
+  .item-meta a:hover { text-decoration: underline; }
+
+  .filter-bar { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; padding: 16px 20px; background: var(--surface); border: 1px solid var(--border); border-radius: 16px; align-items: center; }
+  .filter-group { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; }
+  .filter-group-label { color: var(--text-dim); font-size: 0.78em; font-weight: 600; margin-right: 4px; text-transform: uppercase; letter-spacing: 0.3px; }
+  .filter-chip { padding: 5px 11px; border-radius: 14px; border: 1px solid var(--border); background: var(--surface2); color: var(--text-dim); cursor: pointer; font-size: 0.78em; transition: all 0.15s; font-family: inherit; }
+  .filter-chip:hover { border-color: var(--accent); color: var(--text); }
+  .filter-chip.active { background: var(--accent); border-color: var(--accent); color: #1a1a1a; }
+
+  .quick-wins-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 14px; }
+  .quick-win-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 18px; cursor: pointer; transition: all 0.15s; border-left: 3px solid var(--gold); }
+  .quick-win-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+  .quick-win-title { font-weight: 600; margin-bottom: 6px; }
+  .quick-win-desc { color: var(--text-dim); font-size: 0.85em; line-height: 1.5; }
+
+  .empty-state { text-align: center; padding: 40px 20px; color: var(--text-dim); }
+  .empty-state .icon { font-size: 2.5em; margin-bottom: 12px; opacity: 0.4; }
+
+  @media (max-width: 700px) {
+    .hero h1 { font-size: 2em; }
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="breadcrumb"><a href="index.html">&larr; WWDC Journal</a></div>
+  <h1>Getting Featured on the App Store</h1>
+  <p class="sub">A practical playbook for what makes Apple's editorial team feature your app — quality bars, App Store Connect polish, featured-friendly APIs, editorial visibility, and sustainable engagement signals. Synthesized from 12 years of WWDC sessions and Apple's public guidance.</p>
+</div>
+
+<div class="progress-bar-container">
+  <div class="progress-card">
+    <div class="progress-row">
+      <div class="label">Overall progress <span class="reset-link" onclick="resetProgress()">reset progress</span></div>
+      <div class="pct" id="overall-pct">0%</div>
+    </div>
+    <div class="progress-track"><div class="progress-fill" id="overall-fill" style="width:0%"></div></div>
+    <div class="phase-pcts" id="phase-pcts"></div>
+  </div>
+</div>
+
+<div class="tabs">
+  <div class="tab active" onclick="showSection(event,'pathway')">The Pathway</div>
+  <div class="tab" onclick="showSection(event,'all')">All Items</div>
+  <div class="tab" onclick="showSection(event,'quickwins')">Quick Wins</div>
+</div>
+
+<div class="section active" id="sec-pathway">
+  <h2>The Pathway to Featured</h2>
+  <p class="section-sub">Five sequential phases. Each phase compounds on the previous. Apple's editorial team looks for a combination of quality, platform integration, polish, and sustained investment — no single item gets you featured, but adopting the pattern does. Click a phase to expand.</p>
+  <div class="phase-list" id="phase-list"></div>
+</div>
+
+<div class="section" id="sec-all">
+  <h2>All Items</h2>
+  <p class="section-sub">Filterable across all 5 phases. Sort by impact (high/medium/low) and effort (small/medium/large) to plan your roadmap.</p>
+  <div class="filter-bar" id="filter-bar"></div>
+  <div class="item-list" id="all-items"></div>
+</div>
+
+<div class="section" id="sec-quickwins">
+  <h2>Quick Wins</h2>
+  <p class="section-sub">High-impact items that take less than a sprint to ship. Start here.</p>
+  <div class="quick-wins-grid" id="quickwins-grid"></div>
+</div>
+
+<script>
+const items = [
+  // ───────── PHASE 1: Quality bars ─────────
+  { id:"crash-rate", phase:1, cat:"Quality", impact:"high", effort:"medium",
+    title:"Crash-free user rate above 99.5%",
+    description:"Apple's editorial team checks crash rates via App Analytics. Set up MetricKit + a real crash reporting service (Sentry, Crashlytics). Triage crashes within 48 hours, ship fixes within 1 week.",
+    sessionRef:"WWDC18-408" },
+  { id:"launch-time", phase:1, cat:"Quality", impact:"high", effort:"medium",
+    title:"App launch under 2 seconds",
+    description:"Cold launch under 400ms is the gold standard. Profile with Instruments App Launch template. Defer non-critical work to background tasks. Use UIScene to be ready for snapshot quickly.",
+    sessionRef:"WWDC19-423" },
+  { id:"hitches", phase:1, cat:"Performance", impact:"high", effort:"medium",
+    title:"60fps scrolling, zero hitches",
+    description:"Run Animation Hitches Instrument and XCTHitchMetric in CI. Drop frame budget is 16.67ms (8.33ms on ProMotion). Hitches are the #1 reason apps feel cheap.",
+    sessionRef:"WWDC23-10037" },
+  { id:"dynamic-type", phase:1, cat:"Accessibility", impact:"high", effort:"medium",
+    title:"Full Dynamic Type support",
+    description:"Every text view scales with user's preferred text size. Test at largest accessibility size (AX5). Use UIFontMetrics in UIKit, .font(.body) in SwiftUI. Use @ScaledMetric for non-text scalars.",
+    sessionRef:"WWDC22-110387" },
+  { id:"voiceover", phase:1, cat:"Accessibility", impact:"high", effort:"medium",
+    title:"VoiceOver works on every screen",
+    description:"Every interactive element has accessibilityLabel. Use semantic SwiftUI controls (Button, not View+onTapGesture). Test by enabling VoiceOver and navigating with swipes only.",
+    sessionRef:"WWDC22-10153" },
+  { id:"a11y-labels", phase:1, cat:"Accessibility", impact:"medium", effort:"small",
+    title:"File Accessibility Nutrition Labels",
+    description:"App Store Connect feature (2025) — declare which accessibility features your app supports. Apple highlights this on product pages and in Today stories.",
+    sessionRef:"WWDC25-224" },
+  { id:"dark-mode", phase:1, cat:"Quality", impact:"medium", effort:"small",
+    title:"Dark Mode on every screen",
+    description:"Replace hardcoded UIColor.white with semantic colors (.systemBackground, .label). SwiftUI handles automatically with Color(uiColor:). No more screenshots that look broken in dark mode.",
+    sessionRef:"WWDC19-214" },
+  { id:"ipad-optimized", phase:1, cat:"Quality", impact:"high", effort:"large",
+    title:"iPad-optimized layouts (not just stretched iPhone)",
+    description:"Use NavigationSplitView, multi-column layouts, sidebar navigation. Support multiple windows (Slide Over, Split View). Apple has specific iPad collections — but ONLY if you treat iPad as a first-class platform.",
+    sessionRef:"WWDC22-10054" },
+  { id:"keyboard-nav", phase:1, cat:"Quality", impact:"medium", effort:"medium",
+    title:"Keyboard navigation works (Mac/iPad)",
+    description:"Tab between focusable controls. Arrow key navigation in lists. Cmd+W closes window, Cmd+, opens settings. Mac apps especially fail this — and Mac App Store featured collections check it.",
+    sessionRef:"WWDC22-10071" },
+  { id:"privacy-labels", phase:1, cat:"Quality", impact:"high", effort:"small",
+    title:"Privacy Nutrition Labels accurate and complete",
+    description:"Required by App Store. Be precise about what data you collect, link to tracking, etc. Inaccurate labels can get you removed. Honest labels build trust — Apple has called out apps in editorial for being privacy-respecting.",
+    sessionRef:"WWDC20-10676" },
+
+  // ───────── PHASE 2: App Store Connect polish ─────────
+  { id:"app-icon", phase:2, cat:"Visual Identity", impact:"high", effort:"medium",
+    title:"App icon: distinctive at thumbnail size",
+    description:"Featured collections show icons at 60–120pt. Avoid text in icon (illegible at small size). Avoid generic gradients. Test in both light and dark mode. Refresh via Icon Composer (2025) for Liquid Glass.",
+    sessionRef:"WWDC25-361" },
+  { id:"icon-composer", phase:2, cat:"Visual Identity", impact:"medium", effort:"small",
+    title:"Refresh icon with Icon Composer for Liquid Glass",
+    description:"New tool (2025) for the Liquid Glass icon system. Apps with refreshed icons signal recency to editors. Old static PNGs feel dated.",
+    sessionRef:"WWDC25-361" },
+  { id:"subtitle", phase:2, cat:"App Store Listing", impact:"high", effort:"small",
+    title:"Compelling subtitle (30 chars, value prop)",
+    description:"Subtitle appears under app name in search results. Don't just describe — promise a benefit. Examples: 'Read the news, your way' vs 'A news reader'. The second wastes the slot.",
+    sessionRef:"" },
+  { id:"keywords", phase:2, cat:"App Store Listing", impact:"high", effort:"small",
+    title:"Keywords field optimized (100 chars)",
+    description:"Comma-separated, no spaces after commas. Don't repeat words from title/subtitle (already indexed). Use App Store Connect Search Insights for actual user search terms.",
+    sessionRef:"" },
+  { id:"preview-videos", phase:2, cat:"App Store Listing", impact:"high", effort:"large",
+    title:"3 app preview videos (15–30s each)",
+    description:"Auto-play in App Store search results — huge attention grabber. Cover different features. Vertical orientation on iPhone. No voiceover (autoplay is muted). Show the app actually being used.",
+    sessionRef:"" },
+  { id:"first-screenshots", phase:2, cat:"App Store Listing", impact:"high", effort:"medium",
+    title:"First 2 screenshots compelling (auto-show in search)",
+    description:"Search results show the FIRST TWO portrait screenshots (or first preview video). These are 80% of the conversion lever. Use bold text overlays explaining what each shows.",
+    sessionRef:"" },
+  { id:"localized-screenshots", phase:2, cat:"App Store Listing", impact:"medium", effort:"large",
+    title:"Localized screenshots per major region",
+    description:"Don't ship English screenshots to Japan. Translate text overlays. Use locale-appropriate content (right-to-left, dates, currencies). Editors in each storefront prefer regionally-relevant assets.",
+    sessionRef:"" },
+  { id:"localized-metadata", phase:2, cat:"App Store Listing", impact:"medium", effort:"large",
+    title:"Localized metadata in 5+ languages",
+    description:"App Store supports ~40. Start with: English, Spanish, French, German, Japanese, Simplified Chinese, Korean, Brazilian Portuguese, Italian. Localized apps feature in regional editorial collections.",
+    sessionRef:"WWDC25-225" },
+  { id:"promo-text", phase:2, cat:"App Store Listing", impact:"medium", effort:"small",
+    title:"Promotional Text refreshed monthly (no resubmission)",
+    description:"4000 char field that updates without re-review. Use for current version highlights, time-sensitive announcements, seasonal hooks. Editors notice fresh promo text.",
+    sessionRef:"" },
+  { id:"custom-product-pages", phase:2, cat:"App Store Listing", impact:"high", effort:"medium",
+    title:"Custom Product Pages (35 max) for different audiences",
+    description:"Different screenshots/videos/promo text for different traffic sources. Power users see deep features; newcomers see onboarding. Track conversion per page.",
+    sessionRef:"WWDC22-10016" },
+  { id:"category", phase:2, cat:"App Store Listing", impact:"medium", effort:"small",
+    title:"Primary + secondary App Store category",
+    description:"Editors curate by category. Choose primary that matches main use case. Secondary opens you to a second editorial pool. Don't pick 'Utilities' if you can be 'Health & Fitness' or 'Productivity'.",
+    sessionRef:"" },
+
+  // ───────── PHASE 3: Featured-friendly API adoption ─────────
+  { id:"widgets", phase:3, cat:"Platform Integration", impact:"high", effort:"medium",
+    title:"Widgets (Home Screen, Lock Screen, StandBy)",
+    description:"Apps with widgets get featured in widget collections. Cover Small/Medium/Large/XL on Home Screen, all 5 Lock Screen styles, StandBy mode (iOS 17+). Glanceable, configurable, fast.",
+    sessionRef:"WWDC22-10050" },
+  { id:"live-activities", phase:3, cat:"Platform Integration", impact:"high", effort:"medium",
+    title:"Live Activities for time-sensitive content",
+    description:"Sports, deliveries, timers, workouts, navigation. Dynamic Island integration. Apple frequently features apps with great Live Activities — they showcase platform capability.",
+    sessionRef:"WWDC22-10184" },
+  { id:"app-intents", phase:3, cat:"Platform Integration", impact:"high", effort:"medium",
+    title:"App Intents for Siri/Spotlight/Shortcuts",
+    description:"Single biggest free distribution opportunity. Spotlight surfaces your app's actions. Siri can invoke. Shortcuts users build automations. Visual Intelligence integration in iOS 18+.",
+    sessionRef:"WWDC25-275" },
+  { id:"app-clips", phase:3, cat:"Platform Integration", impact:"medium", effort:"large",
+    title:"App Clips for lightweight entry",
+    description:"Apple often features App Clips in Today tab as 'try before you install'. Best for: location-based tasks, NFC tags, scan-to-pay, event check-in. <10MB constraint.",
+    sessionRef:"WWDC20-10174" },
+  { id:"visual-intelligence", phase:3, cat:"Platform Integration", impact:"medium", effort:"medium",
+    title:"Visual Intelligence integration (iOS 18+)",
+    description:"Camera Control button → users point at things → your app surfaces. Requires App Intent that takes image input. New surface in iOS 18, light competition currently.",
+    sessionRef:"WWDC25-275" },
+  { id:"apple-intelligence", phase:3, cat:"Platform Integration", impact:"high", effort:"medium",
+    title:"Apple Intelligence integration",
+    description:"Writing Tools, Genmoji, Image Playground extensions. Even basic adoption (Writing Tools in your text views) makes Apple feature you in AI showcases.",
+    sessionRef:"WWDC24-10086" },
+  { id:"foundation-models", phase:3, cat:"Platform Integration", impact:"high", effort:"medium",
+    title:"Foundation Models for unique AI features",
+    description:"On-device LLM, free, no API keys. Apps with creative Foundation Models use cases (especially with @Generable structured output) are featured in 'Apps That Use AI Well' collections.",
+    sessionRef:"WWDC25-286" },
+  { id:"visionos", phase:3, cat:"Platform Integration", impact:"high", effort:"large",
+    title:"visionOS native version",
+    description:"Smaller catalog = much higher featured probability. Vision Pro App Store features visionOS-native apps prominently. Even a thoughtful adaptation of an iPad app counts.",
+    sessionRef:"WWDC25-317" },
+  { id:"watchos-companion", phase:3, cat:"Platform Integration", impact:"medium", effort:"medium",
+    title:"watchOS companion app (even minimal)",
+    description:"Smart Stack widget alone helps. Apps with watchOS support feature in Apple Watch collections. Independent watch app (no iPhone required) is the gold standard.",
+    sessionRef:"WWDC25-334" },
+  { id:"game-mode", phase:3, cat:"Platform Integration", impact:"medium", effort:"small",
+    title:"Game Mode declaration (LSSupportsGameMode)",
+    description:"One Info.plist key (for games). Tells the system to prioritize your app's CPU/GPU when active. Mac App Store features Game Mode-enabled games.",
+    sessionRef:"WWDC23-10079" },
+  { id:"ar-experience", phase:3, cat:"Platform Integration", impact:"medium", effort:"large",
+    title:"AR experience (ARKit, even minor)",
+    description:"Object Capture, image tracking, AR Quick Look for product previews. AR-enabled apps feature in AR collections. USDZ files render natively in Files, Messages, etc. — huge visibility.",
+    sessionRef:"WWDC21-10074" },
+  { id:"carplay", phase:3, cat:"Platform Integration", impact:"medium", effort:"large",
+    title:"CarPlay integration (if applicable)",
+    description:"Audio, navigation, communication, EV charging, parking, quick food. Apple actively curates CarPlay-friendly apps. Templates make implementation tractable.",
+    sessionRef:"WWDC25-216" },
+  { id:"liquid-glass", phase:3, cat:"Visual Identity", impact:"high", effort:"medium",
+    title:"Liquid Glass design adoption (2025+)",
+    description:"Apps without Liquid Glass will feel dated within 12 months of iOS 26. Editors actively promote apps that adopt new design systems early. Use .glassEffect() and GlassEffectContainer.",
+    sessionRef:"WWDC25-219" },
+  { id:"sf-symbols", phase:3, cat:"Visual Identity", impact:"medium", effort:"small",
+    title:"SF Symbols 7 with Magic Replace animations",
+    description:"Replace custom icon assets. Variable draw, gradients, Magic Replace transitions (2025). Free, weight-aware, hierarchically-rendered. Editors recognize SF Symbol use as a polish signal.",
+    sessionRef:"WWDC25-337" },
+  { id:"multi-platform", phase:3, cat:"Platform Integration", impact:"high", effort:"large",
+    title:"Multi-platform: iPhone + iPad + Mac + Watch + Vision",
+    description:"Apple loves universal binaries. Each new platform expands featured opportunities. Catalyst → native Mac → visionOS progression. App Store Connect lets you submit one app to multiple stores.",
+    sessionRef:"WWDC22-10076" },
+
+  // ───────── PHASE 4: Editorial visibility ─────────
+  { id:"in-app-events", phase:4, cat:"Editorial", impact:"high", effort:"medium",
+    title:"In-App Events (4 weeks of editorial visibility per event)",
+    description:"Time-sensitive in-app moments shown directly in App Store search and Today tab. Live streams, premieres, challenges, new content. Apple actively curates — submit via App Store Connect.",
+    sessionRef:"WWDC21-10171" },
+  { id:"feature-pitch", phase:4, cat:"Editorial", impact:"high", effort:"small",
+    title:"Submit feature pitches via Apple's submission form",
+    description:"developer.apple.com/contact/request/featured-apps — directly tells the App Store editorial team what you've shipped. Submit 6-8 weeks before major releases. Include narrative, screenshots, what's new.",
+    sessionRef:"" },
+  { id:"press-kit", phase:4, cat:"Editorial", impact:"medium", effort:"small",
+    title:"Press kit ready (icon, screenshots, video, branding)",
+    description:"One downloadable zip with high-res icon, screenshots in multiple sizes, preview video, brand guidelines, founder bio. Editors and journalists request these — be ready to send instantly.",
+    sessionRef:"" },
+  { id:"version-cadence", phase:4, cat:"Editorial", impact:"medium", effort:"large",
+    title:"Major version updates 1–2× per year",
+    description:"Editors look for 'living' apps. Tied to OS releases (iOS 26 day-one features = featured). Major versions earn '2.0' / '3.0' treatment in App Store collections.",
+    sessionRef:"" },
+  { id:"seasonal", phase:4, cat:"Editorial", impact:"medium", effort:"medium",
+    title:"Seasonal content updates",
+    description:"Halloween, Christmas, Lunar New Year, Pride Month, World Cup. Apple curates seasonal collections — make sure you have something to feature in them. Plan 4–6 weeks ahead.",
+    sessionRef:"" },
+  { id:"narrative-onboarding", phase:4, cat:"Editorial", impact:"medium", effort:"medium",
+    title:"Story-driven onboarding (Apple loves narrative)",
+    description:"Editorial Today stories often quote a founder's narrative. Build your onboarding to communicate why the app exists, who it's for. Apple's writers can lift this directly into editorial copy.",
+    sessionRef:"" },
+  { id:"design-awards", phase:4, cat:"Editorial", impact:"high", effort:"medium",
+    title:"Apple Design Awards submission",
+    description:"Annual program (~12 winners across 6 categories). Past winners get years of follow-on featuring. Submission window typically March–April. Categories: Inclusivity, Delight & Fun, Interaction, Social Impact, Visuals & Graphics, Innovation.",
+    sessionRef:"" },
+  { id:"today-tab", phase:4, cat:"Editorial", impact:"high", effort:"medium",
+    title:"Apple Editorial Today tab consideration",
+    description:"Story-driven daily features. Best path: ship something genuinely novel, then pitch a story angle to App Store editorial. Long-form 'how we built this' stories get picked up.",
+    sessionRef:"" },
+  { id:"app-of-the-day", phase:4, cat:"Editorial", impact:"high", effort:"medium",
+    title:"App of the Day / Game of the Day positioning",
+    description:"Single highest-traffic placement. Editors look for: clear story, polish, novelty, broad appeal, recent update. Build relationship via App Store Connect feature pitch system.",
+    sessionRef:"" },
+  { id:"developer-news", phase:4, cat:"Editorial", impact:"low", effort:"small",
+    title:"Apple Developer News opportunity",
+    description:"developer.apple.com/news — features stories from real developers using new APIs. Submit a story when you adopt a major new framework (Foundation Models, RealityKit, etc.).",
+    sessionRef:"" },
+
+  // ───────── PHASE 5: Sustainable engagement ─────────
+  { id:"update-cadence", phase:5, cat:"Engagement", impact:"high", effort:"medium",
+    title:"Update cadence: monthly minimum",
+    description:"Apple's algorithm and editors both reward freshness. Monthly point releases (.x updates) keep you in 'Recently Updated' surfaces. Major versions quarterly is the gold standard.",
+    sessionRef:"" },
+  { id:"testflight", phase:5, cat:"Engagement", impact:"medium", effort:"medium",
+    title:"Engaged TestFlight beta program (>500 testers)",
+    description:"Public TestFlight links advertised on website. Beta engagement signals product investment. Beta feedback feeds App Store Connect — Apple sees your iteration loop.",
+    sessionRef:"" },
+  { id:"subscription-intro", phase:5, cat:"Engagement", impact:"high", effort:"medium",
+    title:"Subscription with introductory offer",
+    description:"Free trial / introductory price reduces friction. Apple's subscription collections feature apps with thoughtful subscription UX. StoreKit 2 makes implementation 1/10th the code of StoreKit 1.",
+    sessionRef:"WWDC23-10142" },
+  { id:"family-sharing", phase:5, cat:"Engagement", impact:"medium", effort:"small",
+    title:"Family Sharing-enabled subscription",
+    description:"One subscription covers up to 6 family members. Single Info.plist key (NSFamilySharingDomain). Family Sharing-enabled apps featured in Family collections.",
+    sessionRef:"WWDC21-10182" },
+  { id:"referral", phase:5, cat:"Engagement", impact:"medium", effort:"medium",
+    title:"Referral program",
+    description:"Subscription Offer Codes for referred users. Universal Links for tracked invites. Engagement loop signals to Apple that users actively promote your app.",
+    sessionRef:"WWDC22-110404" },
+  { id:"rating-prompt", phase:5, cat:"Engagement", impact:"medium", effort:"small",
+    title:"Smart in-app rating prompts (max 3/year)",
+    description:"SKStoreReviewController.requestReview() at moments of success (puzzle solved, goal completed). NEVER on launch. NEVER after error. iOS rate-limits to 3 prompts per 365 days.",
+    sessionRef:"" },
+  { id:"respond-reviews", phase:5, cat:"Engagement", impact:"medium", effort:"small",
+    title:"Respond to user reviews (especially negative)",
+    description:"Apple monitors response rate. Even templated 'thanks for feedback' replies signal active engagement. App Store Connect API can automate via webhook.",
+    sessionRef:"WWDC25-328" },
+  { id:"apple-pay", phase:5, cat:"Engagement", impact:"medium", effort:"medium",
+    title:"Apple Pay if you accept any payment",
+    description:"Required by App Store for digital goods (use in-app purchase). For physical goods/services, Apple Pay reduces friction 3-5×. Apps with Apple Pay are featured in commerce collections.",
+    sessionRef:"WWDC25-201" },
+  { id:"game-center", phase:5, cat:"Engagement", impact:"medium", effort:"small",
+    title:"Game Center for any social/leaderboard feature",
+    description:"Even non-games: leaderboards for fitness apps, achievements for learning apps. Friends tab integration. Apps using Game Center feature in 'Connect with Friends' editorial collections.",
+    sessionRef:"WWDC25-214" },
+  { id:"offer-codes", phase:5, cat:"Engagement", impact:"low", effort:"small",
+    title:"Subscription Offer Codes for winback campaigns",
+    description:"Apple-issued promo codes redeemable in-app. Can be issued via App Store Connect or programmatically. Powerful for marketing campaigns, partnerships, lapsed-user win-back.",
+    sessionRef:"WWDC22-10041" },
+];
+
+const phases = [
+  { num:1, title:"Quality bars", desc:"The minimum non-negotiables. Editors won't even look at apps that fail these." },
+  { num:2, title:"App Store Connect polish", desc:"Your product page IS the conversion lever. Most apps under-invest here by 10×." },
+  { num:3, title:"Featured-friendly API adoption", desc:"Each new platform integration multiplies your chances of appearing in a curated collection." },
+  { num:4, title:"Editorial visibility", desc:"Active engagement with the App Store editorial team — pitches, events, story angles, design awards." },
+  { num:5, title:"Sustainable engagement signals", desc:"Apple rewards 'living' apps that ship regularly, respond to users, and invest in long-term retention." },
+];
+
+const STORAGE_KEY = "wwdc_featured_progress_v1";
+let checkedItems = new Set();
+let currentFilters = { impact: "all", effort: "all", cat: "all" };
+
+function loadState() {
+  try { const raw = localStorage.getItem(STORAGE_KEY); if (raw) checkedItems = new Set(JSON.parse(raw)); } catch (e) {}
+}
+function saveState() {
+  try { localStorage.setItem(STORAGE_KEY, JSON.stringify([...checkedItems])); } catch (e) {}
+}
+function resetProgress() {
+  if (!confirm("Reset all check progress? This cannot be undone.")) return;
+  checkedItems.clear(); saveState(); renderAll();
+}
+function toggleItem(id) {
+  if (checkedItems.has(id)) checkedItems.delete(id); else checkedItems.add(id);
+  saveState(); renderAll();
+}
+function sessionUrl(ref) {
+  if (!ref) return null;
+  const m = ref.match(/WWDC(\d{2})-(\d+)/);
+  if (!m) return null;
+  return `https://developer.apple.com/videos/play/wwdc20${m[1]}/${m[2]}/`;
+}
+
+function renderProgress() {
+  const total = items.length;
+  const done = items.filter(it => checkedItems.has(it.id)).length;
+  const pct = total === 0 ? 0 : Math.round(done / total * 100);
+  document.getElementById("overall-pct").textContent = `${pct}%`;
+  document.getElementById("overall-fill").style.width = `${pct}%`;
+  const phaseGradients = {
+    1: "linear-gradient(90deg, #facc15, #f59e0b)",
+    2: "linear-gradient(90deg, #f59e0b, #fb923c)",
+    3: "linear-gradient(90deg, #fb923c, #f472b6)",
+    4: "linear-gradient(90deg, #f472b6, #c084fc)",
+    5: "linear-gradient(90deg, #c084fc, #818cf8)",
+  };
+  document.getElementById("phase-pcts").innerHTML = phases.map(ph => {
+    const phItems = items.filter(it => it.phase === ph.num);
+    const phDone = phItems.filter(it => checkedItems.has(it.id)).length;
+    const phPct = phItems.length === 0 ? 0 : Math.round(phDone / phItems.length * 100);
+    return `<div class="phase-pct">
+      <div class="phase-pct-label">Phase ${ph.num} &middot; ${phDone}/${phItems.length}</div>
+      <div class="phase-pct-mini"><div class="phase-pct-fill" style="width:${phPct}%; background:${phaseGradients[ph.num]};"></div></div>
+    </div>`;
+  }).join("");
+}
+
+function itemHTML(it) {
+  const checked = checkedItems.has(it.id);
+  const url = sessionUrl(it.sessionRef);
+  const sessionLink = url ? `<a href="${url}" target="_blank" rel="noopener" onclick="event.stopPropagation()">${it.sessionRef} &rarr;</a>` : '';
+  return `<div class="item ${checked?'checked':''}" data-id="${it.id}" data-impact="${it.impact}" data-effort="${it.effort}" data-cat="${it.cat}" onclick="toggleItem('${it.id}')">
+    <div class="checkbox">${checked ? '✓' : ''}</div>
+    <div class="item-body">
+      <div class="item-header">
+        <div class="item-title">${escHtml(it.title)}</div>
+        <div class="item-tags">
+          <span class="item-tag impact-${it.impact}">${it.impact} impact</span>
+          <span class="item-tag effort-${it.effort}">${it.effort} effort</span>
+          <span class="item-tag cat">${escHtml(it.cat)}</span>
+        </div>
+      </div>
+      <div class="item-desc">${escHtml(it.description)}</div>
+      ${sessionLink ? `<div class="item-meta">${sessionLink}</div>` : ''}
+    </div>
+  </div>`;
+}
+
+function renderPathway() {
+  document.getElementById("phase-list").innerHTML = phases.map(ph => {
+    const phItems = items.filter(it => it.phase === ph.num);
+    const phDone = phItems.filter(it => checkedItems.has(it.id)).length;
+    const phPct = phItems.length === 0 ? 0 : Math.round(phDone / phItems.length * 100);
+    return `<div class="phase-block phase-${ph.num} ${ph.num === 1 ? 'expanded' : ''}">
+      <div class="phase-header" onclick="togglePhase(this)">
+        <div class="phase-num">${ph.num}</div>
+        <div class="phase-title"><h3>${ph.title}</h3><div class="desc">${ph.desc}</div></div>
+        <div class="phase-meta">
+          <div class="phase-progress-text">${phDone}/${phItems.length} &middot; ${phPct}%</div>
+          <div class="chevron">&rsaquo;</div>
+        </div>
+      </div>
+      <div class="phase-items">
+        <div class="item-list">${phItems.map(itemHTML).join("")}</div>
+      </div>
+    </div>`;
+  }).join("");
+}
+function togglePhase(headerEl) { headerEl.parentElement.classList.toggle("expanded"); }
+
+function renderAllItems() {
+  const cats = [...new Set(items.map(it => it.cat))].sort();
+  document.getElementById("filter-bar").innerHTML = `
+    <div class="filter-group">
+      <span class="filter-group-label">Impact</span>
+      <button class="filter-chip ${currentFilters.impact==='all'?'active':''}" onclick="setFilter('impact','all')">All</button>
+      ${["high","medium","low"].map(i => `<button class="filter-chip ${currentFilters.impact===i?'active':''}" onclick="setFilter('impact','${i}')">${i}</button>`).join("")}
+    </div>
+    <div class="filter-group">
+      <span class="filter-group-label">Effort</span>
+      <button class="filter-chip ${currentFilters.effort==='all'?'active':''}" onclick="setFilter('effort','all')">All</button>
+      ${["small","medium","large"].map(e => `<button class="filter-chip ${currentFilters.effort===e?'active':''}" onclick="setFilter('effort','${e}')">${e}</button>`).join("")}
+    </div>
+    <div class="filter-group">
+      <span class="filter-group-label">Category</span>
+      <button class="filter-chip ${currentFilters.cat==='all'?'active':''}" onclick="setFilter('cat','all')">All</button>
+      ${cats.map(c => `<button class="filter-chip ${currentFilters.cat===c?'active':''}" onclick="setFilter('cat','${c}')">${c}</button>`).join("")}
+    </div>
+  `;
+  const filtered = items.filter(it =>
+    (currentFilters.impact === "all" || it.impact === currentFilters.impact) &&
+    (currentFilters.effort === "all" || it.effort === currentFilters.effort) &&
+    (currentFilters.cat === "all" || it.cat === currentFilters.cat)
+  );
+  if (filtered.length === 0) {
+    document.getElementById("all-items").innerHTML = `<div class="empty-state"><div class="icon">∅</div>No items match these filters.</div>`;
+    return;
+  }
+  document.getElementById("all-items").innerHTML = filtered.map(itemHTML).join("");
+}
+function setFilter(kind, value) { currentFilters[kind] = value; renderAllItems(); }
+
+function renderQuickWins() {
+  // High impact + (small or medium) effort + not yet checked
+  const wins = items.filter(it => it.impact === "high" && (it.effort === "small" || it.effort === "medium") && !checkedItems.has(it.id));
+  if (wins.length === 0) {
+    document.getElementById("quickwins-grid").innerHTML = `<div class="empty-state"><div class="icon">★</div>You've checked off every quick win. Time to tackle the bigger items.</div>`;
+    return;
+  }
+  document.getElementById("quickwins-grid").innerHTML = wins.map(it => `
+    <div class="quick-win-card" onclick="toggleItem('${it.id}'); renderAll();">
+      <div class="quick-win-title">${escHtml(it.title)}</div>
+      <div class="quick-win-desc">${escHtml(it.description)}</div>
+    </div>
+  `).join("");
+}
+
+function renderAll() {
+  renderProgress();
+  renderPathway();
+  renderAllItems();
+  renderQuickWins();
+}
+function showSection(ev, name) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('sec-' + name).classList.add('active');
+  ev.target.classList.add('active');
+}
+function escHtml(s) { return String(s).replace(/[<>&'"]/g, c => ({'<':'&lt;','>':'&gt;','&':'&amp;',"'":'&#39;','"':'&quot;'}[c])); }
+
+loadState();
+renderAll();
+</script>
+</body>
+</html>
