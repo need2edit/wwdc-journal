@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Accessibility Playbook — WWDC Journal</title>
+<style>
+  :root {
+    --bg: #0a0a0f;
+    --surface: #14141f;
+    --surface2: #1e1e2e;
+    --surface3: #252535;
+    --border: #2a2a3e;
+    --border-bright: #3a3a4e;
+    --text: #e8e8f0;
+    --text-dim: #8888a0;
+    --text-faint: #5a5a70;
+    --accent: #0ea5e9;
+    --accent2: #38bdf8;
+    --green: #34d399;
+    --amber: #fbbf24;
+    --red: #f87171;
+    --pink: #f472b6;
+    --cyan: #22d3ee;
+    --orange: #fb923c;
+    --purple: #c084fc;
+    --indigo: #818cf8;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', system-ui, sans-serif; background: var(--bg); color: var(--text); overflow-x: hidden; }
+
+  .hero { padding: 56px 40px 28px; text-align: center; position: relative; overflow: hidden; }
+  .hero::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(ellipse at center, rgba(14,165,233,0.10) 0%, transparent 60%); pointer-events: none; }
+  .breadcrumb { color: var(--text-dim); font-size: 0.85em; margin-bottom: 10px; }
+  .breadcrumb a { color: var(--accent2); text-decoration: none; }
+  .breadcrumb a:hover { text-decoration: underline; }
+  .hero h1 { font-size: 2.8em; font-weight: 700; background: linear-gradient(135deg, #38bdf8, #818cf8, #c084fc, #f472b6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 8px; letter-spacing: -0.02em; }
+  .hero .sub { color: var(--text-dim); font-size: 1.05em; max-width: 760px; margin: 0 auto; line-height: 1.5; }
+
+  .progress-bar-container { max-width: 1100px; margin: 30px auto 16px; padding: 0 20px; }
+  .progress-card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 20px 24px; }
+  .progress-row { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; }
+  .progress-row .label { color: var(--text); font-weight: 600; font-size: 0.95em; }
+  .progress-row .pct { color: var(--accent2); font-weight: 700; font-size: 1.2em; }
+  .progress-track { height: 8px; background: var(--surface2); border-radius: 4px; overflow: hidden; }
+  .progress-fill { height: 100%; background: linear-gradient(90deg, #38bdf8, #818cf8, #c084fc); border-radius: 4px; transition: width 0.4s ease; }
+  .phase-pcts { display: flex; gap: 16px; margin-top: 14px; flex-wrap: wrap; }
+  .phase-pct { flex: 1; min-width: 120px; }
+  .phase-pct-label { color: var(--text-dim); font-size: 0.72em; margin-bottom: 4px; }
+  .phase-pct-mini { height: 4px; background: var(--surface2); border-radius: 2px; overflow: hidden; margin-top: 4px; }
+  .phase-pct-fill { height: 100%; border-radius: 2px; transition: width 0.4s ease; }
+  .reset-link { float: right; color: var(--text-faint); cursor: pointer; font-size: 0.78em; }
+  .reset-link:hover { color: var(--red); }
+
+  .tabs { display: flex; justify-content: center; gap: 8px; margin: 24px 0 32px; flex-wrap: wrap; padding: 0 20px; }
+  .tab { padding: 10px 22px; border-radius: 24px; border: 1px solid var(--border); background: var(--surface); color: var(--text-dim); cursor: pointer; font-size: 0.9em; transition: all 0.2s; font-family: inherit; }
+  .tab:hover { border-color: var(--accent); color: var(--text); }
+  .tab.active { background: var(--accent); border-color: var(--accent); color: #001a2e; }
+
+  .section { display: none; max-width: 1200px; margin: 0 auto; padding: 0 20px 80px; }
+  .section.active { display: block; }
+  .section h2 { font-size: 1.6em; margin-bottom: 8px; color: var(--text); }
+  .section .section-sub { color: var(--text-dim); font-size: 0.95em; margin-bottom: 24px; line-height: 1.5; }
+
+  .phase-list { display: flex; flex-direction: column; gap: 16px; }
+  .phase-block { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; }
+  .phase-header { padding: 20px 24px; cursor: pointer; display: flex; align-items: center; gap: 16px; user-select: none; transition: background 0.15s; }
+  .phase-header:hover { background: var(--surface2); }
+  .phase-num { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1.1em; color: white; flex-shrink: 0; }
+  .phase-1 .phase-num { background: linear-gradient(135deg, #38bdf8, #0ea5e9); }
+  .phase-2 .phase-num { background: linear-gradient(135deg, #0ea5e9, #818cf8); }
+  .phase-3 .phase-num { background: linear-gradient(135deg, #818cf8, #c084fc); }
+  .phase-4 .phase-num { background: linear-gradient(135deg, #c084fc, #f472b6); }
+  .phase-5 .phase-num { background: linear-gradient(135deg, #f472b6, #fb923c); }
+  .phase-title { flex: 1; }
+  .phase-title h3 { font-size: 1.15em; margin-bottom: 2px; }
+  .phase-title .desc { color: var(--text-dim); font-size: 0.85em; }
+  .phase-meta { color: var(--text-faint); font-size: 0.8em; text-align: right; flex-shrink: 0; }
+  .phase-meta .phase-progress-text { color: var(--accent2); font-weight: 600; }
+  .chevron { color: var(--text-faint); font-size: 0.8em; transition: transform 0.2s; }
+  .phase-block.expanded .chevron { transform: rotate(90deg); }
+  .phase-items { display: none; padding: 0 24px 20px; }
+  .phase-block.expanded .phase-items { display: block; }
+
+  .item-list { display: flex; flex-direction: column; gap: 8px; }
+  .item { background: var(--surface2); border: 1px solid var(--border); border-radius: 12px; padding: 16px 18px; cursor: pointer; transition: all 0.15s; display: flex; gap: 14px; align-items: flex-start; }
+  .item:hover { border-color: var(--border-bright); }
+  .item.checked { opacity: 0.55; }
+  .item.checked .item-title { text-decoration: line-through; color: var(--text-dim); }
+  .item.hidden-by-filter { display: none; }
+  .checkbox { width: 22px; height: 22px; border-radius: 6px; border: 2px solid var(--border-bright); flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 14px; color: white; transition: all 0.15s; margin-top: 1px; }
+  .item.checked .checkbox { background: var(--green); border-color: var(--green); }
+  .item-body { flex: 1; min-width: 0; }
+  .item-header { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 4px; }
+  .item-title { font-weight: 600; font-size: 0.98em; color: var(--text); }
+  .item-tags { display: flex; gap: 6px; flex-wrap: wrap; }
+  .item-tag { font-size: 0.68em; padding: 2px 8px; border-radius: 6px; background: var(--surface3); color: var(--text-dim); font-weight: 600; letter-spacing: 0.3px; text-transform: uppercase; }
+  .item-tag.impact-high { background: rgba(56,189,248,0.20); color: var(--accent2); }
+  .item-tag.impact-medium { background: rgba(251,191,36,0.16); color: var(--amber); }
+  .item-tag.impact-low { background: rgba(192,132,252,0.16); color: var(--purple); }
+  .item-tag.effort-small { background: rgba(52,211,153,0.16); color: var(--green); }
+  .item-tag.effort-medium { background: rgba(251,191,36,0.16); color: var(--amber); }
+  .item-tag.effort-large { background: rgba(248,113,113,0.16); color: var(--red); }
+  .item-tag.aud-visual { background: rgba(56,189,248,0.16); color: var(--accent2); }
+  .item-tag.aud-motor { background: rgba(251,146,60,0.16); color: var(--orange); }
+  .item-tag.aud-cognitive { background: rgba(192,132,252,0.16); color: var(--purple); }
+  .item-tag.aud-hearing { background: rgba(244,114,182,0.16); color: var(--pink); }
+  .item-tag.aud-general { background: rgba(34,211,238,0.16); color: var(--cyan); }
+  .item-tag.cat { background: rgba(129,140,248,0.16); color: var(--indigo); }
+  .item-desc { color: var(--text-dim); font-size: 0.86em; line-height: 1.5; margin-top: 2px; }
+  .item-action { color: var(--accent2); font-size: 0.82em; margin-top: 8px; font-style: italic; }
+  .item-action::before { content: "→ "; }
+  .item-meta { color: var(--text-faint); font-size: 0.78em; margin-top: 6px; display: flex; gap: 12px; flex-wrap: wrap; }
+  .item-meta a { color: var(--accent2); text-decoration: none; }
+  .item-meta a:hover { text-decoration: underline; }
+
+  .filter-bar { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; padding: 16px 20px; background: var(--surface); border: 1px solid var(--border); border-radius: 16px; align-items: center; }
+  .filter-group { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; }
+  .filter-group-label { color: var(--text-dim); font-size: 0.78em; font-weight: 600; margin-right: 4px; text-transform: uppercase; letter-spacing: 0.3px; }
+  .filter-chip { padding: 5px 11px; border-radius: 14px; border: 1px solid var(--border); background: var(--surface2); color: var(--text-dim); cursor: pointer; font-size: 0.78em; transition: all 0.15s; font-family: inherit; }
+  .filter-chip:hover { border-color: var(--accent); color: var(--text); }
+  .filter-chip.active { background: var(--accent); border-color: var(--accent); color: #001a2e; }
+
+  .quick-wins-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 14px; }
+  .quick-win-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 18px; cursor: pointer; transition: all 0.15s; border-left: 3px solid var(--accent); }
+  .quick-win-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+  .quick-win-title { font-weight: 600; margin-bottom: 6px; }
+  .quick-win-desc { color: var(--text-dim); font-size: 0.85em; line-height: 1.5; }
+
+  .empty-state { text-align: center; padding: 40px 20px; color: var(--text-dim); }
+  .empty-state .icon { font-size: 2.5em; margin-bottom: 12px; opacity: 0.4; }
+
+  @media (max-width: 700px) {
+    .hero h1 { font-size: 2em; }
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="breadcrumb"><a href="index.html">&larr; WWDC Journal</a></div>
+  <h1>Accessibility Playbook</h1>
+  <p class="sub">A complete guide for building apps that work for everyone — VoiceOver, Dynamic Type, Switch Control, Personal Voice, Assistive Access, and beyond. Synthesized from 12 years of WWDC accessibility sessions and Apple's HIG.</p>
+</div>
+
+<div class="progress-bar-container">
+  <div class="progress-card">
+    <div class="progress-row">
+      <div class="label">Overall progress <span class="reset-link" onclick="resetProgress()">reset progress</span></div>
+      <div class="pct" id="overall-pct">0%</div>
+    </div>
+    <div class="progress-track"><div class="progress-fill" id="overall-fill" style="width:0%"></div></div>
+    <div class="phase-pcts" id="phase-pcts"></div>
+  </div>
+</div>
+
+<div class="tabs">
+  <div class="tab active" onclick="showSection(event,'pathway')">The Pathway</div>
+  <div class="tab" onclick="showSection(event,'all')">All Items</div>
+  <div class="tab" onclick="showSection(event,'quickwins')">Quick Wins</div>
+</div>
+
+<div class="section active" id="sec-pathway">
+  <h2>The Accessibility Pathway</h2>
+  <p class="section-sub">Five sequential phases. Foundation first — get the assistive-tech basics right, then layer visual, motor &amp; cognitive support, then specialty technologies, then make accessibility a continuous practice rather than a one-shot audit. Each item shows audience (who benefits), impact, and effort.</p>
+  <div class="phase-list" id="phase-list"></div>
+</div>
+
+<div class="section" id="sec-all">
+  <h2>All Items</h2>
+  <p class="section-sub">Filter by impact, effort, or audience. The audience filter helps if you're prioritizing a specific community first.</p>
+  <div class="filter-bar" id="filter-bar"></div>
+  <div class="item-list" id="all-items"></div>
+</div>
+
+<div class="section" id="sec-quickwins">
+  <h2>Quick Wins</h2>
+  <p class="section-sub">High-impact items that take less than a sprint. Most are mechanical and can ship immediately.</p>
+  <div class="quick-wins-grid" id="quickwins-grid"></div>
+</div>
+
+<script>
+const items = [
+  // ───────── PHASE 1: Foundation (assistive tech basics) ─────────
+  { id:"voiceover-labels", phase:1, cat:"VoiceOver", aud:"visual", impact:"high", effort:"medium",
+    title:"VoiceOver labels on every interactive element",
+    description:"Every Button, image, custom view that responds to touch needs an accessibilityLabel. Without it, VoiceOver reads either nothing or a useless internal name. Run with VoiceOver enabled and swipe through every screen — anything that says 'button' alone is broken.",
+    action:".accessibilityLabel(\"Save photo\") on every interactive view",
+    docUrl:"https://developer.apple.com/documentation/accessibility" },
+  { id:"semantic-controls", phase:1, cat:"VoiceOver", aud:"visual", impact:"high", effort:"small",
+    title:"Use semantic controls (Button, not View+onTapGesture)",
+    description:"SwiftUI Button automatically gets the .isButton trait, hint text, and proper VoiceOver behavior. View + onTapGesture gives you nothing. Same for Toggle vs custom switch, Stepper vs custom +/-.",
+    action:"Replace onTapGesture with Button { ... } label: { ... }",
+    docUrl:"https://developer.apple.com/documentation/swiftui/button" },
+  { id:"accessibility-traits", phase:1, cat:"VoiceOver", aud:"visual", impact:"high", effort:"small",
+    title:"Set accessibility traits (.isHeader, .isButton, .updatesFrequently)",
+    description:"Traits tell VoiceOver what an element IS so it can announce + navigate appropriately. Headers let users jump by heading; updatesFrequently tells VoiceOver to re-poll a value (timers, scores).",
+    action:".accessibilityAddTraits(.isHeader)",
+    docUrl:"https://developer.apple.com/documentation/swiftui/accessibilitytraits" },
+  { id:"image-labels", phase:1, cat:"VoiceOver", aud:"visual", impact:"high", effort:"small",
+    title:"Label informative images, hide decorative ones",
+    description:"Photos, charts, illustrations need a description. Background gradients, dividers, separators should be hidden from VoiceOver via .accessibilityHidden(true). The default of reading 'image' is the worst option.",
+    action:"Image(systemName: \"star\").accessibilityLabel(\"Favorited\") OR .accessibilityHidden(true)",
+    docUrl:"https://developer.apple.com/documentation/swiftui/view/accessibilityhidden(_:)" },
+  { id:"container-grouping", phase:1, cat:"VoiceOver", aud:"visual", impact:"medium", effort:"medium",
+    title:"Group related content for efficient navigation",
+    description:"A row showing 'John Smith · Sent · 2 minutes ago' should be ONE swipe in VoiceOver, not three. Use .accessibilityElement(children: .combine) or .contain to group. Reduces VoiceOver swipes by 50–70% on list-heavy apps.",
+    action:".accessibilityElement(children: .combine)",
+    docUrl:"https://developer.apple.com/documentation/swiftui/view/accessibilityelement(children:)" },
+  { id:"custom-rotors", phase:1, cat:"VoiceOver", aud:"visual", impact:"medium", effort:"medium",
+    title:"Custom rotors for power-user navigation",
+    description:"Rotor lets VoiceOver users jump to next/previous of a category — 'links', 'headings', 'form fields', or your custom 'unread message', 'high priority'. Massive efficiency win for content-heavy apps.",
+    action:".accessibilityRotor(\"Unread\") { ForEach(unread) { ... } }",
+    docUrl:"https://developer.apple.com/documentation/swiftui/view/accessibilityrotor(_:entries:)" },
+  { id:"magic-tap", phase:1, cat:"VoiceOver", aud:"visual", impact:"medium", effort:"small",
+    title:"Magic Tap for primary action (two-finger double-tap)",
+    description:"Standard VoiceOver gesture for the app's most-common action. Music app: play/pause. Phone: answer/end call. Maps: announce current location. Surprise + delight when it works.",
+    action:".accessibilityAction(.magicTap) { togglePlayback() }",
+    docUrl:"https://developer.apple.com/documentation/swiftui/view/accessibilityaction(_:_:)" },
+  { id:"escape-gesture", phase:1, cat:"VoiceOver", aud:"visual", impact:"medium", effort:"small",
+    title:"Escape gesture (two-finger Z) handler for modals",
+    description:"VoiceOver users dismiss modals by tracing a Z with two fingers. iOS handles this automatically for sheets/popovers; for custom dismissable views, implement .accessibilityAction(.escape).",
+    action:".accessibilityAction(.escape) { dismiss() }",
+    docUrl:"https://developer.apple.com/documentation/swiftui/view/accessibilityaction(_:_:)" },
+  { id:"switch-control", phase:1, cat:"Switch Control", aud:"motor", impact:"high", effort:"medium",
+    title:"Test entire app with Switch Control (1-switch and 2-switch)",
+    description:"Settings → Accessibility → Switch Control. Configure with screen as switch (or external). Navigate every screen using only switch presses. Common bugs: focus loops, unreachable elements, scan groups too large.",
+    action:"Settings → Accessibility → Switch Control → Switches → Add",
+    docUrl:"https://developer.apple.com/accessibility/" },
+  { id:"voice-control-labels", phase:1, cat:"Voice Control", aud:"motor", impact:"medium", effort:"small",
+    title:"Voice Control labels match visible text",
+    description:"Voice Control lets users say 'Tap Save' or 'Tap the green button'. The label and visible text must match. If button shows 'Save' but accessibilityLabel is 'persist data', voice users can't activate it.",
+    action:"Keep accessibilityLabel == visible text on buttons",
+    docUrl:"https://developer.apple.com/accessibility/" },
+
+  // ───────── PHASE 2: Visual accessibility ─────────
+  { id:"dynamic-type", phase:2, cat:"Dynamic Type", aud:"visual", impact:"high", effort:"medium",
+    title:"Dynamic Type on every text view",
+    description:"Use .font(.body), .font(.title), etc. — never .font(.system(size: 16)). Replace UIKit hardcoded fonts with UIFontMetrics. Dynamic Type accommodates users with large text needs (often elderly, low-vision).",
+    action:"Text(\"hi\").font(.body) — never .font(.system(size: 16))",
+    docUrl:"https://developer.apple.com/documentation/uikit/uifontmetrics" },
+  { id:"test-ax5", phase:2, cat:"Dynamic Type", aud:"visual", impact:"high", effort:"small",
+    title:"Test at AX5 (largest accessibility text size)",
+    description:"Settings → Accessibility → Display & Text Size → Larger Text → enable AX sizes → drag to AX5. Test every screen. Common breaks: text clipping, fixed-height containers, side-by-side layouts that should stack.",
+    action:"Settings → Accessibility → Display & Text Size → Larger Text",
+    docUrl:"https://developer.apple.com/design/human-interface-guidelines/typography" },
+  { id:"scaledmetric", phase:2, cat:"Dynamic Type", aud:"visual", impact:"medium", effort:"small",
+    title:"@ScaledMetric for non-text scalars (icon sizes, spacing)",
+    description:"@ScaledMetric var iconSize: CGFloat = 24 scales with Dynamic Type. Without it, your text grows but icons stay 24pt and look tiny. Critical for icon-heavy interfaces.",
+    action:"@ScaledMetric private var iconSize: CGFloat = 24",
+    docUrl:"https://developer.apple.com/documentation/swiftui/scaledmetric" },
+  { id:"semantic-colors", phase:2, cat:"Color", aud:"visual", impact:"high", effort:"medium",
+    title:"Semantic colors only (Color(.systemBackground), Color(.label))",
+    description:"Hardcoded UIColor.white breaks Dark Mode + Increase Contrast + Smart Invert. Semantic colors automatically adapt to all visual accommodations. Audit every Color(red:green:blue:) call.",
+    action:"Color(uiColor: .systemBackground) — never .white",
+    docUrl:"https://developer.apple.com/documentation/uikit/uicolor/standard_colors" },
+  { id:"contrast-ratio", phase:2, cat:"Color", aud:"visual", impact:"high", effort:"medium",
+    title:"WCAG AA contrast: 4.5:1 for body text, 3:1 for large text",
+    description:"Use Xcode's Accessibility Inspector or Stark/Contrast.app to check every text-on-background pair. Easy fail: gray hint text on light gray background. Large text (18pt+ regular, 14pt+ bold) needs only 3:1.",
+    action:"Run Accessibility Inspector → Audit on every screen",
+    docUrl:"https://developer.apple.com/design/human-interface-guidelines/color" },
+  { id:"dark-mode", phase:2, cat:"Color", aud:"visual", impact:"medium", effort:"medium",
+    title:"Dark Mode on every screen",
+    description:"Test every screen in dark mode. Common issues: shadows that disappear (need glow alternative), images with white backgrounds that flash, hardcoded gray-on-gray that becomes invisible.",
+    action:"Toggle Settings → Display → Dark and recheck every screen",
+    docUrl:"https://developer.apple.com/documentation/uikit/uicolor/standard_colors" },
+  { id:"increase-contrast", phase:2, cat:"Color", aud:"visual", impact:"medium", effort:"small",
+    title:"Respect Increase Contrast accommodation",
+    description:"Settings → Accessibility → Display & Text Size → Increase Contrast. System colors get higher contrast variants automatically. Custom colors should also strengthen — check via @Environment(\\.accessibilityContrast).",
+    action:"@Environment(\\.colorSchemeContrast) var contrast",
+    docUrl:"https://developer.apple.com/documentation/swiftui/environmentvalues/colorschemecontrast" },
+  { id:"reduce-transparency", phase:2, cat:"Visual Effects", aud:"visual", impact:"medium", effort:"small",
+    title:"Reduce Transparency — solid backgrounds when enabled",
+    description:"Vibrancy, blur, and Liquid Glass should fall back to solid surfaces when user enables Reduce Transparency. Materials API does this automatically, but custom translucent views need manual handling.",
+    action:"@Environment(\\.accessibilityReduceTransparency) var reduce",
+    docUrl:"https://developer.apple.com/documentation/swiftui/environmentvalues/accessibilityreducetransparency" },
+  { id:"reduce-motion", phase:2, cat:"Visual Effects", aud:"visual", impact:"high", effort:"small",
+    title:"Reduce Motion — replace bouncy animations with crossfades",
+    description:"Bouncy spring animations + parallax can trigger vestibular issues (vertigo, nausea). Check @Environment(\\.accessibilityReduceMotion) — fall back to .easeInOut crossfades. Don't disable animation entirely; just simplify.",
+    action:"@Environment(\\.accessibilityReduceMotion) var reduce",
+    docUrl:"https://developer.apple.com/documentation/swiftui/environmentvalues/accessibilityreducemotion" },
+  { id:"differentiate-color", phase:2, cat:"Color", aud:"visual", impact:"high", effort:"small",
+    title:"Differentiate Without Color — never rely on color alone",
+    description:"Don't use red-only for errors, green-only for success. Add icons (✓ / ⚠️ / ✗), shapes, or labels. Critical for color-blind users (8% of men). Settings has a 'Differentiate Without Color' toggle to enforce this.",
+    action:"Add SF Symbol next to every color-coded status",
+    docUrl:"https://developer.apple.com/documentation/swiftui/environmentvalues/accessibilitydifferentiatewithoutcolor" },
+  { id:"smart-invert", phase:2, cat:"Visual Effects", aud:"visual", impact:"low", effort:"small",
+    title:"Smart Invert support — don't invert images / media",
+    description:"Smart Invert flips colors but preserves images. Mark photo/video views with .accessibilityIgnoresInvertColors() so they DON'T invert when user enables Smart Invert. Otherwise photos look horrifying.",
+    action:".accessibilityIgnoresInvertColors() on Image and AsyncImage",
+    docUrl:"https://developer.apple.com/documentation/swiftui/view/accessibilityignoresinvertcolors(_:)" },
+  { id:"bold-text", phase:2, cat:"Dynamic Type", aud:"visual", impact:"medium", effort:"small",
+    title:"Bold Text accommodation respected",
+    description:"Settings → Accessibility → Display & Text Size → Bold Text. System fonts handle this automatically. Custom fonts must check UIAccessibility.isBoldTextEnabled and switch to bold variant.",
+    action:"@Environment(\\.legibilityWeight) var weight",
+    docUrl:"https://developer.apple.com/documentation/swiftui/environmentvalues/legibilityweight" },
+  { id:"button-shapes", phase:2, cat:"Color", aud:"visual", impact:"low", effort:"small",
+    title:"Button Shapes accommodation — visible button affordances",
+    description:"Some users have trouble distinguishing buttons from labels. Settings → Accessibility → Display & Text Size → Button Shapes adds underlines/backgrounds. System Buttons handle automatically; custom 'tappable text' breaks this.",
+    action:"@Environment(\\.accessibilityShowButtonShapes) var show",
+    docUrl:"https://developer.apple.com/documentation/swiftui/environmentvalues/accessibilityshowbuttonshapes" },
+
+  // ───────── PHASE 3: Cognitive & Motor accessibility ─────────
+  { id:"plain-language", phase:3, cat:"Content", aud:"cognitive", impact:"high", effort:"medium",
+    title:"Plain language onboarding (8th-grade reading level)",
+    description:"Run onboarding text through Hemingway Editor or readable.com. Aim for grade-8 or below. Replace jargon ('OAuth' → 'sign in'), acronyms ('TLS' → 'secure connection'), and long sentences (>20 words).",
+    action:"Run all UI strings through Hemingway Editor",
+    docUrl:"https://developer.apple.com/design/human-interface-guidelines/writing" },
+  { id:"avoid-jargon", phase:3, cat:"Content", aud:"cognitive", impact:"medium", effort:"small",
+    title:"No technical jargon in user-facing strings",
+    description:"Engineers write 'failed to authenticate'; users see 'wrong password — try again or reset it'. The latter tells them what to DO. Audit every error message + label.",
+    action:"Replace error messages with action-oriented alternatives",
+    docUrl:"https://developer.apple.com/design/human-interface-guidelines/writing" },
+  { id:"touch-targets", phase:3, cat:"Touch", aud:"motor", impact:"high", effort:"small",
+    title:"Touch targets minimum 44×44pt",
+    description:"Apple's HIG minimum. Smaller targets fail for users with tremors, large fingers, motor impairments. Use .frame(minWidth: 44, minHeight: 44) or padding to enforce. SF Symbol Image alone is often 17pt — too small.",
+    action:".frame(minWidth: 44, minHeight: 44) on every tappable view",
+    docUrl:"https://developer.apple.com/design/human-interface-guidelines/layout" },
+  { id:"time-extensions", phase:3, cat:"Time", aud:"cognitive", impact:"medium", effort:"medium",
+    title:"Honor 'Time Limit' accommodation — extend or remove timers",
+    description:"Settings → Accessibility → Time Limit lets users disable timeouts. Check UIAccessibility.shouldExtendTimer or @Environment(\\.accessibilityShouldExtendTimer). Critical for OTP entry, payment confirmations.",
+    action:"Don't auto-dismiss critical UI under shouldExtendTimer",
+    docUrl:"https://developer.apple.com/documentation/uikit/uiaccessibility" },
+  { id:"no-auto-dismiss", phase:3, cat:"Time", aud:"cognitive", impact:"medium", effort:"small",
+    title:"Don't auto-dismiss critical UI",
+    description:"Toasts that vanish in 2 seconds are unreadable for slow readers, VoiceOver users, anyone interrupted. Either persist until dismissed, or honor Time Limit accommodation. Inline messages > toasts.",
+    action:"Replace toasts with inline messages or persistent banners",
+    docUrl:"https://developer.apple.com/documentation/uikit/uiaccessibility" },
+  { id:"long-press-alt", phase:3, cat:"Touch", aud:"motor", impact:"medium", effort:"small",
+    title:"Long-press has tap or menu alternative",
+    description:"Long-press is hard for users with tremors or motor impairments — and invisible to discover. Always provide a fallback: a visible button, a menu (...), or a Selection control.",
+    action:"Add Menu(...) or visible button alongside long-press",
+    docUrl:"https://developer.apple.com/design/human-interface-guidelines/gestures" },
+  { id:"pinch-stepper", phase:3, cat:"Touch", aud:"motor", impact:"medium", effort:"medium",
+    title:"Pinch-to-zoom has stepper alternative",
+    description:"Some users can't pinch (one hand, motor impairment, holding device). Provide ± buttons or a slider for zoom. Same for rotate, two-finger pan.",
+    action:"Add Stepper or +/- buttons for zoom/scale",
+    docUrl:"https://developer.apple.com/design/human-interface-guidelines/gestures" },
+  { id:"drag-menu", phase:3, cat:"Touch", aud:"motor", impact:"medium", effort:"medium",
+    title:"Drag has context-menu alternative",
+    description:"Drag-to-reorder, drag-to-delete, drag-between-views — all are motor-intensive. Provide a long-press menu OR an Edit mode with explicit move buttons. Same for swipe-to-delete (provide a delete button in row).",
+    action:"Add 'Move...' / 'Delete' menu items as drag alternatives",
+    docUrl:"https://developer.apple.com/design/human-interface-guidelines/gestures" },
+  { id:"confirm-destructive", phase:3, cat:"Content", aud:"cognitive", impact:"medium", effort:"small",
+    title:"Confirmable destructive actions",
+    description:"Delete account, delete photo, send irreversibly — must require confirmation. Pattern: red destructive button → confirmation alert with explicit consequence text. Don't trust 'undo' to cover all cognitive accessibility cases.",
+    action:".alert(\"Delete?\") { Button(\"Delete\", role: .destructive) }",
+    docUrl:"https://developer.apple.com/design/human-interface-guidelines/alerts" },
+  { id:"predictable-nav", phase:3, cat:"Content", aud:"cognitive", impact:"high", effort:"medium",
+    title:"Predictable navigation — same controls in same places",
+    description:"Back button always top-left. Save always top-right. Tab bar always at the bottom. Don't move controls between screens or modes. Cognitive accessibility = pattern repetition.",
+    action:"Audit nav consistency across every flow",
+    docUrl:"https://developer.apple.com/design/human-interface-guidelines/" },
+
+  // ───────── PHASE 4: Specialty assistive technologies ─────────
+  { id:"personal-voice", phase:4, cat:"Speech", aud:"hearing", impact:"high", effort:"medium",
+    title:"Personal Voice integration (AVSpeechSynthesisVoice.personalVoice)",
+    description:"Apple's Personal Voice (2023) lets users with ALS or other speech-loss conditions create a synthetic voice that sounds like THEM. Your app can use it via AVSpeechSynthesisVoice.personalVoice. Life-changing for AAC apps.",
+    action:"AVSpeechSynthesisVoice.personalVoice + UNUserNotificationCenter.requestAccess",
+    docUrl:"https://developer.apple.com/documentation/avfaudio/avspeechsynthesisvoice" },
+  { id:"live-captions", phase:4, cat:"Speech", aud:"hearing", impact:"medium", effort:"small",
+    title:"Optimize audio for Live Captions (system-wide, iOS 16+)",
+    description:"Live Captions transcribe ANY audio system-wide. Make sure your app's audio playback uses correct AVAudioSession category (.playback, .playAndRecord) and isn't categorized as 'ambient' (which silences with mute switch).",
+    action:"AVAudioSession.sharedInstance().setCategory(.playback)",
+    docUrl:"https://developer.apple.com/documentation/avfaudio/avaudiosession" },
+  { id:"assistive-access", phase:4, cat:"Cognitive UI", aud:"cognitive", impact:"high", effort:"large",
+    title:"Adopt Assistive Access scene type (iOS 17+)",
+    description:"Apple's simplified UI mode for users with cognitive disabilities — large icons, single-purpose flows. SwiftUI Scene type: AssistiveAccess. Your app can ship a simplified variant that respects Assistive Access mode.",
+    action:"Scene { AssistiveAccess { SimplifiedView() } }",
+    docUrl:"https://developer.apple.com/accessibility/" },
+  { id:"eye-tracking", phase:4, cat:"Input", aud:"motor", impact:"medium", effort:"small",
+    title:"Eye Tracking compatibility (iOS 18+)",
+    description:"iOS 18 added system Eye Tracking — users can navigate with their gaze. Works automatically with standard controls but custom hit-testable elements need standard accessibility traits to be eye-trackable.",
+    action:"Ensure custom views have .accessibilityElement and traits set",
+    docUrl:"https://developer.apple.com/accessibility/" },
+  { id:"hearing-devices", phase:4, cat:"Hearing", aud:"hearing", impact:"medium", effort:"medium",
+    title:"Made for iPhone Hearing Aids (MFi) integration",
+    description:"For audio-streaming apps. The MFi Hearing Devices framework lets paired hearing aids stream audio directly. Critical for music, calls, podcasts, video apps.",
+    action:"Use CoreBluetooth + MFi Hearing Aid framework",
+    docUrl:"https://developer.apple.com/accessibility/" },
+  { id:"sound-recognition", phase:4, cat:"Hearing", aud:"hearing", impact:"low", effort:"small",
+    title:"Sound Recognition — don't suppress system alerts",
+    description:"iOS Sound Recognition listens for fire alarms, doorbells, baby crying. Don't request exclusive audio session in a way that disables the system listener. Use .mixWithOthers or .duckOthers for non-critical playback.",
+    action:"AVAudioSession.setCategory(.playback, options: [.mixWithOthers])",
+    docUrl:"https://developer.apple.com/documentation/avfaudio/avaudiosession" },
+  { id:"switch-control-test", phase:4, cat:"Input", aud:"motor", impact:"high", effort:"medium",
+    title:"Test with Switch Control: 1-switch and 2-switch modes",
+    description:"1-switch = auto-scan + select. 2-switch = manual next + select. Both modes should be able to navigate every screen, dismiss every modal, complete every flow. Common bugs: focus traps, scan groups too large.",
+    action:"Settings → Accessibility → Switch Control → Item Mode + Auto Scanning",
+    docUrl:"https://developer.apple.com/accessibility/" },
+  { id:"external-keyboard", phase:4, cat:"Input", aud:"motor", impact:"medium", effort:"medium",
+    title:"External keyboard support — Tab between focusable controls",
+    description:"Tab moves through focusable views. Shift-Tab reverses. Cmd+W closes window, Cmd+, opens settings (Mac/iPad). Without focus order, keyboard users can't navigate — common Mac App Store rejection cause.",
+    action:".focusable() and .focused() across all interactive views",
+    docUrl:"https://developer.apple.com/documentation/swiftui/view/focusable(_:)" },
+  { id:"game-controller", phase:4, cat:"Input", aud:"motor", impact:"low", effort:"medium",
+    title:"Game controller support (where applicable)",
+    description:"Adaptive switch users can use game controllers as input. GameController framework lets your app react to button presses + dpad. Useful even for non-game apps as an alternative input.",
+    action:"GameController framework + GCExtendedGamepad",
+    docUrl:"https://developer.apple.com/documentation/gamecontroller" },
+  { id:"a11y-shortcut", phase:4, cat:"Input", aud:"general", impact:"low", effort:"small",
+    title:"AccessibilityShortcut — triple-click side button toggle",
+    description:"Users can configure triple-click to toggle Switch Control / VoiceOver / etc. If your app has its own a11y mode (zoom, simplified UI), expose it as an AccessibilityShortcut option.",
+    action:"UIAccessibility.AccessibilityShortcut configuration",
+    docUrl:"https://developer.apple.com/documentation/uikit/uiaccessibility" },
+
+  // ───────── PHASE 5: Continuous practice ─────────
+  { id:"a11y-nutrition", phase:5, cat:"Process", aud:"general", impact:"high", effort:"small",
+    title:"File Accessibility Nutrition Labels in App Store Connect",
+    description:"WWDC25 feature. Declare which accessibility features your app supports. Apple highlights this on product pages and surfaces in Today stories. Honest disclosure → editorial preference.",
+    action:"App Store Connect → Accessibility → Nutrition Labels",
+    docUrl:"https://developer.apple.com/news/?id=jcwnehy0" },
+  { id:"a11y-inspector", phase:5, cat:"Process", aud:"general", impact:"high", effort:"small",
+    title:"Accessibility Inspector audits in CI",
+    description:"Xcode → Open Developer Tool → Accessibility Inspector. Audit tab catches missing labels, low contrast, suspicious traits. Run automated audits in your test target via XCUIAccessibilityAuditType.all.",
+    action:"app.performAccessibilityAudit() in XCTest",
+    docUrl:"https://developer.apple.com/documentation/xctest/xcuiapplication" },
+  { id:"voiceover-manual-test", phase:5, cat:"Process", aud:"visual", impact:"high", effort:"medium",
+    title:"Manual VoiceOver test on real device every release",
+    description:"The Inspector catches structural issues; only manual VoiceOver use catches awkward labels, weird reading orders, missing context. Set up a recurring 30-min sweep before each release.",
+    action:"Settings → Accessibility → VoiceOver + run through every flow",
+    docUrl:"https://developer.apple.com/accessibility/" },
+  { id:"real-user-test", phase:5, cat:"Process", aud:"general", impact:"high", effort:"large",
+    title:"Test with users with disabilities",
+    description:"Internal testing catches the obvious. Real users catch the catastrophic. Recruit through orgs like AppleVis, Disability:IN, or specialized testing services (Fable, AccessibleApp). Even one session per quarter is huge.",
+    action:"Partner with Fable, AccessibleApp, or disability orgs",
+    docUrl:"https://developer.apple.com/accessibility/" },
+  { id:"annual-audit", phase:5, cat:"Process", aud:"general", impact:"medium", effort:"large",
+    title:"Annual accessibility audit by an external consultant",
+    description:"Even mature accessibility programs find blind spots in external review. Expect ~$5–15k for a thorough WCAG 2.1 AA + Apple HIG audit. Schedule before major releases.",
+    action:"Hire WAS-certified consultant for annual review",
+    docUrl:"https://developer.apple.com/accessibility/" },
+  { id:"a11y-pairing", phase:5, cat:"Process", aud:"general", impact:"medium", effort:"medium",
+    title:"Designer-developer accessibility pairing on every feature",
+    description:"Build accessibility into design reviews. Designer ships mock with a11y annotations (label text, focus order, AX size behavior). Developer ships with VoiceOver verification. No 'we'll add accessibility later' — that's how it never ships.",
+    action:"Add a11y review checkpoint to your design + dev process",
+    docUrl:"https://developer.apple.com/accessibility/" },
+  { id:"onboarding-checklist", phase:5, cat:"Process", aud:"general", impact:"medium", effort:"small",
+    title:"Accessibility checklist in your onboarding doc",
+    description:"New engineers should encounter the team's accessibility expectations day 1, not month 6. Document: minimum requirements, where to find Inspector + VoiceOver, who to ask, common patterns.",
+    action:"Add /docs/accessibility-standards.md to repo",
+    docUrl:"https://developer.apple.com/accessibility/" },
+  { id:"feedback-apple", phase:5, cat:"Process", aud:"general", impact:"low", effort:"small",
+    title:"File Apple Feedback for system accessibility bugs",
+    description:"If you find a real Apple bug (VoiceOver mis-reading SwiftUI, Switch Control trapping focus), file via Feedback Assistant with reproducible steps. Most accessibility regressions are caught + fixed by app developers, not Apple QA.",
+    action:"feedbackassistant.apple.com — file with code samples",
+    docUrl:"https://developer.apple.com/bug-reporting/" },
+  { id:"docs-patterns", phase:5, cat:"Process", aud:"general", impact:"low", effort:"medium",
+    title:"Document accessibility patterns in your design system",
+    description:"Cards, lists, modals, custom controls — each should have a documented a11y treatment. Repeated work happens because no one wrote it down. Keep a living doc with code samples + DON'T-do examples.",
+    action:"Living a11y patterns doc with code + don'ts",
+    docUrl:"https://developer.apple.com/design/human-interface-guidelines/accessibility" },
+  { id:"hire-disabled", phase:5, cat:"Process", aud:"general", impact:"high", effort:"large",
+    title:"Hire engineers and designers with disabilities",
+    description:"The single highest-leverage accessibility action: have team members who use the assistive tech you're building for. They catch issues at design review, not at audit. Partner with Disability:IN for sourcing.",
+    action:"Partner with Disability:IN, NextGen Leaders, etc.",
+    docUrl:"https://disabilityin.org/" },
+];
+
+const phases = [
+  { num:1, title:"Foundation: Make it usable for assistive tech", desc:"VoiceOver, Switch Control, Voice Control basics. Without these, the app is unusable for assistive-tech users — no other accessibility work matters." },
+  { num:2, title:"Visual accessibility", desc:"Dynamic Type, contrast, dark mode, motion, color independence. Benefits low-vision, color-blind, vestibular-disorder, and bright-sunlight users." },
+  { num:3, title:"Cognitive &amp; motor accessibility", desc:"Plain language, touch targets, time accommodations, gesture alternatives. Often overlooked because it requires content + interaction redesign, not just code." },
+  { num:4, title:"Specialty assistive technologies", desc:"Personal Voice, Live Captions, Assistive Access, Eye Tracking, MFi Hearing Devices. Specialized tech for specific communities — high impact for those users." },
+  { num:5, title:"Continuous practice", desc:"Audits, manual testing, real-user testing, hiring practices. Accessibility is not a milestone — it's a discipline." },
+];
+
+const STORAGE_KEY = "wwdc_accessibility_progress_v1";
+let checkedItems = new Set();
+let currentFilters = { impact: "all", effort: "all", aud: "all", cat: "all" };
+
+function loadState() {
+  try { const raw = localStorage.getItem(STORAGE_KEY); if (raw) checkedItems = new Set(JSON.parse(raw)); } catch (e) {}
+}
+function saveState() {
+  try { localStorage.setItem(STORAGE_KEY, JSON.stringify([...checkedItems])); } catch (e) {}
+}
+function resetProgress() {
+  if (!confirm("Reset all check progress? This cannot be undone.")) return;
+  checkedItems.clear(); saveState(); renderAll();
+}
+function toggleItem(id) {
+  if (checkedItems.has(id)) checkedItems.delete(id); else checkedItems.add(id);
+  saveState(); renderAll();
+}
+
+function renderProgress() {
+  const total = items.length;
+  const done = items.filter(it => checkedItems.has(it.id)).length;
+  const pct = total === 0 ? 0 : Math.round(done / total * 100);
+  document.getElementById("overall-pct").textContent = `${pct}%`;
+  document.getElementById("overall-fill").style.width = `${pct}%`;
+  const phaseGradients = {
+    1: "linear-gradient(90deg, #38bdf8, #0ea5e9)",
+    2: "linear-gradient(90deg, #0ea5e9, #818cf8)",
+    3: "linear-gradient(90deg, #818cf8, #c084fc)",
+    4: "linear-gradient(90deg, #c084fc, #f472b6)",
+    5: "linear-gradient(90deg, #f472b6, #fb923c)",
+  };
+  document.getElementById("phase-pcts").innerHTML = phases.map(ph => {
+    const phItems = items.filter(it => it.phase === ph.num);
+    const phDone = phItems.filter(it => checkedItems.has(it.id)).length;
+    const phPct = phItems.length === 0 ? 0 : Math.round(phDone / phItems.length * 100);
+    return `<div class="phase-pct">
+      <div class="phase-pct-label">Phase ${ph.num} &middot; ${phDone}/${phItems.length}</div>
+      <div class="phase-pct-mini"><div class="phase-pct-fill" style="width:${phPct}%; background:${phaseGradients[ph.num]};"></div></div>
+    </div>`;
+  }).join("");
+}
+
+function itemHTML(it) {
+  const checked = checkedItems.has(it.id);
+  return `<div class="item ${checked?'checked':''}" data-id="${it.id}" data-impact="${it.impact}" data-effort="${it.effort}" data-aud="${it.aud}" data-cat="${it.cat}" onclick="toggleItem('${it.id}')">
+    <div class="checkbox">${checked ? '✓' : ''}</div>
+    <div class="item-body">
+      <div class="item-header">
+        <div class="item-title">${escHtml(it.title)}</div>
+        <div class="item-tags">
+          <span class="item-tag impact-${it.impact}">${it.impact} impact</span>
+          <span class="item-tag effort-${it.effort}">${it.effort} effort</span>
+          <span class="item-tag aud-${it.aud}">${it.aud}</span>
+          <span class="item-tag cat">${escHtml(it.cat)}</span>
+        </div>
+      </div>
+      <div class="item-desc">${escHtml(it.description)}</div>
+      ${it.action ? `<div class="item-action">${escHtml(it.action)}</div>` : ''}
+      ${it.docUrl ? `<div class="item-meta"><a href="${it.docUrl}" target="_blank" rel="noopener" onclick="event.stopPropagation()">📘 Apple Docs &rarr;</a></div>` : ''}
+    </div>
+  </div>`;
+}
+
+function renderPathway() {
+  document.getElementById("phase-list").innerHTML = phases.map(ph => {
+    const phItems = items.filter(it => it.phase === ph.num);
+    const phDone = phItems.filter(it => checkedItems.has(it.id)).length;
+    const phPct = phItems.length === 0 ? 0 : Math.round(phDone / phItems.length * 100);
+    return `<div class="phase-block phase-${ph.num} ${ph.num === 1 ? 'expanded' : ''}">
+      <div class="phase-header" onclick="togglePhase(this)">
+        <div class="phase-num">${ph.num}</div>
+        <div class="phase-title"><h3>${ph.title}</h3><div class="desc">${ph.desc}</div></div>
+        <div class="phase-meta">
+          <div class="phase-progress-text">${phDone}/${phItems.length} &middot; ${phPct}%</div>
+          <div class="chevron">&rsaquo;</div>
+        </div>
+      </div>
+      <div class="phase-items">
+        <div class="item-list">${phItems.map(itemHTML).join("")}</div>
+      </div>
+    </div>`;
+  }).join("");
+}
+function togglePhase(headerEl) { headerEl.parentElement.classList.toggle("expanded"); }
+
+function renderAllItems() {
+  const cats = [...new Set(items.map(it => it.cat))].sort();
+  document.getElementById("filter-bar").innerHTML = `
+    <div class="filter-group">
+      <span class="filter-group-label">Impact</span>
+      <button class="filter-chip ${currentFilters.impact==='all'?'active':''}" onclick="setFilter('impact','all')">All</button>
+      ${["high","medium","low"].map(i => `<button class="filter-chip ${currentFilters.impact===i?'active':''}" onclick="setFilter('impact','${i}')">${i}</button>`).join("")}
+    </div>
+    <div class="filter-group">
+      <span class="filter-group-label">Effort</span>
+      <button class="filter-chip ${currentFilters.effort==='all'?'active':''}" onclick="setFilter('effort','all')">All</button>
+      ${["small","medium","large"].map(e => `<button class="filter-chip ${currentFilters.effort===e?'active':''}" onclick="setFilter('effort','${e}')">${e}</button>`).join("")}
+    </div>
+    <div class="filter-group">
+      <span class="filter-group-label">Audience</span>
+      <button class="filter-chip ${currentFilters.aud==='all'?'active':''}" onclick="setFilter('aud','all')">All</button>
+      ${["visual","motor","cognitive","hearing","general"].map(a => `<button class="filter-chip ${currentFilters.aud===a?'active':''}" onclick="setFilter('aud','${a}')">${a}</button>`).join("")}
+    </div>
+    <div class="filter-group">
+      <span class="filter-group-label">Category</span>
+      <button class="filter-chip ${currentFilters.cat==='all'?'active':''}" onclick="setFilter('cat','all')">All</button>
+      ${cats.map(c => `<button class="filter-chip ${currentFilters.cat===c?'active':''}" onclick="setFilter('cat','${c}')">${escHtml(c)}</button>`).join("")}
+    </div>
+  `;
+  const filtered = items.filter(it =>
+    (currentFilters.impact === "all" || it.impact === currentFilters.impact) &&
+    (currentFilters.effort === "all" || it.effort === currentFilters.effort) &&
+    (currentFilters.aud === "all" || it.aud === currentFilters.aud) &&
+    (currentFilters.cat === "all" || it.cat === currentFilters.cat)
+  );
+  if (filtered.length === 0) {
+    document.getElementById("all-items").innerHTML = `<div class="empty-state"><div class="icon">∅</div>No items match these filters.</div>`;
+    return;
+  }
+  document.getElementById("all-items").innerHTML = filtered.map(itemHTML).join("");
+}
+function setFilter(kind, value) { currentFilters[kind] = value; renderAllItems(); }
+
+function renderQuickWins() {
+  const wins = items.filter(it => it.impact === "high" && (it.effort === "small" || it.effort === "medium") && !checkedItems.has(it.id));
+  if (wins.length === 0) {
+    document.getElementById("quickwins-grid").innerHTML = `<div class="empty-state"><div class="icon">★</div>You've checked off every quick win. Time to tackle the bigger items.</div>`;
+    return;
+  }
+  document.getElementById("quickwins-grid").innerHTML = wins.map(it => `
+    <div class="quick-win-card" onclick="toggleItem('${it.id}'); renderAll();">
+      <div class="quick-win-title">${escHtml(it.title)}</div>
+      <div class="quick-win-desc">${escHtml(it.description)}</div>
+    </div>
+  `).join("");
+}
+
+function renderAll() {
+  renderProgress();
+  renderPathway();
+  renderAllItems();
+  renderQuickWins();
+}
+function showSection(ev, name) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('sec-' + name).classList.add('active');
+  ev.target.classList.add('active');
+}
+function escHtml(s) { return String(s).replace(/[<>&'"]/g, c => ({'<':'&lt;','>':'&gt;','&':'&amp;',"'":'&#39;','"':'&quot;'}[c])); }
+
+loadState();
+renderAll();
+</script>
+</body>
+</html>
