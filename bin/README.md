@@ -2,8 +2,8 @@
 
 Reusable scripts for the mechanical parts of the pipeline. Anything that
 requires judgment (analyzing transcripts, curating pathways, naming gems)
-is handled by Claude Code agents — see the project root README and
-`~/Documents/CLAUDE_JOURNAL/PERSONAL/2026-04-25-1830-wwdc-journal-recreation-guide.md`.
+is handled by an agent-assisted editorial pass. See the project root README,
+`AGENTS.md`, and `docs/recreating-a-year.md`.
 
 ## Scripts
 
@@ -70,11 +70,11 @@ bin/validate-dashboards.py --strict   # exit 1 on any failure
 bin/fetch-transcripts.py 2026
 bin/build-metadata.py 2026
 
-# 2. Hand off to Claude (judgment-heavy work)
-#    → Read the recreation guide, then ask Claude to:
+# 2. Run the agent-assisted editorial pass (judgment-heavy work)
+#    → Read AGENTS.md and docs/recreating-a-year.md, then ask an agent to:
 #      "Build a complete WWDC 2026 dashboard following the pattern
 #       in index-2025.html"
-#    → It will produce analysis-2026/, data/wwdc2026-pathways.json,
+#    → This produces analysis-2026/, data/wwdc2026-pathways.json,
 #      and index-2026.html.
 
 # 3. Refresh shuffle pool + landing page

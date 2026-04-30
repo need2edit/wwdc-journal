@@ -87,9 +87,9 @@ Source attribution: transcripts come from [Nonstrict WWDC Index](https://nonstri
 bin/fetch-transcripts.py 2026
 bin/build-metadata.py 2026
 
-# 2. Hand off to Claude (judgment-heavy work):
-#    Read the recreation guide, then ask Claude to build a complete WWDC 2026
-#    dashboard following the index-2025.html pattern. Claude produces
+# 2. Run the agent-assisted editorial pass:
+#    Read AGENTS.md and docs/recreating-a-year.md, then build a complete
+#    WWDC 2026 dashboard following the index-2025.html pattern. This produces
 #    analysis-2026/, data/wwdc2026-pathways.json, and index-2026.html.
 
 # 3. Mechanical: refresh shuffle-button gem pool + validate
@@ -104,20 +104,20 @@ git commit -m "Add WWDC 2026 dashboard"
 git push
 ```
 
-Full recreation pipeline documented in `~/Documents/CLAUDE_JOURNAL/PERSONAL/2026-04-25-1830-wwdc-journal-recreation-guide.md`.
+Full recreation pipeline documented in `docs/recreating-a-year.md`.
 
 ## Pipeline scripts (`bin/`)
 
 The mechanical parts of the pipeline are scripted; judgment-heavy parts
 (curating pathways, identifying hidden gems, writing analyses) are left
-to Claude Code agents.
+to an AI-assisted editorial pass. Agent instructions live in `AGENTS.md`.
 
 - `bin/fetch-transcripts.py` — pull transcripts from Nonstrict
 - `bin/build-metadata.py` — derive per-year session JSONs
 - `bin/refresh-gems.py` — rebuild the shuffle-button gem pool
 - `bin/validate-dashboards.py` — verify HTML/JS integrity
 
-See `bin/README.md` for details and the scripted-vs-agent split.
+See `bin/README.md` for details and the scripted-vs-editorial split.
 
 ## Deployment (GitHub Pages)
 

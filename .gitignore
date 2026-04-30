@@ -1,7 +1,7 @@
 # macOS
 .DS_Store
 
-# Claude local state
+# Local agent state
 .claude/
 
 # Transcripts — large (~48MB), re-fetchable from Nonstrict WWDC Index
