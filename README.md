@@ -80,6 +80,14 @@ rm -rf /tmp/wwdc.zip /tmp/extract-*
 
 Source attribution: transcripts come from [Nonstrict WWDC Index](https://nonstrict.eu/wwdcindex/) and (for richer 2025 markdown) [auramagi's gist](https://gist.github.com/auramagi/9c040c2233dfe71c24c76942e186f788).
 
+## License
+
+Code in this repository is licensed under the [MIT License](LICENSE).
+
+Original editorial content and curation are licensed under [Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International](CONTENT-LICENSE.md).
+
+These licenses apply only to original material created for WWDC Journal. They do not apply to Apple-owned content, WWDC session materials, Apple documentation, Apple trademarks, third-party transcript sources, or factual session metadata. See [Third-Party Notices](THIRD_PARTY_NOTICES.md).
+
 ## Adding a new year (e.g., when WWDC 2026 drops)
 
 ```bash
