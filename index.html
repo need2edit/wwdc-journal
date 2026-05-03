@@ -214,7 +214,13 @@
 
   @media (max-width: 880px) {
     .layout { grid-template-columns: 1fr; padding: 0 16px 40px; }
+    .years-container { padding-left: 0; padding-right: 0; }
+    .years { grid-template-columns: 1fr; }
     .sidebar { position: static; max-height: none; padding: 18px; }
+    .sidebar .sb-totals { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; padding: 12px 0; }
+    .sidebar .sb-stat { min-width: 0; padding: 12px 14px; border: 1px solid var(--border); border-radius: 8px; background: var(--surface2); }
+    .sidebar .sb-stat .num { font-size: 1.28em; line-height: 1.05; }
+    .sidebar .sb-stat .label { margin-top: 3px; font-size: 0.72em; line-height: 1.15; }
   }
 </style>
 
