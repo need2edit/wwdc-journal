@@ -156,10 +156,11 @@
     .gems-grid { grid-template-columns: 1fr; }
   }
 
-  /* Breadcrumb back link */
-  .breadcrumb { color: var(--text-dim); font-size: 0.85em; margin-bottom: 10px; }
-  .breadcrumb a { color: var(--accent2); text-decoration: none; }
+  /* Breadcrumb year navigation */
+  .breadcrumb { display: flex; align-items: center; justify-content: space-between; gap: 16px; max-width: 900px; margin: 0 auto 10px; color: var(--text-dim); font-size: 0.85em; }
+  .breadcrumb a { color: var(--accent2); text-decoration: none; white-space: nowrap; }
   .breadcrumb a:hover { text-decoration: underline; }
+  .year-nav-prev { margin-left: auto; }
 
   /* Search bar */
   .search-bar-container { max-width: 700px; margin: -8px auto 28px; padding: 0 20px; position: relative; }
@@ -193,7 +194,7 @@
 <body>
 
 <div class="hero">
-  <div class="breadcrumb"><a href="index.html">&larr; WWDC Journal</a></div>
+  <div class="breadcrumb"><a href="index.html">&larr; WWDC Journal</a><a class="year-nav-prev" href="index-2023.html">WWDC 2023 &rarr;</a></div>
   <h1>WWDC 2024 Deep Analysis</h1>
   <p class="sub">119 Sessions / 13 Learning Pathways / Apple Intelligence, Swift 6, visionOS 2 in depth</p>
 
