@@ -16,6 +16,13 @@ open index.html
 
 The landing page links to each year's dashboard and to the cross-year modernization guide.
 
+## Install as a web app
+
+The site includes a web app manifest, Apple touch icon, and iOS web app metadata
+so it can be saved to the Home Screen / Dock as a basic web clip. No JavaScript
+is required for this install support. On iPhone or iPad, open the published site
+in Safari and choose **Share → Add to Home Screen**.
+
 ## What's in each year dashboard
 
 - **Hero** with sessions/pathways/topics stats and a search bar
