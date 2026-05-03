@@ -195,6 +195,14 @@
   .gem-card:hover .bm-star, .pathway-card:hover .bm-star { opacity: 1; }
   .pathway-card .bm-star { right: auto; left: 8px; }
   .gem-card, .pathway-card { position: relative; }
+  .footer { text-align: center; color: var(--text-dim); font-size: 0.85em; padding: 56px 20px 40px; max-width: 760px; margin: 0 auto; line-height: 1.6; }
+  .footer a { color: var(--accent2); text-decoration: none; }
+  .footer a:hover { text-decoration: underline; }
+
+  .footer-socials { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; margin-top: 22px; font-size: 0.95em; }
+  .footer-socials a { padding: 6px 10px; border: 1px solid var(--border); border-radius: 999px; background: rgba(20,20,31,0.62); }
+  .footer-socials a:hover { border-color: var(--accent2); text-decoration: none; }
+
 </style>
 </head>
 <body>
@@ -1081,5 +1089,14 @@ function toggleBookmarkBtn(event, btn) {
 
 function escapeBmAttr(s) { return String(s).replace(/[<>&"']/g, c => ({'<':'&lt;','>':'&gt;','&':'&amp;','"':'&quot;',"'":'&#39;'}[c])); }
 </script>
+<div class="footer">
+  Each dashboard contains: deep transcript analysis (best practices, hidden gems, performance tips, migration guidance), curated learning pathways with prerequisites, session clusters, transcript-vs-docs deltas, and an interactive dependency graph. <br><br>
+  Source transcripts from <a href="https://nonstrict.eu/wwdcindex/" target="_blank" rel="noopener">Nonstrict WWDC Index</a> and <a href="https://gist.github.com/auramagi/9c040c2233dfe71c24c76942e186f788" target="_blank" rel="noopener">auramagi gist</a>. Independent project, not affiliated with Apple. Code is <a href="LICENSE">MIT</a>; original editorial content and curation are <a href="CONTENT-LICENSE.md">CC BY-NC-ND 4.0</a>. See <a href="THIRD_PARTY_NOTICES.md">third-party notices</a>.
+  <div class="footer-socials" aria-label="Creator social links">
+    <a href="https://github.com/need2edit" target="_blank" rel="noopener">GitHub</a>
+    <a href="https://x.com/need2edit" target="_blank" rel="noopener">X/Twitter</a>
+    <a href="https://www.linkedin.com/in/youngjake/" target="_blank" rel="noopener">LinkedIn</a>
+  </div>
+</div>
 </body>
 </html>
