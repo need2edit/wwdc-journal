@@ -153,9 +153,13 @@
     .stat .num { font-size: 1.65em; line-height: 1.05; }
     .stat .label { margin-top: 3px; font-size: 0.72em; line-height: 1.15; }
     .stat:last-child:nth-child(odd) { grid-column: 1 / -1; }
+    .tabs { justify-content: flex-start; flex-wrap: nowrap; gap: 8px; width: 100%; box-sizing: border-box; margin: 0 0 32px; padding: 0 20px 8px 20px; overflow-x: auto; overflow-y: hidden; scroll-snap-type: x proximity; scroll-padding-left: 20px; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+    .tabs::-webkit-scrollbar { display: none; }
+    .tab { flex: 0 0 auto; scroll-snap-align: start; padding: 9px 18px; white-space: nowrap; }
     .bar-label { width: 140px; font-size: 0.75em; }
     .pathway-grid { grid-template-columns: 1fr; }
-    .gems-grid { grid-template-columns: 1fr; }
+    .gems-grid { grid-template-columns: minmax(0, 1fr); }
+    .gem-card { box-sizing: border-box; min-width: 0; padding: 18px; overflow-wrap: anywhere; }
   }
 
   /* Breadcrumb year navigation */

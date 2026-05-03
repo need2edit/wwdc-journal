@@ -159,7 +159,8 @@
   .gem-modal .gem-action-btn.primary { background: linear-gradient(135deg, #818cf8, #c084fc); border-color: transparent; color: white; font-weight: 600; }
 
   @media (max-width: 600px) {
-    .shuffle-btn { bottom: 16px; right: 16px; padding: 12px 18px; font-size: 0.85em; }
+    .footer { padding-bottom: calc(112px + env(safe-area-inset-bottom)); }
+    .shuffle-btn { bottom: calc(16px + env(safe-area-inset-bottom)); right: 16px; padding: 12px 18px; font-size: 0.85em; }
   }
 </style>
 </head>
