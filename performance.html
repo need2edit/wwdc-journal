@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#14141f">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="application-name" content="WWDC Journal">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="WWDC Journal">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="app-icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/icons/icon-180.png">
+<title>Performance &amp; Build Times Playbook — WWDC Journal</title>
+<style>
+  :root {
+    --bg: #0a0a0f;
+    --surface: #14141f;
+    --surface2: #1e1e2e;
+    --surface3: #252535;
+    --border: #2a2a3e;
+    --border-bright: #3a3a4e;
+    --text: #e8e8f0;
+    --text-dim: #8888a0;
+    --text-faint: #5a5a70;
+    --accent: #10b981;
+    --accent2: #34d399;
+    --green: #34d399;
+    --amber: #fbbf24;
+    --red: #f87171;
+    --pink: #f472b6;
+    --cyan: #22d3ee;
+    --teal: #2dd4bf;
+    --orange: #fb923c;
+    --purple: #c084fc;
+    --indigo: #818cf8;
+    --sky: #38bdf8;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', system-ui, sans-serif; background: var(--bg); color: var(--text); overflow-x: hidden; }
+
+  .hero { padding: 56px 40px 28px; text-align: center; position: relative; overflow: hidden; }
+  .hero::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(ellipse at center, rgba(16,185,129,0.10) 0%, transparent 60%); pointer-events: none; }
+  .breadcrumb { color: var(--text-dim); font-size: 0.85em; margin-bottom: 10px; }
+  .breadcrumb a { color: var(--accent2); text-decoration: none; }
+  .breadcrumb a:hover { text-decoration: underline; }
+  .hero h1 { font-size: 2.8em; font-weight: 700; background: linear-gradient(135deg, #34d399, #2dd4bf, #22d3ee, #38bdf8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 8px; letter-spacing: -0.02em; }
+  .hero .sub { color: var(--text-dim); font-size: 1.05em; max-width: 760px; margin: 0 auto; line-height: 1.5; }
+
+  .progress-bar-container { max-width: 1100px; margin: 30px auto 16px; padding: 0 20px; }
+  .progress-card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 20px 24px; }
+  .progress-row { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; }
+  .progress-row .label { color: var(--text); font-weight: 600; font-size: 0.95em; }
+  .progress-row .pct { color: var(--accent2); font-weight: 700; font-size: 1.2em; }
+  .progress-track { height: 8px; background: var(--surface2); border-radius: 4px; overflow: hidden; }
+  .progress-fill { height: 100%; background: linear-gradient(90deg, #34d399, #2dd4bf, #22d3ee); border-radius: 4px; transition: width 0.4s ease; }
+  .phase-pcts { display: flex; gap: 16px; margin-top: 14px; flex-wrap: wrap; }
+  .phase-pct { flex: 1; min-width: 120px; }
+  .phase-pct-label { color: var(--text-dim); font-size: 0.72em; margin-bottom: 4px; }
+  .phase-pct-mini { height: 4px; background: var(--surface2); border-radius: 2px; overflow: hidden; margin-top: 4px; }
+  .phase-pct-fill { height: 100%; border-radius: 2px; transition: width 0.4s ease; }
+  .reset-link { float: right; color: var(--text-faint); cursor: pointer; font-size: 0.78em; }
+  .reset-link:hover { color: var(--red); }
+
+  .tabs { display: flex; justify-content: center; gap: 8px; margin: 24px 0 32px; flex-wrap: wrap; padding: 0 20px; }
+  .tab { padding: 10px 22px; border-radius: 24px; border: 1px solid var(--border); background: var(--surface); color: var(--text-dim); cursor: pointer; font-size: 0.9em; transition: all 0.2s; font-family: inherit; }
+  .tab:hover { border-color: var(--accent); color: var(--text); }
+  .tab.active { background: var(--accent); border-color: var(--accent); color: #00231a; }
+
+  .section { display: none; max-width: 1200px; margin: 0 auto; padding: 0 20px 80px; }
+  .section.active { display: block; }
+  .section h2 { font-size: 1.6em; margin-bottom: 8px; color: var(--text); }
+  .section .section-sub { color: var(--text-dim); font-size: 0.95em; margin-bottom: 24px; line-height: 1.5; }
+
+  .phase-list { display: flex; flex-direction: column; gap: 16px; }
+  .phase-block { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; }
+  .phase-header { padding: 20px 24px; cursor: pointer; display: flex; align-items: center; gap: 16px; user-select: none; transition: background 0.15s; }
+  .phase-header:hover { background: var(--surface2); }
+  .phase-num { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1.1em; color: white; flex-shrink: 0; }
+  .phase-1 .phase-num { background: linear-gradient(135deg, #34d399, #10b981); }
+  .phase-2 .phase-num { background: linear-gradient(135deg, #10b981, #2dd4bf); }
+  .phase-3 .phase-num { background: linear-gradient(135deg, #2dd4bf, #22d3ee); }
+  .phase-4 .phase-num { background: linear-gradient(135deg, #22d3ee, #38bdf8); }
+  .phase-5 .phase-num { background: linear-gradient(135deg, #38bdf8, #818cf8); }
+  .phase-title { flex: 1; }
+  .phase-title h3 { font-size: 1.15em; margin-bottom: 2px; }
+  .phase-title .desc { color: var(--text-dim); font-size: 0.85em; }
+  .phase-meta { color: var(--text-faint); font-size: 0.8em; text-align: right; flex-shrink: 0; }
+  .phase-meta .phase-progress-text { color: var(--accent2); font-weight: 600; }
+  .chevron { color: var(--text-faint); font-size: 0.8em; transition: transform 0.2s; }
+  .phase-block.expanded .chevron { transform: rotate(90deg); }
+  .phase-items { display: none; padding: 0 24px 20px; }
+  .phase-block.expanded .phase-items { display: block; }
+
+  .item-list { display: flex; flex-direction: column; gap: 8px; }
+  .item { background: var(--surface2); border: 1px solid var(--border); border-radius: 12px; padding: 16px 18px; cursor: pointer; transition: all 0.15s; display: flex; gap: 14px; align-items: flex-start; }
+  .item:hover { border-color: var(--border-bright); }
+  .item.checked { opacity: 0.55; }
+  .item.checked .item-title { text-decoration: line-through; color: var(--text-dim); }
+  .item.hidden-by-filter { display: none; }
+  .checkbox { width: 22px; height: 22px; border-radius: 6px; border: 2px solid var(--border-bright); flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 14px; color: white; transition: all 0.15s; margin-top: 1px; }
+  .item.checked .checkbox { background: var(--green); border-color: var(--green); }
+  .item-body { flex: 1; min-width: 0; }
+  .item-header { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 4px; }
+  .item-title { font-weight: 600; font-size: 0.98em; color: var(--text); }
+  .item-tags { display: flex; gap: 6px; flex-wrap: wrap; }
+  .item-tag { font-size: 0.68em; padding: 2px 8px; border-radius: 6px; background: var(--surface3); color: var(--text-dim); font-weight: 600; letter-spacing: 0.3px; text-transform: uppercase; }
+  .item-tag.impact-high { background: rgba(52,211,153,0.20); color: var(--green); }
+  .item-tag.impact-medium { background: rgba(251,191,36,0.16); color: var(--amber); }
+  .item-tag.impact-low { background: rgba(192,132,252,0.16); color: var(--purple); }
+  .item-tag.effort-small { background: rgba(52,211,153,0.16); color: var(--green); }
+  .item-tag.effort-medium { background: rgba(251,191,36,0.16); color: var(--amber); }
+  .item-tag.effort-large { background: rgba(248,113,113,0.16); color: var(--red); }
+  .item-tag.scope-cpu { background: rgba(248,113,113,0.16); color: var(--red); }
+  .item-tag.scope-memory { background: rgba(192,132,252,0.16); color: var(--purple); }
+  .item-tag.scope-network { background: rgba(56,189,248,0.16); color: var(--sky); }
+  .item-tag.scope-ui { background: rgba(34,211,238,0.16); color: var(--cyan); }
+  .item-tag.scope-build { background: rgba(251,146,60,0.16); color: var(--orange); }
+  .item-tag.scope-launch { background: rgba(251,191,36,0.16); color: var(--amber); }
+  .item-tag.scope-process { background: rgba(129,140,248,0.16); color: var(--indigo); }
+  .item-tag.cat { background: rgba(45,212,191,0.16); color: var(--teal); }
+  .item-desc { color: var(--text-dim); font-size: 0.86em; line-height: 1.5; margin-top: 2px; }
+  .item-action { color: var(--accent2); font-size: 0.82em; margin-top: 8px; font-style: italic; }
+  .item-action::before { content: "→ "; }
+  .item-meta { color: var(--text-faint); font-size: 0.78em; margin-top: 6px; display: flex; gap: 12px; flex-wrap: wrap; }
+  .item-meta a { color: var(--accent2); text-decoration: none; }
+  .item-meta a:hover { text-decoration: underline; }
+
+  .filter-bar { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; padding: 16px 20px; background: var(--surface); border: 1px solid var(--border); border-radius: 16px; align-items: center; }
+  .filter-group { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; }
+  .filter-group-label { color: var(--text-dim); font-size: 0.78em; font-weight: 600; margin-right: 4px; text-transform: uppercase; letter-spacing: 0.3px; }
+  .filter-chip { padding: 5px 11px; border-radius: 14px; border: 1px solid var(--border); background: var(--surface2); color: var(--text-dim); cursor: pointer; font-size: 0.78em; transition: all 0.15s; font-family: inherit; }
+  .filter-chip:hover { border-color: var(--accent); color: var(--text); }
+  .filter-chip.active { background: var(--accent); border-color: var(--accent); color: #00231a; }
+
+  .quick-wins-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 14px; }
+  .quick-win-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 18px; cursor: pointer; transition: all 0.15s; border-left: 3px solid var(--accent); }
+  .quick-win-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+  .quick-win-title { font-weight: 600; margin-bottom: 6px; }
+  .quick-win-desc { color: var(--text-dim); font-size: 0.85em; line-height: 1.5; }
+
+  .empty-state { text-align: center; padding: 40px 20px; color: var(--text-dim); }
+  .empty-state .icon { font-size: 2.5em; margin-bottom: 12px; opacity: 0.4; }
+
+  @media (max-width: 700px) {
+    .hero h1 { font-size: 2em; }
+  }
+  .footer { text-align: center; color: var(--text-dim); font-size: 0.85em; padding: 56px 20px 40px; max-width: 760px; margin: 0 auto; line-height: 1.6; }
+  .footer a { color: var(--accent2); text-decoration: none; }
+  .footer a:hover { text-decoration: underline; }
+
+  .footer-socials { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; margin-top: 22px; font-size: 0.95em; }
+  .footer-socials a { padding: 6px 10px; border: 1px solid var(--border); border-radius: 999px; background: rgba(20,20,31,0.62); }
+  .footer-socials a:hover { border-color: var(--accent2); text-decoration: none; }
+
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="breadcrumb"><a href="index.html">&larr; WWDC Journal</a></div>
+  <h1>Performance &amp; Build Times Playbook</h1>
+  <p class="sub">A practitioner's checklist for shipping fast apps and a fast build. Measure first, then attack build time, launch time, runtime cost, and make speed a continuous discipline. Synthesized from 12 years of WWDC performance sessions.</p>
+</div>
+
+<div class="progress-bar-container">
+  <div class="progress-card">
+    <div class="progress-row">
+      <div class="label">Overall progress <span class="reset-link" onclick="resetProgress()">reset progress</span></div>
+      <div class="pct" id="overall-pct">0%</div>
+    </div>
+    <div class="progress-track"><div class="progress-fill" id="overall-fill" style="width:0%"></div></div>
+    <div class="phase-pcts" id="phase-pcts"></div>
+  </div>
+</div>
+
+<div class="tabs">
+  <div class="tab active" onclick="showSection(event,'pathway')">The Pathway</div>
+  <div class="tab" onclick="showSection(event,'all')">All Items</div>
+  <div class="tab" onclick="showSection(event,'quickwins')">Quick Wins</div>
+</div>
+
+<div class="section active" id="sec-pathway">
+  <h2>The Performance Pathway</h2>
+  <p class="section-sub">Five sequential phases. Measurement first — never optimize without numbers. Then build time (developer feedback loop), launch time (user's first impression), runtime cost (frame rate, memory, network), and finally make performance a discipline rather than a one-time push.</p>
+  <div class="phase-list" id="phase-list"></div>
+</div>
+
+<div class="section" id="sec-all">
+  <h2>All Items</h2>
+  <p class="section-sub">Filter by impact, effort, or scope. Scope tells you which kind of slowdown an item targets — CPU, memory, UI rendering, build, launch, network, or process/practice.</p>
+  <div class="filter-bar" id="filter-bar"></div>
+  <div class="item-list" id="all-items"></div>
+</div>
+
+<div class="section" id="sec-quickwins">
+  <h2>Quick Wins</h2>
+  <p class="section-sub">High-impact items that take less than a sprint. Most are config changes, instrument runs, or single-file edits that compound across the whole app.</p>
+  <div class="quick-wins-grid" id="quickwins-grid"></div>
+</div>
+
+<script>
+const items = [
+  // ───────── PHASE 1: Measure first ─────────
+  { id:"time-profiler", phase:1, cat:"Instruments", scope:"cpu", impact:"high", effort:"small",
+    title:"Time Profiler — find the actual hot paths",
+    description:"Before optimizing anything, run Time Profiler and let your app do the slow thing. The flame graph tells you exactly which functions burn time. Engineers consistently mis-guess what's slow — measurement removes the guessing.",
+    action:"Xcode → Open Developer Tool → Instruments → Time Profiler",
+    docUrl:"https://developer.apple.com/tutorials/instruments" },
+  { id:"hangs-instrument", phase:1, cat:"Instruments", scope:"cpu", impact:"high", effort:"small",
+    title:"Hangs instrument — surface main-thread stalls",
+    description:"Hangs > 250ms are user-visible. The Hangs template flags every stall, attributes it to a backtrace, and tells you the duration. Pair with Time Profiler for root-cause analysis. Run on real device under realistic load.",
+    action:"Instruments → Hangs template → record 1 minute of typical use",
+    docUrl:"https://developer.apple.com/documentation/xcode/improving-app-responsiveness" },
+  { id:"allocations", phase:1, cat:"Instruments", scope:"memory", impact:"high", effort:"small",
+    title:"Allocations — track persistent vs transient memory",
+    description:"Allocations shows live bytes and growth over time. Mark generations between user actions; the diff shows what each action retained. Surfaces memory leaks, image accumulation, retain cycles you'd never see otherwise.",
+    action:"Instruments → Allocations → mark generation before & after each action",
+    docUrl:"https://developer.apple.com/documentation/xcode/gathering-information-about-memory-use" },
+  { id:"leaks", phase:1, cat:"Instruments", scope:"memory", impact:"medium", effort:"small",
+    title:"Leaks — catch retain cycles automatically",
+    description:"Leaks runs alongside Allocations and flags objects with no path to a root. Most common cause: closures capturing self strongly. Fix with [weak self] or break the cycle structurally.",
+    action:"Instruments → Leaks template → look for red leak markers",
+    docUrl:"https://developer.apple.com/documentation/xcode/gathering-information-about-memory-use" },
+  { id:"swiftui-instrument", phase:1, cat:"Instruments", scope:"ui", impact:"high", effort:"small",
+    title:"SwiftUI instrument — count body invocations",
+    description:"View body re-evaluations are SwiftUI's #1 perf trap. The SwiftUI template (Xcode 14+) shows Cause attribution and Update Groups. If your row's body re-renders on every keystroke in a sibling, you've got an observable scoping bug.",
+    action:"Instruments → SwiftUI template → look at View Body cause attribution",
+    docUrl:"https://developer.apple.com/documentation/swiftui" },
+  { id:"metrickit", phase:1, cat:"MetricKit", scope:"process", impact:"high", effort:"medium",
+    title:"MetricKit — collect real-user performance data",
+    description:"MetricKit delivers daily reports from real devices: hang rate, launch time, disk I/O, cellular usage, scroll hitches, CPU instructions. The closest thing to RUM on iOS. Pipe to your analytics — local profiling lies, MetricKit doesn't.",
+    action:"MXMetricManager.shared.add(self) → handle didReceive payloads",
+    docUrl:"https://developer.apple.com/documentation/metrickit" },
+  { id:"signposter", phase:1, cat:"Logging", scope:"process", impact:"medium", effort:"small",
+    title:"OSSignposter for custom timing intervals",
+    description:"Signposter lets you mark intervals in your own code that show up in Instruments. Wrap any suspect operation; you'll see exact begin/end timestamps in the Time Profiler track. Strictly better than print-based timing.",
+    action:"let signposter = OSSignposter(); signposter.beginInterval(\"loadFeed\")",
+    docUrl:"https://developer.apple.com/documentation/os/ossignposter" },
+  { id:"build-timeline", phase:1, cat:"Build", scope:"build", impact:"high", effort:"small",
+    title:"Xcode build timeline — see what's slow to compile",
+    description:"Product → Perform Action → Build With Timing Summary, or check Report Navigator → build → Show Build Timeline. Identifies the longest single-file compiles, slow scripts, and serial bottlenecks. Almost always reveals one or two outliers.",
+    action:"Product → Perform Action → Build With Timing Summary",
+    docUrl:"https://developer.apple.com/documentation/xcode/improving-the-speed-of-incremental-builds" },
+  { id:"launch-instrument", phase:1, cat:"Instruments", scope:"launch", impact:"high", effort:"small",
+    title:"App Launch instrument — phase-by-phase breakdown",
+    description:"App Launch template attributes time to dyld, static init, AppDelegate, scene init, first frame. Without this template you're guessing which phase is slow. Aim for sub-400ms cold launch on supported devices.",
+    action:"Instruments → App Launch template → record from springboard",
+    docUrl:"https://developer.apple.com/documentation/xcode/reducing-your-app-s-launch-time" },
+  { id:"organizer-hangs", phase:1, cat:"MetricKit", scope:"process", impact:"medium", effort:"small",
+    title:"Xcode Organizer — hang & disk-write reports weekly",
+    description:"Xcode → Window → Organizer → Hangs / Disk Writes / Launch Time. Aggregated from real devices, attributed to your code. Catches issues that never reproduce locally. Make this a recurring weekly review with a screenshot in your team channel.",
+    action:"Xcode → Window → Organizer → Hangs (review every release)",
+    docUrl:"https://developer.apple.com/documentation/xcode/performance-and-metrics" },
+
+  // ───────── PHASE 2: Build time ─────────
+  { id:"explicit-modules", phase:2, cat:"Build", scope:"build", impact:"high", effort:"medium",
+    title:"Adopt Explicitly Built Modules (Xcode 16+)",
+    description:"Apple's biggest build-system overhaul in years. Modules become real build products with proper dependency tracking, parallel compilation, and reusable caches. Drop-in win for most projects — flip the build setting and remeasure.",
+    action:"Build Settings → 'Explicitly Built Modules' → Yes",
+    docUrl:"https://developer.apple.com/documentation/xcode/building-your-project-with-explicit-module-dependencies" },
+  { id:"complex-types", phase:2, cat:"Swift", scope:"build", impact:"high", effort:"medium",
+    title:"Break up complex Swift expressions",
+    description:"Swift's type checker is exponential in expression complexity. A 30-line array literal or chained ternary can take 10 seconds to compile. Split into intermediate `let` bindings with explicit types. Worst offenders: SwiftUI bodies, dictionary literals, mixed-numeric arithmetic.",
+    action:"-Xfrontend -warn-long-expression-type-checking=200",
+    docUrl:"https://developer.apple.com/documentation/swift" },
+  { id:"warn-long-bodies", phase:2, cat:"Swift", scope:"build", impact:"medium", effort:"small",
+    title:"Enable -warn-long-function-bodies & -warn-long-expression-type-checking",
+    description:"Add to Other Swift Flags as a CI check. Anything over 200ms gets a warning, with file & line. Lets you track build-time hot spots like a code smell. Threshold of 100–200ms is reasonable.",
+    action:"OTHER_SWIFT_FLAGS = -Xfrontend -warn-long-function-bodies=200",
+    docUrl:"https://developer.apple.com/documentation/xcode/build-settings-reference" },
+  { id:"wmo", phase:2, cat:"Build", scope:"build", impact:"medium", effort:"small",
+    title:"Whole Module Optimization for Release builds only",
+    description:"WMO compiles a whole module as one unit — slower per build, but generates much better code and dead-strips aggressively. Default is correct (off in Debug, on in Release). Don't accidentally enable in Debug; you'll destroy incremental compile.",
+    action:"Build Settings → Compilation Mode → Incremental (Debug), Whole Module (Release)",
+    docUrl:"https://developer.apple.com/documentation/xcode/build-settings-reference" },
+  { id:"split-large-files", phase:2, cat:"Swift", scope:"build", impact:"medium", effort:"medium",
+    title:"Split source files >2000 lines",
+    description:"Incremental builds recompile entire files, not symbols. A 4000-line file forces a 4000-line recompile on every edit. Split by responsibility — extensions, helpers, view subtypes. Bonus: easier code review.",
+    action:"Identify >2000 LOC .swift files; split by responsibility",
+    docUrl:"https://developer.apple.com/documentation/xcode/improving-the-speed-of-incremental-builds" },
+  { id:"framework-count", phase:2, cat:"Build", scope:"build", impact:"medium", effort:"large",
+    title:"Reduce framework count — link cost is cumulative",
+    description:"Every framework adds linker time, dyld load time at launch, and code-signing overhead. Aim for <30 dynamic frameworks. Merge tiny frameworks; consider static linking for stable internal libraries; use mergeable libraries (Xcode 15+).",
+    action:"Build Settings → MERGEABLE_LIBRARY = YES on internal frameworks",
+    docUrl:"https://developer.apple.com/documentation/xcode/configuring-your-project-to-use-mergeable-libraries" },
+  { id:"binary-spm", phase:2, cat:"Build", scope:"build", impact:"medium", effort:"medium",
+    title:"Use SPM binary targets for heavy 3rd-party deps",
+    description:"Compiling Firebase, gRPC, or Sentry from source costs minutes per clean build. Use the vendor's `.xcframework` or binary SPM target instead. Trade source-readability for build speed; for vendored deps, this is almost always right.",
+    action:"Package.swift → .binaryTarget(name: \"X\", url: \"...\", checksum: \"...\")",
+    docUrl:"https://developer.apple.com/documentation/swift_packages/distributing_binary_frameworks_as_swift_packages" },
+  { id:"dead-code-strip", phase:2, cat:"Build", scope:"build", impact:"low", effort:"small",
+    title:"Dead code stripping enabled in Release",
+    description:"DEAD_CODE_STRIPPING=YES (default in modern Xcode) drops unreferenced symbols at link time. Smaller binary → faster launch, lower memory. Verify enabled; verify Release uses Whole Module Opt so the stripper has full visibility.",
+    action:"Build Settings → Dead Code Stripping = Yes",
+    docUrl:"https://developer.apple.com/documentation/xcode/build-settings-reference" },
+  { id:"derived-data-cache", phase:2, cat:"CI", scope:"build", impact:"high", effort:"medium",
+    title:"Cache DerivedData in CI for incremental builds",
+    description:"Cold CI builds are wasteful when 95% of files didn't change. Cache DerivedData/ModuleCache.noindex between runs (GitHub Actions: actions/cache; Xcode Cloud: enabled by default). 2–10× speedup on most projects.",
+    action:"GitHub Actions: actions/cache with key derived from Package.resolved",
+    docUrl:"https://developer.apple.com/documentation/xcode/xcode-cloud" },
+  { id:"parallel-tests", phase:2, cat:"CI", scope:"build", impact:"medium", effort:"small",
+    title:"Parallelize tests across simulators / destinations",
+    description:"xcodebuild -parallel-testing-enabled YES -parallel-testing-worker-count N runs test classes across multiple simulators. For large suites this halves wall time. Pair with -test-iterations to find flakiness.",
+    action:"xcodebuild test -parallel-testing-enabled YES -parallel-testing-worker-count 4",
+    docUrl:"https://developer.apple.com/documentation/testing/parallelization" },
+  { id:"explicit-types", phase:2, cat:"Swift", scope:"build", impact:"medium", effort:"small",
+    title:"Annotate types on nontrivial closures and collections",
+    description:"`let arr = [...]` with mixed types or generics forces the type checker to infer. `let arr: [SomeType] = [...]` lets it skip inference. Same for closure return types. Helps both build time AND code clarity.",
+    action:"Add explicit return types on closures with nontrivial inference",
+    docUrl:"https://developer.apple.com/documentation/swift" },
+  { id:"obj-c-bridging", phase:2, cat:"Build", scope:"build", impact:"low", effort:"medium",
+    title:"Minimize Swift ↔ Obj-C bridging in hot paths",
+    description:"Bridging headers force Swift to import Obj-C every build. For the bridging header itself this is unavoidable; but avoid `@objc` annotations on internal types you don't need to expose. Each `@objc` symbol participates in bridge generation.",
+    action:"Audit `@objc` annotations — keep only what's actually exposed",
+    docUrl:"https://developer.apple.com/documentation/swift/importing-objective-c-into-swift" },
+
+  // ───────── PHASE 3: App launch ─────────
+  { id:"defer-past-first-frame", phase:3, cat:"Launch", scope:"launch", impact:"high", effort:"medium",
+    title:"Defer non-critical work past first frame",
+    description:"Analytics init, network preflight, third-party SDKs — none of it should block the first frame. Push to a Task after sceneDidBecomeActive or use `.task` modifier on the root view. Cold launch should render UI in <400ms; everything else is post-launch.",
+    action:".task { await initializeAnalytics(); await prefetchFeed() }",
+    docUrl:"https://developer.apple.com/documentation/xcode/reducing-your-app-s-launch-time" },
+  { id:"app-init-light", phase:3, cat:"Launch", scope:"launch", impact:"high", effort:"medium",
+    title:"Keep @main / App.init() minimal",
+    description:"Anything in App.init() runs synchronously before first frame. No I/O, no DB open, no network, no third-party SDK init. If you must initialize, use `init() {}` only for property wiring; do work in `.onAppear` or `.task` on the root view.",
+    action:"Audit App init for sync work — move to .task on root",
+    docUrl:"https://developer.apple.com/documentation/swiftui/app" },
+  { id:"lazy-services", phase:3, cat:"Launch", scope:"launch", impact:"medium", effort:"medium",
+    title:"Lazy-load services on first use",
+    description:"Don't construct a CoreLocation manager, AVAudioSession, or HealthKit store at launch — construct it when the user actually uses that feature. Singletons should be `lazy` or use `Task { ... }` initialization triggered by feature entry.",
+    action:"static let shared = lazy initialization pattern",
+    docUrl:"https://developer.apple.com/documentation/swift" },
+  { id:"static-init", phase:3, cat:"Launch", scope:"launch", impact:"medium", effort:"medium",
+    title:"Avoid expensive static initializers (+load, dispatch_once at top-level)",
+    description:"Obj-C `+load` runs before main(). Swift top-level `let` runs lazily but on first access — and Realm/CoreData/networking SDKs sometimes hide work in static initializers of types you import. Inspect with App Launch instrument's Static Initializer phase.",
+    action:"App Launch instrument → look for Static Initializer time",
+    docUrl:"https://developer.apple.com/documentation/xcode/reducing-your-app-s-launch-time" },
+  { id:"asset-catalog", phase:3, cat:"Assets", scope:"launch", impact:"medium", effort:"small",
+    title:"Use Asset Catalog instead of loose image files",
+    description:"Asset catalogs are indexed, deduplicated, slice-aware, and load via UIImage(named:) far faster than file-system lookups. Loose .png in the bundle should be exceptional, not the default. Same for colors → use named Color Sets.",
+    action:"Move all .png/.jpg into Assets.xcassets; use UIImage(named:) / Image(_:)",
+    docUrl:"https://developer.apple.com/documentation/xcode/managing-assets-with-asset-catalogs" },
+  { id:"prewarming", phase:3, cat:"Launch", scope:"launch", impact:"low", effort:"medium",
+    title:"Handle prewarming (UIApplication.prewarmState)",
+    description:"iOS prewarms apps to make subsequent launches feel instant. Your app may run init code without UI. Check willFinishLaunching's prewarming flag — skip non-essential work if prewarming, do it on actual scene attachment instead.",
+    action:"Check `ProcessInfo.processInfo.environment[\"ActivePrewarm\"]` in launch path",
+    docUrl:"https://developer.apple.com/documentation/uikit/about-the-app-launch-sequence" },
+  { id:"launch-screen", phase:3, cat:"Launch", scope:"launch", impact:"medium", effort:"small",
+    title:"Use a launch screen storyboard, not a static image",
+    description:"Launch screens are rendered before your code runs. A storyboard adapts to device size, dark mode, language, and notch. A static image often looks wrong on iPad/landscape and adds visible flicker on first frame.",
+    action:"Project → General → Launch Screen File → LaunchScreen.storyboard",
+    docUrl:"https://developer.apple.com/documentation/xcode/specifying-your-apps-launch-screen" },
+  { id:"backgroundtasks-prewarm", phase:3, cat:"Launch", scope:"launch", impact:"low", effort:"medium",
+    title:"BGAppRefreshTask for periodic content prewarm",
+    description:"Schedule a low-priority background refresh that pre-fetches the data your app shows on launch. When the user opens the app, the network is already done. Particularly impactful for feed-style apps.",
+    action:"BGTaskScheduler.shared.register(forTaskWithIdentifier:) → schedule on app close",
+    docUrl:"https://developer.apple.com/documentation/backgroundtasks" },
+
+  // ───────── PHASE 4: Runtime performance ─────────
+  { id:"observable-vs-state", phase:4, cat:"SwiftUI", scope:"ui", impact:"high", effort:"medium",
+    title:"@Observable for shared state — not a forest of @State / @Published",
+    description:"@Observable (iOS 17+) tracks property reads at a per-property granularity. SwiftUI re-renders only views that read changed properties. ObservableObject + @Published re-renders every observer on any change. For non-trivial state, the upgrade is huge.",
+    action:"@Observable class Model { var feed: [Post] = [] }",
+    docUrl:"https://developer.apple.com/documentation/observation/observable()" },
+  { id:"stable-foreach-id", phase:4, cat:"SwiftUI", scope:"ui", impact:"high", effort:"small",
+    title:"Stable identity in ForEach (use Identifiable, not array index)",
+    description:"`ForEach(items, id: \\.self)` on mutable collections causes SwiftUI to re-create rows on any reorder. Use `Identifiable` with a stable id (server id, UUID stored on the model). Massive scroll perf and animation correctness win.",
+    action:"struct Post: Identifiable { let id: UUID; ... }",
+    docUrl:"https://developer.apple.com/documentation/swiftui/foreach" },
+  { id:"drawinggroup", phase:4, cat:"SwiftUI", scope:"ui", impact:"medium", effort:"small",
+    title:"drawingGroup() for heavy composite views",
+    description:"For views with many overlapping shadows, blurs, gradients, or complex Canvas drawing — `.drawingGroup()` rasterizes once via Metal instead of recomposing every frame. Use sparingly; it allocates an offscreen buffer.",
+    action:".drawingGroup() on heavy composites that don't animate internally",
+    docUrl:"https://developer.apple.com/documentation/swiftui/view/drawinggroup(opaque:colormode:)" },
+  { id:"avoid-geometryreader", phase:4, cat:"SwiftUI", scope:"ui", impact:"medium", effort:"medium",
+    title:"Avoid GeometryReader where possible",
+    description:"GeometryReader expands greedily and triggers layout passes that often cascade. Prefer `.containerRelativeFrame`, `.frame(maxWidth:)`, or the new `Layout` protocol. Only reach for GeometryReader when you actually need parent bounds.",
+    action:"Replace GeometryReader with .containerRelativeFrame / Layout protocol",
+    docUrl:"https://developer.apple.com/documentation/swiftui/layout" },
+  { id:"lazy-stacks", phase:4, cat:"SwiftUI", scope:"ui", impact:"high", effort:"small",
+    title:"LazyVStack / LazyHStack / LazyVGrid for long content",
+    description:"VStack realizes every child immediately. LazyVStack realizes children as they scroll into view. For >50 rows, eager realization tanks scroll FPS and balloons memory. Same for grids: LazyVGrid, not Grid.",
+    action:"ScrollView { LazyVStack { ForEach(items) { ... } } }",
+    docUrl:"https://developer.apple.com/documentation/swiftui/lazyvstack" },
+  { id:"prepareForDisplay", phase:4, cat:"Images", scope:"ui", impact:"high", effort:"small",
+    title:"Decode images off the main thread (UIImage.prepareForDisplay)",
+    description:"By default UIImage decodes on first render — on the main thread. For large images this is the #1 cause of scroll hitches. `await image.byPreparingForDisplay()` or `image.prepareForDisplay { ... }` decodes on a background thread.",
+    action:"if let prepared = await uiImage.byPreparingForDisplay() { ... }",
+    docUrl:"https://developer.apple.com/documentation/uikit/uiimage/preparingfordisplay()" },
+  { id:"downsample-images", phase:4, cat:"Images", scope:"memory", impact:"high", effort:"medium",
+    title:"Downsample images to display size before render",
+    description:"A 4000×3000 photo displayed in a 200pt thumbnail consumes 48MB instead of 480KB. Use ImageIO `CGImageSourceCreateThumbnailAtIndex` with `kCGImageSourceThumbnailMaxPixelSize` set to display size × scale. Memory pressure goes down 100×.",
+    action:"CGImageSourceCreateThumbnailAtIndex with kCGImageSourceThumbnailMaxPixelSize",
+    docUrl:"https://developer.apple.com/documentation/imageio/cgimagesource" },
+  { id:"image-renderer", phase:4, cat:"Images", scope:"ui", impact:"low", effort:"small",
+    title:"ImageRenderer for export-time bitmaps",
+    description:"For sharing, screenshotting, or PDF export: `ImageRenderer` (iOS 16+) takes any SwiftUI view and produces a UIImage / CGImage / NSImage. Strictly better than the deprecated UIGraphicsImageRenderer for SwiftUI content.",
+    action:"let renderer = ImageRenderer(content: MyView()); renderer.uiImage",
+    docUrl:"https://developer.apple.com/documentation/swiftui/imagerenderer" },
+  { id:"nscache", phase:4, cat:"Memory", scope:"memory", impact:"medium", effort:"small",
+    title:"NSCache for memory-pressure-aware object caching",
+    description:"NSCache evicts under memory pressure automatically. A plain `[String: UIImage]` does not — it grows until you crash. Use NSCache with totalCostLimit set to a sane fraction of available memory. Thread-safe, no locks needed.",
+    action:"let cache = NSCache<NSString, UIImage>(); cache.totalCostLimit = 50_000_000",
+    docUrl:"https://developer.apple.com/documentation/foundation/nscache" },
+  { id:"http2-multiplex", phase:4, cat:"Network", scope:"network", impact:"medium", effort:"small",
+    title:"Reuse a single URLSession — HTTP/2 multiplexing is automatic",
+    description:"URLSession multiplexes HTTP/2 requests over one connection — but only within the same session. Constructing a new URLSession per request kills the connection pool and re-runs TLS. Use `URLSession.shared` or one long-lived session per service.",
+    action:"Use URLSession.shared or a single long-lived session per backend",
+    docUrl:"https://developer.apple.com/documentation/foundation/urlsession" },
+  { id:"compress-responses", phase:4, cat:"Network", scope:"network", impact:"medium", effort:"small",
+    title:"Server sends gzip/br — URLSession decompresses automatically",
+    description:"URLSession honors `Accept-Encoding` automatically; you just need the server to actually send compressed responses. Verify with Charles/Proxyman that responses come back with `Content-Encoding: gzip` or `br`. JSON typically shrinks 5–10×.",
+    action:"Verify Content-Encoding on responses; coordinate with backend",
+    docUrl:"https://developer.apple.com/documentation/foundation/urlsession" },
+  { id:"urlcache", phase:4, cat:"Network", scope:"network", impact:"medium", effort:"medium",
+    title:"URLCache + Cache-Control headers for HTTP caching",
+    description:"URLSession caches GET responses honoring server Cache-Control / ETag automatically — IF the server sends them. A single Cache-Control: max-age=300 on the right endpoint can eliminate 90% of repeat requests. Verify URLCache disk path is real.",
+    action:"URLCache.shared = URLCache(memoryCapacity: 10MB, diskCapacity: 100MB, ...)",
+    docUrl:"https://developer.apple.com/documentation/foundation/urlcache" },
+  { id:"actors-vs-locks", phase:4, cat:"Concurrency", scope:"cpu", impact:"medium", effort:"medium",
+    title:"Actors over manual locks for shared mutable state",
+    description:"Actors give you data isolation with a queue model. Manual NSLock / DispatchQueue.sync gives you priority inversion, deadlocks, and footguns. For new code, default to actor; reach for low-level locks only after profiling.",
+    action:"actor Cache { var data: [String: Value] = [:] }",
+    docUrl:"https://developer.apple.com/documentation/swift/actor" },
+  { id:"actor-reentrancy", phase:4, cat:"Concurrency", scope:"cpu", impact:"medium", effort:"large",
+    title:"Beware actor reentrancy — invariants can change at suspension points",
+    description:"`await` inside an actor method releases the actor; another method may run before yours resumes. Don't assume state is unchanged after await. Common bug: load → await → cache check (now stale). Read state after await OR design to be reentrant-safe.",
+    action:"Re-read invariants after every `await` inside actor methods",
+    docUrl:"https://developer.apple.com/documentation/swift/concurrency" },
+  { id:"main-actor-hops", phase:4, cat:"Concurrency", scope:"ui", impact:"medium", effort:"medium",
+    title:"Group main-actor hops — batch UI updates",
+    description:"Each `await MainActor.run { ... }` is a hop scheduled on the main runloop. Hopping 50 times for 50 small updates costs more than one hop with 50 mutations inside. Aggregate, then hop once. Same applies to Task { @MainActor in ... }.",
+    action:"Collect updates locally → one MainActor.run for the batch",
+    docUrl:"https://developer.apple.com/documentation/swift/mainactor" },
+  { id:"swiftdata-batch", phase:4, cat:"Persistence", scope:"cpu", impact:"medium", effort:"medium",
+    title:"SwiftData / Core Data: batched fetches, predicates, indexes",
+    description:"FetchDescriptor with sortBy + predicate + fetchLimit is much faster than pulling everything and filtering in Swift. Add @Index on properties used in predicates. For inserts: batch in a single ModelContext.save() — not one save per row.",
+    action:"FetchDescriptor(predicate:..., sortBy:..., fetchLimit: 50)",
+    docUrl:"https://developer.apple.com/documentation/swiftdata" },
+  { id:"core-data-faulting", phase:4, cat:"Persistence", scope:"memory", impact:"low", effort:"medium",
+    title:"Core Data: refreshAllObjects to drop faults under memory pressure",
+    description:"Core Data lazily faults objects in but doesn't unfault automatically. Long-lived contexts accumulate object graphs. Call `refreshAllObjects()` (with mergeChanges:false) periodically, or on `didReceiveMemoryWarning`, to release them.",
+    action:"context.refreshAllObjects() in didReceiveMemoryWarning",
+    docUrl:"https://developer.apple.com/documentation/coredata/nsmanagedobjectcontext" },
+
+  // ───────── PHASE 5: Continuous practice ─────────
+  { id:"xctmetric", phase:5, cat:"Process", scope:"process", impact:"high", effort:"medium",
+    title:"XCTMetric performance regression tests in CI",
+    description:"`measure { ... }` with XCTApplicationLaunchMetric, XCTMemoryMetric, XCTOSSignpostMetric records baselines. CI fails when a PR regresses. Pick 3–5 critical flows (cold launch, feed scroll, search) and lock baselines. The cheapest insurance against perf rot.",
+    action:"measure(metrics: [XCTApplicationLaunchMetric()]) { app.launch() }",
+    docUrl:"https://developer.apple.com/documentation/xctest/performance_tests" },
+  { id:"perf-budget", phase:5, cat:"Process", scope:"process", impact:"high", effort:"medium",
+    title:"Define a performance budget per release",
+    description:"Cold launch <400ms. p95 hang rate <0.1%. p95 feed scroll FPS >55. App size growth <2MB per minor release. Without explicit numbers, perf decisions become opinion. Publish budgets, track per-release, treat regression as a release-blocker.",
+    action:"Document budget in /docs/performance-budget.md; review every release",
+    docUrl:"https://developer.apple.com/documentation/xcode/improving-your-app-s-performance" },
+  { id:"hang-triage", phase:5, cat:"Process", scope:"process", impact:"medium", effort:"small",
+    title:"Weekly hang & crash triage from Xcode Organizer",
+    description:"Set a recurring 30-min slot to scan Organizer's Hangs, Disk Writes, and Crashes panels. Top of the list = highest-impact fix. Most teams discover top-5 hangs are concentrated in 2–3 files; fix the worst, repeat next week.",
+    action:"Recurring weekly: Xcode → Organizer → top-3 hangs → ticket each",
+    docUrl:"https://developer.apple.com/documentation/xcode/performance-and-metrics" },
+  { id:"power-and-perf", phase:5, cat:"Process", scope:"process", impact:"medium", effort:"small",
+    title:"App Store Connect Power & Performance dashboard",
+    description:"App Store Connect → Trends → Power & Performance shows app size, memory, hang rate, disk usage from real users. The view your reviewers see. Audit before each release; large regressions are flagged automatically.",
+    action:"App Store Connect → Trends → Power & Performance",
+    docUrl:"https://developer.apple.com/app-store-connect/" },
+  { id:"perf-adr", phase:5, cat:"Process", scope:"process", impact:"low", effort:"small",
+    title:"Document perf decisions as ADRs",
+    description:"Why did we ban GeometryReader? Why a single URLSession singleton? Why @Observable not ObservableObject? Without an ADR, the next engineer un-does your work. Write a 1-page ADR per non-obvious choice; check it into the repo.",
+    action:"/docs/adr/0001-shared-urlsession.md",
+    docUrl:"https://developer.apple.com/documentation/xcode" },
+  { id:"perf-champion", phase:5, cat:"Process", scope:"process", impact:"medium", effort:"small",
+    title:"Designate a perf champion / rotation",
+    description:"One named owner per quarter who: reviews Organizer weekly, owns the perf budget doc, blocks releases on regressions, runs the Instruments session for tricky bugs. Rotation prevents single-point-of-failure and grows institutional knowledge.",
+    action:"Add 'Performance Owner' to team rotation; rotate quarterly",
+    docUrl:"https://developer.apple.com/documentation/xcode" },
+];
+
+const phases = [
+  { num:1, title:"Measure first", desc:"You can't optimize what you don't measure. Instruments, MetricKit, signposters, and the Xcode Organizer are all free — but they only help if you actually run them. Skip this phase and you'll spend weeks optimizing the wrong thing." },
+  { num:2, title:"Build time — your inner loop matters", desc:"Slow builds are the most expensive perf bug — they tax every engineer every day. Explicit modules (Xcode 16+), simpler types, fewer frameworks, cached CI. Halving build time often pays back in a week of saved engineer-hours." },
+  { num:3, title:"App launch — first impression", desc:"Users abandon at 2s. Apple ranks you on cold launch in App Store Connect. Defer everything past first frame, keep init lean, lazy-load, use the App Launch instrument to attribute time to phases." },
+  { num:4, title:"Runtime performance", desc:"Frame rate, memory, network, persistence. SwiftUI scoping, image decode, network reuse, actor design — the stuff that determines whether your app feels good in the user's hand." },
+  { num:5, title:"Continuous practice", desc:"Performance is never 'done'. Regression tests in CI, budgets per release, weekly Organizer triage, named owner. Without process, gains decay within a quarter." },
+];
+
+const STORAGE_KEY = "wwdc_performance_progress_v1";
+let checkedItems = new Set();
+let currentFilters = { impact: "all", effort: "all", scope: "all", cat: "all" };
+
+function loadState() {
+  try { const raw = localStorage.getItem(STORAGE_KEY); if (raw) checkedItems = new Set(JSON.parse(raw)); } catch (e) {}
+}
+function saveState() {
+  try { localStorage.setItem(STORAGE_KEY, JSON.stringify([...checkedItems])); } catch (e) {}
+}
+function resetProgress() {
+  if (!confirm("Reset all check progress? This cannot be undone.")) return;
+  checkedItems.clear(); saveState(); renderAll();
+}
+function toggleItem(id) {
+  if (checkedItems.has(id)) checkedItems.delete(id); else checkedItems.add(id);
+  saveState(); renderAll();
+}
+
+function renderProgress() {
+  const total = items.length;
+  const done = items.filter(it => checkedItems.has(it.id)).length;
+  const pct = total === 0 ? 0 : Math.round(done / total * 100);
+  document.getElementById("overall-pct").textContent = `${pct}%`;
+  document.getElementById("overall-fill").style.width = `${pct}%`;
+  const phaseGradients = {
+    1: "linear-gradient(90deg, #34d399, #10b981)",
+    2: "linear-gradient(90deg, #10b981, #2dd4bf)",
+    3: "linear-gradient(90deg, #2dd4bf, #22d3ee)",
+    4: "linear-gradient(90deg, #22d3ee, #38bdf8)",
+    5: "linear-gradient(90deg, #38bdf8, #818cf8)",
+  };
+  document.getElementById("phase-pcts").innerHTML = phases.map(ph => {
+    const phItems = items.filter(it => it.phase === ph.num);
+    const phDone = phItems.filter(it => checkedItems.has(it.id)).length;
+    const phPct = phItems.length === 0 ? 0 : Math.round(phDone / phItems.length * 100);
+    return `<div class="phase-pct">
+      <div class="phase-pct-label">Phase ${ph.num} &middot; ${phDone}/${phItems.length}</div>
+      <div class="phase-pct-mini"><div class="phase-pct-fill" style="width:${phPct}%; background:${phaseGradients[ph.num]};"></div></div>
+    </div>`;
+  }).join("");
+}
+
+function itemHTML(it) {
+  const checked = checkedItems.has(it.id);
+  return `<div class="item ${checked?'checked':''}" data-id="${it.id}" data-impact="${it.impact}" data-effort="${it.effort}" data-scope="${it.scope}" data-cat="${it.cat}" onclick="toggleItem('${it.id}')">
+    <div class="checkbox">${checked ? '✓' : ''}</div>
+    <div class="item-body">
+      <div class="item-header">
+        <div class="item-title">${escHtml(it.title)}</div>
+        <div class="item-tags">
+          <span class="item-tag impact-${it.impact}">${it.impact} impact</span>
+          <span class="item-tag effort-${it.effort}">${it.effort} effort</span>
+          <span class="item-tag scope-${it.scope}">${it.scope}</span>
+          <span class="item-tag cat">${escHtml(it.cat)}</span>
+        </div>
+      </div>
+      <div class="item-desc">${escHtml(it.description)}</div>
+      ${it.action ? `<div class="item-action">${escHtml(it.action)}</div>` : ''}
+      ${it.docUrl ? `<div class="item-meta"><a href="${it.docUrl}" target="_blank" rel="noopener" onclick="event.stopPropagation()">📘 Apple Docs &rarr;</a></div>` : ''}
+    </div>
+  </div>`;
+}
+
+function renderPathway() {
+  document.getElementById("phase-list").innerHTML = phases.map(ph => {
+    const phItems = items.filter(it => it.phase === ph.num);
+    const phDone = phItems.filter(it => checkedItems.has(it.id)).length;
+    const phPct = phItems.length === 0 ? 0 : Math.round(phDone / phItems.length * 100);
+    return `<div class="phase-block phase-${ph.num} ${ph.num === 1 ? 'expanded' : ''}">
+      <div class="phase-header" onclick="togglePhase(this)">
+        <div class="phase-num">${ph.num}</div>
+        <div class="phase-title"><h3>${ph.title}</h3><div class="desc">${ph.desc}</div></div>
+        <div class="phase-meta">
+          <div class="phase-progress-text">${phDone}/${phItems.length} &middot; ${phPct}%</div>
+          <div class="chevron">&rsaquo;</div>
+        </div>
+      </div>
+      <div class="phase-items">
+        <div class="item-list">${phItems.map(itemHTML).join("")}</div>
+      </div>
+    </div>`;
+  }).join("");
+}
+function togglePhase(headerEl) { headerEl.parentElement.classList.toggle("expanded"); }
+
+function renderAllItems() {
+  const cats = [...new Set(items.map(it => it.cat))].sort();
+  document.getElementById("filter-bar").innerHTML = `
+    <div class="filter-group">
+      <span class="filter-group-label">Impact</span>
+      <button class="filter-chip ${currentFilters.impact==='all'?'active':''}" onclick="setFilter('impact','all')">All</button>
+      ${["high","medium","low"].map(i => `<button class="filter-chip ${currentFilters.impact===i?'active':''}" onclick="setFilter('impact','${i}')">${i}</button>`).join("")}
+    </div>
+    <div class="filter-group">
+      <span class="filter-group-label">Effort</span>
+      <button class="filter-chip ${currentFilters.effort==='all'?'active':''}" onclick="setFilter('effort','all')">All</button>
+      ${["small","medium","large"].map(e => `<button class="filter-chip ${currentFilters.effort===e?'active':''}" onclick="setFilter('effort','${e}')">${e}</button>`).join("")}
+    </div>
+    <div class="filter-group">
+      <span class="filter-group-label">Scope</span>
+      <button class="filter-chip ${currentFilters.scope==='all'?'active':''}" onclick="setFilter('scope','all')">All</button>
+      ${["build","launch","cpu","memory","ui","network","process"].map(s => `<button class="filter-chip ${currentFilters.scope===s?'active':''}" onclick="setFilter('scope','${s}')">${s}</button>`).join("")}
+    </div>
+    <div class="filter-group">
+      <span class="filter-group-label">Category</span>
+      <button class="filter-chip ${currentFilters.cat==='all'?'active':''}" onclick="setFilter('cat','all')">All</button>
+      ${cats.map(c => `<button class="filter-chip ${currentFilters.cat===c?'active':''}" onclick="setFilter('cat','${c}')">${escHtml(c)}</button>`).join("")}
+    </div>
+  `;
+  const filtered = items.filter(it =>
+    (currentFilters.impact === "all" || it.impact === currentFilters.impact) &&
+    (currentFilters.effort === "all" || it.effort === currentFilters.effort) &&
+    (currentFilters.scope === "all" || it.scope === currentFilters.scope) &&
+    (currentFilters.cat === "all" || it.cat === currentFilters.cat)
+  );
+  if (filtered.length === 0) {
+    document.getElementById("all-items").innerHTML = `<div class="empty-state"><div class="icon">∅</div>No items match these filters.</div>`;
+    return;
+  }
+  document.getElementById("all-items").innerHTML = filtered.map(itemHTML).join("");
+}
+function setFilter(kind, value) { currentFilters[kind] = value; renderAllItems(); }
+
+function renderQuickWins() {
+  const wins = items.filter(it => it.impact === "high" && (it.effort === "small" || it.effort === "medium") && !checkedItems.has(it.id));
+  if (wins.length === 0) {
+    document.getElementById("quickwins-grid").innerHTML = `<div class="empty-state"><div class="icon">★</div>You've checked off every quick win. Time to tackle the bigger items.</div>`;
+    return;
+  }
+  document.getElementById("quickwins-grid").innerHTML = wins.map(it => `
+    <div class="quick-win-card" onclick="toggleItem('${it.id}'); renderAll();">
+      <div class="quick-win-title">${escHtml(it.title)}</div>
+      <div class="quick-win-desc">${escHtml(it.description)}</div>
+    </div>
+  `).join("");
+}
+
+function renderAll() {
+  renderProgress();
+  renderPathway();
+  renderAllItems();
+  renderQuickWins();
+}
+function showSection(ev, name) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('sec-' + name).classList.add('active');
+  ev.target.classList.add('active');
+}
+function escHtml(s) { return String(s).replace(/[<>&'"]/g, c => ({'<':'&lt;','>':'&gt;','&':'&amp;',"'":'&#39;','"':'&quot;'}[c])); }
+
+loadState();
+renderAll();
+</script>
+<div class="footer">
+  Each dashboard contains: deep transcript analysis (best practices, hidden gems, performance tips, migration guidance), curated learning pathways with prerequisites, session clusters, transcript-vs-docs deltas, and an interactive dependency graph. <br><br>
+  Source transcripts from <a href="https://nonstrict.eu/wwdcindex/" target="_blank" rel="noopener">Nonstrict WWDC Index</a> and <a href="https://gist.github.com/auramagi/9c040c2233dfe71c24c76942e186f788" target="_blank" rel="noopener">auramagi gist</a>. Independent project, not affiliated with Apple. Code is <a href="LICENSE">MIT</a>; original editorial content and curation are <a href="CONTENT-LICENSE.md">CC BY-NC-ND 4.0</a>. See <a href="THIRD_PARTY_NOTICES.md">third-party notices</a>.
+  <div class="footer-socials" aria-label="Creator social links">
+    <a href="https://github.com/need2edit" target="_blank" rel="noopener">GitHub</a>
+    <a href="https://x.com/need2edit" target="_blank" rel="noopener">X/Twitter</a>
+    <a href="https://www.linkedin.com/in/youngjake/" target="_blank" rel="noopener">LinkedIn</a>
+  </div>
+</div>
+</body>
+</html>

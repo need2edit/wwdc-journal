@@ -56,6 +56,18 @@ GUIDE_REQUIREMENTS = {
         ("localStorage key",  "wwdc_marketing_progress"),
         ("owner role tags",   "role-marketing"),
     ],
+    "accessibility.html": [
+        ("phase blocks",      "phase-block"),
+        ("checkable items",   "function toggleItem"),
+        ("localStorage key",  "wwdc_accessibility_progress"),
+        ("quick wins tab",    "renderQuickWins"),
+    ],
+    "performance.html": [
+        ("phase blocks",      "phase-block"),
+        ("checkable items",   "function toggleItem"),
+        ("localStorage key",  "wwdc_performance_progress"),
+        ("quick wins tab",    "renderQuickWins"),
+    ],
     "index.html": [
         ("year cards",        "year-card"),
         ("guides present",    "guide"),
