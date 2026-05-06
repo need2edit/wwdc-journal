@@ -210,10 +210,12 @@ function showTab(el, name) {
   .g-featured::before { background: linear-gradient(90deg, #facc15, #f59e0b, #fb923c); }
   .g-marketing::before { background: linear-gradient(90deg, #6ee7b7, #34d399, #22d3ee); }
   .g-performance::before { background: linear-gradient(90deg, #34d399, #2dd4bf, #38bdf8); }
+  .g-privacy::before { background: linear-gradient(90deg, #fb7185, #f43f5e, #d946ef); }
   .g-modernization .guide-title { color: #c084fc; }
   .g-featured .guide-title { color: #f59e0b; }
   .g-marketing .guide-title { color: #34d399; }
   .g-performance .guide-title { color: #10b981; }
+  .g-privacy .guide-title { color: #f43f5e; }
 </style>
 
 <div class="tab-section" id="tab-guides"><div class="guides-bar">
@@ -240,6 +242,12 @@ function showTab(el, name) {
       <div class="guide-label">Cross-Year Guide</div>
       <div class="guide-title">Performance &amp; Build Times</div>
       <div class="guide-desc">Measure first, then attack build time, launch, runtime cost. Instruments, MetricKit, explicit modules, SwiftUI scoping, perf budgets.</div>
+      <div class="guide-link">Open guide &rarr;</div>
+    </a>
+    <a class="guide-card g-privacy" href="privacy.html">
+      <div class="guide-label">Cross-Year Guide</div>
+      <div class="guide-title">Privacy &amp; Compliance</div>
+      <div class="guide-desc">Privacy Manifest, ATT, system pickers, App Store nutrition labels, GDPR/CCPA/COPPA. The technical primitives plus the disclosure work.</div>
       <div class="guide-link">Open guide &rarr;</div>
     </a>
   </div>

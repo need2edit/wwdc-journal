@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#14141f">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="application-name" content="WWDC Journal">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="WWDC Journal">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="app-icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/icons/icon-180.png">
+<title>Privacy &amp; Compliance Playbook — WWDC Journal</title>
+<style>
+  :root {
+    --bg: #0a0a0f;
+    --surface: #14141f;
+    --surface2: #1e1e2e;
+    --surface3: #252535;
+    --border: #2a2a3e;
+    --border-bright: #3a3a4e;
+    --text: #e8e8f0;
+    --text-dim: #8888a0;
+    --text-faint: #5a5a70;
+    --accent: #f43f5e;
+    --accent2: #fb7185;
+    --green: #34d399;
+    --amber: #fbbf24;
+    --red: #f87171;
+    --pink: #f472b6;
+    --rose: #fb7185;
+    --fuchsia: #d946ef;
+    --purple: #c084fc;
+    --indigo: #818cf8;
+    --cyan: #22d3ee;
+    --orange: #fb923c;
+    --sky: #38bdf8;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', system-ui, sans-serif; background: var(--bg); color: var(--text); overflow-x: hidden; }
+
+  .hero { padding: 56px 40px 28px; text-align: center; position: relative; overflow: hidden; }
+  .hero::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(ellipse at center, rgba(244,63,94,0.10) 0%, transparent 60%); pointer-events: none; }
+  .breadcrumb { color: var(--text-dim); font-size: 0.85em; margin-bottom: 10px; }
+  .breadcrumb a { color: var(--accent2); text-decoration: none; }
+  .breadcrumb a:hover { text-decoration: underline; }
+  .hero h1 { font-size: 2.8em; font-weight: 700; background: linear-gradient(135deg, #fb7185, #f43f5e, #d946ef, #a855f7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 8px; letter-spacing: -0.02em; }
+  .hero .sub { color: var(--text-dim); font-size: 1.05em; max-width: 760px; margin: 0 auto; line-height: 1.5; }
+
+  .progress-bar-container { max-width: 1100px; margin: 30px auto 16px; padding: 0 20px; }
+  .progress-card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 20px 24px; }
+  .progress-row { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; }
+  .progress-row .label { color: var(--text); font-weight: 600; font-size: 0.95em; }
+  .progress-row .pct { color: var(--accent2); font-weight: 700; font-size: 1.2em; }
+  .progress-track { height: 8px; background: var(--surface2); border-radius: 4px; overflow: hidden; }
+  .progress-fill { height: 100%; background: linear-gradient(90deg, #fb7185, #f43f5e, #d946ef); border-radius: 4px; transition: width 0.4s ease; }
+  .phase-pcts { display: flex; gap: 16px; margin-top: 14px; flex-wrap: wrap; }
+  .phase-pct { flex: 1; min-width: 120px; }
+  .phase-pct-label { color: var(--text-dim); font-size: 0.72em; margin-bottom: 4px; }
+  .phase-pct-mini { height: 4px; background: var(--surface2); border-radius: 2px; overflow: hidden; margin-top: 4px; }
+  .phase-pct-fill { height: 100%; border-radius: 2px; transition: width 0.4s ease; }
+  .reset-link { float: right; color: var(--text-faint); cursor: pointer; font-size: 0.78em; }
+  .reset-link:hover { color: var(--red); }
+
+  .tabs { display: flex; justify-content: center; gap: 8px; margin: 24px 0 32px; flex-wrap: wrap; padding: 0 20px; }
+  .tab { padding: 10px 22px; border-radius: 24px; border: 1px solid var(--border); background: var(--surface); color: var(--text-dim); cursor: pointer; font-size: 0.9em; transition: all 0.2s; font-family: inherit; }
+  .tab:hover { border-color: var(--accent); color: var(--text); }
+  .tab.active { background: var(--accent); border-color: var(--accent); color: #2a0010; }
+
+  .section { display: none; max-width: 1200px; margin: 0 auto; padding: 0 20px 80px; }
+  .section.active { display: block; }
+  .section h2 { font-size: 1.6em; margin-bottom: 8px; color: var(--text); }
+  .section .section-sub { color: var(--text-dim); font-size: 0.95em; margin-bottom: 24px; line-height: 1.5; }
+
+  .phase-list { display: flex; flex-direction: column; gap: 16px; }
+  .phase-block { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; }
+  .phase-header { padding: 20px 24px; cursor: pointer; display: flex; align-items: center; gap: 16px; user-select: none; transition: background 0.15s; }
+  .phase-header:hover { background: var(--surface2); }
+  .phase-num { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1.1em; color: white; flex-shrink: 0; }
+  .phase-1 .phase-num { background: linear-gradient(135deg, #fb7185, #f43f5e); }
+  .phase-2 .phase-num { background: linear-gradient(135deg, #f43f5e, #ec4899); }
+  .phase-3 .phase-num { background: linear-gradient(135deg, #ec4899, #d946ef); }
+  .phase-4 .phase-num { background: linear-gradient(135deg, #d946ef, #a855f7); }
+  .phase-5 .phase-num { background: linear-gradient(135deg, #a855f7, #818cf8); }
+  .phase-title { flex: 1; }
+  .phase-title h3 { font-size: 1.15em; margin-bottom: 2px; }
+  .phase-title .desc { color: var(--text-dim); font-size: 0.85em; }
+  .phase-meta { color: var(--text-faint); font-size: 0.8em; text-align: right; flex-shrink: 0; }
+  .phase-meta .phase-progress-text { color: var(--accent2); font-weight: 600; }
+  .chevron { color: var(--text-faint); font-size: 0.8em; transition: transform 0.2s; }
+  .phase-block.expanded .chevron { transform: rotate(90deg); }
+  .phase-items { display: none; padding: 0 24px 20px; }
+  .phase-block.expanded .phase-items { display: block; }
+
+  .item-list { display: flex; flex-direction: column; gap: 8px; }
+  .item { background: var(--surface2); border: 1px solid var(--border); border-radius: 12px; padding: 16px 18px; cursor: pointer; transition: all 0.15s; display: flex; gap: 14px; align-items: flex-start; }
+  .item:hover { border-color: var(--border-bright); }
+  .item.checked { opacity: 0.55; }
+  .item.checked .item-title { text-decoration: line-through; color: var(--text-dim); }
+  .item.hidden-by-filter { display: none; }
+  .checkbox { width: 22px; height: 22px; border-radius: 6px; border: 2px solid var(--border-bright); flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 14px; color: white; transition: all 0.15s; margin-top: 1px; }
+  .item.checked .checkbox { background: var(--green); border-color: var(--green); }
+  .item-body { flex: 1; min-width: 0; }
+  .item-header { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 4px; }
+  .item-title { font-weight: 600; font-size: 0.98em; color: var(--text); }
+  .item-tags { display: flex; gap: 6px; flex-wrap: wrap; }
+  .item-tag { font-size: 0.68em; padding: 2px 8px; border-radius: 6px; background: var(--surface3); color: var(--text-dim); font-weight: 600; letter-spacing: 0.3px; text-transform: uppercase; }
+  .item-tag.impact-high { background: rgba(244,63,94,0.20); color: var(--accent2); }
+  .item-tag.impact-medium { background: rgba(251,191,36,0.16); color: var(--amber); }
+  .item-tag.impact-low { background: rgba(192,132,252,0.16); color: var(--purple); }
+  .item-tag.effort-small { background: rgba(52,211,153,0.16); color: var(--green); }
+  .item-tag.effort-medium { background: rgba(251,191,36,0.16); color: var(--amber); }
+  .item-tag.effort-large { background: rgba(248,113,113,0.16); color: var(--red); }
+  .item-tag.risk-blocker { background: rgba(248,113,113,0.20); color: var(--red); }
+  .item-tag.risk-high { background: rgba(251,146,60,0.16); color: var(--orange); }
+  .item-tag.risk-medium { background: rgba(251,191,36,0.16); color: var(--amber); }
+  .item-tag.risk-low { background: rgba(52,211,153,0.16); color: var(--green); }
+  .item-tag.cat { background: rgba(217,70,239,0.16); color: var(--fuchsia); }
+  .item-desc { color: var(--text-dim); font-size: 0.86em; line-height: 1.5; margin-top: 2px; }
+  .item-action { color: var(--accent2); font-size: 0.82em; margin-top: 8px; font-style: italic; }
+  .item-action::before { content: "→ "; }
+  .item-meta { color: var(--text-faint); font-size: 0.78em; margin-top: 6px; display: flex; gap: 12px; flex-wrap: wrap; }
+  .item-meta a { color: var(--accent2); text-decoration: none; }
+  .item-meta a:hover { text-decoration: underline; }
+
+  .filter-bar { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; padding: 16px 20px; background: var(--surface); border: 1px solid var(--border); border-radius: 16px; align-items: center; }
+  .filter-group { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; }
+  .filter-group-label { color: var(--text-dim); font-size: 0.78em; font-weight: 600; margin-right: 4px; text-transform: uppercase; letter-spacing: 0.3px; }
+  .filter-chip { padding: 5px 11px; border-radius: 14px; border: 1px solid var(--border); background: var(--surface2); color: var(--text-dim); cursor: pointer; font-size: 0.78em; transition: all 0.15s; font-family: inherit; }
+  .filter-chip:hover { border-color: var(--accent); color: var(--text); }
+  .filter-chip.active { background: var(--accent); border-color: var(--accent); color: #2a0010; }
+
+  .quick-wins-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 14px; }
+  .quick-win-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 18px; cursor: pointer; transition: all 0.15s; border-left: 3px solid var(--accent); }
+  .quick-win-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+  .quick-win-title { font-weight: 600; margin-bottom: 6px; }
+  .quick-win-desc { color: var(--text-dim); font-size: 0.85em; line-height: 1.5; }
+
+  .empty-state { text-align: center; padding: 40px 20px; color: var(--text-dim); }
+  .empty-state .icon { font-size: 2.5em; margin-bottom: 12px; opacity: 0.4; }
+
+  @media (max-width: 700px) {
+    .hero h1 { font-size: 2em; }
+  }
+  .footer { text-align: center; color: var(--text-dim); font-size: 0.85em; padding: 56px 20px 40px; max-width: 760px; margin: 0 auto; line-height: 1.6; }
+  .footer a { color: var(--accent2); text-decoration: none; }
+  .footer a:hover { text-decoration: underline; }
+
+  .footer-socials { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; margin-top: 22px; font-size: 0.95em; }
+  .footer-socials a { padding: 6px 10px; border: 1px solid var(--border); border-radius: 999px; background: rgba(20,20,31,0.62); }
+  .footer-socials a:hover { border-color: var(--accent2); text-decoration: none; }
+
+  .disclaimer { max-width: 1100px; margin: 0 auto 16px; padding: 0 20px; }
+  .disclaimer-card { background: rgba(244,63,94,0.06); border: 1px solid rgba(244,63,94,0.25); border-radius: 12px; padding: 14px 18px; color: var(--text-dim); font-size: 0.85em; line-height: 1.5; }
+  .disclaimer-card strong { color: var(--accent2); }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="breadcrumb"><a href="index.html">&larr; WWDC Journal</a></div>
+  <h1>Privacy &amp; Compliance Playbook</h1>
+  <p class="sub">A practitioner's checklist for handling user data the right way — Privacy Manifest, ATT, system pickers, App Store nutrition labels, GDPR/CCPA/COPPA. Synthesized from 12 years of WWDC privacy sessions and Apple's app review guidance.</p>
+</div>
+
+<div class="disclaimer">
+  <div class="disclaimer-card"><strong>Not legal advice.</strong> This playbook covers Apple's technical privacy primitives and common compliance touchpoints. For jurisdiction-specific obligations (GDPR, CCPA/CPRA, COPPA, HIPAA, regional rules) consult qualified counsel.</div>
+</div>
+
+<div class="progress-bar-container">
+  <div class="progress-card">
+    <div class="progress-row">
+      <div class="label">Overall progress <span class="reset-link" onclick="resetProgress()">reset progress</span></div>
+      <div class="pct" id="overall-pct">0%</div>
+    </div>
+    <div class="progress-track"><div class="progress-fill" id="overall-fill" style="width:0%"></div></div>
+    <div class="phase-pcts" id="phase-pcts"></div>
+  </div>
+</div>
+
+<div class="tabs">
+  <div class="tab active" onclick="showSection(event,'pathway')">The Pathway</div>
+  <div class="tab" onclick="showSection(event,'all')">All Items</div>
+  <div class="tab" onclick="showSection(event,'quickwins')">Quick Wins</div>
+</div>
+
+<div class="section active" id="sec-pathway">
+  <h2>The Privacy Pathway</h2>
+  <p class="section-sub">Five sequential phases. Inventory first — you can't protect what you haven't catalogued. Then adopt system privacy APIs (the ones Apple ships are usually safer than what you'd build), handle data carefully, contain third-party leakage, and finally make compliance disclosure honest and durable.</p>
+  <div class="phase-list" id="phase-list"></div>
+</div>
+
+<div class="section" id="sec-all">
+  <h2>All Items</h2>
+  <p class="section-sub">Filter by impact, effort, risk, or category. Risk = how bad it gets if you skip this item — blocker (App Store rejection or regulator action) → low (best practice but tolerable).</p>
+  <div class="filter-bar" id="filter-bar"></div>
+  <div class="item-list" id="all-items"></div>
+</div>
+
+<div class="section" id="sec-quickwins">
+  <h2>Quick Wins</h2>
+  <p class="section-sub">High-impact items that take less than a sprint. Most are configuration changes, manifest entries, or small code edits with disproportionate compliance value.</p>
+  <div class="quick-wins-grid" id="quickwins-grid"></div>
+</div>
+
+<script>
+const items = [
+  // ───────── PHASE 1: Inventory & foundations ─────────
+  { id:"data-inventory", phase:1, cat:"Inventory", risk:"high", impact:"high", effort:"medium",
+    title:"Inventory every piece of data your app collects",
+    description:"For each: what is it, where it enters (UI, sensor, SDK), where it's stored, where it leaves (network, file, log), how long retained. Spreadsheet is fine. Without this catalogue, every other privacy task is guesswork.",
+    action:"Maintain /docs/data-inventory.md updated each release",
+    docUrl:"https://developer.apple.com/app-store/user-privacy-and-data-use/" },
+  { id:"privacy-manifest", phase:1, cat:"Manifest", risk:"blocker", impact:"high", effort:"medium",
+    title:"Privacy Manifest (PrivacyInfo.xcprivacy) in every target",
+    description:"Required for app + SDK targets since May 2024. Declares NSPrivacyTracking, NSPrivacyTrackingDomains, NSPrivacyCollectedDataTypes, and NSPrivacyAccessedAPITypes. Missing or wrong manifest → App Store rejection. Generate, review, validate every release.",
+    action:"Add PrivacyInfo.xcprivacy to each target; verify with App Store Connect upload",
+    docUrl:"https://developer.apple.com/documentation/bundleresources/privacy-manifest-files" },
+  { id:"required-reason-api", phase:1, cat:"Manifest", risk:"blocker", impact:"high", effort:"medium",
+    title:"Declare Required Reason API usage with approved reasons",
+    description:"NSPrivacyAccessedAPITypes must list every Required Reason API (UserDefaults, file timestamps, system boot time, disk space, active keyboard) with an approved reason code. Each call site needs a justified reason. Apple rejects on mismatch.",
+    action:"Audit Required Reason API call sites; add NSPrivacyAccessedAPIType entries",
+    docUrl:"https://developer.apple.com/documentation/bundleresources/describing-use-of-required-reason-api" },
+  { id:"app-privacy-report", phase:1, cat:"Inventory", risk:"medium", impact:"high", effort:"small",
+    title:"Run iOS App Privacy Report on your own app",
+    description:"Settings → Privacy &amp; Security → App Privacy Report. Shows what your app actually accesses, with timestamps, and what domains it contacts. The view your users see. Run on a typical-use device weekly during dev; surprises here are bugs.",
+    action:"Settings → Privacy &amp; Security → App Privacy Report → enable, audit",
+    docUrl:"https://support.apple.com/en-us/HT212958" },
+  { id:"data-flow-diagram", phase:1, cat:"Inventory", risk:"medium", impact:"medium", effort:"medium",
+    title:"Data flow diagram per feature",
+    description:"For each feature that touches user data, draw the path: input → in-memory → disk/keychain → network → third party. Reveals leaks: e.g. PII in a log line that ships to Crashlytics, IDs in URL paths cached by URLCache.",
+    action:"Whiteboard data flow for each feature; commit to repo as Mermaid",
+    docUrl:"https://developer.apple.com/app-store/user-privacy-and-data-use/" },
+  { id:"nutrition-labels", phase:1, cat:"App Store", risk:"blocker", impact:"high", effort:"medium",
+    title:"App Privacy Nutrition Labels accurate &amp; current",
+    description:"App Store Connect → App Privacy. Lists every data category your app and its SDKs collect, plus whether it's linked to identity and used for tracking. Must match reality. Inaccurate labels are a frequent rejection reason and expose you to FTC/EU enforcement.",
+    action:"Reconcile Nutrition Labels with data inventory each release",
+    docUrl:"https://developer.apple.com/app-store/app-privacy-details/" },
+  { id:"privacy-owner", phase:1, cat:"Governance", risk:"medium", impact:"medium", effort:"small",
+    title:"Designate a privacy owner / DPO",
+    description:"One named human responsible for: maintaining the data inventory, reviewing SDK additions, signing off on tracking changes, owning the privacy policy, fielding regulator inquiries. Without one, privacy work falls between cracks.",
+    action:"Add 'Privacy Owner' to org chart; rotate annually if no DPO required",
+    docUrl:"https://developer.apple.com/app-store/user-privacy-and-data-use/" },
+  { id:"sdk-review", phase:1, cat:"Governance", risk:"high", impact:"high", effort:"medium",
+    title:"SDK review gate — every new SDK requires privacy review",
+    description:"Each third-party SDK ships its own data collection. Adding a new SDK without privacy review is the #1 way labels go stale. Standard checklist: privacy manifest signed? tracking domains? data categories? alternative without tracking? Reject SDKs that won't disclose.",
+    action:"PR template: 'New SDK? Privacy manifest reviewed: [yes/no]'",
+    docUrl:"https://developer.apple.com/support/third-party-SDK-requirements/" },
+
+  // ───────── PHASE 2: System privacy APIs ─────────
+  { id:"phpicker", phase:2, cat:"Photos", risk:"medium", impact:"high", effort:"small",
+    title:"PHPickerViewController instead of full PHPhotoLibrary access",
+    description:"PHPicker is out-of-process — no library authorization needed, user sees only what they pick. Strictly better unless you actually need to scan the whole library. Replaces UIImagePickerController for new apps. Removes the 'allow all photos' prompt entirely.",
+    action:"Replace UIImagePickerController / PHPhotoLibrary auth with PHPickerViewController",
+    docUrl:"https://developer.apple.com/documentation/photokit/phpickerviewcontroller" },
+  { id:"limited-contacts", phase:2, cat:"Contacts", risk:"medium", impact:"high", effort:"medium",
+    title:"Limited Contacts Access (iOS 18+) — pick over full access",
+    description:"iOS 18 lets users grant access to a chosen subset of contacts. Use ContactAccessButton or ContactAccessPicker — they unlock per-contact access without the all-or-nothing prompt. Required pattern for new apps that want broad install rates.",
+    action:"Use ContactAccessButton / ContactAccessPicker; fall back to full auth only if needed",
+    docUrl:"https://developer.apple.com/documentation/contacts" },
+  { id:"location-when-in-use", phase:2, cat:"Location", risk:"high", impact:"high", effort:"small",
+    title:"When-in-use location, not Always — unless truly necessary",
+    description:"Always-on location is the most invasive permission and the easiest App Review rejection. Default to .requestWhenInUseAuthorization. Escalate to Always only when you have a documented background-location use case (turn-by-turn nav, fitness tracking).",
+    action:"locationManager.requestWhenInUseAuthorization() — never .requestAlwaysAuthorization() without justification",
+    docUrl:"https://developer.apple.com/documentation/corelocation/cllocationmanager" },
+  { id:"location-reduced-accuracy", phase:2, cat:"Location", risk:"medium", impact:"medium", effort:"small",
+    title:"Honor reduced accuracy (CLAccuracyAuthorization.reducedAccuracy)",
+    description:"iOS 14+ users can grant 'Approximate' instead of 'Precise' location. Your app must still function — show approximate-mode UI, request precise only if the feature truly requires it, with a one-time temporary precision request.",
+    action:"requestTemporaryFullAccuracyAuthorization(withPurposeKey:) for precise-required flows",
+    docUrl:"https://developer.apple.com/documentation/corelocation/cllocationmanager" },
+  { id:"calendar-write-only", phase:2, cat:"Calendar", risk:"medium", impact:"medium", effort:"small",
+    title:"Calendar / Reminders write-only access (iOS 17+)",
+    description:"EKEventStore.requestWriteOnlyAccessToEvents lets you add events without seeing the user's full calendar. Use this whenever you only need to add — booking apps, ticketing, reminders. The full-access prompt scares users away.",
+    action:"eventStore.requestWriteOnlyAccessToEvents { ... }",
+    docUrl:"https://developer.apple.com/documentation/eventkit/ekeventstore" },
+  { id:"bluetooth-scan-cost", phase:2, cat:"Bluetooth", risk:"medium", impact:"medium", effort:"medium",
+    title:"Bluetooth: scan only when actively needed",
+    description:"Bluetooth scanning is one of the privacy categories users see in Settings → Privacy. Don't start scanning at app launch; scan only when the user enters a feature that requires a peripheral. Stop scanning aggressively when the feature exits.",
+    action:"centralManager.scanForPeripherals(...) only inside feature; stopScan on dismiss",
+    docUrl:"https://developer.apple.com/documentation/corebluetooth" },
+  { id:"local-network", phase:2, cat:"Network", risk:"medium", impact:"medium", effort:"small",
+    title:"Local Network — declare usage and explain why",
+    description:"NSLocalNetworkUsageDescription + NSBonjourServices required to talk to local devices. Used for printer discovery, Chromecast, smart home, multipeer. The prompt scares users — use clear copy: 'to discover your printer'. Don't request unless you actually need it.",
+    action:"Add NSLocalNetworkUsageDescription with specific reason text",
+    docUrl:"https://developer.apple.com/documentation/bundleresources/information-property-list/nslocalnetworkusagedescription" },
+  { id:"pasteboard-detect", phase:2, cat:"Pasteboard", risk:"high", impact:"high", effort:"small",
+    title:"Pasteboard.detectPatterns instead of UIPasteboard.string",
+    description:"Reading UIPasteboard.string triggers the visible 'pasted from X' notification, scaring users. detectPatterns lets you ask 'is there a URL on the clipboard?' without reading content. For Paste actions, use UIPasteControl (iOS 16+) — explicit user gesture, no notification.",
+    action:"UIPasteboard.general.detectPatterns(for: [.probableWebURL])",
+    docUrl:"https://developer.apple.com/documentation/uikit/uipasteboard" },
+  { id:"notifications-provisional", phase:2, cat:"Notifications", risk:"medium", impact:"medium", effort:"small",
+    title:"Provisional notification authorization — defer the prompt",
+    description:".provisional skips the modal prompt; notifications arrive silently to Notification Center. User can promote or disable via the in-notification UI. Drastically improves opt-in for transactional apps. Use if your push isn't critical-immediate.",
+    action:"requestAuthorization(options: [.alert, .sound, .badge, .provisional])",
+    docUrl:"https://developer.apple.com/documentation/usernotifications" },
+  { id:"healthkit-min-auth", phase:2, cat:"Health", risk:"high", impact:"high", effort:"medium",
+    title:"HealthKit — request minimum types, read-only when possible",
+    description:"HealthKit prompts per type, both share and read. Asking for everything looks invasive and risks rejection. Categorize features and request only the types each feature needs. Read-only is much less alarming than read+write.",
+    action:"healthStore.requestAuthorization(toShare: [], read: [.heartRate])",
+    docUrl:"https://developer.apple.com/documentation/healthkit" },
+  { id:"camera-mic-jit", phase:2, cat:"Media", risk:"high", impact:"high", effort:"small",
+    title:"Camera &amp; microphone — just-in-time prompts with clear strings",
+    description:"NSCameraUsageDescription / NSMicrophoneUsageDescription must explain WHY in user-friendly language. Don't request at launch — request inside the feature that needs it. 'Camera access to scan barcodes when checking out' beats 'Camera access for in-app features'.",
+    action:"Audit usage strings; trigger AVCaptureDevice.requestAccess inside feature entry",
+    docUrl:"https://developer.apple.com/documentation/bundleresources/information-property-list/nscamerausagedescription" },
+  { id:"att-thoughtful", phase:2, cat:"Tracking", risk:"high", impact:"high", effort:"medium",
+    title:"App Tracking Transparency — only request when you'll actually track",
+    description:"ATT request is one-shot per install. Asking before you actually need it tanks opt-in. Don't request unless you genuinely use IDFA for tracking; if you don't, just don't request — and label your app accordingly. Pre-prompt design matters.",
+    action:"ATTrackingManager.requestTrackingAuthorization { ... } only when needed",
+    docUrl:"https://developer.apple.com/documentation/apptrackingtransparency" },
+  { id:"usage-strings-complete", phase:2, cat:"Manifest", risk:"blocker", impact:"high", effort:"small",
+    title:"Every privacy-sensitive API has a usage description",
+    description:"Missing NSCameraUsageDescription / NSMicrophoneUsageDescription / NSLocationWhenInUseUsageDescription / NSContactsUsageDescription / NSCalendarsUsageDescription / NSRemindersUsageDescription / NSMotionUsageDescription / NSBluetoothAlwaysUsageDescription crashes on first call. Auto-rejected by App Review.",
+    action:"Audit Info.plist for every Privacy - * Usage Description",
+    docUrl:"https://developer.apple.com/documentation/bundleresources/information-property-list" },
+  { id:"ats", phase:2, cat:"Network", risk:"high", impact:"medium", effort:"small",
+    title:"App Transport Security — no plaintext exemptions",
+    description:"ATS forces HTTPS by default. Any NSAllowsArbitraryLoads / NSExceptionDomains entries get reviewed at submission and need justification. For new code, never disable ATS — fix the server instead.",
+    action:"Remove NSAllowsArbitraryLoads from Info.plist; verify all endpoints HTTPS",
+    docUrl:"https://developer.apple.com/documentation/bundleresources/information-property-list/nsapptransportsecurity" },
+
+  // ───────── PHASE 3: Data handling &amp; storage ─────────
+  { id:"sign-in-with-apple", phase:3, cat:"Auth", risk:"high", impact:"high", effort:"medium",
+    title:"Sign in with Apple offered alongside other social logins",
+    description:"App Store Review Guideline 4.8 — apps that use third-party sign-in (Google, Facebook) must also offer Sign in with Apple. Bonus: SIWA gives you Hide-My-Email by default, no email collection unless user opts in. Less data, fewer obligations.",
+    action:"Add ASAuthorizationAppleIDButton wherever Google / Facebook login appears",
+    docUrl:"https://developer.apple.com/documentation/authenticationservices/asauthorizationappleidbutton" },
+  { id:"keychain-tokens", phase:3, cat:"Storage", risk:"high", impact:"high", effort:"small",
+    title:"Tokens, secrets, credentials live in Keychain — never UserDefaults",
+    description:"UserDefaults is plaintext on disk in the app sandbox; Keychain is encrypted with hardware-backed keys. Auth tokens, refresh tokens, API secrets, encryption keys — all Keychain. Use kSecAttrAccessibleAfterFirstUnlock or stricter.",
+    action:"SecItemAdd / SecItemCopyMatching with .afterFirstUnlock or stricter",
+    docUrl:"https://developer.apple.com/documentation/security/keychain-services" },
+  { id:"file-protection", phase:3, cat:"Storage", risk:"medium", impact:"medium", effort:"small",
+    title:"NSFileProtection on local databases &amp; user-data files",
+    description:"Default file protection is .completeUntilFirstUserAuthentication. For sensitive data (chat history, journal entries, financial), use .complete which keeps files encrypted whenever the device is locked. Trade-off: background tasks can't read those files.",
+    action:"FileManager — set .completeFileProtection on sensitive files",
+    docUrl:"https://developer.apple.com/documentation/uikit/protecting-the-user-s-privacy" },
+  { id:"cloudkit-private", phase:3, cat:"Storage", risk:"medium", impact:"medium", effort:"medium",
+    title:"CloudKit private database for user-only data",
+    description:"CloudKit's private database is end-to-end encrypted (when user has 2FA) and lives in the user's iCloud — Apple can't read it, you don't store it. Default for personal data unless cross-user sharing is required. Replaces 'we run a server' for many apps.",
+    action:"CKContainer.default().privateCloudDatabase for per-user records",
+    docUrl:"https://developer.apple.com/documentation/cloudkit" },
+  { id:"app-groups-scope", phase:3, cat:"Storage", risk:"medium", impact:"medium", effort:"small",
+    title:"App Groups scoped to your own apps only",
+    description:"App Group containers are shared across apps with the same group ID. Useful for app + extension + companion app. But don't share with apps you don't fully own — anything in the container is readable by all members of the group.",
+    action:"Audit group.X.Y app groups; ensure all members are your bundle IDs",
+    docUrl:"https://developer.apple.com/documentation/xcode/configuring-app-groups" },
+  { id:"hash-pii-logs", phase:3, cat:"Logging", risk:"high", impact:"high", effort:"medium",
+    title:"Hash or redact PII before logging",
+    description:"Email, user ID, IP, name, phone — never in raw logs. Use SHA-256 + a per-app salt for stable identifiers, or redact entirely. OSLog has .private interpolation that's redacted by default unless you opt in (.public). Use it.",
+    action:"os_log(\"User \\(userId, privacy: .private)\")",
+    docUrl:"https://developer.apple.com/documentation/os/oslog" },
+  { id:"crash-pii", phase:3, cat:"Logging", risk:"high", impact:"high", effort:"medium",
+    title:"Strip PII from crash reports before they leave the device",
+    description:"Crash logs capture stack traces — but exception messages, NSAssert strings, and app state often contain user data. If you ship crashes to Crashlytics/Sentry, run a scrubber: regex for emails, UUIDs, JWTs, phone numbers. Or use MetricKit which Apple already scrubs.",
+    action:"Add PII scrubber before Crashlytics.log / Sentry.capture",
+    docUrl:"https://developer.apple.com/documentation/metrickit" },
+  { id:"server-data-min", phase:3, cat:"Server", risk:"high", impact:"high", effort:"large",
+    title:"Server-side data minimization &amp; retention policy",
+    description:"Don't persist what you don't need. For data you persist: written retention windows. PII columns encrypted at rest (column-level KMS). Backup retention bounded. GDPR/CCPA deletion requests must reach all systems — including search indexes and warehouses.",
+    action:"Document /docs/data-retention.md with TTLs per data category",
+    docUrl:"https://developer.apple.com/app-store/user-privacy-and-data-use/" },
+  { id:"short-token-ttl", phase:3, cat:"Auth", risk:"medium", impact:"medium", effort:"medium",
+    title:"Short-lived access tokens, refresh tokens with revocation",
+    description:"Access tokens expire in 5–60 min; refresh tokens revocable server-side. Reduces blast radius if a token leaks. Implement a hard logout that invalidates server-side, not just deletes from Keychain. JWTs without revocation lists are risky.",
+    action:"Access token TTL ≤ 1h; refresh token revocable; server-side blacklist on logout",
+    docUrl:"https://developer.apple.com/documentation/authenticationservices" },
+  { id:"redact-urls", phase:3, cat:"Logging", risk:"medium", impact:"medium", effort:"small",
+    title:"Don't log full URLs — they often contain tokens or IDs",
+    description:"OAuth redirects, signed S3 URLs, share links, password resets. A URL like /reset?token=abc123 in your logs is a credential leak. Log path + status, never query string. Apply at network logging interceptor.",
+    action:"URLProtocol logger that redacts query params",
+    docUrl:"https://developer.apple.com/documentation/os/oslog" },
+  { id:"differential-privacy", phase:3, cat:"Analytics", risk:"low", impact:"medium", effort:"large",
+    title:"On-device aggregation / differential privacy for analytics",
+    description:"Aggregate trends locally before sending. Apple's pattern (since 2016): add calibrated noise so individual events can't be reconstructed. For most apps: aggregate counts client-side, send hourly batches. For sensitive metrics: see Apple's NSAttributedString tokens / private aggregation patterns.",
+    action:"Aggregate event counts client-side; send periodic batches not raw events",
+    docUrl:"https://www.apple.com/privacy/docs/Differential_Privacy_Overview.pdf" },
+
+  // ───────── PHASE 4: Tracking, analytics &amp; third parties ─────────
+  { id:"tracking-domains", phase:4, cat:"Tracking", risk:"blocker", impact:"high", effort:"medium",
+    title:"NSPrivacyTrackingDomains lists every tracking endpoint",
+    description:"Privacy Manifest must list domains your app contacts for tracking. iOS blocks those connections entirely if user denied ATT. Inaccurate list = either silent breakage or App Review rejection. Audit your own + every SDK's tracking domains.",
+    action:"PrivacyInfo.xcprivacy → NSPrivacyTrackingDomains array",
+    docUrl:"https://developer.apple.com/documentation/bundleresources/privacy-manifest-files" },
+  { id:"skadnetwork-4", phase:4, cat:"Attribution", risk:"medium", impact:"medium", effort:"large",
+    title:"SKAdNetwork 4 for ad attribution (no IDFA needed)",
+    description:"Apple's privacy-preserving attribution. Up to three postbacks per install, hierarchical conversion values, multiple ad networks supported. Replaces IDFA-based attribution for most use cases. Plan: implement SKAN, then phase out IDFA-based attribution.",
+    action:"Adopt SKAdNetwork 4 postback handling on server; configure conversion schema",
+    docUrl:"https://developer.apple.com/documentation/storekit/skadnetwork" },
+  { id:"sdk-manifest-verify", phase:4, cat:"SDK", risk:"blocker", impact:"high", effort:"medium",
+    title:"Third-party SDKs ship a signed Privacy Manifest",
+    description:"Apple's required-SDK list (Firebase, Adjust, AppsFlyer, etc.) must include a privacy manifest signed with the developer's key. Missing or unsigned → submission warnings → eventual rejection. Verify each SDK update's manifest as part of dependency updates.",
+    action:"On SDK update: confirm PrivacyInfo.xcprivacy present + signature valid",
+    docUrl:"https://developer.apple.com/support/third-party-SDK-requirements/" },
+  { id:"mail-privacy", phase:4, cat:"Email", risk:"medium", impact:"medium", effort:"small",
+    title:"Mail Privacy Protection — design transactional email for hidden tracking",
+    description:"iOS Mail proxy-fetches images, masking IP and open events. Don't rely on open rates as a metric for Apple Mail users — it'll be inflated. Don't rely on tracking pixels for analytics. Use server-side click tracking on actual links instead.",
+    action:"Audit transactional email — remove dependency on open-pixel tracking",
+    docUrl:"https://support.apple.com/guide/iphone/use-mail-privacy-protection-iphf084865c7/ios" },
+  { id:"private-relay-ip", phase:4, cat:"Network", risk:"low", impact:"medium", effort:"medium",
+    title:"iCloud Private Relay — handle obfuscated IPs gracefully",
+    description:"Private Relay users present rotating IPs from a regional pool. Rate limiting, geo blocking, and fraud detection that key on IP misfire badly. Use device-binding (DeviceCheck, App Attest) instead of IP for fraud signals.",
+    action:"Switch IP-based rate limits to DeviceCheck/App Attest tokens",
+    docUrl:"https://developer.apple.com/icloud/" },
+  { id:"itp-cookies", phase:4, cat:"Web", risk:"low", impact:"medium", effort:"medium",
+    title:"WKWebView ITP — cookies expire, plan for it",
+    description:"Intelligent Tracking Prevention deletes 7-day-old cookies on Safari + WKWebView. Don't rely on long-lived first-party cookies for auth in webviews — short token + server-side session refresh. Use ASWebAuthenticationSession for login flows.",
+    action:"Login flows in ASWebAuthenticationSession, not ad-hoc WKWebView",
+    docUrl:"https://developer.apple.com/documentation/authenticationservices/aswebauthenticationsession" },
+  { id:"sdk-tracker-audit", phase:4, cat:"SDK", risk:"high", impact:"high", effort:"medium",
+    title:"Audit every SDK for trackers (Exodus / appfigures / manifest)",
+    description:"SDKs sometimes include trackers (HockeyApp embedded telemetry, Firebase Analytics auto-on). Tools: Exodus Privacy, App Privacy Report, the SDK's own Privacy Manifest. Disable auto-collection where possible. Document every tracker in your data inventory.",
+    action:"Per SDK: review configured analytics flags; disable auto-collection where possible",
+    docUrl:"https://developer.apple.com/support/third-party-SDK-requirements/" },
+  { id:"analytics-no-pii", phase:4, cat:"Analytics", risk:"high", impact:"high", effort:"medium",
+    title:"Analytics events contain zero PII or tracking IDs",
+    description:"Don't send email, real name, address, phone, account ID. If you must identify a session, use a per-install opaque ID. Property names matter too — `email_for_login` is PII even if hashed. Pre-commit lint to flag suspicious property names.",
+    action:"Pre-commit: regex check for email/name/phone keys in analytics calls",
+    docUrl:"https://developer.apple.com/app-store/user-privacy-and-data-use/" },
+  { id:"per-install-id", phase:4, cat:"Analytics", risk:"medium", impact:"medium", effort:"small",
+    title:"Per-install opaque IDs that rotate on logout / reinstall",
+    description:"identifierForVendor (IDFV) is stable per vendor + install. Use it for client-side fingerprint joins, but rotate on logout. Don't persist a custom UUID across reinstalls — reinstall is the user's reset signal; honor it.",
+    action:"Generate UUID at install; clear on logout / app uninstall",
+    docUrl:"https://developer.apple.com/documentation/uikit/uidevice/identifierforvendor" },
+  { id:"ab-testing-aggregate", phase:4, cat:"Analytics", risk:"low", impact:"low", effort:"medium",
+    title:"A/B test assignment per install — not per linked user",
+    description:"Bucket on IDFV or random UUID. Measure aggregate conversion. Avoid joining experiment results to PII columns. Lets you run experimentation without expanding the data inventory.",
+    action:"Experiment platform keyed by IDFV / random UUID, not user_id",
+    docUrl:"https://developer.apple.com/app-store/user-privacy-and-data-use/" },
+
+  // ───────── PHASE 5: Compliance, disclosure, governance ─────────
+  { id:"privacy-policy", phase:5, cat:"Disclosure", risk:"blocker", impact:"high", effort:"medium",
+    title:"Privacy Policy — clear, in-app link, last-updated date",
+    description:"Required by App Store + GDPR/CCPA. Write in plain language: what data, why, how long, who else gets it, user rights. Link from in-app Settings + onboarding + App Store listing. Date the latest revision; old policies become evidence in disputes.",
+    action:"In-app: Settings → Privacy Policy → link to /policy with last-updated",
+    docUrl:"https://developer.apple.com/app-store/review/guidelines/#privacy" },
+  { id:"manifest-pre-submit", phase:5, cat:"Process", risk:"blocker", impact:"high", effort:"small",
+    title:"Privacy Manifest validated before every App Store submission",
+    description:"Run xcrun manifest-validate (or App Store Connect upload) on every release candidate. Catch broken manifests before reviewer does. Add to release checklist. Add to CI as a final gate.",
+    action:"CI: validate-privacy-manifest step on release builds",
+    docUrl:"https://developer.apple.com/documentation/bundleresources/privacy-manifest-files" },
+  { id:"gdpr-lawful-basis", phase:5, cat:"GDPR", risk:"high", impact:"high", effort:"large",
+    title:"GDPR — document lawful basis per data category",
+    description:"For each data type, record one of: consent, contract, legal obligation, vital interest, public task, legitimate interest. 'We collect it because we need it' isn't a basis. Lawful basis register lives in /docs/gdpr-register.md and is reviewed annually.",
+    action:"GDPR register: data category × lawful basis × retention",
+    docUrl:"https://developer.apple.com/app-store/user-privacy-and-data-use/" },
+  { id:"data-subject-rights", phase:5, cat:"GDPR", risk:"high", impact:"high", effort:"large",
+    title:"GDPR data subject rights — access, deletion, portability",
+    description:"User-facing flow: 'Export my data' (machine-readable JSON), 'Delete my account' (deletes everywhere — primary DB, search indexes, analytics warehouse, backups within retention window). 30-day SLA. Automate; manual is unsustainable.",
+    action:"In-app: Settings → 'Export my data' / 'Delete account' flows",
+    docUrl:"https://developer.apple.com/app-store/user-privacy-and-data-use/" },
+  { id:"ccpa-opt-out", phase:5, cat:"CCPA", risk:"high", impact:"medium", effort:"medium",
+    title:"CCPA/CPRA — Do Not Sell / Share opt-out for California users",
+    description:"If you 'sell' or 'share' personal info (broad CA definition includes ad targeting), provide an opt-out toggle. 'Do Not Sell or Share My Personal Information' link/setting must be visible. Honor Global Privacy Control header in webviews.",
+    action:"In-app: Settings → 'Do Not Sell or Share My Info' toggle (CA users)",
+    docUrl:"https://developer.apple.com/app-store/user-privacy-and-data-use/" },
+  { id:"coppa", phase:5, cat:"COPPA", risk:"blocker", impact:"high", effort:"large",
+    title:"COPPA — under-13 features need verifiable parental consent",
+    description:"If your app has under-13 audience or knowingly collects from kids: VPC required (credit-card auth, signed form, etc.). Use Apple's Kids Category requirements: no third-party analytics, no behavioral ads, restricted SDK list. FTC fines for COPPA are large.",
+    action:"Apps targeting kids: Kids Category + VPC; no behavioral analytics",
+    docUrl:"https://developer.apple.com/app-store/review/guidelines/#kids-category" },
+  { id:"hipaa", phase:5, cat:"HIPAA", risk:"high", impact:"high", effort:"large",
+    title:"HIPAA — health PHI requires BAAs &amp; encrypted transit/storage",
+    description:"If you process protected health info on behalf of a covered entity, you're a Business Associate. Required: BAA with covered entity, BAAs with downstream vendors (cloud, analytics, support tools), encryption end-to-end, audit logs, breach notification within 60 days.",
+    action:"Inventory PHI; secure BAA with every vendor that touches it",
+    docUrl:"https://developer.apple.com/health-fitness/" },
+  { id:"eu-uk-rep", phase:5, cat:"GDPR", risk:"medium", impact:"medium", effort:"small",
+    title:"EU + UK representative if you're based outside EU/UK",
+    description:"Article 27 (GDPR) and equivalent UK rule require non-EU/non-UK companies serving those users to designate a local representative. Cheap as a service ($300–500/yr). Listed in your privacy policy. Skipping this is a common quiet violation.",
+    action:"Engage Article 27 rep service; list contact in privacy policy",
+    docUrl:"https://developer.apple.com/app-store/user-privacy-and-data-use/" },
+  { id:"annual-audit", phase:5, cat:"Process", risk:"medium", impact:"medium", effort:"large",
+    title:"Annual privacy review with external counsel",
+    description:"Once a year, walk an external privacy lawyer through: data inventory, manifest, nutrition labels, consent flows, deletion flows, vendor list, privacy policy. They'll find regulatory drift you can't. Budget $5–15k. Schedule before EU/CA audit cycles.",
+    action:"Q4 each year: external privacy review (data + policy + flows)",
+    docUrl:"https://developer.apple.com/app-store/user-privacy-and-data-use/" },
+  { id:"engineer-training", phase:5, cat:"Process", risk:"medium", impact:"medium", effort:"medium",
+    title:"Engineer training on data minimization &amp; privacy-by-design",
+    description:"Every engineer should know: what counts as PII at this company, when to consult the privacy owner, which APIs trigger prompts, how to log without leaking, what the manifest is. Include in onboarding; refresh annually with current incidents.",
+    action:"Onboarding doc: /docs/privacy-engineering.md",
+    docUrl:"https://developer.apple.com/app-store/user-privacy-and-data-use/" },
+  { id:"privacy-adr", phase:5, cat:"Process", risk:"low", impact:"low", effort:"small",
+    title:"Document privacy decisions as ADRs",
+    description:"Why are tokens in Keychain? Why is Crashlytics off in EU? Why this retention window? Without an ADR the next engineer reverses the decision. 1-page ADR per non-obvious choice; cross-reference from the data inventory.",
+    action:"/docs/adr/0001-keychain-only-secrets.md",
+    docUrl:"https://developer.apple.com/app-store/user-privacy-and-data-use/" },
+  { id:"breach-response", phase:5, cat:"Process", risk:"high", impact:"high", effort:"medium",
+    title:"Documented breach response plan with notification SLAs",
+    description:"GDPR: 72h to notify regulator. CCPA: 'expedient' to notify users. HIPAA: 60d to HHS. Without a written runbook + on-call rotation, those clocks elapse before you've assembled a response. Tabletop the plan annually.",
+    action:"/docs/incident-response.md with phone tree + notification templates",
+    docUrl:"https://developer.apple.com/app-store/user-privacy-and-data-use/" },
+];
+
+const phases = [
+  { num:1, title:"Inventory &amp; foundations", desc:"You can't protect what you haven't catalogued. Manifest, nutrition labels, data inventory, governance owner. The expensive privacy bugs come from data nobody knew was being collected." },
+  { num:2, title:"System privacy APIs", desc:"Apple ships safer primitives than what you'd build — PHPicker, write-only calendar, limited contacts, reduced-accuracy location, pasteboard pattern detection. Default to the system option." },
+  { num:3, title:"Data handling &amp; storage", desc:"Once data is in your hands: Keychain not UserDefaults, hash before logging, CloudKit private database, file protection. Every layer reduces blast radius if something leaks." },
+  { num:4, title:"Tracking, analytics &amp; third parties", desc:"Most privacy violations happen through SDKs you didn't read. Tracking domains, SKAN, manifest verification, ITP, Mail Privacy Protection, no-PII analytics design." },
+  { num:5, title:"Compliance, disclosure, governance", desc:"Honest nutrition labels, current privacy policy, GDPR/CCPA/COPPA/HIPAA where applicable, annual review, breach response plan. The non-glamorous work that keeps you out of trouble." },
+];
+
+const STORAGE_KEY = "wwdc_privacy_progress_v1";
+let checkedItems = new Set();
+let currentFilters = { impact: "all", effort: "all", risk: "all", cat: "all" };
+
+function loadState() {
+  try { const raw = localStorage.getItem(STORAGE_KEY); if (raw) checkedItems = new Set(JSON.parse(raw)); } catch (e) {}
+}
+function saveState() {
+  try { localStorage.setItem(STORAGE_KEY, JSON.stringify([...checkedItems])); } catch (e) {}
+}
+function resetProgress() {
+  if (!confirm("Reset all check progress? This cannot be undone.")) return;
+  checkedItems.clear(); saveState(); renderAll();
+}
+function toggleItem(id) {
+  if (checkedItems.has(id)) checkedItems.delete(id); else checkedItems.add(id);
+  saveState(); renderAll();
+}
+
+function renderProgress() {
+  const total = items.length;
+  const done = items.filter(it => checkedItems.has(it.id)).length;
+  const pct = total === 0 ? 0 : Math.round(done / total * 100);
+  document.getElementById("overall-pct").textContent = `${pct}%`;
+  document.getElementById("overall-fill").style.width = `${pct}%`;
+  const phaseGradients = {
+    1: "linear-gradient(90deg, #fb7185, #f43f5e)",
+    2: "linear-gradient(90deg, #f43f5e, #ec4899)",
+    3: "linear-gradient(90deg, #ec4899, #d946ef)",
+    4: "linear-gradient(90deg, #d946ef, #a855f7)",
+    5: "linear-gradient(90deg, #a855f7, #818cf8)",
+  };
+  document.getElementById("phase-pcts").innerHTML = phases.map(ph => {
+    const phItems = items.filter(it => it.phase === ph.num);
+    const phDone = phItems.filter(it => checkedItems.has(it.id)).length;
+    const phPct = phItems.length === 0 ? 0 : Math.round(phDone / phItems.length * 100);
+    return `<div class="phase-pct">
+      <div class="phase-pct-label">Phase ${ph.num} &middot; ${phDone}/${phItems.length}</div>
+      <div class="phase-pct-mini"><div class="phase-pct-fill" style="width:${phPct}%; background:${phaseGradients[ph.num]};"></div></div>
+    </div>`;
+  }).join("");
+}
+
+function itemHTML(it) {
+  const checked = checkedItems.has(it.id);
+  return `<div class="item ${checked?'checked':''}" data-id="${it.id}" data-impact="${it.impact}" data-effort="${it.effort}" data-risk="${it.risk}" data-cat="${it.cat}" onclick="toggleItem('${it.id}')">
+    <div class="checkbox">${checked ? '✓' : ''}</div>
+    <div class="item-body">
+      <div class="item-header">
+        <div class="item-title">${escHtml(it.title)}</div>
+        <div class="item-tags">
+          <span class="item-tag impact-${it.impact}">${it.impact} impact</span>
+          <span class="item-tag effort-${it.effort}">${it.effort} effort</span>
+          <span class="item-tag risk-${it.risk}">${it.risk} risk</span>
+          <span class="item-tag cat">${escHtml(it.cat)}</span>
+        </div>
+      </div>
+      <div class="item-desc">${escHtml(it.description)}</div>
+      ${it.action ? `<div class="item-action">${escHtml(it.action)}</div>` : ''}
+      ${it.docUrl ? `<div class="item-meta"><a href="${it.docUrl}" target="_blank" rel="noopener" onclick="event.stopPropagation()">📘 Apple Docs &rarr;</a></div>` : ''}
+    </div>
+  </div>`;
+}
+
+function renderPathway() {
+  document.getElementById("phase-list").innerHTML = phases.map(ph => {
+    const phItems = items.filter(it => it.phase === ph.num);
+    const phDone = phItems.filter(it => checkedItems.has(it.id)).length;
+    const phPct = phItems.length === 0 ? 0 : Math.round(phDone / phItems.length * 100);
+    return `<div class="phase-block phase-${ph.num} ${ph.num === 1 ? 'expanded' : ''}">
+      <div class="phase-header" onclick="togglePhase(this)">
+        <div class="phase-num">${ph.num}</div>
+        <div class="phase-title"><h3>${ph.title}</h3><div class="desc">${ph.desc}</div></div>
+        <div class="phase-meta">
+          <div class="phase-progress-text">${phDone}/${phItems.length} &middot; ${phPct}%</div>
+          <div class="chevron">&rsaquo;</div>
+        </div>
+      </div>
+      <div class="phase-items">
+        <div class="item-list">${phItems.map(itemHTML).join("")}</div>
+      </div>
+    </div>`;
+  }).join("");
+}
+function togglePhase(headerEl) { headerEl.parentElement.classList.toggle("expanded"); }
+
+function renderAllItems() {
+  const cats = [...new Set(items.map(it => it.cat))].sort();
+  document.getElementById("filter-bar").innerHTML = `
+    <div class="filter-group">
+      <span class="filter-group-label">Impact</span>
+      <button class="filter-chip ${currentFilters.impact==='all'?'active':''}" onclick="setFilter('impact','all')">All</button>
+      ${["high","medium","low"].map(i => `<button class="filter-chip ${currentFilters.impact===i?'active':''}" onclick="setFilter('impact','${i}')">${i}</button>`).join("")}
+    </div>
+    <div class="filter-group">
+      <span class="filter-group-label">Effort</span>
+      <button class="filter-chip ${currentFilters.effort==='all'?'active':''}" onclick="setFilter('effort','all')">All</button>
+      ${["small","medium","large"].map(e => `<button class="filter-chip ${currentFilters.effort===e?'active':''}" onclick="setFilter('effort','${e}')">${e}</button>`).join("")}
+    </div>
+    <div class="filter-group">
+      <span class="filter-group-label">Risk</span>
+      <button class="filter-chip ${currentFilters.risk==='all'?'active':''}" onclick="setFilter('risk','all')">All</button>
+      ${["blocker","high","medium","low"].map(r => `<button class="filter-chip ${currentFilters.risk===r?'active':''}" onclick="setFilter('risk','${r}')">${r}</button>`).join("")}
+    </div>
+    <div class="filter-group">
+      <span class="filter-group-label">Category</span>
+      <button class="filter-chip ${currentFilters.cat==='all'?'active':''}" onclick="setFilter('cat','all')">All</button>
+      ${cats.map(c => `<button class="filter-chip ${currentFilters.cat===c?'active':''}" onclick="setFilter('cat','${c}')">${escHtml(c)}</button>`).join("")}
+    </div>
+  `;
+  const filtered = items.filter(it =>
+    (currentFilters.impact === "all" || it.impact === currentFilters.impact) &&
+    (currentFilters.effort === "all" || it.effort === currentFilters.effort) &&
+    (currentFilters.risk === "all" || it.risk === currentFilters.risk) &&
+    (currentFilters.cat === "all" || it.cat === currentFilters.cat)
+  );
+  if (filtered.length === 0) {
+    document.getElementById("all-items").innerHTML = `<div class="empty-state"><div class="icon">∅</div>No items match these filters.</div>`;
+    return;
+  }
+  document.getElementById("all-items").innerHTML = filtered.map(itemHTML).join("");
+}
+function setFilter(kind, value) { currentFilters[kind] = value; renderAllItems(); }
+
+function renderQuickWins() {
+  const wins = items.filter(it => (it.impact === "high" || it.risk === "blocker") && (it.effort === "small" || it.effort === "medium") && !checkedItems.has(it.id));
+  if (wins.length === 0) {
+    document.getElementById("quickwins-grid").innerHTML = `<div class="empty-state"><div class="icon">★</div>You've checked off every quick win. Time to tackle the bigger items.</div>`;
+    return;
+  }
+  document.getElementById("quickwins-grid").innerHTML = wins.map(it => `
+    <div class="quick-win-card" onclick="toggleItem('${it.id}'); renderAll();">
+      <div class="quick-win-title">${escHtml(it.title)}</div>
+      <div class="quick-win-desc">${escHtml(it.description)}</div>
+    </div>
+  `).join("");
+}
+
+function renderAll() {
+  renderProgress();
+  renderPathway();
+  renderAllItems();
+  renderQuickWins();
+}
+function showSection(ev, name) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('sec-' + name).classList.add('active');
+  ev.target.classList.add('active');
+}
+function escHtml(s) { return String(s).replace(/[<>&'"]/g, c => ({'<':'&lt;','>':'&gt;','&':'&amp;',"'":'&#39;','"':'&quot;'}[c])); }
+
+loadState();
+renderAll();
+</script>
+<div class="footer">
+  Each dashboard contains: deep transcript analysis (best practices, hidden gems, performance tips, migration guidance), curated learning pathways with prerequisites, session clusters, transcript-vs-docs deltas, and an interactive dependency graph. <br><br>
+  Source transcripts from <a href="https://nonstrict.eu/wwdcindex/" target="_blank" rel="noopener">Nonstrict WWDC Index</a> and <a href="https://gist.github.com/auramagi/9c040c2233dfe71c24c76942e186f788" target="_blank" rel="noopener">auramagi gist</a>. Independent project, not affiliated with Apple. Code is <a href="LICENSE">MIT</a>; original editorial content and curation are <a href="CONTENT-LICENSE.md">CC BY-NC-ND 4.0</a>. See <a href="THIRD_PARTY_NOTICES.md">third-party notices</a>.
+  <div class="footer-socials" aria-label="Creator social links">
+    <a href="https://github.com/need2edit" target="_blank" rel="noopener">GitHub</a>
+    <a href="https://x.com/need2edit" target="_blank" rel="noopener">X/Twitter</a>
+    <a href="https://www.linkedin.com/in/youngjake/" target="_blank" rel="noopener">LinkedIn</a>
+  </div>
+</div>
+</body>
+</html>

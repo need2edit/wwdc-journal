@@ -68,6 +68,12 @@ GUIDE_REQUIREMENTS = {
         ("localStorage key",  "wwdc_performance_progress"),
         ("quick wins tab",    "renderQuickWins"),
     ],
+    "privacy.html": [
+        ("phase blocks",      "phase-block"),
+        ("checkable items",   "function toggleItem"),
+        ("localStorage key",  "wwdc_privacy_progress"),
+        ("quick wins tab",    "renderQuickWins"),
+    ],
     "index.html": [
         ("year cards",        "year-card"),
         ("guides present",    "guide"),
