@@ -74,6 +74,12 @@ GUIDE_REQUIREMENTS = {
         ("localStorage key",  "wwdc_privacy_progress"),
         ("quick wins tab",    "renderQuickWins"),
     ],
+    "internationalization.html": [
+        ("phase blocks",      "phase-block"),
+        ("checkable items",   "function toggleItem"),
+        ("localStorage key",  "wwdc_i18n_progress"),
+        ("quick wins tab",    "renderQuickWins"),
+    ],
     "index.html": [
         ("year cards",        "year-card"),
         ("guides present",    "guide"),

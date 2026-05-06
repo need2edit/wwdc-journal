@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#14141f">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="application-name" content="WWDC Journal">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="WWDC Journal">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="app-icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/icons/icon-180.png">
+<title>Internationalization &amp; Localization Playbook — WWDC Journal</title>
+<style>
+  :root {
+    --bg: #0a0a0f;
+    --surface: #14141f;
+    --surface2: #1e1e2e;
+    --surface3: #252535;
+    --border: #2a2a3e;
+    --border-bright: #3a3a4e;
+    --text: #e8e8f0;
+    --text-dim: #8888a0;
+    --text-faint: #5a5a70;
+    --accent: #eab308;
+    --accent2: #facc15;
+    --green: #34d399;
+    --amber: #fbbf24;
+    --red: #f87171;
+    --pink: #f472b6;
+    --lime: #84cc16;
+    --cyan: #22d3ee;
+    --teal: #2dd4bf;
+    --orange: #fb923c;
+    --purple: #c084fc;
+    --indigo: #818cf8;
+    --sky: #38bdf8;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', system-ui, sans-serif; background: var(--bg); color: var(--text); overflow-x: hidden; }
+
+  .hero { padding: 56px 40px 28px; text-align: center; position: relative; overflow: hidden; }
+  .hero::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(ellipse at center, rgba(234,179,8,0.10) 0%, transparent 60%); pointer-events: none; }
+  .breadcrumb { color: var(--text-dim); font-size: 0.85em; margin-bottom: 10px; }
+  .breadcrumb a { color: var(--accent2); text-decoration: none; }
+  .breadcrumb a:hover { text-decoration: underline; }
+  .hero h1 { font-size: 2.8em; font-weight: 700; background: linear-gradient(135deg, #facc15, #84cc16, #06b6d4, #6366f1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 8px; letter-spacing: -0.02em; }
+  .hero .sub { color: var(--text-dim); font-size: 1.05em; max-width: 760px; margin: 0 auto; line-height: 1.5; }
+
+  .progress-bar-container { max-width: 1100px; margin: 30px auto 16px; padding: 0 20px; }
+  .progress-card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 20px 24px; }
+  .progress-row { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; }
+  .progress-row .label { color: var(--text); font-weight: 600; font-size: 0.95em; }
+  .progress-row .pct { color: var(--accent2); font-weight: 700; font-size: 1.2em; }
+  .progress-track { height: 8px; background: var(--surface2); border-radius: 4px; overflow: hidden; }
+  .progress-fill { height: 100%; background: linear-gradient(90deg, #facc15, #84cc16, #06b6d4); border-radius: 4px; transition: width 0.4s ease; }
+  .phase-pcts { display: flex; gap: 16px; margin-top: 14px; flex-wrap: wrap; }
+  .phase-pct { flex: 1; min-width: 120px; }
+  .phase-pct-label { color: var(--text-dim); font-size: 0.72em; margin-bottom: 4px; }
+  .phase-pct-mini { height: 4px; background: var(--surface2); border-radius: 2px; overflow: hidden; margin-top: 4px; }
+  .phase-pct-fill { height: 100%; border-radius: 2px; transition: width 0.4s ease; }
+  .reset-link { float: right; color: var(--text-faint); cursor: pointer; font-size: 0.78em; }
+  .reset-link:hover { color: var(--red); }
+
+  .tabs { display: flex; justify-content: center; gap: 8px; margin: 24px 0 32px; flex-wrap: wrap; padding: 0 20px; }
+  .tab { padding: 10px 22px; border-radius: 24px; border: 1px solid var(--border); background: var(--surface); color: var(--text-dim); cursor: pointer; font-size: 0.9em; transition: all 0.2s; font-family: inherit; }
+  .tab:hover { border-color: var(--accent); color: var(--text); }
+  .tab.active { background: var(--accent); border-color: var(--accent); color: #1a1500; }
+
+  .section { display: none; max-width: 1200px; margin: 0 auto; padding: 0 20px 80px; }
+  .section.active { display: block; }
+  .section h2 { font-size: 1.6em; margin-bottom: 8px; color: var(--text); }
+  .section .section-sub { color: var(--text-dim); font-size: 0.95em; margin-bottom: 24px; line-height: 1.5; }
+
+  .phase-list { display: flex; flex-direction: column; gap: 16px; }
+  .phase-block { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; }
+  .phase-header { padding: 20px 24px; cursor: pointer; display: flex; align-items: center; gap: 16px; user-select: none; transition: background 0.15s; }
+  .phase-header:hover { background: var(--surface2); }
+  .phase-num { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1.1em; color: white; flex-shrink: 0; }
+  .phase-1 .phase-num { background: linear-gradient(135deg, #facc15, #eab308); }
+  .phase-2 .phase-num { background: linear-gradient(135deg, #eab308, #84cc16); }
+  .phase-3 .phase-num { background: linear-gradient(135deg, #84cc16, #06b6d4); }
+  .phase-4 .phase-num { background: linear-gradient(135deg, #06b6d4, #3b82f6); }
+  .phase-5 .phase-num { background: linear-gradient(135deg, #3b82f6, #6366f1); }
+  .phase-title { flex: 1; }
+  .phase-title h3 { font-size: 1.15em; margin-bottom: 2px; }
+  .phase-title .desc { color: var(--text-dim); font-size: 0.85em; }
+  .phase-meta { color: var(--text-faint); font-size: 0.8em; text-align: right; flex-shrink: 0; }
+  .phase-meta .phase-progress-text { color: var(--accent2); font-weight: 600; }
+  .chevron { color: var(--text-faint); font-size: 0.8em; transition: transform 0.2s; }
+  .phase-block.expanded .chevron { transform: rotate(90deg); }
+  .phase-items { display: none; padding: 0 24px 20px; }
+  .phase-block.expanded .phase-items { display: block; }
+
+  .item-list { display: flex; flex-direction: column; gap: 8px; }
+  .item { background: var(--surface2); border: 1px solid var(--border); border-radius: 12px; padding: 16px 18px; cursor: pointer; transition: all 0.15s; display: flex; gap: 14px; align-items: flex-start; }
+  .item:hover { border-color: var(--border-bright); }
+  .item.checked { opacity: 0.55; }
+  .item.checked .item-title { text-decoration: line-through; color: var(--text-dim); }
+  .item.hidden-by-filter { display: none; }
+  .checkbox { width: 22px; height: 22px; border-radius: 6px; border: 2px solid var(--border-bright); flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 14px; color: white; transition: all 0.15s; margin-top: 1px; }
+  .item.checked .checkbox { background: var(--green); border-color: var(--green); }
+  .item-body { flex: 1; min-width: 0; }
+  .item-header { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 4px; }
+  .item-title { font-weight: 600; font-size: 0.98em; color: var(--text); }
+  .item-tags { display: flex; gap: 6px; flex-wrap: wrap; }
+  .item-tag { font-size: 0.68em; padding: 2px 8px; border-radius: 6px; background: var(--surface3); color: var(--text-dim); font-weight: 600; letter-spacing: 0.3px; text-transform: uppercase; }
+  .item-tag.impact-high { background: rgba(234,179,8,0.20); color: var(--accent2); }
+  .item-tag.impact-medium { background: rgba(251,191,36,0.16); color: var(--amber); }
+  .item-tag.impact-low { background: rgba(192,132,252,0.16); color: var(--purple); }
+  .item-tag.effort-small { background: rgba(52,211,153,0.16); color: var(--green); }
+  .item-tag.effort-medium { background: rgba(251,191,36,0.16); color: var(--amber); }
+  .item-tag.effort-large { background: rgba(248,113,113,0.16); color: var(--red); }
+  .item-tag.market-emerging { background: rgba(132,204,22,0.16); color: var(--lime); }
+  .item-tag.market-established { background: rgba(56,189,248,0.16); color: var(--sky); }
+  .item-tag.market-rtl { background: rgba(244,114,182,0.16); color: var(--pink); }
+  .item-tag.market-cjk { background: rgba(34,211,238,0.16); color: var(--cyan); }
+  .item-tag.market-all { background: rgba(129,140,248,0.16); color: var(--indigo); }
+  .item-tag.cat { background: rgba(45,212,191,0.16); color: var(--teal); }
+  .item-desc { color: var(--text-dim); font-size: 0.86em; line-height: 1.5; margin-top: 2px; }
+  .item-action { color: var(--accent2); font-size: 0.82em; margin-top: 8px; font-style: italic; }
+  .item-action::before { content: "→ "; }
+  .item-meta { color: var(--text-faint); font-size: 0.78em; margin-top: 6px; display: flex; gap: 12px; flex-wrap: wrap; }
+  .item-meta a { color: var(--accent2); text-decoration: none; }
+  .item-meta a:hover { text-decoration: underline; }
+
+  .filter-bar { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; padding: 16px 20px; background: var(--surface); border: 1px solid var(--border); border-radius: 16px; align-items: center; }
+  .filter-group { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; }
+  .filter-group-label { color: var(--text-dim); font-size: 0.78em; font-weight: 600; margin-right: 4px; text-transform: uppercase; letter-spacing: 0.3px; }
+  .filter-chip { padding: 5px 11px; border-radius: 14px; border: 1px solid var(--border); background: var(--surface2); color: var(--text-dim); cursor: pointer; font-size: 0.78em; transition: all 0.15s; font-family: inherit; }
+  .filter-chip:hover { border-color: var(--accent); color: var(--text); }
+  .filter-chip.active { background: var(--accent); border-color: var(--accent); color: #1a1500; }
+
+  .quick-wins-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 14px; }
+  .quick-win-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 18px; cursor: pointer; transition: all 0.15s; border-left: 3px solid var(--accent); }
+  .quick-win-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+  .quick-win-title { font-weight: 600; margin-bottom: 6px; }
+  .quick-win-desc { color: var(--text-dim); font-size: 0.85em; line-height: 1.5; }
+
+  .empty-state { text-align: center; padding: 40px 20px; color: var(--text-dim); }
+  .empty-state .icon { font-size: 2.5em; margin-bottom: 12px; opacity: 0.4; }
+
+  @media (max-width: 700px) {
+    .hero h1 { font-size: 2em; }
+  }
+  .footer { text-align: center; color: var(--text-dim); font-size: 0.85em; padding: 56px 20px 40px; max-width: 760px; margin: 0 auto; line-height: 1.6; }
+  .footer a { color: var(--accent2); text-decoration: none; }
+  .footer a:hover { text-decoration: underline; }
+
+  .footer-socials { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; margin-top: 22px; font-size: 0.95em; }
+  .footer-socials a { padding: 6px 10px; border: 1px solid var(--border); border-radius: 999px; background: rgba(20,20,31,0.62); }
+  .footer-socials a:hover { border-color: var(--accent2); text-decoration: none; }
+
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="breadcrumb"><a href="index.html">&larr; WWDC Journal</a></div>
+  <h1>Internationalization &amp; Localization Playbook</h1>
+  <p class="sub">A practitioner's checklist for building one app that ships everywhere — String Catalogs, RTL layout, locale-aware formatters, translated assets, App Store metadata per market. Synthesized from 12 years of WWDC i18n sessions and Apple's HIG.</p>
+</div>
+
+<div class="progress-bar-container">
+  <div class="progress-card">
+    <div class="progress-row">
+      <div class="label">Overall progress <span class="reset-link" onclick="resetProgress()">reset progress</span></div>
+      <div class="pct" id="overall-pct">0%</div>
+    </div>
+    <div class="progress-track"><div class="progress-fill" id="overall-fill" style="width:0%"></div></div>
+    <div class="phase-pcts" id="phase-pcts"></div>
+  </div>
+</div>
+
+<div class="tabs">
+  <div class="tab active" onclick="showSection(event,'pathway')">The Pathway</div>
+  <div class="tab" onclick="showSection(event,'all')">All Items</div>
+  <div class="tab" onclick="showSection(event,'quickwins')">Quick Wins</div>
+</div>
+
+<div class="section active" id="sec-pathway">
+  <h2>The Localization Pathway</h2>
+  <p class="section-sub">Five sequential phases. Get the string handling right first — without that, everything else is throwaway. Then layout that survives RTL and long languages, then locale-aware data formatting, then translated content and assets, and finally a process so localization stays current release-over-release.</p>
+  <div class="phase-list" id="phase-list"></div>
+</div>
+
+<div class="section" id="sec-all">
+  <h2>All Items</h2>
+  <p class="section-sub">Filter by impact, effort, market, or category. The market dimension helps prioritize: items tagged RTL or CJK can wait if you're not shipping there yet, but items tagged "all" affect every locale.</p>
+  <div class="filter-bar" id="filter-bar"></div>
+  <div class="item-list" id="all-items"></div>
+</div>
+
+<div class="section" id="sec-quickwins">
+  <h2>Quick Wins</h2>
+  <p class="section-sub">High-impact items that take less than a sprint. Most are config changes, formatter swaps, or single-file edits with disproportionate per-locale value.</p>
+  <div class="quick-wins-grid" id="quickwins-grid"></div>
+</div>
+
+<script>
+const items = [
+  // ───────── PHASE 1: String handling foundations ─────────
+  { id:"string-catalogs", phase:1, cat:"Strings", market:"all", impact:"high", effort:"medium",
+    title:"Migrate to String Catalogs (.xcstrings)",
+    description:"Xcode 15+ replaces .strings + .stringsdict with a single Localizable.xcstrings — diffable JSON, automatic key extraction from Swift source, plurals + variations in one place. Strict upgrade. The migration tool inside Xcode handles existing files.",
+    action:"Right-click Localizable.strings → Migrate to String Catalog",
+    docUrl:"https://developer.apple.com/documentation/xcode/localizing-and-varying-text-with-a-string-catalog" },
+  { id:"localized-init", phase:1, cat:"Strings", market:"all", impact:"high", effort:"small",
+    title:"String(localized:) over NSLocalizedString in new code",
+    description:"String(localized: \"Hello\") (iOS 15+) is the modern API. With String Catalogs, Xcode auto-extracts the key from the source — no separate genstrings step. NSLocalizedString still works but feels Objective-C.",
+    action:"Text(\"Welcome\") and String(localized: \"Welcome\")",
+    docUrl:"https://developer.apple.com/documentation/swift/string/init(localized:)" },
+  { id:"every-string-marked", phase:1, cat:"Strings", market:"all", impact:"high", effort:"medium",
+    title:"Every user-facing string is marked for translation",
+    description:"Hardcoded English strings ship to every locale untranslated. Audit before each release — search regex for Text\\(\"[A-Za-z], navigationTitle( with raw string, alert with raw string. SwiftLint rule available. Trivial to forget; trivial to catch.",
+    action:"SwiftLint rule: warn on raw string literals in Text() / Button()",
+    docUrl:"https://developer.apple.com/documentation/xcode/localization" },
+  { id:"translator-comments", phase:1, cat:"Strings", market:"all", impact:"high", effort:"small",
+    title:"Comments give translators context",
+    description:"\"Save\" can mean disk-save or rescue. \"Open\" can mean unlocked or 'open the file'. Without comments, translators guess and you ship wrong meanings. String Catalog and String(localized:) both surface the comment to the translator.",
+    action:"String(localized: \"Save\", comment: \"Verb. Button to save the document.\")",
+    docUrl:"https://developer.apple.com/documentation/xcode/localizing-and-varying-text-with-a-string-catalog" },
+  { id:"plurals", phase:1, cat:"Strings", market:"all", impact:"high", effort:"medium",
+    title:"Plurals via String Catalog variations (not 'You have 1 item(s)')",
+    description:"\"1 item\" vs \"2 items\" vs \"0 items\" — different in every language (Russian has 4 plural forms; Polish 3). String Catalog → Add Variation → Plural lets you specify each form per locale. Never write 'item(s)' or 'X item/items'.",
+    action:"In .xcstrings: select key → + Variation → Plural",
+    docUrl:"https://developer.apple.com/documentation/xcode/localizing-and-varying-text-with-a-string-catalog" },
+  { id:"device-variations", phase:1, cat:"Strings", market:"all", impact:"medium", effort:"small",
+    title:"Device variations (iPhone vs Mac vs Apple Watch) in same catalog",
+    description:"Same key, different copy per device class. 'Tap' on iPhone, 'Click' on Mac, 'Press the Digital Crown' on Watch. String Catalog has Device variations built-in — keep one key with multiple variants instead of fragmenting the catalog.",
+    action:"In .xcstrings: + Variation → Device → iPhone / Mac / etc.",
+    docUrl:"https://developer.apple.com/documentation/xcode/localizing-and-varying-text-with-a-string-catalog" },
+  { id:"format-positional", phase:1, cat:"Strings", market:"all", impact:"high", effort:"small",
+    title:"Format strings use positional arguments (%1$@ %2$@)",
+    description:"Word order changes per language. \"Sent by John yesterday\" might become \"Yesterday, John sent\". Use %1$@ %2$@ so translators can reorder. Never concatenate strings — \"Sent by \" + name + \" \" + when is unfixable.",
+    action:"String(localized: \"Sent by %1$@ %2$@\", arguments: [name, when])",
+    docUrl:"https://developer.apple.com/documentation/swift/strings-and-text" },
+  { id:"localized-string-resource", phase:1, cat:"Strings", market:"all", impact:"medium", effort:"medium",
+    title:"LocalizedStringResource for strings passed across boundaries",
+    description:"When a string crosses APIs (App Intents, Shortcuts, widgets), use LocalizedStringResource instead of String — preserves the localization key so the receiver can re-localize in their context. Critical for App Intents shipped to Shortcuts where user locale differs.",
+    action:"@Parameter var greeting: LocalizedStringResource",
+    docUrl:"https://developer.apple.com/documentation/foundation/localizedstringresource" },
+  { id:"server-i18n", phase:1, cat:"Strings", market:"all", impact:"high", effort:"large",
+    title:"Server respects Accept-Language; client-translated where possible",
+    description:"User-visible strings from the server (error messages, category names, push body) need to localize too. Either: server keys i18n by Accept-Language header, or server returns a code (\"error.network.timeout\") that the client looks up locally. Don't ship English messages from the API.",
+    action:"API returns localization keys; client maps to .xcstrings",
+    docUrl:"https://developer.apple.com/documentation/xcode/localization" },
+
+  // ───────── PHASE 2: Layout &amp; RTL ─────────
+  { id:"leading-trailing", phase:2, cat:"Layout", market:"rtl", impact:"high", effort:"medium",
+    title:"Leading / trailing — never left / right",
+    description:"In RTL languages (Arabic, Hebrew), 'leading' is on the right. SwiftUI .leading / .trailing and UIKit NSLayoutAttribute.leading / .trailing flip automatically. .left / .right do not. Audit every padding, alignment, anchor.",
+    action:"Replace .left/.right with .leading/.trailing across the codebase",
+    docUrl:"https://developer.apple.com/design/human-interface-guidelines/right-to-left" },
+  { id:"rtl-test", phase:2, cat:"Layout", market:"rtl", impact:"high", effort:"small",
+    title:"Test in Arabic / Hebrew on real devices",
+    description:"Settings → General → Language &amp; Region → switch to Arabic. Or Xcode → Edit Scheme → Run → App Language → Arabic. Almost every app has at least one RTL bug — misaligned chevrons, mirrored progress bars, asymmetric padding. Catch them before users do.",
+    action:"Edit Scheme → App Language → Right-to-Left Pseudolanguage",
+    docUrl:"https://developer.apple.com/design/human-interface-guidelines/right-to-left" },
+  { id:"pseudo-language", phase:2, cat:"Layout", market:"all", impact:"high", effort:"small",
+    title:"Pseudo-localization in dev builds (Double-Length / Accented)",
+    description:"Edit Scheme → Run → App Language → Double-Length Pseudolanguage finds truncation. Accented Pseudolanguage flags un-localized strings (real strings stay accented, hardcoded English stays English). Cheapest pre-translation QA available.",
+    action:"Scheme → App Language → Accented / Double-Length / Right-to-Left",
+    docUrl:"https://developer.apple.com/documentation/xcode/testing-localizations-when-running-your-app" },
+  { id:"long-languages", phase:2, cat:"Layout", market:"established", impact:"high", effort:"medium",
+    title:"Test long-language locales (German, Russian, Finnish)",
+    description:"German nouns are often 30–50% longer than English. 'Settings' becomes 'Einstellungen'. Buttons clip, navigation titles truncate, tab bars overflow. Test at AX5 + German to find the worst-case width compound.",
+    action:"Test combination: Dynamic Type AX5 + locale = German",
+    docUrl:"https://developer.apple.com/design/human-interface-guidelines/typography" },
+  { id:"cjk-fonts", phase:2, cat:"Layout", market:"cjk", impact:"medium", effort:"medium",
+    title:"CJK locales: vertical metrics, line height, font fallback",
+    description:"Chinese / Japanese / Korean text renders taller than Latin at the same point size. Hardcoded font sizes break. Use Dynamic Type, .lineSpacing(), and verify the system font falls back to a real CJK face (PingFang SC for Simplified Chinese, Hiragino Sans for Japanese).",
+    action:"Verify .font(.body) renders correctly in zh-Hans, ja, ko",
+    docUrl:"https://developer.apple.com/design/human-interface-guidelines/typography" },
+  { id:"icon-mirroring", phase:2, cat:"Layout", market:"rtl", impact:"medium", effort:"small",
+    title:"Mirror directional icons in RTL — but not logos / numbers",
+    description:"Back arrow, chevron, swipe-left-to-delete, progress bar — flip in RTL. Logos, magnifying-glass icon, numbers, time displays — don't flip. SF Symbols handle this with .symbolVariants(.rtl) / image flipsForRightToLeftLayoutDirection.",
+    action:"Image(systemName: \"arrow.right\").environment(\\.layoutDirection, ...)",
+    docUrl:"https://developer.apple.com/design/human-interface-guidelines/right-to-left" },
+  { id:"viewthatfits", phase:2, cat:"Layout", market:"all", impact:"medium", effort:"small",
+    title:"ViewThatFits / dynamic stacks for variable text length",
+    description:"ViewThatFits picks the first child that fits. Useful for buttons that show full label in English but icon-only when localized text overflows. iOS 16+. Pair with HStack / VStack alternates for stack-rotating layouts.",
+    action:"ViewThatFits { Label(...) ; Image(systemName: ...) }",
+    docUrl:"https://developer.apple.com/documentation/swiftui/viewthatfits" },
+  { id:"layout-direction", phase:2, cat:"Layout", market:"rtl", impact:"medium", effort:"small",
+    title:"Force layoutDirection on isolated subviews when needed",
+    description:"Some content shouldn't mirror — e.g., a hex color picker or a code snippet. Override with .environment(\\.layoutDirection, .leftToRight). Same trick to force-test RTL on a single view via .rightToLeft.",
+    action:".environment(\\.layoutDirection, .leftToRight) on code/data views",
+    docUrl:"https://developer.apple.com/documentation/swiftui/environmentvalues/layoutdirection" },
+  { id:"image-locale-variants", phase:2, cat:"Assets", market:"all", impact:"medium", effort:"medium",
+    title:"Localized images in Asset Catalog (per-locale variants)",
+    description:"Asset Catalog → image → + Localization. Useful for screenshots-in-app (App Store-style previews), text-baked-into-image, culturally-specific illustrations. Falls back to base when locale variant absent.",
+    action:"Asset Catalog → image → Show Localization → + Locale",
+    docUrl:"https://developer.apple.com/documentation/xcode/managing-assets-with-asset-catalogs" },
+
+  // ───────── PHASE 3: Dates, numbers, currency, units ─────────
+  { id:"date-format-style", phase:3, cat:"Dates", market:"all", impact:"high", effort:"small",
+    title:"Date.formatted() with FormatStyle (iOS 15+) — locale-aware by default",
+    description:"date.formatted(date: .abbreviated, time: .shortened) returns 'Sep 5, 2024 at 3:45 PM' in en-US, '5 sept. 2024 à 15:45' in fr-FR. Replaces 95% of DateFormatter use cases. Type-safe, allocates lazily, locale picked from environment.",
+    action:"date.formatted(.dateTime.year().month(.abbreviated).day())",
+    docUrl:"https://developer.apple.com/documentation/foundation/date/formatstyle" },
+  { id:"date-formatter-locale", phase:3, cat:"Dates", market:"all", impact:"medium", effort:"small",
+    title:"DateFormatter — set locale explicitly when using it",
+    description:"Default DateFormatter uses Locale.current at the time of first use. For server-bound timestamps (ISO 8601), set locale to Locale(identifier: \"en_US_POSIX\") or use .iso8601 format style — otherwise a Saudi user's calendar can break your parser.",
+    action:"formatter.locale = Locale(identifier: \"en_US_POSIX\") for ISO-8601 parsing",
+    docUrl:"https://developer.apple.com/documentation/foundation/dateformatter" },
+  { id:"number-format-style", phase:3, cat:"Numbers", market:"all", impact:"high", effort:"small",
+    title:"value.formatted() / NumberFormatter — never hardcoded number formatting",
+    description:"\"1,234.56\" in en-US becomes \"1.234,56\" in de-DE and \"1\\u00a0234,56\" in fr-FR. Comma vs period vs space. Use Int.formatted() / Double.formatted(.number.precision(.fractionLength(2))). Trivial change, one of the most-noticed bugs by international users.",
+    action:"price.formatted(.number.precision(.fractionLength(2)))",
+    docUrl:"https://developer.apple.com/documentation/foundation/floatingpointformatstyle" },
+  { id:"currency-format", phase:3, cat:"Numbers", market:"all", impact:"high", effort:"small",
+    title:"Currency formatting via FormatStyle.currency",
+    description:"$1,234.56 in en-US, 1.234,56 € in de-DE, ¥1,235 in ja-JP. Symbol position, decimal places, separator all vary. Always pass the actual currency code, not a guess from locale — a German viewing US prices should still see $.",
+    action:"price.formatted(.currency(code: \"USD\"))",
+    docUrl:"https://developer.apple.com/documentation/foundation/floatingpointformatstyle/currency" },
+  { id:"measurements", phase:3, cat:"Units", market:"all", impact:"high", effort:"medium",
+    title:"Measurement&lt;UnitX&gt; for distance, weight, temperature",
+    description:"Don't store km / mi / °C / °F as separate fields. Store one canonical unit (meters, kg, kelvin) as Measurement, format with the user's locale (US gets miles + Fahrenheit, most others get km + Celsius). Apple ships UnitLength, UnitMass, UnitTemperature, etc.",
+    action:"Measurement(value: 100, unit: UnitLength.kilometers).formatted()",
+    docUrl:"https://developer.apple.com/documentation/foundation/measurement" },
+  { id:"relative-dates", phase:3, cat:"Dates", market:"all", impact:"medium", effort:"small",
+    title:"Relative date formatting (\"5 minutes ago\")",
+    description:"Don't compute relative time strings yourself. Date.RelativeFormatStyle handles every locale's grammar (present perfect in EN, present in FR, distinct past-tense forms in JA). iOS 15+. Pair with Timeline for live updates.",
+    action:"date.formatted(.relative(presentation: .named))",
+    docUrl:"https://developer.apple.com/documentation/foundation/date/relativeformatstyle" },
+  { id:"calendars", phase:3, cat:"Dates", market:"emerging", impact:"medium", effort:"medium",
+    title:"Respect non-Gregorian calendars where it matters",
+    description:"Saudi Arabia → Hijri. Israel → Hebrew. Japan → Japanese era (Reiwa, Heisei). Calendar.current respects user choice. Be careful when DOING math: compute in Gregorian internally, present via Calendar.current.dateComponents.",
+    action:"Use Calendar.current for display; Calendar(identifier: .gregorian) for storage",
+    docUrl:"https://developer.apple.com/documentation/foundation/calendar" },
+  { id:"timezone-explicit", phase:3, cat:"Dates", market:"all", impact:"high", effort:"medium",
+    title:"Store dates in UTC; display in TimeZone.current",
+    description:"Dates without explicit time zone are bugs waiting to happen. Server sends ISO 8601 UTC (...Z), client formats with TimeZone.current. Don't store \"local\" times — they break when the user travels or DST shifts.",
+    action:"Server: UTC ISO-8601; client: .formatted with TimeZone.current",
+    docUrl:"https://developer.apple.com/documentation/foundation/timezone" },
+  { id:"phone-format", phase:3, cat:"Numbers", market:"all", impact:"medium", effort:"medium",
+    title:"Phone numbers — format and validate per region",
+    description:"+1 (415) 555-1234 vs +44 20 7123 4567 vs +81 3-1234-5678. Use libPhoneNumber-equivalent (PhoneNumberKit on iOS). Don't validate phones with regex — region-specific length and format rules are too varied.",
+    action:"PhoneNumberKit.parse(input, withRegion: regionCode)",
+    docUrl:"https://developer.apple.com/documentation/contacts" },
+  { id:"address-format", phase:3, cat:"Content", market:"all", impact:"medium", effort:"small",
+    title:"CNPostalAddressFormatter for addresses",
+    description:"US: street, city, state ZIP. Japan: postal code, prefecture, city, street. UK: street, town, county, postcode. CNPostalAddressFormatter handles all of them. Don't build address forms with hardcoded US-style fields.",
+    action:"CNPostalAddressFormatter.string(from: address, style: .mailingAddress)",
+    docUrl:"https://developer.apple.com/documentation/contacts/cnpostaladdressformatter" },
+  { id:"person-name", phase:3, cat:"Content", market:"all", impact:"medium", effort:"small",
+    title:"PersonNameComponents for names — given/family order varies",
+    description:"\"John Smith\" in en-US, \"山田 太郎\" (family first) in ja-JP. PersonNameComponentsFormatter handles ordering, honorifics, abbreviation styles. Don't store firstName + lastName as separate strings if you display formatted names.",
+    action:"PersonNameComponentsFormatter().string(from: components)",
+    docUrl:"https://developer.apple.com/documentation/foundation/personnamecomponentsformatter" },
+  { id:"locale-collation", phase:3, cat:"Content", market:"all", impact:"medium", effort:"small",
+    title:"Locale-aware string sorting (.localizedStandardCompare)",
+    description:"Default Swift String.&lt; uses Unicode codepoints — gives wrong order for any language with diacritics. \"ñ\" sorts after \"z\" in code, between \"n\" and \"o\" in Spanish. Use .localizedStandardCompare for any user-facing list.",
+    action:"items.sorted { $0.localizedStandardCompare($1) == .orderedAscending }",
+    docUrl:"https://developer.apple.com/documentation/swift/string" },
+
+  // ───────── PHASE 4: Content, assets, App Store ─────────
+  { id:"app-store-metadata", phase:4, cat:"App Store", market:"all", impact:"high", effort:"medium",
+    title:"App Store metadata localized per market",
+    description:"Title, subtitle, description, keywords, promotional text — all per-locale in App Store Connect. Untranslated metadata = users in that market see English. Massive conversion lift from native-language storefront. Especially keywords (ASO impact).",
+    action:"App Store Connect → App Information → + Localization",
+    docUrl:"https://developer.apple.com/help/app-store-connect/manage-app-information/localize-app-information/" },
+  { id:"localized-screenshots", phase:4, cat:"App Store", market:"all", impact:"high", effort:"large",
+    title:"Localized App Store screenshots per market",
+    description:"Screenshots with English UI copy in non-English markets is a credibility hit. Generate per-locale screenshots via fastlane snapshot or Xcode UI tests with launchArguments. The work pays back in conversion immediately.",
+    action:"fastlane snapshot --languages \"en-US,de-DE,ja-JP,...\"",
+    docUrl:"https://developer.apple.com/help/app-store-connect/reference/screenshot-specifications" },
+  { id:"app-icon-locale", phase:4, cat:"App Store", market:"emerging", impact:"low", effort:"medium",
+    title:"Consider per-region App Icon variants",
+    description:"Some markets respond strongly to local cultural cues. Larger apps run icon A/B tests per region. Most apps don't need this — but if you're seeing flat conversion in CN/JP, it's worth investigating. Apple supports multiple icons (UIApplication.setAlternateIconName).",
+    action:"Test alternate icons in target markets via App Store Connect Custom Product Pages",
+    docUrl:"https://developer.apple.com/help/app-store-connect/create-custom-product-pages/configure-multiple-product-page-versions/" },
+  { id:"push-loc-key", phase:4, cat:"Push", market:"all", impact:"high", effort:"medium",
+    title:"Push notifications: loc-key for translation, not pre-rendered text",
+    description:"Server sends a loc-key + loc-args; client looks up the localized string from Localizable.xcstrings. Otherwise a French user gets an English push. Built into APNs payload — \"alert\": { \"title-loc-key\": \"...\", \"loc-key\": \"...\", \"loc-args\": [...] }.",
+    action:"APNs payload: title-loc-key + loc-args; client looks up locally",
+    docUrl:"https://developer.apple.com/documentation/usernotifications" },
+  { id:"translation-api", phase:4, cat:"Translation", market:"all", impact:"medium", effort:"medium",
+    title:"Translation API (iOS 18+) for user content (chat, comments)",
+    description:"For user-generated content (you can't pre-translate), iOS 18 ships a Translation framework. On-device, free, ~languages. Use for in-app message translation, comment translation, dynamic UGC. Not a substitute for app strings — those still need real translation.",
+    action:"TranslationSession.translate(...) for UGC; .xcstrings for UI",
+    docUrl:"https://developer.apple.com/documentation/translation" },
+  { id:"culturally-neutral", phase:4, cat:"Content", market:"all", impact:"medium", effort:"medium",
+    title:"Culturally neutral imagery, color, icons",
+    description:"Red = lucky in CN, danger in EN. Thumbs up = approval in EN, offensive in some Middle East regions. Owl = wisdom in EN, bad omen in some cultures. Audit imagery; favor abstract / geometric over symbolic. Default to international iconography (SF Symbols).",
+    action:"Audit illustrations / mascot use for cultural specificity",
+    docUrl:"https://developer.apple.com/design/human-interface-guidelines/inclusion" },
+  { id:"locale-empty-states", phase:4, cat:"Content", market:"all", impact:"medium", effort:"small",
+    title:"Empty-state copy and error messages localized",
+    description:"Easy to miss. \"No results\" / \"Something went wrong\" / \"Try again\" — all marked. Audit empty states, full-screen errors, network failure UI. Often hardcoded during prototyping and forgotten.",
+    action:"Search codebase for empty-state strings; verify all are .xcstrings keys",
+    docUrl:"https://developer.apple.com/documentation/xcode/localization" },
+  { id:"a11y-labels-localized", phase:4, cat:"Content", market:"all", impact:"high", effort:"medium",
+    title:"Accessibility labels + hints localized",
+    description:"VoiceOver users in every language need translated labels. .accessibilityLabel(\"Save photo\") with a raw string ships English to every locale. Mark every accessibilityLabel / accessibilityHint as a String(localized:) key.",
+    action:".accessibilityLabel(String(localized: \"Save photo\"))",
+    docUrl:"https://developer.apple.com/documentation/swiftui/view/accessibilitylabel(_:)" },
+  { id:"ltr-rtl-animations", phase:4, cat:"Layout", market:"rtl", impact:"low", effort:"small",
+    title:"Animations match layout direction",
+    description:"Slide-in-from-left for new content should slide-in-from-right in RTL. Carousel arrow animations, paging direction, hint animations. Use .transition(.move(edge: .leading)) — adapts automatically. Hardcoded .leftSide / .rightSide does not.",
+    action:".transition(.move(edge: .leading)) — adapts to layout direction",
+    docUrl:"https://developer.apple.com/documentation/swiftui/anytransition" },
+
+  // ───────── PHASE 5: Process &amp; quality ─────────
+  { id:"snapshot-per-locale", phase:5, cat:"Process", market:"all", impact:"high", effort:"medium",
+    title:"Snapshot tests per-locale for critical screens",
+    description:"Screenshot tests (swift-snapshot-testing or similar) for the top 10 screens × top 5 locales = 50 snapshots that catch layout regressions across releases. Cheap to add, runs in CI, prevents 'we shipped a broken Arabic build' incidents.",
+    action:"snapshot(.image(precision: 0.99), as: ...) per locale",
+    docUrl:"https://developer.apple.com/documentation/xctest" },
+  { id:"translator-export", phase:5, cat:"Process", market:"all", impact:"high", effort:"small",
+    title:"Translator workflow: export from Xcode, send, re-import",
+    description:"Xcode → Product → Export Localizations → emit one .xcloc per language. Send to translators (or upload to a TMS like Lokalise / Phrase). Re-import via Product → Import Localizations. Source-of-truth stays in Xcode, not a spreadsheet.",
+    action:"Xcode → Product → Export Localizations → .xcloc per locale",
+    docUrl:"https://developer.apple.com/documentation/xcode/exporting-localizations" },
+  { id:"glossary", phase:5, cat:"Process", market:"all", impact:"medium", effort:"medium",
+    title:"Translation glossary &amp; style guide per language",
+    description:"What's our preferred German for 'Save'? Casual or formal 'you' (du vs Sie)? Tone for error messages? Without a glossary, two translators give you inconsistent copy. Maintain /docs/i18n-glossary.md per language with key terms + voice notes.",
+    action:"/docs/i18n-glossary-{lang}.md with key terms + tone",
+    docUrl:"https://developer.apple.com/design/human-interface-guidelines/writing" },
+  { id:"native-qa", phase:5, cat:"Process", market:"all", impact:"high", effort:"large",
+    title:"Native-speaker QA pass per release per market",
+    description:"Translators translate strings; QA testers validate strings IN CONTEXT. A native speaker walking through the app catches: wrong meaning of \"Open\", awkward phrasing, cultural missteps, broken text expansion. Budget 4–8 hours per major market per release.",
+    action:"Recruit per-locale testers; run scripted flows + free exploration",
+    docUrl:"https://developer.apple.com/internationalization/" },
+  { id:"region-availability", phase:5, cat:"App Store", market:"all", impact:"medium", effort:"small",
+    title:"App Store region availability — explicit per-market opt-in",
+    description:"App Store Connect → Pricing &amp; Availability → choose territories. Default is 'all'. Disable markets you can't support (no localization, no support team, regulatory). Better than shipping a broken English-only experience to users who can't read it.",
+    action:"App Store Connect → Pricing → review enabled territories per release",
+    docUrl:"https://developer.apple.com/help/app-store-connect/manage-your-apps-availability/manage-availability-for-your-app-on-the-app-store/" },
+  { id:"per-region-pricing", phase:5, cat:"App Store", market:"all", impact:"medium", effort:"small",
+    title:"Per-region pricing — don't blindly use Apple's auto-conversion",
+    description:"Apple's price tier auto-conversion gives the same dollar value everywhere — which is too expensive for emerging markets, too cheap for premium markets. Set per-territory prices in App Store Connect using local purchasing power.",
+    action:"App Store Connect → Pricing → manual price per territory",
+    docUrl:"https://developer.apple.com/help/app-store-connect/reference/pricing-and-availability/app-pricing-and-availability/" },
+  { id:"locale-ab-testing", phase:5, cat:"Process", market:"all", impact:"low", effort:"medium",
+    title:"A/B test critical screens per-locale (not globally)",
+    description:"What works in en-US doesn't always work in de-DE. Onboarding steps, paywall copy, push timing — bucket experiments by locale. Use App Store Connect Custom Product Pages to A/B test storefront copy per market.",
+    action:"Bucket experiments by locale; compare conversion per market",
+    docUrl:"https://developer.apple.com/help/app-store-connect/create-custom-product-pages/configure-multiple-product-page-versions/" },
+  { id:"unused-strings", phase:5, cat:"Process", market:"all", impact:"low", effort:"small",
+    title:"Prune unused strings each release",
+    description:"String Catalog flags strings that appear in code but not in catalog (added) and strings in catalog but not in code (stale). Remove the stale ones — they cost translation budget and confuse translators. Filter Stale in the catalog editor.",
+    action:"In .xcstrings: filter → Stale → Delete confirmed-unused",
+    docUrl:"https://developer.apple.com/documentation/xcode/localizing-and-varying-text-with-a-string-catalog" },
+  { id:"i18n-adr", phase:5, cat:"Process", market:"all", impact:"low", effort:"small",
+    title:"Document i18n decisions as ADRs",
+    description:"Why do we localize from server? Why exclude region X? Why these 12 locales but not others? Document. Otherwise the next person reverses the choices. /docs/adr/ with one ADR per non-obvious decision.",
+    action:"/docs/adr/0001-supported-locales.md",
+    docUrl:"https://developer.apple.com/documentation/xcode" },
+];
+
+const phases = [
+  { num:1, title:"String handling foundations", desc:"String Catalogs, marked strings, comments for translators, plurals, positional format strings. Get this layer right and the rest is mechanical; get it wrong and you'll re-do everything." },
+  { num:2, title:"Layout that survives translation", desc:"Leading/trailing instead of left/right. RTL testing. Pseudo-localization to find truncation. ViewThatFits for variable text. Long-language locales (German, Russian) reveal what AX5 + en-US never will." },
+  { num:3, title:"Locale-aware data formatting", desc:"Dates, numbers, currency, units, calendars, time zones, names, addresses. Apple ships formatters for everything; the trap is using none of them and shipping en-US conventions globally." },
+  { num:4, title:"Content, assets, App Store", desc:"Localized App Store metadata + screenshots, push notifications via loc-key, culturally neutral imagery, translated accessibility labels. The visible work users actually see." },
+  { num:5, title:"Process &amp; quality", desc:"Translator workflow, glossary, native-speaker QA, snapshot tests per-locale, per-region pricing &amp; availability. Without process, localization quality decays release-over-release." },
+];
+
+const STORAGE_KEY = "wwdc_i18n_progress_v1";
+let checkedItems = new Set();
+let currentFilters = { impact: "all", effort: "all", market: "all", cat: "all" };
+
+function loadState() {
+  try { const raw = localStorage.getItem(STORAGE_KEY); if (raw) checkedItems = new Set(JSON.parse(raw)); } catch (e) {}
+}
+function saveState() {
+  try { localStorage.setItem(STORAGE_KEY, JSON.stringify([...checkedItems])); } catch (e) {}
+}
+function resetProgress() {
+  if (!confirm("Reset all check progress? This cannot be undone.")) return;
+  checkedItems.clear(); saveState(); renderAll();
+}
+function toggleItem(id) {
+  if (checkedItems.has(id)) checkedItems.delete(id); else checkedItems.add(id);
+  saveState(); renderAll();
+}
+
+function renderProgress() {
+  const total = items.length;
+  const done = items.filter(it => checkedItems.has(it.id)).length;
+  const pct = total === 0 ? 0 : Math.round(done / total * 100);
+  document.getElementById("overall-pct").textContent = `${pct}%`;
+  document.getElementById("overall-fill").style.width = `${pct}%`;
+  const phaseGradients = {
+    1: "linear-gradient(90deg, #facc15, #eab308)",
+    2: "linear-gradient(90deg, #eab308, #84cc16)",
+    3: "linear-gradient(90deg, #84cc16, #06b6d4)",
+    4: "linear-gradient(90deg, #06b6d4, #3b82f6)",
+    5: "linear-gradient(90deg, #3b82f6, #6366f1)",
+  };
+  document.getElementById("phase-pcts").innerHTML = phases.map(ph => {
+    const phItems = items.filter(it => it.phase === ph.num);
+    const phDone = phItems.filter(it => checkedItems.has(it.id)).length;
+    const phPct = phItems.length === 0 ? 0 : Math.round(phDone / phItems.length * 100);
+    return `<div class="phase-pct">
+      <div class="phase-pct-label">Phase ${ph.num} &middot; ${phDone}/${phItems.length}</div>
+      <div class="phase-pct-mini"><div class="phase-pct-fill" style="width:${phPct}%; background:${phaseGradients[ph.num]};"></div></div>
+    </div>`;
+  }).join("");
+}
+
+function itemHTML(it) {
+  const checked = checkedItems.has(it.id);
+  return `<div class="item ${checked?'checked':''}" data-id="${it.id}" data-impact="${it.impact}" data-effort="${it.effort}" data-market="${it.market}" data-cat="${it.cat}" onclick="toggleItem('${it.id}')">
+    <div class="checkbox">${checked ? '✓' : ''}</div>
+    <div class="item-body">
+      <div class="item-header">
+        <div class="item-title">${escHtml(it.title)}</div>
+        <div class="item-tags">
+          <span class="item-tag impact-${it.impact}">${it.impact} impact</span>
+          <span class="item-tag effort-${it.effort}">${it.effort} effort</span>
+          <span class="item-tag market-${it.market}">${it.market}</span>
+          <span class="item-tag cat">${escHtml(it.cat)}</span>
+        </div>
+      </div>
+      <div class="item-desc">${escHtml(it.description)}</div>
+      ${it.action ? `<div class="item-action">${escHtml(it.action)}</div>` : ''}
+      ${it.docUrl ? `<div class="item-meta"><a href="${it.docUrl}" target="_blank" rel="noopener" onclick="event.stopPropagation()">📘 Apple Docs &rarr;</a></div>` : ''}
+    </div>
+  </div>`;
+}
+
+function renderPathway() {
+  document.getElementById("phase-list").innerHTML = phases.map(ph => {
+    const phItems = items.filter(it => it.phase === ph.num);
+    const phDone = phItems.filter(it => checkedItems.has(it.id)).length;
+    const phPct = phItems.length === 0 ? 0 : Math.round(phDone / phItems.length * 100);
+    return `<div class="phase-block phase-${ph.num} ${ph.num === 1 ? 'expanded' : ''}">
+      <div class="phase-header" onclick="togglePhase(this)">
+        <div class="phase-num">${ph.num}</div>
+        <div class="phase-title"><h3>${ph.title}</h3><div class="desc">${ph.desc}</div></div>
+        <div class="phase-meta">
+          <div class="phase-progress-text">${phDone}/${phItems.length} &middot; ${phPct}%</div>
+          <div class="chevron">&rsaquo;</div>
+        </div>
+      </div>
+      <div class="phase-items">
+        <div class="item-list">${phItems.map(itemHTML).join("")}</div>
+      </div>
+    </div>`;
+  }).join("");
+}
+function togglePhase(headerEl) { headerEl.parentElement.classList.toggle("expanded"); }
+
+function renderAllItems() {
+  const cats = [...new Set(items.map(it => it.cat))].sort();
+  document.getElementById("filter-bar").innerHTML = `
+    <div class="filter-group">
+      <span class="filter-group-label">Impact</span>
+      <button class="filter-chip ${currentFilters.impact==='all'?'active':''}" onclick="setFilter('impact','all')">All</button>
+      ${["high","medium","low"].map(i => `<button class="filter-chip ${currentFilters.impact===i?'active':''}" onclick="setFilter('impact','${i}')">${i}</button>`).join("")}
+    </div>
+    <div class="filter-group">
+      <span class="filter-group-label">Effort</span>
+      <button class="filter-chip ${currentFilters.effort==='all'?'active':''}" onclick="setFilter('effort','all')">All</button>
+      ${["small","medium","large"].map(e => `<button class="filter-chip ${currentFilters.effort===e?'active':''}" onclick="setFilter('effort','${e}')">${e}</button>`).join("")}
+    </div>
+    <div class="filter-group">
+      <span class="filter-group-label">Market</span>
+      <button class="filter-chip ${currentFilters.market==='all'?'active':''}" onclick="setFilter('market','all')">All</button>
+      ${["all","established","emerging","rtl","cjk"].map(m => `<button class="filter-chip ${currentFilters.market===m?'active':''}" onclick="setFilter('market','${m}')">${m}</button>`).join("")}
+    </div>
+    <div class="filter-group">
+      <span class="filter-group-label">Category</span>
+      <button class="filter-chip ${currentFilters.cat==='all'?'active':''}" onclick="setFilter('cat','all')">All</button>
+      ${cats.map(c => `<button class="filter-chip ${currentFilters.cat===c?'active':''}" onclick="setFilter('cat','${c}')">${escHtml(c)}</button>`).join("")}
+    </div>
+  `;
+  const filtered = items.filter(it =>
+    (currentFilters.impact === "all" || it.impact === currentFilters.impact) &&
+    (currentFilters.effort === "all" || it.effort === currentFilters.effort) &&
+    (currentFilters.market === "all" || it.market === currentFilters.market) &&
+    (currentFilters.cat === "all" || it.cat === currentFilters.cat)
+  );
+  if (filtered.length === 0) {
+    document.getElementById("all-items").innerHTML = `<div class="empty-state"><div class="icon">∅</div>No items match these filters.</div>`;
+    return;
+  }
+  document.getElementById("all-items").innerHTML = filtered.map(itemHTML).join("");
+}
+function setFilter(kind, value) { currentFilters[kind] = value; renderAllItems(); }
+
+function renderQuickWins() {
+  const wins = items.filter(it => it.impact === "high" && (it.effort === "small" || it.effort === "medium") && !checkedItems.has(it.id));
+  if (wins.length === 0) {
+    document.getElementById("quickwins-grid").innerHTML = `<div class="empty-state"><div class="icon">★</div>You've checked off every quick win. Time to tackle the bigger items.</div>`;
+    return;
+  }
+  document.getElementById("quickwins-grid").innerHTML = wins.map(it => `
+    <div class="quick-win-card" onclick="toggleItem('${it.id}'); renderAll();">
+      <div class="quick-win-title">${escHtml(it.title)}</div>
+      <div class="quick-win-desc">${escHtml(it.description)}</div>
+    </div>
+  `).join("");
+}
+
+function renderAll() {
+  renderProgress();
+  renderPathway();
+  renderAllItems();
+  renderQuickWins();
+}
+function showSection(ev, name) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('sec-' + name).classList.add('active');
+  ev.target.classList.add('active');
+}
+function escHtml(s) { return String(s).replace(/[<>&'"]/g, c => ({'<':'&lt;','>':'&gt;','&':'&amp;',"'":'&#39;','"':'&quot;'}[c])); }
+
+loadState();
+renderAll();
+</script>
+<div class="footer">
+  Each dashboard contains: deep transcript analysis (best practices, hidden gems, performance tips, migration guidance), curated learning pathways with prerequisites, session clusters, transcript-vs-docs deltas, and an interactive dependency graph. <br><br>
+  Source transcripts from <a href="https://nonstrict.eu/wwdcindex/" target="_blank" rel="noopener">Nonstrict WWDC Index</a> and <a href="https://gist.github.com/auramagi/9c040c2233dfe71c24c76942e186f788" target="_blank" rel="noopener">auramagi gist</a>. Independent project, not affiliated with Apple. Code is <a href="LICENSE">MIT</a>; original editorial content and curation are <a href="CONTENT-LICENSE.md">CC BY-NC-ND 4.0</a>. See <a href="THIRD_PARTY_NOTICES.md">third-party notices</a>.
+  <div class="footer-socials" aria-label="Creator social links">
+    <a href="https://github.com/need2edit" target="_blank" rel="noopener">GitHub</a>
+    <a href="https://x.com/need2edit" target="_blank" rel="noopener">X/Twitter</a>
+    <a href="https://www.linkedin.com/in/youngjake/" target="_blank" rel="noopener">LinkedIn</a>
+  </div>
+</div>
+</body>
+</html>
