@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#14141f">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="application-name" content="WWDC Journal">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="WWDC Journal">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="app-icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/icons/icon-180.png">
+<title>Developer Tooling &amp; Workflow Playbook — WWDC Journal</title>
+<style>
+  :root {
+    --bg: #0a0a0f;
+    --surface: #14141f;
+    --surface2: #1e1e2e;
+    --surface3: #252535;
+    --border: #2a2a3e;
+    --border-bright: #3a3a4e;
+    --text: #e8e8f0;
+    --text-dim: #8888a0;
+    --text-faint: #5a5a70;
+    --accent: #4338ca;
+    --accent2: #6366f1;
+    --green: #34d399;
+    --amber: #fbbf24;
+    --red: #f87171;
+    --pink: #f472b6;
+    --cyan: #22d3ee;
+    --teal: #2dd4bf;
+    --orange: #fb923c;
+    --purple: #c084fc;
+    --indigo: #818cf8;
+    --sky: #38bdf8;
+    --violet: #a78bfa;
+    --fuchsia: #d946ef;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', system-ui, sans-serif; background: var(--bg); color: var(--text); overflow-x: hidden; }
+
+  .hero { padding: 56px 40px 28px; text-align: center; position: relative; overflow: hidden; }
+  .hero::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(ellipse at center, rgba(67,56,202,0.10) 0%, transparent 60%); pointer-events: none; }
+  .breadcrumb { color: var(--text-dim); font-size: 0.85em; margin-bottom: 10px; }
+  .breadcrumb a { color: var(--accent2); text-decoration: none; }
+  .breadcrumb a:hover { text-decoration: underline; }
+  .hero h1 { font-size: 2.8em; font-weight: 700; background: linear-gradient(135deg, #6366f1, #4338ca, #7c3aed, #c026d3); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 8px; letter-spacing: -0.02em; }
+  .hero .sub { color: var(--text-dim); font-size: 1.05em; max-width: 760px; margin: 0 auto; line-height: 1.5; }
+
+  .progress-bar-container { max-width: 1100px; margin: 30px auto 16px; padding: 0 20px; }
+  .progress-card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 20px 24px; }
+  .progress-row { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; }
+  .progress-row .label { color: var(--text); font-weight: 600; font-size: 0.95em; }
+  .progress-row .pct { color: var(--accent2); font-weight: 700; font-size: 1.2em; }
+  .progress-track { height: 8px; background: var(--surface2); border-radius: 4px; overflow: hidden; }
+  .progress-fill { height: 100%; background: linear-gradient(90deg, #6366f1, #4338ca, #7c3aed); border-radius: 4px; transition: width 0.4s ease; }
+  .phase-pcts { display: flex; gap: 16px; margin-top: 14px; flex-wrap: wrap; }
+  .phase-pct { flex: 1; min-width: 120px; }
+  .phase-pct-label { color: var(--text-dim); font-size: 0.72em; margin-bottom: 4px; }
+  .phase-pct-mini { height: 4px; background: var(--surface2); border-radius: 2px; overflow: hidden; margin-top: 4px; }
+  .phase-pct-fill { height: 100%; border-radius: 2px; transition: width 0.4s ease; }
+  .reset-link { float: right; color: var(--text-faint); cursor: pointer; font-size: 0.78em; }
+  .reset-link:hover { color: var(--red); }
+
+  .tabs { display: flex; justify-content: center; gap: 8px; margin: 24px 0 32px; flex-wrap: wrap; padding: 0 20px; }
+  .tab { padding: 10px 22px; border-radius: 24px; border: 1px solid var(--border); background: var(--surface); color: var(--text-dim); cursor: pointer; font-size: 0.9em; transition: all 0.2s; font-family: inherit; }
+  .tab:hover { border-color: var(--accent); color: var(--text); }
+  .tab.active { background: var(--accent); border-color: var(--accent); color: #f0f0ff; }
+
+  .section { display: none; max-width: 1200px; margin: 0 auto; padding: 0 20px 80px; }
+  .section.active { display: block; }
+  .section h2 { font-size: 1.6em; margin-bottom: 8px; color: var(--text); }
+  .section .section-sub { color: var(--text-dim); font-size: 0.95em; margin-bottom: 24px; line-height: 1.5; }
+
+  .phase-list { display: flex; flex-direction: column; gap: 16px; }
+  .phase-block { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; }
+  .phase-header { padding: 20px 24px; cursor: pointer; display: flex; align-items: center; gap: 16px; user-select: none; transition: background 0.15s; }
+  .phase-header:hover { background: var(--surface2); }
+  .phase-num { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1.1em; color: white; flex-shrink: 0; }
+  .phase-1 .phase-num { background: linear-gradient(135deg, #6366f1, #4338ca); }
+  .phase-2 .phase-num { background: linear-gradient(135deg, #4338ca, #7c3aed); }
+  .phase-3 .phase-num { background: linear-gradient(135deg, #7c3aed, #a855f7); }
+  .phase-4 .phase-num { background: linear-gradient(135deg, #a855f7, #c026d3); }
+  .phase-5 .phase-num { background: linear-gradient(135deg, #c026d3, #ec4899); }
+  .phase-title { flex: 1; }
+  .phase-title h3 { font-size: 1.15em; margin-bottom: 2px; }
+  .phase-title .desc { color: var(--text-dim); font-size: 0.85em; }
+  .phase-meta { color: var(--text-faint); font-size: 0.8em; text-align: right; flex-shrink: 0; }
+  .phase-meta .phase-progress-text { color: var(--accent2); font-weight: 600; }
+  .chevron { color: var(--text-faint); font-size: 0.8em; transition: transform 0.2s; }
+  .phase-block.expanded .chevron { transform: rotate(90deg); }
+  .phase-items { display: none; padding: 0 24px 20px; }
+  .phase-block.expanded .phase-items { display: block; }
+
+  .item-list { display: flex; flex-direction: column; gap: 8px; }
+  .item { background: var(--surface2); border: 1px solid var(--border); border-radius: 12px; padding: 16px 18px; cursor: pointer; transition: all 0.15s; display: flex; gap: 14px; align-items: flex-start; }
+  .item:hover { border-color: var(--border-bright); }
+  .item.checked { opacity: 0.55; }
+  .item.checked .item-title { text-decoration: line-through; color: var(--text-dim); }
+  .item.hidden-by-filter { display: none; }
+  .checkbox { width: 22px; height: 22px; border-radius: 6px; border: 2px solid var(--border-bright); flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 14px; color: white; transition: all 0.15s; margin-top: 1px; }
+  .item.checked .checkbox { background: var(--green); border-color: var(--green); }
+  .item-body { flex: 1; min-width: 0; }
+  .item-header { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 4px; }
+  .item-title { font-weight: 600; font-size: 0.98em; color: var(--text); }
+  .item-tags { display: flex; gap: 6px; flex-wrap: wrap; }
+  .item-tag { font-size: 0.68em; padding: 2px 8px; border-radius: 6px; background: var(--surface3); color: var(--text-dim); font-weight: 600; letter-spacing: 0.3px; text-transform: uppercase; }
+  .item-tag.impact-high { background: rgba(99,102,241,0.20); color: var(--accent2); }
+  .item-tag.impact-medium { background: rgba(251,191,36,0.16); color: var(--amber); }
+  .item-tag.impact-low { background: rgba(192,132,252,0.16); color: var(--purple); }
+  .item-tag.effort-small { background: rgba(52,211,153,0.16); color: var(--green); }
+  .item-tag.effort-medium { background: rgba(251,191,36,0.16); color: var(--amber); }
+  .item-tag.effort-large { background: rgba(248,113,113,0.16); color: var(--red); }
+  .item-tag.scope-solo { background: rgba(56,189,248,0.16); color: var(--sky); }
+  .item-tag.scope-team { background: rgba(34,211,238,0.16); color: var(--cyan); }
+  .item-tag.scope-org { background: rgba(167,139,250,0.16); color: var(--violet); }
+  .item-tag.cat { background: rgba(167,139,250,0.16); color: var(--violet); }
+  .item-desc { color: var(--text-dim); font-size: 0.86em; line-height: 1.5; margin-top: 2px; }
+  .item-action { color: var(--accent2); font-size: 0.82em; margin-top: 8px; font-style: italic; }
+  .item-action::before { content: "→ "; }
+  .item-meta { color: var(--text-faint); font-size: 0.78em; margin-top: 6px; display: flex; gap: 12px; flex-wrap: wrap; }
+  .item-meta a { color: var(--accent2); text-decoration: none; }
+  .item-meta a:hover { text-decoration: underline; }
+
+  .filter-bar { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; padding: 16px 20px; background: var(--surface); border: 1px solid var(--border); border-radius: 16px; align-items: center; }
+  .filter-group { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; }
+  .filter-group-label { color: var(--text-dim); font-size: 0.78em; font-weight: 600; margin-right: 4px; text-transform: uppercase; letter-spacing: 0.3px; }
+  .filter-chip { padding: 5px 11px; border-radius: 14px; border: 1px solid var(--border); background: var(--surface2); color: var(--text-dim); cursor: pointer; font-size: 0.78em; transition: all 0.15s; font-family: inherit; }
+  .filter-chip:hover { border-color: var(--accent); color: var(--text); }
+  .filter-chip.active { background: var(--accent); border-color: var(--accent); color: #f0f0ff; }
+
+  .quick-wins-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 14px; }
+  .quick-win-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 18px; cursor: pointer; transition: all 0.15s; border-left: 3px solid var(--accent); }
+  .quick-win-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+  .quick-win-title { font-weight: 600; margin-bottom: 6px; }
+  .quick-win-desc { color: var(--text-dim); font-size: 0.85em; line-height: 1.5; }
+
+  .empty-state { text-align: center; padding: 40px 20px; color: var(--text-dim); }
+  .empty-state .icon { font-size: 2.5em; margin-bottom: 12px; opacity: 0.4; }
+
+  @media (max-width: 700px) {
+    .hero h1 { font-size: 2em; }
+  }
+  .footer { text-align: center; color: var(--text-dim); font-size: 0.85em; padding: 56px 20px 40px; max-width: 760px; margin: 0 auto; line-height: 1.6; }
+  .footer a { color: var(--accent2); text-decoration: none; }
+  .footer a:hover { text-decoration: underline; }
+
+  .footer-socials { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; margin-top: 22px; font-size: 0.95em; }
+  .footer-socials a { padding: 6px 10px; border: 1px solid var(--border); border-radius: 999px; background: rgba(20,20,31,0.62); }
+  .footer-socials a:hover { border-color: var(--accent2); text-decoration: none; }
+
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="breadcrumb"><a href="index.html">&larr; WWDC Journal</a></div>
+  <h1>Developer Tooling &amp; Workflow Playbook</h1>
+  <p class="sub">A practitioner's checklist for the parts of an iOS team that aren't shipped to users — local environment, source control, CI/CD, code quality tools, and team practices. Synthesized from 12 years of WWDC tooling sessions and battle-tested workflows.</p>
+</div>
+
+<div class="progress-bar-container">
+  <div class="progress-card">
+    <div class="progress-row">
+      <div class="label">Overall progress <span class="reset-link" onclick="resetProgress()">reset progress</span></div>
+      <div class="pct" id="overall-pct">0%</div>
+    </div>
+    <div class="progress-track"><div class="progress-fill" id="overall-fill" style="width:0%"></div></div>
+    <div class="phase-pcts" id="phase-pcts"></div>
+  </div>
+</div>
+
+<div class="tabs">
+  <div class="tab active" onclick="showSection(event,'pathway')">The Pathway</div>
+  <div class="tab" onclick="showSection(event,'all')">All Items</div>
+  <div class="tab" onclick="showSection(event,'quickwins')">Quick Wins</div>
+</div>
+
+<div class="section active" id="sec-pathway">
+  <h2>The Tooling Pathway</h2>
+  <p class="section-sub">Five sequential phases. Local environment first — a sloppy local setup taxes every contributor every day. Then source control practice that scales to a team, CI/CD that keeps releases safe, code-quality tools that catch problems pre-review, and finally team workflow &amp; docs that turn one engineer's knowledge into the team's.</p>
+  <div class="phase-list" id="phase-list"></div>
+</div>
+
+<div class="section" id="sec-all">
+  <h2>All Items</h2>
+  <p class="section-sub">Filter by impact, effort, scope, or category. Scope tells you who needs this — solo developers, small teams, or larger orgs.</p>
+  <div class="filter-bar" id="filter-bar"></div>
+  <div class="item-list" id="all-items"></div>
+</div>
+
+<div class="section" id="sec-quickwins">
+  <h2>Quick Wins</h2>
+  <p class="section-sub">High-impact items that take less than a sprint. Most are config files, a CI step, or a single shared doc — small effort with disproportionate team-wide value.</p>
+  <div class="quick-wins-grid" id="quickwins-grid"></div>
+</div>
+
+<script>
+const items = [
+  // ───────── PHASE 1: Local development environment ─────────
+  { id:"xcode-version-mgmt", phase:1, cat:"Xcode", scope:"team", impact:"high", effort:"small",
+    title:"Xcode version pinned per repo (.xcode-version or mise)",
+    description:"Different Xcodes produce different binaries. Pin a specific Xcode version per project — via .xcode-version file (xcodes/mise pick it up) or scheme-level. Engineers should never have to guess which Xcode the team is on. Bonus: CI uses the same version.",
+    action:"Add .xcode-version file at repo root; install with `mise install`",
+    docUrl:"https://github.com/XcodesOrg/xcodes" },
+  { id:"command-line-tools", phase:1, cat:"Xcode", scope:"solo", impact:"medium", effort:"small",
+    title:"Command Line Tools matched to Xcode",
+    description:"`xcode-select -p` should point at your Xcode.app, not /Library/Developer/CommandLineTools. Mismatched CLT vs Xcode breaks Swift Package builds, simctl, and CI scripts in subtle ways. Verify on every Xcode upgrade.",
+    action:"sudo xcode-select -s /Applications/Xcode.app/Contents/Developer",
+    docUrl:"https://developer.apple.com/documentation/xcode" },
+  { id:"derived-data-location", phase:1, cat:"Filesystem", scope:"solo", impact:"medium", effort:"small",
+    title:"DerivedData on a fast volume, never in iCloud Drive",
+    description:"DerivedData rebuilds constantly. iCloud-synced folders cause cycles of sync churn. Encrypted external drives kill build perf. Keep DerivedData on the local SSD; consider a separate volume for very large projects. Xcode → Preferences → Locations → Derived Data.",
+    action:"Xcode → Settings → Locations → Derived Data → Custom (~/DerivedData)",
+    docUrl:"https://developer.apple.com/documentation/xcode/improving-the-speed-of-incremental-builds" },
+  { id:"gitignore", phase:1, cat:"Git", scope:"team", impact:"high", effort:"small",
+    title:".gitignore covers DerivedData, xcuserstate, .build, .swiftpm",
+    description:"Committing user-state files into Xcode projects causes daily merge conflicts. Standard .gitignore: build/, DerivedData/, *.xcuserstate, *.xcuserdatad/, .build/, .swiftpm/, *.xcworkspace/xcuserdata/, Package.resolved (debatable per team). Use a known-good template.",
+    action:"curl https://www.toptal.com/developers/gitignore/api/swift,xcode > .gitignore",
+    docUrl:"https://github.com/github/gitignore/blob/main/Swift.gitignore" },
+  { id:"pre-commit-hooks", phase:1, cat:"Git", scope:"team", impact:"high", effort:"medium",
+    title:"Pre-commit hooks (lefthook / pre-commit / husky)",
+    description:"Run SwiftLint, SwiftFormat, secret scanning before each commit. Fast feedback beats CI failure. lefthook is fast, language-agnostic, and configurable per repo. Bypass should be rare and explicit (`--no-verify`).",
+    action:"lefthook install + lefthook.yml with swiftformat / swiftlint",
+    docUrl:"https://github.com/evilmartians/lefthook" },
+  { id:"editorconfig", phase:1, cat:"Editor", scope:"team", impact:"low", effort:"small",
+    title:".editorconfig for whitespace, line endings, file encoding",
+    description:"Cross-editor consistency. Tabs vs spaces, line endings (LF), trailing newline, charset. Xcode honors it (Xcode 15+). VSCode honors it. JetBrains too. One .editorconfig at repo root prevents PR diffs of pure whitespace.",
+    action:"Add .editorconfig with indent_style, end_of_line, insert_final_newline",
+    docUrl:"https://editorconfig.org/" },
+  { id:"bootstrap-script", phase:1, cat:"Setup", scope:"team", impact:"high", effort:"medium",
+    title:"Bootstrap script: ./bin/setup brings new contributor to green",
+    description:"Idempotent, runs all of: `xcode-select -p`, install dependencies (mise, brew bundle), resolve SPM, install pre-commit hooks, install build tools. New engineer goes from `git clone` to passing tests in under 30 minutes. Document non-obvious steps inside the script.",
+    action:"Create ./bin/setup; make idempotent; document in README",
+    docUrl:"https://github.com/github/scripts-to-rule-them-all" },
+  { id:"swiftlint-installed", phase:1, cat:"Lint", scope:"team", impact:"medium", effort:"small",
+    title:"SwiftLint + SwiftFormat installed locally for every contributor",
+    description:"Build phase that runs SwiftLint catches issues at compile time. SwiftFormat on save (Xcode 16+ via build phase or save action) prevents formatting churn. Bootstrap script installs both via brew or mise. Pin versions in repo.",
+    action:"brew install swiftlint swiftformat; pin in `.tool-versions`",
+    docUrl:"https://github.com/realm/SwiftLint" },
+  { id:"developer-mode", phase:1, cat:"Device", scope:"solo", impact:"low", effort:"small",
+    title:"Mac &amp; iOS Developer Mode enabled",
+    description:"iOS 16+ requires Developer Mode on device for sideloading and debugging. Mac Developer Mode (System Settings → Privacy &amp; Security → Developer Tools) lets unsigned binaries run. Without these, simulator and device debugging are intermittent.",
+    action:"Settings → Privacy &amp; Security → Developer Mode (iOS); Privacy → Developer Tools (macOS)",
+    docUrl:"https://developer.apple.com/documentation/xcode/enabling-developer-mode-on-a-device" },
+  { id:"file-templates", phase:1, cat:"Editor", scope:"team", impact:"low", effort:"medium",
+    title:"Custom Xcode file templates for project conventions",
+    description:"Drop your own .xctemplate bundles in ~/Library/Developer/Xcode/Templates. Encode team conventions: SwiftUI view scaffold, ViewModel, Test class. Saves ~5 min per file, more importantly enforces consistency. Check templates into the repo for shareability.",
+    action:"./Templates/SwiftUIView.xctemplate symlinked into ~/Library/Developer/Xcode/Templates",
+    docUrl:"https://developer.apple.com/documentation/xcode" },
+
+  // ───────── PHASE 2: Source control &amp; PR workflow ─────────
+  { id:"commit-style", phase:2, cat:"Git", scope:"team", impact:"medium", effort:"small",
+    title:"Commit message convention (Conventional Commits or similar)",
+    description:"`feat:`, `fix:`, `docs:`, `refactor:` prefix lets you auto-generate release notes, scope changes, and machine-process history. Even informal teams benefit from consistent verbs. Document in CONTRIBUTING.md; enforce via commit-msg hook.",
+    action:"Add commitlint or git commit-msg hook with allowed prefixes",
+    docUrl:"https://www.conventionalcommits.org/" },
+  { id:"pr-template", phase:2, cat:"PR", scope:"team", impact:"medium", effort:"small",
+    title:"PR template (.github/pull_request_template.md)",
+    description:"Default sections: Summary, Why, Test plan, Screenshots/recordings (if UI), Risks. GitHub auto-fills the body. Encourages reviewers to ask the right questions. The 'Test plan' section is the highest-value field — forces author to think through verification.",
+    action:".github/pull_request_template.md with Summary, Why, Test plan, Risks",
+    docUrl:"https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/creating-a-pull-request-template-for-your-repository" },
+  { id:"branch-naming", phase:2, cat:"Git", scope:"team", impact:"low", effort:"small",
+    title:"Branch naming convention (feature/, fix/, chore/)",
+    description:"Predictable branch names help with branch listing, automation triggers, and PR labels. Pattern: `<type>/<ticket-id>-<short-desc>`, e.g. `feat/PROJ-123-add-share-sheet`. Optional but cheap; valuable in busy repos.",
+    action:"Document in CONTRIBUTING.md; configure git templates if helpful",
+    docUrl:"https://docs.github.com/en/get-started/using-git/about-git" },
+  { id:"codeowners", phase:2, cat:"PR", scope:"org", impact:"medium", effort:"small",
+    title:"CODEOWNERS file routes review to the right people",
+    description:".github/CODEOWNERS auto-requests reviews from the owners of touched files. Critical for orgs where 'who owns this?' isn't obvious. Pair with branch protection so CODEOWNER review is required for sensitive paths (auth, payments, infra).",
+    action:".github/CODEOWNERS with path → @team mappings",
+    docUrl:"https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners" },
+  { id:"small-prs", phase:2, cat:"PR", scope:"team", impact:"high", effort:"medium",
+    title:"Small PRs — cap around 400 lines",
+    description:"Review quality drops sharply past ~400 LOC. Split refactors from features; split features from tests; split core change from cleanup. Stacked PRs (Graphite, git-spice) make this practical. Hard cap encourages decomposition; soft cap with override works fine.",
+    action:"PR template includes line count; reviewer can request split",
+    docUrl:"https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests" },
+  { id:"review-checklist", phase:2, cat:"PR", scope:"team", impact:"medium", effort:"small",
+    title:"PR review checklist for reviewers",
+    description:"Living doc: tests added? a11y label? localized strings? performance considered? privacy implications? Reviewers consult before approving. Doesn't need to be exhaustive — 5–8 items that catch the team's most common misses.",
+    action:"/docs/review-checklist.md; link from PR template",
+    docUrl:"https://docs.github.com/en/pull-requests" },
+  { id:"stacked-prs", phase:2, cat:"PR", scope:"team", impact:"medium", effort:"medium",
+    title:"Stacked PRs (Graphite / git-spice) for dependent changes",
+    description:"Stop blocking on a 1000-line PR. Split into 4 stacked branches; reviewers can approve independently; merge bottom-up. Graphite is the polished commercial option; git-spice is open-source. Either is a giant unblock for teams that try big-PR culture.",
+    action:"gt create / gt submit OR git-spice branch / spice submit",
+    docUrl:"https://graphite.dev/" },
+  { id:"squash-policy", phase:2, cat:"Git", scope:"team", impact:"low", effort:"small",
+    title:"Squash-merge as default; clean main history",
+    description:"GitHub Settings → Pull Requests → Default merge: Squash. Main has one commit per PR, with the PR title. WIP commits stay on the branch. Easier bisect, easier revert, cleaner blame. Merge commits and rebase-merges are both acceptable alternatives but pick ONE.",
+    action:"Repo → Settings → Pull Requests → Allow squash; default to Squash",
+    docUrl:"https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/configuring-commit-squashing-for-pull-requests" },
+  { id:"protected-main", phase:2, cat:"Git", scope:"team", impact:"high", effort:"small",
+    title:"Protected main branch with required CI checks",
+    description:"No direct pushes. Required: 1+ approval, all CI green, no merge conflicts, branch up-to-date. CODEOWNERS approval required for sensitive paths. Linear history if you've adopted squash-merge. The fence that keeps mistakes off main.",
+    action:"Repo → Settings → Branches → Protect main",
+    docUrl:"https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches" },
+  { id:"automerge", phase:2, cat:"PR", scope:"team", impact:"medium", effort:"small",
+    title:"Auto-merge after green CI",
+    description:"GitHub auto-merge: PR queues itself; merges when checks pass + reviews approved. Author doesn't need to babysit. Safe with required CI checks. Combine with merge queues for high-PR-volume repos to avoid the 'merge break main' race.",
+    action:"Repo → Settings → Pull Requests → Allow auto-merge",
+    docUrl:"https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/automatically-merging-a-pull-request" },
+
+  // ───────── PHASE 3: CI/CD ─────────
+  { id:"choose-ci", phase:3, cat:"CI", scope:"team", impact:"high", effort:"medium",
+    title:"Pick a CI: Xcode Cloud OR GitHub Actions OR Bitrise",
+    description:"All three are fine. Xcode Cloud: zero infra, integrated TestFlight, only Apple platforms. GitHub Actions: most flexible, cheapest small-team plan, BYO macOS minutes. Bitrise: oldest, deepest mobile-specific UX. Don't run both — split-brain config decay is real.",
+    action:"One CI; document choice + reasoning in /docs/adr/",
+    docUrl:"https://developer.apple.com/documentation/xcode/xcode-cloud" },
+  { id:"appstoreconnect-api-key", phase:3, cat:"CI", scope:"team", impact:"high", effort:"medium",
+    title:"App Store Connect API key for CI uploads — never an Apple ID",
+    description:"App Store Connect → Users and Access → Keys → Create API Key. CI uses the .p8 key + key ID + issuer ID. No 2FA prompts, no individual's MFA blocking releases, scoped permissions. Apple-ID-based CI is fragile and obsolete.",
+    action:"App Store Connect → Users and Access → Keys → + → save .p8 in CI secret",
+    docUrl:"https://developer.apple.com/documentation/appstoreconnectapi" },
+  { id:"code-signing-match", phase:3, cat:"Signing", scope:"team", impact:"high", effort:"large",
+    title:"Code signing via fastlane match (or Xcode Cloud automatic)",
+    description:"Manual code signing means certs and profiles drift, expire, and break CI. fastlane match centralizes them in an encrypted git repo. Xcode Cloud handles signing automatically with App Store Connect API. Whichever you pick, get it out of individual developer Macs.",
+    action:"fastlane match init; commit Matchfile; fastlane match appstore",
+    docUrl:"https://docs.fastlane.tools/actions/match/" },
+  { id:"unit-and-ui-tests-ci", phase:3, cat:"CI", scope:"team", impact:"high", effort:"medium",
+    title:"Unit + UI tests run in CI on every PR",
+    description:"Test suite that doesn't run on every PR rots within weeks. Both unit and UI in CI; UI tests gated by tag if slow (--only-testing). Failed tests block merge. Schemes configured to run all relevant test targets; coverage report in PR comments.",
+    action:"xcodebuild test -scheme App -destination 'platform=iOS Simulator,name=iPhone 16'",
+    docUrl:"https://developer.apple.com/documentation/xctest" },
+  { id:"parallel-tests", phase:3, cat:"CI", scope:"team", impact:"medium", effort:"small",
+    title:"Parallel test execution (-parallel-testing-enabled YES)",
+    description:"xcodebuild test -parallel-testing-enabled YES -parallel-testing-worker-count 4 spreads test classes across simulators. On large suites, halves wall time. Pair with -test-iterations 2 -retry-tests-on-failure to detect flaky tests.",
+    action:"xcodebuild test -parallel-testing-enabled YES -parallel-testing-worker-count 4",
+    docUrl:"https://developer.apple.com/documentation/testing/parallelization" },
+  { id:"build-matrix", phase:3, cat:"CI", scope:"team", impact:"medium", effort:"medium",
+    title:"Build matrix across supported iOS versions",
+    description:"If your app supports iOS N–2, run tests against simulator iOS N, N–1, N–2. Catches API availability and behavior diffs early. matrix.os in GitHub Actions or Xcode Cloud workflows. Don't run every combination on every PR — sample for PRs, full matrix nightly.",
+    action:"Matrix: simulator runtime [iOS-17, iOS-18]; full matrix nightly",
+    docUrl:"https://developer.apple.com/documentation/xcode/xcode-cloud" },
+  { id:"cache-derived-data-ci", phase:3, cat:"CI", scope:"team", impact:"high", effort:"medium",
+    title:"Cache DerivedData &amp; SPM in CI for incremental builds",
+    description:"Cold build of any Xcode project on CI takes 5–15 min. Cache DerivedData/ModuleCache.noindex and ~/Library/Caches/org.swift.swiftpm. Keyed by Package.resolved + Xcode version. 2–10× speedup. GitHub Actions: actions/cache. Xcode Cloud: enabled by default.",
+    action:"actions/cache with key derived from Package.resolved + Xcode version",
+    docUrl:"https://docs.github.com/en/actions/using-workflows/caching-dependencies-to-speed-up-workflows" },
+  { id:"swiftlint-ci", phase:3, cat:"CI", scope:"team", impact:"medium", effort:"small",
+    title:"SwiftLint / SwiftFormat as required CI checks",
+    description:"Pre-commit catches most issues; CI is the safety net for skip-hook commits. Fail PR if lint introduces new violations. Use --strict to fail on warnings. Allow existing violations during migration; ratchet the line count down release-over-release.",
+    action:"CI step: swiftlint --strict; swiftformat --lint .",
+    docUrl:"https://github.com/realm/SwiftLint" },
+  { id:"snapshot-tests-ci", phase:3, cat:"CI", scope:"team", impact:"medium", effort:"medium",
+    title:"Snapshot tests with golden-file management in CI",
+    description:"swift-snapshot-testing or similar. Golden files committed to repo; CI fails on mismatch. PR comment shows visual diff. Re-record locally with isRecording = true, commit. Fixed simulator (iPhone 16) and locale (en-US) for stable diffs.",
+    action:"swift-snapshot-testing with goldens in __Snapshots__/",
+    docUrl:"https://github.com/pointfreeco/swift-snapshot-testing" },
+  { id:"testflight-on-merge", phase:3, cat:"CI", scope:"team", impact:"high", effort:"medium",
+    title:"TestFlight upload on every merge to main",
+    description:"Don't manually trigger TestFlight builds. Every merge → CI builds, signs, uploads to TestFlight. Internal testers get fresh builds within 30 minutes. Catches release-only issues (bitcode, signing, archive) at every merge instead of at release.",
+    action:"CI workflow: on push to main → archive → ASC upload",
+    docUrl:"https://developer.apple.com/testflight/" },
+  { id:"release-notes", phase:3, cat:"Release", scope:"team", impact:"low", effort:"small",
+    title:"Auto-generate release notes from PR titles / labels",
+    description:"GitHub release auto-generates notes from merged PRs since the last tag. Conventional Commits prefixes group entries (feat: → New, fix: → Bug Fixes). Use as draft, edit for App Store-friendly copy. Saves 30 min per release.",
+    action:".github/release.yml with categories; gh release create --generate-notes",
+    docUrl:"https://docs.github.com/en/repositories/releasing-projects-on-github/automatically-generated-release-notes" },
+  { id:"cancel-in-progress", phase:3, cat:"CI", scope:"team", impact:"low", effort:"small",
+    title:"Cancel in-progress runs on new push to same PR",
+    description:"GitHub Actions: concurrency.group + cancel-in-progress. Pushing a new commit cancels the previous run. Saves CI minutes, reduces queue time, makes CI feedback more relevant. Default to enabled for PR workflows.",
+    action:"workflow yaml: concurrency: { group: ${{ github.ref }}, cancel-in-progress: true }",
+    docUrl:"https://docs.github.com/en/actions/using-jobs/using-concurrency" },
+
+  // ───────── PHASE 4: Code quality &amp; sanity tools ─────────
+  { id:"swiftlint-config", phase:4, cat:"Lint", scope:"team", impact:"medium", effort:"medium",
+    title:"SwiftLint configured (.swiftlint.yml in repo)",
+    description:"Default rules cover most teams. Customize: opt_in_rules for stricter checks; disabled_rules for things you intentionally ignore. Keep the file short — too-strict lint becomes noise. Document why each non-default choice was made.",
+    action:".swiftlint.yml with opt_in_rules and disabled_rules sections",
+    docUrl:"https://github.com/realm/SwiftLint" },
+  { id:"swiftformat-config", phase:4, cat:"Format", scope:"team", impact:"medium", effort:"small",
+    title:"SwiftFormat configured (.swiftformat in repo)",
+    description:"Auto-format on save eliminates style discussions in review. .swiftformat at repo root; respected by CLI, Xcode plugin, and the official Xcode 16 source editor extension. Run as a build phase or pre-commit hook to catch missed cases.",
+    action:".swiftformat with --indent 4 --maxwidth 120 --self insert (etc.)",
+    docUrl:"https://github.com/nicklockwood/SwiftFormat" },
+  { id:"periphery", phase:4, cat:"Cleanup", scope:"team", impact:"medium", effort:"medium",
+    title:"Periphery for dead-code detection",
+    description:"Periphery analyzes Xcode targets and reports unused types, methods, properties. Run weekly or in CI; reduces binary size, improves comprehension, and accelerates compile. Watch for false positives on dynamic / @objc / protocol-conformant types.",
+    action:"periphery scan --project App.xcodeproj --schemes App",
+    docUrl:"https://github.com/peripheryapp/periphery" },
+  { id:"xcbeautify", phase:4, cat:"Logs", scope:"team", impact:"low", effort:"small",
+    title:"xcbeautify for readable build / test output",
+    description:"Pipes raw xcodebuild output into a clean, colored, scannable form. Junit-XML output for CI test reporters. The default xcodebuild log is unreadable; xcbeautify makes failures actually findable. Drop-in: `xcodebuild ... | xcbeautify`.",
+    action:"brew install xcbeautify; pipe xcodebuild output through it in CI",
+    docUrl:"https://github.com/cpisciotta/xcbeautify" },
+  { id:"result-bundles", phase:4, cat:"Test", scope:"team", impact:"medium", effort:"small",
+    title:"xcodebuild --resultBundlePath for inspectable test runs",
+    description:"`-resultBundlePath ./build/results.xcresult` produces a structured bundle: tests, logs, attachments, screenshots. Open in Xcode locally for failure forensics. Upload as CI artifact for posthoc debugging. Pair with xcparse for CLI extraction.",
+    action:"xcodebuild test ... -resultBundlePath ./build/results.xcresult",
+    docUrl:"https://developer.apple.com/documentation/xcode/running-tests-and-interpreting-results" },
+  { id:"static-analyzer", phase:4, cat:"Analysis", scope:"team", impact:"medium", effort:"small",
+    title:"Static Analyzer warnings clean — analyze in CI",
+    description:"Product → Analyze (or xcodebuild analyze). Catches use-after-free, double-release, leaks, dead stores Obj-C and C analyzers find. Run in CI; fail on new warnings. For pure-Swift codebases the analyzer's value shrinks but doesn't vanish — most apps still have some C/Obj-C.",
+    action:"xcodebuild analyze; fail CI on RUN_CLANG_STATIC_ANALYZER warnings",
+    docUrl:"https://developer.apple.com/documentation/xcode/diagnosing-memory-thread-and-crash-issues-early" },
+  { id:"sanitizers", phase:4, cat:"Analysis", scope:"team", impact:"high", effort:"small",
+    title:"Address &amp; Thread Sanitizer in test scheme",
+    description:"Edit Scheme → Diagnostics → enable Address Sanitizer + Thread Sanitizer for the test action. Catches data races, use-after-free, memory corruption that don't reproduce reliably otherwise. Slows tests ~2× — keep on for CI test runs, off for local quick iterations.",
+    action:"Scheme → Test → Diagnostics → Address Sanitizer + Thread Sanitizer",
+    docUrl:"https://developer.apple.com/documentation/xcode/diagnosing-memory-thread-and-crash-issues-early" },
+  { id:"swift-6-strict", phase:4, cat:"Concurrency", scope:"team", impact:"high", effort:"large",
+    title:"Swift 6 strict concurrency mode",
+    description:"SWIFT_STRICT_CONCURRENCY = complete (or `.complete` swift-tools-version 5.10+). Catches data races at compile time. Migration is real work, but the bugs caught are the worst kind. Adopt module-by-module via @preconcurrency where transition is too disruptive.",
+    action:"Build Settings → Strict Concurrency Checking → Complete",
+    docUrl:"https://www.swift.org/migration/documentation/migrationguide/" },
+  { id:"warnings-as-errors", phase:4, cat:"Analysis", scope:"team", impact:"medium", effort:"medium",
+    title:"Warnings-as-errors for new code (SWIFT_TREAT_WARNINGS_AS_ERRORS)",
+    description:"Warnings that nobody reads pile up. Either fix them or treat as errors. Migration approach: don't warn-as-error globally yet; do it per-target as targets reach zero warnings. Or use ratchets: fail CI if warning count goes up.",
+    action:"Build Settings → Treat Warnings as Errors → Yes (per target as ready)",
+    docUrl:"https://developer.apple.com/documentation/xcode/build-settings-reference" },
+  { id:"lint-exception-doc", phase:4, cat:"Lint", scope:"team", impact:"low", effort:"small",
+    title:"Document every lint exception inline",
+    description:"// swiftlint:disable rule_name — followed by a comment explaining WHY. Without justification, exceptions accumulate and the lint config becomes hollow. Periodic audit removes obsolete disables. Treat exceptions as tech debt, not as a free pass.",
+    action:"// swiftlint:disable:next force_cast — explained: type guaranteed by JSON schema",
+    docUrl:"https://github.com/realm/SwiftLint" },
+
+  // ───────── PHASE 5: Team workflow &amp; documentation ─────────
+  { id:"readme-setup", phase:5, cat:"Docs", scope:"team", impact:"high", effort:"small",
+    title:"README has copy-pasteable setup commands",
+    description:"git clone → ./bin/setup → open App.xcworkspace. Three lines should produce a working build. If yours doesn't, the README is the bug. New engineer's first impression is the README; first day's fate hinges on it.",
+    action:"README.md → Setup section: clone, ./bin/setup, open project",
+    docUrl:"https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes" },
+  { id:"adrs", phase:5, cat:"Docs", scope:"team", impact:"medium", effort:"small",
+    title:"Architecture Decision Records (/docs/adr)",
+    description:"One markdown per non-obvious choice: title, status, context, decision, consequences. Tracks WHY: why this DB? why this auth flow? why this dependency? Without ADRs the next engineer reverses a decision and finds out the hard way.",
+    action:"/docs/adr/0001-template.md; one ADR per architecture decision",
+    docUrl:"https://github.blog/2020-08-13-why-write-adrs/" },
+  { id:"contributing-md", phase:5, cat:"Docs", scope:"team", impact:"medium", effort:"small",
+    title:"CONTRIBUTING.md for the team conventions",
+    description:"Branch naming, commit style, PR template fields, review expectations, when to bypass — everything a contributor needs above the README. Linked from the PR template. Treat as living: update when conventions change, not when someone violates them.",
+    action:"CONTRIBUTING.md with branch / commit / PR / review sections",
+    docUrl:"https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors" },
+  { id:"onboarding-checklist", phase:5, cat:"Onboarding", scope:"team", impact:"high", effort:"medium",
+    title:"Onboarding checklist (day 1, week 1, month 1)",
+    description:"What new engineer should accomplish each milestone. Day 1: env setup, first build green. Week 1: ship a small fix. Month 1: own a feature. Pair the engineer with a buddy; track progress as a Github issue. Reduces ramp time and signals priorities.",
+    action:"/docs/onboarding.md or per-hire issue template",
+    docUrl:"https://docs.github.com/en/get-started" },
+  { id:"tech-debt-rotation", phase:5, cat:"Process", scope:"team", impact:"medium", effort:"medium",
+    title:"Tech debt rotation — 1 engineer per sprint on cleanup",
+    description:"Tech debt that's nobody's job is everybody's problem. Rotate a 'fixer' role — that engineer's sprint is dedicated to lint debt, flaky tests, dependency upgrades, dead code. Bigger orgs use 20% time; smaller orgs do a week-on rotation. Either works.",
+    action:"Sprint planning: assign tech-debt fixer; rotate weekly/sprintly",
+    docUrl:"https://docs.github.com/en/issues" },
+  { id:"postmortem-template", phase:5, cat:"Process", scope:"team", impact:"medium", effort:"small",
+    title:"Postmortem template (blameless, action-oriented)",
+    description:"Every incident → postmortem. Sections: timeline, root cause, contributing factors, what worked, what didn't, action items with owners and dates. Blameless framing. Track action-item completion — postmortems without follow-through teach nothing.",
+    action:"/docs/postmortem-template.md; folder of past postmortems",
+    docUrl:"https://docs.github.com/en/issues" },
+  { id:"dora-metrics", phase:5, cat:"Metrics", scope:"org", impact:"low", effort:"medium",
+    title:"Track DORA metrics: deploy frequency, lead time, MTTR, change-fail rate",
+    description:"Industry-standard 4-key metrics for engineering throughput. Don't optimize for them as goals — observe to detect regression. GitHub provides most via API; tools like Linear/Sleuth auto-compute. For small teams, a quarterly back-of-napkin check is plenty.",
+    action:"Quarterly: pull deploy frequency + lead time from CI history",
+    docUrl:"https://dora.dev/" },
+  { id:"on-call", phase:5, cat:"Process", scope:"org", impact:"medium", effort:"medium",
+    title:"On-call rotation with escalation policy",
+    description:"Even mobile-only teams have on-call: TestFlight outage, App Store rejection, urgent crash spike. PagerDuty or Opsgenie, weekly rotation, primary + secondary. Rotation includes the docs the on-call needs (dashboards, runbooks). Pay or comp time for off-hours pages.",
+    action:"PagerDuty schedule; runbook in /docs/oncall-runbook.md",
+    docUrl:"https://docs.github.com/en/issues" },
+  { id:"weekly-eng-notes", phase:5, cat:"Process", scope:"team", impact:"low", effort:"small",
+    title:"Weekly engineering notes — async, lightweight",
+    description:"What's shipping, what's blocked, what changed in tooling, links worth knowing. 10 minutes to write, 5 minutes to read. Goes in #eng-notes Slack or a recurring email. Becomes searchable history of engineering practice — invaluable for new hires.",
+    action:"Recurring Friday slot: write 5-bullet eng notes",
+    docUrl:"https://docs.github.com/en/discussions" },
+  { id:"quarterly-retro", phase:5, cat:"Process", scope:"team", impact:"medium", effort:"small",
+    title:"Quarterly retrospective on tooling + process",
+    description:"Don't only retro after incidents. Once a quarter, ask: what slowed us down most? what tool/process should we add or kill? what's working that we should double down on? Action items go into the next quarter's planning. Rotates facilitator each quarter.",
+    action:"Quarterly 60-min retro; output → planning issues",
+    docUrl:"https://docs.github.com/en/discussions" },
+];
+
+const phases = [
+  { num:1, title:"Local development environment", desc:"Xcode pinned, DerivedData on a fast volume, gitignore correct, pre-commit hooks, bootstrap script. The setup that taxes every engineer every day if you get it wrong." },
+  { num:2, title:"Source control &amp; PR workflow", desc:"Commit style, PR template, CODEOWNERS, small PRs, protected main, auto-merge. The discipline that makes a 5-engineer team feel like one engineer wrote the codebase." },
+  { num:3, title:"CI/CD", desc:"Pick one CI, App Store Connect API key, code signing via match, parallel tests, cache DerivedData, lint as required check, TestFlight on every merge. Releases stop being scary." },
+  { num:4, title:"Code quality &amp; sanity tools", desc:"SwiftLint, SwiftFormat, Periphery, sanitizers, Swift 6 strict concurrency. Catches problems before review and keeps signal-to-noise high." },
+  { num:5, title:"Team workflow &amp; documentation", desc:"README setup, ADRs, CONTRIBUTING.md, onboarding checklist, tech-debt rotation, postmortems. Turns one engineer's knowledge into the team's." },
+];
+
+const STORAGE_KEY = "wwdc_tooling_progress_v1";
+let checkedItems = new Set();
+let currentFilters = { impact: "all", effort: "all", scope: "all", cat: "all" };
+
+function loadState() {
+  try { const raw = localStorage.getItem(STORAGE_KEY); if (raw) checkedItems = new Set(JSON.parse(raw)); } catch (e) {}
+}
+function saveState() {
+  try { localStorage.setItem(STORAGE_KEY, JSON.stringify([...checkedItems])); } catch (e) {}
+}
+function resetProgress() {
+  if (!confirm("Reset all check progress? This cannot be undone.")) return;
+  checkedItems.clear(); saveState(); renderAll();
+}
+function toggleItem(id) {
+  if (checkedItems.has(id)) checkedItems.delete(id); else checkedItems.add(id);
+  saveState(); renderAll();
+}
+
+function renderProgress() {
+  const total = items.length;
+  const done = items.filter(it => checkedItems.has(it.id)).length;
+  const pct = total === 0 ? 0 : Math.round(done / total * 100);
+  document.getElementById("overall-pct").textContent = `${pct}%`;
+  document.getElementById("overall-fill").style.width = `${pct}%`;
+  const phaseGradients = {
+    1: "linear-gradient(90deg, #6366f1, #4338ca)",
+    2: "linear-gradient(90deg, #4338ca, #7c3aed)",
+    3: "linear-gradient(90deg, #7c3aed, #a855f7)",
+    4: "linear-gradient(90deg, #a855f7, #c026d3)",
+    5: "linear-gradient(90deg, #c026d3, #ec4899)",
+  };
+  document.getElementById("phase-pcts").innerHTML = phases.map(ph => {
+    const phItems = items.filter(it => it.phase === ph.num);
+    const phDone = phItems.filter(it => checkedItems.has(it.id)).length;
+    const phPct = phItems.length === 0 ? 0 : Math.round(phDone / phItems.length * 100);
+    return `<div class="phase-pct">
+      <div class="phase-pct-label">Phase ${ph.num} &middot; ${phDone}/${phItems.length}</div>
+      <div class="phase-pct-mini"><div class="phase-pct-fill" style="width:${phPct}%; background:${phaseGradients[ph.num]};"></div></div>
+    </div>`;
+  }).join("");
+}
+
+function itemHTML(it) {
+  const checked = checkedItems.has(it.id);
+  return `<div class="item ${checked?'checked':''}" data-id="${it.id}" data-impact="${it.impact}" data-effort="${it.effort}" data-scope="${it.scope}" data-cat="${it.cat}" onclick="toggleItem('${it.id}')">
+    <div class="checkbox">${checked ? '✓' : ''}</div>
+    <div class="item-body">
+      <div class="item-header">
+        <div class="item-title">${escHtml(it.title)}</div>
+        <div class="item-tags">
+          <span class="item-tag impact-${it.impact}">${it.impact} impact</span>
+          <span class="item-tag effort-${it.effort}">${it.effort} effort</span>
+          <span class="item-tag scope-${it.scope}">${it.scope}</span>
+          <span class="item-tag cat">${escHtml(it.cat)}</span>
+        </div>
+      </div>
+      <div class="item-desc">${escHtml(it.description)}</div>
+      ${it.action ? `<div class="item-action">${escHtml(it.action)}</div>` : ''}
+      ${it.docUrl ? `<div class="item-meta"><a href="${it.docUrl}" target="_blank" rel="noopener" onclick="event.stopPropagation()">📘 Reference &rarr;</a></div>` : ''}
+    </div>
+  </div>`;
+}
+
+function renderPathway() {
+  document.getElementById("phase-list").innerHTML = phases.map(ph => {
+    const phItems = items.filter(it => it.phase === ph.num);
+    const phDone = phItems.filter(it => checkedItems.has(it.id)).length;
+    const phPct = phItems.length === 0 ? 0 : Math.round(phDone / phItems.length * 100);
+    return `<div class="phase-block phase-${ph.num} ${ph.num === 1 ? 'expanded' : ''}">
+      <div class="phase-header" onclick="togglePhase(this)">
+        <div class="phase-num">${ph.num}</div>
+        <div class="phase-title"><h3>${ph.title}</h3><div class="desc">${ph.desc}</div></div>
+        <div class="phase-meta">
+          <div class="phase-progress-text">${phDone}/${phItems.length} &middot; ${phPct}%</div>
+          <div class="chevron">&rsaquo;</div>
+        </div>
+      </div>
+      <div class="phase-items">
+        <div class="item-list">${phItems.map(itemHTML).join("")}</div>
+      </div>
+    </div>`;
+  }).join("");
+}
+function togglePhase(headerEl) { headerEl.parentElement.classList.toggle("expanded"); }
+
+function renderAllItems() {
+  const cats = [...new Set(items.map(it => it.cat))].sort();
+  document.getElementById("filter-bar").innerHTML = `
+    <div class="filter-group">
+      <span class="filter-group-label">Impact</span>
+      <button class="filter-chip ${currentFilters.impact==='all'?'active':''}" onclick="setFilter('impact','all')">All</button>
+      ${["high","medium","low"].map(i => `<button class="filter-chip ${currentFilters.impact===i?'active':''}" onclick="setFilter('impact','${i}')">${i}</button>`).join("")}
+    </div>
+    <div class="filter-group">
+      <span class="filter-group-label">Effort</span>
+      <button class="filter-chip ${currentFilters.effort==='all'?'active':''}" onclick="setFilter('effort','all')">All</button>
+      ${["small","medium","large"].map(e => `<button class="filter-chip ${currentFilters.effort===e?'active':''}" onclick="setFilter('effort','${e}')">${e}</button>`).join("")}
+    </div>
+    <div class="filter-group">
+      <span class="filter-group-label">Scope</span>
+      <button class="filter-chip ${currentFilters.scope==='all'?'active':''}" onclick="setFilter('scope','all')">All</button>
+      ${["solo","team","org"].map(s => `<button class="filter-chip ${currentFilters.scope===s?'active':''}" onclick="setFilter('scope','${s}')">${s}</button>`).join("")}
+    </div>
+    <div class="filter-group">
+      <span class="filter-group-label">Category</span>
+      <button class="filter-chip ${currentFilters.cat==='all'?'active':''}" onclick="setFilter('cat','all')">All</button>
+      ${cats.map(c => `<button class="filter-chip ${currentFilters.cat===c?'active':''}" onclick="setFilter('cat','${c}')">${escHtml(c)}</button>`).join("")}
+    </div>
+  `;
+  const filtered = items.filter(it =>
+    (currentFilters.impact === "all" || it.impact === currentFilters.impact) &&
+    (currentFilters.effort === "all" || it.effort === currentFilters.effort) &&
+    (currentFilters.scope === "all" || it.scope === currentFilters.scope) &&
+    (currentFilters.cat === "all" || it.cat === currentFilters.cat)
+  );
+  if (filtered.length === 0) {
+    document.getElementById("all-items").innerHTML = `<div class="empty-state"><div class="icon">∅</div>No items match these filters.</div>`;
+    return;
+  }
+  document.getElementById("all-items").innerHTML = filtered.map(itemHTML).join("");
+}
+function setFilter(kind, value) { currentFilters[kind] = value; renderAllItems(); }
+
+function renderQuickWins() {
+  const wins = items.filter(it => it.impact === "high" && (it.effort === "small" || it.effort === "medium") && !checkedItems.has(it.id));
+  if (wins.length === 0) {
+    document.getElementById("quickwins-grid").innerHTML = `<div class="empty-state"><div class="icon">★</div>You've checked off every quick win. Time to tackle the bigger items.</div>`;
+    return;
+  }
+  document.getElementById("quickwins-grid").innerHTML = wins.map(it => `
+    <div class="quick-win-card" onclick="toggleItem('${it.id}'); renderAll();">
+      <div class="quick-win-title">${escHtml(it.title)}</div>
+      <div class="quick-win-desc">${escHtml(it.description)}</div>
+    </div>
+  `).join("");
+}
+
+function renderAll() {
+  renderProgress();
+  renderPathway();
+  renderAllItems();
+  renderQuickWins();
+}
+function showSection(ev, name) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('sec-' + name).classList.add('active');
+  ev.target.classList.add('active');
+}
+function escHtml(s) { return String(s).replace(/[<>&'"]/g, c => ({'<':'&lt;','>':'&gt;','&':'&amp;',"'":'&#39;','"':'&quot;'}[c])); }
+
+loadState();
+renderAll();
+</script>
+<div class="footer">
+  Each dashboard contains: deep transcript analysis (best practices, hidden gems, performance tips, migration guidance), curated learning pathways with prerequisites, session clusters, transcript-vs-docs deltas, and an interactive dependency graph. <br><br>
+  Source transcripts from <a href="https://nonstrict.eu/wwdcindex/" target="_blank" rel="noopener">Nonstrict WWDC Index</a> and <a href="https://gist.github.com/auramagi/9c040c2233dfe71c24c76942e186f788" target="_blank" rel="noopener">auramagi gist</a>. Independent project, not affiliated with Apple. Code is <a href="LICENSE">MIT</a>; original editorial content and curation are <a href="CONTENT-LICENSE.md">CC BY-NC-ND 4.0</a>. See <a href="THIRD_PARTY_NOTICES.md">third-party notices</a>.
+  <div class="footer-socials" aria-label="Creator social links">
+    <a href="https://github.com/need2edit" target="_blank" rel="noopener">GitHub</a>
+    <a href="https://x.com/need2edit" target="_blank" rel="noopener">X/Twitter</a>
+    <a href="https://www.linkedin.com/in/youngjake/" target="_blank" rel="noopener">LinkedIn</a>
+  </div>
+</div>
+</body>
+</html>
